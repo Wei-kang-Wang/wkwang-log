@@ -1,8 +1,8 @@
-title: Lil'Log
-author: Lilian Weng
-baseurl: "/lil-log"
+title: Wkwang'Log
+author: Weikang Wang
+baseurl: "/wkwang-log"
 description: Trace my thoughts
-profile_url: "http://lilianweng.github.io"
+profile_url: "http://Wei-kang-Wang.github.io"
 
 # Build settings
 markdown: kramdown
