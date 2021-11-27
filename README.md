@@ -1,2 +1,2 @@
-# Lil'Log
-Lilian's Blog
+# Wkwang'Log
+Weikang's Blog
