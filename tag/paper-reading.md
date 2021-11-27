@@ -1,5 +1,5 @@
 ---
 layout: tagpage
-title: "Tag: Paper Reading"
+title: "Tag: paper Reading"
 tag: paper reading
 ---
