@@ -44,6 +44,8 @@ One big result is that the features from the last hidden layer really learn the 
 {: style="width: 400px; max-width: 100%;"}
 *Fig 2. Five ILSVRC-2010 test images in the first column. The remaining columns show the six training images that produce feature vectors in the last hidden layer with the smallest Euclidean distance from the feature vector for the test image.*
 
+Some techniques used in these papers are prevalent in the following works, including dropout, weight decay, momentum, SGD algorithm, parameter initialization, learning rate. There are several methods of setting learning rate. In this paper, they first set a number, and then manually divide this number by 10 if the training error becomes flat. Other methods including every fixed number of epochs, dividing the learning rate by 10, or using some smooth function to define the learning rate, or firstly raising and then reducing the learning rate, etc. (*one epoch means one cycle of the whole dataset.*)
+
 
 ## Natural Language Processing
 
