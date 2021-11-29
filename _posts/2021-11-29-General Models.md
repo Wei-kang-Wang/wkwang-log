@@ -33,7 +33,7 @@ The first worth noting point is the model does not requires fixed size of iuput 
 Another point is the authors use ReLU rather than tanh or sigmoid function as the non-linearity function of the model. They argue that ReLU is a non-saturating function, which is much better than those saturating functions since it can help the model to learn much faster. (An activation function is considered non-satured if $$lim_{x \rightarrow \infty} f(x) = \infty$$. A saturated activation function has a compact range such as \[-1,1] for tanh or \[0,1] for the sigmoid.) But from today's viewpoint, this is not the reason, or at least not the only reason that why ReLU are much more faster, but the biggest advantage of ReLU is that it's simple enough, thus it's the most prevalent non linear function now in neural networks.
 
 ![Model Structure]({{ '/assets/images/AlexNet-2.PNG' | relative_url }})
-{: style="width: 600px; max-width: 100%;"}
+{: style="width: 800px; max-width: 100%;"}
 *Fig 1. Model Structure.*
 
 **The model takes an RGB image as input, which is a human aware data, to vector, which is a computer aware data. The whole process can be understood as a knowledge compression. This is the key of deep neural networks.**
@@ -41,7 +41,7 @@ Another point is the authors use ReLU rather than tanh or sigmoid function as th
 One big result is that the features from the last hidden layer really learn the semantic information. The authors show this result by first taking a random image, and then find six other images whose last layer features has the smallest Euclidean distance to the picked one's. This result shows that the feature vectors from the last hidden layer of this model have good semantic representation of this supervised learning task. The feature vectors space have a good semantic explanation of the original task, i.e., semantic similar images have distance close feature vectors.
 
 ![Comparison based on features]({{ '/assets/images/AlexNet-1.PNG' | relative_url }})
-{: style="width: 400px; max-width: 100%;"}
+{: style="width: 600px; max-width: 100%;"}
 *Fig 2. Five ILSVRC-2010 test images in the first column. The remaining columns show the six training images that produce feature vectors in the last hidden layer with the smallest Euclidean distance from the feature vector for the test image.*
 
 Some techniques used in these papers are prevalent in the following works, including dropout, weight decay, momentum, SGD algorithm, parameter initialization, learning rate. There are several methods of setting learning rate. In this paper, they first set a number, and then manually divide this number by 10 if the training error becomes flat. Other methods including every fixed number of epochs, dividing the learning rate by 10, or using some smooth function to define the learning rate, or firstly raising and then reducing the learning rate, etc. (*one epoch means one cycle of the whole dataset.*)
