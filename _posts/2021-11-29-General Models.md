@@ -51,10 +51,6 @@ Some techniques used in these papers are prevalent in the following works, inclu
 
 ## Generative Models
 
-
-## Deep Learning Models
-
-
 ---
 
 *If you notice mistakes and errors in this post, don't hesitate to contact me at* **wkwang0916 at outlook dot com** *and I would be super happy to correct them right away!*
