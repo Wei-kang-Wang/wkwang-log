@@ -22,6 +22,7 @@ tags: paper-reading
 
 ### AlexNet: [ImageNet Classification with Deep Convolutional Neural Networks](https://proceedings.neurips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf)
 *ALex Krizhevsky, Ilya Sutskever, Geoffrey E. Hinton* 
+
 *NIPS 2012*
 
 Before AlexNet, the machine learning community mostly concentrated on classical models, including SVM, decision trees, etc. The neural networks had no advantages over these classical models but had less elegant mathematical principles compared to them. Thus for supervised learning tasks, such as image classification, the neural network is not a good candidate. And many efforts has been put on the unsupervised learning tasks for neural networks, because after all, neural networks have better performances over classical models in this area. But the AlexNet shows that even without unsupervised learning, this deep convolutional neural network can have much better result on the ImageNet Classification Task. This is a milestone for supervised learning, computer vision, and machine learning.
@@ -49,6 +50,7 @@ Some techniques used in these papers are prevalent in the following works, inclu
 
 ### ResNet: [Deep Residual Learning for Image Recognition](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
 *Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun*
+
 *CVPR 2016*
 
 **AlexNet(2012) $$\rightarrow$$ ResNet(2016)**
