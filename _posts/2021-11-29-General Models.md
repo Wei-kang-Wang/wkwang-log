@@ -50,6 +50,7 @@ Some techniques used in these papers are prevalent in the following works, inclu
 ### ResNet: [Deep Residual Learning for Image Recognition](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
 *Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun*
 *CVPR 2016*
+
 **AlexNet(2012) $$\rightarrow$$ ResNet(2016)**
 
 The biggest contribution of this paper is to offer a model strucuture that makes the training of very deep neural networks become possible.
