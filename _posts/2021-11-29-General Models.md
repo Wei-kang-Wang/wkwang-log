@@ -47,6 +47,14 @@ One big result is that the features from the last hidden layer really learn the 
 Some techniques used in these papers are prevalent in the following works, including dropout, weight decay, momentum, SGD algorithm, parameter initialization, learning rate. There are several methods of setting learning rate. In this paper, they first set a number, and then manually divide this number by 10 if the training error becomes flat. Other methods including every fixed number of epochs, dividing the learning rate by 10, or using some smooth function to define the learning rate, or firstly raising and then reducing the learning rate, etc. (*one epoch means one cycle of the whole dataset.*)
 
 
+### ResNet: [Deep Residual Learning for Image Recognition](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
+*Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun*
+*CVPR 2016*
+**AlexNet(2012) $$\rightarrow$$ ResNet(2016)**
+
+The biggest contribution of this paper is to offer a model strucuture that makes the training of very deep neural networks become possible.
+
+
 ## Natural Language Processing
 
 ## Generative Models
