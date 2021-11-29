@@ -25,9 +25,9 @@ tags: paper-reading
 *NIPS 2012*
 
 
-![Artificial neural network]({{ '/assets/images/ANN.png' | relative_url }})
+![Comparison based on features]({{ '/assets/images/AlexNet-1.PNG' | relative_url }})
 {: style="width: 400px; max-width: 100%;"}
-*Fig 1. A three-layer artificial neural network. (Image source: <http://cs231n.github.io/convolutional-networks/#conv>)*
+*Fig 2. Five ILSVRC-2010 test images in the first column. The remaining columns show the six training images that produce feature vectors in the last hidden layer with the smallest Euclidean distance from the feature vector for the test image.*
 
 
 ## Natural Language Processing
