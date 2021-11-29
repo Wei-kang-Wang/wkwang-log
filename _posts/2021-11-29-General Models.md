@@ -28,7 +28,8 @@ Before AlexNet, the machine learning community mostly concentrated on classical 
 
 **But recently researches show that unsupervised learning still remains much more mysteries and there are many researches on it. Yan LeCun even thinks that it's the main feature direction for the whole machine learning community in a talk in 2020**
 
-One big result is that the features from the last hidden layer really learn the semantic information. The authors show this result by first taking a random image, and then find six other images whose last layer features has the smallest Euclidean distance to the picked one's.
+One big result is that the features from the last hidden layer really learn the semantic information. The authors show this result by first taking a random image, and then find six other images whose last layer features has the smallest Euclidean distance to the picked one's. This result shows that the feature vectors from the last hidden layer of this model have good semantic representation of this supervised learning task. The feature vectors space have a good semantic explanation of the original task, i.e., semantic similar images have distance close feature vectors.
+
 ![Comparison based on features]({{ '/assets/images/AlexNet-1.PNG' | relative_url }})
 {: style="width: 400px; max-width: 100%;"}
 *Fig 2. Five ILSVRC-2010 test images in the first column. The remaining columns show the six training images that produce feature vectors in the last hidden layer with the smallest Euclidean distance from the feature vector for the test image.*
@@ -44,5 +45,5 @@ One big result is that the features from the last hidden layer really learn the 
 
 ---
 
-If you notice mistakes and errors in this post, don't hesitate to contact me at *wkwang0916 at outlook dot com* and I would be super happy to correct them right away!
+*If you notice mistakes and errors in this post, don't hesitate to contact me at* **wkwang0916 at outlook dot com** *and I would be super happy to correct them right away!*
 
