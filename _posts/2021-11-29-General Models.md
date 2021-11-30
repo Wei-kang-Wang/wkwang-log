@@ -25,6 +25,8 @@ tags: paper-reading
 
 *NIPS 2012*
 
+The model in this paper won the ILSVRC 2012 competition classification task.
+
 Before AlexNet, the machine learning community mostly concentrated on classical models, including SVM, decision trees, etc. The neural networks had no advantages over these classical models but had less elegant mathematical principles compared to them. Thus for supervised learning tasks, such as image classification, the neural network is not a good candidate. And many efforts has been put on the unsupervised learning tasks for neural networks, because after all, neural networks have better performances over classical models in this area. But the AlexNet shows that even without unsupervised learning, this deep convolutional neural network can have much better result on the ImageNet Classification Task. This is a milestone for supervised learning, computer vision, and machine learning.
 
 **But recently researches show that unsupervised learning still remains much more mysteries and there are many researches on it. Yan LeCun even thinks that it's the main future direction for the whole machine learning community in a talk in 2020**
@@ -55,7 +57,13 @@ Some techniques used in these papers are prevalent in the following works, inclu
 
 **AlexNet(2012) $$\rightarrow$$ ResNet(2016)**
 
-The biggest contribution of this paper is to offer a model strucuture that makes the training of very deep neural networks become possible.
+The biggest contribution of this paper is to offer a model strucuture that makes the training of very deep neural networks possible. The model in this paper won the ILSVRC 2015 competition classification task.
+
+For naive convolutional neural networks, using very deep architecture not only will cause over-fitting easily, but also very hard to train, i.e., under-fitting. The phenomenon is shown in the below figure. You can see that for deep net, the training error is also bigger.
+
+![Hard to Train]({{ '/assets/images/ResNet-1.PNG' | relative_url }})
+{: style="width: 600px; max-width: 100%;"}
+*Fig 1. Training error (left) and test error (right) on CIFAR-10 with 20-layer and 56-layer “plain” networks. The deeper network has higher training error, and thus test error. Similar phenomena shows on ImageNet.*
 
 
 ## Natural Language Processing
