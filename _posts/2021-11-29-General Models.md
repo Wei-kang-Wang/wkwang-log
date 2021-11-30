@@ -87,6 +87,12 @@ Another structure design in this paper is the bottleneck design. This design hel
 {: style="width: 600px; max-width: 100%;"}
 *Fig 4. Left: normal residual block. Right: Bottleneck residual block.*
 
+Suppose $$g(x)$$ is a neural network. Adding more layers to this net will make the model function become $$f(g(x))$$. $$\fraction{d f(g(x))}{d x} = \fraction{d f(g(x))}{d g(x)} \fraction{d g(x)}{d x}$$ is the gradients of the new model and $$\fraction{d g(x)}{d x}$$ is the original one's. Gradients are always be quite small, thus the multplication will make the gradients of the new model be much smaller than the original one's, thus the training of deep model is very hard.
+
+But if we use the ResNet structure in this paper, then our new deep counterpart of $$g(x)$$ becomes $$f(g(x))+g(x)$$, and the gradient becomes $$\fraction{d f(g(x))}{d g(x)} \fraction{d g(x)}{d x} + \fraction{d g(x)}{d x}$$, which is comparable to the original one's.
+
+The key idea is: **Always make the gradients be large enough, and then your model can be trained well!**
+
 ## Natural Language Processing
 
 ## Generative Models
