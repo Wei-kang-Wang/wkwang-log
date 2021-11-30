@@ -95,6 +95,13 @@ The key idea is: **Always make the gradients be large enough, and then your mode
 
 ## Natural Language Processing
 
+### Transformer: [Attention Is All You Need](https://proceedings.neurips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf)
+*Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin*
+
+*NIPS 2017*
+
+
+
 ## Generative Models
 
 ---
