@@ -59,11 +59,24 @@ Some techniques used in these papers are prevalent in the following works, inclu
 
 The biggest contribution of this paper is to offer a model strucuture that makes the training of very deep neural networks possible. The model in this paper won the ILSVRC 2015 competition classification task.
 
-For naive convolutional neural networks, using very deep architecture not only will cause over-fitting easily, but also very hard to train, i.e., under-fitting. The phenomenon is shown in the below figure. You can see that for deep net, the training error is also bigger.
+For naive convolutional neural networks, using very deep architecture will not cause over-fitting easily, but cause under-fitting, i.e., the model is very hard to train. Because not only the testing error of deep models are higher, the training error is also higher. The phenomenon is shown in the below figures. 
+
 
 ![Hard to Train]({{ '/assets/images/ResNet-1.PNG' | relative_url }})
 {: style="width: 600px; max-width: 100%;"}
 *Fig 1. Training error (left) and test error (right) on CIFAR-10 with 20-layer and 56-layer “plain” networks. The deeper network has higher training error, and thus test error. Similar phenomena shows on ImageNet.*
+
+![Main result]({{ '/assets/images/ResNet-2.PNG' | relative_url }})
+{: style="width: 600px; max-width: 100%;"}
+*Fig 2. Training on ImageNet. Thin curves denote training error, and bold curves denote validation error of the center crops. Left: plain networks of 18 and 34 layers. Right: ResNets of 18 and 34 layers. In this plot, the residual networks have no extra parameter compared to their plain counterparts.*
+
+When the network becomes deep, the problem of gradients vanishing/exploring will be remarkable. Former methods to alleviate this problem include setting good initiation parameters, using batch normalization. These methods makes training deep networks become possible, but actually the performance becomes worse. In principle, this should not be the case. Because if we have a shallow network, and then we add several more layers to create its deep counterpart. The deep network should be at least good as the shalow one, because it can let the added layers be just identity mapping. But these kind of parameters are very hard for deep networks to learn, thus the above phenomenon exists.
+
+In this paper, having the above ideas in mind, the authors create a model that explictly having structures to represent this **identity mapping**. In this paper, they use a shortcut directly add $$x$$ from the input to the output of two layers. If the groundtruth is $$H(x)$$, they actually want the two layers to learn the "residual", i.e., $$f(x)=H(x)-x$$, where $$H(x)$$ is the desired output and $$x$$ is the input, with respect to this two layer structure. The shorcut here resemble the identity mapping.
+
+![Residual Block]({{ '/assets/images/ResNet-3.PNG' | relative_url }})
+{: style="width: 600px; max-width: 100%;"}
+*Fig 3. Residual learning: a building block.*
 
 
 ## Natural Language Processing
