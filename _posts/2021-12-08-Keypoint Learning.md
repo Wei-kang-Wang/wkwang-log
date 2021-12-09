@@ -58,7 +58,11 @@ This work proposed an end-to-end framework that learns 3D keypoints from pairs o
 
 Hyperparameter: Number of Keypoint $$K$$.
 
-**Step1**
+**Step1** The architecture of this model has $$K$$ heads, with each output a 3 tuple, representing the image coordinates and depth of keypoint $$k$$. Thus the total output is a  $$K \times 3$$ matrix. The calculation of keypoint coordinates are the same to [Unsupervised Learning of Visual 3D Keypoints for Control], i.e., outputing a probabilistic map, and use expectations to calculate coordinates. In contrast to approaches that learn a supervised mapping from images to a list of annotated keypoint positions, they do not define the keypoint positions a priori. Instead, they jointly optimize keypoints with respect to a downstream task, relative pose estimation.
+
+**Step2** They assume a perspective camera model with a known global focal length $$f$$. And they also assumed that the transformation between two images $$T$$ is known. Thus they can have the projection funciton $$\pi T \pi^{'}$$ that project $$\left[u,v,z\right]$$ of image $$I$$ to $$\left[u^{'}, v^{'}, z^{'}\right]$$ of image $$I^{'}$$ as $$\left[u,v,z\right] = \pi T \pi^{'} \left[u^{'}, v^{'}, z^{'}\right]$$. And the deprojection that project $$\left[u^{'}, v^{'}, z^{'}\right]$$ back to the original point is also defined. Thus for a given keypoint coordiate $$\left[u,v,z\right]$$ of image $$I$$, they do the projection and deprojection, the result $$\left[u^{''}, v^{''}, z^{''}\right]$$ should be the same to $$\left[u,v,z\right]$$. Since they do not have the depth information, the consistency loss is defined as: $$L_{con} = \frac{1}{K}\Sigma_{i=1}{K} ||()-()||^2_F$$.
+
+**Step3** They argue that the above loss 
 
 
 
