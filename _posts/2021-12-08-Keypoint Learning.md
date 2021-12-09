@@ -54,6 +54,13 @@ $$A_n^k = \frac{exp{\frac{1}{S^2}\Sigma_{p=1}\Sigma_{q=1}C_n^k(p,q)}}{\Sigma_{i=
 
 *NeurIPS 2018 Oral*
 
+This work proposed an end-to-end framework that learns 3D keypoints from pairs of images of the same catogory, with two images of each pair 2D images of a same object from different camera view.
+
+Hyperparameter: Number of Keypoint $$K$$.
+
+**Step1**
+
+
 
 ---
 
