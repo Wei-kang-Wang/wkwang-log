@@ -110,7 +110,7 @@ where $$I_v^k$$ is the inlier set, with $$X_f^k \in R^3$$ the 3D triangulated ke
 
 **Step2** Then they use a window through the time frame, and pick the frame with highest score. The score is defined as the sum of $$C_v^k$$, thus the frame that has the biggest confidence of all keypoints detection from all camera views.
 
-**Step3** After picking this frame, they add the labelled images into the orignal training dataset and train a new keypoint detector, $$d_1$. And so on.
+**Step3** After picking this frame, they add the labelled images into the orignal training dataset and train a new keypoint detector, $$d_1$$. And so on.
 
 
 ---
