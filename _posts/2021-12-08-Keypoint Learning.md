@@ -70,6 +70,12 @@ $$L_{pose} = 2arcsin(\frac{1}{2\sqrt(2)}||R^{'}-R||^2_F).
 
 They do not consider transition and only rotation because they think their model has the translation equivariance property.
 
+### [Hand Keypoint Detection in Single Images using Multiview Bootstrapping](https://openaccess.thecvf.com/content_cvpr_2017/papers/Simon_Hand_Keypoint_Detection_CVPR_2017_paper.pdf)
+*Tomas Simon, Hanbyul Joo, Iain Matthews, Yaser Sheikh*
+
+*CVPR 2017*
+
+This paper proposed a framework to learn 
 
 
 ---
