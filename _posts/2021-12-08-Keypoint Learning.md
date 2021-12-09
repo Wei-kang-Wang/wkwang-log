@@ -104,7 +104,7 @@ Hyperparameter: Number of Keypoints $$K$$.
 
 **Step1** First use $$d_0$$ to calculate the image coordinates (no depth) and confidence of each keypoint $$k$$ of $$I_v^f$$, denoted as $$x_v^{f,k}$$ and $$C_v^{f,k}$$. Then use the random sample consensus to pick inliers out of each set $$\left\{(x_v^{k}, C_v^{k})\right\}$$ for each time frame $$f$$. Then the 3D wolrd coodinates are computed as:
 
-$$X_v^{k} = argmin_X \Sigma_{v \in I_v^{k}) ||P_v(X)-x_v^k||^2_F$$
+$$X_v^{k} = argmin_X \Sigma_{v \in I_v^{k}} ||P_v(X)-x_v^k||^2_F$$
 
 where $$I_v^k$$ is the inlier set, with $$X_f^k \in R^3$$ the 3D triangulated keypoint $$k$$ in frame $$f$$, and $$P_v(X) \in R^2$$ denotes projection of 3D point $$X$$ into camera view $$v$$. They use calibrated cameras, thus $$P_v$$ are known.
 
