@@ -66,7 +66,7 @@ $$L_{con} = \frac{1}{K}\Sigma_{i=1}{K} ||()-()||^2_F$$.
 
 **Step3** They argue that the above loss is enough for the consistency of keypoints, but will get to the suboptimal point when training. The keypoints may converge to a same point. They use a downstream task pose estimation to solve this problem. They define a differentiable objective that measures the misfit between the estimated relative rotation $$R^{'}$$ (computed via Procrustes’ alignment of the two sets of keypoints) and the ground truth $$R$$. So the pose estimation loss is: 
 
-$$L_{pose} = 2arcsin(\frac{1}{2\sqrt(2)}||R^{'}-R||^2_F). 
+$$L_{pose} = 2arcsin(\frac{1}{2\sqrt(2)}||R^{'}-R||^2_F)$$ 
 
 They do not consider transition and only rotation because they think their model has the translation equivariance property.
 
@@ -75,7 +75,21 @@ They do not consider transition and only rotation because they think their model
 
 *CVPR 2017*
 
-This paper proposed a framework to learn 
+This paper proposed a framework to learn 3D keypoints of hand. 
+
+The input is a keypoint detector $$d_0$$ trained on a small labelled dataset $$T_0$$, a sequence of images $$\left\{I_v^f, v=1,2,...,V, f=1,2,..,F\right\}$$, with $$v$$ denote the camera view and $$f$$ denote the time frame.
+
+Hyperparameter: Number of Keypoints $$K$$.
+
+**Step1** First use $$d_0$$ to calculate the image coordinates (no depth) and confidence of each keypoint $$k$$ of $$I_v^f$$, denoted as $$x_v^{f,k}$$ and $$C_v^{f,k}$$. Then use the random sample consensus to pick inliers out of each set $$\left\{(x_v^{k}, C_v^{k})\right\}$$ for each time frame $$f$$. Then the 3D wolrd coodinates are computed as:
+
+$$X_v^{k} = argmin_X \Sigma_{v \in I_v^{k}) ||P_v(X)-x_v^k||^2_F$$
+
+where $$I_v^k$$ is the inlier set, with $$X_f^k \in R^3$$ the 3D triangulated keypoint $$k$$ in frame $$f$$, and $$$$P_v(X) \in R^2$$ denotes projection of 3D point $$X$$ into camera view $$v$$. They use calibrated cameras, thus $$P_v$$ are known.
+
+**Step2** Then they use a window through the time frame, and pick the frame with highest score. The score is defined as the sum of $$C_v^k$$, thus the frame that has the biggest confidence of all keypoints detection from all camera views.
+
+**Step3** After picking this frame, they add the labelled images into the orignal training dataset and train a new keypoint detector, $$d_1$. And so on.
 
 
 ---
