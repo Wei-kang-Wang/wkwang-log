@@ -83,7 +83,7 @@ Hyperparameter: Number of Keypoint $$K$$.
 
 **Step2** They assume a perspective camera model with a known global focal length $$f$$. And they also assumed that the transformation between two images $$T$$ is known. Thus they can have the projection funciton $$\pi T \pi^{'}$$ that project $$\left[u,v,z\right]$$ of image $$I$$ to $$\left[u^{'}, v^{'}, z^{'}\right]$$ of image $$I^{'}$$ as $$\left[u,v,z\right] = \pi T \pi^{'} \left[u^{'}, v^{'}, z^{'}\right]$$. And the deprojection that project $$\left[u^{'}, v^{'}, z^{'}\right]$$ back to the original point is also defined. Thus for a given keypoint coordiate $$\left[u,v,z\right]$$ of image $$I$$, they do the projection and deprojection, the result $$\left[u^{''}, v^{''}, z^{''}\right]$$ should be the same to $$\left[u,v,z\right]$$. Since they do not have the depth information, the consistency loss is defined as: 
 
-$$L_{con} = \frac{1}{K}\Sigma_{i=1}^{K} ||(u,v,u^{'},v^{'})-(u^{''},v^{''}, u^{'''}, v^{'''})||^2_F$$.
+$$L_{con} = \frac{1}{K}\Sigma^K_{i=1} ||(u,v,u^{'},v^{'})-(u^{''},v^{''}, u^{'''}, v^{'''})||^2_F$$.
 
 **Step3** They argue that the above loss is enough for the consistency of keypoints, but will get to the suboptimal point when training. The keypoints may converge to a same point. They use a downstream task pose estimation to solve this problem. They define a differentiable objective that measures the misfit between the estimated relative rotation $$R^{'}$$ (computed via Procrustes’ alignment of the two sets of keypoints) and the ground truth $$R$$. So the pose estimation loss is: 
 
