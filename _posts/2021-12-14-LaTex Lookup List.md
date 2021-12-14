@@ -27,7 +27,6 @@ date: 2021-12-14 01:09:00
 | 方括号，中括号 | \left[ \frac{a}{b} \right] | $$\left[ \frac{a}{b} \right]$$ |
 | 花括号，大括号 | \left\{ \frac{a}{b} \right\} | $$\left\{ \frac{a}{b} \right\}$$ |
 | 尖括号 | \left\langle \frac{a}{b} \right\rangle | $$\left\langle \frac{a}{b} \right\rangle$$ |
-| 单竖线，绝对值 | \left | \frac{a}{b} \right| | $$\left | \frac{a}{b} \right|$$ |
 | 双竖线，范式 | \left \| \frac{a}{b} \right\| | $$\left \| \frac{a}{b} \right\|$$ |
 | 取整符号 | \left\lfloor \frac{a}{b} \right\rfloor | $$\left\lfloor \frac{a}{b} \right\rfloor$$ |
 | 取顶符号 | \left\lceil \frac{a}{b} \right\rceil | $$\left\lceil \frac{a}{b} \right\rceil$$ |
