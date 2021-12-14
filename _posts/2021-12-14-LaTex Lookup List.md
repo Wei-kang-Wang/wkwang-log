@@ -1,12 +1,22 @@
 ---
 layout: post
 comments: false
-title: "General Models"
-date: 2021-11-29 01:09:00
+title: "LaTex Lookup List"
+date: 2021-12-14 01:09:00
 
 ---
 
 > This post is a summary of common used LaTex grammer.
+
+
+<!--more-->
+
+{: class="table-of-content"}
+* TOC
+{:toc}
+
+---
+
 
 ## Latex括号
 
