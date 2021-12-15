@@ -113,6 +113,14 @@ where $$I_v^k$$ is the inlier set, with $$X_f^k \in R^3$$ the 3D triangulated ke
 **Step3** After picking this frame, they add the labelled images into the orignal training dataset and train a new keypoint detector, $$d_1$$. And so on.
 
 
+### [Learning deep network for detecting 3D object keypoints and 6D poses](https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhao_Learning_Deep_Network_for_Detecting_3D_Object_Keypoints_and_6D_CVPR_2020_paper.pdf)
+*Wanqing Zhao, Shaobo Zhang, Ziyu Guan, Wei Zhao*
+
+*CVPR 2020*
+
+
+
+
 ---
 
 *If you notice mistakes and errors in this post, don't hesitate to contact me at* **wkwang0916 at outlook dot com** *and I would be super happy to correct them right away!*
