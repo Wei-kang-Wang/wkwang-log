@@ -2,7 +2,7 @@
 layout: post
 comments: false
 title: "Self-supervised Learning"
-date: 2021-12-29 01:09:00
+date: 2021-12-20 01:09:00
 tags: paper-reading
 ---
 
