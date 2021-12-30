@@ -11,9 +11,15 @@ date: 2021-12-18 01:09:00
 
 <!--more-->
 
-# Batch Normalization
+{: class="table-of-content"}
+* TOC
+{:toc}
 
-## Feature Scaling (or Feature Normalization)
+---
+
+## Batch Normalization
+
+### Feature Scaling (or Feature Normalization)
 
 Starting from feature scaling or feature normalization.
 
@@ -27,6 +33,6 @@ Draw the function of loss with respect to $$\omega_1$$ and $$\omega_2$$. In the 
 
 Feature scaling are proposed to normalize different features in order to make the error surface be a "hypersphere", which will make the training much more easier.
 
-# Optimization Algorithms
+## Optimization Algorithms
 
 ---
