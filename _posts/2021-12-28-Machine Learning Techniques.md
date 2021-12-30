@@ -27,7 +27,7 @@ Firstly, we see an example. Suppose $$x_1$$ and $$x_2$$ have different value ran
 
 Draw the function of loss with respect to $$\omega_1$$ and $$\omega_2$$. In the left part of figure below, we see that in the direction of $$\omega_1$$, the gradient is small, while in the direction of $$\omega_2$$, the gradient is big.
 
-![feature scaling]({{ '/assets/images/batch_normalization_1.PNG' | relative_url }})
+![feature scaling]({{ '/assets/images/batch_normalization_1.png' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 *Fig 1. Feature Scaling.*
 
