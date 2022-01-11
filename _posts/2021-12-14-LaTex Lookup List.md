@@ -53,7 +53,7 @@ date: 2021-12-14 01:09:00
 | 功能 | 语法 | 显示 |
 | :------: | :------: | :------: |
 | 集合的大括号 | \{ ... \} | $$\{ ... \}$$ |
-|集合中的| | \mid | $$\mid$$ |
+| 集合中的| | \mid | $$\mid$$ |
 | 属于 | \in | $$\in$$ |
 | 不属于 | \not\in或者\notin | $$\not\in$$ |
 | A包含于B | A\subset B | $$A\subset B$$ |
@@ -68,3 +68,19 @@ date: 2021-12-14 01:09:00
 | A的闭包/补集 | \overline{A} | $$\overline{A}$$ |
 | A减去B | A\setminus B | $$A\setminus B$$ |
 | 空集 | \emptyset | $$\emptyset$$ |
+
+
+## Latex逻辑
+| 功能 | 语法 | 显示 |
+| :------: | :------: | :------: |
+| 存在 | \exists | $$\exists$$ |
+| 存在且仅存在一个 | \exists! | $$\exists!$$ |
+| 不存在 | \nexists | $$\nexists$$ |
+| 所有，任意 | \forall | $$\forall$$ |
+| 否 | \neg | $$\neg$$ |
+| 或，析取 | \lor | $$\lor$$ |
+| 与，合取 | \land | $$\land$$ |
+| 除 | \div | $$\div$$ |
+| 蕴含 | \implies | $$\implies$$ |
+| 当且仅当 | \iff | $$\iff$$ |
+| 等价 | \Leftrightarrow | $$\Leftrightarrow$$ |
