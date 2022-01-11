@@ -37,19 +37,19 @@ date: 2021-12-14 01:09:00
 
 | 功能 | 语法 | 显示 |
 | :------: | :------: | :------: |
-| 显示直立文字 | \textup{文本} | $$\textup{文本}$$ |
-| 意大利斜体 | \textit{文本} | $$\textit{文本}$$ |
-| slanted斜体 | \textsl{文本} | $$\textsl{文本}$$ |
-| 显示小体大写文本 | \textsc{文本} | $$\textsc{文本}$$ |
-| 中等字体 | \textmd{文本} | $$\textmd{文本}$$ |
-| 加粗 | \textbf{文本} | $$\textbf{文本}$$ |
-| 默认值 | \textnormal{文本} | $$\textnormal{文本}$$ |
-| 斜体 | \emph{文本} | $$\emph{文本}$$ |
-| 细体字 | \textlf{文本} | $$\textlf{文本}$$ |
-| 使用等宽字体 | \texttt{文本} | $$\texttt{文本}$$ |
-| 使用无衬线字体 | \textsf{文本} | $$\textsf{文本}$$ |
-| 所有字母大写 | \uppercase{文本} | $$\uppercase{文本}$$ |
-| 空心字母 | 先导入包\usepackage{amsfonts,amssymb}，\mathbb{文本} | $$\mathbb{文本}$$ |
+| 显示直立文字 | \textup{text} | $$\textup{text}$$ |
+| 意大利斜体 | \textit{text} | $$\textit{text}$$ |
+| slanted斜体 | \textsl{text} | $$\textsl{text}$$ |
+| 显示小体大写文本 | \textsc{text} | $$\textsc{text}$$ |
+| 中等字体 | \textmd{text} | $$\textmd{text}$$ |
+| 加粗 | \textbf{text} | $$\textbf{text}$$ |
+| 默认值 | \textnormal{text} | $$\textnormal{text}$$ |
+| 斜体 | \emph{text} | $$\emph{text}$$ |
+| 细体字 | \textlf{text} | $$\textlf{text}$$ |
+| 使用等宽字体 | \texttt{text} | $$\texttt{text}$$ |
+| 使用无衬线字体 | \textsf{text} | $$\textsf{text}$$ |
+| 所有字母大写 | \uppercase{text} | $$\uppercase{text}$$ |
+| 空心字母 | 先导入包\usepackage{amsfonts,amssymb}，\mathbb{text} | $$\mathbb{text}$$ |
 
 
 ## Latex集合
@@ -57,8 +57,7 @@ date: 2021-12-14 01:09:00
 
 | 功能 | 语法 | 显示 |
 | :------: | :------: | :------: |
-| 集合的大括号 | \{ ... \} | $$\{ ... \}$$ |
-| 集合中的| | \mid | $$\mid$$ |
+| 集合中的竖线 | \mid | $$\mid$$ |
 | 属于 | \in | $$\in$$ |
 | 不属于 | \not\in或者\notin | $$\not\in$$ |
 | A包含于B | A\subset B | $$A\subset B$$ |
