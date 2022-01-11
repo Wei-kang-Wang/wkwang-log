@@ -84,3 +84,10 @@ date: 2021-12-14 01:09:00
 | 蕴含 | \implies | $$\implies$$ |
 | 当且仅当 | \iff | $$\iff$$ |
 | 等价 | \Leftrightarrow | $$\Leftrightarrow$$ |
+| 小于 | \le | $$\le$$ |
+| 大于 | \ge | $$\ge$$ |
+| 小于等于 | \leq | $$\leq$$ |
+| 大于等于 | \geq | $$\geq$$ |
+| 不等于 | \neq | $$\neq$$　|
+
+
