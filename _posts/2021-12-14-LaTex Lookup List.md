@@ -49,3 +49,22 @@ date: 2021-12-14 01:09:00
 | 所有字母大写 | \uppercase{文本} | $$\uppercase{文本}$$ |
 
 
+## Latex集合
+| 功能 | 语法 | 显示 |
+| :------: | :------: | :------: |
+| 集合的大括号 | \{ ... \} | $$\{ ... \}$$ |
+|集合中的“|” | \mid | $$\mid$$ |
+| 属于 | \in | $$\in$$ |
+| 不属于 | \not\in或者\notin | $$\not\in$$ |
+| A包含于B | A\subset B | $$A\subset B$$ |
+| A真包含于B | A\subsetneqq B | $$A\subsetneqq B$$ |
+| A包含B | A\supset B | $$A\supset B$$ |
+| A真包含B | A\supsetneqq B | $$A\supsetneqq B$$ |
+| A不包含于B | A\not\subset B | $$A\not\subset B$$ |
+| A交B | A\cap B | $$A\cap B$$ |
+| A并B | A\cup B | $$A\cup B$$ |
+| A大交 | \bigcap A | $$\bigcap A$$ |
+| A大并 | \bigcup A | $$\bigcup A$$ |
+| A的闭包/补集 | \overline{A} | $$\overline{A}$$ |
+| A减去B | A\setminus B | $$A\setminus B$$ |
+| 空集 | \emptyset | $$\emptyset$$ |
