@@ -126,8 +126,6 @@ stride可以让你表示tensor各种有意思的view。
 ![15]({{ '/assets/images/slide15.png' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-我们关于拓展的哲学同样对于
-
 
 ### Autograd
 
