@@ -57,7 +57,7 @@ Tensor是PyTorch里最核心的数据结构。你可能对一个tensor长什么�
 ![8]({{ '/assets/images/slide8.png' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-假设我们想要获得tensor$$\left[0,1\right]$$位置的值，我们该如何将这个逻辑上的index$$\left[0,1\right]$$转换到memory的物理地址呢？stride告诉我们如何实现：为了找到tensor每个位置的元素的物理地址，我们将逻辑上的index分别乘以该维度上的stride，并加在一起。在上图里，第一个维度涂了蓝色，第二个维度涂了红色，从而可以清晰的看到计算过程。在上例中，tensor$$\left[0,1\right]$$所得到的sum是2，而且该tensor的部署方式是连续的，所以tensor$$\left[0,1\right]$$应该在从头数两个bytes之后，位于第三个byte的物理地址上。
+假设我们想要获得tensor$$\left[0,1\right]$$位置的值，我们该如何将这个逻辑上的index $$\left[0, 1\right]$$ 转换到memory的物理地址呢？stride告诉我们如何实现：为了找到tensor每个位置的元素的物理地址，我们将逻辑上的index分别乘以该维度上的stride，并加在一起。在上图里，第一个维度涂了蓝色，第二个维度涂了红色，从而可以清晰的看到计算过程。在上例中，tensor $$\left[0, 1\right]$$ 所得到的sum是2，而且该tensor的部署方式是连续的，所以tensor$$\left[0,1\right]$$应该在从头数两个bytes之后，位于第三个byte的物理地址上。
 
 在这篇talk之后，我还会介绍TensorAccessor，是一个类，用来解决index计算。当你看到了TensorAccessor而不是原始指针，那index的计算就已经被算好了。
 
@@ -66,7 +66,7 @@ stride是PyTorch实现为用户提供操作tensor的一个重要基础。比如�
 ![9]({{ '/assets/images/slide9.png' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-用上层高级index代码，我可以直接用tensor$$\left[1,:\right]$$来获取这一行。当我写这个代码的时候，我并没有真的创建了一个新的tensor，而是返回了一个原有tensor部分数据的一个新的view。这表明如果我在这个view里编辑了数据，我将会改变原有tensor该位置的值。在这个例子里，tensor$$\left[1,0\right]$$和tensor$$\left[1,1\right]$$位于连续的物理地址上，而且我们知道该行物理地址开始于初始地址两个bytes之后，所以我们只需要记录下每个元素的offset即可。（每个tensor都记录了一个offset，但是大多数时候都是0，所以上图例子中省略了）。
+用上层高级index代码，我可以直接用tensor$$\left[1,:\right]$$来获取这一行。当我写这个代码的时候，我并没有真的创建了一个新的tensor，而是返回了一个原有tensor部分数据的一个新的view。这表明如果我在这个view里编辑了数据，我将会改变原有tensor该位置的值。在这个例子里，tensor $$\left[1, 0\right]$$ 和tensor $$\left[1, 1\right]$$ 位于连续的物理地址上，而且我们知道该行物理地址开始于初始地址两个bytes之后，所以我们只需要记录下每个元素的offset即可。（每个tensor都记录了一个offset，但是大多数时候都是0，所以上图例子中省略了）。
 
 *Question from the talk: If I take a view on a tensor, how do I free the memory of the underlying tensor?
 
