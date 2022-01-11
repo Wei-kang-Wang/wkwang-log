@@ -1,12 +1,12 @@
 ---
 layout: post
 comments: false
-title: "PyTorch Learning"
+title: "A Talk About PyTorch Internals by Ezyang"
 date: 2022-01-11 01:09:00
 
 ---
 
-> This post is about PyTorch learning.
+> This is A Talk About PyTorch Internals by Ezyang.
 
 
 <!--more-->
@@ -16,8 +16,6 @@ date: 2022-01-11 01:09:00
 {:toc}
 
 ---
-
-## A Talk About PyTorch Internals by Ezyang
 
 ![1]({{ '/assets/images/slide1.png' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
