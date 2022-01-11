@@ -47,6 +47,7 @@ date: 2021-12-14 01:09:00
 | 使用等宽字体 | \texttt{文本} | $$\texttt{文本}$$ |
 | 使用无衬线字体 | \textsf{文本} | $$\textsf{文本}$$ |
 | 所有字母大写 | \uppercase{文本} | $$\uppercase{文本}$$ |
+| 空心字母 | 先导入包\usepackage{amsfonts,amssymb}，\mathbb{文本} | $$\mathbb{文本}$$ |
 
 
 ## Latex集合
