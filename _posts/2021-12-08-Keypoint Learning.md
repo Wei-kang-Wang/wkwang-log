@@ -20,6 +20,7 @@ tags: paper-reading
 
 ## 3D Keypoint Learning
 ### [Unsupervised Learning of Visual 3D Keypoints for Control](http://proceedings.mlr.press/v139/chen21b/chen21b.pdf)
+[Code](https://github.com/buoyancy99/unsup-3d-keypoints) [post](https://buoyancy99.github.io/unsup-3d-keypoints/)
 *Boyuan Chen, Pieter Abbeel, Deepak Pathak*
 
 *ICML 2021*
