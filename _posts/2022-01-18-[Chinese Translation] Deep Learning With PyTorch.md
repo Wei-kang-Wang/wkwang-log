@@ -101,6 +101,7 @@ Part III只有一个章节，用来解释PyTorch的部署。Chapter15 提供了�
 下面这段在所有的Jupyter Notebook代码里都被当成第一个模块。
 
 ```python
+# In[1]:
 %matplotlib inline
 from matplotlib import pyplot as plt
 import numpy as np
