@@ -21,7 +21,7 @@ tags: book-reading
 {: style="width: 800px; max-width: 100%;"}
 *Fig 1. The Whole Process of Deep Learning.*
 
-## 序
+## 0.1 序
 
 当我们于2016年中旬开始PyTorch项目的时候，我们还是网上相识的一群搞开源代码的hackers，都想着写一个更好的深度学习软件。这本书的两个作者，Luca Antiga和Thomas Viehmann，在开发PyTorch时贡献了很大的力量并使得它变成今天这样成功。
 
@@ -34,23 +34,23 @@ PyTorch的成功很难归咎于一个单纯的原因。这个项目提供了很�
 而且这本书还包括了很多应用实例，这样可以让读者更好的理解PyTorch而且在应用中更加熟练。Eli Stevens在软件方面的技巧加上Thomas对PyTorch核心的理解，可以让应用的实现部分更加易懂且深刻。
 
 
-## 关于这本书
+## 0.2 关于这本书
 
 这本书目的在于介绍PyTorch的基础以及它在日常项目中的应用。我们立志于提供深度学习的关键知识并且展现PyTorch如何使得用户将这些知识应用到现实。在这本书里，我们试图提供支持后续研究的直觉，并且说明代码背后的原理。
 
 Deep Learning with PyTorch这本书并不是想要做成字典类的参考书，而是做成一本介绍概念的书，使得读者能够独立开发自己的项目。所以，我们集中于介绍PyTorch某一方面的知识。最显著的没有介绍的内容就是recurrent neural network。
 
-### 谁该看这本书
+### 0.2.1 谁该看这本书
 
 这本书是为了想要成为深度学习开发者或者想要了解PyTorch的人所准备的。我们认为这本书典型的读者包括计算机科学家，数据学家，或者软件工程师，或者相关专业的学生。
 
 我们认为读者对命令式编程和面向对象编程有一些基本的了解。因为这本书用的是Python，读者需要对其语法和操作环境有所理解。了解如何安装Python包以及运行脚本是所需要掌握的前行知识。了解Numpy将会很有帮助。同时了解一些linear algebra的基础也是有必要的。
 
-### 这本书是怎么组织的：线路图
+### 0.2.2 这本书是怎么组织的：线路图
 
 Deep Learning With PyTorch包括了三个部分。Part I涵盖了基础知识；Part II从头到尾介绍了一个项目，运用了Part I里的基础知识并加上了一些高级的内容；短小的Part III简单介绍了PyTorch如何部署在设备上作为结尾。
 
-#### Part I
+#### 0.2.2.1 Part I
 
 在Part I里，我们开始了认识PyTorch的第一步，建立起理解PyTorch项目的基础知识并为以后写自己的项目做准备。我们介绍的内容涵盖了PyTorch API以及实现PyTorch库的内部机理，并且介绍了如何训练一个分类网络。在Part I结束的时候，我们就已经做好了研究现实项目的能力。
 
@@ -71,7 +71,7 @@ Chapter7 基于之前的知识建立了一个用于图像分类的全连接网�
 Chapter8 介绍了convolutional neural network（卷积神经网络）并介绍了一点构建神经网络模型的高级知识以及它们的PyTorch实现。
 
 
-#### Part II
+#### 0.2.2.2 Part II
 
 在Part II里，每一chapter都让我们对于解决如何自动检测肺癌这个问题更进一步。我们用这个困难的问题作为解释现实中如何解决类似检测肺癌这种复杂问题的动机。
 
@@ -87,12 +87,12 @@ Chapter13 描述了segmentation（分割）任务，利用一个pixel-to-pixel�
 
 Chapter14 实现了最后的end-to-end项目：在分类任务后接分割模型用来诊断癌症病人。
 
-#### Part III
+#### 0.2.2.3 Part III
 
 Part III只有一个章节，用来解释PyTorch的部署。Chapter15 提供了怎么把PyTorch模型部署在网络服务上、将其嵌入一个C++项目或将其部署在移动设备上的一个overview。
 
 
-### 关于代码
+### 0.2.3 关于代码
 
 这本书所有的代码都用Python3.6或之后的版本来写。
 
@@ -115,8 +115,7 @@ torch.manual_seed(123)
 '''
 
 
-### 硬件和软件requirements
-
+## Part I Core PyTorch
 
 
 
