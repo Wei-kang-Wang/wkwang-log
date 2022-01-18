@@ -73,6 +73,49 @@ Chapter8 介绍了convolutional neural network（卷积神经网络）并介绍�
 
 #### Part II
 
+在Part II里，每一chapter都让我们对于解决如何自动检测肺癌这个问题更进一步。我们用这个困难的问题作为解释现实中如何解决类似检测肺癌这种复杂问题的动机。
+
+Chapter9 描述了基于CT图像的end-to-end的自动肺癌检测的方法。
+
+Chapter10 加载了具有人工标注的CT照片，并使用标准PyTorch API将相关的信息转化为tensor。
+
+Chapter11 介绍了第一个利用Chapter10中所生成的数据作为输入的分类模型。我们训练这个模型，并记录一些基本的performance metrics。我们同时也介绍了如何用TensorBoard来监控训练过程。
+
+Chapter12 研究并落实了标准performance metrics，并利用这些metrics来鉴别之前训练所体现出的问题。之后我们用一个经过了data balancing and augmentation（数据平衡和扩充）的更好的训练集来解决这些训练设计上的漏洞。
+
+Chapter13 描述了segmentation（分割）任务，利用一个pixel-to-pixel的模型结构来生成一个表示瘤子可能出现位置的p大小和原输入图片一样大的heatmap。这个heatmap可以用来在没有人工标注的CT图像上找到瘤子。
+
+Chapter14 实现了最后的end-to-end项目：在分类任务后接分割模型用来诊断癌症病人。
+
+#### Part III
+
+Part III只有一个章节，用来解释PyTorch的部署。Chapter15 提供了怎么把PyTorch模型部署在网络服务上、将其嵌入一个C++项目或将其部署在移动设备上的一个overview。
+
+
+### 关于代码
+
+这本书所有的代码都用Python3.6或之后的版本来写。
+
+这本书大量使用Jupyter Notebook来写代码。
+
+下面这段在所有的Jupyter Notebook代码里都被当成第一个模块。
+
+'''python
+%matplotlib inline
+from matplotlib import pyplot as plt
+import numpy as np
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
+
+torch.set_printoptions(edgeitems=2)
+torch.manual_seed(123)
+'''
+
+
+### 硬件和软件requirements
 
 
 
