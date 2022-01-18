@@ -100,7 +100,7 @@ Part III只有一个章节，用来解释PyTorch的部署。Chapter15 提供了�
 
 下面这段在所有的Jupyter Notebook代码里都被当成第一个模块。
 
-'''python
+```python
 %matplotlib inline
 from matplotlib import pyplot as plt
 import numpy as np
@@ -112,7 +112,7 @@ import torch.optim as optim
 
 torch.set_printoptions(edgeitems=2)
 torch.manual_seed(123)
-'''
+```
 
 
 ## Part I Core PyTorch
