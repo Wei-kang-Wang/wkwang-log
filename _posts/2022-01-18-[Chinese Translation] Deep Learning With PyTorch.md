@@ -118,6 +118,22 @@ torch.manual_seed(123)
 
 ## Part I Core PyTorch
 
+这是本书的第一部分，从此我们开始正式介绍PyTorch的内容，学习理解PyTorch的机理并理解PyTorch项目的机制。
+
+在Chapter1里我们将会第一次接触PyTorch，理解它是什么，它用来解决什么问题，以及它和别的深度学习框架是什么联系的。Chapter2将会带领读者盘一些已经pretrained的model。Chapter3进一步接触深入的内容，并说明了PyTorch项目里所用的最基础的数据结构：tensor。Chapter4 教会读者如何将不同领域问题的数据表达成PyTorch tensor的形式。Chapter5 展示了深度学习模型是如何从实例中学习到知识的，并说明PyTorch是怎么实现这个过程的。Chapter6 介绍了神经网络组成的基础知识，以及如何用PyTorch构建一个神经网络。Chapter7 介绍了一个利用神经网络实现简单的图像分类任务。Chapter8 介绍了Chapter7里同样的任务如何用卷积神经网络更聪明的实现。
+
+在Part I学习结束之后，在part II里我们就可以用PyTorch应对真实的问题了。
+
+## Chapter 1 Introducing deep learning and the PyTorch Library
+
+>这章包括的内容
+>* 深度学习是怎么改变我们处理机器学习任务的方式的。
+>* 理解为什么PyTorch很适合深度学习。
+>* 检查一个典型的深度学习项目。
+>* PyTorch所需的硬件要求。
+
+
+
 
 
 
