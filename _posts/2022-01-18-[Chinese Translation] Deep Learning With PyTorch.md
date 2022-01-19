@@ -209,7 +209,7 @@ PyTorch在从研究和开发转向工业界的路上仍有一些很有意思的�
 TensorFlow拥有一个健壮的可用于生产的pipeline，一个广泛的工业界的环境，以及大量的市场占有率。PyTorch因为易于上手获得了很多研究员、学生老师的青睐，并且随着他们进入工业界从而开始流行。TorchScript和TensorFlow的eager mode可以认为是它们双方互相向对方学习的点。
 
 
-### 1.4 PyTorch如何支持deep learning项目的综述
+### 1.4 综述：PyTorch如何支持deep learning项目
 
 我们已经暗示了一些PyTorch的building blocks。现在我们正式的构建一个PyTorch high-level的map。我们可以从一个深度学习项目需要从PyTorch中得到什么来研究这个问题。
 
@@ -226,6 +226,10 @@ PyTorch的Python API是解释PyTorch作用以及将其与Python生态系统结�
 *Fig 2. Basic, high-level structure of a PyTorch project, with data loading, training, and deployment to production.*
 
 构建neural networks的最核心的PyTorch module被放在torch.nn里，这个module提供了常见的neural networks layer以及其它的架构组成部分。fully connected layer，convolutional layer，activation function，loss function也可以在这个module里被找到。这些组成部分可以被用于构建以及初始化未被训练的模型（figure2里中间部门的untrained model）。为了训练我们的模型，我们需要额外几件事情：一个source of training data，一个optimizer用来将这个模型适用于这些training data，以及将模型和数据部署到硬件设备上的方法（这样才能真正的开始训练和计算）。
+
+在figure2的左侧，我们可以看到在training data到达模型之前，需要进行一些data processing。这种data processing并不是preprocessing，而是对数据的处理，从而使得能够适应PyTorch的训练模型，这在真实的项目中占有十分重要的位置（原始数据必须变成PyTorch能操作的tensor才可以）。首先，我们需要physically获取数据，大多数情况下是从某种存储设备中获取的。然后我们需要将数据里的每一个sample都转换成PyTorch能够实际上操作的东西：tensor。这个在用户定义的数据（可以是任意形式的）和标准的PyTorch tensor中充当桥梁作用的是定义在torch.utils.data module里的Dataset类。这个过程对于每个任务都不太一样，我们需要自己来实现。本书将会展示各种不同类型的数据该如何表示为tensor的形式。
+
+
 
 
 
