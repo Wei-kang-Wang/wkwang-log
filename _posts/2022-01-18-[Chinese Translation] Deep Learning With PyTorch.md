@@ -251,6 +251,103 @@ PyTorch还提供了一种方法可以预先编译模型：TorchScipt。用TorchS
 
 
 
+## Chapter 2 Pretrained networks
+
+>这章包括的内容：
+>* 运行预训练好的图像识别模型
+>* GAN和CycleGAN的一个介绍
+>* 生成图片文字描述的Captioning模型
+>* 通过Torch Hub分享模型
+
+computer vision毋庸置疑是一个被深度学习深深影响的领域，其中有很多的原因：分类或者从原始图片中理解图像内容的需求是存在的，大量的数据变得可以获得，以及新的网络结构比如convolutional layer被发明出来，而且GPU被应用于加速计算。
+
+我们将会学习如何下载和运行其他的研究者已经在大规模数据库上训练好的模型。我们可以把训练好的模型理解成为一段program，能够输入input并输出相应的output。这段program的行为被网络结构、训练数据以及输出所需要满足的条件所精心设计。
+
+在这章里，我们将会三种流行的预训练模型：一个可以根据图像内容给图像贴上标签的模型，一个可以从一张真实图片生成新图片的模型，以及一个可以用句子描述图像内容的模型。我们将会学习如何在PyTorch里下载并运行这些模型。我们也会介绍PyTorch Hub，它是一个工具集，PyTorch模型可以在这个标准化的用户界面上被处理。沿着这个方向，我们将会讨论data source，定义如label这种的术语。
+
+学习如何用PyTorch来运行一个训练好的模型是很有用的，尤其是当这个模型在一个很大的数据集上被训练过。我们将会习惯于给真实世界的数据设计并运行neural networks，不论这个networks是否经过了训练。
+
+### 2.1 一个能够识别图像主体内容的预训练模型
+
+作为我们对deep learning的第一个了解，我们将会运行一个deep neural network，这个网络被object recognition任务预训练过。有很多预训练的网络可以被源代码仓库所获取。研究者们随着论文的发表而公布自己的源代码是很常见的，而有些研究团队还会提供已经预训练好的网络。用这些预训练好的模型可以让我们直接利用这些模型完成一些任务，或者进行进一步的设计。
+
+我们这里所用的预训练模型是在ImageNet这个数据集上预训练的。ImageNet是Stanford University做的一个超过14 000 000张图片的数据集，它的每张图片都有分层级的名词标签，这些标签来自于WordNet数据集，这是一个英文的大型词汇数据集。
+
+ImageNet数据集，和其它的公共数据集一样，是在academic competition里发展出来的。这些competitions传统上是很多研究院和公司里的研究员打比赛的地方。ImageNet Large Scale Visual Recognition Challege（ILSVRC）从2010年开赛以来就获得了很广泛的关注。这个competition基于一些任务，这些任务每年都不一样，比如image classification（告诉图像所含的物体是什么类别的），object localization（给出图片中物体的位置），object detection（鉴别图片中的物体并给出它们的类别），scene classification（给整张图片分类），以及scene parsing（将图片分割为有语义的区域，比如牛，房子，奶酪，帽子等）。我们细说image classification，这个任务是以一张图片作为输入，并在1000个类别中给出5个类别，按置信度高低排序，来描述图像中的内容。
+
+ILSVVRC的训练集包括12 000 000张图片，这些图片标记有唯一的名词（1000个类别），这个名词叫做图像的class。在这个任务里，我们将label和class混用，表达同一个意思。figure 1给出了ImageNet里一些图片。
+
+![ImageNet]({{ '/assets/images/DLP-2-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 1. A small sample of ImageNet images.*
+
+我们这个任务（image classification）的最终的效果是，给训练好的模型一张新的图片，它能给这张图片返回一个预测的label的列表（在这个例子里列表里包含五个类别），从而我们可以通过这个label list来了解图像的内容。如figure 2所示。
+
+![Inference]({{ '/assets/images/DLP-2-2.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 2. The inference process.*
+
+输入的图片将会先被处理为一个multidimensional array class torch.Tensor的实例。这是一张标有高度和宽度的RGB图片，所以这个tensor将会有三个维度：RGB三个通道，以及两个有指定大小的图片spatial dimensions（tensor将会在下一章Chapter 3里详说）。我们的模型将会以上述的处理后的图片作为输入，并给出每个class的分数。之后每个class被一一对应到class label上。输出被存在一个拥有1000个element的torch.Tensor里，每个element表达该class的分数。
+
+在我们正式开始之前，我们先了解一下这个网络本身，看看它的结构，以及学习一下在模型使用前该如何处理数据。
+
+#### 2.1.1 为image recognition任务获取一个预训练的模型
+
+我们现在去找一个在ImageNet上预训练好的网络。[TorchVision](https://github.com/pytorch/vision)项目包括了一些computer vision领域表现最好的模型，比如AlexNet，ResNet，Inception V3等等。在Pytorch里同样很容易获取如ImageNet这样的数据集。之后我们将会介绍更多这样的PyTorch里已经包括或者容易获得的外部资源。现在，我们下载两个网络：AlexNet和ResNet。
+
+预训练好的模型可以在torchvision.models里获得：
+
+```python
+# In [1]:
+from torchvision import models
+
+# In [2]:
+dir(models)
+
+# Out [2]:
+['AlexNet',
+ 'DenseNet',
+ 'InceptionV3',
+ 'ResNet',
+ 'SqueezeNet',
+ 'VGG',
+...
+ 'alexnet',
+ 'densenet',
+ 'densenet121',
+...
+ 'resnet',
+ 'resnet101',
+ 'resnet152',
+...
+]
+```
+
+上面首字母大写的那些名字都是Python的class，每一个class都对应着一系列模型，这些模型的内部结构都有着细小的区别。而小写字母的名字是function，它们会返回大写字母对应的那些class里的实例，这样有时候会更方便。比如，resnet101会返回一个ResNet的实例，其有101层，resnet18则会返回一个有18层的ResNet的实例。我们现在将注意力放在AlexNet上。
+
+
+#### 2.1.2 AlexNet
+
+AlexNet赢了2012 ILSVRC比赛，比第二名高了很多，top-5 error rate是15.4%，第二名是26.2%（第二名不是基于deep Learning的）。这是computer vision发展史上值得记住的时刻：人们意识到了deep learning对于vision任务的巨大潜力。从此开启了对这个比赛持续性的基于deep learning的改进，最低能使得top-5达到3%。
+
+以今天的衡量标准来看，AlexNet是个相当小的网络。但是这是对刚了解neural network以及想上手操作的人一个非常好的例子。
+
+AlexNet的结构如figure 3所示。在图中，输入image从最左侧开始，经过了五个filters，每个给出一系列输出images（我们可以把这些filters理解成一系列加法乘法并最后加上一个activation函数的filter，以一系列图片为输入，一系列图片为输出）。在经过每个filter之后，images的大小被缩小了。最后一个filter输出的image被展平成4096个element的一维向量，并再加上几层全连接层来产生1000个输出概率，每个对应着一个class。
+
+![Architecture]({{ '/assets/images/DLP-2-3.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 2. The AlexNet Architecture.*
+
+为了运行AlexNet，我们可以构建AlexNet class的一个instance：
+
+```python
+# In [3]:
+alexnet = models.AlexNet()
+```
+
+现在alexnet就是一个具有着上图中AlexNet结构的object。通过给alexnet一些准确sized的输入数据，我们可以运行forward pass，将这个输入数据通过alexnet。从实际操作来说，就是我们有input object，这样可以运行forward pass：output = alexnet(intput)。
+
+但是如果我们这样做的话，是没有意义的。因为整个网络参数是没有被学习过的。我们需要训练这个网络或者从预训练的网络上加载学习好的参数。我们回到models模块。我们知道大写字母开头的对应着computer vision领域流行的网络结构，它们每个都是一个class。小写字母的那些是functions，输出的是某个class的instance，这个instance有给定好的网络层数，并且可以将预训练好的参数加载到这个instance里。注意到，用这些小写字母代表的函数没有什么特别的，他只是使得生成一个满足条件的instance变得更容易而已（要不然还需要挨个定义层数等等）。
 
 
 
