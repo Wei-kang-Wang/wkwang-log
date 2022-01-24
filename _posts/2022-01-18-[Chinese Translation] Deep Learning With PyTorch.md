@@ -543,6 +543,38 @@ _, indices = torch.sort(out, descending=True)
 我们可以看到前四名都是狗，之后就变得奇怪了。tennis ball是第五个结果。这是一个显示neural networks和人类在vision领域的判断区别有多大的例子。
 
 
+### 2.2 A pretrained model that fakes it until it makes it
+
+假设现在我们是想要模仿知名画家的画的职业罪犯。我们不是画家所以并不会画画。如果我们只是自己在不断地练习，很难达到模仿画家绘画的水平。但是如果我们请一个对所要模仿的画家很了解的专家来评判我们画的画，对于不像的部分进行改进，那我们的绘画水平就会朝着该画家的绘画风格而进步。
+
+而GAN所要做的事情，和上述故事有着很大的相似之处。我们可以制作假的数据，而其风格和我们所看到的数据很类似，不管是image还是video都可以。
+
+#### 2.2.1 The GAN game
+在deep learning圈子里，我们刚讨论的故事就是GAN game。这个game有两个networks，一个作为绘画者，而另一个则是评判专家，他们两相互比赛来超过对方，绘画者要画出让专家尽可能无法判断真伪的画，而专家要尽可能地判断正确画的真伪。GAN是generative adversarial network的简称，其中generative表示某些东西被创造了出来（在GAN里就是假画），adversarial表示两个networks在互相竞争。GAN是近些年deep learning领域最重要的原创性工作之一。
+
+记住我们最终的目标是生成尽可能像真data的假example。当和真data混合在一起的时候，有经验的专家也无法分辨他们的真伪。
+
+generator网络扮演绘画者的角色，任务是创造尽可能以假乱真的照片，输入是一个任意值。discriminator网络扮演评判专家的角色，需要判断给的画是出自于绘画者还是来自真的画的集合。这样的两个网络设计是非典型的，但是在GAN这个game里，它们将会给出很惊人的结果。
+
+figure5粗略的展示了GAN的结构。generator的最终目标就是迷惑discriminator使得它无法分辨真实和假的图画。discriminator的最终目标就是能判断画的真假。在最开始，generator画的画很容易被判断出来是假的。随着训练过程的进行，从discriminator返回的信息被generator利用来精进绘画技巧。在训练结束后，generator可以画出以假乱真的画，这时discriminator已经无法分辨画的真假了。
+
+![GAN]({{ '/assets/images/DLP-2-5.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 5. Concept of a GAN game.*
+
+值得注意的是，discriminator和generator并不是真的在比赛。这两个网络分别基于对方的输出而进行训练，对方网络的输出驱动了它们各自网络参数的优化。
+
+GAN game可以使得generators仅仅从噪声和conditional signal（比如某种attribute，对于脸来说，young，female，glass等）或者从另一个image来生成足以以假乱真的图像。
+
+#### 2.2.2 CycleGAN
+
+GAN的一个有趣的变种是CycleGAN。CycleGAN可以将一个domain内的图片变成另一个domain内的图片，而不需要我们在训练集中提供这两个domain图像的pairs。
+
+在figure6里，我们展示了将马变成斑马，以及将斑马变成马的网络结构。这个网络里有两个分开的generators，并且都有着各自的discriminators.
+
+![CYCLEGAN]({{ '/assets/images/DLP-2-6.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 5. A CycleGAN trained to the point that it can fool both discriminator networks.*
 
 
 
