@@ -1,4 +1,4 @@
- ---
+---
 layout: post
 comments: false
 title: "Deep Learning with PyTorch"
