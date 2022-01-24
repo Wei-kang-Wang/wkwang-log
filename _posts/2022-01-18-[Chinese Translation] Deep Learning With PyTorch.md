@@ -1,4 +1,4 @@
----
+ ---
 layout: post
 comments: false
 title: "Deep Learning with PyTorch"
@@ -336,7 +336,7 @@ AlexNet的结构如figure 3所示。在图中，输入image从最左侧开始，
 
 ![Architecture]({{ '/assets/images/DLP-2-3.PNG' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
-*Fig 2. The AlexNet Architecture.*
+*Fig 3. The AlexNet Architecture.*
 
 为了运行AlexNet，我们可以构建AlexNet class的一个instance：
 
@@ -348,6 +348,199 @@ alexnet = models.AlexNet()
 现在alexnet就是一个具有着上图中AlexNet结构的object。通过给alexnet一些准确sized的输入数据，我们可以运行forward pass，将这个输入数据通过alexnet。从实际操作来说，就是我们有input object，这样可以运行forward pass：output = alexnet(intput)。
 
 但是如果我们这样做的话，是没有意义的。因为整个网络参数是没有被学习过的。我们需要训练这个网络或者从预训练的网络上加载学习好的参数。我们回到models模块。我们知道大写字母开头的对应着computer vision领域流行的网络结构，它们每个都是一个class。小写字母的那些是functions，输出的是某个class的instance，这个instance有给定好的网络层数，并且可以将预训练好的参数加载到这个instance里。注意到，用这些小写字母代表的函数没有什么特别的，他只是使得生成一个满足条件的instance变得更容易而已（要不然还需要挨个定义层数等等）。
+
+
+#### 2.1.3 ResNet
+
+用resnet101 function，我们可以实例化一个101层的convolutional neural network。在2015年residual networks发明之前，训练一个很深的网络是十分困难的。residual networks克服了训练很深的网络的困难，并在提出的那一年在多项比赛上打败了其它的网络结构。
+
+我们来构建一个ResNet的实例。我们给resnet101 function传递一个argument，来告诉这个function去下载已经在ImageNet上预训练好的参数：
+
+```python
+# In [4]:
+My_resnet = models.resnet101(pretrained=True)
+```
+
+
+#### 2.1.4 Ready, Set, Almost run
+
+我们来看一下一个resnet101到底是什么样的。我们可以通过printing所返回的实例来看。结果是一个文字化的表述，描述了网络结构的细节。
+
+```python
+# In [5]:
+My_resnet
+
+# Out [5]
+ResNet(
+    (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3),
+                    bias=False)
+    (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True,
+                       track_running_stats=True)
+    (relu): ReLU(inplace)
+    (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1,
+                        ceil_mode=False)
+    (layer1): Sequential(
+       (0): Bottleneck(
+...
+       )
+    )
+    (avgpool): AvgPool2d(kernel_size=7, stride=1, padding=0)
+    (fc): Linear(in_features=2048, out_features=1000, bias=True)
+)
+```
+
+上面所示的每一行都是一个模块。这个模块和Python里的module是不同的概念，这里每个模块代表着一种运算，是neural networks的组成部分。这些模块也成为neural networks的layers。
+
+resnet101 function所返回的实例里，有很多重复的Bottleneck的模块（实际上有101个），每个都包含了convolutions以及其它的运算。resnet101是个典型的深度神经网络结构：由众多的层堆积而成，并以fully connected layer收尾，从而输出一个向量来代表每个种类的分数。
+
+My_resnet变量可以被当作一个function来调用，以一张或多张图片作为输入并输出1000个类别的分数。在我们用它之前，我们还需要对输入图片做一些preprocess，从而使得这些图片有正确的size以及它们的pixel value大致落在一个合理的区间内。为了实现这样的preprocessing，torchvision module提供了transforms，可以允许我们很快定义包含基础preprocessing function的pipeline：
+
+```python
+# In [6]:
+from torchvision import transforms
+preprocess = transforms.Compose([
+        transforms.Resize(256),
+        transforms.CenterCrop(224),
+        transforms.ToTensor(),
+        transforms.Normalize(
+            mean=[0.485, 0.456, 0.406],
+            std=[0.229, 0.224, 0.225]
+        )])
+```
+
+在这种情况下，我们定义了一个preprocess function，这个function将输入图片scale到$$256 \times 256$$的大小，按中心区域crop一块$$224 \times 224$$的区域，transform这个图片成一个tensor（一个PyTorch multidimensional array：在这种情况下，是一个3D array，维度分别代表color，height和width），并沿着color维度normalize，从而使得RGB维度的tensor都具有指定的mean和standard devariations。在Chapter7的7.1.3里我们将会更加深入的介绍transforms。
+
+我们现在可以找一张图片，preprocess它，再将它给到My_resnet，来看看ResNet会给出什么样的结果。我们可以用Python的Pillow module来上传一张本地文件系统里的照片，Pillow是个很好用的图片处理module：
+
+```python
+# In [7]:
+from PIL import Image
+img = Image.open("../data/p1ch2/bobby.jpg")
+```
+
+如果我们用的是Jupyter Notebook，那我们还可以inline的看一下照片是什么样的（在实际中，照片会显示出来，替代下面<PIL.JPegImagePlugin.JpegImageFile image mode=RGB size=1280x720 at 0x1B1601360B8>的部分）：
+
+```python
+# In [8]:
+img
+
+# Out [8]:
+<PIL.JPegImagePlugin.JpegImageFile image mode=RGB size=1280x720 at 0x1B1601360B8>
+```
+
+或者我们还可以用show() method，这样会弹出一个带有viewer的窗口，就可以直接看到图片：
+
+```python
+>>> img.show()
+```
+
+![Bobby]({{ '/assets/images/DLP-2-4.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 4. The picture of Bobby, the output of img.show().*
+
+然后，我们就可以把输入的图片通过我们的preprocessing pipeline函数：
+
+```python
+# In [9]:
+img_t = preprocess(img)
+```
+
+我们还可以reshape，crop，normalize这个input tensor，在后两章会详细说。
+
+```python
+# In [10]:
+import torch
+batch_t = torch.unsqueeze(img_t)
+```
+
+#### 2.1.5 Run!
+
+对输入的新数据运行一个已经训练好的模型，这个过程叫做inference。为了inference，我们需要将这个network的mode变成eval：
+
+```python
+# In [11]:
+My_resnet.eval()
+
+# Out [11]:
+ResNet(
+    (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3),
+                    bias=False)
+    (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True,
+                       track_running_stats=True)
+    (relu): ReLU(inplace)
+    (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1,
+                        ceil_mode=False)
+    (layer1): Sequential(
+       (0): Bottleneck(
+...
+       )
+    )
+    (avgpool): AvgPool2d(kernel_size=7, stride=1, padding=0)
+    (fc): Linear(in_features=2048, out_features=1000, bias=True)
+)
+```
+
+如果我们忘记将其mode改成eval，一些内部的模块，比如batch_normalization和dropout，将会给出没有意义的结果，因为它们内部的机制使得它们在训练和eval模式下运行的不一样。现在模型的mode已经是eval了，我们就可以开始inference了：
+
+```python
+# In [12]:
+out = My_resnet(batch_t)
+out
+
+# Out [12]:
+tensor([[ -3.4803, -1.6618, -2.4515, -3.2662, -3.2466, -1.3611,
+          -2.0465, -2.5112, -1.3043, -2.8900, -1.6862, -1.3055,
+...
+          2.8674, -3.7442, 1.5085, -3.2500, -2.4894, -0.3354,
+          0.1286, -1.1355, 3.3969, 4.4584]])
+```
+
+我们现在需要找到上面输出的1000维的向量里哪一个有着最高的score。这将会告诉我们这个模型在这张输入图片中看到了什么。
+
+为了获得这个网络到底给这张图片标了什么标签，我们需要下载一个text file，这个text file列出了所有的可能的类别，而且这些类别的排列顺序和网络训练时输出的排列顺序是对应的。几乎所有的image recognition任务都有着和这个问题相似的输出结构。
+
+我们下载一下含有1000个标签的ImageNet数据集的text file：
+
+```python
+# In [13]:
+with open(../data/p1ch2/imagenet_classes.txt') as f:
+    labels = [line.strip() for line in f.readlines()]
+```
+
+现在我们需要找到out这个tensor里最大score所对应的index是什么。我们可以用PyTorch里的max function来做，这个function会输出一个tensor的最大值以及这个最大值的位置：
+
+```python
+# In [14]:
+_, index = torch.max(out, 1)
+```
+
+我们现在可以用这个index来确定标签了。但是上述得到的index是一个PyTorch的tensor，一个one-element，one dimensional的tensor，而并不是一个Python的number（实际上应该是tensor($$\left[207\right])$$）。所以我们需要得到这个index的实际值，可以通过index$$\left[0\right]$$来得到。我们再通过torch.nn.functional.softmax来normalize输出到$$\left[0,1\right]$$的范围。softmax的结果有点像模型对于每个类别给出一种置信度。在我们的例子里，模型有96%的自信输入的图片是一只金毛：
+
+```python
+# In [15]:
+percentage = torch.nn.functional.softmax(out, dim=1)[0] * 100
+labels[index[0]], percentage[index[0]].item()
+
+# Out [15]:
+('golden retriever', 96.29334259033203)
+```
+
+既然模型输出了长度为1000的向量来对每个类别都给了分数，我们还可以找到分数排名第二高，第三高等等所代表的标签。我们可以用sort function来对原out进行排序，这个function会输出排序后的序列，并且会输出排序后序列里每个element在原序列里的位置：
+
+```python
+# In [16]:
+_, indices = torch.sort(out, descending=True)
+[(labels[idx], percentage[idx].item() for idx in indices[0][:5]]
+
+# Out [16]:
+[('golden retriever', 96.29334259033203),
+('Labrador retriever', 2.80812406539917),
+('cocker spaniel, English cocker spaniel, cocker', 0.28267428278923035),
+('redbone', 0.2086310237646103),
+('tennis ball', 0.11621569097042084)]
+```
+
+我们可以看到前四名都是狗，之后就变得奇怪了。tennis ball是第五个结果。这是一个显示neural networks和人类在vision领域的判断区别有多大的例子。
 
 
 
