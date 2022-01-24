@@ -700,8 +700,61 @@ python eval.py --model ./data/FC/fc-model.pth --infos_path ./data/FC/fc-infos.pk
 
 预训练好的模型在deep learning发展的早期便被放在了网上，但是直到PyTorch 1.0的发行，用户并没有一个统一的界面来获得这些预训练模型。
 
-PyTorch 1.0介绍了PyTorch Hub，这个机制可以让作者以某种PyTorch可以理解的方式，通过Github来将已经预训练好的或者没有预训练的模型发布出来。这使得发布模型变得很方便。
+PyTorch 1.0介绍了PyTorch Hub，这个机制可以让作者以某种PyTorch可以理解的方式，通过Github来将已经预训练好的或者没有预训练的模型发布出来。这使得发布模型变得很方便。torchvision模块包含了一些模型，但只是很少一部分，而PyTorch Hub的发布，使得作者可以随意发布自己的模型供其他人参考使用。
 
+通过Torch Hub机制发布模型，作者仅仅需要在该项目的Github repository的根目录下加一个hubconf.py文件。这个文件有着以下的结构：
+
+```python
+
+# 这个文件有着两个部分
+
+# 第一部分是你的代码所需要依赖的modules
+dependencies = ['torch', 'math']
+
+# 第二部分是一个或多个函数，这些是用来给用户了解你的模型和代码用的。这些函数需要有根据输入的参数初始化模型的作用。
+
+def some_entry_fn(*arg, **kwargs):
+    model = build_some_model(*args, **kwargs)
+    return model
+    
+def another_entry_fn(*args, **kwargs):
+    model = build_another_model(*args, **kwargs)
+    return model
+```
+
+我们查找感兴趣的预训练模型，我们现在就可以搜索Github repository看看哪个包含hubconf.py文件，只要包含了，我们就可以通过torch.hub模块来调用它。我们来看一个实际中的例子。为了方便起见，还是从torchvision看起，因为它提供了一个如何和Torch Hub互动的清晰的例子。
+
+我们访问torchvision repository[所在的位置](https://github.com/pytorch/vision)发现它含有一个hubconf.py文件。这点check，说明这个项目可以用torch.hub module调用。我们要做的第一件事就是看看hubconf.py文件，找到repository的入口处。在Torchvision这个例子里，hubconf.py文件里有两个函数，resnet18和resnet50。我们已经知道这两个函数的作用：它们分别返回一个18层和一个50层的ResNet model。我们同样看到hubconf.py文件里的入口函数有一个pretrained keyword argument。如果是True，返回的model就是已经在ImageNet上预训练过的。
+
+现在我们知道了repo，知道了入口函数，也知道了所需要了解的入口函数的argument，用torch.hub下载模型所需的全部知识我们就都有了，即使不clone那个repo也可以，PyTorch会帮我们解决：
+
+```python
+import torch
+from torch import hub
+
+resnet18_model = hub.load('pytorch/vision:master',
+                          'resnet18',
+                          pretrained=True)
+
+# 'pytorch/vision:master'是Github repo的name和branch，'resnet18'是入口函数，entry-point function，的name，pretrained=True是keyword argument
+```
+
+上述代码会下载pytorch/visio repo的master branch的一个镜像，随着模型的参数，一起存到本地（系统默认存在home文件夹的 .torch/hub里），并运行resnet18 entry-point function，从而返回一个实例化的model。取决于具体的运行环境，Python可能会报错module缺失，比如PIL。Torch Hub不会主动下载缺失的module，但是它会给出具体缺失什么module的error。
+
+我们现在就可以用返回的model，给出适当的argument，来运行一个forward pass整个模型了。Torch Hub的好处是所有按照上述机制发布的Github repo都可以被其他人所获取了，而不仅仅是torchvision里一小部分的model。
+
+值得注意的是entry-point function需要返回model；但是严格来说，它们并不是一定要这样。比如在一个hubconf.py文简历，我们可以定义一个entry-point function的作用是将output probability转换为文字描述，而另一个的作用是transform输入。或者可以定义一个entry-point function输出model，另一个entry-point function来对这个model做进一步的处理。这种flexibility为将来PyTorch Hub的发展提供了无限可能。
+
+
+###　2.5 Summary
+
+* 一个预训练的网络是一个已经在某个数据集上被训练过的model。这样的网络在载入之后可以直接给出有用的结果。
+* 通过学习如何使用一个预训练的网络，我们可以将一个预训练好的模型直接整合到项目里，而不需要对它有过多的了解或者对它进行训练。
+* AlexNet和ResNet是两个十分著名的computer vision的model。
+* GAN有两个部分：generator和discriminator。这两个部分相互促进来使得model生成足以以假乱真的data。
+* CycleGAN的结构使得它可以在两个不同类的图片间互相转换。
+* NeuralTalk2用了一种混合的模型架构，以图片为输入，生成描述该图片内容的文字。
+* Torch Hub是一个从有满足条件的hubconf.py文件的任意Github项目载入model和model的参数的的标准的方法。
 
 
 
