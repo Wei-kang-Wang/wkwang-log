@@ -746,7 +746,7 @@ resnet18_model = hub.load('pytorch/vision:master',
 值得注意的是entry-point function需要返回model；但是严格来说，它们并不是一定要这样。比如在一个hubconf.py文简历，我们可以定义一个entry-point function的作用是将output probability转换为文字描述，而另一个的作用是transform输入。或者可以定义一个entry-point function输出model，另一个entry-point function来对这个model做进一步的处理。这种flexibility为将来PyTorch Hub的发展提供了无限可能。
 
 
-###　2.5 Summary
+### 2.5 Summary
 
 * 一个预训练的网络是一个已经在某个数据集上被训练过的model。这样的网络在载入之后可以直接给出有用的结果。
 * 通过学习如何使用一个预训练的网络，我们可以将一个预训练好的模型直接整合到项目里，而不需要对它有过多的了解或者对它进行训练。
