@@ -574,7 +574,134 @@ GAN的一个有趣的变种是CycleGAN。CycleGAN可以将一个domain内的图�
 
 ![CYCLEGAN]({{ '/assets/images/DLP-2-6.PNG' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
-*Fig 5. A CycleGAN trained to the point that it can fool both discriminator networks.*
+*Fig 6. A CycleGAN trained to the point that it can fool both discriminator networks.*
+
+如figure6所示，第一个generator要学习如何生成满足一个target distribution（在这个例子里是斑马）的图片，而其出发点则是满足属于另一个distribution（在这个例子里是马）的图片，从而它对应的discriminator无法分辨这个图片是从一张马的图片生成的还是本身就是一个斑马的图片。同时，这也是名字里Cycle的由来，这个生成的假的斑马图片作为另一个generator的输入，这个generator要学会如何从输入的斑马图片生成马的图片，并且也有一个相应的discriminator来分辨真假。构建这样一个循环，能够使得GAN的训练更加稳定，这也是GAN在实际应用中很重要也很常见的一个问题（难以训练）。
+
+有意思的是，我们并不需要输入马/斑马一对照片作为输入。从一系列没有联系的马和斑马照片，就足以让generators学会各自的生成，这个已经超过了单纯的supervised learning的范围。这个模型所蕴含的道理甚至还有更深：generator学习如何选择性的改变物体的appearance而并不需要告诉他物体是什么。并没有任何信息告诉generator鬃毛和腿该如何对应，以及它们分别是这个图里的哪部分，但generator仍然可以对应的将其转换。
+
+#### 2.2.3 A network that turns horses into zebras
+
+CycleGAN被一系列没有关联的从ImageNet里提取出来的马和斑马的图片数据集所训练。这个网络学会以一张或者多张马的图片作为输入并将它们全部转换为斑马的图片，并保证图片中除了马或斑马的部分保持不变（环境不变）。运行已经预训练好的CycleGAN可以让我们更进一步了解一个network——在这个网络里，一个generator——是如何被implemented的。
+
+我们定义一个ResNetGenerator class。实例化这个class，使用default parameters就可以：
+
+```python
+# In [2]:
+netG = ResNetGenerator()
+```
+
+netG model被创建了，但是它的参数仍然是随机的。我们可以加载已经预训练好的这个model的参数。model的参数被存在一个.pth的文件里，这个文件是一个包含着模型参数的pickle file。我们可以用model的load_state_dict method将它们加载到ResNetGenerator里：
+
+```python
+# In [3]:
+model_path = '../data/p1ch2/horse2zebra_0.4.0.pth'
+model_data = torch.load(model_path)
+netG.load_state_dict(model_data)
+```
+
+从而现在netG已经获得了预训练所得的所有的知识。注意到，此处加载预训练好的模型参数和2.1.3里给resnet101加载预训练参数是一样的，只不过torchvision.resnet101 function隐藏了加载参数的过程。
+
+如同resnet101例子一样，我们将模型mode改成eval：
+
+```python
+# In [4]:
+netG.eval()
+
+# Out [4]:
+ResNetGenerator(
+    (model): Sequential(
+...
+    )
+)
+```
+
+这个网络以一张图片为输入，识别图片里有几只马，之后分别将这些马所对应位置的像素进行更改，从而将原图片里的马变成斑马输出。
+
+我们现在可以随意输入一张关于马的图片，来看看我们的generator会输出什么。首先我们需要PIL和torchvision模块：
+
+```python
+# In [5]:
+from PIL import Image
+from torchvision import transforms
+```
+
+之后我们做一些输入的transformations，从而使得输入能够匹配网络：
+
+```python
+# In [6]:
+preprocess = transforms.Compose([transforms.Resize(256),
+                                 transforms.ToTensor()])
+```
+
+打开一张马的照片：
+
+```python
+# In [7]:
+img = Image.open("../data/p1ch2/horse.jpg")
+img
+```
+
+![horse]({{ '/assets/images/DLP-2-7.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 7. A man riding on a horse.*
+
+之后，我们将照片通过preprocess function得到恰当shape的变量：
+
+```python
+# In [8]:
+img_t = preprocess(img)
+batch_t = torch.unsqueeze(img_t)
+batch_out = netG(batch_t)
+
+# batch_out是generator的输出，我们可以将其转换回一张图片
+
+out_t = (batch_out.data.squeeze() + 1.0) / 2.0
+out_img = transforms.ToPILImage()(out_t)
+
+out_img.save("../data/p1ch2/zebra.jpg")
+out_img
+
+# Out [8]:
+<PIL.Image.Image image mode=RGB size=316x256 at 0x23B24634F98>
+```
+
+上述代码里输出的<PIL.Image.Image image mode=RGB size=316x256 at 0x23B24634F98>实际上是下图：
+
+![zebra]({{ '/assets/images/DLP-2-8.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 8. A man riding on a zebra.*
+
+
+### 2.3 A pretrained network that describes scenes
+
+我们已经见过了识别图片的模型，生成新图片的模型，而这个则是融入了自然语言的computer vision的模型。我们将会介绍一个预训练好的image captioning model，NeuralTalk2 model。这个model的输入是一张图片，而输出则是对这张图片所含内容的英文描述，如figure9所示。这个模型被一个很大的数据集训练，这个数据集里的数据是图片和描述图片的文字pair所构成的。
+
+![caption]({{ '/assets/images/DLP-2-9.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 9. Concept of a captioning model.*
+
+这个model由两个互相连接的部分所组成。一个部分负责输出具有代表性的描述性的representations，作为另一部分的输入。另一部分是一个recurrent neural network，可以生成句子。这两个部分在image/captioning pair上共同被训练。
+
+这个模型的第二部分叫recurrent是因为它以一个接一个的方式生成每一个output（individual word），每一次的input都包含了上一次的输出。这样就使得后面的word都和前面的word有关联，而这在生成句子的任务里正是我们所需要的。
+
+#### 2.3.1 NeuralTalk2
+
+[NeuralTalk2](https://github.com/deep-learning-with-pytorch/ImageCaptioning.pytorch)可以以如下的方式来运行，我们要先将一些图片放在data文件夹下，然后运行脚本：
+
+```python
+python eval.py --model ./data/FC/fc-model.pth --infos_path ./data/FC/fc-infos.pkl --image_folder ./data
+```
+
+试一下2.2里的马的图片，结果是 A person riding a horse on a beach。很准确。
+
+
+### 2.4 Torch Hub
+
+预训练好的模型在deep learning发展的早期便被放在了网上，但是直到PyTorch 1.0的发行，用户并没有一个统一的界面来获得这些预训练模型。
+
+PyTorch 1.0介绍了PyTorch Hub，这个机制可以让作者以某种PyTorch可以理解的方式，通过Github来将已经预训练好的或者没有预训练的模型发布出来。这使得发布模型变得很方便。
+
 
 
 
