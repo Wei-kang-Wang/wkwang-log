@@ -757,6 +757,208 @@ resnet18_model = hub.load('pytorch/vision:master',
 * Torch Hub是一个从有满足条件的hubconf.py文件的任意Github项目载入model和model的参数的的标准的方法。
 
 
+## Chapter3 It starts with a tensor
+
+>这章包括的内容
+>* 理解PyTorch里最基本的data structure：tensor
+>* 在tensor上index和operate
+>* tensor和Numpy的multidimensional array相互操作
+>* 将tensor上的computation转移到GPU上以加速计算速度
+
+在上一章里，我们看了一些各个领域的deep learning的pretrained model，并加以运行。它们都需要以某种格式的data做输入，比如image或者text，然后输出另外一种格式的data，比如labels，numbers，或者别的images、text。从这个角度来看，deep learning实际上就是将data从某种representation转换成另一种的一个system。这个转换是通过寻找所给的数据example里的共同点来学习到的。比如，这个system可能会注意到狗的一些普遍的特征以及金毛特殊的颜色，将这两个特征结合起来，系统能将输入的金毛图片转换为输出的代表金毛的label。学习后的系统能够广泛的识别相似的输入，并将它们归于同一个label。
+
+上述的过程开始于将输入转换为floating-point numbers。figure1里的第一步，将输入的image pixels转换为numbers，这个内容将会在Chapter4里详细说。但在此之前，在这章里，我们将会介绍在PyTorch里如何用tensor来处理所有的floating-point numbers。
+
+
+### 3.1 The world as floating-point numbers
+
+既然floating-point numbers是一个network能够理解的处理信息的数据表达方式，我们就需要将各种各样的现实世界里的data encode成networks能够理解的数据格式（floating-point numbers），然后再将输出转换回我们人类能够更好理解的数据格式。
+
+![floating-point number]({{ '/assets/images/DLP-3-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 1. A deep neural network learns how to transform an input representation to an output representation (Note: The numbers of neurons and outputs are not to scale.).*
+
+一个deep learning network一般学习从一种数据格式到另一种数据格式的transformation，这表明在network中间每层之间的那些中间层数据可以被理解成一系列中间层的数据representations。对于image recognition来说，网络前面层的representations一般是一些edge detection或者某些特定的textures比如fur。而后面更深的层的representations就会表达一些更复杂的结构比如ears，noses等。
+
+总的来说，这样的中间层representations是一系列的floating-point numbers，这些floating-point numbers表示了输入的内容和数据结构的特征，并对network如何描述从输入转换为输出这个过程有十分有用。这样中间层的representation是从输入的众多examples里学习到的。这些floating-point numbers（中间层representations）和对于它们的操作是现代AI领域最重要的内容，在这本书里我们会一直提及。
+
+我们需要知道的是，这些中间层的representations（如figure1里的step2里的内容）是输入和前面层的neurons的weights相结合的产物。每个中间层representation对于每个输入都是特别的。
+
+在学习如何将我们的数据转换为floating-point numbers之前，我们需要首先理解PyTorch如何处理以及存储各个层面的数据，包括输入，中间层的representations，和输出。这章将会详细讲解这方面的内容。
+
+为此，PyTorch引入了一个基础的data structure：tensor。在Chapter2里，当inferece预训练模型的时候，我们已经遇到了tensor了。对于数学里的tensor而言，其和space，transformations等等相关，而数学里的tensor和PyTorch里的tensor并不是一个东西。在deep learning，或者PyTorch的领域，tensor指的是vector，matrix的任意维度的推广，我们可以在figure2里看到。tensor这个概念的另一个名字叫multidimensional array。一个tensor的维度和想要获取这个tensor里某个位置的scalar值所需要的index的长度是相同的（从figure2里也可看出）。
+
+![tensor]({{ '/assets/images/DLP-3-2.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 2. Tensors are the building blocks for representing data in PyTorch.*
+
+PyTorch并不是支持multidimensional array唯一的库。Numpy是目前最流行的multidimensional array库，它已经成为了data science领域的通用语言。PyTorch可以和Numpy无缝衔接，互相交互使用。从而PyTorch和众多的Python库比如SciPy，Scikit-learn以及Pandas都有交互。
+
+和Numpy arrays相比，PyTorch tensors有一些”超能力“，比如能在GPU上很快的计算，能部署在多个设备上，以及能够跟踪计算图。这些都是现在deep learning库所需要的特点。
+
+我们将首先介绍PyTorch tensor，介绍tensor的基本内容以便之后使用。第一步是学习如何用PyTorch tensor库来操作tensor。这些操作包括如何将数据存在内存里，如何在任意大的tensor上运行一些特定的operation，如何和Numpy相交互，以及如何加速GPU计算。理解tensor的能力以及它的API是学会PyTorch最重要和基础的内容。在下一章，我们将会把这章学习到的知识应用于实践，学习如何将各种形式的输入数据转化为neural network能处理的tensor。
+
+
+### 3.2 Tensors: Multidimensional arrays
+
+我们已经知道tensor是PyTorch里最基础的data structure。一个tensor就是一个array：一种存有一系列数据的data structure，这些数据里的每一个都可以用一列index来获取。
+
+#### 3.2.1 From Python lists to PyTorch tensors
+
+我们来看看Python里的list是怎么被index的，从而可以对比tensor的index操作。
+
+```python
+# In [1]:
+a = [1.0, 2.0, 1.0]
+
+# 我们可以access这个list的第一个element：
+a[0]
+a[2] = 3.0
+a
+
+# Out [1]:
+1.0
+[1.0, 2.0, 3.0]
+```
+
+用Python list来存储更高维度的数据也是很常见的，比如存储一个2D直线上点的坐标。但是用更高效的tensor data structure，很多类型的数据，比如image，time series，甚至是sentences，都能被tensor表示出来。我们将会在这章里介绍一些tensor上的operations用来操作tensors，这些operation可以被很高层的语言（Python）调用。
+
+#### 3.2.2 Constructing our first tensors
+
+让我们来构建第一个PyTorch tensor来看看它到底是什么样的。
+
+```python
+# In [2]:
+import torch        # 导入torch module
+a = torch.ones(3)   # 创建一个一维的tensor，size是3，每个element都是1
+a
+
+# Out [2]:
+tensor([1., 1., 1.])
+
+# In [3]:
+a[1]
+
+# Out [3]:
+tensor(1.)
+
+# In [4]:
+float(a[1])
+
+# Out [4]:
+1.0
+
+# In [5]:
+a[2] = 2.0
+a
+
+# Out [5]:
+tensor([1., 1., 2.])
+```
+
+在导入torch module之后，我们可以调用一个function来构建一个一维的tensor，其size是3，所有的值都是1.0。我们可以用index来access它的element或者更改它。虽然表面上看这个PyTorch tensor和Python的list没什么区别，但背后的运行机制完全不同。
+
+#### 3.2.3 The essence（本质，要素） of tensors
+
+Python的list或者tuple也可以包含一系列的numbers，它们是一系列Python objects的合集，每个number都是一个object，都分配给了单独的内存，而这些内存可能完全是分散开的，如figure3左边所示。而PyTorch的tensors或者Numpy的arrays，是一些包含着unboxed C numeric type的连续的内存空间的views，也就是说tensor或者Numpy array内的numbers是用unboxed C numeric type表示的，而不是Python的objects，而且这些数据在内存中的地址是连续的，如figure3右侧所示。假设PyTorch tensor或Numpy array的每个element都是一个32-bit（4 bytes）的float，如果要存一个一维的包含着1 000 000个element的tensor，则需要精确的4 000 000 bytes，以及一些额外的空间用来存储metadata（比如dimensions或者numeric type）。
+
+>用Python list来存放数据，每个element都是一个单独的python object，分配了单独的内存，并有一些其他的信息。而且list本身也有这些element的信息从而才能找到他们。boxed说明每个element都是本身的value外面还包裹了本身的信息或供list查找的信息。而PyTorch tensor或者Numpy array是直接把这些element放在内存的一整块连续的位置上，从而不需要包裹，只需要存下来element的值就行，所以是unboxed的。从而这样节省了空间，也加快了运行速度。
+
+![memory]({{ '/assets/images/DLP-3-3.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 3. Python object (boxed) numeric values versus tensor (unboxed array) numeric values.*
+
+假设我们有一列坐标数据用来表示一个几何物体，比如说一个三角形的三个顶点的坐标（4，1），（5，3），（2，1）。不用Python的list来表示这个数据，我们可以用一个一维的tensor来存储x坐标在偶数index上，存储y坐标在奇数index上：
+
+```python
+# In [6]:
+points = torch.zeros(6)  # 利用zeros函数构建一个所需要的size的tensor
+points[0] = 4.           # 之后在overwrite我们所需要的值到这些0上。
+points[1] = 1.
+points[2] = 5.
+points[3] = 3.
+points[4] = 2.
+points[5] = 1.
+
+# 还有一种简便的方法，直接将一个Python list作为torch.tensor的参数：
+
+# In [7]
+points = torch.tensor([4., 1., 5., 3., 2., 1.])
+points
+
+# Out [7]:
+tensor([4., 1., 5., 3., 2., 1.])
+
+# 要获取第一个顶点的坐标：
+
+float(points[0]), float(points[1])   # 输出是(4.0, 1.0)
+```
+
+上述方法有效，但是还是复杂了，我们可以使得tensor的每一项都直接就是一个顶点的坐标：
+
+```python
+# In [8]:
+points = torch.tensor([[4., 1.], [5., 3.], [2., 1.]])
+points
+
+# Out [8]:
+tensor([[4., 1.],
+        [5., 3.],
+        [2., 1.]])
+
+# 我们直接把一个Python list传递给了torch.tensor函数。我们可以查看这个tensor的shape：
+
+# In [9]:
+points.shape
+
+# Out [9]:
+torch.Size([3,2])  # tensor的shape attribute直接返回了这个tensor的形状，但返回值仍然是个torch.Size object。
+
+# 当我们知道了要构造的tensor的shape时，
+# 我们也可以直接用torch的zeros或ones method直接实例化一个tensor
+# 此时需要给ones或者zeros method提供一个包含shape信息的tuple：
+
+# In [10]:
+points = torch.zeros(3, 2)
+
+# points = torch.zeros((3,2))是一个效果，所以说 a = (3,2), points = torch.zeros(a)也是一样的结果。
+
+points
+
+# Out [10]:
+tensor([[0., 0.],
+        [0., 0.],
+        [0., 0.]])
+
+# 我们现在access这个tensor里每个element就需要两个index了：
+
+# In [11]:
+points = torch.tensor([[4., 1.], [5., 3.], [2,. 1.]])
+points[0, 1]
+
+# Out [11]:
+tensor(1.)
+
+# 这个返回的是第1个点的第2个坐标，也就是y坐标。
+
+# In [12]:
+points[0]
+
+# Out [12]:
+tensor([4., 1.])
+
+# 这个返回的就是第1个点。
+```
+
+上面这些index所返回的都仍然是tensor（除非用float函数强行转换掉，如float(points$$\left[0, 1\right])$$），这些tensor是内存里相同位置所存的数据的一个view。上面的points$$\left[0\right]$$是一个新的1D tensor，size是2，参考的是points这个tensor第一行的值。新的这个tensor并不代表新的内存被开辟，然后值被复制后放在新的内存，再将这些值打包返回给新的这个tensor。因为这样做非常的效率低。我们将会在这章的3.7的tensor的view再来详细介绍发生了什么。
+
+
+### 3.3 Indexing tensors
+
+
+
+
+
 
 
 
