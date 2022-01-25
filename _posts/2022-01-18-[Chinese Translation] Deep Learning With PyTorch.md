@@ -955,6 +955,36 @@ tensor([4., 1.])
 
 ### 3.3 Indexing tensors
 
+如果我们想获得一个tensor，只包含之前的tensor的除去第一个point以外的所有的points，可以使用range index notation，这个在Python的list里也经常被使用。
+
+```python
+# In [1]:
+some_list = list(range(6))
+some_list[:]     # 返回这个list所有的值
+some_list[1:4]   # 返回这个list从第2个值开始到第5个值结束，包括第2个但不包括第5个
+some_list[1:]    # 返回这个list从第2个值开始到最后一个值的所有值，包括第2个
+some_list[:4]    # 返回这个list从第1个值开始到第5个值的所有值，不包括第5个
+some_list[:-1]   # 返回这个list从第1个值开始到最后一个值，不包括最后一个
+some_list[1:4:2] # 返回这个list从第2个值开始到第5个值每隔两个取一个值，不包括第5个
+
+# 上面是Python里的range index的用法，而PyTorch的tensor有着一样的用法。
+
+points = torch.tensor([[4., 1.], [5., 3.], [2., 1.]])
+points[1:]       # 返回这个tensor从第2个值到最后一个值，tensor([[5., 3.], [2., 1.]])
+points[1:, :]    # 返回这个tensor维度1里第2个值到最后一个，维度2里所有的值，tensor([[5., 3.], [2., 1.]])
+# 前一行代码没有提到维度2，所以默认取所有的，这两行代表的是一个意思，结果当然也是一样的。
+
+points[1:, 0]    # 返回这个tensor维度1里第2个值到最后一个，维度2里第一个值，tensor([5., 2.])
+points[None]     # 给这个tensor加上一个维度为1的新维度，这个新加的维度是在最外层的，就像unsqueeze function的效果一样，tensor([[[4., 1.], [5., 3.], [2., 1.]]])
+```
+
+除了range index以外，PyTorch还给tensor提供了另外的更强力的index方法，叫advanced indexing，将在下一章说。
+
+
+### 3.4 Named tensors
+
+
+
 
 
 
