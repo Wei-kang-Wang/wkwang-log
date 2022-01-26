@@ -1129,6 +1129,8 @@ named tensors仍然处于试用期，要谨慎使用。
 
 ### Tensor element types
 
+到目前为止，我们已经讲了tensor是怎么运行的基础知识，但还没有讲什么类型的numeric types我们可以储存在tensor里。正如我们在3.2里所说的，用standard Python numeric types存放在tensor里并不是最优的选择，有以下几个原因：
+* 
 
 
 
