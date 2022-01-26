@@ -1130,7 +1130,137 @@ named tensors仍然处于试用期，要谨慎使用。
 ### Tensor element types
 
 到目前为止，我们已经讲了tensor是怎么运行的基础知识，但还没有讲什么类型的numeric types我们可以储存在tensor里。正如我们在3.2里所说的，用standard Python numeric types存放在tensor里并不是最优的选择，有以下几个原因：
-* 
+* Numbers in Python are objects。因为一个floating-point number可能只需要32-bits来存放，Python会将它转换为一个有很多功能的复杂完整的Python object。这样的operation，叫做boxing，在存储小量数据时没有问题，但在数据量十分大的时候效率就变得十分低下了。
+* Lists in Python are meant for sequential collections of objects。没有一个高效的算法能计算两个vectors之间的内积，或者计算一个vector内部所有element的和。同样的，Python的lists也没有一个高效的方法来优化如何在内存中存放list，因为Python的list内部存储的是list各个element的位置的指针，而各个element其实也都是Python object，并不一定非要是numbers。而且Python的list是一维的，尽管我们可以创建list of list，但这个效率就更低了。
+* The Python interpreter is slow compared to optimized, compiled code。在大量的数据上运行数学计算，利用已经编译好的，底层的C代码要比Python快得多。
+
+因为上述这些原因，data science libraries依赖Numpy或者是PyTorch tensors来提供numerical data structures以及它们上的operations的效率高的low-level的实现，并将它们包装在一个high-level的API里。为了使这个操作能够实现，一个tensor里的objects必须是同一种类型的numbers，而且PyTorch必须明确表示这个number的numeric type。
+
+#### 3.5.1 Specifying the numeric type with dtype
+
+tensor constructors（就是返回一个tensor的functions，比如torch.tensor，torch.ones，torch.zeros等）用dtype argument来指明要构建的tensor里的numbers的numerical data type（简写为dtype，就是从这来的）。dtype argument指明这个tensor内的numbers是intergers还是floating numbers，以及每个number占据多少个bytes，以及每个number是signed还是unsigned。PyTorch的tensor constructor的dtype argument故意设计的和标准的Numpy构建ndarray时的dtype叫同一个名字。
+
+下面是dtype argument所有可能的取值：
+* torch.float32 或者 torch.float：32-bit的floating-point
+* torch.float64 或者 torch.double：64-bit的双精度的floating-point
+* torch.float16 或者 torch.half：16-bit的半精度的floating-point
+* torch.int8：有符号的8-bit整数
+* torch.uint8：无符号的16-bit整数
+* torch.int16 或者 torch.short：有符号的16-bit整数
+* torch.int32 或者 torch.int：有符号的32-bit整数
+* torch.int64 或者 torch.long：有符号的64-bit整数
+* torch.bool：布尔值
+
+默认的tensor的data type是32-bit的floating-point
+
+>注意，floating-point都是带符号的。
+
+
+#### 3.5.2 A dtype for every occasion
+
+我们在后续的章节可以看到，在neural networks里发生的绝大多数运算用的都是32-bit floating-point的精度。更高的精度，64-bit floating-point不会给精度带来多少提高，但是会大大增加计算量。而更小的精度，16-bit floating-point在现在流行的CPU上不支持，在GPU上支持。用16-bit floating-point来计算可以减小计算量，但它对精度会带来多大的影响也是不可知的。
+
+tensors同样可以用作其它tensors的index，那在这种情况下，PyTorch要求作为index的tensors的dtype是64-bit interger。构建一个tensor，利用integers作为初始值，那么PyTorch将会将dtype默认置为64-int integer，比如torch.tensor($$\left[2, 2\right]$$)。所以说，我们绝大多数时间都是处理dtype为int64或者float32的tensors。
+
+最后，有tensors参与的谓词，比如points > 1.0，会产生bool tensor，来表示tensor的每个element是否满足条件。
+
+以上就是PyTorch里tensor的dtype的一个概括。
+
+
+#### 3.5.3 Managing a tensor's dtype attribute
+
+为了给一个tensor分配正确的numeric type，我们需要在tensor constructor中给dtype特别赋值。
+
+```python
+# In [1]:
+double_points = torch.ones(10, 2, dtype=torch.double)
+short_points = torch.tensor([[1, 2], [3, 4]], dtype=torch.short)
+```
+
+我们直接通过访问一个tensor的dtype attribute来查看它：
+
+```python
+# In [2]:
+short_points.dtype
+
+# Out [2]:
+torch.int16
+
+我们还可以用相应的casting method将一个tensor constructor的输出投射到一个正确的numeric type：
+
+```python
+$ In [3]:
+double_points = torch.zeros(10, 2).double()
+short_points = torch.ones(10, 2).short()
+
+# 或者使用更简单的to method：
+double_points = torch.zeros(10, 2).to(torch.double)
+short_points = torch.zeros(10, 2).to(dtype=torch.short)
+```
+
+在背后的机理里，to method会检查这个转换是否是有必要的（也就是说是不是本来就已经是该data type了），如果有必要再执行。那些dtype-named casting methods比如float是to method的简单表达方式，但是to method还可以有更多的argument，我们在3.9里会进一步讨论。
+
+当运算的两个tensors有着不一样的data type时，较”小“的data type将会自动被转换为较”大“的那种。比如，如果我们希望计算只涉及32-bit的数，那所有的输入的tensor的dtype至多只能是32-bit的。
+
+```python
+# In [1]:
+points_64 = torch.rand(5, dtype=torch.double)   # torch.rand用来生成0到1之间的随机数，5表示生成的维度是一维，shape=5
+points_short = point_64.to(torch.short)         # 转换到torch.int16的情况下，每个值就变成0了
+points_64 * points_short                        # integer和floating-point也可以相乘
+
+# Out [1]:
+tensor([0., 0., 0., 0., 0.], dtype=torch.float64)
+```
+
+
+### 3.6 The tensor API
+
+现在我们已经知道了PyTorch的tensor是什么，以及它们背后的运行机制是什么样的。现在有必要来了解一下PyTorch提供的tensor operations。
+
+首先，绝大部分一个tensor的operations或者两个tensors之间的operations都在torch module里，而且它们都可以被当作tensor的method来调用。
+
+比如：transpose function可以从torch module中被调用：
+
+```python
+# In [1]:
+a = torch.ones(3, 2)
+a_t = torch.transpose(a, 0, 1)
+a.shape, a_t.shape
+
+# Out [1]:
+(torch.Size([3, 2]), torch.Size([2, 3]))
+
+# 而transpose function也可以被当成a的一个method被调用：
+
+# In [2]:
+a_t = a.transpose(0, 1)
+a.shape, a_t.shape
+
+# Out [2]:
+(torch.Size([3, 2]), torch.Size([2, 3]))
+
+# 这两种使用方法完全没有区别。
+```
+
+所有的tensor operations都可以在这个[online doc](https://pytorch.org/docs)上找到。它组织的很合理，将tensor的operations分为了以下几类：
+
+* Creation ops：用来construct一个tensor的function，比如ones，from_numpy等
+* Indexing，slicing，joining，mutating ops：用来改变一个tensor的shape，stride，或者内容的functions，比如transpose等。
+* Math ops：通过计算来改变tensor的内容的funtions：
+    * Pointwise ops：通过对一个tensor里每个element都作用该function来得到一个新的tensor，比如abs，cos等
+    * Reduction ops：通过循环一个tensor里所有的element来得到一个总体的值，比如mean，std，norm等
+    * Comparison ops：对tensors做numerical predicates，比如equal，max等
+    * Spectral ops：在频域区间内转换和操作的函数，比如stft，hamming_window等
+    * Other operations：一些tensor的特殊的function，比如cross等
+    * BLAS和LAPACK ops：对scalar，vector-vector，matrix-vector，matrix-matrix的operations适用的BLAS（Basic Linear Algebra Subprogramming） functions。
+* Random Sampling：从概率分布里随机取数的functions，比如randn，normal等
+* Serialization：加载和存储tensor的functions，比如laod和save
+* Parallelism：控制parallel CPU多线程运行的线程数量的functions，比如set_num_threads。
+
+
+### 3.7 Tensors: Scenic views of storage
+
+
 
 
 
