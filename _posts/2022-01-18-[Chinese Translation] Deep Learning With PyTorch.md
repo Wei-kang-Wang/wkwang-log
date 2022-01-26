@@ -983,6 +983,155 @@ points[None]     # 给这个tensor加上一个维度为1的新维度，这个新
 
 ### 3.4 Named tensors
 
+tensors的各个dimensions（或axes）通常是某些东西的index（索引），比如image的pixel location，或者color channels。这个表明当我们想index一个tensor的时候，我们需要记住每个dimension代表的含义，并有效的按顺序的进行索引。但因为数据在作为tensor输入之后，中间层会将这个tensor经过很多次转换，所以跟踪每个dimension的含义是很容易出错的。
+
+举一个具体的例子来说明上面所说的问题。想象我们有一个3D的tensor，比如2.1.4里的img_t，这是一个RGB的三通道的image（在下面的例子里我们就随机生成一个维度相同的tensor）， 我们想将它转为gray-scale（灰度图）。而生成灰度图所需要的RGB三通道的权重，就选一个很常见的生成亮度值的：
+
+```python
+# In [1]:
+img_t = torch.rand(3, 5, 5)  # shape [channels, rows, columns]，这就是随机生成的RGB三通道的输入图片
+weights = torch.tensor([0.2126, 0.7152, 0.0722])  # 用于RGB三通道的权重
+```
+
+我们希望我们的代码能更具有通用性，比如，从表示为标记着height和width的2D tensor的grayscale image变成RGB三通道的3D tensor，或者从一张输入image到一个batch的images。在2.1.4里，我们用torch.unsqueeze function给输入的3D RGB image tensor加了一个维度。类似的，我们也给输入的3D RGB image tensor加上batch这个新的维度，在我们的例子里，batch=2：
+
+```python
+# In [2]:
+batch_t = torch.rand(2, 3, 5, 5)  # shape [batch, channels, rows, columns]，这就是随机生成的RGB三通道的输入图片，一共有两张
+```
+
+有时候我们加了batch这个维度，从而输入的tensor是4维的，那么RGB channels这个维度就在dimension 1，而有时候我们没加batch这个维度，从而输入的tensor是3维的，那么RGB channel这个维度就在dimension 0。但不管怎样，我们从末尾开始数，RGB channel这个维度永远在dimension -3。我们不用weights tensor给RGB三通道加权平均，只是单纯的取个平均数：
+
+```python
+# In [3]:
+image_gray_naive = img_t.mean(-3)     # 将3D tensor img_t按照RGB channel这个维度取算术平均，得到一个2D tensor灰度图
+batch_gray_naive = batch_t.mean(-3)   # 将4D tensor batch_t按照RGB channel这个维度取算术平均，得到一个3D tensor灰度图
+img_gray_naive.shape, batch_gray_naive.shape
+
+# Out [3]:
+(torch.Size([5, 5]), torch.Size([2, 5, 5]))
+```
+
+现在变得更复杂一点，我们现在用weights tensor来给RGB三通道加权平均，而不仅仅像上面的例子那样直接取算术平均数。PyTorch允许我们将有相同shape的两个tensor进行multiply操作，当某个乘数的某一个dimension的size是1时，仍然是可以的。
+
+>这就是为什么在2.1.4里要将img_t加上一个维度变成batch_t，尽管这个维度的size是1，但是ResNet生成的实例model默认输入的tensor的dimension是4，分别是(batch, channels, height, width)。
+
+当PyTorch里做运算的两个operands的维度不一样的时候，PyTorch和Numpy一样提供了处理这种情况的一个简便的机制：broadcasting。意思是，将两个tensor的维度按右对齐对准，只要它们满足在对应的维度上的shape是相同的，或者某一个tensor这个维度上的shape是1，那么即使它们的维度长度不同，短的那个左侧将会被补上1，相当于将tensor的内容复制几份来扩充维度。
+
+在我们这个例子里，我们可以用一个unsqueezed_weights这样一个tensor，它的维度是(3, 1, 1)，用它来乘以batch_t这个维度是(2, 3, 5, 5)的tensor，就可以得到结果为(2, 3, 5, 5)的tensor，其RGB channel的维度被乘以了weights相应的值，并且这个操作在batch的每个image和image的每个pixel上都做了操作：
+
+```python
+# In [4]:
+unsqueezed_weights = weights.unsqueeze(-1).unsqueeze(-1)
+img_weights = img_t * unsqueezed_weights
+batch_weights = batch_t * unsqueezed_weights
+img_gray_weighted = img_weights.sum(-3)
+batch_gray_weighted = batch_weights.sum(-3)
+batch_weights.shape, batch_t.shape, unsqueezed_weights.shape, batch_gray_weighted.shape
+
+# Out [4]:
+(torch.Size([2, 3, 5, 5]), torch.Size([2, 3, 5, 5]), torch.Size([3, 1, 1]), torch.Size([2, 5, 5]))
+```
+
+einsum是一种处理index的function，在PyTorch和Numpy里都有用，此处不再赘述。
+
+通过上面的内容可以看到，这样的代码很容易出错，因为往往人们就忘了每个tensor每个dimension都是代表了什么意思。所以给tensor的dimension加上名字就变得合理了。
+
+PyTorch1.3加了named tensor的特征。Tensor factory functions比如torch.tensor或torch.rand都可以接收一个叫做names的argument，这个argument必须是一个string sequence。
+
+```python
+# In [5]:
+weights_named = torch.tensor([0.2126, 0.7152, 0.0722], names=['Channels'])
+weights_named
+
+# Out [5]:
+tensor([0.2126, 0.7152, 0.0722], names=('Channels',))
+```
+
+当我们已经有了一个tensor之后，我们还想给它加上names（但是不改变已经存在的那些），我们就可以调用这个tensor的一个method，refine_names。ellipsis省略号（...）可以允许我们跳过任意的dimensions。
+
+```python
+# In [6]:
+img_named = img_t.refine_names(..., 'channels', 'rows', 'columns')
+batch_named = batch_t.refine_names(..., 'channels', 'rows', 'columns')
+print("img named:", img_named.shape, img_named.names)
+print("batch named:", batch_named.shape, batch_named.names)
+
+# Out [6]:
+img named: torch.Size([3, 5, 5]), ('channels', 'rows', 'columns')
+batch named: torch.Size([2, 3, 5, 5]), (None, 'channels', 'rows', 'columns')
+```
+
+利用rename这个sibling method，我们还可以覆盖或者丢弃原有的names（丢弃的话就传入None）：
+
+```python
+# In [7]:
+img_new_named = img_named.rename(..., 'height', 'width')
+batch_new_named = batch_named.rename(..., None)
+image_new_named.names, batch_new_named.names
+
+# Out [7]:
+(('channels', 'height', 'width'), (None, 'channels' , 'rows', None))
+```
+
+>注意，不管是rename还是refine_names，内部只能最多有一个省略号。
+
+当对两个tensor做operation的时候，PyTorch除了会进行dimension的验证（验证它们对应位置的dimension的shape是否一样或某个为1，如果dimension长度不同是否能够broadcast），它还会对names也进行检查。目前的PyTorch还不会根据names自动对齐dimensions，我们还需要在code里明确指出。align_as method会返回一个tensor，这个tensor会补全所缺少的dimensions而且将已经存在的dimensions按正确的顺序排列，而补上的缺少的dimensions都是shape=1的。
+
+```python
+# In [8]:
+weights_aligned = weights_named.align_as(img_named)
+weights_aligned.shape, weights_aligned.name
+
+# Out [8]:
+(torch.Size([3, 1, 1]), ('channels', 'rows', 'columns'))
+```
+
+对于那些接收dimension作为argument的function，比如sum，同样可以接受这个dimension的names作为argument：
+
+```python
+# In [9]:
+gray_named = (img_named * weights_aligned).sum('channels')
+batch_gray_named = (batch_named * weights_aligned).sum('channels')
+gray_named.shape, gray_named.names, batch_gray_named.shape, batch_gray_named.names
+
+# Out [9]:
+(torch.Size([5, 5]), ('rows', 'columns'), torch.Size([2, 5, 5]), (None, 'rows', 'columns'))
+```
+
+我们可以注意到，在上面的例子里，weights_aligned的dimension是(3,1,1)，而batch_named的dimension是(2,3,5,5)，但是它们符合broadcasting的规则，且对应dimension的名字是一样的，从而可以运算。我们还可以注意到，结果的tensor是(2,5,5)，'channels'维度被sum函数消去，而第一个维度的名字和shape都继承了batch_named的，因为weight_aligned根本没有这个维度。
+
+如果operation的两个tensor对应位置的names不一样，会直接报错：
+
+```python
+# In [10]:
+gray_named = (img_named[..., :3] * weight_named).sum('channels')
+
+# Out [10]:
+RuntimeError: Error when
+ attempting to broadcast dims ['channels', 'rows',
+ 'columns'] and dims ['channels']: dim 'columns' and dim 'channels'
+ are at the same position from the right but do not match.
+
+如果我们希望将已经命名的tensors还原到没有命名的时候，直接使用rename function将它们的名字改为None：
+
+```python
+# In [11]:
+gray_plain = gray_named.rename(None)
+gray_plain.shape, gray_plain.names
+
+# Out [11]:
+(torch.Size([5, 5]), (None, None))
+```
+
+named tensors仍然处于试用期，要谨慎使用。
+
+
+### Tensor element types
+
+
+
+
 
 
 
