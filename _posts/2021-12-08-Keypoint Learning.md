@@ -121,7 +121,14 @@ where $$I_v^k$$ is the inlier set, with $$X_f^k \in R^3$$ the 3D triangulated ke
 *CVPR 2020*
 
 
+### [OpenPose: Realtime Multi-Person 2D Pose Estimation Using Part Affinity Fields](https://arxiv.org/pdf/1812.08008.pdf)
+*Zhe Cao, Gines Hidalgo, Tomas Simon, Shih-En Wei, and Yaser Sheikh*
 
+*CVPR2017 and TPAMI 2019*
+
+This paper proposed an efficient algorithm that can learn poses of each individual person from images or videos including multiple people. Pose estimation is actually very closed to human body keypoint detections. Thus this model can also be used to learn hand poses, human keypoints, hand keypoints, facial keypoints, and other non-biological object keypoints such as vehicles
+
+There are three main challege of realtim multi-person pose estimation problems. 1) First, each image may contain an unknown number of people that can appear at any position or scale. 2) Second, interactions between people induce complex spatial interference, due to contact, occlusion, or limb articulations, making association of parts difficult. Third, runtime complexity tends to grow with the number of people in the image, making realtime performance a challenge The method in this paper is bottom-up, different from top-down mechanism. Top-down pose estimation involves two main stage: detection of individual human; and learn poses of each individual. Whereas bottom-up method learns all poses within an image and assign these poses to each person. Bottom-up method excel top-down method because top-down method needs to detect individuals firstly and the computation time of this process is linear with numbers of human within an image, while there exists possiblities that bottom-up methods can find ways to decouple numbers of human within and image with the computation time of the whole process. Another reason why bottom-up method is better is that if the detecting of individuals stage in the top-down method fails, the result would be wrong no matter how the second stage processes, and dividing the whole process into two stage will make dependecies among different prople becomes intractable.
 
 ---
 
