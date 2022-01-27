@@ -130,6 +130,8 @@ This paper proposed an efficient algorithm that can learn poses of each individu
 
 There are three main challege of realtim multi-person pose estimation problems. 1) First, each image may contain an unknown number of people that can appear at any position or scale. 2) Second, interactions between people induce complex spatial interference, due to contact, occlusion, or limb articulations, making association of parts difficult. Third, runtime complexity tends to grow with the number of people in the image, making realtime performance a challenge The method in this paper is bottom-up, different from top-down mechanism. Top-down pose estimation involves two main stage: detection of individual human; and learn poses of each individual. Whereas bottom-up method learns all poses within an image and assign these poses to each person. Bottom-up method excel top-down method because top-down method needs to detect individuals firstly and the computation time of this process is linear with numbers of human within an image, while there exists possiblities that bottom-up methods can find ways to decouple numbers of human within and image with the computation time of the whole process. Another reason why bottom-up method is better is that if the detecting of individuals stage in the top-down method fails, the result would be wrong no matter how the second stage processes, and dividing the whole process into two stage will make dependecies among different prople becomes intractable.
 
+
+
 ---
 
 *If you notice mistakes and errors in this post, don't hesitate to contact me at* **wkwang0916 at outlook dot com** *and I would be super happy to correct them right away!*
