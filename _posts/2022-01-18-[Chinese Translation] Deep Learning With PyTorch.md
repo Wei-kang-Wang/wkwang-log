@@ -1260,6 +1260,69 @@ a.shape, a_t.shape
 
 ### 3.7 Tensors: Scenic views of storage
 
+现在是时候看看PyTorhc里tensor的实现机理了。tensors里所储存的values被torch.Storage的instance分配给一块连续的内存空间。一个storage就是一个一维的Numerical data的array，也就是一个包含某个给定数据类型（比如float或者int64等）的连续内存空间。一个PyTorch tensor实例是这样一个torch.Storage实例的一个view，并且tensor加上了能够index等的功能。
+
+多个tensors可以index同一个storage，即使形式上它们index的tensor是不一样的，如figure4所示。实际上，在3.2里，point$$\left[0\right]$$会返回另一个tensor，而这个tensor index的storage和points tensor所指向的storage是同一个（只不过point$$\left[0\right]$$只是指向了一部分数据）。背后的内存实际上只被分配过一次，所以当创建这些新的tensors时，如果还是这个storage的或者其一部分的view，那么就会很快，因为并没有实际上在内存中创建了新的数据，这些都是被tensor.Storage实例来妥善解决的。
+
+![Tensor storage]({{ '/assets/images/DLP-3-4.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 4. torch.Tensors are views of a torch.Storage instance.*
+
+#### 3.7.1 Indexing into storage
+
+我们用之前的2D points例子来看看如何在storage里index。一个给定的tensor的storage可以用.storage性质来获取：
+
+```python
+# In [1]:
+points = torch.tensor([[4., 1.], [5., 3.], [2., 1.]])
+points.storage()
+
+# Out [1]:
+4.0
+1.0
+5.0
+3.0
+2.0
+1.0
+[torch.FloatStorage of size 6]
+```
+
+尽管tensor本身有三行两列，是个2维的tensor，但是其后背的内存是一个size为6的array。所以说，tensor知道如何将一对index对应到storage里具体的value上。
+
+我们可以手动index torch.Storage里的内容：
+
+```python
+# In [2]:
+points_storage = points.storage()
+points_storage[0]
+
+# Out [2]:
+4.0
+
+# In [3]:
+points.storage()[1]
+
+# Out [3]:
+1.0
+```
+
+我们并不能用一对index来index一个2维tensor背后的storage。一个storage的布局永远都是一维的，不管view它的tensor是什么维的。
+
+现在，改变一个tensor背后storage的值就会改变这个tensor的值是显而易见的。
+
+```python
+# In [4]:
+points_storage = points.storage()
+points_storage[0] = 2.0
+points
+
+# Out [4]:
+tensor([[2., 1.],
+        [5. ,3.],
+        [2., 1.]])
+```
+
+#### 3.7.2 Modifying stored values: In-place operations
 
 
 
