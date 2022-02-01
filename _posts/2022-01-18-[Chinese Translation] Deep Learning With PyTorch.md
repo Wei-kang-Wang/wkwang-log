@@ -1262,7 +1262,7 @@ a.shape, a_t.shape
 
 现在是时候看看PyTorhc里tensor的实现机理了。tensors里所储存的values被torch.Storage的instance分配给一块连续的内存空间。一个storage就是一个一维的Numerical data的array，也就是一个包含某个给定数据类型（比如float或者int64等）的连续内存空间。一个PyTorch tensor实例是这样一个torch.Storage实例的一个view，并且tensor加上了能够index等的功能。
 
-多个tensors可以index同一个storage，即使形式上它们index的tensor是不一样的，如figure4所示。实际上，在3.2里，point$$\left[0\right]$$会返回另一个tensor，而这个tensor index的storage和points tensor所指向的storage是同一个（只不过point$$\left[0\right]$$只是指向了一部分数据）。背后的内存实际上只被分配过一次，所以当创建这些新的tensors时，如果还是这个storage的或者其一部分的view，那么就会很快，因为并没有实际上在内存中创建了新的数据，这些都是被tensor.Storage实例来妥善解决的。
+多个tensors可以index同一个storage，即使形式上它们是不一样的，如figure4所示。实际上，在3.2里，point$$\left[0\right]$$会返回另一个tensor，而这个tensor index的storage和points tensor所指向的storage是同一个（只不过point$$\left[0\right]$$只是指向了一部分数据）。背后的内存实际上只被分配过一次，所以当创建这些新的tensors时，如果还是这个storage的或者其一部分的view，那么就会很快，因为并没有实际上在内存中创建了新的数据，这些都是被tensor.Storage实例来妥善解决的。
 
 ![Tensor storage]({{ '/assets/images/DLP-3-4.PNG' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
@@ -1323,6 +1323,23 @@ tensor([[2., 1.],
 ```
 
 #### 3.7.2 Modifying stored values: In-place operations
+
+之前介绍了很多tensor的operations既可以用torch.tensor的methods调用，也可以用以tensor为输入的function来调用，但有一小部分一小部分这样的operations仅仅可以作为torch.tensor的method被使用。它们通过在名字后面加个下划线来分辨，比如zero_，表明这个method是通过改变输入的in place的作用而不是创建饿了一个新的tensor作为输出。比如，zero_ method会将输入tensor的所有值都变成0。所有的名字后面没有下划线的method，都会保持输入的tensor不变，而输出一个新的tensor：
+
+```python
+# In [1]:
+a = torch.ones(3, 2)
+a.zero_()
+a
+
+# Out [1]:
+tensor([[0., 0.]
+        [0., 0.]
+        [0., 0.]])
+```
+
+
+### Tensor metadata: Size, offset, and stride
 
 
 
