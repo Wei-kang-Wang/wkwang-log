@@ -1341,6 +1341,481 @@ tensor([[0., 0.]
 
 ### Tensor metadata: Size, offset, and stride
 
+为了能够index一个tensor的storage，除存储的数据以外tensor需要有一些格外的信息，叫做metadata，明确的定义size，offset和stride。figure5表现了这些metadata之间如何互相作用的。size（在Numpy中叫做shape）是一个tuple，表示这个tensor每个维度有多少个element，也就是每个维度的size。offset是存储这个tensor的storage第一个element所在的index（tensor内的内容作为一个一维array存储在storage里，offset指的是这个array第一个element的index）。stride指的是storage这个一维的array每一个element之间所跳过的element的个数，因为每个tensor的数据类型是知道的，所以根据element的个数也能算出具体要跳过多少个bytes，而stride仍然是个长度和tensor维度相同的tuple，它表示在tensor的每个维度下，保持别的维度值不变，从这个维度的一个element到这个维度的下一个element要跳过的element的个数。
+
+![Tensor storage metadata]({{ '/assets/images/DLP-3-5.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 5. Relationship between a tensor's offset, size, and stride. Here the tensor is a view of a larger storage, like one that might have been allocated when creating a larger tensor.*
+
+#### 3.8.1 Views of another tensor's storage
+
+```python
+# In [1]:
+points = torch.tensor([[4. ,1.], [5., 3.], [2., 1.]])
+second_point = points[1]
+second_point.storage_offset()
+
+# Out [1]:
+2
+
+# In [2]:
+second_point.size()
+
+# Out [2]:
+torch.Size([2])
+```
+
+所获得的新的tensor，second_point在storage里的offset是2（因为跳过了points tensor里的2个elements），其size用tensor的size() method所获得，返回的是一个torch.Size类的实例，内部参数是长度为1的list，因为second_point是一维的，具体数值表示这个维度的大小。实际上同样的信息也被存储在tensor的shape property里：
+
+```python
+# In [3]:
+second_point.shape
+
+# Out [3]:
+torch.Size([2])
+```
+
+stride是一个tuple，维度和tensor的维度一样，tuple内每个值表示这个值所在位置表示的维度的index增加1在storage里所需要跳过的element的个数。比如points的stride是(2,1):
+
+```python
+# In [4]:
+points.stride()
+
+# Out [4]:
+(2, 1)
+```
+
+在一个2维的tensor里获取一个element，index是i,j，实际上是在storage里通过storage_offset + stride$$\left[0\right]$$ * i + stride$$\left[1\right]$$ * j位置的element获得。offset一般都是0，但如果这个tensor是一个更大的tensor的storage的一部分的view，那么offset就会是一个正整数。
+
+torch.Tensor和tensor.Storage之间的这种关系让一些operations变得计算更容易，比如transposing一个tensor或者获取一个子tensor，因为这些operations都不必再在memory里重新分配内存了。取而代之的是，这些operations返回的是一个拥有新offset，size和stride的新的tensor，但并没有新的storage。
+
+在上面的例子里我们已经在points这个tensor里获取了子tensor，second_point，发现second_point的offset增加了。我们再来看看second_point的size和stride是怎样的：
+
+```python
+# In [5]:
+second_point = points[1]
+second_point.size()
+
+# Out [5]:
+torch.Size([2])
+
+# In [6]:
+second_point.storage_offset
+
+# Out [6]:
+2
+
+# In [7]:
+second_point.stride()
+
+# Out [7]:
+(1, )
+```
+
+second_point是points tensor的子tensor，相对于points tensor少了一个维度。second_point和points仍然指向的是同一个storage。这意味着改变second_point这个tensor同样会改变points tensor的值：
+
+```python
+# In [8]:
+second_point[0] = 10.0
+points
+
+# Out [8]:
+tensor([[4., 1.],
+        [10., 3.],
+        [2., 1.]])
+```
+
+如果我们希望不要改变原tensor的值（实际上所有的view都会改变它们所指的storage的值），我们clone那个子tensor到一个新的tensor：
+
+```python
+# In [1]:
+points = torch.tensor([[4., 1.], [5., 3.], [2., 1.]])
+second_point = points[1].clone()
+second_point[0] = 10.0
+points
+
+# Out [1]:
+tensor([[4., 1.],
+        [5., 3.],
+        [2., 1.]])
+```
+
+
+#### 3.8.2 Transposing without copying
+
+points tensor是一个2维的tensor，每一个row代表一个point的XY坐标，一共三个点，所以shape是(3, 2)。而我们现在希望将其transpose，从而shape变成(2, 3)，每一列代表一个point的XY坐标。我们趁机介绍一个t function，是transpose的简称，专门用来转秩2维tensor：
+
+```python
+# In [1]:
+points = torch.tensor([[4., 1.], [5., 3.], [2., 1.]])
+points
+
+# Out [1]:
+tensor([[4., 1.],
+        [5., 3.],
+        [2., 1.]])
+
+# In [2]:
+points_t = points.t()
+points_t
+
+# Out [2]:
+tensor([[4., 5., 2.],
+        [1., 3., 1.]])
+
+# 我们可以来验证一下这两个tensor是不是指向同一个storage：
+
+# In [3]:
+id(points.storage()) == id(points_t.storage())
+
+# Out [3]:
+True
+
+# 实际上这两个tensor，points和points_t仅仅在size和stride上有所不同：
+
+# In [4]:
+points.stride()
+points_t.stride()
+
+# Out [4]:
+((2, 1), (1, 2))
+```
+
+所以说在points tensor里的第一个index增加1，比如说从points$$\left[0, 0\right]$$到points$$\left[1, 0\right]$$会在storage里跳过两个element，而第二个index增加1，比如说从points$$\left[0, 0\right]$$到points$$\left[0, 1\right]$$会在storage里跳过一个element。对于二维tensor来说，storage按照每行来存储值，而对于多维tensor来说，storage按照括号从内到外存储。
+
+figure6表示了transpose一个2维tensor的过程。tranpose操作的正规定义为：并没有新的storage被创建，transpose是通过建立一个新的Tensor实例，这个实例的stride ordering与原tensor不同，而获得的。
+
+
+#### 3.8.3 Transposing in higher dimensions
+
+在PyTorch里，tranpose并不仅限于matrices。我们可以沿着任意两个dimension来transpose一个multidimensional array。
+
+```python
+# In [1]:
+some_t = torch.ones(3, 4, 5)
+transpose_t = some_t.transpose(0, 2)
+some_t.shape
+
+# Out [1]:
+torch.Size([3, 4, 5])
+
+# In [2]:
+transpose_t.shape
+
+# Out [2]:
+torch.Size([5, 4, 3])
+
+# In [3]:
+some_t.stride()
+
+# Out [3]:
+(20, 5, 1)
+
+# In [4]:
+transpose_t.stride()
+
+# Out [4]:
+(1, 5, 20)
+```
+
+一个tensor，如果它所指向的storage所存储的数据是按照这个tensor内部括号从内到外存储的，比如之前的points，some_t等，那么称这个tensor是contiguous的，因为获取它的值只要按照括号从内到外的顺序，就不需要在storage里跳过任何element。经过transpose的tensor不是contiguous的。
+
+
+#### 3.8.4 Contiguous tensors
+
+某些PyTorch里的tensor operations仅仅作用于contiguous tensors，比如view，我们在下个chapter会遇到。tensor的contiguous method可以将一个non-contigous的tensor变成contigous的，而本来就是contiguous的tensor不会受到影响。
+
+points是contiguous的，而points_t不是：
+
+```python
+# In [1]:
+points.is_contiguous()
+
+# Out [1]:
+True
+
+# In [2]:
+points_t.is_contiguous()
+
+# Out [2]:
+False
+```
+
+我们可以通过contigous method来从non-contigous tensor获取一个新的contiguous tensor。新的tensor的内容是一样的，但是stride和storage都会变：
+
+```python
+# In [1]:
+points = torch.tensor([[4., 1.], [5., 3.], [2., 1.]])
+points_t = points.t()
+points_t
+
+# Out [2]:
+tensor([[4., 5., 2.],
+        [1., 3., 1.]])
+
+# In [3]:
+points_t.storage()
+
+# Out [3]:
+4.0
+1.0
+5.0
+3.0
+2.0
+1.0
+[torch.FloatStorage of size 6]
+
+# In [4]:
+points_t.stride()
+
+# Out [4]:
+(1, 2)
+
+# In [5]:
+points_t_cont = points_t.contigous()
+points_t_cont
+
+# In [6]:
+tensor([[4., 5., 2.],
+        [1., 3., 1.]])
+
+# In [7]:
+points_t_cont.stride()
+
+# Out [7]:
+(3, 1)
+
+# In [8]:
+points_t_cont.storage()
+
+# Out [8]:
+4.0
+5.0
+2.0
+1.0
+3.0
+1.0
+[torch.FloatStorage of size 6]
+```
+
+我们注意到，在上面的代码里，points_t.contiguous()重新创建了一个新的tensor，points_t_cont，使用contiguous methos使得points_t_cont变成了contiguous的，这个时候给points_t_cont tensor实际上分配了一个新的内存地址，而此时的storage就按照points_t_cont是个contiguous tensor的方式来存储，而且stride也变成了contiguous的。
+
+
+### 3.9 Moving tensors to the GPU
+
+到目前为止，当我们讨论storage，我们都讨论的是CPU上的memory。PyTorch tensor可以被存储在另一种processor上：graphics processing unit(GPU)。每个PyTorch tensor都可以被转移到某个GPU上来进行大规模快速并行计算。每个tensor的operation都会被PyTorch的GPU routines来执行。
+
+>PyTorch Support for various GPUs
+>在2019中旬之前的PyTorch版本只支持有CUDA的GPU。PyTorch也可以在AMD的ROCm上运行，但是需要用户自己编译。对Google的tensor processing units(TPUs)的支持仍在建设中，而别的类型的GPU，比如OpenCL,目前还不支持。
+
+#### 3.9.1 Managing a tensor's device attribute
+
+一个PyTorch的tensor，除了有dtype这样一个argument以外，还有一个device argument，指明这个tensor的数据放在computer的哪个设备上。我们通过指明这个argument来构造一个在GPU上的tensor：
+
+```python
+# In [1]:
+points_gpu = torch.tensor([[4., 1.], [5., 3.], [2., 1.]], device = 'cuda')
+
+# 我们也可以用to method将一个创建在CPU上的tensor转移到GPU上
+
+# In [2]:
+points_gpu = points.to(device = 'cuda')
+```
+
+通过上述操作，可以创建一个新的tensor，和原来的tensor有着一样numeracal data，但是存储在GPU的RAM里而不是默认系统的RAM里。现在tensor已经存在GPU里了，我们来看看它到底是如何加速计算的。在绝大多数情况下，CPU和GPU上的tensors使用相同的API，使得代码移植和编写变得简单。
+
+如果设备上有多于一片GPU，我们可以直接指定用哪个GPU（从0开始）：
+
+```python
+# In [3]:
+points_gpu = points.to(device='cuda:0')
+```
+
+现在这个tensor上的operations都会在GPU上进行了：
+
+```python
+# In [4]:
+
+# 做一个操作，使得tensor里每个值乘以2
+
+# 这个multiplication在CPU上计算
+points = 2 * points
+
+# 这个multiplication在GPU上计算
+points_gpu = 2 * points.to(device='cuda')
+```
+
+上述计算结果points_gpu并不会被传回到CPU上，上面的代码过程如下：
+* points tensor被复制到GPU上
+* 一个新的GPU上的tensor被创建出来，用来存储multiplication的结果
+* 这个GPU上的tensor的一个handle被返回
+
+所以，如果我们给points_gpu加上一个常数，这个加法仍然在GPU上计算，而且并不会有数据流向CPU（除非我们要print它们或者index access它们）。
+
+```python
+# In [5]:
+# 在GPU上进行
+points_gpu = points_gpu + 4
+```
+
+如果我们想要将tensor转移回CPU，我们需要给to method提供一个cpu argument：
+
+```python
+# In [6]:
+points_cpu = points_gpu.to(device='cpu')
+```
+
+我们可以直接使用cpu和cuda methods而不用to method来实现同样的操作：
+
+```python
+# In [7]:
+points_gpu = points.cuda()   # 默认在GPU 0上
+points_gpu = points.cuda(0)
+points_cpu = points_gpu.cpu()
+```
+
+但是通过to method我们可以同时改变数据的部署设备和数据类型，因为to method可以传入device和dtype两个arguments。
+
+
+### 3.10 Numpy interoperability
+
+PyTorch tensors和Numpy arrays可以非常高效的互相转换。通过将PyTorch tensor转换为Numpy array，我们可以借用Numpy的广泛的功能。
+
+```python
+# In [1]:
+points = torch.ones(3, 4)
+points_np = points.numpy()
+points_np
+
+# Out [1]
+array([[1., 1., 1., 1.],
+       [1., 1., 1., 1.],
+       [1., 1., 1., 1.]], dtype=float32)
+```
+
+上述代码从points这个tensor里获得了points_np这个Numpy multidimensional array，其拥有着正确的size，shape，以及numerical type。有趣的是，返回的这个Numpy array和tensor storage共享同一个buffer。这表明只要tensor是在CPU RAM里的，这个tensor对应的Numpy array的Numpy method可以很高效的被执行。这同样表明改变Numpy array的值同样会改变原tensor的值。如果这个tensor是GPU上的，那PyTorch会复制一份这个tensor的内容给CPU上的Numpy array。
+
+相反的，我们也可以从一个Numpy multidimensional array来获得一个PyTorch tensor：
+
+```python
+# In [2]:
+points = torch.from_numpy(points_np)
+```
+
+这样生成的PyTorch tensor和原Numpy array关于buffer的关系和上面所述的一样。
+
+>注意到，PyTorch默认的数据类型是32-bit floating-point，而Numpy默认的数据类型是64-bit floating-point。但正如我们之前所说的，我们希望使用32-bit floating-point，所以在转换后，我们要确认dtype=torch.float。
+
+
+### 3.11 Generalized tensors are tensors, too
+
+### 3.12 Serializing tensors
+
+当数据很重要的时候，我们希望能将tensor存储下来，并且以后加载使用。毕竟我们不想每次都重新训练我们的模型。PyTorch使用pickle来serialize一个tensor，同时伴有精心设计的storage的serialization code。这是如何将points tensor存储在outpoints.t file的方法：
+
+```python
+# In [1]:
+torch.save(points, '../data/p1ch3/ourpoint.t')
+
+# 我们也可以用一个file descriptor来替代filename：
+
+# In [2]:
+with open('../data/p1ch3/outpoints.t', 'wb') as f:
+    torch.save(points, f)
+```
+
+加载points回来也是很简单的：
+
+```python
+# In [3]:
+points = torch.load('../data/p1ch3/outpoints.t')
+
+# 或者下面的代码也可以：
+
+# In [4]:
+with open('../data/p1ch3/outpoints.t') as f:
+    points = torch.load(f)
+```
+
+虽然说上述的方法存储和加载tensor都很方便，但是我们只能通过PyTorch来存储和加载它，这个文件其它的软件无法识别，not interoperative。所以更有用的是掌握如何将tensors存储为其他格式文件的方法。
+
+
+#### 3.12.1 Serializing to HDF5 with h5py
+
+HDF5格式是一种很常见的文件存储格式。HDF5是一种可移动的，广泛支持的用来表示serialized multidimensional arrays的文件格式，其组织成一种nested key-value字典的形式。Python通过h5py库来支持HDF5，这个库接收以及返回Numpy的arrays。
+
+```python
+# In [1]
+conda install h5py  # 安装h5py库
+```
+
+从而我们可以通过先将points tensor转换为Numpy array（如之前所提，很方便），之后再将其用create-dataset function来存储：
+
+```python
+# In [1]:
+import h5py
+
+f = h5py.File('../data/p1ch3/ourpoints.hdf5', 'w')
+dset = f.create_dataset('coords', data=points.numpy())
+# coords是文件的key
+
+f.close()
+```
+
+HDF5文件的key还可以是nested种类的。HDF5一个有意思的事情是我们可以在打开数据之后，数据仍然还在硬盘里的时候，index我们感兴趣的部分，然后只加载这部分的内容。
+
+```python
+# In [2]:
+f = h5py.File('../data/p1ch3/outpoints.hdf5', 'r')
+dset = f['coords']
+last_points = dset[-2:]  # 我们只需要后两个点的内容被加载加来
+```
+
+上述代码里，当file打开的时候，数据没有被加载，仍然存在硬盘里。直到最后一行代码被执行之前，数据都还在硬盘里，没有加载到内存里。在最后一行执行之后，h5py获取了dset这个数据在硬盘上最后两个column的内容，并返回了那个区域的数据，以Numpy array的形式。
+
+因为加载的数据是Numpy array的形式，所以我们可以使用torch.from_numpy funcion直接将返回的array转换为PyTorch的tensor。
+
+```python
+# In [3]:
+last_points = torch.from_numpy(dset[-2:])
+f.close()
+```
+
+当我们结束加载数据后，我们用f.close()关闭这个文件。关闭这个HDF5文件会使得dset失效，从而访问它会报错。我们之后只需要用last_points这个tensor就可以。
+
+
+### 3.13 Conclusion
+
+现在我们已经具备了将任意输入转换为floating-point number的先前知识。我们将会介绍tensor的其他知识，比如创建tensor的view，用tensor来index tensor，以及broadcasting，随着内容的深入而逐步介绍。
+
+在chapter4里，我们将会学会如何在PyTorch里表示现实世界里的数据。我们从最简单的tabular data开始，之后逐渐到更复杂的数据。在这个过程中，我们会更深入的了解tensors。
+
+
+### 3.14 Summary
+* neural networks将floating-point representations转换为其它的floating-point representations。起始和结束的representations是人类所能够理解的，但是中间的那些representations比较难以理解。
+* 这些floating-point representations存储在tensor里。
+* tensor是multidimensional array，它们是PyTorch里最基本的数据结构。
+* PyTorch对于tensor creation，manipulation和mathematical operations有着详尽的标准库。
+* tensors可以被serialized到硬盘里，并加载回来。
+* 所有的PyTorch里的tensor operations可以在CPU和GPU上被操作，而不需要改变代码。
+* PyTorch使用带有一个下划线的函数来表示这个函数是作用在tensor上的in-place函数（也就是说它改变原tensor的值，不返回新的tensor），比如Tensor.sqrt_等。
+
+```python
+# In [1]:
+a = torch.tensor(list(range(9)))
+a = a.to(dtype=torch.float)       # 必须将a的数据类型转换，否则cos_函数将无法将原始值替换掉，因为原始的数据类型是int。
+a.cos_()                          # 带有一个下划线结尾的函数会直接作用在原tensor上，并替换它的值，in-place操作
+a
+
+# Out [1]:
+tensor([ 1.0000,  0.5403, -0.4161, -0.9900, -0.6536,  0.2837,  0.9602,  0.7539, -0.1455])
+```
+
+
+
+
+
+
 
 
 
