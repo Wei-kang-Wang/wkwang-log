@@ -1936,6 +1936,170 @@ for c in range(n_channels):
 我们还可以对输入做其他的操作，比如geometric transformation，包括rotation，scaling，cropping等。这些操作可以使得training set更加丰富，也可以使得training set满足某些条件，比如特定的输入size等。我们将会在chapter12.6里提到相应的内容。
 
 
+### 4.2 3D images: Volumetric data
+
+我们已经学习了如何加载和表达2D images，比如我们用相机所拍到的照片。在某些情况下，比如某些医疗影像，CT（computed tomography）scans，我们处理的是一系列的有序排列的照片，对于CT来说，每一张相当于人体的一个切片。在CT图片里，每个pixel的density代表着体内不同成分。而每个pixel位置的density是通过某种方式计算出来的。
+
+每张CT照片的每个pixel位置只有一个scalar，也就是只有一个通道，代表着这个点处的强度，类似于grayscale image。这表明，在一般情况下，原始数据格式里，channel的维度就被省略了；所以原始数据的维度是三维的。通过将很多张2D images堆叠起来，我们得到了一个volumetric类型的数据，表达所检测物体的3D信息。和figure1里第三个维度表示的是颜色通道不同的是，figure2里的第三个维度表示的是物理上的空间信息。
+
+![CT]({{ '/assets/images/DLP-4-2.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 2. Slices of a CT scan, from the top of the head to the jawline.*
+
+储存volumetric data的tensor和储存image的tensor没有本质上的区别，只不过多了一个维度，depth，在channel维度的后面，所以整个tensor就是一个5D的tensor，$$N \times C \times D \times H \times W$$。
+
+#### 4.2.1 Loading a specialized format
+
+我们利用imageio module里的volread function来加载CT数据：
+
+```python
+# In [1]:
+import imageio
+
+dir_path = "../daat/p1ch4/volumetric-dicom/2-LUNG 3.0   B70f-04083"
+vol_arr = imageio.volread(dir_path, 'DICOM')                        # dir_path是存放数据的目录，而'DICOM'是一种数据格式
+vol_arr.shape                                                       # volread函数将这个目录下的'DICOM'格式的数据整合在一起，构成一个NumPy 3D array   
+
+# Out [1]:
+Reading DICOM (examining files): 1/99 files (1.0%99/99 files (100.0%)
+Found 1 correct series.
+Reading DICOM (loading data): 31/99 (31.392/99 (92.999/99 (100.0%)
+(99, 512, 512)
+```
+
+所读取的数据的layout和PyTorch所期待的不太一样（PyTorch期待的是上面所说的5D数据），因为没有channel这个维度。所以我们需要给数据增加一个维度，利用unsqueeze function：
+
+```python
+# In [3]:
+vol = torch.from_numpy(vol_arr).float()
+vol = torch.unsqueeze(vol, 0)
+
+vol.shape
+
+# Out [3]:
+torch.Size([1, 99, 512, 512])
+```
+
+我们现在就可以将多个上述的数据按照batch维度堆叠在一起，构成一个前面所述的5D数据。
+
+
+## 4.3 Representing tabular data
+
+我们在机器学习任务里遇到的最简单的数据可能就是tabular data了，存储在一个spreadsheet，CSV file或者一个database里。tabular data的每一行代表了一个sample的数据，而每一列代表每个sample一部分信息的汇总。
+
+我们先假设，每一行数据就是一个sample，行与行之间是没有顺序的，就是独立的数据。
+
+每一行代表着某种特征，可以是numerical number，也可以是string等。因此，tabular data一般都不是同质的（也就是每列数据类型不一定是一样的）。
+
+PyTorch tensors却是同质的，因为tensor内部只含有floating-point numbers。这种将任意输入转换为floating-point number的操作是有意为之，因为只有这样，neural networks才能将这些输入通过各种matrix multiplications和nonlinear functions来输出floating-point numbers。
+
+### 4.3.1 Using a real-world dataset
+
+我们作为深度学习实践者的第一个任务就是将现实生活中异质的data编码为neural networks能够使用的floating-point tensors。我们使用的是Wine Quality dataset。
+
+这个数据集包含了对wine的描述，tabular文件由12列组成，第一行是每列名称的头文件，每列用逗号隔开。前11列是各种化学性质，最后一列是0-10的一个评分。一个有意思的机器学习任务就是基于前11列的数据，给出最后一列总体评分的数据。
+
+
+#### 4.3.2 Loading a wine data tensor
+
+在我们设计机器学习模型之前，我们需要将数据载入。我们利用Python载入数据，并将数据转换为PyTorch tensor。这个文件是个CSV file，Python提供了很多种方法，比如Python自带的csv module，NumPy，Pandas等。而Pandas是时间和内存效率最高的方式。但本书为了避免介绍更多的内容，就是用NumPy来加载CSV file。
+
+```python
+# In [1]:
+import csv
+import numpy as np
+
+wine_path = "../data/p1ch4/tabular-wine/winequality-white.csv"
+wineq_numpy = np.loadtxt(wine_path, dtype=np.float32, delimiter=",", skiprows=1)
+
+wineq_numpy
+
+# Out [1]:
+array([[ 7. , 0.27, 0.36, ..., 0.45, 8.8 , 6. ],
+       [ 6.3 , 0.3 , 0.34, ..., 0.49, 9.5 , 6. ],
+       [ 8.1 , 0.28, 0.4 , ..., 0.44, 10.1 , 6. ],
+       ...,
+       [ 6.5 , 0.24, 0.19, ..., 0.46, 9.4 , 6. ],
+       [ 5.5 , 0.29, 0.3 , ..., 0.38, 12.8 , 7. ],
+       [ 6. , 0.21, 0.38, ..., 0.32, 11.8 , 6. ]], dtype=float32)
+
+# 我们来检查一下是不是所有的数据都被加载了：
+
+# In [2]:
+col_list = next(csv.reader(open(wine_path), delimiter=","))
+
+wineq_numpy.shape, col_list
+
+# Out [2]:
+((4898, 12),
+['fixed acidity',
+'volatile acidity',
+'citric acid',
+'residual sugar',
+'chlorides',
+'free sulfur dioxide',
+'total sulfur dioxide',
+'density',
+'pH',
+'sulphates',
+'alcohol',
+'quality'])
+
+# 我们将上述NumPy array转换为一个PyTorch tensor
+
+# In [3]:
+wineq = torch.from_numpy(wineq_numpy)
+
+wineq.shape, wineq.dtype
+
+# Out [3]:
+
+(torch.Size([4898, 12]), torch.float32)
+```
+
+#### 4.3 Representing scores
+
+我们可以认为评分是一个连续变量，认为其是一个实数，从而采用regression的方式，或者认为评分是一个标签，是一系列离散的数，从而采用classification的方式。不管哪种方式，我们都要将评分列，也就是最后一列，从原数据中提取出来单独对待，作为ground truth来使用。
+
+```python
+# In [4]:
+data = wineq[:, :-1]
+data, data.shape
+
+# Out [4]:
+(tensor([[ 7.00, 0.27, ..., 0.45, 8.80],
+         [ 6.30, 0.30, ..., 0.49, 9.50],
+         ...,
+         [ 5.50, 0.29, ..., 0.38, 12.80],
+         [ 6.00, 0.21, ..., 0.32, 11.80]]), torch.Size([4898, 11]))
+
+# In [5]:
+target = wineq[:, -1]
+target, target.shape
+
+# Out [5]:
+(tensor([6., 6., ..., 7., 6.]), torch.Size([4898]))
+```
+
+如果你想将target tensor转换为包含label的tensor，有两种选择，取决于我们要如何使用它。第一种是直接将其转换为integer，利用integer来表示label：
+
+```python
+# In [6]:
+target = wineq[:, -1].long()
+target
+
+# Out [6]:
+tensor([6, 6, ..., 7, 6])
+```
+
+如果target tensor包含string作为label，那么给每种string指定一个integer，和上述结果是一样的。
+
+#### 4.3.4 One-hot encoding
+
+另一种处理方式是构建评分的one-hot编码：将1-10每个得分都编码为
+
+
+
 
 
 
