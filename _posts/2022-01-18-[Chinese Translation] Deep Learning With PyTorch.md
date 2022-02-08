@@ -1845,7 +1845,7 @@ convolutional neural networks的介绍革命了整个computer vision界，基于
 如果每个pixel都包含多个scalars来表示颜色信息，有多种表示方法，而最常见的就是RGB表示法。RGB表示法的image数据，每个pixel有三个scalars，分别表示red，green和blue的颜色强度。单个颜色通道可以被认为和grayscale image类似。Figure1显示了一张RGB照片的样子。
 
 ![RGB image]({{ '/assets/images/DLP-4-1.PNG' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
+{: style="width: 800px; max-width: 100%;" class="center"}
 *Fig 1. A rainbow, broken into red, green, and blue channels.*
 
 上图彩虹的红色部分在red channel里对应位置的强度最大，而blue channel在彩虹图片的蓝色部分对应位置的强度最大。而白色部分，三个通道的强度的都大。
