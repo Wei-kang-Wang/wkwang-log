@@ -1812,6 +1812,135 @@ tensor([ 1.0000,  0.5403, -0.4161, -0.9900, -0.6536,  0.2837,  0.9602,  0.7539, 
 ```
 
 
+## Chapter 4 Real-world data representation using tensors
+
+>本章包括的内容：
+>* 将现实生活中的data表示为PyTorch tensor的形式
+>* 处理一系列不同的数据类型
+>* 从文件里加载数据
+>* 将数据转换为tensor
+>* 将tensor的形状进行改变从而使他们适用于neural networks的属于
+
+在上一章，我们学习到tensors是PyTorch里数据的基本构建模块。neural networks使用tensor作为输入并输出tensor。实际上，一个neural network里进行的，以及optimization时进行的所有的operations都是tensors之间的operations，以及一个neural network里所有的参数（比如weights，bias）都是tensors。对如何处理tensors之间的operations以及如何高效的index它们有良好的理解是学习使用PyTorch的基础。现在我们已经了解了tensor的基础知识，对于它们的熟练度将会随着项目的使用而变得更好。
+
+现在这个问题我们已经可以解决了：我们如何处理现实生活中的数据，比如一段视频，一行文字等，将它们转换为tensor从而能被deep learning models作为输入来使用？这将是这章所要解决的问题。我们将会介绍一系列数据类型，并一一介绍如何将他们转换为tensors。之后我们将会学习如何从硬盘上加载数据，学习硬盘上数据的常见格式，并学习如何将它们转换为neural networks可以使用的tensors。通常情况下，原始数据对于所要解决的问题并非完全格式正确，所以我们还需要使用上一章的知识来对转换后的tensors做一些处理。
+
+这一章里的每一节都会描述一种数据类型，以及后续节可能会用到先前介绍过的数据类型。
+
+在本书剩下的部分会大量使用image以及volumetric数据，所以我们会更加详细的介绍这方面的内容。我们同样会介绍tabular data，time series和text。我们将会从image开始介绍。之后我们将会介绍volumetric数据。再之后，我们将会介绍tabular data，time series data和text。
+
+在这一章的每一节，我们将会在开始训练model时结束，也就是只介绍如何将各种类型的数据转换为neural network models所能使用的tensors。关于如何训练neural networks的内容将会在下一章介绍。
+
+
+### 4.1 Working with images
+
+convolutional neural networks的介绍革命了整个computer vision界，基于image的系统从此有了个强有力的工具。那些需要很复杂的预处理算法的image任务现在可以直接被end-to-end网络替代，无需任何预处理，只需要提供input-ouput对即可。我们需要做的，是从常见的image格式里加载image数据，并将其转换为neural networks能够作为输入的tensors。
+
+一张image就是表示为一个通过矩形grid约束的scalars的集合，而这个grid具有height和width两种属性。每个grid点称为这个image的一个pixel。在每个pixel可以只有一个scalar，那么这个称为grayscale image；也可以有多个scalars，比如多种颜色或者多种深度特征等。
+
+在每个pixel的scalars通常用8-bit整数编码表示。更高精确度的比如12-bit或者16-bit有时也会出现。
+
+#### 4.1.1 Adding color channels
+
+如果每个pixel都包含多个scalars来表示颜色信息，有多种表示方法，而最常见的就是RGB表示法。RGB表示法的image数据，每个pixel有三个scalars，分别表示red，green和blue的颜色强度。单个颜色通道可以被认为和grayscale image类似。Figure1显示了一张RGB照片的样子。
+
+![RGB image]({{ '/assets/images/DLP-4-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 1. A rainbow, broken into red, green, and blue channels.*
+
+上图彩虹的红色部分在red channel里对应位置的强度最大，而blue channel在彩虹图片的蓝色部分对应位置的强度最大。而白色部分，三个通道的强度的都大。
+
+
+#### 4.1.2 Loading an image file
+
+images有各种不同的数据格式，而Python都为它们提供了加载方式。我们先介绍如何用imgeio module来加载JPG格式image。
+
+```python
+# In [1]:
+import imageio
+
+img_arr = imageio.imread('../data/p1ch4/image-dog/bobby.jpg')
+img_arr.shape
+
+# Out [1]:
+(720, 1280, 3)
+```
+
+>在本章我们使用imageio来加载image，因为它可以用同一个API加载各种格式的image。而TorchVision也是加载image和video的工具。
+
+在上述代码执行完，img_arr是一个NumPy array-like object，并有三个维度：两个空间维度height和widt，以及一个颜色维度RGBchannels。任何能够输出一个NumPy array的库都可以作为PyTorch加载image的方式，因为PyTorch tensor和NumPy array联系紧密。我们需要注意的是加载进来的image维度的分布，PyTorch models一般需要输入image的维度是$$ C \times H \times width$$，channels，height，width。（若大于三维，可能还有batch）
+
+
+#### 4.1.3 Changing the layout
+
+我们可以用tensor的permute method来改变tensor维度的分布。给一个输入tensor，其维度是$$H \times W \times C$$，我们将其转换为$$C \times H \times W$$：
+
+```python
+# In [2]:
+img = torch.from_numpy(img_arr)
+out = img.permute(2, 0, 1)
+```
+
+tensor的permute method并不会在内存里再分配新的数据，out和img共用内存里同一片数据，只是stride和size有所不同。这样可以加快计算速度，但改变out或者img则会改变另一个的值，需要注意。
+
+到目前为止，我们描述了一张image该如何加载。用同样的方法，我们可以加载多张images，并将它们作为一个batch，给neural networks作为输入使用，而这个batch的维度则是$$N \times C \times H \times W$$。
+
+我们可以用stack来将tensors摞起来。而另一种方法是我们预先分配一块地方来存放，之后再将images加载进来：
+
+```python
+# In [1]:
+batch_size = 3
+batch = torch.zeros(batch_size, 3, 256, 256, dtype=torch.uint8)
+```
+
+上述代码表明我们的batch有三张长宽为256，256的RGB images。注意我们将tensor的数据类型设置为unit8，这和常用相机的图片数据类型是一样的，8-bit整数。我们现在可以从一个目录里加载一系列images存入这个tensor里：
+
+```python
+# In [2]:
+import os
+data_dir = '../data/p1ch4/image-cats/'
+filenames = [name for name in os.listdir(data_dir) if os.path.splittext(name)[-1] == 'png']
+for i, filename in enumerate(filenames):
+    img_arr = imageio.imread(os.path.join(data_dir, filename)
+    img_t = torch.from_numpy(img_arr)
+    img_t = img_t.permute(2, 0, 1)
+    img_t = img_t[:3]               # 确保只取image的前三个通道，因为可能还有更多的通道表示其他信息
+    batch[i] = img_t                # batch[i]表示取batch的第一个维度
+```
+
+#### 4.1.4 Normalizing the data
+
+我们之前提到，neural networks一般接受floating-point tensors作为输入。neural networks在数据数据处于0到1或者-1到1之间时有着最好的训练效果（这是由PyTorch的内部机理导致的）。
+
+所以我们需要将tensor转换到floating-point的格式，并normalize这些数据。将tensor数据转换为floating-point类型是容易的，但normalization有些不同。最简单的，将数据除以256（因为8-bit unsigned integer格式数据最大就是256）：
+
+```python
+# In [3]
+batch = batch.float()
+batch /= 255.0
+```
+
+另一种可能性就是计算出数据的mean和standard deviation，再将其转换为mean为0，standard deviation为1的数据，这样的操作是沿着每个channel做的：
+
+```python
+# In [4]:
+n_channels = batch.shape[1]
+for c in range(n_channels):
+    mean = torch.mean(batch[:, c])
+    std = torch.std(batch[:, c])
+    batch[:, c] = (batch[:, c]- mean) / std
+```
+
+>我们上述的normalization是针对一个batch来做的。实际上很多任务都是针对整个training set算出mean和std，比如2.1.4里的ImageNet数据集就是这样做的。
+
+我们还可以对输入做其他的操作，比如geometric transformation，包括rotation，scaling，cropping等。这些操作可以使得training set更加丰富，也可以使得training set满足某些条件，比如特定的输入size等。我们将会在chapter12.6里提到相应的内容。
+
+
+
+
+
+
+
 
 
 
