@@ -2096,7 +2096,153 @@ tensor([6, 6, ..., 7, 6])
 
 #### 4.3.4 One-hot encoding
 
-另一种处理方式是构建评分的one-hot编码：将1-10每个得分都编码为
+另一种处理方式是构建评分的one-hot编码：将1-10每个得分都编码为一个长度为10的vector，这个vector除了一个位置的值为1，其余都是0。比如得分为1表示为(1,0,0,0,0,0,0,0,0,0)。
+
+这两种方式表达label有一个显著的区别。直接使用wine的score的整数表示，会给这些label加上了order信息，但在这个情况下是可以的，因为这个任务本身就是得出一个评分，label=2和label=1之间的距离要比label=2和label=10之间的距离要小，而且label=1和label=2之间的差距和label=2与label=3之间的差距是一样的。使用one-hot编码的话，每个label之间的距离都是一样的，label之间互相独立。
+
+我们可以用scatter_ method得到标签的one-hot编码，
+
+```python
+# In [7]:
+target_onehot = torch.zeros(target.shape[0], 10)
+
+target_onehot.scatter_(1, target.unsqueeze(1), 1.0)
+```
+
+我们来看scatter_ method做了什么。首先，scatter_使用一个下划线结尾，正如前面所说的，这种method将不会返回一个新的tensor，而只是改变原有的tensor。而scatter_ method的arguments如下：
+> 后面两个arguments沿着哪一个维度来操作
+> 一个column tensor用来表明scatter的元素的index，这个index的维度要和被scatter的tensor的维度相同
+> 一个包含着需要被scatter的元素的tensor或者一个单个的scalar（在这个例子里就是一个单个的scalar，1）
+
+
+#### 4.3.5 When to categorize
+
+我们已经看到了如何处理continuous和categorical数据的方法。figure3 显示了该如何选择这两种表达方式的算法图：
+
+![chart]({{ '/assets/images/DLP-4-3.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 3. How to treat columns with continuous, ordinal, and categorical data.*
+
+回到我们之前所得到的data tensor。我们先计算data tensor每一列的mean和std：
+
+```python
+# In [8]
+data_mean = torch.mean(data, dim=0)
+data_mean
+
+# Out [8]:
+tensor([6.85e+00, 2.78e-01, 3.34e-01, 6.39e+00, 4.58e-02, 3.53e+01,
+        1.38e+02, 9.94e-01, 3.19e+00, 4.90e-01, 1.05e+01])
+
+# In [9]:
+data_var = torch.var(data, dim=0)
+data_var
+
+# Out [9]:
+tensor([7.12e-01, 1.02e-02, 1.46e-02, 2.57e+01, 4.77e-04, 2.89e+02,
+        1.81e+03, 8.95e-06, 2.28e-02, 1.30e-02, 1.51e+00])
+```
+
+在上面代码里，dim=0表示计算mean和std是沿着dimension 0来做的。现在我们可以normalize data（可以使得训练更好，在5.4.4里详细介绍）：
+
+```python
+# In [10]:
+data_normalized = (data - data_mean) / torch.sqrt(data_var)
+data_normalized
+
+# Out [10]:
+tensor([[ 1.72e-01, -8.18e-02, ..., -3.49e-01, -1.39e+00],
+        [-6.57e-01, 2.16e-01, ..., 1.35e-03, -8.24e-01],
+        ...,
+        [-1.61e+00, 1.17e-01, ..., -9.63e-01, 1.86e+00],
+        [-1.01e+00, -6.77e-01, ..., -1.49e+00, 1.04e+00]])
+```
+
+#### 4.3.6 Finding thresholds
+
+接下来我们来看能够有简单的方法能一眼看出一些规律。首先，我们找到target tensor里哪些行的score小于3：
+
+```python
+# In [11]:
+bad_indexes = target <=3   # PyTorch也提供了comparison functions，torch.le(target, 3)可以在这里被使用，而直接使用operators显得更加直接
+bad_indexes.shape, bad_indexes.dtype, bad_indexes.sum()
+
+# Out [11]:
+(torch.Size([4898]), torch.bool, tensor(20))
+```
+
+注意到，bad_indexes里只有20个elements是True。PyTorch里有一个高级特征，叫advanced indexing，我们可以用一个data type为torch.bool的tensor来index另一个tensor，此处我们可以用bad_indexes这个tensor来index data这个tensor：
+
+```python
+# In [12]:
+bad_data = data[bad_indexes]
+bad_data.shape
+
+# Out [12]:
+torch.Size([20, 11])
+```
+
+注意到bad_data只有20行，和bad_indexes tensor里为True的行数相同。bad_data仍然保持了11列。
+
+```python
+# In [13]:
+bad_data = data[target <=3]
+mid_data = data[(target > 3) & (target < 7)]
+good_data = data[target >=7]
+
+bad_mean = torch.mean(bad_data, dim=0)
+mid_mean = torch.mean(mid_data, dim=0)
+good_mean = torch.mean(good_data, dim=0)
+
+for i, args in enumerate(zip(col_list, bad_mean, mid_mean, good_mean)):
+    print('{:2} {20} {:6.2f} {:6.2f} {:6.2f}'.format(i, *args))
+
+# Out [13]:
+0 fixed acidity 7.60 6.89 6.73
+1 volatile acidity 0.33 0.28 0.27
+2 citric acid 0.34 0.34 0.33
+3 residual sugar 6.39 6.71 5.26
+4 chlorides 0.05 0.05 0.04
+5 free sulfur dioxide 53.33 35.42 34.55
+6 total sulfur dioxide 170.60 141.83 125.25
+7 density 0.99 0.99 0.99
+8 pH 3.19 3.18 3.22
+9 sulphates 0.47 0.49 0.50
+10 alcohol 10.34 10.26 11.42
+```
+
+我们可以看到sulfur dioxide比较高的，wine的score就比较低。所以我们可以提前使用这个数值来选取数据：
+
+```python
+# In [14]:
+total_sulfur_threshold = 141.83
+total_sulfur_data = data[:, 6]
+predicted_indexes = torch.lt(total_sulfur_data, total_sulfur_threshold)
+
+predicted_indexes.shape, predicted_indexes.dtype, predicted_indexes.sum()
+
+# Out [14]:
+(torch.Size([4898]), torch.bool, tensor(2727))
+
+# In [15]:
+actual_indexes = target > 5
+actual_indexes.shape, actual_indexes.dtype, actual_indexes.sum()
+
+# Out [15]:
+(torch.Size([4898]), torch.bool, tensor(3258))
+
+# In [16]:
+n_matches = torch.sum(actual_indexes & predicted_indexes).item()
+n_predicted = torch.sum(predicted_indexes).item()
+n_actual = torch.sum(actual_indexes).item()
+
+n_matches, n_matches / n_predicted, n_matches / n_actual
+
+# Out [16]:
+(2018, 0.74000733406674, 0.6193984039287906)
+```
+
+
 
 
 
