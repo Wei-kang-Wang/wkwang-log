@@ -17,7 +17,7 @@ date: 2022-02-09 01:09:00
 
 ---
 
-### scatter_ 和 scatter method
+### 1. scatter_ 和 scatter method
 
 这个method是tensor所拥有的，而scartter和scatter_的用法是一样的，区别仅在于，scatter method会返回一个新的tensor，而scatter_仅改变原tensor，而不返回新的tensor。在PyTorch里，所有带一个
 下划线结束的tensor的method都是类似的效果。所以我们仅介绍scatter method的用法即可。
@@ -27,10 +27,10 @@ scatter method的用法为：
 ```python
 target.scatter(dim, index, src)
 ```
->target：即目标张量，将在该张量上进行映射
-> src：即源张量，将把该张量上的元素逐个映射到目标张量上
-> dim：指定轴方向，定义了填充方式。对于二维张量，dim=0表示逐列进行行填充，而dim=1表示逐列进行行填充
-> index: 按照轴方向，在target张量中需要填充的位置
+> * target：即目标张量，将在该张量上进行映射
+> * src：即源张量，将把该张量上的元素逐个映射到目标张量上
+> * dim：指定轴方向，定义了填充方式。对于二维张量，dim=0表示逐列进行行填充，而dim=1表示逐列进行行填充
+> * index: 按照轴方向，在target张量中需要填充的位置
 
 为了保证scatter填充的有效性，需要注意：
 * （1）target张量在dim方向上的长度不小于source张量，且在其它轴方向的长度与source张量一般相同。这里的一般是指：scatter操作本身有broadcast机制。
