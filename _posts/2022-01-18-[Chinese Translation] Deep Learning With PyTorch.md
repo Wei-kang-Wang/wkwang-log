@@ -1983,7 +1983,7 @@ torch.Size([1, 99, 512, 512])
 我们现在就可以将多个上述的数据按照batch维度堆叠在一起，构成一个前面所述的5D数据。
 
 
-## 4.3 Representing tabular data
+### 4.3 Representing tabular data
 
 我们在机器学习任务里遇到的最简单的数据可能就是tabular data了，存储在一个spreadsheet，CSV file或者一个database里。tabular data的每一行代表了一个sample的数据，而每一列代表每个sample一部分信息的汇总。
 
