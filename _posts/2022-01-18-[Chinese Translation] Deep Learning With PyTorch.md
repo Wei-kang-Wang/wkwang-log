@@ -2243,6 +2243,185 @@ n_matches, n_matches / n_predicted, n_matches / n_actual
 ```
 
 
+### 4.4 Working with time series
+
+在之前的内容里，我们了解了如何处理表格数据，这些表格数据里的每一行都是相互独立的，每行的顺序是没有影响的。或者这样说，并没有决定行排列顺序的列信息出现。
+
+我们介绍一个新的数据集：Washington, D.C., bike-sharing system，存的是租借自行车所需要的费用，而影响的因素有weather，temperature等，而且每日的信息是不同的。我们将每日的表格数据汇总，就可以将2D的表格数据变成3D的带有时间的表格数据，如figure4所示。
+
+![3Dtable]({{ '/assets/images/DLP-4-4.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 4. Transforming a 1D, multichannel dataset into a 2D, multichannel dataset by separating the date and hour of each sample into separate axes.*
+
+#### 4.4.1 Adding a time dimension
+
+```python
+# In [1]:
+bikes_numpy = np.loadtxt("../data/p1ch4/bike-sharing-dataset/hour-fixed.csv",
+                         dtype=np.float32,
+                         dlimiter=",",
+                         skiprow=1,
+                         converters={1: lambda x: float(x[8:10])})
+## 上面converters的作用是将第1列里的日期string转换为代表每个月几号的numbers
+
+bikes = torch.from_numpy(bikes_numpy)
+bikes
+
+# Out [1]:
+tensor([[1.0000e+00, 1.0000e+00, ..., 1.3000e+01, 1.6000e+01],
+        [2.0000e+00, 1.0000e+00, ..., 3.2000e+01, 4.0000e+01],
+        ...,
+        [1.7378e+04, 3.1000e+01, ..., 4.8000e+01, 6.1000e+01],
+        [1.7379e+04, 3.1000e+01, ..., 3.7000e+01, 4.9000e+01]])
+```
+
+对于每个小时，这个数据集报告以下的变量：
+* index of record：从小到大的整数
+* day of month：日期
+* season：1是spring，2是summer，3是fall，4是winter
+* year：0是2011，1是2012
+* month：1到12的数字
+* hour：0到23的数字
+* holiday status：是否是holiday
+* day of week：是否是weekday
+* working day status：是否是workingday
+* weather situation：1是chear，2是mist，3是light rain/snow，4是heavy rain/snow
+* temperature：温度
+* perceived temperature：体感温度
+* humidity：湿度
+* wind speed：风速
+* number of causual users：临时用户数量
+* number of registered users：注册用户数量
+* count of rental bikes：自行车总数量
+
+上面这个数据集，行与行之间有时间序列关系。我们当然可以忽略这种时间关系，把它们当成之前的那种表格数据来操作，只通过当前的数据来预测租车要花的钱，而不管之前和之后的数据。但是每行数据之间的时间序列关系，给我们提供了预测数据的新的信息。
+
+
+
+#### 4.4.2 Shaping the data by time period
+
+我们将Washington D.C. bike-sharing system dataset数据重新组合，原数据是2D的，每行就是每天24个小时的数据按顺序排列，之后再按天排列，每列就是各个指标的值。而我们现在将其变为3D的，第1维度表示日期，第2维度表示24小时，第3维度表示各个指标的值。
+
+```python
+# In [2]:
+bikes.shape, bikes.stride()
+
+# Out [2]:
+
+(torch.Size([17520, 17]), (17, 1))
+
+# In [3]:
+daily_bikes = bikes.view(-1, 24, bikes.shape(1))
+daili_bikes.shape, daily_bikes.stride()
+
+# Out [3]:
+(torch.Size([730, 24, 17]), (408, 17, 1))
+```
+
+我们上面用到了view function，它的输出daily_bikes和bikes公用一个storage，但读取数据的方式不同，从而维度，stride都不同。正如之前所学的，通过调用view method，会返回一个新的tensor，其维度和stride都变了，但原tensor对应的storage没有改变。这样的操作十分省时省空间。view method需要我们给返回的tensor提供size，而上面的-1是一个placeholder，表明这个维度的值是通过原始tensor的维度和所提供的新tensor的其他维度的值算出来的，最多只有一个-1。
+
+之前的章节还提到storage是连续的，线性分布的。所以bikes tensor的storage将每行连续的存储在内存里。这点也可以从bikes.stride()看出来。
+
+注意到我们现在有了$$N \times\ L \times C$$的tensor，daily_bikes，而作为neural networks的输入，它要求我们的输入形式为$$N \times C \times L$$，所以我们还得做一下转秩：
+
+```python
+# In [4]:
+daily_bikes = daily_bikes.transpose(1, 2)
+daily_bikes.shape, daily_bikes.stride()
+
+# Out [4]:
+(torch.Size([730, 17, 24], (408, 1, 17))
+```
+
+#### 4.4.3 Ready for training
+
+channel里的weather situation指标是ordinal的，我们可以将其当作categorical的或者continuous的，而当成categorical的则需要将其变为one-hot编码。
+
+```python
+# In [5]:
+first_day = bikes[:24].long()
+weather_onehot = torch.zeros(first_day.shape[0], 4)
+first_day[:, 9]
+
+# Out [5]:
+tensor([1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 2, 2, 2, 2])
+
+# In [6]:
+weather_onehot.scatter_(dim=1, index=first_day[:, 9].unsqueeze(1).long()-1, value=1.0)
+## index-1是因为weather_situation是从1到4，而python index是从0开始
+
+# Out [6]:
+tensor([[1., 0., 0., 0.],
+        [1., 0., 0., 0.],
+        ...,
+        [0., 1., 0., 0.],
+        [0., 1., 0., 0.]])
+
+## 用cat function来将bikes tensor与weather_onehot tensor沿着dimension=1，也就是列，拼接起来
+# In [7]:
+torch.cat((bikes[:24], weather_onehot), 1)[:1]
+
+## 这个显示的是拼接后的数据的第一行
+# Out [7]:
+tensor([[ 1.0000, 1.0000, 1.0000, 0.0000, 1.0000, 0.0000, 0.0000,
+          6.0000, 0.0000, 1.0000, 0.2400, 0.2879, 0.8100, 0.0000,
+          3.0000, 13.0000, 16.0000, 1.0000, 0.0000, 0.0000, 0.0000]])
+```
+
+cat function要求提供沿着哪个维度来拼接tensors，并且要求这个维度以外的两个tensors的其它维度相同。
+
+我们将已经处理好的daily_bikes tensor里的weather_situation指标也按上述的方式进行更改，需要注意daily_bikes的维度已经变成了$$N \times C \times L$$。
+
+```python
+# In [8]:
+daily_weather_onehot = torch.zeros(daily_bikes.shape[0], 4, daily_bikes.shape[2])
+daily_weather_onehot.shape
+
+# Out [8]:
+torch.Size([730, 4, 24])
+
+# In [9]:
+daily_weather_onehot.scatter_(dim=1, index=daily_bikes[:,9,:].long().unsqueeze(1)-1, value=1.0)
+
+# In [10]:
+daily_bikes = torch.cat((daily_bikes, daily_weather_onehot), dim=1)
+```
+
+而如果我们直接将weather_situation这个指标当成Continuous的：
+
+```python
+# In [11]:
+daily_bikes [:, 9, :] = (daily_bikes[:, 9, :] - 1.0) / 3.0
+```
+
+上述即可将这个指标的值转移到0-1之间的连续值。
+
+我们前面已经提到，作为neural networks的输入，最好值都在0到1之间或者-1到1之间（之后将会说明原因），所以其它的指标仍然需要我们进行操作。
+
+```python
+# In [12]:
+## 这种方法将其转换到0到1之间
+temp = daily_bikes[:, 10, :]
+temp_min = torch.min(temp)
+temp_max = torch.max(temp)
+daily_bikes[:, 10, :] = (daily_bikes[:, 10, :] - temp_min) / (temp_max - temp_min))
+
+# In [13]:
+## 这种方法将其转换到-1到1之间
+temp = daily_bikes[:, 10, :]
+daily_bikes[:, 10, :] = (daily[:, 10, :] - torch.mean(temp)) / torch.std(temp)
+```
+
+
+### Representing text
+
+
+
+
+
+
+
+
 
 
 
