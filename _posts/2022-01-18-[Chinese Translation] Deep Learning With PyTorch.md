@@ -2413,7 +2413,156 @@ daily_bikes[:, 10, :] = (daily[:, 10, :] - torch.mean(temp)) / torch.std(temp)
 ```
 
 
-### Representing text
+### 4.5 Representing text
+
+deep learning也给natural language processing带来了很大的影响，其中最著名的模型就是recurrent neural networks，其将新输入和旧输出的组合作为输入，输出新的输出，以此循环。RNN在text categorization，text generation，automated translation等领域都获得了很大的成功。最近一种叫transformers的新模型的出现，使得利用旧输出的方法变得更加灵活。传统的NLP方法都需要很多精巧设计的stage，在每个stage通过某些rules来筛选信息。而现在的deep learning可以做到end-to-end，输入直接就是大段的文字，而这些rules都是从数据中直接得出的。
+
+我们这一节的目的是将text转换为一个neural network能够处理的东西：tensor。如果我们将文本转换为了tensor，就可以直接使用PyTorch来做NLP的任务。
+
+#### 4.5.1 Converting text to numbers
+
+直观来看，networks处理text有两种方式：一个一个字符处理，或者一个一个单词来处理。而对于这两种方式，我们将text信息转换为tensor的方式都是一样的，而这个方式就是one-hot encoding。
+
+我们先来看character-level的例子。首先，我们得到了一个text：
+
+```python
+# In [1]:
+with open('../data/p1ch4/jane-austen/1342-0.txt', encoding='utf8') as f:
+    text = f.read()
+```
+
+#### 4.5.2 One-hot encoding characters
+
+在开始前我们再来简单介绍一下encoding。每个character都通过一个code来表示。最简单的就是ASCII，a被编码为1100001或者数字97，b被编码为11000010或数字98。ASCII encoding使用8位编码方式。
+
+我们将要对character进行one-hot encode。每个character都被编码为长度为这个set里所有不同character数量的vector，而且这个vector只有一个位置是1，代表了这个character在这个set里所在的位置。
+
+```python
+# In [2]:
+lines = text.split('\n')
+line = lines[200]
+line
+
+# Out [2]:
+'“Impossible, Mr. Bennet, impossible, when I am not acquainted with him'
+
+# In [3]:
+letter_t = torch.zeros(len(len), 128)
+letter_t.shape
+
+# Out [3]:
+torch.Size([70, 128])
+
+# In [4]:
+for i, letter in enumerate(line.lower().strip()):
+    letter_index = ord(letter) if ord(letter) < 128 else 0
+    letter_t[i][letter_index] = 1
+    
+## Python的ord function是chr function或者unichr function的alias function
+## 文本是ASCII编码的就是chr，是Unicode编码的就是unichr，而其返回ASCII码或者
+## 返回Unicode码。ord的输入为长度为1的字符串。
+
+```
+
+#### 4.5.3 One-hot encoding whole words
+
+character-level的encoding很简单，其结果可以作为neural network的输入。而word-level的encoding可以用相似的方法完成，但我们需要建立一个字典。因为这样的字典可能会很长，所以对于one-hot encoding，对每个word会生成很长的tensor，并不方便使用。下一节将会介绍embedding方法，使得这样的encode变得可以操作。而本节则只关注one-hot encoding是什么样的。
+
+```python
+# In [5]:
+def clean_word(input_str):
+    punctuation = '.,;:"!?_-'
+    word_list = input_str.lower().replace('\n', ' ').split()
+    word_list = [word.strip(punctuation) for word in word_list]
+    return word_list
+
+words_in_line = clean_word(line)
+line, words_in_line
+
+# Out [5]:
+('“Impossible, Mr. Bennet, impossible, when I am not acquainted with him',
+ ['impossible',
+ 'mr',
+ 'bennet',
+ 'impossible',
+ 'when',
+ 'i',
+ 'am',
+ 'not',
+ 'acquainted',
+ 'with',
+ 'him'])
+
+# In [6]:
+word_list = sorted(set(clean_word(text)))
+word2index_dict = {word: i for i, word in enumerate(word_list)}
+
+len(word2index_dict), word2index_dict['impossible']
+
+# Out [6]:
+(7261, 3394)
+
+# In [7]:
+word_t = torch.zeros((len(words_in_line), len(word2index_dict))
+for i, word in enumerate(words_in_line):
+    word_index = word2index_dict[word]
+    word_t[i][word_index] = 1
+    print('{:2} {:4} {}'.format{i, word_index, word})
+
+print(word_t.shape)
+
+# Out [8]:
+0 3394 impossible
+1 4305 mr
+2 813 bennet
+3 3394 impossible
+4 7078 when
+5 3315 i
+6 415 am
+7 4436 not
+8 239 acquainted
+9 7148 with
+10 3215 him
+torch.Size([11, 7261]
+```
+
+character-level和word-level的encoding选择是一个trade-off的过程。在很多语言里，characters的数量比words的数量要少得多，所以character的字典要比word的字典要小很多，而且word有时候还会遇到字典里没有这个word的情况。但另一方面，word比character代表了很多有意义的内容，所以用word来表示文本本身就有更多的信息量。
+
+![3ways]({{ '/assets/images/DLP-4-5.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 5. Three ways to encode a word.*
+
+
+#### 4.5.4 Text embeddings
+
+one-hot encoding是一种简单有效的方法，但是当字典变得很大时，就变得不再实用了。
+
+一种有效的替代方式就是使用floating numbers来对每个word进行编码，也就是将每个word映射到一个固定长度的值为floating-point numbers的vector上，这个过程就叫做embedding。
+
+原则上，我们可以对字典里的每个word随机生成一个固定长度N的vector。这样是可以操作的，而且我们每个word的encoding就变成了长度为N的vector。但是这样的embedding忽略了words之间的关系。如果model利用了这样的embedding会很难挖掘句子或者文本里蕴含的信息。一个理想的embedding是使得相似词义的word能够拥有相似的embeddings。
+
+如果我们打算手动定义一个满足上述条件的embedding，我们可以通过选择将基本的名词和形容词先映射到轴上。我们可以生成一个2D的空间，x轴对应名词，比如fruit(0.0-0.33)，flower(0.33-0.66)，dog(0.66-1.0)，形容词对应Y轴，比如red(0.0-0.2)，orange(0.2-0.4)，yellow(0.4-0.6)，white(0.6-0.8)，brown(0.8-1.0)。我们之后就可以将每个word按照它所属的名词和形容词对应到具体的位置上。
+
+比如apple可以被对应到fruit和red所决定的空间内。类似的tangerine, lemon, lychee, kiwi等都可以。之后对于flower，rose, poppy, daffodil, lily等也都可以对应到具体的空间里。dogs也是同样用这种方式来对应。从而我们得到了一个figure6所示的embedding。但是手动做embedding对于大的文本是不现实的。
+
+![embeddings]({{ '/assets/images/DLP-4-6.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 6. Our mannual word embeddings.*
+
+
+上述这种方式可以被自动进行，而区别在于每个轴对应的意义不是具体的意义，而且embedding的vector的长度远大于上例里的2，但原理仍然是意义相近的word的embedding位于相近的位置。embedding有意思的一个地方是，不仅意义相似的word会有相近的embedding，它们还具有连续的空间性质。比如apple-red-sweet+yellow+sour所得到的embeddding会和lemon的embedding距离很近。比较著名的embedding学习的网络有BERT，GPT-3等。
+
+
+#### 4.5.5 Text embedding as a blueprint
+
+embeddings是将大规模文本内的word转换为可以操作的floating-number point vector的有力方法。但本书并不会再提到NLP或者text的内容。介绍这方面的知识是因为它为我们处理categorical类型的数据提供了新的思路。embeddings在one-hot encode变得不可操作的时候就显得很有作用。
+
+在非文本的问题里，我们通常没有直接构造上述embedding的能力（因为对于自动方法没有上下文供我们使用，对于手动方法我们无法对它们的性质加以分类），我们通常都是将embedding初始化为随机值，然后将确定它们的值作为我们学习任务的一部分。这个方法很常见也很广泛，尤其是对于categorical数据的表示学习。
+
+embeddings也为co-occurence问题提供了思路，比如推荐系统，我们希望通过已有的用户信息来判断它的喜好。processing text同时也是处理time-series类型的数据，所以其方法同样也适用于其它类型的time-series数据的处理。
+
+
+### 4.6 Conclusion
 
 
 
