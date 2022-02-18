@@ -1819,22 +1819,22 @@ tensor([ 1.0000,  0.5403, -0.4161, -0.9900, -0.6536,  0.2837,  0.9602,  0.7539, 
 >* 处理一系列不同的数据类型
 >* 从文件里加载数据
 >* 将数据转换为tensor
->* 将tensor的形状进行改变从而使他们适用于neural networks的属于
+>* 将tensor的形状进行改变从而使他们适用于neural networks的输入
 
-在上一章，我们学习到tensors是PyTorch里数据的基本构建模块。neural networks使用tensor作为输入并输出tensor。实际上，一个neural network里进行的，以及optimization时进行的所有的operations都是tensors之间的operations，以及一个neural network里所有的参数（比如weights，bias）都是tensors。对如何处理tensors之间的operations以及如何高效的index它们有良好的理解是学习使用PyTorch的基础。现在我们已经了解了tensor的基础知识，对于它们的熟练度将会随着项目的使用而变得更好。
+在上一章，我们学习到tensors是PyTorch里数据的基本构建模块。neural networks使用tensor作为输入并输出tensor。实际上，一个neural network里进行的，以及optimization时进行的所有的operations都是tensors之间的operations，以及一个neural network里所有的参数（比如weights，bias）都是tensors。对如何处理tensors之间的operations以及如何高效的index它们有良好的理解是学习使用PyTorch的基础。现在我们已经了解了tensor的基础知识，对于它们掌握的熟练度将会随着项目的使用而变得更好。
 
-现在这个问题我们已经可以解决了：我们如何处理现实生活中的数据，比如一段视频，一行文字等，将它们转换为tensor从而能被deep learning models作为输入来使用？这将是这章所要解决的问题。我们将会介绍一系列数据类型，并一一介绍如何将他们转换为tensors。之后我们将会学习如何从硬盘上加载数据，学习硬盘上数据的常见格式，并学习如何将它们转换为neural networks可以使用的tensors。通常情况下，原始数据对于所要解决的问题并非完全格式正确，所以我们还需要使用上一章的知识来对转换后的tensors做一些处理。
+现在下面这个问题我们已经可以解决了：我们如何处理现实生活中的数据，比如一段视频，一行文字等，将它们转换为tensor从而能被deep learning models作为输入来使用？这将是这章所要解决的问题。我们将会介绍一系列数据类型，并一一介绍如何将他们转换为tensors。之后我们将会学习如何从硬盘上加载数据，学习硬盘上数据的常见格式，并学习如何将它们转换为neural networks可以使用的tensors。通常情况下，原始数据对于所要解决的问题并非完全格式正确，所以我们还需要使用上一章的知识来对转换后的tensors做一些处理。
 
-这一章里的每一节都会描述一种数据类型，以及后续节可能会用到先前介绍过的数据类型。
+这一章里的每一节都会描述一种数据类型，后续节可能会用到先前节介绍过的数据类型。
 
 在本书剩下的部分会大量使用image以及volumetric数据，所以我们会更加详细的介绍这方面的内容。我们同样会介绍tabular data，time series和text。我们将会从image开始介绍。之后我们将会介绍volumetric数据。再之后，我们将会介绍tabular data，time series data和text。
 
-在这一章的每一节，我们将会在开始训练model时结束，也就是只介绍如何将各种类型的数据转换为neural network models所能使用的tensors。关于如何训练neural networks的内容将会在下一章介绍。
+这一章的每一节内容将会在开始训练model时结束介绍，也就是只介绍如何将各种类型的数据转换为neural network models所能使用的tensors。关于如何训练neural networks的内容将会在下一章介绍。
 
 
 ### 4.1 Working with images
 
-convolutional neural networks的介绍革命了整个computer vision界，基于image的系统从此有了个强有力的工具。那些需要很复杂的预处理算法的image任务现在可以直接被end-to-end网络替代，无需任何预处理，只需要提供input-ouput对即可。我们需要做的，是从常见的image格式里加载image数据，并将其转换为neural networks能够作为输入的tensors。
+convolutional neural networks的提出革命了整个computer vision界，基于image的系统从此有了个强有力的工具。那些需要很复杂的预处理算法的image任务现在可以直接被end-to-end网络替代，无需任何预处理，只需要提供input-ouput对即可。我们需要做的，是从常见的image格式里加载image数据，并将其转换为neural networks能够作为输入的tensors。
 
 一张image就是表示为一个通过矩形grid约束的scalars的集合，而这个grid具有height和width两种属性。每个grid点称为这个image的一个pixel。在每个pixel可以只有一个scalar，那么这个称为grayscale image；也可以有多个scalars，比如多种颜色或者多种深度特征等。
 
@@ -1848,7 +1848,7 @@ convolutional neural networks的介绍革命了整个computer vision界，基于
 {: style="width: 800px; max-width: 100%;" class="center"}
 *Fig 1. A rainbow, broken into red, green, and blue channels.*
 
-上图彩虹的红色部分在red channel里对应位置的强度最大，而blue channel在彩虹图片的蓝色部分对应位置的强度最大。而白色部分，三个通道的强度的都大。
+上图彩虹的红色部分在red channel里对应位置的强度最大，而blue channel在彩虹图片的蓝色部分对应位置的强度最大。而白色部分，三个通道的强度都大。
 
 
 #### 4.1.2 Loading an image file
@@ -1885,7 +1885,7 @@ tensor的permute method并不会在内存里再分配新的数据，out和img共
 
 到目前为止，我们描述了一张image该如何加载。用同样的方法，我们可以加载多张images，并将它们作为一个batch，给neural networks作为输入使用，而这个batch的维度则是$$N \times C \times H \times W$$。
 
-我们可以用stack来将tensors摞起来。而另一种方法是我们预先分配一块地方来存放，之后再将images加载进来：
+我们可以直接用stack function来将tensors摞起来。而另一种方法是我们预先分配一块地方来存放，之后再将images加载进来：
 
 ```python
 # In [1]:
@@ -1989,7 +1989,7 @@ torch.Size([1, 99, 512, 512])
 
 我们先假设，每一行数据就是一个sample，行与行之间是没有顺序的，就是独立的数据。
 
-每一行代表着某种特征，可以是numerical number，也可以是string等。因此，tabular data一般都不是同质的（也就是每列数据类型不一定是一样的）。
+每一列代表着某种特征，可以是numerical number，也可以是string等。因此，tabular data一般都不是同质的（也就是每列数据类型不一定是一样的）。
 
 PyTorch tensors却是同质的，因为tensor内部只含有floating-point numbers。这种将任意输入转换为floating-point number的操作是有意为之，因为只有这样，neural networks才能将这些输入通过各种matrix multiplications和nonlinear functions来输出floating-point numbers。
 
@@ -2002,7 +2002,7 @@ PyTorch tensors却是同质的，因为tensor内部只含有floating-point numbe
 
 #### 4.3.2 Loading a wine data tensor
 
-在我们设计机器学习模型之前，我们需要将数据载入。我们利用Python载入数据，并将数据转换为PyTorch tensor。这个文件是个CSV file，Python提供了很多种方法，比如Python自带的csv module，NumPy，Pandas等。而Pandas是时间和内存效率最高的方式。但本书为了避免介绍更多的内容，就是用NumPy来加载CSV file。
+在我们设计机器学习模型之前，我们需要将数据载入。我们利用Python载入数据，并将数据转换为PyTorch tensor。这个文件是个CSV file，Python提供了很多种方法，比如Python自带的csv module，NumPy，Pandas等。而Pandas是时间和内存效率最高的方式。但本书为了避免介绍更多的内容，就使用NumPy来加载CSV file。
 
 ```python
 # In [1]:
