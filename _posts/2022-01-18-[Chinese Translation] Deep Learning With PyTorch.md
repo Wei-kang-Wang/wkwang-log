@@ -2564,6 +2564,24 @@ embeddings也为co-occurence问题提供了思路，比如推荐系统，我们�
 
 ### 4.6 Conclusion
 
+我们本章介绍了很多种数据类型，学习如何加载它们并将它们转换为neural networks能够利用的tensors。现在我们已经熟悉了tensors以及了解了如何将现实中的数据转换为tensors，我们下一章就可以介绍neural networks的learning机制了。
+
+
+### 4.7 Summary
+* neural networks所能处理的数据都是表示为multidimensional numerical tensors的形式，一般为32-floating point numbers
+* 一般情况下，PyTorch希望tensors具有特定的维度，以及每个维度有着特定的意义，比如CNN和RNN的输入是具有不同意义的。reshape data可以用PyTorch的API轻易实现
+* 多亏了PyTorch和Python以及其生态圈十分方便的相互联系，加载不同类型的数据并将它们转换为PyTorch的tensors变得比较容易
+* images一般都有多个channel，最常见的RGB image有三个channel，red, green和blue
+* 一般图像的每个pixel的numerical data是8-bit或者12，16-bits的，这样的数据用32-floating point numbers来表示不会丢失精度
+* volumetric data和2D image差不多，只不过除了channel，width，height以外还有个depth维度
+* 将spreadsheet数据转换为tensors十分直接。注意categorical和cardinal类型的数据需要进行额外的操作，比如one-hot encoding
+* text或者categorical的数据可以转换为one-hot encoding。而embedding是更高效和具有更多信息量的手段
+
+
+
+
+
+
 
 
 
