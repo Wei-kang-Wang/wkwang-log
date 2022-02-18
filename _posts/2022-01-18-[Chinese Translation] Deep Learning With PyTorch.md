@@ -2580,6 +2580,54 @@ embeddings也为co-occurence问题提供了思路，比如推荐系统，我们�
 
 
 
+## Chapter 5 The mechanics of learning
+
+>本章包括的内容：
+>* 理解algorithms如何从data中学习
+>* 重新定义learning为使用differentiation和gradient descent的parameter estimation
+>* 从头到尾介绍一个简单的learning algorithm
+>* PyTorch如何通过autograd实现learning
+
+随着machine learning过去十年的快速发展，可以从经验中学习的machine变成了技术类文章甚至广播新闻的主要对象。而一个machine到底是如何学习的？这个学习的过程的机理是什么样的？或者说，学习过程的算法是什么？从一个观察者的角度，一个learning algorithm的输入是带有所想要得到的输出的数据（supervised learning）。一旦这个machine经过了正确的learning，那么它就可以对于和训练时的数据**足够近似**的新数据给出正确的输出。对于deep learning，输入的数据和输出甚至可以很不相同，比如说输入是一张图片，而输出是描述这张图片内容的text。
+
+
+### 5.1 A timeless lesson in modeling
+
+建立能够描述input/output关系的模型起码可以追溯到几个世纪以前。Kepler，一个德国数学天文学家，在十七世纪前期得出了行星运动三大定律，他是基于所观测到的众多行星的运动规律吧数据所总结出来的。当时并没有Newton定律，Kepler只是基于数据，建立了一个能够吻合数据的最简单的模型。figure1总结了这个过程。
+
+![Kepler]({{ '/assets/images/DLP-5-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 1. Johannes Kepler considers multiple candidate models that might fit the data at hand, settling on an ellipse.*
+
+Kepler第一定律说，任何行星的轨道都是一个以太阳位于一个焦点的椭圆。他并不知道为什么轨道是一个椭圆，但是他可以基于大量的数据总结出轨道的形状以及几何性质。Kepler第二定律说，行星与太阳的连线在相同时间段内扫过相同的面积。
+
+所以，让我们总结一下Kepler六年内的成果：
+* 从观察中获得了大量行星运动相关的数据
+* 尝试通过画图来寻找其中的规律
+* 选择了能够符合数据的最简单的模型来描述行星运动规律（椭圆）
+* 将数据分开，从而他可以通过一部分数据得出猜想，而利用没有使用过的数据来验证他的猜想的正确性
+* 从一个不确定几何参数的椭圆开始，逐渐改变椭圆的大小形状直到符合数据
+* 在独立的数据上验证所得到的椭圆轨道模型
+* 再次回看改进模型
+
+Kepler的工作完美解释了数据科学的内容。科学基本都是用这七个步骤来进行的，之后，我们再花时间来解释模型背后的原理（除非你是理论物理学家，那情况就有所不同）。
+
+上面的过程就是我们如何从data中learning的过程。实际上，fit data和设计一个algorithm从data中learning是没有区别的。这个过程都是有一个有一些未知参数的function，而这些参数都是从data中估计得来，而这个function就是model。
+
+需要注意，learning from data假设潜在需要学习的function并不是为了解决某个特定的问题而内部有复杂的规则设计，而是具有拟合能力的一簇functions，正如Kepler通过行星数据来总结出开普勒定律，而并非Newton使用万有引力推导出行星运动模型。
+
+这一章就是关于如何自动的进行一般情况下的function-fitting。毕竟，这就是我们用deep learning所要做的事，deep neural networks就是我们的具有拟合能力的一簇functions，PyTorch使得这个拟合过程尽可能的简单透明。
+
+为了更够更深刻的理解learning的过程，我们用一个比deep neural networks更简单的模型来介绍，并在chapter6里正式介绍deep neural networks的learning过程。
+
+
+### 5.2 Learning is just parameter estimation
+
+在这一节里，我们将会学习如何获取data，选择model，并估计model的parameters，从而我们可以对于新的data有良好的预测结果。
+
+
+
+
 
 
 
