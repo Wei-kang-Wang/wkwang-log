@@ -2625,6 +2625,15 @@ Kepler的工作完美解释了数据科学的内容。科学基本都是用这�
 
 在这一节里，我们将会学习如何获取data，选择model，并估计model的parameters，从而我们可以对于新的data有良好的预测结果。
 
+figure2展示了high-level的描述learning过程的一个overview。给你input data和相应的output（ground truth），以及model里参数的初始值，input data将喂给model（forward pass），然后对于output和ground truth之间差别的一个衡量（error）被计算出来。为了能够优化model的参数，error关于model内的参数的gradient被利用导数的链式法则计算出来（backward pass）。之后model内的参数将会沿着使得error减小的方向被改进。上述这个过程将会持续性的重复，直到在验证集上达到满意的指标。
+
+我们现在考虑一个问题，有noisy的dataset，构建一个model，并在其上建立一个learning algorithm。在一开始，我们将会手动设计每个环节，而本章结束，我们将会学会如何用PyTorch自动进行这个过程。
+
+
+#### 5.2.1 A hot problem
+
+
+
 
 
 
