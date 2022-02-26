@@ -2625,6 +2625,10 @@ Kepler的工作完美解释了数据科学的内容。科学基本都是用这�
 
 在这一节里，我们将会学习如何获取data，选择model，并估计model的parameters，从而我们可以对于新的data有良好的预测结果。
 
+![mental]({{ '/assets/images/DLP-5-2.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 2. Our mental model of the learning process.*
+
 figure2展示了high-level的描述learning过程的一个overview。给你input data和相应的output（ground truth），以及model里参数的初始值，input data将喂给model（forward pass），然后对于output和ground truth之间差别的一个衡量（error）被计算出来。为了能够优化model的参数，error关于model内的参数的gradient被利用导数的链式法则计算出来（backward pass）。之后model内的参数将会沿着使得error减小的方向被改进。上述这个过程将会持续性的重复，直到在验证集上达到满意的指标。
 
 我们现在考虑一个问题，有noisy的dataset，构建一个model，并在其上建立一个learning algorithm。在一开始，我们将会手动设计每个环节，而本章结束，我们将会学会如何用PyTorch自动进行这个过程。
@@ -2632,15 +2636,370 @@ figure2展示了high-level的描述learning过程的一个overview。给你input
 
 #### 5.2.1 A hot problem
 
+假设我们有一个不知道刻度标准的温度计，我们希望这个温度计能根据环境温度给出相应的数值。现在我们来设计这个问题以及它的解答。
+
+#### 5.2.2 Gathering some data
+
+```python
+# In [1]
+t_c = [0.5, 14.0, 15.0, 28.0, 11.0, 8.0, 3.0, -4.0, 6.0, 13.0, 21.0]
+t_u = [35.7, 55.9, 58.2, 81.9, 56.3, 48.9, 33.9, 21.8, 48.4, 60.4, 68.4]
+t_c = torch.tensor(t_c)
+t_u = torch.tensor(t_u)
+```
+
+t_c是摄氏度的温度，而t_u是我们未知标准的温度计给出的数值。这两个数据里都有一定程度的noisy。
 
 
+#### 5.2.3 Visualizing the data
+
+我们将上述数据放在坐标轴上，横轴是温度计数值，纵轴是已知摄氏温度。从figure2里我们可以看到，它们之间近似是一种线性关系。
+
+![linear]({{ '/assets/images/DLP-5-3.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 3. Our unknown data just might follow a linear model.*
+
+#### 5.2.4 Choosing a linear model as a first try
+
+既然我们没有更多的先验知识，那我们就为这个数据做最简单的假设，即它们可能是线性关系：t_c = w * t_u + b。这是不是一个有效的假设呢？只能说是有可能。我们需要利用新的数据来验证所学习到的模型是否足够正确。参数w和b是weight和bias的简称。
+
+现在我们需要基于数据来估计w和b的值，也就是我们这个模型的参数。我们需要找到这样的w和b，使得输入的t_u经过模型所得到的值和对应的t_c很接近。我们将用PyTorch来实现这个过程。而且实际上，PyTorch来训练neural network也只是比这个模型参数多一些，数据多一些，但本质是一样的。
+
+为了能够学习参数，我们还需要定义output和ground truth之间误差的衡量，称为loss function。loss function在output和ground truth差异大的时候值比较大，差异小的时候值比较小。所以我们的算法就在于找到一个使得loss function达到最小值的w和b。
 
 
+### 5.3 Less loss is what we want
+
+一个loss functino（或cost function）是一个输出值被learning process用来最小化的function。loss的计算就是观察对于一些training samples的输入所对应的ground truth和模型所得到的output之间的差别（并非所有的training samples因为计算量会很大）。在我们的例子里，loss就是通过模型对于输入t_u所计算的t_p和真实的对应的t_c之间的差异计算来的。
+
+最简单的几个loss function可以是|t_p - t_c|以及(t_p - t_c)^2。原则上，loss function的设计加入了先验的信息，因为loss function可以强调我们会着重考虑哪种loss信息。这两个loss function都是在其相同的时候取得最小值，在差异大的时候单调增加，所以是满足要求的。这两个loss function还是convex的，相对于w和b这两个参数也是convex的。loss function是convex的时候的问题都有比较好的解，因为local minimum就是global minimum，而且可以通过高效算法计算得到结果。但是我们这里不用这些方法，因为这些方法对于neural networks是行不通的。
+
+从figure4我们可以看到，square of differences会比absolute difference表现得更好，因为在t_p = t_c时，square of difference在这点的导数为0，而absolute difference在这点的导数却没有定义。在我们最关心的点却没有导数定义，这是很致命的。而且square of difference这个loss所训练得到的数据，往往不会有大的偏差，但每个都有些小的偏差，而absolute difference这个loss训练所得的数据，会在某几个值上有很大的偏差，而在其他地方更加精确。
+
+![loss function]({{ '/assets/images/DLP-5-4.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 4. Absolute difference versus difference squared.*
 
 
+#### 5.3.1 From problem back to PyTorch
+
+我们现在已经有了model，也有了loss function和数据，是时候利用PyTorch来进行训练了。
+
+```python
+# In [2]
+def model(t_u, w, b):
+    return w * t_u + b
+```
+
+在这个模型里，w和b将是PyTorch scalars（也就是zero-dimensional tensors），而w和t_u之间的乘法以及和b之间的加法将会由broadcasting来完成。
+
+```python
+# In [3]:
+def loss_fn(t_c, t_p):
+    squared_diffs = (t_p - t_c)^2
+    return squared_diffs.mean()      # 这个是mean squared loss
+
+# In [4]:
+w = torch.ones(())
+b = torch.zeros(())
+
+t_p = model(t_u, w, b)
+t_p
+
+# Out [4]:
+tensor([35.7000, 55.9000, 58.2000, 81.9000, 56.3000, 48.9000, 33.9000,
+        21.8000, 48.4000, 60.4000, 68.4000])
+
+# In [5]:
+loss = loss_fn(t_p. t_c)
+loss
+
+# Out [5]:
+tensor(1763.8846)
+```
+
+我们已经计算了给模型输入得到的输出，并计算了loss的值。现在我们要解决的是，下一步如何通过最小化loss来得到所要的参数的值呢？
 
 
+### 5.4 Down along the gradient
 
+我们将会利用gradient descent algorithm来优化loss function得到所想要的参数的值。在这一个section里，我们将会介绍gradient descent algorithm是怎么运作的。
+
+假设我们有个思想实验，如figure5所示。我们可以调控w和b的值，并且可以看到loss随着这两个参数改变而改变的值。我们逐渐的调整w或者b的值，会发现loss一开始下降的快，后来逐渐变慢，直到在一个局部最小值的地方停下来，我们再朝着一个方向调整w或b的话，loss就会再次变大。我们发现，当loss改变较慢的时候，我们也需要调整w和b慢一点，避免错过了最小值点。最终，我们会得到所想要的最小值的位置。
+
+#### 5.4.1 Decreasing loss
+
+gradient descent正如我们上面所描述的那个思想实验一样。重点在于计算每个参数随着loss改变而变化的速率，并将每个参数沿着减小loss的方向而改变。正如上面实验所示，我们通过给w一个很小的改变量，来看loss改变了多少：
+
+```python
+# In [6]:
+delta = 0.1
+
+loss_rate_of_change_w = (loss_fn(model(t_u, w + delta, b), t_c) - loss_fn(model(t_u, w - delta, b), t_c)) / (2.0 * delta)
+```
+
+上述function计算了改变一个单位的w会造成loss改变多少，如果是正的，就要减小w的值，如果是负的，就增加w的值。但是增加或者减小多少呢？增加或者减小的量与loss_rate_of_change_w成比例是比较合理的，特别是当模型有多个参数的时候，每个参数要改变的量会不一样。一直以很小的改变量来修改参数的值也是一种方法，但很慢。我们一般都会给loss_rate_of_change乘一个比较小的值，叫做learning rate。
+
+```python
+# In [7]:
+learning _rate = 1e-2
+
+w = w - learning_rate * loss_rate_of_change_w
+
+loss_rate_of_change_b = (loss_fn(model(t_u, w, b + delta), t_c) - loss_fn(model(t_u, w, b - delta), t_c)) / (2.0 * delta)
+
+b = b - learning_rate * loss_rate_of_change_b
+```
+
+上述过程即是更新参数所经历的过程。当我们重复上述过程很多次，并且使用足够小的learning_rate，我们就能使得参数位于使得loss达到最小值的点（在这个例子里是最小值，一般情况下是极小值）
+
+
+#### 5.4.2 Getting analytical
+
+计算通过重复性的计算model和loss来得到rate_of_change去更新参数的值，在参数数量很多，模型很大的情况下是不适用的。而且我们也不知道我们需要探索的参数空间应该有多大。我们上面取了delta=0.1，但是这个值很依赖loss function以及w和b的值。如果在某个w和b点，loss function变得很快，那么这个delta就不适用了。
+
+但如果我们使用十分小的delta呢？这实际上也就是我们计算loss function在每个参数点处的导数值。在具有多个参数的模型里，我们计算loss function对于每个参数的导数，并把他们放在一个vector里，叫做gradient。
+
+![gradient]({{ '/assets/images/DLP-5-5.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 5. Differences in the estimated directions for descent when evaluating them at discrete locations versus analytically.*
+
+**COMPUTING THE DERIVATIVES**
+为了计算loss对于一个参数的derivative，我们可以计算利用链式法则：d loss_fn / d w = d loss_fn / d t_p * d t_p / d w，从而
+
+```python
+# In [8]:
+# 这个函数用来计算loss对于t_p的导数，t_p.size(0)是因为是mean squared loss
+
+def dloss_fn(t_p, t_c):
+    dsq_diffs = 2 * (t_p - t_c) / t_p.size(0)
+    return dsq_diffs
+```
+
+**APPLYING THE DERIVATIVES TO THE MODEL**
+
+```python
+# In [9]:
+# 计算derivatives
+
+def dmodel_dw(t_u, w, b):
+    return t_u
+
+def dmodel_db(t_u, w, b):
+    return 1.0
+```
+
+**DEFINING THE GRADIENT FUNCTION**
+```python
+# In [10]:
+def grad_fn(t_u, t_p, t_c, w, b):
+    dloss_dtp = dloss_fn(t_p, t_c)
+    dloss_dw = dloss_dtp * dmodel_dw(t_u, w, b)
+    dloss_db = dloss_dtp * dmodel_db(t_u, w, b)
+    return torch.stack([dloss_dw.sum(), dloss_db.sum()])
+```
+
+figure6展示了上述过程的数学原理。我们最后仍然用sum function来对于每个参数获得对于所有输入的数据一个单一的gradient值。
+
+![math]({{ '/assets/images/DLP-5-6.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 6. The derivative of the loss function with respect to the weights.*
+
+
+#### 5.4.3 Iterating to fit the model
+
+我们现在已经有了优化参数的所有组件。从参数的一个起始值开始，我们可以循环有限次来更新参数的值，或者一直循环更新直到满足某个条件为止。
+
+**THE TRAINING LOOP**
+
+我们将通过利用所有的training samples来更新参数值的一个training loop称为一个epoch。一个完整的training loop如下所示：
+
+```python
+# In [11]:
+
+def training_loop(n_epochs, learning_rate, params, t_u, t_c):
+    for epoch in range(1, n_epochs + 1):
+        w, b = params
+        t_p = model(t_u, w, b)               # forward
+        loss = loss(t_p, t_c)
+        grad = grad_fn(t_u, t_c, t_p, w, b)  # backward
+        
+        params = params - learning_rate * grad
+        
+        print('Epoch %d, Loss %f' % (epoch, float(loss)))
+        
+    return params
+```
+
+接下来，我们运行一下上述代码：
+
+```python
+# In [12]:
+training_loop(n_epochs=100, learning_rate=1e-2, params=torch.tensor([1.0, 0.0]), t_u=t_u, t_c=t_c)
+
+# Out [12]:
+Epoch 1, Loss 1763.884644
+    Params: tensor([-44.1730, -0.8260])
+    Grad: tensor([4517.2969, 82.6000])
+Epoch 2, Loss 5802485.500000
+    Params: tensor([2568.4014, 45.1637])
+    Grad: tensor([-261257.4219, -4598.9712])
+Epoch 3, Loss 19408035840.000000
+    Params: tensor([-148527.7344, -2616.3933])
+    Grad: tensor([15109614.0000, 266155.7188])
+...
+Epoch 10, Loss 90901154706620645225508955521810432.000000
+    Params: tensor([3.2144e+17, 5.6621e+15])
+    Grad: tensor([-3.2700e+19, -5.7600e+17])
+Epoch 11, Loss inf
+    Params: tensor([-1.8590e+19, -3.2746e+17])
+    Grad: tensor([1.8912e+21, 3.3313e+19])
+    
+tensor([-1.8590e+19, -3.2746e+17])
+```
+
+**OVERTRAINING**
+
+上述代码中，我们的training process直接爆炸了，loss变成了inf。这是因为每次更新的值太大了，导致参数发生了振荡，这个optimization的过程是unstable的：它diverge了而不是收敛到minimum。figure7展示了这个现象。
+
+![diverge]({{ '/assets/images/DLP-5-7.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 7. Top: Diverging optimization on a convex function (parabola-like) due to large steps. Bottom: Converging optimization with small steps.*
+
+我们将learning_rate调小，来看看training process会怎样：
+
+```python
+# In [13]:
+training_loop(n_epochs=100, learning_rate=1e-4, params=torch.tensor([1.0, 0.0]), t_u=t_u, t_c=t_c)
+
+# Out [13]:
+Epoch 1, Loss 1763.884644
+    Params: tensor([ 0.5483, -0.0083])
+    Grad: tensor([4517.2969, 82.6000])
+Epoch 2, Loss 323.090546
+    Params: tensor([ 0.3623, -0.0118])
+    Grad: tensor([1859.5493, 35.7843])
+Epoch 3, Loss 78.929634
+    Params: tensor([ 0.2858, -0.0135])
+    Grad: tensor([765.4667, 16.5122])
+...
+Epoch 10, Loss 29.105242
+    Params: tensor([ 0.2324, -0.0166])
+    Grad: tensor([1.4803, 3.0544])
+Epoch 11, Loss 29.104168
+    Params: tensor([ 0.2323, -0.0169])
+    Grad: tensor([0.5781, 3.0384])
+...
+Epoch 99, Loss 29.023582
+    Params: tensor([ 0.2327, -0.0435])
+    Grad: tensor([-0.0533, 3.0226])
+Epoch 100, Loss 29.022669
+    Params: tensor([ 0.2327, -0.0438])
+    Grad: tensor([-0.0532, 3.0226])
+    
+tensor([ 0.2327, -0.0438])
+```
+
+现在optimization的过程稳定了下来，但是因为learning_rate太小，所以可能还没有完成优化，训练过程就停止了。我们可以使得learning_rate和grad成比例，我们在section5.5.2里会看到这样的作法。
+
+上述优化过程还有个问题需要解决，gradient自己。我们来看看epoch1里的grad。
+
+
+#### 5.4.4 Normalizing inputs
+
+我们可以看到，在第一个epoch里，w的gradient要比b的gradient大50倍。这说明w和b位于不同尺度的参数空间内。如果是这样的话，那对于某个参数适用的learning_rate对于另一个参数就不适用了。所以如果我们不加以更改，甚至无法找到合适的learning_rate。我们可以给每个参数一个learning_rate，但如果参数很多，这种做法是不切实际的。
+
+有一个更为简单的解决问题的办法，改变inputs，从而使得gradients的差别变得不大。在我们的例子里，我们可以这样做：
+
+```python
+# In [14]:
+t_un = 0.1 * t_u
+```
+
+我们现在再来运行一下training process：
+
+```python
+# In [15]:
+training_loop(n_epochs = 100, learning_rate = 1e-2, params = torch.tensor([1.0, 0.0]), t_u = t_un, t_c = t_c)
+
+# Out [15]:
+Epoch 1, Loss 80.364342
+    Params: tensor([1.7761, 0.1064])
+    Grad: tensor([-77.6140, -10.6400])
+Epoch 2, Loss 37.574917
+    Params: tensor([2.0848, 0.1303])
+    Grad: tensor([-30.8623, -2.3864])
+Epoch 3, Loss 30.871077
+    Params: tensor([2.2094, 0.1217])
+    Grad: tensor([-12.4631, 0.8587])
+...
+Epoch 10, Loss 29.030487
+    Params: tensor([ 2.3232, -0.0710])
+    Grad: tensor([-0.5355, 2.9295])
+Epoch 11, Loss 28.941875
+    Params: tensor([ 2.3284, -0.1003])
+    Grad: tensor([-0.5240, 2.9264])
+...
+Epoch 99, Loss 22.214186
+    Params: tensor([ 2.7508, -2.4910])
+    Grad: tensor([-0.4453, 2.5208])
+Epoch 100, Loss 22.148710
+    Params: tensor([ 2.7553, -2.5162])
+    Grad: tensor([-0.4446, 2.5165])
+    
+tensor([ 2.7553, -2.5162])
+```
+
+上述训练过程的learning_rate设置成了1e-2，而现在也不会震荡了。我们来看gradients，w的和b的位于差不多的量级上，所以同一个learning_rate就可以。如果我们对输入做normalization可能会效果更好，但在这个例子里，乘以0.1就足够使用了。
+
+我们接下来运行足够多的次数，来使得gradient足够小，从而达到loss的最小值：
+
+```python
+# In [15]:
+training_loop(n_epochs = 5000, learning_rate = 1e-2, params = torch.tensor([1.0, 0.0]), t_u = t_un, t_c = t_c, print_params=False)
+
+# Out [15]:
+Epoch 1, Loss 80.364342
+Epoch 2, Loss 37.574917
+Epoch 3, Loss 30.871077
+...
+Epoch 10, Loss 29.030487
+Epoch 11, Loss 28.941875
+...
+Epoch 99, Loss 22.214186
+Epoch 100, Loss 22.148710
+...
+Epoch 4000, Loss 2.927680
+Epoch 5000, Loss 2.927648
+
+tensor([ 5.3671, -17.3012])
+```
+
+我们看到，在训练的后期，loss改变的已经很小了，但仍然不是0，这可能是因为训练的次数还不够多，或者模型本身就不能很好的拟合数据。但我们的参数其实已经很接近正确值了，说明我们的训练过程起了作用。
+
+#### 5.4.5 Visualizing (again)
+
+```python
+# In [16]:
+%matplotlib inline
+from matplotlib import pyplot as plt
+
+t_p = model(t_un, *params)
+
+fig = plt.figure(dpi=600)
+plt.xlabel("Temperature (Fahrenheit)")
+plt.ylabel("Temperature (Celsius)")
+plt.plot(t_u.numpy(), t_p.detech().numpy())
+plt.plot(t_u.numpy(), t_c.numpy(), 'o')
+```
+
+我们这里用了Python的一个技巧：argument unpacking。\*params 表示以单独argument的形式来给出params里的元素。在Python里，这个通常用在list或者tuples里，但PyTorch借用了这个用法，我们可以用这个来argument unpack PyTorch的tensors，tensors会沿着第一个dimension裂开。所以上述代码里的model(t_un, \*params)实际上就是model(t_un, params\[0\], params\[1\])。
+
+上述代码会画出figure8。我们的linear model对于数据能够很好的拟合。
+
+![plot]({{ '/assets/images/DLP-5-8.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 8. The plot of our linear-fit model (solid line) versus our input data (circles).*
 
 
 
