@@ -17,6 +17,12 @@ date: 2022-02-09 01:09:00
 
 ---
 
+
+## torch.tensor
+
+## torch.nn
+
+
 ### 1. scatter_ 和 scatter method
 
 这个method是tensor所拥有的，而scartter和scatter_的用法是一样的，区别仅在于，scatter method会返回一个新的tensor，而scatter_仅改变原tensor，而不返回新的tensor。在PyTorch里，所有带一个
