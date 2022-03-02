@@ -178,6 +178,11 @@ i.e., the error probability (the training criterion of discriminator) of the dis
 The experiments in this paper is not good enough and quite simple.
 
 
+#### The conclusion of writing style of this paper
+
+This paper proposes a very novel idea and model, thus it elaborates the details of design and ideas behind GAN very clearly. The authors are very ambitious and are confident that this work will be recorded in this area. So the whole writing style is kind of like Wikipedia, i.e., the very detailed description of the proposed model, with a little mention of existing works and comparison with other works. Also, experiments are few.
+
+If you are confident that your work is novel and very important, you can use this kind of writing style. Otherwise, you need to describe clearly the existing works and your contribution to this problem.
 
 
 
