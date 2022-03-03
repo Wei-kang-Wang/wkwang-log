@@ -155,7 +155,7 @@ This is a two-player minimax game. When the G and D reach a stable state, they a
 4. Look at figure1. This example is simple. The input noise distribution of $$z$$ is a uniform distribution (the lower line of $$z$$ has equal intervals), and our $$x$$ is a Guassian distribution (the black dotted line). The arrows between the line of $$x$$ and $$z$$ is the mapping, i.e., generator. From plot (a) in figure1, we see that, at first, the mapping maps $$z$$ to the behind part of $$x$$, so the output distribution of this mapping is the green line in the plot, and the blue line is the discriminator. The next step, we update the discriminator, we can see that, the discriminator choose the margin in between of the mean of the true distribution and the generator output distribution, as shown in plot (b). Then we update the generator, we can see that the generator output distribution will move closer to the true distribution, in plot(c). And then we update discriminator, update generator, ..., and finally ,we get plot(d), in that the generaotr output will be the same to the true distribution and the discriminator will show a horizontal line indicating that it can not distinguish between true and generated data. 
 
 ![GAN]({{ '/assets/images/GAN-1.PNG' | relative_url }})
-{: style="width: 600px; max-width: 100%;"}
+{: style="width: 800px; max-width: 100%;" class="center"}
 *Fig 1. An example of training process of a GAN.*
 
 5. Each training iteration of the training algorithm of GAN involves two steps. In the first step, there is a for loop, loops over $$m$$ times. And in each loop, we get $$m$$ true data and $$m$$ generated data from the generator, and then calculate the gradient of the minimax loss defined above to update the discriminator. In the second step, we sample another $$m$$ samples from the generator to calculate the gradient of the minimax loss with respect to the generator for updating it. The for loop iteration time $$k$$ in the first step, is a hyperparameter of this algorithm. In each training iteration, we need the generator and distriminator be at the same levle, i.e., the performance of one should be be much better than the other. Only in this case, we can make the training trackable. The decision of whether a GAN is trained well is also a difficult question, i.e., the iteration time of the training algorithm. This still remains a hot area and unsolved.
@@ -174,8 +174,13 @@ i.e., the error probability (the training criterion of discriminator) of the dis
 2. The algorithm described above is able to train the discriminator and the generator, i.e., the training algorithm is convergent. 
 
 
-#### Experiments
+#### 5. Experiments
 The experiments in this paper is not good enough and quite simple.
+
+
+#### 6. Conclusion
+
+GAN is actually an unsupervised learning setting, but it leverages supervised learning framework by using the label of true or generated data for training. This idea insights the future self-supervised learning frameworks.
 
 
 #### The conclusion of writing style of this paper
@@ -186,6 +191,34 @@ If you are confident that your work is novel and very important, you can use thi
 
 
 
+### MAE: [Masked Autoencoders Are Scalable Vision Learners](https://arxiv.org/pdf/2111.06377.pdf)
+
+*Kaiming He, Xinlei Chen, Saining Xie, Yanghao Li, Piotr Dollar, Ross Girshick*
+
+*Arxiv 2021*
+
+**Transformer $$\rightarrow$$ Bert(using transformer framework, but with self-supervised learning), Transformer $$\rightarrow$$ ViT(using transformer idea in CV), ViT $$\rightarrow$$ MAE (just like Bert' relation to Transformer)**
+
+**Transformer $$\rightarrow$$ Bert $$\rightarrow$$ MAE $$\leftarrow$$ ViT $$\leftarrow$$ Transformer**
+
+#### 1. Title
+
+"Scalable" are usually used when your model is very big, and "efficient" are usually used when your model is quite quick. These are two pupolar words in a title. "Vision learners" is a more broad word rather than classifier or other specific models. The "auto" in "Autoencoders" means that the input $$x$$ and label $$y$$ comes from the same data. "Auto" models are a kind of general models. In NLP, most works are actually "auto", so they usually just neglect this word. But in CV, these kind of works are not very much, because the label for images seldom comes from images themselves, thus "Autoencoders" in this title is essential. It means that in this work, the labels for images come from images themselves, distinguished from other works.
+
+The whole sentance, "a" are "b" "c", where "a" and "c" are nouns and "b" are adjectives, are a popular naming pattern recently. This is a very useful sentance, since it contains the conclusion in the title, and it's objective.
+
+#### 2. Abstract
+
+The idea is to mask random patches of an image and let the model to reconstruct the masked pixels. This idea is quite similar to Bert, since in Bert, they let the model to learn masked words according to other words. There are two core ideas of this model: firstly the whole model is a asymmetric encoder-decoder architecture, since the masked patches will not be encoded and the decoder will reconstruct the whole input image from non-masked representations and masked tokens. Secondly, masking high portion of the image (e.g., 75%) will yield a nontrivial sefl-supervised learning task. Because only masking few pixels, we can just using interpolation to archive pretty good result. These two ideas make training a large model efficiently becomes possible: because large portion will be masked and not encoded, and this problem is hard enough to implement large models to learn. Since this work is a counterpart to Bert, it actually used as some pretrained technic for transfer leaning.
+
+
+#### 3. Introduction
+
+Have a look at figure1. Figure1 is usually at the upper right part of a CV paper and should be the most important figure of this paper to generally explain the idea of this paper. Figure1 describes the whole process of the MAE model. The input image will be cut into patches, and patches are randomly masked. Only non-masked patches are encoded by the encoder to get the representations of each non-masked patches. Then the representations are streched, and arranged according to the positions of there non-masked patches, and masked patches are also included, using only the position information. And finally the decoder will reconstruct the pixel information based on this streched representations.
+
+![MAE]({{ '/assets/images/MAE-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 1. MAE architecture.*
 
 
 ---
