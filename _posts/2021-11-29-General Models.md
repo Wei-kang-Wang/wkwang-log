@@ -212,13 +212,34 @@ The whole sentance, "a" are "b" "c", where "a" and "c" are nouns and "b" are adj
 The idea is to mask random patches of an image and let the model to reconstruct the masked pixels. This idea is quite similar to Bert, since in Bert, they let the model to learn masked words according to other words. There are two core ideas of this model: firstly the whole model is a asymmetric encoder-decoder architecture, since the masked patches will not be encoded and the decoder will reconstruct the whole input image from non-masked representations and masked tokens. Secondly, masking high portion of the image (e.g., 75%) will yield a nontrivial sefl-supervised learning task. Because only masking few pixels, we can just using interpolation to archive pretty good result. These two ideas make training a large model efficiently becomes possible: because large portion will be masked and not encoded, and this problem is hard enough to implement large models to learn. Since this work is a counterpart to Bert, it actually used as some pretrained technic for transfer leaning.
 
 
-#### 3. Introduction
+#### 3. Figures
 
-Have a look at figure1. Figure1 is usually at the upper right part of a CV paper and should be the most important figure of this paper to generally explain the idea of this paper. Figure1 describes the whole process of the MAE model. The input image will be cut into patches, and patches are randomly masked. Only non-masked patches are encoded by the encoder to get the representations of each non-masked patches. Then the representations are streched, and arranged according to the positions of there non-masked patches, and masked patches are also included, using only the position information. And finally the decoder will reconstruct the pixel information based on this streched representations.
+Have a look at figure1. Figure1 is usually at the upper right part of a CV paper and should be the most important figure of this paper to generally explain the idea of this paper. Figure1 describes the whole process of the MAE model. The input image will be cut into patches, and patches are randomly masked. Only non-masked patches are encoded by the encoder to get the representations of each non-masked patches. Then the representations are streched, and arranged according to the positions of there non-masked patches, and masked patches are also included, using only the position information. And finally the decoder will reconstruct the pixel information based on this streched representations. Note that in the figure, the box of encoder is bigger than the one of decoder, indicating that the encoder is more complex and is the key structure in this model.
 
 ![MAE]({{ '/assets/images/MAE-1.PNG' | relative_url }})
 {: style="width: 800px; max-width: 100%;" class="center"}
 *Fig 1. MAE architecture.*
+
+Now turn to figure2 and figure3. Figure2 shows the reconstruction ability of MAE model on the ImageNet validation set, while figure3 shows the same results on COCO dataset. 
+
+Figure4 shows that for the same image, masking different portion of the original image will result in different reconstructions.
+
+These three figures (2, 3, 4) have very good results on reconstruction based on very large portion of original images been masked. I think one reason could be that the model have learned the common information of one category, and once it encountered an image of this category with large portion occluded, it can use the information of other images of the same category to assist the reconstruction of this image.
+
+#### 4. Discussion and Conclusion
+
+The authors think this model is simple and can be scaled well. Being simple is because it's based on Vision Transformer, and being scaled-well is because it does not encode masked patches and saves lots of calculation for encoding.
+
+The authors also argue that supervised learning still dominates the CV community, different than the NLP groups. And this model has an unsupervised setting, and could be an important future direction for CV.
+
+They also mention that we need to note the differences between CV and NLP tasks. Images and languages are signals of different nature and this intrinsic difference must be addressed carefully. A word is itself a semantic part, and different words form sentences. But for images, a pixel or a patch is not a semantic part of an image. Even having these differences, MAE (based on transformer architecture) could learn some good hidden representations. This part needs future works.
+
+
+#### 5. Introduction
+
+1. Tell a story which is that deep learning has made great progress in CV, but still requires plenty of labeled data. And in NLP, self-supervised techniques are very popular, e.g., BERT, GPT. etc. Masked autoencoders are also not a novel thing in CV, for example, denoising autoencoders (decades before) involve adding noise to the image and then denoising the noise, and by doing this can let the model learn the useful representations of the images. Some works recently have used BERT structure into CV, but still not having very good results. So the question is: **what makes masked autoencoding different between vision and languages?** The authors give three answers to this question. 1). The architecture is different. For NLP, popular architecture is Transformer. And once you mask a word, you can always know the position information of the masked word easily. But for CV, the popular architecture is CNN. CNN uses convolution calculation sliding over the whole feature maps. Thus you mask one area of the image, and you can hardly track the positions of the masked area after several layers of convolution. But this problem has been issued by the introduction of Vision Transformer (ViT). But actually, why transformer needs position information is that attention mechanism in transformer does not have position information. But CNN naturaly contains position information because the convolution window slides over the feature maps, and record the results of each area into specific location of the resulting next layer feature maps. 2). Information density is different. 
+
+
 
 
 ---
