@@ -237,7 +237,36 @@ They also mention that we need to note the differences between CV and NLP tasks.
 
 #### 5. Introduction
 
-1. Tell a story which is that deep learning has made great progress in CV, but still requires plenty of labeled data. And in NLP, self-supervised techniques are very popular, e.g., BERT, GPT. etc. Masked autoencoders are also not a novel thing in CV, for example, denoising autoencoders (decades before) involve adding noise to the image and then denoising the noise, and by doing this can let the model learn the useful representations of the images. Some works recently have used BERT structure into CV, but still not having very good results. So the question is: **what makes masked autoencoding different between vision and languages?** The authors give three answers to this question. 1). The architecture is different. For NLP, popular architecture is Transformer. And once you mask a word, you can always know the position information of the masked word easily. But for CV, the popular architecture is CNN. CNN uses convolution calculation sliding over the whole feature maps. Thus you mask one area of the image, and you can hardly track the positions of the masked area after several layers of convolution. But this problem has been issued by the introduction of Vision Transformer (ViT). But actually, why transformer needs position information is that attention mechanism in transformer does not have position information. But CNN naturaly contains position information because the convolution window slides over the feature maps, and record the results of each area into specific location of the resulting next layer feature maps. 2). Information density is different. For language, a word is a semantic identity, and removing words, even few, can make one sentences vague. But there are much information redundacy within an image. Only removing a patch of an image, you can reconstruct this part by interpolating using neighborhood pixels.
+1. Tell a story which is that deep learning has made great progress in CV, but still requires plenty of labeled data. And in NLP, self-supervised techniques are very popular, e.g., BERT, GPT. etc. Masked autoencoders are also not a novel thing in CV, for example, denoising autoencoders (decades before) involve adding noise to the image and then denoising the noise, and by doing this can let the model learn the useful representations of the images. Some works recently have used BERT structure into CV, but still not having very good results. So the question is: **what makes masked autoencoding different between vision and languages?** The authors give three answers to this question. 1). The architecture is different. For NLP, popular architecture is Transformer. And once you mask a word, you can always know the position information of the masked word easily. But for CV, the popular architecture is CNN. CNN uses convolution calculation sliding over the whole feature maps. Thus you mask one area of the image, and you can hardly track the positions of the masked area after several layers of convolution. But this problem has been issued by the introduction of Vision Transformer (ViT). But actually, why transformer needs position information is that attention mechanism in transformer does not have position information. But CNN naturaly contains position information because the convolution window slides over the feature maps, and record the results of each area into specific location of the resulting next layer feature maps. 2). Information density is different. For language, a word is a semantic identity, and removing words, even few, can make one sentences vague. But there are much information redundacy within an image. Only removing a patch of an image, you can reconstruct this part by interpolating using neighborhood pixels. Because of this reason, masked autoencoding is not very useful in CV, because it does not learn useful semantic representations. In this paper, the authors just simply mask large portion of the images to make the task challenging and thus the leaRned representations in this way is information rich enough, not just interpolating but learning global information instead. 3). The autoencoder's decoder. The decoder for language models usually output a word, which is a very high-level semantic information. So the decoder in NLP tasks are quite simple, just MLP could be enough. But for CV tasks, the output of the decoder of the autoencoder of the CV task are normly pixels, i.e., the reconstruction of the original image, which is a very low-level semantic representation. Thus if the CV task is difficult, for example, the semantic segmentation, the decoder should be more complex rather than the NLP models. Note that for simple CV tasks, such as classification, decoders are also very simple, such as in ResNet, the decoder is just several layers of MLP.
+
+2. Based on the ideas above, they propose MAE. MAE uses a asymmetric architecture of encoder and decoder to reconstruct images with large portion been masked. Being asymmetric means that the input information of the encoder and the decoder is different, in their setting, encoder only encodes non-masked patches, while decoder also has the position information of masked patches. This setting could make the computation of encoder be much less, and more layers can be added and model can be easily scaled. 
+
+3. They finally show that MAE trained on only ImageNet-1K dataset can have very good performance as pre-trained model for downstream tasks such as object detection, instance segmentation, semantic segmentation, etc. So MAE in CV serves as some similar role as the BERT in NLP.
+
+
+#### 6. Related works
+
+1. Masked language models, including BERT, GPT, etc.
+
+2. Autoencoding models in CV community. 
+
+3. Masked image encoding in CV community. iGPT, BEiT are very closed papers, but they do not explan them clearly. Recommend that for very closely-related papers, you need to explain them and show the differences between your paper and their's.
+
+4. Self-supervised learning in CV community.
+
+
+#### 7. Approach
+
+
+
+
+#### The writing style of this paper
+
+1. The introduction part is a little long, partly because this paper uses lots of figures. Fruitful figures in CV paper is a good thing. The writing style of the introduction is not just an extension of the abstract (like GAN paper), but raising the topic into a more high level, and raise questions. This paper aims to solve this kind of question. It's a very good writing style. This can explain the necessity of this paper and give the basic idea of how the authors understand this problem. This could make the paper insightful, rather than just a technic report explaining the model details (like AlexNet paper).
+
+
+
+
 
 
 
