@@ -3002,6 +3002,486 @@ plt.plot(t_u.numpy(), t_c.numpy(), 'o')
 *Fig 8. The plot of our linear-fit model (solid line) versus our input data (circles).*
 
 
+### 5.5 PyTorch's autograd: Backpropagating all things
+
+在前一节里，我们计算了复合函数，也就是model和loss，对于参数w和b的derivatives，因为模型简单且所有的复合函数的组成函数都可以被计算，我们可以计算出每个derivative的公式。
+
+即使我们使用的是具有上百万个参数的很复杂的model，只要我们的model是可以被微分的，计算loss相对于参数的gradient就相当于将loss相对于每个参数的derivatives的公式写出来，并计算一次它们的值。然而，计算一个很复杂的模型的loss相对于每个参数的derivative的公式是很复杂的，很难计算的。
+
+#### 5.5.1 Computing the gradient automatically
+
+正是因为上面提到的计算很复杂，PyTorch在这个时候就有了作用，它有一个组成部分为autograd，用来解决这个困难。Chapter3展示了什么是tensor并且我们可以在tensors上调用哪些function。我们在那一章里留了一个很有意思的内容没有说，那就是，PyTorch的tensors可以记住它们是从哪里来的，也就是说它们记住了产生它的parent tensors和operations，而且它们可以轻易的用链式法则给出它们对于inputs的derivatives是多少。这个PyTorch的tensors的性质表明我们不需要手动来计算这个model的各个derivatives，给一个forward的expression，不管有多复杂，不管内部嵌套了多少计算，PyTorch都会自动给出这个expression对于这个expression里各个参数的derivatives的值。
+
+**APPLYING AUTOGRAD**
+
+我们现在回到之前温度计的例子，利用autograd来重写这个code
+
+```python
+# In [1]:
+def model(t_u, w, b):
+    return w * t_u + b
+
+# In [2]:
+def loss_fn(t_p, t_c):
+    squared_diffs = (t_p - t_c) ** 2
+    return squared_diffs.mean()
+
+# In [3]:
+params = torch.tensor([1.0, 1.0], requires_grad = True)
+```
+
+**USING THE GRAD ATTRIBUTE**
+
+注意到上面代码里，paras里有个参数requires_grad被设置为True，这就告诉了PyTorch去跟踪所有建立在这个tensor上的operations所形成的树。换句话说，任何将params作为某个先前tensor的tensor都能获得如何从params计算得到该tensor的信息。如果这些中间计算的functions都是可微的（绝大多数PyTorch operations都是），那么该tensor对于params的derivative就会计算出来，占据params的grad attribute。
+
+通常来说，所有的PyTorch tensors都有叫grad的attribute。通常情况下，这个attribute是None。
+
+```python
+# In [4]:
+params.grad is None
+
+# Out [4]:
+True
+```
+
+而我们如何使得这个params的grad attribute被占据呢？我们首先需要从一个requires_grad被设置为True的tensor开始，然后计算model，从而计算依赖于该tensor的后续tensor，在这个例子里，输入tensor是params，后续tensor是loss，然后我们要在loss tensor上调用其的backward method：
+
+```python
+# In [5]:
+loss = loss_fn(model(t_u, *params), t_c)
+loss.backward()
+
+params.grad
+
+# Out [5]:
+tensor([4517.2969, 82,6000])
+```
+
+从而，params的grad attribute就包含了loss对于params每个值的derivative的值。
+
+当我们计算loss，并且参数w和b的requires_grad设置为True时，除了计算具体的值，PyTorch还生成了一个autograd的graph，operations（黑色圆圈）作为nodes，如figure9上面的图所示。当我们调用loss.forward()时，PyTorch将上述graph反过来来计算gradient，如figure9下面的图所示。
+
+![autograd]({{ '/assets/images/DLP-5-9.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 9. The forward graph and backward graph of the model as computed with autograd.*
+
+**ACCUMULATING GRAD FUNCTIONS**
+
+我们可以有任意数量的tensors，其requires_grad被设置为True，而且我们也可以构造任意复杂的复合函数。PyTorch会计算loss对于每个requires_grad被设置为True且与loss有计算关系的tensor，将对应的derivative的值，累积到该tensor的grad attribute里。
+
+特别注意，我们这里用的是累积这个词，而不是存储，也就是说，每次调用backward() method都会使得新的derivates加在grad attribute上。这一点很多人容易犯错。如果要利用每次loss对于该tensor的gradients来更新值的话，那么在每次计算之后，要使得该tensor的grad attribute清零，再进行下一次的backward()。
+
+所以说，在我们的代码里，在每个循环里还需要加入zero the gradient的操作。我们可以利用in place的zero_ method来轻易实现：
+
+```python
+# In [6]:
+if params.grad is not None:
+    params.grad.zero_()
+   
+# In [7]:
+def training_loop(n_epochs, learning_rate, params, t_u, t_c):
+    for epoch in range(1, n_epochs + 1):
+        if params.grad is not None:
+            params.grad.zero_()                            # 这一步骤在loss.backward()之前就行
+        
+        t_p = model(t_u, *params)
+        loss = loss_fn(t_p, t_c)
+        loss.backward()
+        
+        with torch.no_grad():                              # 这一步似乎显得多余，但之后的章节可以看到是有作用的
+            params -= learning_rate * params.grad
+            
+        if epoch % 500 == 0:
+            print('Epoch %d, Loss %f' % (epoch, float(loss)))
+        
+    return params
+```
+
+注意到上述计算params的代码并不是非常的直接，有两点值得注意的地方。首先，我们将更新params的代码封闭在一个Python with的上下文环境里，使用torch.no_grad()作为内容。这表明，在这个with环境里，Python的autograd机制不会起作用（实际上PyTorch会跟踪它们，将该操作当成in place的操作）：也就是说它不会在forward graph里添加operation对应的edge。实际上，当我们执行这一块的代码时，PyTorch所记录的forward graph关于这一块的代码会在backward()时直接被吸收，只留下一个params node。其次，我们使用in place的方式更新params。这表明我们只有一个params，而我们在执行的过程中更新了它的值。当使用autograd时，我们实际上要避免in place的更新，因为PyTorch的autograd engine可能需要更新前的该tensor的值来进行计算。而在这里，我们的操作并不需要涉及autograd，所以说这样的in place更新是可以的，还可以避免引入新的变量。在5.5.2里，当我们在optimizer里注册parameters的时候还会遇到这个问题。
+
+我们现在来看上述代码如何运作：
+
+```python
+# In [8]:
+training_loop(
+      n_epochs = 5000,
+      learning_rate = 1e-2,
+      params = torch.tensor([1.0, 1.0], requires_grad = True,     # requires_grad = True一定不能忘记
+      t_u = t_un,
+      t_c = t_c)
+
+# Out [8]:
+Epoch 500, Loss 7.860116
+Epoch 1000, Loss 3.828538
+Epoch 1500, Loss 3.092191
+Epoch 2000, Loss 2.957697
+Epoch 2500, Loss 2.933134
+Epoch 3000, Loss 2.928648
+Epoch 3500, Loss 2.927830
+Epoch 4000, Loss 2.927679
+Epoch 4500, Loss 2.927652
+Epoch 5000, Loss 2.927647
+
+tensor([5.3671, -17.3012], requires_grad=True)
+```
+
+#### 5.5.2 Optimizers a la carte
+
+在上面的代码里，我们使用了普通的gradient descent来优化，对于我们这种简单的例子是足够的。而实际上还有一些可供选择的optimization方法，它们对于更复杂的情况可能更加有效。
+
+我们将会在后续章节里介绍更复杂的optimization方法，而现在可以介绍一下PyTorch中为我们已经封装好的这些optimization algorithms。torch module有一个optim submodule，在其中我们能找到实现了各种optimization algorithm的classes。
+
+```python
+# In [1]:
+import torch.optim as optim
+
+dir(optim)
+
+# Out [1]:
+['ASGD',
+'Adadelta',
+'Adagrad',
+'Adam',
+'Adamax',
+'LBFGS',
+'Optimizer',
+'RMSprop',
+'Rprop',
+'SGD',
+'SparseAdam',
+...
+]
+```
+
+上述每一个optimizer constructor都接受一个parameters的list（parameters也就是PyTorch的tensors，而且它们的requires_grad都是True）作为输入。所有通过optimizer的parameters都在optimizer object内部被保留了，所以optimizer可以更新他们的值，并且可以访问它们的grad attribute，正如下图figure10所示：
+
+![optimizers]({{ '/assets/images/DLP-5-10.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 10. (A) Conceptual representation of how an optimizer holds a reference to parameters. (B) After a loss is computed from inputs, (C) a call to .backward leads to .grad being populated on parameters. (D) At that point, the optimizer can access .grad and compute the parameter updates.*
+
+每个optimizer都有两个methods：zero_grad和step。zero_grad会在构建的时候，将所有传给optimizer的parameters的grad attribute都置零。而step会根据这个optimizer的algorithm来更新这些parameters的值。
+
+
+**USING A GRADIENT DESCENT OPTIMIZER**
+
+我们来构建一个params，并初始化一个gradient descent optimizer：
+
+```python
+# In [1]:
+params = torch.tensor([1.0, 1.0], requires_grad = True)
+learning_rate = 1e-5
+optimizer = optim.SGD([params], lr=learning_rate)
+```
+
+这里SGD是stochastic gradient descent的简称。实际上，这个optimizer也是个vanilla gradient descent算法（只要momentum设置为0.0）。stochastic源于每一次的gradient都是通过平均一个所有input的随机子集来计算得来的，这个随机子集称为minibatch。而optimizer并不知道这个gradient是用所有input算的，还是只用了随即子集来算的，但更新方式是一样的，所以还是vanilla gradient descent算法。
+
+```python
+# In [2]:
+t_p = model(t_u, *params)
+loss = loss_fn(t_p, t_c)
+loss.backward()
+
+optimizer.step()
+
+params
+
+# Out [2]:
+tensor([9.5483e-01, -8.2600e-04], requires_grad = True)
+```
+
+注意到，params的值通过调用optimizer的step method就被更新了，而并不需要自己来进行什么操作。
+
+而现在我们已经可以将上述代码加入我们的training loop里了么？还不行，我们还没有zero_grad每次更新的值。下述代码可以直接被加入training loop里：
+
+```python
+# In [1]:
+params = torch.tensor([1.0, 1.0], requires_grad = True)
+learning_rate = 1e-2
+optimizer = optim.SGD([params], lr = learning_rate)
+
+t_p = model(t_un, *params)
+loss = loss_fn(t_p, t_c)
+
+optimizer.zero_grad()
+loss.backward()
+optimizer.step()
+
+params
+
+# Out [1]:
+tensor([1.7761, 0.1064], requires_grad = True)
+```
+
+我们可以看到，optim module帮我们省了更新模型里每个参数的操作，我们只需要将它们整合为一个list提供给optimizer，就可以自动进行更新了，只不过这个list可能会十分的长。
+
+从而我们的training loop即为：
+
+```python
+# In [1]:
+def traning_loop(n_epochs, optimizer, params, t_u, t_c):
+    for epoch in range(1, n_epochs + 1):
+        t_p = model(t_u, *params)
+        loss = loss_fn(t_p, t_c)
+        
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+        
+        if epoch % 500 == 0:
+            print('Epoch %d, Loss %f' % (epoch, float(loss)))
+        
+    return params
+
+# In [2]:
+params = torch.tensor([1.0, 1.0], requires_grad = True)
+learning_rate = 1e-2
+optimizer = optim.SGD([params], lr=learning_rate)    # 就是这里
+
+training_loop(
+    n_epochs = 5000,
+    optimizer = optimizer,
+    params = params,                                 # 这里training_loop函数里params参数赋值的params，要和上面optimizer里的params一直，否则optimizer不知道该更新什么
+    t_u = t_un,
+    t_c = t_c)
+
+# Out [2]:
+Epoch 500, Loss 7.860118
+Epoch 1000, Loss 3.828538
+Epoch 1500, Loss 3.092191
+Epoch 2000, Loss 2.957697
+Epoch 2500, Loss 2.933134
+Epoch 3000, Loss 2.928648
+Epoch 3500, Loss 2.927830
+Epoch 4000, Loss 2.927680
+Epoch 4500, Loss 2.927651
+Epoch 5000, Loss 2.927648
+
+tensor([5.3671, -17.3012], requires_grad=True)
+```
+
+**TESTING OTHER OPTIMIZER**
+
+如果我们想用其它的optimizer，只需要实例化另一个optimizer就可以了。以Adam来举例，这个optimizer对于parameters的scaling更不敏感，即使我们用非normalized的数据，并且learning_rate设置为1e-1，它仍然可以正确学习：
+
+```python
+# In [3]:
+params = torch.tensor([1.0, 1.0], requires_grad = True)
+learning_rate = 1e-1
+optimizer = optim.Adam([params], lr=learning_rate)
+
+training_loop(
+    n_epochs = 2000,
+    optimizer = optimizer,
+    params = params,
+    t_u = t_u
+    t_c = t_c)
+
+# Out [3]:
+Epoch 500, Loss 7.612903
+Epoch 1000, Loss 3.086700
+Epoch 1500, Loss 2.928578
+Epoch 2000, Loss 2.927646
+
+tensor([0.5367, -17.3021], requires_grad=True)
+```
+
+optimizer并不是我们的training loop里唯一可以替换的东西。让我们把注意力集中到模型上。我们可以将上述的model function替换成neural network。虽然我们知道这个温度计问题的背后的model就是线性的，但这并不影响我们使用neural network来拟合。我们将在chapter6里说。
+
+我们已经接触了很多核心的概念，使我们能够训练一些很复杂的deep learning models，而且理解它们背后的原理：反向传播来估计gradients，autograd，以及利用optimizers来更新模型的参数。剩下的内容便只有补漏补缺。
+
+接下来我们来看如何划分我们的数据，这个可以很好的锻炼我们控制autograd的能力。
+
+#### 5.5.3 Training, validation and overfitting
+
+在Kepler的工作里，他将一部分的数据留在一边不适用，而使用它们来验证自己猜想的模型的正确性。这个事情很重要，特别是当我们的模型能够拟合任意函数的时候，比如neural networks。一个高度可适应化的模型会用他十分多的parameters来尽可能的拟合数据点，使得loss尽可能地低，但这并不保证这个学习后的模型对于未见过的数据还表现良好。产生这种现象的原因是，毕竟我们要求optimizer来使得loss达到最小，而且optimizer就是通过可见到的数据来计算的。而对于训练数据loss很小，对于独立的验证数据loss很大的情况，叫做overfitting。
+
+我们用来阻止overfitting的第一个操作是认识到overfitting可能会出现这样的事实。我们需要在数据集中留下一部分不使用，作为validation set，只使用剩下的数据来拟合我们的模型，training set，如figure11所示。从而我们就可以用validation set来验证我们所学习到的模型的好坏。
+
+![overfitting]({{ '/assets/images/DLP-5-11.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 11. Conceptual representation of a data-producing process and the collection and use of training data and independent validation data.*
+
+**EVALUATING THE TRAINING LOSS**
+
+training loss可以告诉你模型对于训练数据拟合的好坏，以及模型能否具有拟合数据的能力。一个deep neural network理论上可以拟合任意的函数，只要neurons，也就是参数，足够的多。参数越少，我们的neural network所能拟合的函数就越简单。所以说，规则1：如果training loss不再下降，那可能是对于这个数据，这个模型过于简单了。另一种可能性是数据本身就不具有能够解释输出的信息，比如在温度计的例子里，输入是压力，而输出是摄氏度，它们之间没有任何关系，也就无法学习到相对应的关系。
+
+
+**GENERALIZING TO THE VALIDATION SET**
+
+所以说validation set是什么？如果validation set的loss并不随着training loss的降低而降低，那说明我们的模型在增进自己拟合训练数据的能力，而不是在增加自己generalizing到这个训练数据集合背后的数据分布里的数据的能力。一旦我们在新的，未见过的数据上测试训练好的模型，loss就会变得很大。所以说，规则2：如果training loss和validation loss分道扬镳了，那说明我们overfitting了。
+
+让我们更加深入的研究一下这个现象，使用之前的温度计的例子。我们可以用一些更复杂的模型来拟合，比如分段多项式，或者一个很大的neural network。这些模型可以学习到一个能够完美拟合所有训练数据的的模型，如figure12下面的图所示，因为这样的话，training loss会变成0，也就是最小。但这样的模型对于新的数据，效果会很不好。
+
+![over]({{ '/assets/images/DLP-5-12.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 12. Rather extreme example of overfitting.*
+
+所以说，怎么解决这个问题呢？这是个好问题。首先，我们要保证我们有足够多的数据。如果我们使用很低的频率从一个正弦函数上采样，那么能恢复原采样函数的几率是很小的。
+
+假设我们已经有了足够多的数据，我们需要保证我们能够拟合training data的模型在未见到的数据上仍然能够尽可能地保持稳定的表现。有多种方式来实现这个目标。一种方法是给loss function加上penalization terms，从而使得模型更容易变得光滑，且模型本身改变的更慢一点。另一种方法是对于input数据加上噪声，并使得模型也去拟合加了噪声的数据。还有很多种不同的方法。但我们需要注意的一点是，尽量使用简单的模型。简单的模型可能不如复杂的模型拟合训练数据拟合的好，但简单的模型在数据之间表现得更加稳定。
+
+所以我们得到了一个trade-off。一方面，我们需要具有足够学习能力的模型来拟合数据集，另一方面我们也需要这个模型不要overfitting。因此，为了选择具有合适参数的neural networks，这个过程分两步，逐步增加模型的size直到它能拟合好训练数据；再逐渐减小模型的size直到它停止overfitting。
+
+我们会在chapter12里更加详细的解释。现在，我们来看对于我们的例子，我们如何将数据分为training set和validation set。我们先将t_u打乱，但保持t_u和t_c的对应关系不变，再将打乱的set分为两个部分：
+
+```python
+# In [1]:
+n_samples = t_u.shape[0]
+n_val = int(0.2 * n_samples)
+
+shuffled_indices = torch.randperm(n_samples)
+
+train_indices = shuffled_indices[:-n_val]
+val_indices = shuffled_indices[-n_val:]
+
+train_indices, val_indices
+
+# Out [1]:
+(tensor([9, 6, 5, 8, 4, 7, 0, 1, 3]), tensor([ 2, 10]))
+
+# In [2]:
+train_t_u = t_u[train_indices]
+train_t_c = t_c[train_indices]
+
+val_t_u = t_u[val_indices]
+val_t_c = t_c[val_indices]
+
+train_t_u = train_t_u * 0.1
+val_t_u = val_t_u * 0.1
+```
+
+我们的training loop其实并没有过多的更改，我们再每个epoch验证一下我们的validation set的loss，来看看是否overfitting了。
+
+```python
+# In [3]:
+def training_loop(n_epochs, optimizer, params, train_t_u, train_t_c, val_t_u, val_t_c):
+    for epoch in range(1, n_epochs + 1):
+        train_t_p = model(train_t_u, *params)
+        train_loss = loss_fn(train_t_p, train_t_c)
+        
+        val_t_p = model(val_t_u, *params)
+        val_loss = loss_fn(val_t_p, val_t_c)
+        
+        optimizer.zero_grad()
+        train_loss.backward()
+        optimizer.step()
+        
+        if epoch <=3 or epoch % 500 == 0:
+            print(f"Epoch {epoch}, Training loss {train_loss.item(): .4f},"
+                  f"Validation loss {val_loss.item(): .4f")
+    
+    return params
+
+# In [4]:
+params = torch.tensor([1.0, 1.0], requires_grad = True)
+learning_rate = 1e-2
+optimizer = optim.SGD([params], lr=learning_rate)
+
+training_loop(
+    n_epochs = 3000,
+    optimizer = optimizer,
+    params = params,
+    train_t_u = train_t_un,
+    train_t_c = train_t_c,
+    val_t_u = val_t_un,
+    val_t_c = val_t_c)
+
+# Out [5]:
+Epoch 1, Training loss 66.5811, Validation loss 142.3890
+Epoch 2, Training loss 38.8626, Validation loss 64.0434
+Epoch 3, Training loss 33.3475, Validation loss 39.4590
+Epoch 500, Training loss 7.1454, Validation loss 9.1252
+Epoch 1000, Training loss 3.5940, Validation loss 5.3110
+Epoch 1500, Training loss 3.0942, Validation loss 4.1611
+Epoch 2000, Training loss 3.0238, Validation loss 3.7693
+Epoch 2500, Training loss 3.0139, Validation loss 3.6279
+Epoch 3000, Training loss 3.0125, Validation loss 3.5756
+
+tensor([5.1964, -16.7512], requires_grad=True)
+```
+
+在我们上述的例子里，validation set有点偏小了，所以validation loss只是针对两个点进行衡量。我们注意到，validation loss一直都比training loss要大。我们的模型本身就会在training set上表现得更好，因为它的参数就是从training set中学来的，但我们的主要目的是使得training loss和validation loss同步下降。最理想的状态是validation loss和training loss曲线挨得很近，这说明我们的模型generalization的能力很好。在figure13里，C是理想状态，D是能接受的状态，A是模型压根就没有学习，B是overfitting。我们将会在chapter12里学到更多的overfitting的例子。
+
+![learning]({{ '/assets/images/DLP-5-13.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 13. Overfitting scenarios when looking at the training (solid line) and validatoin (dotted line) losses. (A) Training and validation losses do not decrease; the model is not learning due to no information in the data or insufficient capacity of the model. (B) Training loss decreases while validation loss increases: overfitting. (C) Training and validation losses decrease exactly in tandem. Performance may be improved further as the model is not at the limit of overfitting. (D) Training and validation losses have different absolute values but similar trends: overfitting is under control.*
+
+
+#### 5.5.4 Autograd nits and switching it off
+
+在之前的training loop代码里，我们仅仅对train_loss调用了backward方法。因此，errors仅仅会根据training set来反向传播，validation set是用来衡量模型在未训练数据上的表现的。
+
+那么问题来了，模型在每次epoch里被evaluate了两次，一次在train_t_u上，一次在val_t_u上，然后再backward。那么为什么autograd不会出错呢？backward的值难道不会因为validation set所计算的loss而受到影响么？
+
+在我们这个例子里，不会出现这个问题。model在train_t_u上evaluate得到train_t_p，然后train_loss是通过train_t_p计算来的，从而这个过程形成了一个computation graph，将train_t_u连到train_t_p，再连到train_loss。而model再在val_t_u上evaluate得到val_t_p，然后val_loss是通过val_t_p计算来的，这个过程同样形成了一个computation graph，将val_t_u连到val_t_p，再连到val_loss。虽然它们都使用了同一个model，也就是使用了同样的parameters，但是是两个独立的computation graph，如figure14所示。所以，之后调用train_loss.backward()，其会将train_loss对于params的derivatives放在params的grad attribute里，而这个过程，和val_loss没有一点关系。
+
+![separate]({{ '/assets/images/DLP-5-14.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 14. Diagram showing how gradients propagate through a graph with two losses when .backward is called on one of them.*
+
+
+这两个computation graph唯一共同的tensors就是parameters。当我们调用train_loss的backward method时，我们是在第一个computation graph上调用的。也就是说，我们基于train_t_u计算得来的train_loss对于parameters的derivatives被加到了parameters的grad attribute上。
+
+如果我们也在val_loss上调用了backward() method，我们将会将通过val_loss计算的params的derivatives也加到它的grad attribute上。从而实际上，我们每个epoch就是使用了整个数据集来训练的，因为gradient实际上用了training set和validation set里所有的数据来计算。
+
+还有另一个值得注意的地方。既然我们对于val_loss从未调用backward method，PyTorch为什么还要构建一个computation graph呢？我们可以只是将model和loss_fn作为普通的function来使用，而不建立computation graph。这样可以省下大量的算力。
+
+为了解决这个问题，PyTorch允许我们在不需要它的时候关掉autograd，使用torch.no_grad上下文管理系统。这个在问题和模型很庞大的时候，可以节省很多空间和算力。
+
+```python
+# In [1]:
+def training_loop(n_epochs, optimizer, params, train_t_u, val_t_u, train_t_c, val_t_c):
+    for epoch in range(1, n_epochs + 1):
+        train_t_p = model(train_t_u, *params)
+        train_loss = loss_fn(train_t_p, train_t_c)
+        
+        with torch.no_grad():
+            val_t_p = model(val_t_u, *params)
+            val_loss = loss_fn(val_t_p, val_t_c)
+            assert val_loss.requires_grad == False
+        
+        optimizer.zero_grad()
+        train_loss.backward()
+        optimizer.step()
+
+```
+
+使用相关的set_grad_enabled上下文管理，我们也可以使得代码运行在autograd启动或者不启动的状态下，其取决于Boolean expression的值。
+
+```python
+# In [1]:
+def calc_forward(t_u, t_c, is_train):
+    with torch.set_grad_enabled(is_train):      # 下面的loss和t_p的requires_grad是否是True，取决于is_train是True还是False
+        t_p = model(t_u, *params)
+        loss = loss_fn(t_p, t_c)
+    return loss
+```
+
+
+### 5.6 Conclusion
+
+本章的开始，我们提出了一个大问题：机器是如何从例子中学习的？我们用了本章剩下的部分解释了它的机理，并用例子来详细解释。
+
+到现在，我们已经具备了所有的知识，从而Chapter6，我们将会学习如何使用neural network来拟合数据。我们将会同样解决温度计的问题，但是使用torch.nn提供的更有力的工具。我们同样也是使用这样一个简单的例子来解释PyTorch的工作原理。从而能让我们明白我们需要什么来训练一个神经网络。
+
+
+### 5.7 Summary
+
+* 线性模型是拟合数据的最简单的有效模型
+* 凸优化可以被用于线性模型，但不能被推广到neural networks上，所以我们使用stochastic gradient descent来优化neural networks
+* deep learning可以被用于很广泛的应用上，其并不是为了某个特殊的任务而设计，而是一种很普遍的模型
+* learning algorithm就是利用数据来优化模型的参数。一个loss function就是用来衡量错误指标的。learning algorithm的目标就是使得loss function尽可能的小
+* loss function对于parameter的gradient可以用于更新该parameter
+* PyTorch里的optim module提供了已经包装好的optimizers，可以用来最小化loss function以及更新parameters
+* optimizers使用PyTorch的autograd特性来计算parameters的gradient，其取决于parameter如何贡献给那个做了.backward()的tensor。这个特性允许用户在复杂的forward时可以依赖dynamic computation graph
+* 上下文管理器with torch.no_grad():可以用来控制autograd的开关
+* 数据通常都被分为training set和validation set。这个使得我们可以在未被使用过的数据上测试训练好的模型的性能
+* 当模型在training set上的效果越来越好而在validation set上的效果越来越差的时候，overfitting就发生了。这是因为模型没有generalize，而只是记住了training set里的信息。
+
+
+
+
+
 
 
 
