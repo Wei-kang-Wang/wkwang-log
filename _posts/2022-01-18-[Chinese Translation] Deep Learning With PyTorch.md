@@ -3368,7 +3368,7 @@ def training_loop(n_epochs, optimizer, params, train_t_u, train_t_c, val_t_u, va
         
         if epoch <=3 or epoch % 500 == 0:
             print(f"Epoch {epoch}, Training loss {train_loss.item(): .4f},"
-                  f"Validation loss {val_loss.item(): .4f")
+                  f"Validation loss {val_loss.item(): .4f}")
     
     return params
 
