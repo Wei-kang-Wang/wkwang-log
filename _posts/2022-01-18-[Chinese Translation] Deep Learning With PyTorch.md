@@ -3480,6 +3480,158 @@ def calc_forward(t_u, t_c, is_train):
 
 
 
+## Chapter6 Using a neural network to fit the model
+
+>本章内容包括
+>* nonlinear activation functions是和linear models最关键的不同点
+>* 使用PyTorch的nn module
+>* 利用neural network来解决一个linear-fit问题
+
+
+到现在为止，我们已经学习了一个linear model该如何学习，以及如何利用PyTorch来实现这个模型。我们研究了一个十分简单的regression问题，它们使用仅有一个input和一个output的linear model。研究如此简单的问题使得我们可以将模型如何学习的机制进行分解，而不需要过分注意模型内部的细节。正如我们在chapter5里的figure2里所见到的（本章figure1重复了这个图），一个模型内部的细节对于理解学习的过程是不重要的。将errors反向传播到parameters以及利用loss对于parameters的gradient来更新这些parameters，对于模型本身是什么样的并不重要。
+
+![diagram]({{ '/assets/images/DLP-6-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 1. Our mental model of the learning process, as implemented in chapter5.*
+
+在本章里，我们对模型结构进行一些改变：我们将会用一个neural network来解决之前的温度计问题。我们还会使用上一章里的training loop，并且数据集也还是分为training set和validation set。
+
+这一章是我们开始介绍PyTorch里那些你做你自己的project的时候所需要经常使用的内容。你会对PyTorch API下面到底发生了什么有跟多的了解，而不仅仅只是调用它们。在我们设计新模型之前，先介绍一下什么是artificial neural network。
+
+### 6.1 Artificial neurons
+
+deep learning的核心是neural networks：通过一系列简单函数的复合能够表示复杂函数关系的数学实体。neural networks这个术语是由脑神经科学所引来的。事实上，尽管早期的模型是由neuroscience所启发的，但现在的artificial neural networks仅仅和脑中神经元的工作方式有一丝的相似。artificial和physiological neural networks都用了相似的方式来近似很复杂的函数关系，因为这种方式十分的高效。
+
+neural networks的基本构成模块是neuron，如figure2所示。它其实就是对input做一个线性变换（乘上weight，再加上bias），之后再通过一个nonlinear function的计算（这个function叫做activation function）。
+
+![neuron]({{ '/assets/images/DLP-6-2.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 2. An artificial neuron: a linear transformation enclosed in a nonlinear function.*
+
+数学上来说，我们可以将一个neuron的输出写为$$o = f(w * x + b)$$，其中$$x$$是输入，$$w$$是weight，$$b$$是bias，$$f$$是activation function，可以是hyperbolic tangent，tanh或者ReLU，等。一般情况下，x以及o，可以是一个scalar，也可以是一个vector，而相对应的w可以是scalar或者matrix，b可以scalar或者vector。对于x是vector，w是matrix，b是vector的情况，这代表了一个layer的neurons。
+
+
+#### 6.1.1 Composing a multilayer network
+
+一个multilayer neural network，如figure3所示，就是由我们上面所描述的那些neuron function所组成的：
+
+$$x_1 = f(w_0 * x + b_0)$$
+$$x_2 = f(w_1 * x_1 + b_1)$$
+$$...$$
+$$y = f(w_n * x_n + b_n)$$
+
+每一层neuron的输出，都作为下一层neuron的输入。$$w_0, w_1, ..., w_n$$是matrices，而$$x$$是vector。
+
+![nn]({{ '/assets/images/DLP-6-3.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 3. A neural network with three layers.*
+
+
+#### 6.1.2 Understanding the error function
+
+我们现在所用的neural network和之前所用的linear model一个很重要的区别在于error function的形状。linear model以及error-squared loss function有唯一一个确定的最小值点。使用合适的optimization algorithm，我们就能使得模型学习到唯一的最优值点。
+
+而neural networks并没有error function是convex的这一个性质，即使使用相同的error-squared loss function。对于我们所要估计的模型的parameter，它们并不会每次都收敛到唯一的点。我们尝试使得所有的parameters一致作用得到有用的output。因为这个有用的output只是在近似事实，所以永远会存在一些不完美的地方。这些不完美的地方会怎么体现在哪里体现都是不知道的，从而控制出现这些不完美的parameters在某种程度上也是不知道的。
+
+neural network有着non-convex的error surface很大程度上因为activation function。全体neurons能够拟合很复杂函数的能力取决于每个neuron所体现出的linear和nonlinear的性质。
+
+
+#### 6.1.3 All we need is activation
+
+正如我们所看到的，neural networks里最基本的组成部分就是一个linear operation后面跟着一个activation function。在chapter5里我们已经研究了linear operation。而activation function主要起到两个作用：
+* 在neural network的中间层里，activation function使得output function对于不同的value有不同的slope，而这点仅仅有linear function是做不到的。将这些不同sloped的部分按某些方式组合起来，neural networks就可以拟合任意函数，我们在6.1.6里将会详述。
+* 在neural network的最后一层，activation function还起到了将先前的linear function计算的结果集中到某一个区间内的作用。
+
+让我们来说说上面第二点是什么意思。假设我们要给图片按照图片是否像狗进行打分，那么金毛或者拉布拉多的照片就应该打高分，而飞机或者垃圾箱的照片就该打低分。熊的照片也该打低分，但要比飞机和垃圾箱打的分数要高。
+
+问题是，我们需要定义一个高分：我们的分数区间是无穷的，有整个float32的区间来使用，这意味着我们可以打十分高的分数。如果我们没有activation function，我们只有linear function的话，那输出就是$$w * x + b$$，其是没有上下限的。
+
+**CAPING THE OUTPUT RANGE**
+
+我们想要完全将我们的linear function的输出限定在一个范围内。一个可能的方法是直接将小于0的置为0，大于10的置为10.这个简单的操作也有对应的activation function：torch.nn.Hardtanh，这个函数的default range是-1到1。
+
+**COMPRESSING THE OUTPUT RANGE**
+
+另一个种类的效果不错的一系列functions就是torch.nn.Sigmoid，包括$$1/(1 + e ** (-x)$$, torch.tanh，等。这些函数有一个渐进的曲线，值域在0到1之间，并在无穷大逼近1，在负无穷大逼近0，并且在0附近有着近似常数的slope。这个function应该会工作的很不错，因为其中间一部分对于linear function的输出很敏感，而两侧饱和部分数据都被挤在了一起。如figure4所示，垃圾箱图片的分数为-0.97，熊，狐狸，狼等在-0.3到0.3的区间内。
+
+![sigmoid]({{ '/assets/images/DLP-6-4.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 4. Dogs, bears, and garbage trucks being mapped to how dog-like they are via the activation function.*
+
+```python
+# In [1]:
+>>>import math
+>>>math.tanh(-2.2)  # garbage truck
+-0.9757431300314515
+>>>math.tanh(0.1)   # bear
+0.09966799462495582
+>>>math.tanh(2.5)   # good dog
+0.98661429815143032
+```
+
+bear的照片在敏感区域内，所以它的linear function一点的改变，就会使得它的最后的得分改变很大。比如，将bear换成polar bear，因为其更具有dog的特征，它的分数要高很多，而换成koala bear，则因为更不像dog了而分数变低。
+
+#### 6.1.4 More activation functions
+
+有很多种activation functions，其中一部分展现在figure5里。
+
+![activation]({{ '/assets/images/DLP-6-5.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 5. A collection of common and not-so-common activation functions.*
+
+在第一列里，我们有光滑的activation functions，tanh和softplus，而第二列里的两个activation functions在某些点是不光滑的：hardtanh和ReLU。ReLU（recfied linear unit）是现在最火的activation function，表现良好。第三列里是sigmoid和leakyReLU。sigmoid又称为logistic function，在早期的模型里很常用，现在仅仅在需要输出区间在0到1的时候用，比如输出的是概率。LeakyReLU在左半区间有着很小的slope，而不是和ReLU一样直接为0。
+
+#### 6.1.5 Choosing the best activation function
+
+我们讨论一下activation functions一些共有的性质：
+
+* 它们都是nonlinear的。重复的堆叠linear function最后得到的还是一个linear function。nonlinearity使得模型能够拟合复杂的functions。
+* 它们是differetiable的。只有这样，gradient才能够传播回去。可数个非连续点是可以的，比如hardReLU。
+
+没有上述两个特性，networks要么就没法训练，要么就变成了linear models。
+
+下面的几个特性也是activation functions拥有的：
+
+* 它们有至少一个sensitive range，输入的nontrivial变化会导致输出的nontrivial变化。这对于training来说很重要。
+* 它们当中的很多还有insensitive range（saturated range），也就是说输入的变化基本不会导致输出有什么变化。
+
+比如说，hardReLU可以轻易的通过组合sensitive range来拟合任意的函数。
+
+而下面的性质，有很多activation functions有（但远远达不到所有的activation functions都有）：
+
+* 在输入接近负无穷大的时候，输出接近或到达最下界
+* 在输入接近正无穷大的时候，输出接近或到达最上界
+
+回想一下反向传播是如何工作的，我们就可以知道，在输入位于activation function的sensitive range的时候，error对于parameters的更新是很有效的，而输入位于saturated range时，更新不太高效，因为这个时候，activation的gradient接近于0了。
+
+将上面的所有特性放在一起，我们发现它们组成了一个很有力的机制：在一个由linear和activation units构成的network里，当不同的输入给到这个network，(a) 对于相同的输入，不同的neuron units会因为linear function的参数不同计算出不同的值，从而在activation function里作用在不同的range上；(b) 在训练过程中，这些输入所对应的errors会影响那些activation range在sensitive range的neurons，而那些activation range在saturated range的neurons受到的影响比较小（也就是不怎么更新这些neurons里的参数）。而且，大部分的activation function的sensitive range的derivative都接近于1，所以估计activation function之前的linear function的参数，和chapter5里估计linear model的参数的过程是差不多的。
+
+我们现在来更加深入的理解，为什么将neuron摞起来做成很多层的neural network就有能够拟合任意函数的能力。neuron units不同的组合会使得最后得到的function有着不同的range（sensitive和saturated range），而这些units的parameters可以通过gradient descent比较容易的学习，因为learning在output还没有saturate之前表现得和linear function是很相似的。
+
+
+#### 6.1.6 What learning means for a neural network
+
+通过堆叠linear function + activation function，也就是neuron units来构造的模型，能够拟合十分复杂的函数，而且它的parameters可以通过gradient descent来有效地学习。这个过程对于具有上百万个parameters的模型仍然是有效的。使得使用neural networks十分有吸引力的一个点在于，我们不需要担心到底要设计什么样的模型，什么样的函数来解决这个问题。只要有neural network，我们就有了一个普适的estimator，并且它的parameters都可以用gradient descent来学习。neural networks的强大的模型拟合能力和学习能力，可以适应于任意的问题。figure6介绍了几个例子。
+
+![neurons]({{ '/assets/images/DLP-6-6.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 6. Composing multiple linear units and tanh activation functions to produce nonlinear outputs.*
+
+figure6里，四个左上侧的图，A，B，C，D是四个neuron，它们的前面的linear function的参数已经被随机设定好了。每个neuron都是用的tanh activation function，区间在-1到1之间。不同的linear function的参数使得这四个neuron具有不同的中心，以及不同的slope，但是它们都有着相似的变化趋势。最右侧第一排第二排显示了A+B和C+D的样子。这里我们已经开始看到一些有意思的结果，它们有些类似于一层neurons的样子。A+B是一个S型曲线，有着一个正峰和负峰。而C+D仅有一个正峰，而且最大值超过了1。
+
+在第三行，我们将neurons组合起来，构成了两层的network。C(A+B)和D(A+B)都有着A+B所显示出的一个正峰一个负峰，而此时正峰却显得更加平缓。C(A+B)+D(A+B)的组合则显出了一个新的性质，两个明显的负峰，一个明显的正峰，以及一个十分平缓的正峰。
+
+利用neural network成功学习到了任务，我们意思是对于生成training数据的数据生成器所生成的新的数据，我们仍然有正确的结果。一个成功训练的neural network，能够学习到数据内部的知识，从而对于未看到的数据仍有正确的判断结果。
+
+让我们对于learning机制的理解更进一步：deep neural networks给我们提供了不需要明确设计模型的结构就可以拟合高非线性函数的能力。取而代之的是，从一个普适的，没有被训练的neural network，我们通过给它提供输入，输出以及loss function来让它通过误差反传学习到适用于我们任务的模型。将一个一般的的模型通过数据来specialize到适用于这个任务的模型这一过程，就是learning，因为这个模型一开始并不是为了这个任务而特别设计的，并没有描述该任务的规则被考虑进模型的设计中。
+
+对于我们的温度计例子，我们假设两个温度计测量温度都是线性的。这个假设就为我们设计模型增加了一个隐形的规则：我们认为模型是线性的。然而随着数据的增多，我们很难再从数据的可视化里看出来规则。数学家和物理学家经常需要假设模型来解释数据，而neural networks不需要假设任何模型，它只需要利用数据便可以从一个十分一般的模型最后学习到适应于该任务的模型。
+
+
+
+
+
+
 
 
 
