@@ -4042,7 +4042,41 @@ plt.plot(t_u.numpy(), seq_model(0.1 * t_u).detach().numpy(), 'kx')
 
 ### 6.5 Summary
 
->* 
+* neural networks可以自动被适应到具体问题上
+* neural network使得获取loss关于model里任意一个parameter的derivative都变得很容易，从而使得更新参数变得容易。多亏了PyTorch的automated differentiation engine，其才可以很轻松的提供那些derivatives
+* linear function后的activation function使得neural networks有能够拟合任意复杂函数的能力，同时neural networks本身也不难优化
+* torch.nn module和tensor标准库提供了构建neural networks的所有部件
+* 为了识别出overfitting，将training set和validation set分开很重要。没有一个通用的方法来避免overfitting，但是有更多的数据，或者有更多样化的数据，或者用更简单的模型都是避免overfitting的好办法
+* 任何做data science的人都需要经常plotting data来看看直观规律
+
+
+
+
+## Chapter7 Telling birds from airplanes: Learning from images
+
+>本章包括的内容：
+>* 构建一个feed-forward的neural network
+>* 使用Dataset和DataLoader来加载数据
+>* 理解classification loss
+
+上一章我们了解了通过gradient descent进行learning的内部机理，以及PyTorch提供的构造和优化模型的工具。我们用了一个简单的input feature number和output feature number都是1，而且潜在是线性模型的例子来做了示范，虽然内容都覆盖了，但确实例子简单了点。
+
+在本章里，我们继续探索构建neural networks基础的内容。这次，我们将目光转向images。image recognition毫无疑问是人们了解到deep learning实力的重要问题。
+
+我们将会逐步解决一个image recognition的问题，从一个很简单的neural network开始。这次，不用很简单的很小的数据集了，我们将用一个image dataset。
+
+
+### 7.1 A dataset of tiny images
+
+image recognition最基础的一个数据集是handwritten digit-recognition dataset，叫做MNIST。这里我们用一个同样简单的数据集，但是更加有趣。它叫做CIFAR-10，和它的兄弟CIFAR-100一样，它们被用作最基础的cv数据集几十年了。
+
+CIFAR-10有着超过60000张大小为$$32 \times 32$$的彩色（RGB）图片，标有1-10的标签，代表10类：airplane（0），automobile（1），bird（2），cat（3），deer（4），dog（5），frog（6），horse（7），ship（8），truck（9）。现如今，CIFAR-10对于现在的任务过于简单了，但作为我们的实例是很合适的。我们将会用torchvision module来自动下载这个数据集并将它们加载为PyTorch tensors。figure1展示了CIFAR-10里的几张照片。
+
+![CIFAR10]({{ '/assets/images/DLP-7-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 1 Image samples from all CIFAR-10 classes.*
+
+
 
 
 
