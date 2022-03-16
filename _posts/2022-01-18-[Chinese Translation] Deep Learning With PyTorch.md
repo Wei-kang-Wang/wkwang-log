@@ -3628,6 +3628,428 @@ figure6里，四个左上侧的图，A，B，C，D是四个neuron，它们的前
 对于我们的温度计例子，我们假设两个温度计测量温度都是线性的。这个假设就为我们设计模型增加了一个隐形的规则：我们认为模型是线性的。然而随着数据的增多，我们很难再从数据的可视化里看出来规则。数学家和物理学家经常需要假设模型来解释数据，而neural networks不需要假设任何模型，它只需要利用数据便可以从一个十分一般的模型最后学习到适应于该任务的模型。
 
 
+### 6.2 The PyTorch nn module
+
+我们现在来看如何用PyTorch实现neural networks，第一步，先将之前的linear model换成neural network。虽然对于温度计这个任务，linear model已经足够了，但用neural network来实现这个简单的任务同样也可以清晰的介绍PyTorch实现neural network的整个过程。
+
+PyTorch有一整个submodule都是为了neural network而设计的，叫做torch.nn。这个module含有所有的构建neural networks的组件，这些组件在PyTorch里称为modules（注意并不是PyThon里的module），而在其他深度学习框架里可能叫做layers。一个PyTorch module就是一个继承了nn.Module class的subclass。一个PyTorch module可以有parameters作为它的attributes，这些parameters就是那些在training process中被优化的那些tensors（比如linear model里的w和b）。一个PyTorch module还可以有一个或者多个submodules（也是nn.Module class的subclass）作为attributes，而且这个PyTorch module仍然可以追踪这些submodule里的parameters。
+
+>如果一个PyTorch module有submodules的话，那这些submodules也得是top-level attributes，而不能隐藏在list，dict等里面。因为如果这样的话，optimizer就没法定位这些submodules，从而没法定位它们的parameters。当你的模型需要一个list或者一个dict的submodules时，PyTorch提供了nn.ModuleList和nn.ModuleDict这两个class以供使用。
+
+并不奇怪的是，我们可以发现nn.Module有个subclass叫nn.Linear，是用来对输入做affine transformation的，其有两个parameter attributes，weight和bias。nn.Linear可以实现chapter5里我们的linear model。接下来，我们先将chapter5里的linear model用nn module来实现。
+
+
+#### 6.2.1 Using __call__ rather than forward
+
+所有的PyTorch提供的nn.Module的subclass都有它们自己的__call__ method。这允许我们在实例化一个nn.Linear之后，用类似于调用function的方式直接调用这个实例，比如：
+
+```python
+# In [1]:
+import torch.nn as nn
+
+linear_model = nn.Linear(1, 1)
+linear_model(t_un_val)
+
+# Out [1]:
+tensor([[0.6018], [0.2877]], grad_fn=<AddmmBackward>)
+```
+
+调用一个nn.Module的实例（可能还会有一些arguments），基本等于调用这个实例的forward method（使用同样的arguments）。forward method是执行模型forward计算的部分，而__call__还会解决调用forward method之前以及之后一些杂活。所以说，技术上直接调用forward method也是可以的，他会产生和调用__call__ method一样的结果，但实际上我们最好还是不要用forward method：y = model(x)是正确的，但y = model.forward(x)可能会有潜在的错误。
+
+下面是nn.Module的__call__ method的实现：
+
+```python
+>>> def __call__(self, *input, **kwargs):
+        for hook in self.__forward_pre_hooks.values():
+            hook(self, input)
+        
+        result = self.forward(*input, **kwargs)
+        
+        for hook in self.__forward_hooks.values():
+            hook_result = hook(self, input, result)
+            # ...
+        
+        for hook in self.__backward_hooks.values():
+            # ...
+        
+        return result
+```
+
+从上面的代码可以看到，如果直接调用forward method，就会使得很多hooks不能被正确调用。
+
+
+#### 6.2.2 Returning to the linear model
+
+回到我们的linear model。nn.Linear实例化时接受三个arguments：the number of input features，the number of output features和需不需要bias（default的是True）：
+
+```python
+# In [1]:
+import torch.nn as nn
+
+linear_model = nn.Linear(1, 1)     # 输入输出的feature数量都是1，bias default为True
+linear_model(t_un_val)
+
+# Out [1]:
+tensor([[0.6018], [0.2877]], grad_fn=<AddmmBackward>)
+```
+
+我们已经实例化了一个input和output feature都是1的nn.Linear，这个实例只有一个weight和一个bias：
+
+```python
+# In [2]:
+linear_model.weight
+
+# Out [2]:
+Parameter containing:
+tensor([[-0.0674]], requires_grad=True)
+
+# In [3]:
+linear_mode.bias
+
+# Out [3]:
+Parameter containing:
+tensor([[0.7488]], requires_grad=True)
+```
+
+我们可以输入一些数来调用这个PyTorch module：
+
+```python
+# In [4]:
+x = torch.ones(1)
+linear_model(x)
+
+# Out [4]:
+tensor([0.6814], grad_fn=<AddBackward0>)
+```
+
+尽管上述代码是可以执行的，但实际上我们并没有提供具有正确dimension的输入。我们设计的linear model是接受一个input，输出一个output，而PyTorch的nn.Module以及它的subclass设计的是一次处理一批次的数据。为了能一次处理一批数据，这些PyTorch的modules的输入的第0维实际上应该是这一批次数据的数量，也就是batch size。我们在chapter4里已经遇到了这个，并且也知道如何将现实生活里的数据整合成批次的样子。
+
+**BATCHING INPUTS**
+任何nn里的PyTorch module都是设计成输入是一个batch的数据的。因此，假设我们需要用nn.Linear运行10个samples，我们可以构造一个input tensor，其size是$$B \times N_{in}$$，其中$$B$$是batch的size而$$N_{in}$$是input feature的number，我们将model运行一次：
+
+```python
+# In [5]:
+x = torch.ones(10, 1)
+linear_model(x)
+
+# Out [5]:
+tensor([[0.6814],
+        [0.6814],
+        [0.6814],
+        [0.6814],
+        [0.6814],
+        [0.6814],
+        [0.6814],
+        [0.6814],
+        [0.6814],
+        [0.6814]], grad_fn=<AddmmBackward>)
+```
+
+让我们深挖看看到底发生了什么，figure7显示了有一个batch的数据的类似的情况。我们的input是$$B \times C \times H \times W$$，batch size设置为3，也就是$$B$$是3，狗，鸟，车的照片各一张；三个通道，也就是$$C$$是3，分别是RGB，以及图片的长宽。我们可以看到输出的tensor维度是$$B \times N_{out}$$，在这个图里，$$N_{out}$$是4。
+
+![batch]({{ '/assets/images/DLP-6-7.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 7. Three RGB images batched together and fed into a neural network. The output is a batch of three vectors of size 4.*
+
+**OPTIMIZING BATCHES**
+
+我们需要做batch的原因是多方面的。一个很大的原因是为了占满计算资源。GPU的计算是高并行的，所以一个单独的输入会使得大部分的GPU处于空闲状态。而使用一个batch的input，可以将GPU所有部分都调动，其计算时间不会比计算单个输入的结果要慢多少。还有一个原因是有一些模型需要利用整个batch里的一些statistical information，而大的batch会使得这个information更加准确。
+
+回到我们的温度计数据，t_u和t_c是两个size为B的1维数据。由于broadcasting，我们可以直接将模型写为$$w * x + b$$，而其中$$w$$和$$b$$都是scalars。在nn.Linear将input输入的时候，如果检测出并没有batch的信息，那它就会在前面加上一个维度，将所有的input变成单个sample，比如输入是一个size为10的1维tensor，作为nn.Linear的输入时，其就被转换为$$1 \times 10$$的2维tensor，也就是说其输入的feature number是10。之前的单个输入是可以的，是因为输入一个scalar，feature number按上述方式就变成了1，满足我们实例化的linear model。
+
+在我们这个温度计的例子里，我们需要将输入的1维向量，转换为2维的，每行代表一个sample，每列代表的是features。即，将我们的1维size为B的tensor转换为2维size为$$B \times N_{in}$$的tensor，其中$$N_{in}$$是1。这可以用unsqueeze method很轻易地实现：
+
+```python
+# In [6]:
+t_c = [0.5, 14.0, 15.0, 28.0, 11.0, 8.0, 3.0, -4.0, 6.0, 13.0, 21.0]
+t_u = [35.7, 55.9, 58.2, 81.9, 56.3, 48.9, 33.9, 21.8, 48.4, 60.4, 68.4]
+t_c = torch.tensor(t_c).unsqueeze(-1)
+t_u = torch.tensor(t_u).unsqueeze(-1)
+
+t_u.shape
+
+# Out [6]:
+torch.Size([11, 1])
+```
+
+处理好数据后，我们先用nn.Linear来代替手写的linear model，之后再将model的parameters传到optimizer里：
+
+```python
+# In [7]:
+linear_model = nn.Linear(1, 1)
+optimizer = optim.SGD(linear_model.parameters(), lr=1e-2)   # linear_model的parameters method，替代了之前手写模型里的[params]
+```
+
+先前，我们需要自己构造parameters，并将它们作为optim.SGD的第一个参数传入。而现在，我们可以直接使用parameters method来获取任何nn.Module object的所拥有的parameters以及它的submodules所拥有的parameters的一个list：
+
+```python
+# In [8]:
+linear_model.parameters()
+
+# Out [8]:
+<generator object Module.parameters at 0x7f94b4a8a750>
+
+# In [9]:
+list(linear_model.parameters())
+
+# Out [9]:
+[Parameter containing:
+tensor([[0.7398]], requires_grad=True), Parameter containing:
+tensor([0.7974], requires_grad=True)]
+```
+
+nn.Module的parameters() method会递归到定义在这个PyTorch module的init constructor里的submodules，并且返回一个含有所有的parameters的一个简单的list（无嵌套），所以我们可以将parameters()直接传给optimizer，很方便。
+
+我们已经知道在training loop里会发生什么了。optimizer被提供了一个list的tensors，它们都有着requires_grad=True，所以它们需要被gradient descent来优化。当training_loss.backward()被调用时，grad，也就是gradients的值就会被放到computation graph的节点上，这些节点也正好就是我们传给optimizer的这些tensors（即parameters）。从而，现在SGD optimizer已经有了所有所需要的东西。当optimizer.step()被执行时，每个传入optimizer的tensor都被更新了，而更新的值的大小与每个tensor的grad attribute里存的值成比例（乘上了learning rate）。
+
+```python
+# In [10]:
+def training_loop(n_epochs, optimizer, model, loss_fn, t_u_train, t_u_val, t_c_train, t_c_val):
+    for epoch in range(1, n_epochs+1):
+        t_p_train = model(t_u_train)
+        loss_train = loss_fn(t_p_train, t_c_train)
+        
+        t_p_val = model(t_u_val)
+        loss_val = loss_fn(t_p_val, t_c_val)
+        
+        optimizer.zero_grad()
+        loss_train.backward()
+        optimizer.step()
+        
+        if epoch == 1 or epoch % 1000 == 0:
+            print(f"Epoch {epoch}, Training loss {loss_train.item(): 4f},"
+                  f"Validation loss {loss_val.item(): 4f}")
+```
+
+这和chapter5里的training loop几乎差不多，除了我们不需要手动定义parameters以及手动将parameters传入optimizer。
+
+还有一点我们可以从torch.nn里汲取：loss。nn带来了很多常见的loss functions，比如nn.MSELoss，mean squared error，和我们手写的error是一样的。nn里的loss functions仍然是nn.Module的subclass，所以我们将会直接实例化，并像调用function一样调用它。
+
+```python
+# In [11]:
+linear_model = nn.Linear(1, 1)
+optimizer = optim.SGD(linear_model.parameters(), lr=1e-2)
+
+training_loop(
+    n_epochs = 3000,
+    optimizer = optimizer,
+    model = linear_model,
+    loss_fn = nn.MSELoss(),
+    t_u_train = t_un_train,
+    t_u_val = t_un_val,
+    t_c_train = t_c_train,
+    t_c_val = t_c_val)
+
+print()
+print(linear_model.weight)
+print(linear_model.bias)
+
+# Out [11]:
+Epoch 1, Training loss 134.9599, Validation loss 183.1707
+Epoch 1000, Training loss 4.8053, Validation loss 4.7307
+Epoch 2000, Training loss 3.0285, Validation loss 3.0889
+Epoch 3000, Training loss 2.8569, Validation loss 3.9105
+
+Parameter containing:
+tensor([[5.4319]], requires_grad=True)
+Parameter containing:
+tensor([-17.9693], requires_grad=True)
+```
+
+
+### 6.3 Finally a neural network
+
+现在还有最后一步，将linear model换成neural network作为拟合函数。我们之前提到了，将拟合函数（也就是模型）换成neural network并不会有很高的效果，因为这个模型本身就是线性的。但我们还是用neural network来试试看。
+
+#### 6.3.1 Replacing the linear model
+
+我们将6.2里的所有部分都保持不变，除了model进行重新定义。我们来构建一个最简单的neural network：一个linear PyTorch module，跟着一个activation function，之后再将结果输入另一个linear PyTorch module。前面那层linear + activation一般被称为hidden layer，因为它的输出并不可见，而是作为输入给到了下一层。input和output的feature number都是1，但hidden layer的feature number一般要更宽一点。正如我们之前关于activation function所讨论的内容里说的，更多的中间层设计可以让不同的neuron对不同range的input产生回应（不同的neuron的sensitive range不一样），从而更多的neuron的组合可以增加模型的capacity。最后一层linear层会将前面的activation function的输出线性整合成output。
+
+并没有一个如何画neural network的标准方法。figure8显示了两种常见的画法：左侧的一般用来解释neural networks的原理，而右侧的在论文中用的更多，用来更清晰的展示结构和hyperparameters。
+
+![diagram]({{ '/assets/images/DLP-6-8.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 8. Our simplest neural network in two views. Left: begineer's version. Right: higher-level version.*
+
+nn module提供了一个简单的方法来将PyTorch modules连起来：nn.Sequential container：
+
+```python
+# In [1]:
+seq_model = nn.Sequential(
+            nn.Linear(1, 13),    # 这里的13是随意选择的
+            nn.Tanh(),
+            nn.Linear(13, 1))    # 这里的13必须和前一个相吻合
+
+seg_model
+
+# Out [1]:
+Sequential(
+  (0): Linear(in_features=1, out_features=13, bias=True)
+  (1): Tanh()
+  (2): Linear(in_features=13, out_features=1, bias=True)
+)
+```
+
+上述的seq_model是一个模型，它的输入是nn.Sequantial第一个参数（一个PyTorch module，也是一个模型）的输入，传给了nn.Sequential的第二个参数，以此类推直到最后一个，输出则是nn.Sequantial最后一个参数的输出。这个模型将输入feature number为1的input映射到中间层feature number为13的空间，再经过activation function，最后将这大小为13的feature线性组合输出为大小为1的output。
+
+#### 6.3.2 Inspecting （审查） the parameters
+
+调用model.parameters()会将第一层和第二层linear layer里的weight和bias都收集起来。我们将这些parameters的形状输出来看看：
+
+```python
+# In [2]:
+[param.shape for param in seq_model.parameters()]
+
+# Out [2]:
+[torch.Size([13, 1]), torch.Size([13]), torch.Size([1, 13]), torch.Size([1])]
+```
+
+上述就是optimizer能获得的参数。一样的，在我们调用model.backward()之后，每个参数的grad attribute都会被加上gradient的值，然后在optimizer.step()之后，这些grad attribute会乘以learning_rate加到每个对应的参数之上，完成参数的更新。
+
+我们再来讨论一下nn.Modules的一些参数。当检查由几个submodules组成的model的时候，直接通过name来辨别它们是比较高效的。实际上是有个method可以调用的：
+
+```python
+# In [3]:
+for name, param in seq_model.named_parameters():
+    print(name, param)
+
+# Out [3]:
+0.weight torch.Size([13, 1])
+0.bias torch.Size([13])
+2.weight torch.Size([1, 13])
+2.bias torch.Size([1])
+```
+
+nn.Sequential里每个PyTorch module的name就是通过它在Sequential里的位置来命名的。有意思的是，nn.Sequential还可以接受OrderedDict作为输入，我们可以为每个PyTorch module自己命名：
+
+```python
+# In [4]:
+from collections import OrderedDict
+
+seq_model = nn.Sequential(OrderedDict([
+    ('hidden_linear', nn.Linear(1, 8),
+    ('hidden_activation', nn.Tanh(),
+    ('output_linear', nn.Linear(8, 1))
+]))
+
+seq_model
+
+# Out [4]:
+Sequential(
+    (hidden_linear): Linear(in_features=1, out_features=8, bias=True)
+    (hidden_activation): Tanh()
+    (output_linear): Linear(in_features=8, out_features=1, bias=True)
+)
+```
+
+上述让我们对于submodules有了解释性更好的名字：
+
+```python
+# In [5]:
+for name, param in seq_model.named_parameters():
+    print(name, param)
+
+# Out [5]:
+hidden_linear.weight torch.Size([8, 1])
+hidden_linear.bias torch.Size([8])
+output_linear.weight torch.Size([1, 8])
+output_linear.bias torch.Size([1])
+```
+
+这样的命名方式更具有描述性，但是并没有对于数据如何通过网络提供更多的灵活性。我们会在chapter8里看到如何通过subclassing nn.Module的方式来自定义model从而全面的控制数据的流动。
+
+我们同时还可以通过使用submodules作为attributes来获取特定的参数：
+
+```python
+# In [6]:
+seq_model.output_linear.bias
+
+# Out [6]:
+Parameter containing:
+tensor([-0.0173], requires_grad=True)
+```
+
+这对于检查参数或者它们的gradients是有好处的：比如我们希望能在training的过程中监视gradients。假设我们希望能在trainingj结束后，将hidden layer的weight参数的gradient输出：
+
+```python
+# In [7]:
+optimizer = optim.SGD(seq_model.parameters(), lr=1e-3)
+
+training_loop(
+    n_epochs = 5000,
+    optimizer = optimizer,
+    model = seq_model,
+    loss_fn = nn.MSELoss(),
+    t_u_train = t_un_train,
+    t_u_val = t_un_val,
+    t_c_train = t_c_train,
+    t_c_val = t_c_val)
+
+print('output', seq_model(t_un_val))
+print('answer', t_c_val)
+print('hidden', seq_model.hidden_layer.weight.grad)
+
+
+# Out [7]:
+Epoch 1, Training loss 182.9724, Validation loss 231.8708
+Epoch 1000, Training loss 6.6642, Validation loss 3.7330
+Epoch 2000, Training loss 5.1502, Validation loss 0.1406
+Epoch 3000, Training loss 2.9653, Validation loss 1.0005
+Epoch 4000, Training loss 2.2839, Validation loss 1.6580
+Epoch 5000, Training loss 2.1141, Validation loss 2.0215
+
+output tensor([[-1.9930],[20.8729]], grad_fn=<AddmmBackward>)
+answer tensor([[-4.], [21.]])
+hidden tensor([[ 0.0272],
+               [ 0.0139],
+               [ 0.1692],
+               [ 0.1735],
+               [-0.1697],
+               [ 0.1455],
+               [-0.0136],
+               [-0.0554]])
+```
+
+
+#### 6.3.3 Comparing to the linear model
+
+我们可以将学习之后的模型对所有数据都进行计算，来看看和一条直线之间的差距有多大：
+
+```python
+# In [8]:
+from matplotlib import pyplot as plt
+
+t_range = torch.arange(20., 90.).unsqueeze(1)
+fig = plt.figure(dpi=600)
+plt.xlabel("Fahrenheit)
+plt.ylabel("Celsuis")
+plt.plot(t_u.numpy(), t_c.numpy(), 'o')
+plt.plot(t_range.numpy(), seq_model(0.1 * t_range).detach().numpy(), 'c-')
+plt.plot(t_u.numpy(), seq_model(0.1 * t_u).detach().numpy(), 'kx')
+```
+
+结果显示在下图figure9里。我们可以看到neural network有一定程度的overfitting，正如我们在chapter5里所说的，它尝试完美拟合training数据。但尽管我们的neural network对于这个简单的问题参数过于多了，但学习的效果不是很差，还不错。
+
+![result]({{ '/assets/images/DLP-6-9.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 9 The plot of our neural network model, with input data (circles) and model output (Xs). The continuous line shows behaviour between samples*
+
+
+
+### 6.4 Conclusion
+
+尽管用了很简单的例子，我们在chapter5和chapter6里讲了很多的内容。我们讲述了如何设计differentiable model并且如何利用gradient descent训练它，一开始用原始的autograd后来用了nn module。现在你应该已经知道PyTorch背后的运行机制是什么样的了。
+
+### 6.5 Summary
+
+>* 
+
+
+
+
+
+
+
 
 
 
