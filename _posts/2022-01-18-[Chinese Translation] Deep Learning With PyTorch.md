@@ -4565,13 +4565,17 @@ for epoch in range(n_epochs):
 
 对于chapter5里的training loop，所有的samples对应的loss被积聚在了一起来更新参数，而在上面的代码里，我们只用一个sample计算的loss来更新参数。然而对于某个sample计算出的合适的更新方向，对于其它的sample可能就不合适了。所以，我们在每个epoch里打乱所有samples的顺序，并且每次采用若干个samples计算累积的loss来更新参数，这若干个samples就叫做minibatch，这种操作为gradient descent带来了随机性。Stochastic gradient descent里的stochastic就是因为其作用在打乱了的minibatch上。很多实验证明，通过使用minibatch而不是整个数据集，可以使得optimization的过程收敛的更好，而且还能避开一些local minima，尽管minibatch所计算的gradients对于整个数据集的gradient其实差距很远。正如figure13所示，用minibatch算出来的gradients对于用所有数据计算的gradient的轨迹有随机的偏移，这也是我们为什么要用小一点的learning rate的原因。在每个epoch都打乱顺序随机采样minibatch可以保证在统计学上，minibatch的gradient的平均值会逼近用所有数据算出来的gradient。
 
+![SGD]({{ '/assets/images/DLP-7-13.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 13 Gradient descent averaged over the whole dataset(light path) versus stochastic gradient descent, where the gradient is estimated on randomly picked minibatches.*
+
 minibatch的大小是我们预先要设定好的，如同learning rate一样，这些叫做hyperparameters，叫这个名字是为了和模型里的parameters分开。
 
 在我们上面的代码里，我们将minibatch的大小设置为了1，也就是每次取一个。torch.utils.data module有一个class，用来帮助打乱数据集以及将数据整理为minibatch的形式：DataLoader。一个DataLoader的作用就是从一个数据集里随机选择minibatch，而且给我们提供了不同的随机挑选方式。最常见的方式就是在每个epoch里按平均概率随机挑选。figure14显示了torch.utils.data.DataLoader打乱从torch.utils.data.dataset.Dataset里得到的index：
 
-![DataLoader]({{ '/assets/images/DLP-7-13.PNG' | relative_url }})
+![DataLoader]({{ '/assets/images/DLP-7-14.PNG' | relative_url }})
 {: style="width: 800px; max-width: 100%;" class="center"}
-*Fig 13 A data loader dispensing minibatches by using a dataset to sample individual data items.*
+*Fig 14 A data loader dispensing minibatches by using a dataset to sample individual data items.*
 
 让我们来看看这个过程是怎么完成的。一个torch.utils.data.DataLoader constructor至少有以下几个argument：一个torch.utils.data.dataset.Dataset作为input，batch_size表示size的大小，shuffle是一个Boolean值表示在每个epoch开始的时候，数据是否被打乱：
 
