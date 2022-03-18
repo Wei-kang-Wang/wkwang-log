@@ -4076,6 +4076,511 @@ CIFAR-10有着超过60000张大小为$$32 \times 32$$的彩色（RGB）图片，
 {: style="width: 800px; max-width: 100%;" class="center"}
 *Fig 1 Image samples from all CIFAR-10 classes.*
 
+#### 7.1.1 Downloading CIFAR-10
+
+我们import torchvision module来使用其包含的datasets module来下载CIFAR-10数据集：
+
+```python
+# In [1]:
+from torchvision import datasets
+data_path = '../data-unversioned/p1ch7/'
+cifar10 = datasets.CIFAR10(data_path, train=True, download=True)      # 为training数据实例化一个dataset；如果第一个argument没有下载到数据集，Torchvision会自己来下载数据集
+cifar10_val = datasets.CIFAR10(data_path, train=False, download=True) # train=False，会使得我们得到一个validation set，同样的，如果第一册argument所表明的地址没有该数据集，Torchvision则会自己下载
+```
+
+上述CIFAR10 function的第一个argument是我们要下载的数据集的地址；第二个argument指明了我们需要training set还是validation set；
+
+除了CIFAR10，datasets submodule还为我们提供了绝大多数流行的CV数据集的预先处理好的获取途径，比如MNIST，Fashion-MNIST，CIFAR-100，SVHN，Coco和Omniglot。这些情况下，返回的数据集都是一个torch.utils.data.Dataset的subclass。我们可以看到，我们上面创建的cifar10数据集的method-resolution order里将torch.utils.data.Dataset作为了其的一个base class：
+
+```python
+# In [2]:
+type(cifar10).__mro__
+
+# Out [2]:
+(torchvision.datasets.cifar.CIFAR10,
+ torchvision.datasets.vision.VisionDataset,
+ torch.utils.data.dataset.Dataset,
+ object)
+```
+
+
+#### 7.1.2 The Dataset class
+
+现在是解释一下torch.utils.data.Dataset的subclass是什么的好机会。如figure2所示，我们可以看到PyTorch Dataset是什么。它是一个object，必须要实现两个methods，也就是__len__和__getitem__。第一个是__len__，其需要返回这个dataset里item的数量；而后一个是__getitem__，其需要返回一个sample（在我们这个例子里还会返回对应的label）。
+
+![datasets]({{ '/assets/images/DLP-7-2.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 2 Concepts of a PyTorch Dataset object: it doesn't necessarily hold the data, but it provides uniform access to it through __len__ and __getitem__.*
+
+在Python里，如果一个Python object具有__len__ method，那么我们就可以用Python的内建函数len() function，其argument就是这个Python object本身：
+
+```python
+# In [3]:
+len(cifar10)
+
+# Out [3]:
+50000
+```
+
+相似的，一个Python object具有__getitem__ method，我们可以用Python里index tuple或list的方法来获取这个object里的每个item。在我们的例子里，通过index，我们可以得到一个PIL（Python Imaging Library）image以及一个以integer表明的label：
+
+```python
+# In [4]:
+img, label = cifar10[99]
+img, label, class_names[label]
+
+# Out [4]:
+(<PIL Image.Image image mode=RGB size=$$32 \times 32$$ at 0x7FB383657390>,
+ 1,
+ 'automobile')
+```
+
+所以，cifar10数据集里的一个item是一个PIL image，我们将它显示看看：
+
+```python
+# In [5]:
+plt.imshow(img)
+plt.show()
+```
+
+结果如figure3所示：
+
+![car]({{ '/assets/images/DLP-7-3.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 3 The 99th image from the CIFAR-10 dataset: an automobile.*
+
+
+#### 7.1.3 Dataset transforms
+
+我们现在还需要将PIL image转换为PyTorch的tensor，因为我们所操作的都是基于tensor的。这个时候torchvision.transforms module就有用了。这个module提供了一系列可组合的，像function的objects，它们可以作为argument被传给一个torchvision的dataset，比如torchvision.datasets.CIFAR10(...)，它们会在数据被加载进来但在__getitem__返回数据之前的时候对其进行transformation操作。torchvision.transforms module内包括的这样的objects有：
+
+```python
+# In [1]:
+from torchvision import transforms
+dir(transforms)
+
+# Out [1]:
+['CenterCrop',
+ 'ColorJitter',
+ ...
+ 'Normalize',
+ 'Pad',
+ 'RandomAffine',
+ ...
+ 'RandomResizedCrop',
+ 'RandomRotation',
+ 'RandomSizeCrop',
+ ...
+ 'TenCrop',
+ 'ToPILImage',
+ 'ToTensor',
+ ...
+]
+```
+
+在上述的这些transforms里，我们看到了ToTensor这个特殊的transform，它会将Numpy arrays和PIL Image转换为PyTorch tensors。它还会将tensor按照$$C \times H \times W$$的方式输出。
+
+让我们来试试ToTensor transform。torchvision.transforms.ToTensor实际上是一个class，一旦它被实例化了，就可以直接将一个PIL Image作为其的argument，输出就是一个PyTorch的tensor：
+
+```python
+# In [1]:
+from torchvision import transforms
+
+to_tensor = transforms.ToTensor()
+img_t = to_tensor(img)
+img_t.shape
+
+# Out [1]:
+torch.Size([3, 32, 32])
+```
+
+我们可以看到，torchvision.transforms.ToTensor()实例化后的to_tensor将输入的PIL Image转换为了一个$$3 \times 32 \times 32$$的tensor。注意到，对于这个image的label来说没有发生变化，其仍然是一个integer。
+
+正如我们之前所说的，我们可以直接将一个torchvision.transform里的一个transform作为argument传给torchvision.datasets.CIFAR10：
+
+```python
+# In [2]:
+tensor_cifar10 = torchvision.datasets.CIFAR10(data_path, train=True, download=True, transform=torchvision.transforms.ToTensor())
+```
+
+现在，获取该dataset tensor_cifar10里的一个值，将会返回一个tensor，而不是一个PIL Image:
+
+```python
+# In [3]:
+img_t, _ = tensor_cifar10[99]
+type(img_t)
+
+# Out [3]:
+torch.Tensor
+```
+
+正如我们所预料的，现在所获取的这个tensor第一个dimension将会是channel：
+
+```python
+# In [4]:
+img_t.shape, img_t.dtype
+
+# Out [4]:
+(torch.Size([3, 32, 32]), torch.float32)
+```
+
+原PIL Image里的像素值是从0到255的，而且都是8-bits的整数，但ToTensor transform将数据转换为了32-bits的floating-point，而且值的范围变成了从0.0到1.0：
+
+```python
+# In [5]:
+img_t.min(), img_t.max()
+
+# Out [5]:
+(tensor(0.), tensor(1.))
+```
+
+我们可以来显示一下：
+
+```python
+# In [6]:
+plt.imshow(img_t.permute(1, 2, 0))
+plt.show()
+
+# Out [6]:
+<Figure size 432 $$\times$$ 288 with 1 Axes>
+```
+![car_again]({{ '/assets/images/DLP-7-4.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 4 We've seen this one already.*
+
+因为Matplotlib和PyTorch对图片的维度处理不一样，所以我们想要用plt来显示图片，需要先用PyTorch tensor的permute method将维度重新排列，才能使用plt进行显示，从figure4可以看到，其和figure3，也就是PIL Image直接显示的结果是一样的。
+
+
+#### 7.1.4 Normalizing data
+
+torchvision.transforms十分的有用，因为我们可以用torchvision.transforms.Compose将它们连起来。比如，我们可以轻易地将数据集转换为，沿着每个channel的mean是0，而standard variation是1。我们在Chapter4里就提到了这样的数据transform方法，但没有说原因。现在我们从chapter5和chapter6里可以知道，很多activation function的sensitive range都是在0附近的一小片区域，所以如果原始数据也位于这个区间内，经过linear function，activation function之后，在反向传播的时候，各个parameter的导数不至于接近0，从而使得learning更加高效。而且将每个channel内的数据都normalization之后，可以保证我们能使用同样的learning_rate来更新各个channel对应的parameter的值。这和我们在chapter5.4.4里的温度计例子里，将某些数据提升一个数据集从而使得weight和bias位于差不多的数量级的操作是类似的。
+
+为了使得每个channel都有mean为0而standard variation为1，我们可以计算每个channel的整个数据集的mean和standard variation，然后$$v_n\[c\] = (v\[c\] - mean\[c\]) / stdev\[c\]$$。而这也正是torchvision.transforms.Normalize所做的。但mean和stdev的值需要预先计算好。我们先来计算一下CIFAR-10这个数据集每个channel的mean和stdev。
+
+因为CIFAR-10这个数据集比较小，我们可以直接来计算它。我们先将所有的返回的数据tensor沿着一个新增的dimension堆起来：
+
+```python
+# In [7]:
+imgs = torch.stack([img_t for img_t, _ in tensor_cifar10], dim=3)
+imgs.shape
+
+# Out [7]:
+torch.Size([3, 32, 32, 50000])
+
+# 现在我们来计算每个channel的mean和stdev：
+
+# In [8]:
+imgs.view(3, -1).mean(dim=1)
+
+# Out [8]:
+tensor([0.4915, 0.4823, 0.4468])
+
+# In [9]:
+# imgs.view(3, -1).std(dim=1)
+
+# Out [9]:
+tensor([0.2470, 0.2435, 0.2616])
+
+# 我们现在有了这些数值，就可以来做torchvision.transforms.Normalize了：
+
+# In [10]:
+torchvision.transforms.Normalize((0.4915, 0.4823, 0.4468), (0.2470, 0.2435, 0.2616))
+
+# Out [10]:
+Normalize(mean=(0.4915, 0.4823, 0.4468), std=(0.2470, 0.2435, 0.2616))
+
+# 我们再将这个transform连在ToTensor这个transform的后面：
+
+# In [11]:
+transformed_cifar10 = datasets.CIFAR10(data_path, train=True, download=False, transform=transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.4915, 0.4823, 0.4468), (0.2470, 0.2435, 0.2616))]))
+```
+
+注意到，现在我们从transformed_cifar10里获取一张图片来显示，已经不是真实的原始图片的样子了：
+
+```python
+# In [12]:
+img_t, _ = transformed_cifar10[99]
+
+plt.imshow(img_t.permute(1, 2, 0))
+plt.show()
+```
+figure5展示了normalized的red car图片是什么样的，我们上面的操作已经将这个图片的值的范围变成了-1.到1.，而matplotlib要显示的图片的值的范围为0.到1.，小于0.的都直接是黑色，所以图片中有很多黑色的部分。但是数据仍然是在的，信息也是在的，只是matplotlib的显示并不能显示出来他们这些信息罢了。
+
+![car_transformed]({{ '/assets/images/DLP-7-5.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 5 Our random CIFAR-10 image after normalization.*
+
+
+### 7.2 Distinguishing birds from airplanes
+
+假设我们需要一个model，能将bird和airplane的图片分开，如figure6所示的一个系统。我们从CIFAR-10里将bird和airplane的图片挑出来，并训练一个neural network来分辨他们。
+
+![system]({{ '/assets/images/DLP-7-6.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 6 The problem at hand: we're going to help our friend tell birds from airplanes for her blog, by training a neural network to do the job.*
+
+
+#### 7.2.1 Building the dataset
+
+第一步就是先来处理数据。我们可以构建一个torch.utils.data.dataset.Dataset的subclass来表示仅有bird和airplane的数据集。然而这个数据集很小，而且我们仅仅需要其有index和len这两个作用。这个数据集实际上并不需要通过subclassing torch.utils.data.dataset.Dataset来实现。我们直接取之前生成的cifar10的一部分组成数据集：
+
+```python
+# In [1]:
+label_map = {0:0, 2:1}
+class_names = ['airplane', 'bird']
+cifar2 = [(img, label_map[label] for img, label in cifar10 if label in [0, 2]]
+cifar2_val = [(img, label_map[label]) for img, label in cifar10_val if label in [0, 2]]
+```
+
+cifar2 object满足一个torch.utils.data.dataset.Dataset的基本条件，即有__len__和__getitem__这两个method（这是因为其是个list object，这两个method是list object自带的）。
+
+
+#### 7.2.2 A fully connected model
+
+我们在chapter5里学习了如何构建一个neural network。对于image这样的3维输入，我们可以直接将其展平为一个1维的tensor，从而这个维度就是输入的feature number，figure7展示了这样的过程：
+
+![image]({{ '/assets/images/DLP-7-7.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 7 Treating our image as a 1D vector of values and training a fully connected classifier on it.*
+
+我们输入的图片的tensor维度本来是$$3 \times 32 \times 32$$，展平之后就变成了一个3072大小的1维tensor。正如我们在chapter5里所构建的模型那样，那我们的nn.Linear的输入feature number就是3072，hidden layer的宽度设定为某个值，之后再通过一个activation function，之后再用另一个nn.Linear将其线性整合为一个feature number为2的输出：
+
+```python
+# In [1]:
+import torch.nn as nn
+
+n_out = 2
+
+model = nn.Sequential(nn.Linear(3072, 512), nn.Tanh(), nn.Linear(512, n_out))  # 512是hidden layer的宽度
+```
+
+我们只是随意选择了一个hidden layer features的值，512。一个neural network需要至少有一个hidden layer（且有activations），从而才能在输入和输出之间引入nonlinearity，这样才能够有能力学习到任意函数（正如chapter6.3里所说的），要不然这就只是一个linear model。hidden features代表的是通过所学习到的weight matrix来将输入编码为某种representation。
+
+现在我们已经有了一个模型，现在我们需要讨论一下输出应该是什么样的。
+
+
+#### 7.2.3 Output of a classifier
+
+在chapter6里，neural network直接输出一个连续的值作为输出。我们也可以做类似的输出：让我们的neural network输出一个单个的scalar，从而n_out=1，将label的值变成floating-point number，0.0就是bird，1.0就是airplane，从而可以使用MSELoss来计算输出和label之间的loss。这样做，我们就将这个问题变成了一个regression问题。但实际上，我们这个问题本质上和regression问题是有区别的。
+
+我们需要意识到，output是categorical的：要不然是bird，要不然就是airplane，并不应该有中间的其他情况。正如我们在chapter4里所学的，当我们需要表示一个categorical variable时，我们需要将其转换为one-hot编码，比如bird的label是01而airplane是10。而对于整个CIFAR-10数据集，one-hot编码对于label来说也是可以的，因为也就是长度为10的vector而已。
+
+在理想情况下，neural network对于bird图片将会输出torch.tensor(\[0.0, 1.0\])，对于airplane图片将会输出torch.tensor(\[1.0, 0.0\])。但我们的neural network并不会学习到完美的结果，所以输出是介于其中间的值。一个关键点是，我们可以将这个输出看作probability：输出的第一个值代表着是airplane的概率，而输出的第二个值代表的是bird的概率。
+
+从上述概率的角度来考虑neural network的输出，会对其产生一些新的约束：
+* output的每个值要在0.0到1.0之间
+* output的所有值加起来要是1
+
+而有一种十分聪明的办法能够使得上述要求满足，且所添加的约束还是differentiable的：softmax。
+
+
+#### 7.2.4 Representing the output as probabilities
+
+softmax是一个function，其输入是一个vector，而输出是同样size的vector，而满足我们上面对于probabilistic输出的要求。softmax的计算如figure8所示：
+
+![softmax]({{ '/assets/images/DLP-7-8.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 8 Handwritten softmax.*
+
+
+softmax就是，对于输入vector的每个值，取它的exponential，再除以这些exponentials的和，用代码来说就是：
+
+```python
+# In [1]:
+def softmax(x):
+    return torch.exp(x) / torch.exp(x).sum()
+
+# In [2]:
+x = torch.tensor([1., 2., 3.])
+softmax(x)
+
+# Out [2]:
+tensor([0.0900, 0.2477, 0.6652])
+
+# In [3]:
+softmax(x).sum()
+
+# Out [3]:
+tensor(1.)
+```
+
+softmax是个单调函数，但并不是scale invariant的，比如上面的例子，输入的第一个和第二个element之间的ratio是0.5，而结果的第一个和第二个element之间的ratio是0.3678。
+
+nn module同样也将softmax作为一个module放在里面了。因为input tensors经常会有第0个维度来表示batch，或者还有额外的维度表示别的信息，所以softmax module需要你特别指出是沿哪个维度来算的：
+
+```python
+# In [1]:
+softmax = nn.Softmax(dim=1)
+
+x = torch.tensor([[1., 2., 3.],
+                  [1., 2., 3.]])
+
+softmax(x)
+
+# Out [1]:
+tensor([[0.0900, 0.2447, 0.6652],
+        [0.0900, 0.2447. 0.6652]])
+
+```
+
+上面的例子中，我们沿着dimension=1来做的softmax，就如同dimension=0代表着batch一样。
+
+从而现在，我们可以在之前的neural network之后加上softmax来输出probability了：
+
+```python
+# In [1]:
+model = nn.Sequential(nn.Linear(3072, 512), nn.Tanh(), nn.Linear(512, 2), nn.Softmax(dim=1))
+```
+
+我们在训练model前，其实也可以对于输入运行一下模型，看看输出到底是什么样的。我们先构造一个只有一张图片的batch，是一张鸟的图片,如figure9所示：
+
+```python
+# In [2]:
+img, _ = cifar2[0]
+
+plt.imshow(img.permute(1, 2, 0))
+plt.show()
+```
+
+![bird]({{ '/assets/images/DLP-7-9.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 9 A random brid from the CIFAR-10 dataset (after normalization).*
+
+为了能处理这个image，我们还需要将其转换为适应的维度，注意nn module都是需要让input的第0维是batch的：
+
+```python
+# In [3]:
+img_batch = img.view(-1).unsqueeze(0)
+```
+
+```python
+# In [4]:
+out = model(img_batch)
+out
+
+# Out [4]:
+tensor([[0.4784, 0.5216]], grad_fn = <SoftmaxBackward>)
+```
+
+我们通过torch.max，在指定维度的情况下，返回最大值以及最大值所在的index：
+
+```python
+# In [5]:
+_, index = torch.max(out, dim=1)    # dim=0代表batch，dim=1代表沿着输出维度
+index
+
+# Out [5]:
+tensor([1])
+```
+
+现在我们已经使得模型可以输出probability了，下一步，我们就需要定义合适的loss来训练整个网络了。
+
+
+#### 7.2.5 A loss for classifying
+
+在chapter5和chapter6里，我们用的是MSELoss。我们同样也可以还用MSELoss来让我们的输出靠近\[0.0, 1.0\]和\[1.0, 0.0\]。然而实际上我们并不是真的想让结果输出这样的值，我们实际上希望对于airplane的图片，第一个值要比第二个值大，而对于bird图片反过来。也就是说，我们更加想要对错误的分类做出惩罚，而不是要让输出结果尽可能的逼近0.0或者1.0。
+
+我们需要maximize的是正确的那一个种类所对应的probability，也就是out\[class_index\]，out是softmax的输出，class_index对于airplane是0，对于bird是1。这个值，也就是正确分类的概率，被称为likelihood（给定数据，给定模型参数）。也就是说，我们需要有一个loss function，它在likelihood小的时候大，而在其大的时候小。
+
+有一个loss function是这样的，称为negative log likelihood (NLL)。NLL = -sum(log(out_i\[c_i\]))，这个sum是所有N个samples的，而c_i指的是sample i对应的正确的类别，out_i是sample i的输出。让我们来看figure10，可以看出NLL满足我们的条件。
+
+![NLL]({{ '/assets/images/DLP-7-10.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 10 The NLL loss as a function of the predicted probabilities.*
+
+figure10说明当这个数据模型预测正确的probability很低的时候，NLL变成了无穷大，而NLL在预测正确的probability大于0.5的时候已经足够小了。注意，NLL是将预测正确的概率作为输入的。
+
+总结一下，我们的classification loss可以这样进行计算。对于batch里的每一个sample：
+
+* 运行forward pass，获得output的值
+* 计算softmax，得到probabilities
+* 将预测正确类别的概率值拿出来（这个值就是parameters的likelihood）。注意到我们是知道正确类别是哪一个的，因为这个是supervised learning，正确类别就是我们的ground truth
+* 计算第三步里的log，加上一个负号，将其加到loss里
+
+所以说，我们在PyTorch里该如何实现它呢？PyTorch有一个nn.NLLLoss class。但是这个class并不接收probabilities作为argument，而是接收一个log probabilities的tensor作为argument。之后他会计算对于一个batch的数据，这个模型的NLL。nn.NLLLoss这么做的原因是，当概率很小时，取log会使得值变成很大的负数。一个解决办法就是采用nn.LogSoftmax而不是nn.Softmax，其会使得计算更加稳定。（LogSoftmax实际就是log(softmax(x)))。
+
+我们现在可以将我们的模型的softmax改成logsoftmax：
+
+```python
+# In [1]:
+model = nn.Sequential(nn.Linear(3072, 512), nn.Tanh(), nn.Linear(512, 2), nn.LogSoftmax(dim=1))
+
+# In [2]:
+
+loss = nn.NLLLoss()
+```
+
+这个实例化的loss，将nn.LogSoftmax的输出作为第一个argument，并且将class indices的tensor（也就是ground truth）作为第二个argument。
+
+```python
+# In [3]:
+img, label = cifar2[0]
+out = model(img.view(-1).unsqueeze(0))
+loss(out, torch.tensor([label]))
+
+# Out [3]:
+tensor(0.6509, grad_fn=<NllLossBackward>)
+```
+
+作为结束，我们来看看用cross-entropy loss如何改进MSE loss。figure11是cross entropy loss和MSE loss以predicted scores作为变量的函数图（predicted scores就是模型的output，还没有做softmax的结果），但是这两个loss都是在softmax之后再算的。我们可以看到，在cross entropy这个图里，在图的左侧，也就是预测正确的部分，即使靠近预测正确的点，其仍有slope，也就是说，在已经很正确的情况下，其还会继续改进。而在MSE这个图里，其很早就饱和了，也就是再远还没到达最优点的时候，函数的slope就已经很小了，进行不下去了。其内在的原因是，MSE的slope还是小了，softmax本身会使得错误的预测结果的曲线更加平缓一点，而MSE的slope太小，不足以抵消平缓造成的后果。这就是MSE为什么不适合classification的原因。
+
+![entropy]({{ '/assets/images/DLP-7-11.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 11 The cross entropy(left) and MSE between predicted probabilities and the target probability vector(right) as functions the predicted scores——that is, before the (log-) softmax.*
+
+#### 7.2.6 Training the classifier
+
+现在，我们可以用chapter5里类似的training loop来训练我们的模型了，figure12解释了这个过程：
+
+```python
+# In [1]:
+import torch
+import torch.nn as nn
+
+model = nn.Sequential(nn.Linear(3072, 512), nn.Tanh(), nn.Linear(512, 2), nn.LogSoftmax(dim=1))
+
+learning_rate = 1e-2
+
+optimizer = optim.SGD(model.parameters(), lr=learning_rate)
+
+loss_fn = nn.NLLLoss()
+
+n_epochs = 100
+
+for epoch in range(n_epochs):
+    for img, label in cifar2:
+        out = model(img.view(-1).unsqueeze(0))
+        loss = loss_fn(out, torch.tensor([label]))
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+    print("Epoch: %d, Loss: %f" % (epoch, float(loss)))    # 这只是输出了最后一个image的loss，在下一章里我们会改进的
+```
+
+![train]({{ '/assets/images/DLP-7-12.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 12 Training loops: (A) averaging updates over the whole dataset; (B) updating the model at each sample; (C) averaging updates over minibatches.*
+
+仔细看的话，我们的training loop和chapter5里的有点不一样。在chapter5里，我们只有一个循环，也就是epoch循环（每个epoch指的是training set里所有的数据遍历一遍）。而在我们上面的代码里，在每个epoch循环里，我们还对所有的sample都进行了循环，也就是说在chapter5的训练里，每次我们都是将整个数据集计算之后的loss进行backward更新参数，而在上面的代码里，我们是对于数据集里的每个sample计算了loss直接更新。
+
+对于chapter5里的training loop，所有的samples对应的loss被积聚在了一起来更新参数，而在上面的代码里，我们只用一个sample计算的loss来更新参数。然而对于某个sample计算出的合适的更新方向，对于其它的sample可能就不合适了。所以，我们在每个epoch里打乱所有samples的顺序，并且每次采用若干个samples计算累积的loss来更新参数，这若干个samples就叫做minibatch，这种操作为gradient descent带来了随机性。Stochastic gradient descent里的stochastic就是因为其作用在打乱了的minibatch上。很多实验证明，通过使用minibatch而不是整个数据集，可以使得optimization的过程收敛的更好，而且还能避开一些local minima，尽管minibatch所计算的gradients对于整个数据集的gradient其实差距很远。正如figure13所示，用minibatch算出来的gradients对于用所有数据计算的gradient的轨迹有随机的偏移，这也是我们为什么要用小一点的learning rate的原因。在每个epoch都打乱顺序随机采样minibatch可以保证在统计学上，minibatch的gradient的平均值会逼近用所有数据算出来的gradient。
+
+minibatch的大小是我们预先要设定好的，如同learning rate一样，这些叫做hyperparameters，叫这个名字是为了和模型里的parameters分开。
+
+在我们上面的代码里，我们将minibatch的大小设置为了1，也就是每次取一个。torch.utils.data module有一个class，用来帮助打乱数据集以及将数据整理为minibatch的形式：DataLoader。一个DataLoader的作用就是从一个数据集里随机选择minibatch，而且给我们提供了不同的随机挑选方式。最常见的方式就是在每个epoch里按平均概率随机挑选。figure14显示了torch.utils.data.DataLoader打乱从torch.utils.data.dataset.Dataset里得到的index：
+
+![DataLoader]({{ '/assets/images/DLP-7-13.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 13 A data loader dispensing minibatches by using a dataset to sample individual data items.*
+
+让我们来看看这个过程是怎么完成的。一个torch.utils.data.DataLoader constructor至少有以下几个argument：一个torch.utils.data.dataset.Dataset作为input，batch_size表示size的大小，shuffle是一个Boolean值表示在每个epoch开始的时候，数据是否被打乱：
+
+```python
+# In [1]:
+train_loader = torch.utils.data.DataLoader(cifar2, batch_size=64, shuffle=True)
+```
+
+
 
 
 
