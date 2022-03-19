@@ -4755,7 +4755,26 @@ sum(numel_list), numel_list
 >* 使用nn module和使用PyTorch自带的其它functional API来构建neural networks的区别
 >* 设计neural networks的众多选择
 
+在之前的章节里，我们构造了一个简单的neural network，其能够拟合数据（或者overfit），linear layers里众多的可供optimize的parameters为模型提供了很强的拟合能力。然而，这个模型还是有问题，它还是更倾向于记住training set里的信息，而不是真的学习到了可以generalize的分辨bird和airplane的图片的能力。基于这个模型的结构，我们猜到了之所以导致这个结果的原因。因为我们需要模型能够检测可能出现在图片内任意地方的bird或者airplane，所以我们的模型参数会很多（则容易overfitting），而且我们需要模型对物体出现在各个位置的图片都有学习（容易记住training set而不是学习到知识）。正如我们在上一章里所说的，我们可以通过data augmentation来使得我们的模型具有更好的generalization能力，但是参数过多这个问题还是解决不了。
 
+对于上述问题，我们有一个好的解决办法，那就是将neural network里的dense fully connected affine transformation换成另一个linear function：convolution。
+
+
+### 8.1 The case for convolutions
+
+让我们从最基本的问题开始，convolution是什么以及我们怎么把convolution用在我们的neural network里。
+
+在这个section里，我们将会发现convolution能解决translation invariance的问题，并且convolution利用了相对位置信息。
+
+我们之前说，如同nn.Linear所做的，将输入的2维image看成1维vector，之后将其乘上一个n_output_features $$\times$$ n_input_features的weight matrix（再加上一个bias），表明对于每个channel，我们的output的每个element，都是所有的input pixels的一个线性加权和，而这些权重，就是weight matrix里的值，也就是我们要学习的值。
+
+我们之前还说了，如果我们想要学习objects的特征，比如说蓝天里的airplane，我们很可能需要检查相邻的pixels是怎么样的，而不是检查相距很远的pixels在linear combination的计算里是怎么结合的。毕竟，如果我们想要学习airplane的图像，图像的角落里有一棵树也不应该影响我们的学习。
+
+为了将上面的这些想法落实到具体的数学模型设计上，我们可以计算一个pixel关于它的最近的邻居们的加权和，而不是计算这个pixel和所有的其它的pixel的加权和。这等价于构造weight matices，对于每个output feature和每个output pixel location都构造一个weight matrix。这样的操作之后仍然是一个weighted sum，也就是说还是一个linear operation。
+
+### 8.2 What convolutions do
+
+我们之前就指明了希望我们的新的operation能做到：这些局部的特征能够不管objects位于image的哪个位置都能有同样的作用，也就是说，要有translation invariant的性质。
 
 
 
