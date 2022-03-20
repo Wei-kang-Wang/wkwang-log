@@ -4774,7 +4774,194 @@ sum(numel_list), numel_list
 
 ### 8.2 What convolutions do
 
-我们之前就指明了希望我们的新的operation能做到：这些局部的特征能够不管objects位于image的哪个位置都能有同样的作用，也就是说，要有translation invariant的性质。
+我们之前就指明了希望我们的新的operation能做到：这些局部的特征能够不管objects位于image的哪个位置都能有同样的作用，也就是说，要有translation invariant的性质。对于我们在chapter7里的linear model里的weight matrix，我们如果想让它有这样的性质，那么我们需要使得weight具有一些多余的限制：对于每个pixel，距离太远的pixel对应的weight matrix位置的值就是0。对于剩下的不为0的weight matrix，我们需要使得每个位置的weight matrix的更新保持同步，而且初始值也是同步的。也就是说，相当于对于input每个位置的pixel都用一个相同的weight matrix来进行计算，这样就可以做到translation invariant。
+
+而其实已经有了一个现成的作用在image上的local，translation invariant的linear operation：convolution。
+
+convolution，或者更加精确的描述，discrete convolution，定义为一个关于2维image的每个neighborhood范围和weight matrix之间的scaler product，这个weight matrix称为kernel。考虑一个大小为$$3 \times 3$$的kernel（在deep learning里，我们最常用的是size比较小的kernel，我们可以在后面看到为什么），将这个kernel看作一个2维的tensor：
+
+```python
+weight = torch.tensor([[w00, w01, w02],
+                       [w10, w11, w12],
+                       [w20, w21, w22]])
+```
+
+我们还有一个1channel的$$M \times N$$的image：
+
+```python
+image = torch.tensor([[i00, i01, i02, i03, ..., i0N],
+                      [i10, i11, i12, i13, ..., i1N],
+                      ...
+                      [iM0, iM1, iM2, iM3, ..., iMN]])
+```
+
+而它们两之间计算的convolution的output里的一个元素就是
+
+$$ o11 = i11 * w00 + i12 * w01 + i13 * w02 + i21 * w10 + i22 * w11 + i23 * w12 + i31 * w20 + i32 * w21 + i33 * w22 $$
+
+figure1显示了上述计算过程
+
+![convolution]({{ '/assets/images/DLP-8-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 1 Convolution: locality and translation invariance.*
+
+convolution计算的过程就是，我们将kernel摆在image的pixel的某个位置上，然后计算kernel和对应的pixel位置的乘积的和，也就是利用kernel里的weights来计算image这个位置的一个加权和，这是output的一个element。之后将kernel移动位置，再利用同样的kernel来计算该位置的加权和，这是output的另一个element，以此类推，直到kernel走遍了image的所有位置。
+
+对于多channel的image，就比如RGB图片，上述的weight matrix，也就是kernel的size将会变为$$ 3 \times 3 \times 3 $$，也就是说kernel的channel要和image的channel一样，而这几个channel都计算加权和，再将它们加起来作为输出。
+
+注意到，正如nn.Linear里的weight一样，kernel里的weights是不知道的，是要通过learning process来学习的，它们可以先被随机赋值，之后再利用backpropagation来更新。同时注意到，每个kernel都要滑过整个image，所以在滑过的时候计算的加权和使用的都是同一个kernel，也当然权重是一样的。对于autograd来说，让loss对kernel的weight求导实际上要包括整张图片的所有信息。
+
+现在可以看到我们之前所说的的观点的正确性：一个convolution等价于有多个linear operation，其中它们的weights只有一部分不是0，它们被预设为一样的值，而且它们在training过程中有着同样的更新值。
+
+总结来说，通过将之前的nn.Linear调整为convolution，我们获得了：
+* 对于neighborhood的局部计算
+* translation invariance
+* 具有少了很多parameters的模型
+
+对于上述第三点，我们注意到，模型的参数不再取决于输入图片的大小，而是在于kernel的大小以及kernel的个数，即kernel size和output channel。
+
+
+### 8.2 Convolutions in action
+
+我们现在对convolution已经有了基本的了解了，下面我们来看看在PyTorch里将如何实现它们。torch.nn module提供了对于1维，2维，3维输入的input的convolution函数：nn.Conv1d，nn.Conv2d以及nn.Conv3d，分别适合time series，image和videos。
+
+对于我们的CIFAR-10数据，我们将会使用nn.Conv2d function。我们至少要给nn.Conv2d function提供number of input features（或者叫channel），number of output features，以及kernel的size，这三个arguments。比如，我们想要设计一个对于RGB输入的convolution层，假设输出的channel是16。注意，output的channel越多，这个模型的学习能力就越强。我们需要不同的output channels负责检测不同类型的features。而且，因为我们这些kernel的参数都是随机起始设定的，所以即使在training完成后，有很多features其实对于任务来说是没有用的。我们的kernel size设为$$ 3 \times 3$$。
+
+将kernel size每个方向都设置为一样的数是很常见的，所以说PyTorch为此提供了简便的写法，对于2D image来说，kernel_size=3就直接代表kernel是一个$$ 3 \times 3$$的大小；而对于一个3D video，kernel_size=3就代表kernel是一个$$ 3 \times 3 \times 3$$的大小。对于之后再Part2里所见到的CT Scan数据，其是3D的数据，但是不同维度有着不同的resolution，所以说这个时候使用每个方向不一样的kernel size是比较合适的。
+
+```python
+# In [1]:
+conv = nn.Conv2d(3, 16, kernel_size=3)    # 除了kernel_size=3这样简单的表达，我们也可以用完整的表述，kernel_size=(3, 3)
+conv
+
+# Out [1]:
+Conv2d(3, 16, kernel_size=(3, 3), stride=(1, 1))
+```
+
+而在convolution里，我们的weight tensor的shape是什么呢？kernel_size的大小是$$ 3 \times 3$$，input_channel为3，output_channel为16，所以说weight的shape应该是$$ 16 \times 3 \times 3 \times 3$$，而bias的shape为16。bias的作用和在linear model里的一样，都是在计算完成后，加在结果上。所以在convolution里，在每个output channel里都对应了一个bias，所以一共是16个。
+
+```python
+# In [2]:
+conv.weight,shape, conv.bias.shape
+
+# Out [2]:
+(torch.Size([16, 3, 3, 3]), torch.Size([16]))
+```
+
+我们可以看到，convolutions对于image来说是多么合适，我们可以用很少的参数，而且还能有translation invariant的性质。
+
+一个2D convolution的forward pass会有2D images作为output，output每个位置的pixel都是input对应位置的neighbohood的加权和。在我们的例子里，kernel的weights和bias都是随机初始化的，所以说output并没有什么意义。在PyTorch里，按照老惯例，我们还需要加上第0维作为batch的维度，因为nn.Conv2d所期待的输入维度为$$ B \times C \times H \times W$$：
+
+```python
+# In [3]:
+img, _ = cifar2[0]
+output = conv(img.unsqueeze(0))
+img.unsqueeze(0).shape, output.shape
+
+# Out [3]:
+(torch.Size([1, 3, 32, 32]), torch.Size([1, 16, 30, 30]))
+
+# In [4]:
+plt.imshow(output[0, 0].detach(), cmap='gray')
+plt.show()
+```
+
+figure2显示了输出的output的一部分的样子（作为gray scale image来输出的）
+
+![gray]({{ '/assets/images/DLP-8-2.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 2 Our bird after a random convolution treatement.*
+
+我们发现，我们的output的后两个维度的size要比输入的input的后两个维度的size要小了一些，这是为什么呢？
+
+#### 8.2.1 Padding the boundary
+
+output image的长宽比input image的长宽要小的原因是由于kernel在input image的边缘计算时导致的。在input image的一个$$3 \times 3$$的neighborhood上进行一个将convolution kernel当作weight的convolution计算的一个前提是，这个区域能有$$3 \times 3$$大小的neighborhood，也就是说这个pixel的各个方向都能取到值。而在i00这个位置，它只有下方和右方有值。默认的话，convolution会让kernel每次滑动一个pixel，这样的话，output的size就应该是input的size - kernel沿这个方向的size + 1。
+
+而PyTorch给我们提供了padding，来为boundary周边加上0，从而在convolution计算到边缘的时候，仍然可以有值计算。
+
+```python
+# In [4]:
+conv = nn.Conv2d(3, 1, kernel_size=3, padding=1)
+output = conv(img.unsqueeze(0))
+img.unsqueeze(0).shape, output.shape
+
+# Out [4]:
+(torch.Size([1, 3, 32, 32]), torch.Size([1, 1, 32, 32]))
+```
+
+figure3显示了padding的过程。我们可以看到，上述操作使得输出的output的长宽和输入就一样了。注意到，weight和bias的大小并没有改变，padding并不会影响它们。
+
+![padding]({{ '/assets/images/DLP-8-3.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 3 Zero padding to preserve the image size in the output.*
+
+有两个主要的原因让我们做padding。首先，padding可以使得我们的convolution操作不改变input长宽的大小。其次，当我们有更复杂的convolution操作，比如skip convolution（在8.5.3里说）或者part2里要说的U-Net时，我们希望tensors在经过convolution计算之后和计算之前有着相对应的size，不要被convolution而改变size。
+
+
+#### 8.2.2 Detecting features with convolutions
+
+我们之前说weight和bias是我们需要利用backpropagation来学习的parameters，正如weight和bias在nn.Linear的情况一样。然而，我们也可以通过手动设置convolution里的weight和bias来看看结果会怎么样：
+
+```python
+# In [5]:
+with torch.no_grad():
+    conv.bias.zero_()
+
+with torch.no_grad():
+    conv.weight.fill_(1.0 / 9.0)       # 我们也可以直接用conv.weight.one_()，除了output的值是这个的9倍，其余的都是一样的
+```
+
+```python
+# In [6]:
+output = conv(img.unsqueeze(0))
+plt.imshow(output[0, 0].detach(), cmap='gray)
+plt.show()
+```
+
+figure4显示了上述结果。正如我们所预测的一样，这个kernel的设置，使得output输出了input image模糊化的版本。毕竟，output每个pixel都是input该位置的pixel的neighborhood平均得来的，所以output里的pixel更加corelated，并且过度更加顺滑。
+
+![blur]({{ '/assets/images/DLP-8-4.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 4 Our bird, this time blurred thanks to a constant convolution kernel.*
+
+接下来，让我们再试一些其它的：
+
+```python
+# In [7]:
+conv = nn.Conv2d(3, 1, kernel_size=3, padding=1)
+
+with torch.no_grad():
+    conv.weight[:] = torch.tensor([[-1.0, 0.0, 1.0],
+                                   [-1.0, 0.0, 1.0],
+                                   [-1.0, 0.0, 1.0]])
+    conv.bias.zero_()
+```
+
+上述的kernel实际上是一个edge detection kernel：对于vertical的edge，它的对应的值就很大，对于constant的区域，值就是0。严格来说，这应该是是一个vertical edge detection kernel。
+
+将上述kernel运用在我们的image里，我们会得到figure5所示的结果。正如我们所预料的，这个kernel增强了vertical edges。
+
+![edge]({{ '/assets/images/DLP-8-5.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 5 Vertical edges throughout our bird, courtesy of a handcrafted convolution kernel.*
+
+我们还可以设计其他类型的kernels来detect各种features，detect的意思是output会在input有特定的features的位置有很大的值。实际上，在传统的cv任务里，计算机视觉学家就是精心设计各种filters，使得输出在输入的特定的features上能有很大的值。
+
+使用deep learning，我们利用minimizing loss来使得模型自己来学习这些kernelparameters，比如使得模型能够minimizing输出和ground truth之间的cross entropy loss，如7.2.5里所说的那样。从这个角度来说，convolutional neural network的作用就是估计一系列排成layers的kernel的parameters，它们会将一个multichannel的输入的转换为新的multichannel 'image'，下一层再进行这样的操作，而每一层以及每一个channel可能对应着不同的操作，比如average，比如vertical edge detection等等。figure6展示了convolutional neural networks的training是如何学习到kernel的parameters的。
+
+![cnn]({{ '/assets/images/DLP-8-6.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 6 The process of learning with convolutions by estimating the gradient at the kernel weights and updating them individually in order to optimize for the loss.*
+
+
+#### 8.2.3 Looking further with depth and pooling
+
+
+
+
+
+
 
 
 
