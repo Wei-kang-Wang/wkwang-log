@@ -4957,6 +4957,430 @@ with torch.no_grad():
 
 #### 8.2.3 Looking further with depth and pooling
 
+我们从fully connected layers改成了现在的convolution，我们获得了获取locality feature的能力，以及我们的模型具有translation invariance的性质了。但是还有一个显而易见的问题：我们使用的是$$ 3 \times 3$$或者$$5 \times 5$$的kernel，从而每次只能检测input image里这么大小的区域的feature，而如果有的feature横跨的区域比这个大呢？我们需要让我们的模型具有更广阔的scope。
+
+一个解决的方法是使用kernel size更大的kernel。但是使用大的kernel又会使得参数增加，而且损失掉translation invariance的性质，对于我们的例子，最大的kernel size是32，那么就回到了fully connected layer模型。另一种解决方法是，将一个convolution的输出进行downsampling之后，作为下一个convolution的输入，也就是将convolution layer堆叠起来。
+
+**FROM LARGE TO SMALL: DOWNSAMPLING**
+
+downsampling原则上可以有很多种方式。将一个image按比例缩小一半等价于对于每四个neighboring pixels，采用某种计算方法只输出一个pixel。而如何计算则是我们可以选择的。有以下几种方法：
+* average the four pixels。这种average pooling的方法在早期很流行，但后来逐渐被淡忘了
+* take the maximum of the four pixels。这个方法叫max pooling，是目前最流行的方式，但是缺点是其它三个pixel的信息被完全遗弃了
+* performan a stride convolution, where only every Nth pixel is calculated。
+
+我们将会着重使用maxpooling，如figure7所示。
+
+![maxpooling]({{ '/assets/images/DLP-8-7.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 7 Max pooling in detail.*
+
+从直觉上来看，convolution layer输出的output image，特别是再经过activation function之后再输出，会对于这个kernel所检测到的feature存在的区域的值很高。通过加上了maxpooling，我们在牺牲掉一些值相对较小的output，使得我们所学习到的特征都是很明显的。
+
+max pooling可以通过nn.MaxPool2d module来提供（如同convolution一样，它也有1D，2D和3D版本）。如果我们希望downsampling输入图片使得只有一半大，那么size选择为2。
+
+```python
+# In [1]:
+pool = nn.MaxPool2d(2)
+output = pool(img.unsqueeze(0))
+
+img.unsqueeze(0).shape, output.shape
+
+# Out [1]:
+(torch.Size([1, 3, 32, 32]), torch.Size([1, 3, 16, 16]))
+```
+
+**COMBINING CONVOLUTIONS AND DOWNSAMPLING FOR GREAT GOOD**
+
+让我们来看看，将convolution和downsampling结合起来是如何让模型能够看到更大尺度的结构的。如figure8所示，一开始，我们将一个$$ 3 \times 3$$的kernel运用在一个$$8 \times 8$$的image，我们获得了一个同样大小的output image。之后，我们使用max pooling来downsampling这个image，获得了一个大小为$$4 \times 4$$的output image，我们再在这个output image上运用$$3 \times 3$$的kernel，我们可以看到，因为这个$$4 \times 4$$的output image是由$$8 \times 8$$的image downsample得来的，所以我们在这个$$4 \times 4$$的image上做convolution，反传到之前的$$8 \times 8$$的原输入image上，就相当于在$$8 \times 8$$的区域做convolution，从而感受野变大了。而且，第二层的kernels是在第一层输出的结果上再学习features，第一层的结果可能是average，edge等等，所以第二层所学习到的features会更加high level一点。
+
+![twolayers]({{ '/assets/images/DLP-8-8.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 8 More convolutions by hand, showing the effect of stacking convolutions and downsampling: a large cross is highlighted using two small, cross-shaped kernels and max pooling.*
+
+所以说，一方面，第一层的kernels作用在初始的，low-level features的neighborhood上，而第二层的kernels作用在对于原始输入来说更广阔的neighborhood上，在前一层的features的基础上学习更high level的features。这样的作法为我们的convolutional neural network提供了学习很复杂的图片内容的能力，远远比CIFAR-10的图片要复杂。
+
+
+#### 8.2.4 Putting it together for our network
+
+现在我们手里已经有了足够的组件了，现在我们可以构建能够识别bird和airplane图片的convolutional neural network了。
+
+```python
+# In [1]:
+model = nn.Sequential(nn.Conv2d(3, 16, kernel_size=3, padding=1),
+                      nn.Tanh(), 
+                      nn.MaxPool2d(2), 
+                      nn.Conv2d(16, 8, kernel_size=3, padding=1), 
+                      nn.Tanh(), 
+                      nn. MaxPool(2),
+                      # ...
+                      )
+```
+
+第一层卷积将RGB三通道的输入image转换为16通道的，从而给了模型生成16种low-level的能够辨别bird和airplane图片的特征的机会。第一层输出的16通道$$32 \times 32$$的image在经过tanh函数之后，再利用maxpooling将其降采样到$$16 \times 16$$的大小。之后，第二层convolution又生成了8通道的$$16 \times 16$$的image。如果顺利的话，这8个通道的features将会是之前low-level的features综合之后的学习结果，将会给出更high-level的features。同样的，我们再利用tanh函数和maxpooling来得到8通道$$8 \times 8$$的image。
+
+这样的过程该如何结束呢？在得到了$$8 \times 8 \times 8$$的image之后，我们认为它已经可以被转换为输出probability，之后再使用NLLLoss了。然而我们如何将这个multichannel的2D image转换为一个1D的表示probability的tensor呢？我们可以直接使用fully connected layer!
+
+```python
+# In [1]:
+model = nn.Sequential(nn.Conv2d(3, 16, kernel_size=3, padding=1),
+                      nn.Tanh(),
+                      nn.MaxPool2d(2),
+                      nn.Conv2d(16, 8, kernel_size=3, padding=1),
+                      nn.Tanh(),
+                      nn.MaxPool2d(2),
+                      # ... 我们这里省略了很重要的东西
+                      nn.Linear(8*8*8, 32)
+                      nn.Tanh(),
+                      nn.Linear(32, 2)
+                      )
+```
+
+上述代码可以得到figure9所示的网络：
+
+![net]({{ '/assets/images/DLP-8-9.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 9 Shape of a typical convolutional network, including the one we are building. An image is fed to a series of convolutions and max pooling modules and then straightforward into a 1D vector and fed into fully connected modules.*
+
+先不管我们上面的代码里省略的重要的东西。我们看到，我们后面添加的linear层的大小取决于我们之前convolution以及maxpool层输出的image的大小，8 * 8 * 8 = 512。我们来看看这个模型的参数有多少：
+
+```python
+# In [2]:
+numel_list = [p.numel() for p in model.parameters()]
+sum(numel_list), numel_list
+
+# Out [2]:
+(18090, [432, 16, 1152, 8, 16384, 32, 64, 2])
+```
+
+这样的参数数量对于我们这样一个很小的问题以及很小的数据集是很合适的。我们可以通过增加我们的convolution层的输出channel来增加模型的学习能力。
+
+我们现在来看我们上面代码里省略掉的很重要的部分。其实就是我们需要将一个3维的tensor转换为一个1维的tensor，以适应于之后的nn.Linear层的输入，但是再nn.Sequential里我们不能用view method来直接将tensor变形，实际上在nn.Sequential里，我们不能以任何显式的形式来看任何一个PyTorch module的输出。
+
+
+### 8.3 Subclassing nn.Module
+
+在我们学习neural networks的某些时候，我们发现我们需要一些已经构造好的PyTorch module里没有涵盖的计算。在我们上面的情况里，我们就需要reshaping的操作使得convolution的结果能够和linear module连接上；在8.5.3里，我们还会举个例子，那时候我们需要实现residual connections。所以在这一章里，我们将会学习如何设计自己的nn.Module subclass，这样我们就可以像使用已经设计好的那些PyTorch modules如nn.Conv2d那样或者像nn.Sequantial那样使用它们。
+
+当我们想要构造一个更加复杂的network，除了将layers堆叠起来以外，我们还想做一些其他的事情，这个时候nn.Sequential就不行了，我们可以通过subclassing nn.Module来实现。
+
+为了能够subclass nn.Module，最少我们需要定义一个forward function，它会摄取input，并且输出output。这就是我们可以自定义我们所需要的computation的地方。这个forward function实际上是一些之前的东西的遗留产物，我们在5.5.1里所见到的模型，需要forward和backward function来使得模型能够学习。而在PyTorch里，如果我们使用标准的torch operations，autograd会自动帮我们实现backward的操作，所以实际上任何nn.Module都不会定义backward function。
+
+而我们的PyTorch module有时候还需要用到其它的已经定义好的PyTorch modules，为了能够在我们的module里使用这些modules，我们需要在__init__里定义他们，并将它们的值传给self，这样才能在forward里使用它们。而它们在被定义并赋值了之后，将会我们自定义的module失效之前都能保持它们内部的parameters。注意，我们需要在__init__里先调用super().__init__()来继承父类的method，这样我们才可以正确使用。
+
+### 8.3.1 Our network as an nn.Module
+
+我们利用subclass nn.Module来定义我们的network。我们需要在__init__里instantiate所需要的nn.Conv2d，nn.Linear，以及一系列我们在nn.Sequential里用到的PyTorch modules，然后在forward里用它们：
+
+```python
+# In [1]:
+class Net(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(3, 16, kernel_size=3, padding=1)
+        self.act1 = nn.Tanh()
+        self.pool1 = nn.MaxPool2d(2)
+        self.conv2 = nn.Conv2d(16, 8, kernel_size=3, padding=1)
+        self.act2 = nn.Tanh()
+        self.pool2 = nn.MaxPool2d(2)
+        self.fc1 = nn.Linear(8 * 8 * 8, 32)
+        self.act3 = nn.Tanh()
+        self.fc2 = nn.Linear(32, 2)
+    
+    def forward(self, x):
+        out = self.pool1(self.act1(self.conv1(x)))
+        out = self.pool2(self.act2(self.conv2(out)))
+        out = out.view(-1, 8 * 8 * 8)
+        out = self.act3(self.fc1(out))
+        out = self.fc2(out)
+        return out
+```
+
+上面定义的Net class和之前利用submodules作为输入的nn.Sequential定义的模型是等价的。但是通过将forward function直接写出来，我们可以操作每个环节的输出，我们将maxpool2的输出的size变为了$$B \times N$$从而能够适应后面的nn.Linear。注意到我们一直都是保持第0维是batch。
+
+上面我们利用subclassing nn.Module的方式来获取整个模型，如figure10所示。
+
+![model]({{ '/assets/images/DLP-8-10.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 10 Our baseline convolutional network architecture.*
+
+注意到我们classification network的目的就是将信息进行压缩，也就是输入是一个多通道的包含了很多pixel信息的image，而输出就是一个1维的size为2的tensor来表示分类的probability。对于这个目的，这个模型结构有两方面需要注意。
+
+首先，我们的目的是通过我们中间层的大小逐渐变小来实现的：convolution层的channel逐渐变小，pooling使得宽度长度逐渐变小，linear层的output feature number要比input feature number小。这对于一个classification network来说是很典型的也是很普遍的。然而在很多流行的architecture里，比如说Resnet，上面所说的information reduction是通过pooling来使得resolution减小来实现的，而channel数量实际上是随着网络增加而加深的（总体来说信息还是被压缩的）。我们上面代码里的信息的迅速减少，对于我们这个简单的任务，简单的数据集，以及简单的网络来说是可以的，但对于更复杂的情况，我们的信息压缩要减缓很多。
+
+第二点，在我们的模型里，第一层convolution层，我们的输出的信息量实际上比输入要大，而这也是在模型设计里很常见的，第一层或者前几层会使得输出的images比输入的还要大，之后再逐渐压缩。
+
+
+#### 8.3.2 How PyTorch keeps track of parameters and submodules
+
+有意思的是，将一个nn.Module的instance作为另一个nn.Module的attribute的话，正如我们前面代码里在__init__里做的那样，会自动将前一个nn.Module当作后一个nn.Module的submodule。
+
+> 需要注意的是，submodules只能通过top-level attributes来实现，位于list或者dict instances里面是无法实现的，这种情况下，optimizer将无法定位submodule的位置，从而也无法定位它们的parameters的位置。在你的模型需要一个list或者一个dict的submodules的情况下，PyTorch提供了nn.ModuleList和nn.ModuleDict这两个class。
+
+我们可以给nn.Module subclass自定义任何method，比如说，对于一个training过程和正式使用它的过程完全不一样的model，比如说prediction，我们就可以自定义一个predict method。我们需要注意，直接调用我们自定义的这些method的过程，就仿佛像我们直接调用forward而不是通过把model本身当作一个function来调用这个过程一样（model本身是有__call__ method的，因为其是从nn.Module类继承来的），会忽略掉一些hooks，而且JIT将不会看到模型的结构。
+
+上述性质让我们可以直接获取一个nn.Module内部的submodules的parameters：
+
+```python
+# In [2]:
+model = Net()
+
+numel_list = [p.numel() for p in model.parameters()]
+sum(numel_list), numel_list
+
+# Out [2]:
+(18090, [432, 16, 1152, 8, 16384, 32, 64, 2])
+```
+
+上述代码中发生的是，parameters() method的调用直接查到了所有作为attributes注册的submodules，然后再对这些submodules递归的使用parameters() method。不管这些submodules内部嵌套了多少层（比如一个nn.Module内有一个nn.Module，而内部的这个nn.Module内还有一个nn.Module），所有的nn.Module可以获取到它内部的所有parameters。通过访问它们的.grad attribute，这个.grad的值是autograd给的，optimizer将会知道如何改变parameters来缩小loss。我们在chapter5里已经知道了这个流程。
+
+我们现在知道了如何实现我们自己的PyTorch modules，我们在part2里将会大量使用这个方法。回看Net class的实现，然后思考我们在__init__里将那些要用到的PyTorch modules作为Net的submodules注册给self的意义，我们会发现，那些没有可学习参数的PyTorch modules，比如nn.Tanh()，nn.MaxPool2d()并不需要在__init__里被赋值给self，那么我们是否有更加简便的使用它们的方法，就如同在forward method里使用view() method一样方便呢？
+
+### 8.3.3 The functional API
+
+对于上面的问题，答案当然是可以的。这就是为什么PyTorch对于每个nn module里定义的PyTorch module都有其functional的counterpart。通过叫它functional，我们表明这个object并没有内部状态，也就是说，它的输出完全由输入来决定，而没有可调整的参数。torch.nn.functional提供了很多functions，它们和nn module里提供的PyTorch modules用起来差不多。但是nn module里的PyTorch module是将输入作为argument，而将parameters存储在modules内作为参数，而nn.functional里的functions是将输入和parameters一起都当作arguments，直接输出一个结果，把整个过程看作一个function call。比如说，nn.Linear的counterpart就是nn.functional.linear，这个function的signature是linear(input, weight, bias=None)，weight和bias和input一样都是这个function的arguments。
+
+回到我们的模型，对于nn.Linear和nn.Conv2d来说，我们需要使用nn module里的PyTorch modules，因为这样可以在training的过程中让我们定义的Net能获得它们的parameters。但我们可以很安全的将nn module里的nn.Tanh()和nn.MaxPool2d换成nn.functionals里的counterpart，因为它们并没有可学习参数：
+
+```python
+# In [1]:
+import torch.nn.functionals as F
+
+class Net(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(3, 16, kernel_size=3, padding=1)
+        self.conv2 = nn.Conv2d(16, 8, kernel_size=3, padding=1)
+        self.fc1 = nn.Linear(8*8*8, 32)
+        self.fc2 = nn.Linear(32, 2)
+    
+    def forward(self, x):
+        out = F.max_pool2d(torch.tanh(self.conv1(x)), 2)
+        out = F.max_pool2d(torch.tanh(self.conv2(out)), 2)
+        out = out.view(-1, 8*8*8)
+        out = torch.tanh(self.fc1(out))
+        out = self.fc2(out)
+        return out
+```
+
+>一些general use的functions比如tanh，在nn.functional里有，但是更好的方法是直接用最上层nn来使用它。而更小众的max_pool2d则在nn.functional里
+
+因此，上述的functional形式的模型的实现更加阐述了nn.Module API的内容：一个PyTorch module是一个container，里面装着在training过程中需要被更新的parameters的states，也装着内层的submodules。
+
+至于是选择使用functionals还是使用PyTorch modules，这取决于各人的口味。如果模型过于简单，以至于我们使用nn.Sequential来设计，那我们就是在使用PyTorch modules。当我们自己写forward method的时候，对于那些不需要parameters更新的部分，使用functionals会显得更加简洁明确。
+
+在chapter15里，我们将会简要的讲述quantization。这时并没有state的bits比如说activations瞬间变得有state了，因为我们需要获得它的information来quantization。这表明如果我们想要quantize我们的模型，那我们就需要使用PyTorch module的方式来定义模型。
+
+还有个需要注意的点，如果你要多次使用一些没有state的PyTorch modules，比如nn.HardTanh或者nn.Tanh，我们最好在每个地方都使用其不一样的instance。使用同一个instance可能会在分析模型的时候造成问题。
+
+所以现在我们学会了如何自定义我们自己的nn.Module，而且我们也知道nn.functional也可以使用。
+
+
+### 8.4 Training our convnet
+
+我们现在可以将所有内容整合到training loop里了。我们已经在chapter5里设计了整个流程，而我们这里将会重新回顾一次，并加上一些细节。在我们运行成功之后，我们还有兴趣来看看如何在GPU上运行从而使得我们的模型更快。但是首先，我们来看看training loop。
+
+回想一下，我们的convnet的核心是两层loops，外层loop是epochs loop，内层loop是DataLoader从Dataset生成batch的loop。在每个内层loop里：
+* 计算forward pass，也就是将inputs喂给model来计算结果
+* 计算loss（也是forward pass的一部分）
+* 将过去的gradient清零
+* 调用loss.backward()来计算loss关于所有parameters的gradients
+* optimizer.step()来更新参数从而达到更小的loss
+
+```python
+# In [1]:
+import datetime           # 使用Python自带的datatime module来计算时间
+
+def training_loop(n_epochs, optimizer, model, loss_fn, train_loader):
+    for epoch in range(1, n_epochs + 1):           # 从1开始，而不是0
+        loss_train = 0.0
+        for imgs, labels in train_loader:          # train_loader给我们生成了一个batch一个batch排列的数据，我们loop over这些batch
+            outputs = model(imgs)                  # 给模型喂一个batch的数据
+            loss = loss_fn(outputs, labels)        # 计算我们需要minimize的loss
+            optimizer.zero_grad()                  # 给gradient清零，去除上一轮的值
+            loss.backward()                        # 计算loss关于所有我们想要更新的parameters的gradients
+            optimizer.step()                       # 更新模型参数
+            loss_train += loss.item()              # 计算这个epoch的loss的总和，注意我们需要利用.item() method将loss转换为Python number，这样就没有gradient信息了
+        
+        if epoch == 1 or epoch % 10 == 0:
+            print('{} Epoch {}, Training loss {}'.format(datetime.datetime.now(), epoch, loss_train / len(train_loader)  
+            # loss除以了train_loader的长度，因为上面我们将一整个epoch的loss都累积起来了，这样的话我们就可以得到一个batch平均的loss的值
+```
+
+我们使用chapter7里的torch.utils.data.datasets.Dataset，将其包装为DataLoader，instantiate我们的model、optimizer以及loss。然后我们就可以运行我们上面的training loop。
+
+我们这里改变最大的就是我们现在的模型是nn.Module的subclass。下面我们来运行看看。
+
+```python
+# In [2]:
+train_loader = torch.utils.data.DataLoader(cifar2, batch_size=64, shuffle=True)
+
+model = Net()
+optimizer = optim.SGD(model.parameters(), lr=1e-2)
+loss_fn = nn.CrossEntropyLoss()
+
+training_loop(
+    n_epochs = 100,
+    optimizer = optimizer,
+    model = model,
+    loss_fn = loss_fn,
+    train_loader = train_loader,
+    )
+
+# Out [2]:
+2020-01-16 23:07:21.889707 Epoch 1, Training loss 0.5634813266954605
+2020-01-16 23:07:37.560610 Epoch 10, Training loss 0.3277610331109375
+2020-01-16 23:07:54.966180 Epoch 20, Training loss 0.3035225479086493
+2020-01-16 23:08:12.361597 Epoch 30, Training loss 0.28249378549824855
+2020-01-16 23:08:29.769820 Epoch 40, Training loss 0.2611226033253275
+2020-01-16 23:08:47.185401 Epoch 50, Training loss 0.24105800626574048
+2020-01-16 23:09:04.644522 Epoch 60, Training loss 0.21997178820477928
+2020-01-16 23:09:22.079625 Epoch 70, Training loss 0.20370126601047578
+2020-01-16 23:09:39.593780 Epoch 80, Training loss 0.18939699422401987
+2020-01-16 23:09:57.111441 Epoch 90, Training loss 0.17283396527266046
+2020-01-16 23:10:14.632351 Epoch 100, Training loss 0.1614033816868712
+```
+
+#### 8.4.1 Measuring accuracy
+
+为了有一个比loss更加直观的对模型效果的衡量，我们可以看看模型对training set和validation set的accuracy是多少：
+
+```python
+# In [3]:
+train_loader = torch.utils.data.DataLoader(cifar2, batch_size=64, shuffle=False)
+val_loader = torch.utils.data.DataLoader(cifar2_val, batch_size=64, shuffle=False)
+
+def Validate(model, train_loader, val_loader):
+    for name, loader in [("train": train_loader), ("val": val_loader)]:
+        correct = 0
+        total = 0
+        
+        with torch.no_grad():            # 我们不需要gradients，因为我们不需要更新参数
+            for imgs, labels in loader:
+                outputs = model(imgs)
+                _, predicted = torch.max(outputs, dim=1)
+                total += labels.shape[0]
+                correct += int((predicted == labels).sum()) #我们直接使用int将一个integer tensor转变为一个数值，这等价于使用.item() method（在training loop里是这么用的）
+        
+        print("Accuracy {}: {: .2f}".format(name, correct / total))
+
+Validate(model, train_loader, val_loader)
+
+# Out [3]:
+Accuracy train: 0.93
+Accuracy val: 0.89
+```
+
+我们可以看到，结果比fully connected neural network要好得多，而且我们模型的参数还要少得多。这表明convolutional neural network确实是要比fully connected neural network更适合这个问题。
+
+
+#### 8.4.2 Saving and loading our model
+
+既然我们现在对模型很满意了，那么我们就要想办法把它存下来。这很容易：
+
+```python
+# In [4]:
+torch.save(model.state_dict(), data_path + 'birds_vs_ariplanes.pt')
+```
+
+现在bird_vs_airplanes.pt这个文件就存有model的所有parameters：也就是两个convolution PyTorch modules和两个linear PyTorch modules的weights和bias。也就是说，我们没有存下结构。只是存了数值。这表明，当我们想要用这个模型的时候，我们还需要另外instantiate一个这个模型，然后将数值加载进去：
+
+```python
+# In [5]:
+loaded_model = Net()
+loaded_model.load_state_dict(torch.load(data_path + 'bird_vs_airplanes.pt'))
+
+# Out [5]:
+<All keys matched successfully>
+```
+
+#### 8.4.3 Training on the GPU
+
+我们现在定义了一个模型，并且我们已经可以训练它了。但是如果能使得训练更快一点岂不是更好。我们将这些计算转移到GPU上则会更快。使用.to method，我们在chapter3里介绍了这个method，我们就可以将从DataLoader里获取的tensor转移到GPU上，之后我们的计算就会自动在GPU上进行。当然，我们还需要将我们的parameters也转移到GPU上，要不然不同设备上的tensor是不能相互计算的。好在，nn.Module本身就自带.to function，其可以将所有的parameters都转移到GPU上。
+
+而nn.Module.to和nn.Tensor.to有着一些区别：nn.Module.to是in place的，也就是说这个PyTorch module本身就被改变了，其本身就转移到了GPU上。但是nn.Tensor.to是out place的，会返回一个新的放在GPU上的tensor。
+
+一个好的习惯是如果GPU可用的话就将计算转移到GPU上，我们可以将device以torch.cuda.is_available来进行设置：
+
+```python
+# In [1]:
+device = (torch.device('cuda') if torch.cuda_is_available() else torch.device('cpu'))
+print(f"Training on device {device}.")
+```
+
+现在我们就可以调整之前的training loop，利用nn.Tensor.to method将从DataLoader里获取的tensor转移到GPU上：
+
+```python
+# In [2]:
+import datetime
+
+def training_loop(n_epochs, optimizer, model, loss_fn, train_loader):
+    for epoch in range(1, n_epochs+1):
+        loss_train = 0.0
+        for imgs, labels in train_loader:
+            imgs = imgs.to(device=device)
+            labels = labels.to(device=device)
+            outputs = model(imgs)
+            loss = loss_fn(outputs, labels)
+            
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+            
+            loss_train += loss.item()
+        
+        if epoch == 1 or epoch % 10 == 0:
+            print('{} Epoch {}, Training loss {}'.format(datetime.datetime.now(), epoch, loss_train / len(train_loader)))
+```
+
+对于Validation function，我们也可以同样进行更改。我们将model重新instantiate，放到GPU上，然后再重新运行我们的training loop，一定要注意，model必须也放到GPU上，要么报错：
+
+```python
+# In [3]:
+train_loader = torch.utils.data.DataLoader(cifar2, batch_size=64, shuffle=True)
+
+model = Net().to(device=device)                   # model必须也在GPU上，目前PyTorch还不支持跨CPU和GPU平台的计算
+optimizer = optim.SGD(model.parameters(), lr=1e-2)
+loss_fn = nn.CrossEntropyLoss()
+
+training_loop(
+    n_epochs = 100,
+    optimizer = optimizer,
+    model = model,
+    loss_fn = loss_fn,
+    train_loader = train_loader
+    )
+
+# Out [3]:
+2020-01-16 23:10:35.563216 Epoch 1, Training loss 0.5717791349265227
+2020-01-16 23:10:39.730262 Epoch 10, Training loss 0.3285350770137872
+2020-01-16 23:10:45.906321 Epoch 20, Training loss 0.29493294959994637
+2020-01-16 23:10:52.086905 Epoch 30, Training loss 0.26962305994550134
+2020-01-16 23:10:56.551582 Epoch 40, Training loss 0.24709946277794564
+2020-01-16 23:11:00.991432 Epoch 50, Training loss 0.22623272664892446
+2020-01-16 23:11:05.421524 Epoch 60, Training loss 0.20996672821462534
+2020-01-16 23:11:09.951312 Epoch 70, Training loss 0.1934866009719053
+2020-01-16 23:11:14.499484 Epoch 80, Training loss 0.1799132404908253
+2020-01-16 23:11:19.047609 Epoch 90, Training loss 0.16620008706761774
+2020-01-16 23:11:23.590435 Epoch 100, Training loss 0.15667157247662544
+```
+
+即使是对于我们这么小的模型，我们仍然可以看到显著的速度提升。对于大的模型就更不用说了。
+
+在加载存储的模型的参数的时候有一些需要注意的：PyTorch将会尝试将参数加载到这个参数所存储的设备的模型里，也就是，在GPU上存的参数将会被加载到在GPU上的模型里。而传入一个map_location的keyword argument就可以解决问题：
+
+```python
+# In [1]:
+loaded_model = Net().to(device=device)
+loaded_model.load_state_dict(torch.load(data_path + 'birds_vs_airplanes.pt', map_location = device)
+
+# Out [1]:
+<All keys matched successfully>
+```
+
+
+                
+
+
 
 
 
