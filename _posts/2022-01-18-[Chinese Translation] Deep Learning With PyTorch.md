@@ -5571,7 +5571,170 @@ class NetBatchNorm(nn.Module):
 
 **SKIP CONNECTIONS**
 
-一开始设计deep neural networks的时候遇到了一些问题，
+一开始设计deep neural networks的时候遇到了一些问题，更深的网络一般来说training更难以收敛。让我们来回忆一下backpropagation，然后想一想其在很深的neural network里是怎么工作的。loss function关于parameters的gradients，特别是那些前面的层的parameters，需要被乘以非常多的前面的导数（链式法则）。而这些乘上的值有的可能特别小，从而使得gradient很小，或者特别大，使得其它的值都被吞了。一般的情况就是，非常深的网络的前面层的那些parameters，loss function对于这些parameters的gradients容易vanish，从而这些层的parameters无法得到充分更新。
+
+2015年的时候，residual networks（ResNet)被提出来，其是一个利用了简单的设计就使得很深的neural network每层都能得到充分的学习。从此开始，computer vision开始使用很多层的deep neural networks来解决各种问题。ResNet用的技巧很简单，就是使用一个shortcut将输入不通过某层直接和输出连接，如figure11所示。
+
+![resnet]({{ '/assets/images/DLP-8-11.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 11 The architecture of our network with three convolutional layers. The skip connection is what differentiates NetRes from NetDepth.*
+
+我们来看看ResNet里用到的shortcut connection的一个简单的例子，我们先重新设计一个普通的neural network：
+
+```python
+# In [1]:
+class NetDepth(nn.Module):
+    def __init__(self, n_chans1 = 32):
+        super().__init__()
+        self.n_chans1 = n_chans1
+        self.conv1 = nn.Conv2d(3, n_chans1, kernel_size=3, padding=1)
+        self.conv2 = nn.Conv2d(n_chans1, n_chans1 // 2, kernel_size=3, padding=1)
+        self.conv3 = nn.Conv2d(n_chans1 // 2, n_chans1 // 2, kernal_size=3, padding=1)
+        self.fc1 = nn.Linear(4 * 4 * n_chans1 // 2, 32)
+        self.fc2 = nn.Linear(32, 2)
+    
+    def forward(self, x):
+        out = F.max_pool2d(torch.tanh(self.conv1(x)), 2)
+        out = F.max_pool2d(torch.tanh(self.conv2(out)), 2)
+        out = F.max_pool2d(torch.tanh(self.conv3(out)), 2)
+        out = out.view(-1, 4 * 4 * self.n_chans1)
+        out = torch.tanh(self.fc1(out))
+        out = self.fc2(out)
+        return out
+```
+
+我们再来看一个简单的ResNet的结构:
+
+```python
+# In [1]:
+class NetRes(nn.Module):
+    def __init__(self, n_chans1 = 32):
+        super().__init__()
+        self.n_chans1 = n_chans1
+        self.conv1 = nn.Conv2d(3, n_chans1, kernel_size=3, padding=1)
+        self.conv2 = nn.Conv2d(n_chans1, n_chans1 // 2, kernel_size=3, padding=1)
+        self.conv3 = nn.Conv2d(n_chans1 // 2, n_chans1 // 2, kernel_size=3, padding=1)
+        self.fc1 = nn.Linear(4 * 4 * n_chans1 // 2, 32)
+        self.fc2 = nn.Linear(32, 2)
+    
+    def forward(self, x):
+        out = F.max_pool2d(torch.tanh(self.conv1(x)), 2)
+        out = F.max_pool2d(torch.tanh(self.conv2(out)), 2)
+        out1 = out
+        out = F.max_pool2d(torch.tanh(self.conv3(out)) + out1, 2)
+        out = out.view(-1, 4 * 4 * self.n_chans1 // 2)
+        out = torch.tanh(self.fc1(out))
+        out = self.fc2(out)
+        return out
+```
+
+在上述ResNet里所用的结构叫做identity map，所以它是怎么解决deep neural network gradient vanish的问题呢？
+
+考虑一下backpropagation，我们可以认为这种skip connection给比较靠前的layers的parameters提供了一个更快的到达loss的路径，从而有了一条避免经过大量乘法的反传路径。
+
+具有skip connection结构的deep neural network对比同样width，depth的同结构neural network，其loss function要更加平滑。
+
+
+**BUILDING VERY DEEP MODELS IN PYTORCH**
+
+如果我们想构建非常深的网络，方法可以是定义一个block，比如(Conv2d, ReLU, Conv2d) + skip connection，然后在一个for loop里定义这个neural network。我们将会构造一个figure12里描述的neural network。
+
+![deep]({{ '/assets/images/DLP-8-12.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 12 Our deep architecture with residual connections. On the left, we define a simplistic residual block. We use it as a building block in our network, as shown on the right.*
+
+我们先构造一个PyTorch module，代表一个block，包含了convolution，activation和skip connection：
+
+```python
+# In [1]:
+class ResBlock(nn.Module):
+    def __init__(self, n_chans):
+        super(ResBlock, self).__init__()
+        self.conv = nn.Conv2d(n_chans, n_chans, kernel_size=3, padding=1, bias=False)   # batch normalization会抵消bias的作用，所以不用设置bias
+        self.batch_norm = nn.Batchnorm2d(num_features = n_chans)
+        torch.nn.init.kaiming_normal_(self.conv.weight, nonlinearity='relu')            # 我们使用.kaiming_normal_的初始化设置，这是ResNet那篇论文里的初始化设置
+        torch.nn.init.constant_(self.batch_norm.weight, 0.5)                            # 将batch_norm初始化为能够生成mean=0, std=0.5的output distribution的值
+        torch.nn.init.zeros_(self.batch_norm.bias)
+    
+    def forward(self, x):
+        out = self.conv(x)
+        out = self.batch_norm(out)
+        out = torch.relu(out)
+        return out + x
+```
+
+因为我们想要构建deep neural network，所以我们也加入了batch normalization来避免gradient vanish。我们现在用上面的block来构建一个100个block的neural network。
+
+我们使用nn.Module来构建这个100个block的neural network。首先，在__init__里，我们建立一个nn.Sequential，包含一个list的ResBlock的instances。nn.Sequential可以保证上一个PyTorch module的输出可以作为下一个PyTorch module的输入。而且nn.Sequantial还能保证这个list里所有的PyTorch module的参数对于这个100个block的neural network来说都是可见的。之后，在forward method里，我们利用这个nn.Sequantial来让input通过100个block最终输出output。
+
+```python
+# In [1]:
+class NetResDeep(nn.Module):
+    def __init__(self, n_chans1 = 32, n_blocks = 10):
+        super().__init__()
+        self.n_chans1 = n_chans1
+        self.conv1 = nn.Conv2d(3, n_chans1, kernel_size=3, padding=1)
+        self.resblocks = nn.Sequential(*(n_blocks * [ResBlock(n_chans=n_chans1)]))
+        self.fc1 = nn.Linear(8 * 8 * n_chans1, 32)
+        self.fc2 = nn.Linear(32, 2)
+    
+    def forward(self, x):
+        out = F.max_pool2d(torch.relu(self.conv1(x)), 2)
+        out = self.resblocks(out)
+        out = F.max_pool2d(out, 2)
+        out = out.view(-1, 8 * 8 * self.n_chans1)
+        out = torch.relu(self.fc1(out))
+        out = self.fc2(out)
+        return out
+```
+
+我们上述的neural network会比浅层的更加难以收敛一点，对于初始化的值也更加脆弱一点，这都是按常理应该的。
+
+
+**INITIALIZATION**
+
+我们简要的讲一下initialization。initialization对于训练neural networks来说是一个很重要的trick。但是由于一些历史原因，PyTorch的很多默认的initialization都不是很理想，现在正在逐步改进中。同时，我们也可以通过自行定义初始化的值来改进这个过程。
+
+
+
+#### 8.5.4 Comparing the designs from this section
+
+我们在figure13里总结了我们这一节里所介绍的模型设计方法对于training和validation accuracy的影响。我们可以观察出一些性质：对于overfitting来说，dropout和weight decay要比batch norm有更加严格的statistical description，而且从结果也能看出来，batch norm的network的training accuracy都快到100%了。所以相对来说，我们会认为weight decay和dropout为regularization的方法，而batch norm则更多侧重于使得训练更加容易，以及使得loss收敛的更加容易和迅速。
+
+![compare]({{ '/assets/images/DLP-8-13.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 13 The modified networks all perform similarly.*
+
+
+#### 8.5.5
+neural networks结构变化的非常快。我们介绍这些老的结构可以让我们对于理解PyTorch neural network结构有帮助。而后面的几个chapters可以帮助我们掌握如何将ideas用PyTorch code来写出来。
+
+
+### Conclusion
+
+我们最终设计了一个能够区分bird和airplane图片的neural network。但我们还有很多还没有做，比如说，如何从一张大的输入image里将含有bird或者airplane的部分裁剪下来作为输入。生成那样的box对于我们的网络来说是做不到的。
+
+另一个问题是我们对于非bird和airplane的图片并没有提供处理办法。比如说，如果提供一张cat的图片，然后模型以很高的确信度判断为bird。这种对于离training distribution很远的samples仍然有很高确信度的输出的情况，叫做overgeneralization。这在我们的输入并不能有很高的确信度的时候是个常见的问题。
+
+在这一章里，我们利用PyTorch构建了一些能够使用的不同结构的neural networks。我们首先利用我们的intuition来构建了convolutional neural network。之后我们又研究了width变化和depth变化的model，并且控制了overfitting。
+
+现在我们已经有了PyTorch这样一个有力的工具，我们在Part2里的内容和Part1里介绍的方式不一样，Part1里是每章介绍若干个小问题，而Part2里则是利用很多chapters来将一个现实的大的问题分解为小部分，并解决。
+
+
+### Summary
+
+* convolution也是一种linear operation，其可以被用在feed forward network里。使用convolutions可以使得模型具有更少的parameters，而且能够检测locality特征，具有translation invariance的性质。
+* 将多个convolution layers + activation layers堆叠起来，在中间再加上max pooling layers，就会得到逐层减小的feature images。所以后面层的convolution对于初始输入image的作用区域就会很大。
+* 任何nn.Module的subclass可以递归的收集它内部submodules的parameters并将它们全部返回。这个特性可以用于optimizer里的参数更新。
+* functional API提供了nn.Modules的counterpart，其并没有internal state。这可以用在并没有需要学习的parameters的计算里。
+* 学习好的模型可以将其参数存下来，并且很轻松的再加载出来。
+
+
+
+
+
+
+        
         
 
 
