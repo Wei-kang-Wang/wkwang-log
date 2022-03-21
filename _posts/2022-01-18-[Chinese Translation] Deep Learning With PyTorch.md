@@ -5378,6 +5378,203 @@ loaded_model.load_state_dict(torch.load(data_path + 'birds_vs_airplanes.pt', map
 ```
 
 
+### Model Design
+
+我们通过subclassing nn.Module来构造了一个模型，这个过程是除了那些很简单的模型的基本标准构造方法。之后我们成功的训练了它，并将其迁移到GPU上进行了训练。我们已经学会了如何构造一个feed forward convolutional neural network并且成功的训练它来分类image。现在，一个自然的问题是：如果我们遇到了更复杂的问题该怎么办？我们的CIFAR-10数据集里的image尺寸很小，而且图片中主要的object占据了图片的中央主要区域，这是个比较简单的问题。
+
+如果我们将数据集换为ImageNet，我们会发现更大的，更复杂的images，而对于基于这个数据集的更复杂的问题，可能需要不止一条visual clues来得到结果。比如说，如果想让模型学习一个暗色的砖块形的东西是手机还是遥控器，那么模型可能会想要去学习是否有一个screen等。
+
+而且images并不是我们在真实世界里可以获得的唯一的数据，我们还有tabular data，sequence，text等。具有合适结构和合适loss的neural network才能够对于这些各种各样的问题和各种各样的数据都有足够灵活的学习能力。
+
+PyTorch提供了十分详尽的PyTorch modules，loss functions和其它的东西，来实现各种feed forward neural networks，LSTM，transformers等等网络结构。有些模型可以直接在PyTorch Hub或者torchvision里获取。
+
+我们将会在part2里看到一些更复杂的网络结构，在那里，我们将会从头开始研究如何处理CT Scan数据，但是研究所有的neural networks的结构则超出了这本书的内容。但是我们已经学习了构建neural network的知识，这对于构建各种类型的neural networks都是有帮助的。这一节的目的是让我们学习到一些概念上的知识，从而我们可以在最新的research paper里看懂它们的neural networks结构，并将其用PyTorch实现。而有些作者会直接提供PyTorch版本的代码实现，我们可以直接拿来使用。
+
+
+#### 8.5.1 Adding memory capacity: Width
+
+对于我们之前已经定义好的feed forward architecture，在往下讨论之前，我们还有一些dimension需要来研究一下。第一个dimension是这个neural network的width：也就是每一层的neurons的个数，或者说每一层channels的个数。我们可以很轻易地在PyTorch里将一个neural network的width拓宽：
+
+```python
+# In [1]:
+class NetWidth(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(3, 32, kernel_size=3, padding=1)
+        self.conv2 = nn.Conv2d(32, 16, kernel_size=3, padding=1)
+        self.fc1 = nn.Linear(16 * 8 * 8, 32)
+        self.fc2 = nn.Linear(32, 2)
+    
+    forward(self, x):
+        out = F.max_pool2d(torch.tanh(self.conv1(x)), 2)
+        out = F.max_pool2d(torch.tanh(self.conv2(out)), 2)
+        out = out.view(-1, 16*8*8)
+        out = torch.tanh(self.fc1(out))
+        out = self.fc2(out)
+        return out
+```
+
+我们也可以将width作为__init__的一个参数来控制模型的定义:
+```python
+# In [1]:
+class NetWidth(nn.Module):
+    def __init__(self, n_chans1 = 32):
+        super().__init__()
+        self.n_chans1 = n_chans1
+        self.conv1 = nn.Conv2d(3, n_chans1, kernel_size=3, padding=1)
+        self.conv2 = nn.Conv2d(n_chans1, 16, kernel_size=3, padding=1)
+        self.fc1 = nn.Linear(16 * 8 * 8, 32)
+        self.fc2 = nn.Linear(32, 2)
+    
+    def forward(self, x):
+        out = F.max_pool2d(torch.tanh(self.conv1(x)), 2)
+        out = F.max_pool2d(torch.tanh(self.conv2(out)), 2)
+        out = out.view(-1, 16 * 8 * 8)
+        out = torch.tanh(self.fc1(out))
+        out = self.fc2(out)
+        return out
+```
+
+neural networks每一层的channels和features的大小直接关系到parameters数量的多少，而parameters增多，则会增加模型的capacity。正如我们之前所做的，我们可以看看这个模型有多少个参数：
+
+```python
+# In [2]:
+model = NetWidth()
+numel_list = [p.numel() for p in model.parameters()]
+sum(numel_list)
+
+# Out [2]:
+38386
+```
+
+模型的capacity越强，其学习复杂的数据和复杂任务的能力就越强；但是同时，也更加容易发生overfitting，因为模型可以用更多参数来记住training set，会更加容易。我们已经学习过一些缓解overfitting的方法，比如说增加数据，或者对现有的数据做data augmentation。
+
+然而还有一些并不用改变数据，直接在模型上操作就可以增加模型不overfitting的能力。让我们下面来看看这些常用的方法。
+
+
+#### 8.5.2 Helping our model to converge and generalize: Regularization
+
+训练一个模型需要两个关键的步骤：1. optimization，我们需要loss在training set上逐步减小；2. generalization，模型不仅要在training set上效果好，也要在validation set上效果好。有一个数学工具能够同时增加这两个步骤的效果：regularization。
+
+**KEEPING THE PARAMETERS IN CHECK: WEIGHT PENALTIES**
+
+稳定generalization的第一个方法就是给loss加上一个regularization term。这个term被设计成模型的parameters（部分或全部）会被限制为一些比较小的值。换句话说，这是对于值很大的parameters的一个惩罚。这种做法会让loss曲线更加平滑，从而倾向于不会对于一些个别的点的拟合。
+
+上述这种regularization term里最常见的就是L2 term，也就是所希望惩罚的那些parameters的平方和，以及L1 term，是所想要惩罚的那些parameters的绝对值的和。它们一般都会被一个比较小的常数乘起来，而这也是我们模型设计的一个hyperparameter。
+
+L2 regularization也被称为weight decay。叫这个名字的原因是，考虑一下SGD和backpropagation，L2 regularization term关于w的负梯度，就是$$- 2 \times \lambda w$$，$$\lambda$$是scaled factor，而这个部分在PyTorch里就被叫做weight decay。所以说，使用L2 regularization term等价于对于parameters，在每一步更新的时候，减去当前值成比例的一小部分（正是因为如此，所以叫weight decay）。
+
+在PyTorch里，我们可以通过直接在loss里加上term来做regularization。在每一步计算loss之后，不管loss function是什么，我们将此时模型的parameters的值的平方和（L2）或者绝对值（L1）求和，再乘以一个factor，加到loss里，之后再进行backpropagation：
+
+```python
+# In [1]:
+def training_loop_l2reg(n_epochs, optimizer, model, loss_fn, train_loader):
+    for epoch in range(1, n_epochs+1):
+        loss_train = 0.0
+        for imgs, labels in train_loader:
+            imgs = imgs.to(device=device)
+            labels = labels.to(device=device)
+            outputs = model(imgs)
+            loss = loss_fn(outputs, labels)
+            
+            l2_lambda = 0.001
+            l2_norm = sum(p.pow(2.0).sum() for p in model.parameters())    # 将.pow(2.0)换成.abs()则是L1 regularization
+            loss = loss + l2_norm * l2_lambda
+            
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+    
+    if epoch == 1 or epoch % 10 == 0:
+        print('{} Epoch {}, Training loss {}'.format(datetime.datetime.now(), epoch, loss_train / len(train_loader)))
+```
+
+然而，PyTorch里的SGD optimizer已经有了weight_decay这个argument，它会直接在更新的时候做weight decay，如上面所说的那样。
+
+
+**NOT RELYING TOO MUCH ON A SINGLE INPUT: DROPOUT**
+
+很早以前一个有效的控制overfitting的方法就被提出来了：dropout。它的原理很简单：在训练的时候，每次都随机的将某些neuron的输出直接置为0。
+
+上述的这样的操作，在每次training的iteration的时候，实际上都使用了略微不同的模型，从而使得模型里的那些neuron在记住training set数据这件事上变得更难做到。另一个等价的角度是，dropout打乱了模型生成的特征，类似于data augmentation的操作，但这次是针对neural network结构的。
+
+在PyTorch里，我们可以通过nn.Dropout这个PyTorch module来实现它，而其一般被使用在activation function和下一层的linear layer或者convolutional layer之间。我们需要给它一个argument来表明我们想要置零的这个操作出现的概率有多大。在convolutional neural network里，我们还可以用特殊的nn.Dropout2d或者nn.Dropout3d来做，它们每次会将某些channels直接置零：
+
+```python
+# In [1]:
+class NetDropout(nn.Module):
+    def __init__(self, n_chans1 = 32):
+        super().__init__()
+        self.n_chans1 = n_chans1
+        self.conv1 = nn.Conv2d(3, n_chans1, kernel_size=3, padding=1)
+        self.conv1_dropout = nn.Dropout(p=0.4)
+        self.conv2 = nn.Conv2d(n_chans1, n_chans1 // 2, kernel_size=3, padding=1)
+        self.conv2_dropout = nn.Dropout2d(p=0.4)
+        self.fc1 = nn.Linear(8 * 8 * n_chans1 // 2, 32)
+        self.fc2 = nn.Linear(32, 2)
+    
+    def forward(self, x):
+        out = F.max_pool2d(torch.tanh(self.conv1(x)), 2)
+        out = F.max_pool2d(torch.tanh(self.conv2(out)), 2)
+        out = out.view(-1, 8 * 8 * self.n_chans1 // 2)
+        out = torch.tanh(self.fc1(out))
+        out = self.fc2(out)
+        return out
+```
+
+dropout一般只在training的过程里有用，而在validation的时候，就不需要它了，PyTorch设置模型的状态来改变它：model.train()和model.eval()，而任意一个nn.Module都具有这两个methods。
+
+**KEEPING ACTIVATIONS IN CHECK: BATCH NORMALIZATION**
+
+在dropout提出之后，Google提出了batch normalization，它可以让我们增加训练的速度，使得训练的结果不那么依赖初始化的参数值，而且还可以有regularization的作用，所以说它替代了dropout。
+
+batch normalization背后最主要的思想是，在activation layer之前，将这个层的输入rescale一下，从而一个minibatch的这些输入，满足某种分布。回忆一下learning的机制，以及activation function的作用，这个操作可以使得activation function的输入不会过于远离activation function的saturated range，从而不会使得training变缓或者停滞。
+
+在实际操作上，batch normalization使用改变mean和standard deviation的方法来改变中间层activation function的输入（这些操作都是以minibatch作为一个整体）。batch normalization的regularization效果是因为对于单个的sample来说，其结果被由一个minibatch计算来的mearn和standard deviation影响力，而这个minibatch的选取是随机的。
+
+在PyTorch里，batch normalization由nn.BatchNorm1D，nn.BatchNorm2D，nn.BatchNorm3D这三个PyTorch modules来实现，取决于输入的dimension。因为batch normalization的目的是将activation function的输入进行scale和shift，所以它一般都放在convolution layer或linear layer之后，activation function之前：
+
+```python
+# In [1]:
+class NetBatchNorm(nn.Module):
+    def __init__(self, n_chans1 = 32):
+        super().__init__()
+        self.n_chans1 = n_chans1
+        self.conv1 = nn.Conv2d(3, n_chans1, kernel_size=3, padding=1)
+        self.conv1_batchnorm = nn.BatchNorm2d(num_features=n_chans1)
+        self.conv2 = nn.Conv2d(n_chans1, n_chans1 // 2, kernel_size=3, padding=1)
+        self.conv2_batchnorm = nn.BatchNorm2d(num_features=n_chans1 // 2)
+        self.fc1 = nn.Linear(8 * 8 * n_chans1 // 2, 32)
+        self.fc2 = nn.Linear(32, 2)
+    
+    def forward(self, x):
+        out = self.conv1_batchnorm(self.conv1(x))
+        out = F.nn_maxpool2d(torch.tanh(out), 2)
+        out = self.conv2_batchnorm(self.conv2(out))
+        out = F.nn_maxpool2d(torch.tanh(out), 2)
+        out = out.view(-1, 8 * 8 * self.n_chans1 // 2)
+        out = torch.tanh(self.fc1(out))
+        out = self.fc1(out)
+        return out
+```
+
+正如dropout，batch normalization在training和validation过程里是不一样的。实际上，在inference的时候，我们不希望一个input的output收到其它sample的input的影响。所以，在inference的时候我们仍然要normalization，但normalization的参数是固定下来的。
+
+随着minibatch一直喂给模型，具有batch normalization的模型就会一直计算每个minibatch的mean和std，而且对于整个数据集的mean和std也记录着并一直更新，一旦我们使用model.eval()，那么记录下来的整个数据集的mean和std就停止更新，并直接用在normalization层里，作为inference时候使用的参数。一旦我们想要再继续更新整个数据集的mean和std了，就使用model.train()，那么就又恢复了。
+
+
+#### 8.5.3 Going deeper to learn more complex structures: Depth
+
+之前，我们说一个模型的width是我们将模型变得更大学习能力更强的第一个dimension。而第二个我们可以调节的dimension就显而易见了：depth。既然这是一本关于deep learning的书，那么depth毋庸置疑也是我们需要考虑的内容。毕竟，更深的模型会比浅的模型更好，真的是这样么？也不一定，取决于具体情况。深度增加了，模型拟合复杂函数的能力变强了。对于computer vision来说，一个浅层的模型能够学习到一个人在图像里的形状，而一个深层的模型能够识别这个人的身份。深度模型使得模型能够处理层结构的信息，使得模型能够按顺序层层递进学习知识。
+
+还有另一种考虑depth的方法：增加网络的深度也就是增加网络能够处理input的operation sequence的长度。类比于算法来说，更长的指令可以描述的更加具体，可以以不同的层级来描述不同抽象程度的行为。而对于neural networks来说，那就是每层所学习到的features的抽象程度是不一样的。
+
+**SKIP CONNECTIONS**
+
+一开始设计deep neural networks的时候遇到了一些问题，
+        
+
+
                 
 
 
