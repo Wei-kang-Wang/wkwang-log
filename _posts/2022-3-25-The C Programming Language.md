@@ -53,7 +53,52 @@ BCPL和B是typeless语言。相对来说，C提供了一系列不同的data type
 
 C语言为良好的结构的programs提供了基础的control-flow constructions：statement grouping，decision making（if-else），selecting one of a set of possible cases（switch），looping with the termination test at the top（while，for）或者at the bottom（do），以及early loop exit（break）。
 
-functions会返回基本data types，structures，unions或者pointers。任何function都可以被递归调用。
+functions会返回基本data types，structures，unions或者pointers。任何function都可以被递归调用。function的定义不可以是nested，但variables可以用block-strcutured的方式来声明。一个C program的functions可以在多个分开编译的source files里。variables可能是一个function的internal的，也可以是external但是只在一个source file里的，也可以是在整个program里都可见的。
+
+C是一种相对来说low-level的语言。这个特征并不是贬低C语言；它只是表示C语言处理的objects和大多数computers所处理的objects是类似的，也就是characters，numbers，以及addresses。
+
+C并没有提供operations直接处理复合objects比如character strings，sets，lists，arrays等。并没有能够治理一整个array或者string的operations。除了static definition和functions的local variable提供的stack discipline，C语言也并不定义任何storage allocation。而且C语言也没有heap或者garbage collection。C语言自身不提供input/output工具；并没有READ或者WRITE statements，以及并没有built-in的file access methods。所有的这些high-level机制都必须通过调用functions来提供。大多数的C语言的implementations都会包含一定数量的这样的functions。
+
+相似的，C只提供直接的，single-thread的控制流：tests，loops，grouping和subprograms，并没有multiprogramming，parallel operations，synchronization，或者coroutines。
+
+虽然说上述这些特征的缺失看似是很大的缺陷（比较两个character strings我居然还需要调用函数？），但是将一个语言的体量压缩到合适的大小有很大的好处。因为C语言本身很小，所以它可以很快的被学会。
+
+很多年来，C的定义都是由第一版的the C programming language里的reference manual来定义的。1983年，ANSI建立了一个委员会来提供一个现代的，全面的C的定义。ANSI C作为C的定义，在1988年完成。这个定义的大多数特征都已经被现代编译器所支持。
+
+ANSI C标准或者定义是基于原版的reference manual的。语言只有很少的改动；ANSI C的一个要求是之前已经存在了的programs需要仍然保持有效，或者说如果失效了，那么编译器也应该能够给出错误的提示。
+
+对于大多数程序员来说，最重要的一个改变就是声明以及定义function的语法变了。现在一个function的声明可以包含这个function的arguments的描述；从而定义的语法改变了。这个新多出来的信息使得编译器能够更好的发现由不匹配的arguments导致的错误；在我们的使用经验里，这个改动是很有意义的。
+
+还有一些小规模的改动。structure assignment和enumeration，现在正式成为了语言的一部分。floating-point computation可以在单一精度下完成了。算术的性质，特别是unsigned types，也被正式提出。preprocessor变得更加精细了。绝大部分的这些改变对于程序员来说基本没有影响。
+
+ANSI C标准的第二个重要的贡献是提出了一个用来辅助C的library的定义。它将用来access operation system（比如，read或者write files）的functions，formatted input和output，memory allocation，string manipulation，like列入说明。一个standard headers的集合用来提供functions和data types声明的统一的access。用这个library来和操作系统进行交互的programs可以确保没有问题。这个library里的大部分内容也和UNIX系统里的标准I/O library兼容。
+
+因为C提供的control structures和data types直接被绝大多数电脑支持，用来支持自带programs的run-time library十分小。标准library functions必须明确调用，这样才能避免在不需要的时候不会出现。这些标准库函数绝大多数用C来写（除去那些它们隐藏了的操作系统的细节），并且是可以跨平台移动的。
+
+尽管C能够和绝大多数电脑兼容，它并不是为了任何特殊的电脑系统架构而设计的。只需要注意，我们就很容易写出可以移植的programs，也就是说，这些programs在任何硬件平台上都是一样的效果。ANSI C标准定义了这种可移植性，并且规定了一些常数来描述program在哪个机器上运行。
+
+C并不是一个strongly-typed language，但是它进化了，它的type-checking被强化了。最初的C语言不喜欢，但是也不禁止，pointers和integers互相交换数据；但新的标准要求清晰的变量声明以及明确的转换定义。Compilers会警告所有的type errors，并且并不会对不兼容的数据类型进行转换，会直接报错。函数的声明也有类似的强化。但是，C语言还是保持了程序员自己知道自己在做什么事的原则；C语言只需要程序员清晰的把他们的意图说出来。
+
+C语言，和任何其它语言一样，也有它的缺点。有一些operators有着错误的precedence；有一些部分的语法可以改得更好。但是，C语言已经被证明是一个极为高效且极具表达能力的语言，并且对于绝大多数应用领域都是如此。
+
+这本书的结构如下。Chapter1是C核心部分的一个tutorial。目的是让读者尽快的开始，因为学习语言的最好方法就是尽快的用它来写program。这个tutorial认为读者对于编程有着最基本的认识；对于电脑，编译，或者类似n=n+1这种expression并没有任何的解释。这本书并不是为了变成一本数据结构或者算法的书，我们要集中注意力在语言本身。
+
+Chpater2到Chapter6细节的讨论了C语言各个方面的内容，要比Chapter1更加详细，更加正式。Chapter2介绍基本的数据类型，operators和expressions。Chapter3介绍control flow：if-else，switch，while，for。Chapter4介绍了functions和program structure——external variables，scope规则，多个source files等——并且也接触到了preprocessor。Chapter5讨论了pointers和address算术。Chapter6介绍了structures和unions。
+
+Chapter7介绍了标准库，其提供了和操作系统交互的interface。这个library是由ANSI标准定义的，并且应该能够支持所有可以支持C的机器，从而用它来操作input，output以及其它access操作系统的programs在任何机器上都应该是保持不变的，不需要随着机器的不同而更改代码。
+
+Chapter8介绍了C programs和UNIX操作系统之间的一个interface，主要集中在input/output，file system和storage allocation。尽管这章的内容是为了UNIX系统设计的，用其他系统的程序员仍然可以在其中找到有用的内容，比如说一个标准库是如何被应用的。
+
+Appendix A包含了一个语言reference manual。C语言语法和语义的官方文件应该是ANSI标准。然而ANSI标准是为了编译器设计的人写的。而此处的reference manual用更简洁的方式来介绍了语言的定义，舍去了那些标准化的内容。Appendix B是标准库的一个总结，也是为了程序员而不是编译器设计员而写的。Appendix C是现在这版C语言和原版的改动的总结。
+
+ANSI标准拥有对C语言的最终解释权。
+
+
+## Chapter 1: A Tutorial Introduction
+
+
+
+
 
 
 
