@@ -96,6 +96,93 @@ ANSI标准拥有对C语言的最终解释权。
 
 ## Chapter 1: A Tutorial Introduction
 
+让我们对C做一个快速的入门。我们的目的是在真实的programs显示这个语言的最核心的部分，而不要去管一些细枝末节的东西。此时，我们并不打算全面甚至不打算精确的介绍内容。我们只希望能尽快让读者写出有用的programs，为了做到这点，我们需要集中注意力在基础上：variables和constants，arithmetic，control flow，functions，以及input和output基础。我们这一章并不打算介绍写大型C程序所需要的内容，这些内容包括pointers，structures，C语言里丰富的operators，一些control flow statements，以及标准库。
+
+我们上述这种介绍方式也有着缺点，最显著的就是C语言任何一部分的完整解释在这里都是没有的。而且这一章里的programs因为并没有用到C语言的全部特性（故意为之），所以并不一定是实现起来效率最高最简洁的。另一个缺点就是接下来的章节可能会重复这一章节的内容。
+
+不管怎样，有经验的程序员能在这一章里学到有用的新思想，新手能够学会自己写一些有用的小的C程序。
+
+
+### 1.1 Getting Started
+
+学习一门新的编程语言的唯一方法就是用它来写程序。对所有语言来说，第一个程序都是print hello world!，在C语言里这样实现：
+
+```c
+# include <stdio.h>
+
+main()
+{
+    printf("hello, world!\n");
+}
+```
+
+如何运行这个C程序取决于其所在的系统。举例来说，如果在UNIX操作系统上，你需要创建一个.c的程序，比如说hello.c，然后用如下command来编译：
+
+```c
+cc hello.c
+```
+
+如果程序本身没有问题，那么编译的过程会安静的进行，然后生成一个executable文件，叫做a.out，用如下command来运行：
+
+```c
+a.out
+```
+
+他会输出hello world!。
+
+在不同的操作系统里，上述过程会有所不同。
+
+现在我们来对上面那段程序进行一些解释。一个C程序，不管它大小是多少，都有着functions和variables。一个function有着statements来指示需要做的计算，并且variables会记下计算过程中需要的值。C语言里的functions类似于Fortran语言里的subroutines和functions或者Pascal语言里的procedures和functions。在我们上面的程序里，我们有一个function叫做main。通常情况下，你可以随意命名你的程序，但是main是很特殊的：你的程序永远会从main function开始执行。这也表明任何C程序都必须在某个地方有一个main function。
+
+main function经常会在内部调用其它的function来完成它的任务，有些是你自己定义的，有些是库里提供的。上面程序里的第一行#include <stdio.h>告诉编译器要将标准input/output库里的信息包含进来；这一行在很多C程序的开头都会出现。标准库会在Chapter7和Appendix B里被介绍。
+
+一个在functions之间交换数据的方法就是一个function，提供一系列的values，叫做arguments，给被调用的另一个function。一个function的arguments放在这个function的名字后面，用括号括起来。在我们上面的程序里，main function并没有参数，于是在function名字后面是一对空的括号。
+
+一个function里面的statements用花括号括起来，main function只有一句statement，printf("hello, world!\n")。一个function可以通过叫他的名字来调用，这个名字后面跟着用括号括起来的arguments，所以说这个statement里用到的function，printf，通过叫他的名字来调用，并且提供了括号括起来的arguments："hello, workd!\n"。printf function是一个库函数，用来print输出的。
+
+一列用双引号包起来的characters，就像"hello, world!\n"，叫做一个character string或者string constant。
+
+上面的character string里的\n是C语言里的newline character，表示换行。如果你用下面这个方式来写，C语言编译器会报错：
+
+```c
+printf("hello, world!
+");
+```
+
+printf function并不会自动提供换行，所以说如果用多个printf function也是一样的效果：
+
+```c
+# include <stdio.h>
+
+main()
+{
+    printf("hello, ");
+    printf("world!");
+    print("\n");
+}
+```
+
+注意到，\n作为一个长度为2的character string，其仅仅表达一个character的意思（换行本身就是一个character），还有很多这样的，叫做escape sequence，这些是用来实现那些常用的但却很难打出来的或者不可见的characters，比如说\t表示制表，\b表示退一格，\"表示双引号本身，\\表示反斜杠本身，等等。在section2.3里有一个全面的表格来介绍escape sequence。
+
+我们来看一下我们所学习的第一个C语言程序：
+
+```c
+#include <stdio.h>               # include information about standard library
+
+main()                           # define a function named main that receives no argument values
+{                                # statements of main are enclosed in braces
+    printf("hello, world!\n");   # main calls library function printf to print this sequence of characters; \n represents the newline character
+}
+```
+
+
+### 1.2 Variables and Arithmetic Expressions
+
+
+
+
+
+
 
 
 
@@ -107,6 +194,7 @@ ANSI标准拥有对C语言的最终解释权。
 
 
                 
+
 
 
 
