@@ -178,6 +178,224 @@ main()                           # define a function named main that receives no
 
 ### 1.2 Variables and Arithmetic Expressions
 
+我们下一个程序用公式$$C = (5/9)(F - 32)$$来输出下面的华氏度表格以及其摄氏度对应的温度：
+
+```c
+0    -17
+20   -6
+40   4
+60   15
+80   26
+100  37
+120  48
+140  60
+160  71
+180  82
+200  93
+220  104
+240  115
+260  126
+280  137
+300  148
+```
+
+这个程序仍然只含有一个function，也就是main function，虽然比hello world那个程序长一些，但并不更加复杂。这个程序将会介绍一些新的内容，包括comment，declaration，variable，arithmetic expression，loop以及formatted output。
+
+```c
+# include <stdio.h>
+
+/* print Fahrenheit-Celsius table
+   for fahr = 0, 20, ..., 300 */
+
+main()
+{
+    int fahr, celsius;
+    int lower, upper, step;
+    
+    lower = 0;      /* lower limit of temperature table */
+    upper = 300;    /* upper limit */
+    step = 20;      /* step size */
+    
+    fahr = lower;
+    while (fahr <= upper){
+        celsius = 5 * (fahr-32) / 9;
+        printf("%d\t%d\n", fahr, celsius);
+        fahr = fahr + step;
+    }
+}
+```
+上面的两行
+```c
+/* print Fahrenheit-Celsius table
+   for fahr = 0, 20, ..., 300 */
+```
+是comment，也就是简要的解释一下这个程序是做什么的。任何在/\*和\*/之间的内容都会被编译器忽略掉；它们可以让一个程序的可读性更强。comment可以出现在程序的任何位置。
+
+在C语言里，所有的variables在使用之前都需要被声明，它们通常出现在function的开头，也就是在后面需要使用这些variables的statements之前。一个declaration会宣布variables的性质；它由一个type名字和一系列variables组成，比如：
+
+```c
+int fahr, celsius;
+int lower, upper, step;
+```
+
+type int表明variables是integers（整数），而type float表明variables是浮点数，也就是带小数点的数。int和float类型的variables的范围都是由操作系统决定的。
+
+C语言除了int和float type，还提供了很多其它基础的types：
+
+```c
+char    字符，一个字节
+short   短整数
+long    长整数
+double  双精度浮点数
+```
+
+上述type的variables的大小仍然是由操作系统决定的。C语言里还有arrays，structures，unions，这些是由基础的types组合成的；还有pointers，它表示某个variable的地址；还有functions，会返回这些不同type的variables。
+
+上述程序里，最开始是assignment：
+
+```c
+lower = 0;
+upper = 300;
+step = 20;
+fahr = lower;
+```
+
+这会给variables初始值。每个statement都由分号结尾。
+
+因为我们想要打印的表格每一列的数字都是由相同的计算公式算出来的，所以我们使用一个while循环来做：
+
+```c
+while (fahr <= upper){
+    ...
+}
+```
+
+while循环按照下面的逻辑来运行：首先括号内的条件要被判断。如果条件为真（fahr确实不比upper大），循环体会被执行。之后括号内的条件再次被判断。如果条件为真，那么循环体再次被执行。重复这两个步骤直到循环体内的条件不满足（fahr比upper大），此时循环停止，while循环后面紧接着的statement将会被执行。
+
+while循环的循环体可以是一句或者多句statements，如果是多句statements，那么就一定要在花括号里面，如果是一句statement，那么可以不用花括号（也可以用）：
+
+```c
+while (i < j)
+    i = 2 * i;
+```
+
+>C语言和python不一样，并不是形式型语言，也就是说缩进多少并不影响代码的正确性，但是为了好看，还是按照常用的缩进（4格）。同样的，每行只写一句statement也是为了代码好看，写多句也是可以的，但可阅读性会被降低，这也是一种习惯。还有个习惯就是对于operator，一般都会前后空一格，更加清晰，比如a + b。花括号的位置也不重要。
+
+上述代码里最重要的部分就是celsius = 5 * (fahr - 32) / 9;这一句，之所以写成先乘以5再除以9而不是直接乘以5/9是因为在C语言里，如同很多其它语言一样，integer除法会将小数部分去掉，因为5和9都是整数，所以5/9的结果就变成了0，是不正确的。
+
+在上述代码里，又用到了printf function。此处用到了printf function更多的功能。printf function本身是一个通用的output formatting function，我们将会在Chapter7里详细介绍。它的第一个argument是要打印的一个character string，用%来表示占位符，%后面的字母表示输出的格式，比如说%d表示按照整数来输出这个argument：
+
+```c
+printf("%d\t%d\n", fahr, celsius);
+```
+
+会以整数的格式输出两个arguments：fahr和celsius，并且中间隔一个制表符（也就是空四格）。
+
+printf第一个argument里的每一个%都需要对应好后续的arguments，而且格式也需要注意。
+
+但我们还需要注意，printf并不是C语言的一部分；C语言里并没有处理input或者output的工具。printf只是一个标准库里十分常见的function。printf function的行为是由ANSI标准规定的，所以任何按照ANSI标准编写的C程序如果使用printf function那么都是相同的。
+
+为了集中注意力在C语言本身，我们直到Chapter7之前都不会过多深入input和output的工具。我们会在那里再说formatted input的内容。scanf function可以用来处理formatted input，其和printf相似，但是是处理input而不是output的。
+
+对于上述代码，我们发现其还存在着某些问题。比如说，输出的结果并不是很好看，因为输出的数字并没有对齐。这很容易解决，我们只需要在printf function的%后面再加上一个数字表述输出宽度，那么这个占位符的输出就按照指定的宽度按右对齐输出，比如说：
+
+```c
+printf("%3d %6d\n", fahr, celsius);
+```
+
+那么结果将会是：
+
+```c
+  0    -17
+ 20     -6
+ 40      4
+ 60     15
+ 80     26
+100     37
+120     48
+140     60
+160     71
+180     82
+200     93
+220    104
+240    115
+260    126
+280    137
+300    148
+```
+
+比格式问题更复杂的问题是，我们上面使用的都是整数运算，不够精确，比如0华氏度实际上是-17.8摄氏度，而不是-17摄氏度。为了获得更精确的结果，我们需要用浮点数而不是整数来计算。这需要对代码进行一些调整：
+
+```c
+#include <stdio.h>
+
+/* print Fahrenheit-Celsius table
+    for fahr = 0, 20, ..., 300; floating-point version */
+main()
+{
+    float fahr, celsius;
+    int lower, upper, step;
+    
+    lower = 0;           /* lower limit of temperature table */
+    upper = 300;         /* upper limit */
+    step = 20;           /* step size */
+    
+    fahr = lower;
+    while (fahr <= upper) {
+        celsius = (5.0 / 9.0) * (fahr - 32.0);
+        printf("%3.0f %6.1f\n", fahr, celsius);
+        fahr = fahr + step;
+    }
+}
+```
+
+上述代码和前面那个版本的差不多，除了fahr和celsius被声明为float，并且while循环里计算的公式写的更加自然。我们并不能使用(5 / 9)因为其算的结果是0。而带有小数点，即使是.0仍然说明其是float而不是integer，所以说5.0 / 9.0的结果并不会将小数点后的部分截掉，因为它是两个浮点数的计算结果。
+
+如果一个arithmetic operator的operands是integers，那么这个operation就是一个integer operation，比如说5 / 9。如果一个arithmetic operator只要有一个floating-point operand，那么即使其它的还是integer operands，这些integers会被转换为floating-point数，然后再进行operation的计算，比如说5.0 / 9。在上面的代码里，即使我们写成fahr - 32，其中32是一个integer，因为fahr在声明的时候是float，所以在这个arithmetic operation，减法，里，32被转换为floating-point数。但为了观感，我们还是写成了farh - 32.0。
+
+合适integers会被转换为floating point数的完整的细节的规定在Chapter2里会详细说明。对于现在来说，注意这个assignment：
+
+```c
+fahr = lower;
+```
+
+以及这个：
+
+```c
+while (farh <= upper)
+```
+
+它两也在operator里遇到了type不同的variables，而在这两种情况下，int仍然被转换为了float来进行operation。
+
+在printf function里，%3.0f说明按照floating-point的形式输出，其宽度至少是3个字符，但不输出小数点以及小数点之后的内容。$6.1f表明按照floating-point的形式输出，输出宽度至少是6个字符，小数点后保持一位。上述代码执行之后的结果是：
+
+```c
+  0  -17.8
+ 20   -6.7
+ 40    4.4
+ ...
+```
+
+我们还可以用更省略的方式来表示，%6f表示按照floating-point方式输出，宽度至少为6，不带小数点，%.2f表示按floating-point的方式输出，小数点后保留两位，但是宽度不做限制，%f只是表示按照floating-point的方式输出。
+
+> %d     按照十进制整数的形式输出
+> %6d    按照十进制整数的形式输出，至少6个字符宽
+> %f     按照浮点数输出
+> %6f    按照浮点数输出，至少6个字符宽
+> %.2f   按照浮点数输出，小数点后保留两位
+> %6.2f  按照浮点数输出，至少6个字符宽，小数点后保留两位
+
+printf里还会用%o表示八进制输出，%x表示十六进制输出，%c表示字符，%s表示字符串，%%表示%本身。
+
+
+### 1.3 The For Statement
+
+
+
+
+
+
+
 
 
 
