@@ -126,9 +126,50 @@ where $$I_v^k$$ is the inlier set, with $$X_f^k \in R^3$$ the 3D triangulated ke
 
 *CVPR2017 and TPAMI 2019*
 
-This paper proposed an efficient algorithm that can learn poses of each individual person from images or videos including multiple people. Pose estimation is actually very closed to human body keypoint detections. Thus this model can also be used to learn hand poses, human keypoints, hand keypoints, facial keypoints, and other non-biological object keypoints such as vehicles
+我们所说的是TPAMI的那个版本，比CVPR的那一版多了一些内容。
 
-There are three main challege of realtim multi-person pose estimation problems. 1) First, each image may contain an unknown number of people that can appear at any position or scale. 2) Second, interactions between people induce complex spatial interference, due to contact, occlusion, or limb articulations, making association of parts difficult. Third, runtime complexity tends to grow with the number of people in the image, making realtime performance a challenge The method in this paper is bottom-up, different from top-down mechanism. Top-down pose estimation involves two main stage: detection of individual human; and learn poses of each individual. Whereas bottom-up method learns all poses within an image and assign these poses to each person. Bottom-up method excel top-down method because top-down method needs to detect individuals firstly and the computation time of this process is linear with numbers of human within an image, while there exists possiblities that bottom-up methods can find ways to decouple numbers of human within and image with the computation time of the whole process. Another reason why bottom-up method is better is that if the detecting of individuals stage in the top-down method fails, the result would be wrong no matter how the second stage processes, and dividing the whole process into two stage will make dependecies among different prople becomes intractable.
+#### 1. Title
+realtime表明这个算法本身运行速度快，multi-person 2D pose estimation清晰的说明了这个算法是用来干什么的，而part affinity field则是说明所用的主要方法。而openpose是给这个算法起个好听的名字，可以发现并不是常见的标题名字的简写组成的名字，openpose后来成为了一个成熟的软件。这种起标题的方式简明，清晰，直接说明白了用什么办法干了什么事情，是一种很好的起标题的方式。
+
+
+#### 2. Abstract
+两句话介绍了这篇论文所要解决的问题的背景，也就是multiple 2D person pose estimation的背景，并说明了这篇论文利用的是PAF来做到实时的效果。然后介绍了一下之前利用PAF的论文效果如何，为什么这篇论文利用PAF效果好。然后介绍了实验部分，最后说明这篇文章还发布了Openpose这样一个开源软件。
+
+#### 3. Introduction
+
+3.1. 这篇文章的目的是要做multi-person pose estimation，而对于单人的pose estimation有很多论文已经做得很好了，但对于多人来说，有以下几个困难的地方：1）首先，我们并不知道图里到底有几个人，而且每个人所在的位置、大小都不清楚；2）其次，人与人之间可能存在干涉，比如说遮挡、关节的旋转等等，很难分清楚到底哪部分属于哪一个人；3）以往的论文里的算法的复杂度都会随着图里人数量的增加而增加，从而很难实现实时。
+
+3.2. 对于multi-person 2D pose estimation，top-down的方式很常见，也就是先检测图片里有几个人，然后对每个人实行pose estimation，因为单人的pose estimation已经做得很好了，这个算法并不复杂。但它存在着两个很大的问题：首先如果一开始检测人的时候就检测错了或者遗漏了，那之后是没有补救办法的；其次，这样的方法需要对检测出来的每个人都做单人pose estimation，这会使得算法的复杂度和人的数量成正比。所以说，bottom-up的方法也被提了出来，这种方法有能够解决上述两个问题的潜力。但之前的bottom-up方法仍然效率不高，因为它们在最后还是需要利用全局信息来辅助判断，从而要花不少时间。
+
+3.3. 我们在这篇文章里利用Part Affinity Field实现了实时的multi-person 2D pose estimation，而且在几个数据集上效果都是很具有竞争力的（这样表达说明它们的效果不一定比其他论文好，它们的卖点主要是快）。Part Affinity Field是一个2D向量的集合，表示的是四肢的位置和方向信息。我们之后会说明，利用bottom-up的方式，将detection和association结合起来（模型有两个主要部分，一个是PAF refinement，另一个是body part prediction refinement，而PAF就是实现association的方式）逐步推进，可以在利用很小的计算资源的情况下达到很好的效果。
+
+3.4. TPAMI的这一版比CVPR的那一版多的内容有：1）说明了其实PAF refinement才是效果好的主要原因，不可或缺，而body part prediction refinement没那么重要。文章里也做了实验，加深了网络深度，而去掉了body part prediction refinement的部分，效果变好了，速度也变快了；2）我们又提出了一个有标注的foot数据集；3）为了显示我们这个模型很强的generality，我们在vehicle keypoint detection的任务上也做了实验；4）我们这篇论文是我们的开源软件OpenPose的说明文档，OpenPose是第一个实时的body, foot, hand和facial的keypoint识别软件，我们还和Mask R-CNN, Alpha-Pose等著名keypoint识别算法在运行时间上作了比较。
+
+
+#### 4. Related Work
+
+4.1. **Single Person Pose Estimation**。单人的pose estimation，因为人是关节性的，所以说传统的方法都是通过将对于身体部位的布局的检测和它们之间的空间关系联合起来看，然后使用某种inference的方式来学习。而关节型的pose estimation的各部位之间的空间关系的表示方法，要么就是1）tree-structured graphical models，在相邻的部位之间做一些encoding；或者是2）non-tree models，在第一种tree-structured model的基础上加一些别的连线，从而实现对遮挡、对称、以及长途关系的表示（因为tree-structured model只对邻居部分有表示）。而对于身体各个部位的检测，CNN就起到了主要的作用，其在body part estimation里比传统的方法要好很多。
+
+> 也就是说，其实single person pose estimation主要就分为两大部分，先想办法检测出身体的各个部分，然后再想办法利用一种好的表示方式来将这些部分连起来，从而实现pose estimation，也就是keypoint detection。
+
+后来也有文章直接构建一个深度的graphical model将两部分放在一起解决；还有文章通过使用感受野比较大的CNN来学习身体部分之间的空间关系。也有文章是multi-stage的方式，每次利用全局信息来进一步优化每个身体部分所在位置的信息。但所有的上面的这些方法都是针对单人的，人的位置和scale在数据集里都是差不多的（不存在非常边缘或者大小差别过大的情况）。
+
+4.2. **Multi-person Pose Estimation**。对于多人的pose estimation来说，绝大多数方法使用的是top-down的方式，即首先检测人，然后再单独的在每个检测到人的区域实行单人pose estimation算法。尽管这种方法使得成熟的单人pose estimation算法可以得到利用，但它不仅会因为早早的就预设了每个人的问题而存在问题，也会因为人和人之间也会存在空间依赖关系而出现问题（比如说遮挡等）。有一些文章已经开始考虑引入人与人之间的依赖关系了。有篇bottom-up的文章就没有使用person detection，而是将每个部分联系到每个人，但这个算法需要解决一个integer linear programming的问题，这个问题的计算复杂度很高，所以处理一张照片的时间要个把小时。后续这篇文章的跟进工作改进了身体部分的检测算子，并且改进了优化算法，从而使得检测一张照片的时间变成了几分钟，但最多只能处理150个身体部分。
+
+在这篇文章的早期版本里，也就是CVPR那个版本里，我们介绍了part affinity field，它是一个representation，是由一系列的flow field组成的，而这些flow fields包含了每两个所检测到的身体部分之间的信息（可能是属于不同人的，也可能是一个人的）。和我们上面提到的两个引入人与人之间的依赖关系的论文不同，我们不需要训练就可以直接从PAF里获取pairwise的信息。而这些pairwise的信息对于multi-person pose estimation就已经是足够的了。
+
+在我们的那篇CVPR文章提出之后，又有了一些新的工作。有篇文章进一步简化了各个身体部位的关系graph从而能更快的inference，其还将关节化的人的tracking形式化的表示为身体部分的spatio-temporal的grouping。还有篇文章提出了利用associative embedding来为每个keypoint打上标签，从而可以将标签相似（也就是说embedding之间的距离小）的keypoint归属于同一个人。还有一篇文章提出检测每个keypoint和它的相对位移，再计算每个keypoint属于哪个人。还有一篇文章提出了Pose Residual Network，其输入是keypoint和所检测到的人，而输出则是将keypoint归属到每个人。
+
+我们这篇文章，对于之前的那篇CVPR文章做了一些扩充。我们证明PAF refinement是必要的且是最重要的，还做了实验去除了body part detection refinement的部分，速度增加了，效果变好了。我们同时还提出了第一个body和foot keypoint联合检测的detector，并且提出了一个foot keypoint数据集。我们证明将它们两联合检测不仅会减少inference的时间，还会保持准确率。最后，我们提出了OpenPose，是第一个实时进行body, foot, hand和facial keypoint detection的实时开源软件。
+
+
+#### 5. Method
+
+
+
+
+
+
 
 
 
