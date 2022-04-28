@@ -165,6 +165,112 @@ realtime表明这个算法本身运行速度快，multi-person 2D pose estimatio
 
 #### 5. Method
 
+![overview]({{ '/assets/images/OPENPOSE-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 1. Overall pipeline. (a) Our method takes the entire image as the input for a CNN to jointly predict (b) confidence maps for body part detection and (c) PAFs for part association. (d) The parsing step performs a set of bipartite matchings to associate body part candidates. (e) We finally assemble them into full body poses for all people in the image.*
+
+Fig 1显示了我们的算法的一个整体的流程。整个系统的输入是一张大小为$$w \times h$$的RGB图片，而输出为图中每个人的生理结构上的2D keypoints的位置。首先，一个feedforward网络输出一个集合$$S$$，用来表示各个身体部位位置的2D confidence maps，和一个part affinity fields（也就是2D的向量）的集合$$L$$用来表示各个身体部位之间的从属程度。集合$$S = \(S_1, S_2, ..., S_J\)$$有J个confidence maps，每个对应一个身体部位，其中$$S_j \in R^{w \times h}$$，$$j = \{1,2,...,J\}$$。而集合$$L = \(L_1, L_2, ..., L_C\)$$有$$C$$个向量，每个对应一个肢体，其中$$L_c \in R^{w \times h \times 2\}$$，而$$c \in \{1,...,C\}$$。为了简洁，我们将身体部位的pairs描述为肢体（因为这里的身体部位就是一个keypoint，而keypoint pair就是将两个keypoint连起来，就表示了一部分肢体），但是某些身体部位的pair并不是肢体，比如说face，我们就笼统的这么说了。我们可以从fig 2看到，$$L_c$$里的每个点都是一个2D的vector。最终，confidence maps和PAFs（也就是集合S和集合L）通过greedy inference联系了起来用于输出图中所有人的2D keypoints位置。
+
+![algorithm]({{ '/assets/images/OPENPOSE-2.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 2. 上方：多人pose estimation。同一个人的身体部分被连了起来，也包括了脚的keypoints（大脚趾，小脚趾和脚后跟）。下左：关于连接右手肘和手腕的肢体的PAFs。颜色表明了方向。下右：在关于连接右手肘和手腕的肢体的PAFs的每个像素点处的2D向量包含了肢体的位置和方向信息。*
+
+##### 5.1. Network Architecture
+
+![architecture]({{ '/assets/images/OPENPOSE-3.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 3. multi-stage CNN的结构。前一部分的stage用来预测PAFs$$L^t$$, 而后一部分的stage用来预测confidence maps $$S^t$$。每个stage的输出和图片feature连接起来，作为下一个stage的输入。.*
+
+我们的模型结构，如fig 3所示，迭代的预测包含身体部位之间关系的PAFs，如fig 3里蓝色的部分，之后再来检测confidence maps，如fig 3里的米色。这样一种迭代的方式使得预测更加的准确（注意中间的迭代stage也都是有supervision的）。
+
+在我们CVPR的那版里，我们用了$$7 \times 7$$的卷积核，而我们这篇论文里，用3个$$3 \times 3$$的卷积核来替代从而减小计算量。如同DenseNet里那样，这3个卷积层的输出也连接起来了，从而能既有高层feature又有低层的。
+
+##### 5.2 Simultaneous Detection and Association
+
+输入的图像通过一个CNN（用的是VGG-19的前10层）来生成一系列的feature maps $$F$$，之后再输出到第一个stage当中。在这个stage里，网络输出一个集合的PAFs $$L^1 = \phi ^ 1 (F)$$，其中$$\phi ^ 1$$表示stage1里用来inference的CNN。在之后的stages里，前一个stage的输出和原始的图像feature maps $$F$$连接起来作为输入，用来输出更加精确的结果
+
+$$L^t = \phi ^ t (F, L^{t-1}), 2 \leq t \leq T_p$$
+
+其中$$\phi ^ t$$表示stage t里用来inference的CNN，$$T_p$是PAF stage的总数。在$$T_p$$个PAF stage之后，再来计算confidence maps，利用的是最新的PAF结果：
+
+$$S^{T_p} = \rho^t (F, L^{T_p}), t = T_p$$
+
+$$S^t = \rho^t (F, L^{T_p}, S^{t-1}), T^p < t \leq T_p + T_C$$
+
+其中$$\rho^t$$指的是stage t用来inference的CNN，而T_C是confidence maps所需要循环的次数。
+
+这个方法和我们的CVPR那个版本里的方法有很大的不同，在那个版本里，每个stage都要进行PAF和confidence maps的计算。因此我们这个版本的计算量减少了一半。我们通过实验发现，增加PAF循环的次数，可以使得效果变好，而增加confidence maps的循环的次数并不会。直觉上来看，通过PAF的结果，我们可以猜到每个身体部位（也就是每个keypoint）的位置，但通过confidence maps的结果，我们无法知道每个身体部位属于哪个人。
+
+![PAF]({{ '/assets/images/OPENPOSE-4.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 4. 右前小臂肢体的PAF。尽管在一开始的stage里还有一些不清晰，但在之后的stage里可以看到PAF很清晰。.*
+
+Fig 4显示了随着stage的增加，PAF计算结果逐渐被精确的过程。confidence maps的计算基于最后一个PAF stage输出的结果，而随着confidence maps stage的推进，结果区别并不大。为了让模型能够预测PAF和body part的confidence maps，我们在每个stage的结尾都使用一个loss function。我们使用的是输出的结果和实际上的body part的confidence maps和PAF之间的$$L_2$$ loss。我们这里给loss function加了权重，因为有些数据集并没有标注完整。对于PAF的stage $$t_i$$和confidence map的stage $$t_k$$的loss function是：
+
+$$ f_L^{t_i} = \Sigma_{c=1}^C \Sigma_p W(p) ||L_c^{t_i}(p) - L_c^{\*}(p)||^2_2 $$
+
+$$ f_S^{t_k} = \Sigma_{j=1}^J \Sigma_p W(p) ||S_j^{t_k}(p) - S_j^{\*}(p)||^2_2 $$
+
+其中$$L_c^{\*}$$是PAF的ground truth，$$S_j^{\*}$$是身体部分confidence map的ground truth，$$W$$是一个非0即1的二分掩码，如果某个位置没有标注就是0，有标注就是1。这个$$W$$是用来避免因为没有标注而导致的错误训练。我们在每个stage都使用loss function，用来解决梯度消失的问题，因为每个stage结尾都有loss function，对梯度的值进行了补充。从而整体的的loss function就是：
+
+$$ f = \Sigma_{t=1}^{T_p} f_L^t + \Sigma_{t=T_p + 1}^{T_p + T_C} f_S^t $$
+
+
+##### 5.3. Confidence Maps for Part Detection
+
+为了能够在训练过程中计算上述的$$f_S$$，我们从有标注的2D keypoints上生成confidence maps $$S^{\*}$$的ground truth。一个confidence map是一个2D的矩阵，用来表示一个keypoint出现在一个像素点的概率值。理想状态下，如果图里只有一个人，那么每个confidence map应该只有1个峰（该keypoint没有被遮挡住的情况下）;如果有多个人，那么每个confidence map对于没有被遮挡住的这一类keypoint都应该有峰（比如说某个confidence map专门表示人的nose的keypoint）。
+
+我们先来对于每个人$$k$$生成confidence map，$$S_{j,k}^{\*}$$。$$x_{j,k} \in R^2$$表示人$$k$$的身体部分$$j$$在图中位置的ground truth。从而$$S_{j,k}^{\*}的位置$$p \in R^2$$处的值就是：
+
+$$ S_{j.k}^{\*}(p) = exp(-||p-x_{j,k}||^2_2 / \sigma^2) $$
+
+其中$$\sigma$$控制峰的大小。从而整个图片（可能包含多个人）的ground truth就是：
+
+$$ S_j^{\*}(p) = max_k S_{j,k}^{\*}(p) $$
+
+##### 5.4 Part Affinity Fields for Part Association
+
+![cal]({{ '/assets/images/OPENPOSE-5.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 5. 身体部位association策略。（a) 几个人的两种身体部分（也就是keypoint）分别用红蓝点表示，而所有的点之间都连上了线。（b) 利用中间点进行连线。黑线是正确的，绿线是错误的，但他们都满足连接了一个中间点。(c) 利用PAF来连接，黄色的箭头就是PAF的结果。利用肢体来表示keypoint的位置和keypoint之间的方向信息，PAF减少了错误association的可能性。.*
+
+给定一些已经检测到了的body parts（Fig 5里的红色和蓝色的点），那我们该如何将它们组合起来从而构建未知数量的人的肢体呢？我们需要对每一对body part keypoints都有一个confidence measure，也就是说，measure它们是否属于同一个人。一种可能的方式就是检测这一对keypoints的中间是否还有附加的midpoint。但是当人聚集在一起的时候，很容易出错。这种方式之所以不好是因为1）它仅仅有位置信息，并没有一对keypoint之间的方向信息；2）它仅仅用了midpoint，而不是这两个keypoints之间的所有部分当成一个肢体来使用。
+
+Part Affinity Fieds (PAFs)解决了这些问题。它对于每一对keypoints构成的肢体提供了位置和方向信息。每一个PAF都是一个2D的vector field，在Fig 2里有显示。对于每个肢体的PAF的每个位置的值，其都是一个2D的向量，包含了位置和这个肢体一个keypoint指向另一个keypoint的方向。每个类别的肢体都有一个对应的PAF（由对应的body part keypoints对组成）。
+
+![fig]({{ '/assets/images/OPENPOSE-6.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 6.*
+
+考虑fig 6所示的一个简单的肢体。$$x_{j_1, k}$$和$$x_{j_2, k}$$是人$$k$$的身体部位$$j_1$$和$$j_2$$的ground truth，而这两个部位组成了肢体$$c$$。对于肢体$$c$$上的一点$$p$$，$$L_{c,k}^{\*}(p)$$是一个单位向量，从$$j_1$$指向$$j_2$$；对于其它的点，$$L_{c,k}^{\*}(p)$$的值都是0。
+
+为了能在训练过程中计算$$f_L$$的值，我们需要定义PAF的ground truth，也就是对于人$$k$$，$$L_{c,k}^{\*}在$$p$$点的值为：
+
+$$ L_{c,k}^{\*}(p) = v if p on limb c, k$$ and $$0$$ otherwise。
+
+这里，$$v = (x_{j_2, k} - x_{j_1, l}) / ||x_{j_2, k} - x_{j_1, l}||$$是肢体的有方向的单位向量。一个肢体上的点不仅仅只有两个keypoints连线上的，而是有一个距离阈值，比如说：
+
+$$ 0 \leq v (p - x_{j_1,k}) \leq l_{c,k}$$ 和 $$|v_{verticle} (p - x_{j_1,k})| \leq \sigma_l$$
+
+其中肢体宽度$$\sigma_l$$自定义的，肢体长度由两个keypoints决定，也就是$$l_{c,k} = ||x_{j_2, k} - x_{j_1, k}||，$$v_{verticle}$$是垂直于$$v$$的。
+
+
+而整个图片的PAF的ground truth是对于所有人取了均值：
+
+$$ L_c^{\*}(p) = 1/n_c(p) \Sigma_k L_{c,k}^{\*}(p) $$
+
+在测试过程中，我们通过计算连接两个keypoints的线段间的PAF的积分来衡量这两个keypoints是否构成了一个肢体。对于两个身体部分$$d_{j_1}$$和$$d_{j_2}$$，我们计算：
+
+$$ E = \int_{u=0}^{u=1} L_c(p(u)) (d_{j_2} - d_{j_1})/||d_{j_2} - d_{j_1}|| du $$
+
+其中$$p(u) = (1-u) d_{j_1} + u d_{j_2}$$。在实践中，我们通过等距离采样来近似这个积分值。
+
+
+##### 5.5. Multi-Person Parsing using PAFs
+
+
+
+
 
 
 
