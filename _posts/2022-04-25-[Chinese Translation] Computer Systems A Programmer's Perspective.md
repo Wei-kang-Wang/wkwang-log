@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: false
-title: "The C Programming Language"
+title: "Computer Systems: A Programmer's Perspective"
 date: 2021-11-29 01:09:00
 tags: book-reading
 ---
