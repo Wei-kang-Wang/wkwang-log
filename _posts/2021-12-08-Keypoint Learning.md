@@ -268,6 +268,89 @@ $$ E = \int_{u=0}^{u=1} L_c(p(u)) (d_{j_2} - d_{j_1})/||d_{j_2} - d_{j_1}|| du $
 
 ##### 5.5. Multi-Person Parsing using PAFs
 
+对于每个身体部位keypoint的location，我们都有好几个备选的值，这是因为图中有多个人或者因为计算错误。而这些keypoints组成的肢体就会有很多种可能了。我们用5.4里定义的积分来计算每个肢体的积分值。从而问题变成了，如何在众多的有着不同积分值（也就是score）的肢体集合中，选择合适的肢体并将其正确连接起来，而这是个NP-hard的问题，如fig 7所示。
+
+![fig]({{ '/assets/images/OPENPOSE-7.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 7. Graph matching。(a) 原始的图片，已经有了身体部位keypoint标注了。(b) K-partite graph。(c) 树状结构。(d) 二分图。*
+
+在这篇文章里，我们使用一种greedy relaxation的方法，持续性的产生高质量的匹配。我们猜测这种方法有效的原因是上述计算的积分值（也就是每个肢体的score）潜在的含有global信息，因为PAF的框架具有较大的感受野。
+
+具体来说，首先，我们获得整张图片身体部分keypoint的集合，$$D_J$$，其中$$D_J = \{d_j_m: j \in \{1, ..., J\}, m \in \{1, ..., N_j\}\}，$$N_j$$是身体部位$$j$$的候选数量，而$$d_j^m \in R^2$$是身体部位$$j$$的第$$m$$个候选位置。我们需要将每个身体部位keypoint连接到属于同一个人的同一个肢体的其它身体部位keypoint上，也就是说，我们还需要找到正确的肢体。我们定义$$z_{j_1, j_2}^{m,n} \in \{0, 1\}$$来表示两个身体部位keypoint的候选，$$d_{j_1}^m$$和$$d_{j_2}^n$$是否连在一起，我们的目标是为$$Z = \{z_{j_1, j_2}^{m,n}: j_1, j_2 \in \{1, ..., J\}, m \in \{1, ..., N_{j_1}\}, n \in \{1, ..., N_{j_2}\}$$找到最优的值。
+
+如果我们考虑一个特定的keypoint的pair $$j_1$$和$$j_2$$（比如说neck和right-hip），叫做c-肢体，而我们的目标是：
+
+$$ \max\limits_{Z_c} E_c = \max\limits_{Z_c} \Sigma_{m \in D_{j_1}} \Sigma_{n \in D_{j_2}} E_{m,n} z_{j_1, j_2}^{m,n}$$
+
+$$s.t., \forall m \in D_{j_1}, \Sigma_{n \in D_{j_2}} z_{j_1, j_2}^{m, n} \leq 1$$
+
+$$ \forall n \in D_{j_2}, \Sigma_{m \in D_{j_1}} z_{j_1, j_2}^{m,n} \leq 1$$
+
+其中，$$E_c$$是所有的c-肢体的积分值的和（可能有多个c-肢体，因为可能有多个人），$$Z_c$$是$$Z$$的只关于c-肢体的子集，$$E_{m,n}$$是keypoint $$d_{j_1}^m$$和$$d_{j_2}^n$$之间的定义的积分值，上述要优化的目标的条件，使得我们所学习到的结果里不会有两个肢体公用同一个keypoint。我们可以用Hungarian算法来获取上述优化的结果。
+
+现在我们考虑所有的肢体，那么上述优化的式子即是需要考虑整个$$Z$$并且需要计算所有肢体的所有可能结果，计算$$Z$$是一个K-维的匹配问题（K是肢体的数量）。这个问题是个NP-hard的问题，有很多relaxations的算法存在。在我们这篇论文中，我们添加了两个relaxation。首先，完整的图会对于每两个不同类别的keypoint都有edge，而我们将这个图简化为其能表示人的pose的spanning tree就可以，而多余的edge就不要了。其次，我们将上述K-维的匹配问题解构为一系列二分匹配的子问题并且独立的解决这些问题，所利用的就是每个spanning tree的相邻的两个node所对应的值以及它们之间的连线，所以说是独立的。第二个relaxation之所以可行，直觉上来说，spanning tree里相邻的两个node之间的关系是由PAF网络学习到的，而非相邻的两个node之间的关系是由CNN网络学习到的。
+
+有了上述两个relaxations，我们的问题被简化为：
+
+$$ \max\limits_{Z} E = \Sigma_{c=1}^C \max\limits_{Z_c} E_c $$
+
+从而我们将这个优化问题分解为独立的每个pair的优化问题，而这个在之前所述，可以用Hungarian算法解决。我们再将有共同keypoint的肢体联合起来，这样其就表示出了一个完整的人的pose，或者说骨架。我们的第一个relaxation，将完整的图简化为spanning tree使得整个算法获得了很大程度的加快。
+
+我们目前的模型仍然有多余的PAF连接（比如说耳朵和肩膀的连接，手腕和肩膀的连接等）。这样冗余的连接使得我们的算法对于人群很密集的时候准确度较高。对于冗余的PAF连接，也就是有冗余的肢体，我们在5.5里的parsing算法进行一些简单的修改就行。
+
+
+#### 6. OpenPose
+
+现在有一系列cv和ml的应用需要2D人的pose estimation作为系统的输入。为了帮助研究者们加速它们的工作，我们公布了OpenPose，是第一个实时的只通过一张输入图片联合检测多人的body，foot，hand和face keypoints（一共135个）的系统。
+
+##### 6.1. System
+
+目前的2D人的pose estimation库，比如Mask R-CNN或者Alpha-Pose，需要用户自己运行模型，而且也需要自己运行数据处理。而且，目前的face和body的keypoint检测子并未被联合起来，需要用不同的库来实现。而OpenPose解决了所有的这些问题。它可以运行在不同的平台上，包括Ubuntu，Windows，Mac OSX，以及嵌入式系统（比如Nvidia Tegra TX2)。OpenPose还为不同的硬件提供了支持，比如CUDA GPUs，OpenCL GPUs，以及仅有CPU的设备。用户还可以使用image，video，webcam，以及IP camera流作为输入。我们还可以选择是直接展示结果还是将结果存在硬盘里，允许或者不允许body, foot, face和hand的keypoint检测，控制所使用的GPU的数量，跳过某些frame等操作。
+
+OpenPose包括三个不同的组件：(a) body+foot检测；(b) hand检测；(c)face检测。核心组件是body+hand检测。除了使用我们这论文里的模型，你还可以选择使用我们那篇CVPR论文里的模型，而且是在COCO和MPII数据集上训练过的。当我们有了body的keypoint后，face的bounding box就可以通过body的keypoint来确定了，特别是ears，eyes, neck, nose等这些点。而同样的，hand的bounding box也可以通过arm keypoint来确定。这种思想传承于我们在introduction里提到的top-down的keypoint检测算法。OpenPose还提供3D的人的pose estimation，是通过使用non-linear Levenverg-Marquardt refinement来实现3D triangulation实现的，而输入是多个同步的相机。
+
+##### 6.2. Extended Foot Keypoint Detection
+
+现存的人的pose数据集包含有限的body part类型。MPII数据集标注了ankles, knees, hips, shoulders, elbows, wrists, necks, torsos以及head tops。而COCO数据集还包括了一些face keypoints。对于这两个数据集，都不含foot keypoints,仅仅有ankles keypoints。但是很多图形学的应用要求foot keypoints，至少要有big toe和heel。如果没有foot keypoints，有很多图形学的应用就会出现floor penetration，foot skate，candy wrapper effect等问题。而我们重新标注了很多foot keypoint的数据。
+
+使用我们的数据集，我们训练了一个foot keypoint检测算法。一个naive的foot检测子可以通过先训练一个body keypoint检测子从而获取脚部的bounding box，之后再在bounding box上训练foot keypoint检测子。但这个方法仍然有我们在introduction里就说过的问题。在我们的论文里，我们使用检测body keypoint的模型来检测body+foot keypoint。我们的body+foot检测模型还包含了两个hip keypoint之间的那个点，为了在upper torso看不到的情况下仍然有好的效果。我们在实验中发现，加入了foot keypoint也有助于body keypoint的学习，特别是ankle。fig 8显示了有些情况下如果没有foot keypoint，无法预测ankle keypoint。
+
+![foot]({{ '/assets/images/OPENPOSE-8.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 8. Foot keypoint analysis。(a) foot keypoint标注，包括big toes，small toes和heels。(b) 仅仅检测body keypoint的模型并未成功检测到右脚ankle这个keypoint。(c) body+foot keypoint联合检测的模型成果检测到了右脚ankle keypoint，因为foot keypoint信息帮助了其的检测。*
+
+
+
+#### 7 Datasets and Evaluations
+
+我们在multi-person pose estimation的三个benchmarks上验证我们的方法：(1) MPII human multi-person dataset，其包括了3844个training和1758个testing图片，每张图片都是多人的图片，标注了14个body keypoints；(2) COCO keypoint challenge dataset，每张图片也包括了多人，每个人标注了17个keypoints（5个面部的，12个身体的）；(3) 文中提出的foot dataset，是由COCO dataset加上我们自己的标注生成的，15K张图片。这三个数据集包括了各种各样场景下的图片，而且还包括了人群，人的scale不同，遮挡，以及接触等众多情况。我们的方法在COCO 2016 keypoints challenge上获了第一名，在MPII数据集上远超其它方法。我们还与Mask-RCNN和Alpha-Pose进行了对比，量化了我们这个系统的效率，并分析了失败的案例。
+
+
+**在MPII，COCO和自己生成的数据集上的实验省略不说了，效果都很好。论文也和Mask-RCNN等方法进行了对比，在效果差别很小的情况下，速度要快了很多。我们重点来看看在vehicle pose estimation上应用论文中的模型的内容。**
+
+
+##### 7.1. Vehicle Pose Estimation
+
+我们这篇论文里的方法不仅限于human body或者foot的keypoint检测，还可以拓展到任意的keypoint检测任务。为了说明这个，我们用同样的网络结构在vehicle keypoint detection任务上也进行了运行。还是用在object keypoint similarity (OKS)上定义的mean average precision (mAP)来衡量效果。效果很不错，fig 9显示了在数据集上的效果。这个实验用的是Intersection dataset，从这篇文章来的：https://openaccess.thecvf.com/content_cvpr_2018/papers/Reddy_CarFusion_Combining_Point_CVPR_2018_paper.pdf
+
+![car]({{ '/assets/images/OPENPOSE-9.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 9. 验证集里的vehicle keypoint检测的结果，vehicle的keypoint在很具有挑战性的情况下仍然被检测出来，这些情况包括遮挡、vehicles之间的overlap，不同的scale等。*
+
+
+#### 8. Conclusion
+
+实时的multi-person 2D pose estimation是使得机器能够理解和推断人和人之间的互动的关键点。(1) 在这篇文章里，我们展示了一个keypoint association的explicit nonparametric representation，其包含了人的肢体的position和orientation的信息。(2) 我们设计了一个联合学习keypoint和keypoint association的模型。(3) 我们使用了一个greedy parsing的算法来产生高质量的人的body pose的结果，而且对于多人的情况仍然效率很高。(4) 我们证明了PAF refinement要比keypoint detection refinement重要得多，从而让我们的模型相对于之前的CVPR版本要快很多。(5) 将body和foot keypoint检测联合起来会在效果和效率上都有提升。我们构造了一个包含了15K张图片的foot keypoint数据集。(6) 我们将这篇论文的结果开源作为OpenPose，是第一个实施的body, foot, hand和face keypoint检测系统。OpenPose在很多地方都有应用，且已经被收入了OpenCV库里。
+
+
+
+
+
+
+
+
+
+
 
 
 
