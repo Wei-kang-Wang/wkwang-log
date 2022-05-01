@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: false
-title: "Machine Learning Techniques"
+title: "Machine Learning知识点和炼丹技巧"
 date: 2021-12-18 01:09:00
 
 ---
