@@ -32,6 +32,8 @@ date: 2021-12-14 01:09:00
 | 混合符号 | \left( 0,1 \right] | $$\left( 0,1 \right]$$ |
 | 单侧括号 | \left .\frac{a}{b} \right\} | $$\left .\frac{a}{b} \right\}$$ |
 
+注意()是普通的小括号，而\left(和\left)可以使得括号大小和括号内的部分相对于，比如说有分式的时候。
+
 
 ## 2. Latex字体
 
@@ -127,5 +129,21 @@ date: 2021-12-14 01:09:00
 | 中线对齐的省略号 | \cdots | $x_1^2 + x_2^2 + \cdots + x_n^2$ |
 | 竖直对齐的省略号 | \vdots | $\vdots$ |
 | 斜对齐的省略号 | \ddots | $\ddots$ |
+| 上取整 | \lceil 和 \rceil | $\lceil x \rceil$ |
+| 下取整 | \lfloor 和 \rfloor | $\lfloor x \rfloor$ |
+| 求和 | \sum | $\sum_{r=1}^n$ |
+| 积分 | \int | $\int_{r=1}^\infty$ |
+| 多重积分 | \iint 和 \iiint等，有多少个i就是多少个多重积分 | $\int_{r=1}^\infty$ |
+| 连乘 | \prod | $\prod_{i=1}^{K}$ |
+| 最大值 | \max | $\max_{c_k}$ |
+| 最小值 | \min | $\min_{c_k}$ |
+| 求达到最大值的值 | \mathop {argmax} | $\mathop {argmax}\_{c_k}$ |
+| 求达到最小值的值 | \mathop {argmin} | $\mathop {argmin}\_{c_k}$ |
+| 求达到最大值的值 | arg\,\max | $arg\,\max_{c_k}$ |
+| 求达到最小值的值 | arg\,\min | $arg\,\min_{c_k}$ |
+| 开四次方 | \sqrt\[4\]{} | $\sqrt\[4\]{\frac xy}$ |
+
+
+## 6. Latex分类表达式
 
 
