@@ -16,7 +16,7 @@ date: 2021-12-14 01:09:00
 ---
 
 
-## Latex括号
+## 1. Latex括号
 
 
 | 功能 | 语法 | 显示 |
@@ -32,7 +32,7 @@ date: 2021-12-14 01:09:00
 | 单侧括号 | \left .\frac{a}{b} \right\} | $$\left .\frac{a}{b} \right\}$$ |
 
 
-## Latex字体
+## 2. Latex字体
 
 
 | 功能 | 语法 | 显示 |
@@ -52,7 +52,7 @@ date: 2021-12-14 01:09:00
 | 空心字母 | 先导入包\usepackage{amsfonts,amssymb}，\mathbb{text} | $$\mathbb{text}$$ |
 
 
-## Latex集合
+## 3. Latex集合
 
 
 | 功能 | 语法 | 显示 |
@@ -74,7 +74,7 @@ date: 2021-12-14 01:09:00
 | 空集 | \emptyset | $$\emptyset$$ |
 
 
-## Latex逻辑
+## 4. Latex逻辑
 
 
 | 功能 | 语法 | 显示 |
