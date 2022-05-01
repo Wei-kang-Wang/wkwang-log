@@ -16,6 +16,32 @@ date: 2022-05-01 01:09:00
 ---
 
 
-## 1. 在Ubuntu平台安装pytorch（包括CUDA、CUDnn）
+## 1. Linux系统用Anaconda安装pytorch + CUDA + CUDnn
+
+### 第一步. 安装Anaconda
+
+从Anaconda官网下载安装所用的的sh文件（比如说Anaconda3-5.3.1-Linux-x86_64.sh），上传至Linux系统。
+
+在Linux系统里打开bash，cd到要上述安装文件所在目录下进行操作 ，然后输入：
+
+```c
+bash -u Anaconda3-5.3.1-Linux-x86_64.sh
+```
+
+安装成功后，输入：
+
+```c
+source ~/.bashrc
+```
+
+到此Anaconda安装成功。可以通过下面代码检查是否安装成功：
+
+```c
+python
+```
+
+显示下面的样子，则说明安装正确：
+
+
 
 
