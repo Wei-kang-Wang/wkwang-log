@@ -24,6 +24,7 @@ date: 2021-12-14 01:09:00
 | 圆括号，小括号 | \left( \frac{a}{b} \right) | $$\left( \frac{a}{b} \right)$$ |
 | 方括号，中括号 | \left[ \frac{a}{b} \right] | $$\left[ \frac{a}{b} \right]$$ |
 | 花括号，大括号 | \left\{ \frac{a}{b} \right\} | $$\left\{ \frac{a}{b} \right\}$$ |
+| 花括号，大括号 | \lbrace \frac{a}{b} \rbrace | $$\lbrace \frac{a}{b} \rbrace$$ |
 | 尖括号 | \left\langle \frac{a}{b} \right\rangle | $$\left\langle \frac{a}{b} \right\rangle$$ |
 | 双竖线，范式 | \left \| \frac{a}{b} \right\| | $$\left \| \frac{a}{b} \right\|$$ |
 | 取整符号 | \left\lfloor \frac{a}{b} \right\rfloor | $$\left\lfloor \frac{a}{b} \right\rfloor$$ |
