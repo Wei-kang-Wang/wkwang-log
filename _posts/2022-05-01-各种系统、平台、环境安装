@@ -1,0 +1,21 @@
+---
+layout: post
+comments: false
+title: "各种系统、平台、环境的安装"
+date: 2022-05-01 01:09:00
+
+---
+
+> 这个post是有关各种系统、环境、平台的安装指南。
+
+
+<!--more-->
+
+
+
+---
+
+
+## 1. 在Ubuntu平台安装pytorch（包括CUDA、CUDnn）
+
+
