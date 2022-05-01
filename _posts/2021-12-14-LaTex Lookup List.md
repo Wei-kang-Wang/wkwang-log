@@ -97,4 +97,35 @@ date: 2021-12-14 01:09:00
 | 大于等于 | \geq | $$\geq$$ |
 | 不等于 | \neq | $$\neq$$　|
 
+## 5. Latex数学符号
+
+| 功能 | 语法 | 显示 |
+| :------: | :------: | :------: |
+| 无穷 | \infty | $\infty$ |
+| 虚数 | \imath | $\imath$ |
+| 虚数 | \jmath | $\jmath$ | 
+| 数学符号 | \hat{a} | $\hat{a}$ | 
+| 数学符号 | \check{a} | $\check{a}$ |
+| 数学符号 | \breve{a} | $\breve{a}$ | 
+| 数学符号 | \tilde{a} | $\tilde{a}$ |
+| 数学符号 | \bar{a} | $\bar{a}$ |
+| 矢量符号 | \vec{a} | $\vec{a}$ |
+| 数学符号 | \acute{a} | $\acute{a}$ |
+| 数学符号 | \grave{a} | $\grave{a}$ |
+| 数学符号 | \mathring{a} | $\mathring{a}$ |
+| 一阶导数符号 | \dot{a} | $\dot{a}$ |
+| 二阶导数符号 | \ddot{a} | $\ddot{a}$ |
+| 上箭头 | \uparrow | $\uparrow$ |
+| 上箭头 | \Uparrow | $\Uparrow$ |
+| 下箭头 | \downarrow | $\downarrow$ |
+| 下箭头 | \Downarrow | $\Downarrow$ |
+| 左箭头 | \leftarrow | $\leftarrow$ |
+| 左箭头 | \Leftarrow | $\Leftarrow$ |
+| 右箭头 | \rightarrow | $\rightarrow$ |
+| 右箭头 | \Rightarrow | $\Rightarrow$ |
+| 底端对齐的省略号 | \ldots | $1,2,\ldots,n$ |
+| 中线对齐的省略号 | \cdots | $x_1^2 + x_2^2 + \cdots + x_n^2$ |
+| 竖直对齐的省略号 | \vdots | $\vdots$ |
+| 斜对齐的省略号 | \ddots | $\ddots$ |
+
 
