@@ -16,9 +16,9 @@ date: 2022-05-01 01:09:00
 ---
 
 
-## 1. Linux系统用Anaconda安装pytorch + CUDA + CUDnn
+## Linux系统用Anaconda安装pytorch + CUDA + CUDnn
 
-### 第一步. 安装Anaconda
+### 1. 安装Anaconda
 
 从Anaconda官网下载安装所用的的sh文件（比如说Anaconda3-5.3.1-Linux-x86_64.sh），上传至Linux系统。
 
@@ -41,6 +41,80 @@ python
 ```
 
 显示下面的样子，则说明安装正确：
+
+![pic1]({{ '/assets/images/install-1.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+输入下面指令退出：
+
+```c
+quit()
+```
+
+### 2. 了解操作系统内核、显卡、编译器等基本信息
+
+#### 2.1 查看自己操作系统的版本信息
+
+```c
+cat /etc/issue
+```
+
+或者
+
+```c
+cat /etc/lsb-release
+```
+
+![pic2]({{ '/assets/images/install-2.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![pic3]({{ '/assets/images/install-3.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+#### 2.2 查看服务器显卡信息
+
+```c
+lspci | grep -i nvidia
+```
+用于查看全部的显卡信息。
+
+![pic4]({{ '/assets/images/install-4.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+如果已经安装了显卡驱动，则可以用下述指令查看：
+
+```c
+nvidia-smi
+```
+![pic5]({{ '/assets/images/install-5.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+#### 2.3 查看安装的显卡驱动的信息
+
+```c
+cat /proc/driver/nvidia/version
+```
+
+![pic6]({{ '/assets/images/install-6.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+### 3. 显卡驱动安装
+
+如果要安装显卡驱动，需要根据操作系统的版本进行选择。
+
+#### 3.1 多版本的gcc和g++
+
+gcc和g++是很多驱动安装过程中需要使用的编译器，很多时候由于编译器版本的不对应会使得安装出现很多莫民奇妙的错误，根据经验，现在的CUDA 10.1的话，也可以使用的是4.8，
+因此最好选择4.8-5.4之间的版本比较好，兼容一点。对于多版本的gcc和g++的安装进行详细的讲解：
+
+
+
+
+
+
+
+
+
 
 
 
