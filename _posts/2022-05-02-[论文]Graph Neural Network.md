@@ -18,9 +18,15 @@ tags: paper-reading
 ---
 
 
-### Breaking the Limits of Message Passing Graph Neural Networks
+### [Breaking the Limits of Message Passing Graph Neural Networks](http://proceedings.mlr.press/v139/balcilar21a/balcilar21a.pdf)
+
+[code](https://github.com/balcilar/gnn-matlang)
+
+*Muhammet Balcilar, Pierre Heroux, Benoit Gauzere, Pascal Vasseur, Sebastien Adam, Paul Honeine*
 
 *icml 2021*
+
+
 
 
 
