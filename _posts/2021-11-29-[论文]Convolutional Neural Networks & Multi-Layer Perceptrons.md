@@ -25,29 +25,141 @@ tags: paper-reading
 
 *NIPS 2012*
 
-The model in this paper won the ILSVRC 2012 competition classification task.
+AlexNet是深度学习浪潮的奠基作之一。
 
-Before AlexNet, the machine learning community mostly concentrated on classical models, including SVM, decision trees, etc. The neural networks had no advantages over these classical models but had less elegant mathematical principles compared to them. Thus for supervised learning tasks, such as image classification, the neural network is not a good candidate. And many efforts has been put on the unsupervised learning tasks for neural networks, because after all, neural networks have better performances over classical models in this area. But the AlexNet shows that even without unsupervised learning, this deep convolutional neural network can have much better result on the ImageNet Classification Task. This is a milestone for supervised learning, computer vision, and machine learning.
+这篇文章里的模型赢得了ILSVRC 2012年的classification任务的冠军。
 
-**But recently researches show that unsupervised learning still remains much more mysteries and there are many researches on it. Yan LeCun even thinks that it's the main future direction for the whole machine learning community in a talk in 2020**
+#### 1. title
+标题很简洁明了，用什么方法、模型（deep convolutional neural network）解决了什么问题（ImageNet classification）。
 
-The first worth noting point is the model does not requires fixed size of iuput image. It will down sample the images to a fixed resolution of $$256 \times 256$$. Given a rectangular image, the model first scale the image with the shorter side of length 256, and then crop out the central $$256 \times 256$$ patch from the resulting image. Also there are no pre-processing techniques, the network is trained on the centered raw RGB values of the pixels. This is a big inprovement then, since the existing works at that time always use some feature extractor to get useful features, such as SIFT, and then do the classification task. **This is so-called End-to-End**.
+#### 2. authors
+Hinton大佬的文章，那肯定是值得看的。
 
-Another point is the authors use ReLU rather than tanh or sigmoid function as the non-linearity function of the model. They argue that ReLU is a non-saturating function, which is much better than those saturating functions since it can help the model to learn much faster. (An activation function is considered non-satured if $$lim_{x \rightarrow \infty} f(x) = \infty$$. A saturated activation function has a compact range such as \[-1,1] for tanh or \[0,1] for the sigmoid.) But from today's viewpoint, this is not the reason, or at least not the only reason that why ReLU are much more faster, but the biggest advantage of ReLU is that it's simple enough, thus it's the most prevalent non linear function now in neural networks.
+#### 3. abstract
 
-![Model Structure]({{ '/assets/images/AlexNet-2.PNG' | relative_url }})
+我们设计了一个很大、很深的cnn来解决ImageNet LSVRC-2010的120万张图片分为1000个类的任务。在测试数据上，top1和top5的错误率都远远比其它的方法要好。
+
+>这种写法其实是很少见的，第一句话说我做了什么，第二句话就直接展示效果并且说十分好。
+
+这篇文章里的神经网络是很大的，有6千万个参数以及650000个神经元，而且有五个卷积层，三个全连接层，最后还有个长为1000的softmax。为了使得训练更快，我们设计了方法，使得神经元是位于non-saturated区域的，并且用了高效的GPU设计方法来训练。我们还用了dropout来使得全连接层不至于过拟合。我们最后将训练后的模型再应用到ILSVRC-2012的比赛里，达到了top-5比第二名低很多的错误率。
+
+>这个摘要主要就说了我们用了什么方法做了什么事情，介绍了一下方法、模型具体的设计细节，之后就说了在实验上比其他方法远远要好。其实不太像是摘要，反而像是技术报告（technic report）的写作方式。但毕竟是大佬的文章，结果就是要比其他方法好的非常多。
+
+#### 4. Introduction
+>一篇文章的第一段一般都是在讲一个故事，我们在做一个什么问题，这个问题为什么重要等。
+
+我们要做object detection这个问题。为了提升它的性能，我们需要收集更大的数据集，学习更好的模型，以及使用技术来使得模型不要过拟合。
+
+>用一些正则的方式使得模型不要过拟合在当时是个很重要的方向，但实际上现在有很多研究表明设计合理的网络结构要比使用正则方法要更加重要，这仍然是一个未解决的研究方向。
+
+再之后就是介绍了各种数据集，因为文章的标题是解决ImageNet的数据集上的任务，所以最后引出ImageNet，吹一波ImageNet很好。
+
+为了能够在上百万张照片里学习1000个种类，我们需要一个具有很大的learning capacity的模型。之后就引入了我们要用CNN来解决这个问题，但是CNN设计的很大并不容易，因为会overfitting而且可能会训练不动。
+
+>这种写法是有问题的，因为当年的主流并不是CNN，而是其它的方法。所以这里一点都不提到其它的方法，而直接说解决这个问题就用CNN，其实是一个不客观，且比较窄的视角。
+
+再之后说明CNN比较难训练，但对于这样比较大的数据集，确实可以训练一个比较大的CNN。而且有了GPU的帮助，可以使得训练高效很多。
+
+接下来说了这篇论文的贡献。这篇论文在ImageNet上训练了一个最大的神经网络，并在ILSVRC-2010和ILSVRC-2012这两个任务上都取得了很好的结果。我们还实现了在GPU上高效的部署。而且我们提出的新的模型能够产生一些新的比较特殊的feature，能够使得效果很好而且减少训练的时间。而且我们做了一些防止过拟合的方法。最后说明网络的结构，有五个卷积层，三个全连接层，而且深度很重要：移除掉任何一层都不行。
+
+>因为这篇文章提出了新的结构，有了新的不常见的feature来解决classification的问题，所以才让这篇文章有了很大的价值，成为了奠基作。而不是仅仅通过很多技术上的操作使得模型取得了第一名，但实际上并没有思想或者结构上的创新，只能让其他人觉得复杂，自叹不如，或者没有能力做如此复杂的工作，但并不具有启发性。而这篇文章提出了新的内容，相当于为后人挖了大坑。
+
+最后介绍了一下用了GTX 580 GPU来训练。
+
+#### 5. Dataset
+>因为这篇文章是在ImageNet这个数据集上解决其classification的任务，所以得介绍一下这个数据集。
+
+数据集介绍的部分就不说了，主要介绍了数据集的内容，以及ILSVRC这个竞赛的内容。
+
+（但这部分最后一段很重要）ImageNet实际上每张图片的分辨率是不一样的，也就是说图片是没有裁剪好的。这篇文章里的做法简单粗暴，直接将短边rescale到256，而长边等比例缩小之后，直接在rescale的图片中心区域裁剪出256$$\times$$256大小的部分。除了再将每个通道的平均值减掉这个操作以外，并没有任何别的pre-processing操作，整个模型是在raw-RGB图片上操作的。
+
+>当时大多数的方法都需要从原始输入图片里抽取特征再用模型进行处理，比如说sift特征等等。但是这篇文章不需要抽取任何特征，实际上这是很大的一个进步，但这篇文章并没有把其作为一个卖点。这种方法实际上是end-to-end，也就是说原始数据直接输入模型，没有任何特征提取，结果直接输出。文章没有重点提到这个实际上是历史的局限性，之后的研究表明end-to-end是深度神经网络一个很大的卖点，应该要予以强调。
+
+#### 6. Architecture
+
+##### 6.1 ReLU nonlinearity
+
+运用到神经网络里，饱和的那些非线性函数$$tanh(x)$$、$$sigmoid(x)$$等实际上要比非饱和的那些非线性函数比如说$$ReLU(x)$$使得训练慢很多。从fig 1就能看出，虚线是使用tanh的，实线是使用ReLU的，横轴是epoch数，纵轴是training error，可以看出来效果差别挺大。
+
+![RELU]({{ '/assets/images/ALEXNET-1.PNG' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
-*Fig 1. Model Structure.*
+*Fig 1. 我们这里用CIFAR-10数据集，对于一个4层的CNN进行了测试，用的是tanh和ReLU两种不同的非线性函数。而对于每种情况，我们设置的learning rate不一样，learning rate设置成为在每种情况下，都选择使该种情况下训练最快的值。我们可以看到，ReLU使得训练快了很多。*
 
-**The model takes an RGB image as input, which is a human aware data, to vector, which is a computer aware data. The whole process can be understood as a knowledge compression. This is the key of deep neural networks.**
+##### 6.2 Training on Multiple GPUs
 
-One big result is that the features from the last hidden layer really learn the semantic information. The authors show this result by first taking a random image, and then find six other images whose last layer features has the smallest Euclidean distance to the picked one's. This result shows that the feature vectors from the last hidden layer of this model have good semantic representation of this supervised learning task. The feature vectors space have a good semantic explanation of the original task, i.e., semantic similar images have distance close feature vectors.
+介绍的如何用多个GPU训练的，主要都是技术、工程上的细节。和ML、CV关系不大。
 
-![Comparison based on features]({{ '/assets/images/AlexNet-1.PNG' | relative_url }})
-{: style="width: 600px; max-width: 100%;"}
-*Fig 2. Five ILSVRC-2010 test images in the first column. The remaining columns show the six training images that produce feature vectors in the last hidden layer with the smallest Euclidean distance from the feature vector for the test image.*
+##### 6.3 Local Response Normalization
 
-Some techniques used in these papers are prevalent in the following works, including dropout, weight decay, momentum, SGD algorithm, parameter initialization, learning rate. There are several methods of setting learning rate. In this paper, they first set a number, and then manually divide this number by 10 if the training error becomes flat. Other methods including every fixed number of epochs, dividing the learning rate by 10, or using some smooth function to define the learning rate, or firstly raising and then reducing the learning rate, etc. (*one epoch means one cycle of the whole dataset.*)
+实际上这个东西也不重要，后续也没有什么人用。
+
+>提到了一点，ReLU不是饱和型的非线性函数，所以在输入ReLU之前实际上并不需要对输入做什么操作（比如说将输入集中到非饱和区域等）。
+
+##### 6.4 Overlapping Pooling
+
+将传统的不overlap的pooling改成了overlap的pooling，会使得效果好很多。
+
+##### 6.5 Overall Architecture
+
+用了五个卷积层，三个全连接层，再加上一个1000-way的softmax，如fig 2所示：
+
+![Model Structure]({{ '/assets/images/ALEXNET-2.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 2. 模型的结构*
+
+>输入是一个很扁的很宽的图片$$224 \times 224 \times 3$$，然后通过网络将高宽不断变小，而深度不断增加。随着网络的增加，慢慢将空间信息压缩，即高宽逐渐减小，到了最后一个卷积层，已经变成了$$13 \times 13$$，也就是说认为这里一个像素已经可以代表前面很大一块的像素。而随着深度的增加，通道数也在逐渐的增加，可以认为每个通道是在表示一种特定的特征，比如说192个通道，我可以认为它能够识别输入的图片的192种不同的特征，比如说某个通道用来识别边，某个通道用来识别圆等等。所以说，空间信息在逐渐压缩，而语义信息在逐渐增加（通道数就是语义信息）。而最后，到了全连接层。所以说，输入的$$224 \times 224 \times 3$$的图片，最后通过网络变成了一个$$4096$$长度的向量，最后再用一个线性分类器做分类。实际上，这个$$4096$$的向量具有很好的语义信息，所以效果很好，也可以从后面的fig 3看出。
+
+>整个机器学习，都可以看成知识压缩的过程，原始的数据不管是图片、文字还是视频，最后都通过一个向量来表示，而这个向量所含有的语义信息，可以让机器进行识别。从而可以在上面做各种各样的事情。这也是神经网络精髓之所在。
+
+
+#### 7. Reducing Overfitting
+
+##### 7.1 Data Augmentation
+
+输入是$$256 \times 256 \times 3$$大小的图片，而文章会随机裁剪$$224 \times 224 \times 3$$大小的部分作为输入，引入了随机性，增强了模型的generalization的能力。
+
+还对RGB通道做了PCA的操作。
+
+##### 7.2 Dropout
+
+将很多个模型融合在一起找到效果最好的那个，这个方法是很常见的。但是对于deep neural networks来说，本来训练就很贵了，这么做是不现实的。这篇文章用了dropout的操作，也就是说随机的将模型里某些输出直接设置为0。这个操作可以使得我们每次都会得到不一样的模型，但这些模型的权重实际上是共享的，从而最后等价于很多个模型做融合。
+
+>但后来的工作表明dropout实际上并不是在做模型融合，更像是正则项。之后的工作里说明dropout实际上等价于一个L2的正则项。
+
+#### 8. Details of Training
+
+介绍了用SGD方法来训练模型。使用了weight decay，也使用了momentum。
+
+还介绍了一下模型参数的初始化操作。
+
+最后介绍了一下learning rate的设置方法。
+
+#### 9. Results
+
+介绍了在ImageNet上的classification任务和其他方法的对比，有ILSVRC-2010和ILSVRC-2012两个比赛。
+
+##### 9.1 Qualitative Evaluations
+
+我们从fig 3可以看到，模型的效果很不错。而从fig 3的右侧发现，feature向量相近的那些输入图片，内容确实是相近的，这其实是模型之所以效果好的很重要的点，这说明模型确实学习到了有效的语义信息，对于语义信息相似的图像，能生成距离相近的feature向量，从而在feature空间中能够很容易的分类。
+
+![test]({{ '/assets/images/ALEXNET-2.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 3. 左图显示了在Iamgenet数据集里找的一些图片，以及它们通过模型输出的top-5的预测结果。而右图的第一列是随机选取的图片，对于每一行来说，第一列的图片输入模型后可以得到最后的4096长的feature向量，而我们寻找到那些图片，其feature向量与此向量的距离最近。*
+
+>神经网络的可解释性一直是一个研究热点，而此处也提及到了一部分。
+
+
+#### 10. conclusion
+>这篇文章是没有结论的，只有discussion。指明了未来可能还需要做些什么事情。但一篇文章的结论conclusion通常来说是和abstract的对应，所以说没有conclusion是很少见的，也是不推荐的。
+
+我们这篇文章的结果表明深的、大的CNN对于很难的任务是效果很好的。如果我们的模型去掉一层，那么结果会变差，这说明深度也是有必要的。
+
+>其实这里论证不太严谨，因为去掉一层结果会变差也可能是其它的参数没设置好，实际上去掉一层，再改改参数，还是能达到一样的效果的。但是歪打正着，这个结论是正确的，深度确实是很必要的。
+
+我们这篇文章所使用的方法还没有用到任何的unsupervised pre-training的方法，并没有预先transform数据，而且我们所解决的是一个supervised learning的问题。
+
+>实际上机器学习在长时间的范围内研究的都是unsupervised learning，Hinton还有LeCun等人一直都认为unsupervised learning才是主流方向。但这篇文章的出现，使得supervised learning火了起来，一直到最近Bert还有GAN的出现，才让unsupervised learning重新回到人们关注的视野里。实际上在这篇文章之前，neural network一直做的是unsupervised learning的工作，之所以不做supervised learning是因为比不过SVM，所以只能做一些SVM做不了的工作。但这篇文章的出现说明深的、大的neural network可以在supervised learning打赢其它方法了，所以引起了轰动和热潮。
+
 
 
 ### 2. [VGGNet: Very Deep Convolutional Networks for Large-Scale Image Recognition](https://arxiv.org/pdf/1409.1556.pdf)
