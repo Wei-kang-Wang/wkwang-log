@@ -6,7 +6,7 @@ date: 2021-11-29 01:09:00
 tags: paper-reading
 ---
 
-> This post is a summary of convolutional neural networks and multi-layer perceptrons.
+> This post is a summary of general machine learning models.
 
 
 <!--more-->
@@ -400,6 +400,8 @@ fig 4显示了18层和34层的plain network和residual network在training error�
 #### 8. Conclusion
 
 这篇文章是没有结论的。因为文章内所要说的结果太多了，超出了会议规定的文章最大页数。这种写法是不建议的，最好还是要有conclusion，使得文章具有完整性。
+
+
 
 
 
