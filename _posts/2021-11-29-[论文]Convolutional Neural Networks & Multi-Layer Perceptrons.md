@@ -340,6 +340,22 @@ fig 4显示了18层和34层的plain network和residual network在training error�
 ##### 7.3 Object Detection on PASCAL and MS COCO
 
 
+>为什么ResNet训练的效果很好？实际上可能是因为它解决了梯度消失的问题。对于plain network来说：
+
+>$$ \frac{df(g(x))}{dx} = \frac{df(g(x))}{dg(x)} \frac{dg(x)}{dx} $$
+
+>梯度都是很小的，所以说这两个乘积项本身都很小，乘在一起就更小了。而网络很深的时候，误差反向传播到很前面的网络的时候，就容易发生梯度消失的问题。
+
+>对于residual network来说，情况就不一样了：
+
+>$$ \frac{df(g(x)) + g(x)}{dx} = \frac{df(g(x))}{dg(x)} \frac{dg(x)}{dx} + \frac{dg(x)}{dx} $$
+
+>两项梯度相加，就很有可能使得梯度不是那么小了，从而就可以训练的动了。
+
+
+
+
+
 
 
 
