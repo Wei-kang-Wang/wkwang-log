@@ -30,9 +30,11 @@ AlexNet是深度学习浪潮的奠基作之一。
 这篇文章里的模型赢得了ILSVRC 2012年的classification任务的冠军。
 
 **1. title**
+
 标题很简洁明了，用什么方法、模型（deep convolutional neural network）解决了什么问题（ImageNet classification）。
 
 **2. authors**
+
 Hinton大佬的文章，那肯定是值得看的。
 
 **3. abstract**
@@ -46,6 +48,7 @@ Hinton大佬的文章，那肯定是值得看的。
 >这个摘要主要就说了我们用了什么方法做了什么事情，介绍了一下方法、模型具体的设计细节，之后就说了在实验上比其他方法远远要好。其实不太像是摘要，反而像是技术报告（technic report）的写作方式。但毕竟是大佬的文章，结果就是要比其他方法好的非常多。
 
 **4. Introduction**
+
 >一篇文章的第一段一般都是在讲一个故事，我们在做一个什么问题，这个问题为什么重要等。
 
 我们要做object detection这个问题。为了提升它的性能，我们需要收集更大的数据集，学习更好的模型，以及使用技术来使得模型不要过拟合。
@@ -67,6 +70,7 @@ Hinton大佬的文章，那肯定是值得看的。
 最后介绍了一下用了GTX 580 GPU来训练。
 
 **5. Dataset**
+
 >因为这篇文章是在ImageNet这个数据集上解决其classification的任务，所以得介绍一下这个数据集。
 
 数据集介绍的部分就不说了，主要介绍了数据集的内容，以及ILSVRC这个竞赛的内容。
@@ -78,6 +82,7 @@ Hinton大佬的文章，那肯定是值得看的。
 **6. Architecture**
 
 **6.1 ReLU nonlinearity**
+
 运用到神经网络里，饱和的那些非线性函数$$tanh(x)$$、$$sigmoid(x)$$等实际上要比非饱和的那些非线性函数比如说$$ReLU(x)$$使得训练慢很多。从fig 1就能看出，虚线是使用tanh的，实
 是使用ReLU的，横轴是epoch数，纵轴是training error，可以看出来效果差别挺大。
   
@@ -87,17 +92,21 @@ Hinton大佬的文章，那肯定是值得看的。
 每种情况下，都选择使该种情况下训练最快的值。我们可以看到，ReLU使得训练快了很多。*
 
 **6.2 Training on Multiple GPUs**
+
 介绍的如何用多个GPU训练的，主要都是技术、工程上的细节。和ML、CV关系不大。
 
 **6.3 Local Response Normalization**
+
 实际上这个东西也不重要，后续也没有什么人用。
   
 >提到了一点，ReLU不是饱和型的非线性函数，所以在输入ReLU之前实际上并不需要对输入做什么操作（比如说将输入集中到非饱和区域等）。
 
 **6.4 Overlapping Pooling**
+
 将传统的不overlap的pooling改成了overlap的pooling，会使得效果好很多。
 
 **6.5 Overall Architecture**
+
 用了五个卷积层，三个全连接层，再加上一个1000-way的softmax，如fig 2所示：
 ![Model Structure]({{ '/assets/images/ALEXNET-2.PNG' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
@@ -111,14 +120,17 @@ Hinton大佬的文章，那肯定是值得看的。
 **7. Reducing Overfitting**
 
 **7.1 Data Augmentation**
+
 输入是$$256 \times 256 \times 3$$大小的图片，而文章会随机裁剪$$224 \times 224 \times 3$$大小的部分作为输入，引入了随机性，增强了模型的generalization的能力。还对RGB通道做了PCA的操作。
 
 **7.2 Dropout**
+
 将很多个模型融合在一起找到效果最好的那个，这个方法是很常见的。但是对于deep neural networks来说，本来训练就很贵了，这么做是不现实的。这篇文章用了dropout的操作，也就是说随机的将模型里某些输出直接设置为0。这个操作可以使得我们每次都会得到不一样的模型，但这些模型的权重实际上是共享的，从而最后等价于很多个模型做融合。
   
 >但后来的工作表明dropout实际上并不是在做模型融合，更像是正则项。之后的工作里说明dropout实际上等价于一个L2的正则项。
 
 **8. Details of Training**
+
 介绍了用SGD方法来训练模型。使用了weight decay，也使用了momentum。
 
 还介绍了一下模型参数的初始化操作。
@@ -130,6 +142,7 @@ Hinton大佬的文章，那肯定是值得看的。
 介绍了在ImageNet上的classification任务和其他方法的对比，有ILSVRC-2010和ILSVRC-2012两个比赛。
 
 **9.1 Qualitative Evaluations**
+
 我们从fig 3可以看到，模型的效果很不错。而从fig 3的右侧发现，feature向量相近的那些输入图片，内容确实是相近的，这其实是模型之所以效果好的很重要的点，这说明模型确实学习到了有效的语义信息，对于语义信息相似的图像，能生成距离相近的feature向量，从而在feature空间中能够很容易的分类。
 ![test]({{ '/assets/images/ALEXNET-2.PNG' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
@@ -137,8 +150,8 @@ Hinton大佬的文章，那肯定是值得看的。
   
 >神经网络的可解释性一直是一个研究热点，而此处也提及到了一部分。
 
-
 **10. conclusion**
+
 >这篇文章是没有结论的，只有discussion。指明了未来可能还需要做些什么事情。但一篇文章的结论conclusion通常来说是和abstract的对应，所以说没有conclusion是很少见的，也是不推荐的。
 
 我们这篇文章的结果表明深的、大的CNN对于很难的任务是效果很好的。如果我们的模型去掉一层，那么结果会变差，这说明深度也是有必要的。
@@ -157,15 +170,19 @@ Hinton大佬的文章，那肯定是值得看的。
 *ICLR 2015*
 
 **1. Title**
+
 和AlexNet、ResNet的标题一样的风格，都是直接说明什么模型（方法）解决什么问题。
 
 **2. Authors**
+
 Andrew Zisserman是Oxford VGG实验室的leader，很强的组。
 
 **3. Abstract**
+
 这篇工作我们探究了CNN的深度对于大规模image recognition任务精度的影响。我们的主要贡献是十分详尽的研究了网络深度的作用，而我们的网络使用的是很小的convolutional filters（$$3 \times 3$$），我们的结果显示深度到16-19层的时候，任务的精度能有很大的提升。这些结果是我们参加ImageNet Challenge 2014的模型的基础，我们的模型赢得了localisation的第一名，以及classification的第二名。我们同时也说明我们的方法对于其它的数据集仍然有很好的效果。我们将两个效果最好的CNN模型公布了，希望能够帮助之后在CVi领域使用深度视觉特征的研究。
 
 **4. Introduction**
+
 CNN最近在大规模的image和video recognition任务中获得了巨大的胜利，也是因为大规模的公开的数据集比如说ImageNet，以及高性能的计算资源比如说GPU，才使得这种成功成为可能。在ILSVRC-2014中，deep visual recognition architecture已经展露了头角，在前几年的比赛里，ILSVRC-2011的冠军使用的是high-dimensional shallow feature encodings，ILSVRC-2012年的冠军使用的是deep CNN（也就是AlexNet）。
 
 随着CNN在CV领域逐渐变得常见，有很多人尝试改进AlexNet以获得更高的精度。比如说，ILSVRC-2013年的冠军就是将AlexNet改进为第一层使用更小的convolutional filter以及更小的stride。另一条改进AlexNet效果的路则是利用不同scale的输入image来训练。在我们这篇文章里，我们解决CNN结构的另一个重要的问题：深度。为了达到这个目的，我们将架构的其它参数固定，然后通过增加更多的convolutional layer来使得网络加深，这在训练上和计算上都是可行的，因为我们使用了$$ 3 \times 3$$的filters（$$ 3 \times 3$$的filters配合padding和stide=1可以使得输出的feature map和输入的feature map长宽不变，从而可以无限的加深下去）。
@@ -176,10 +193,12 @@ CNN最近在大规模的image和video recognition任务中获得了巨大的胜�
 
 
 **5. ConvNet Configurations**
+
 为了在一个公平的设定下研究增加CNN的深度带来的影响，我们所有的CNN层都使用同一个结构。在这一个section里，我们先描述我们的CNN模型的整体结构，然后再描述一些细节的设置。我们的设计细节最后再和之前的工作进行对比。
 
 
 **5.1 Architecture**
+
 在我们的训练过程中，我们的CNN输入是一个固定大小的$$224 \times 224$$的RGB image。我们做的唯一的pre=processing就是在训练集里，将所有的图片都减去它们的平均值（element
 -wise）。这个image之后通过一系列的convolutional layer，在这些convolutional layer里，我们都使用的是$$3 \times 3$$的filters（这是能够获取一个pixel的上下左右信息的最小
 filter size）。stride一直设定为1，而padding的设置使得每层convolutional layer的输入和输出的长宽是一样的，也就是说对于$$3 \times 3$$的filter，padding是1。而max-pooling在
@@ -190,6 +209,7 @@ filter size）。stride一直设定为1，而padding的设置使得每层convolu
 对于所有的隐藏层，我们都用ReLU作为activation function。我们所有网络都没有用到local response normalisation（LRN）的技术。
 
 **5.2 Configurations**
+
 我们这篇文章里所使用的CNN的结构配置总结在Table1里，每列表示一个网络。再之后我们就使用A-E来表示这些网络。所有的网络设计都按照5.1里描述的那样，它们仅仅在深度上有区别：从11层（8层CNN，3层fc）到19层（16层CNN，3层fc）。convolutional layer的宽度也不大（也就是每个convolutional layer输出的channel数），从64开始，每次遇到max-pooling之后就增加一倍，直到到达512为止。
 ![TABLE1]({{ '/assets/images/VGG-1.PNG' | relative_url }})
 {: style="width: 600px; max-width: 100%;"}
@@ -201,6 +221,7 @@ Table2总结了每个网络的参数的数量。尽管我们的网络深度很�
 *Table 2*
 
 **5.3 Discussion**
+
 我们的CNN结构和在ILSVRC-2012和ILSVRC-2013竞赛里表现最好的那些模型都很不一样。他们的网络的第一层用stride=4的$$11 \times 11$$的filter，或者用stride=2的$$7 \times 7$$的filter，然而我们这篇文章里用的是很小的stride=1的$$3 \times 3$$的filter。很容易看出来，两个$$3 \times 3$$的filter堆叠起来，就等价于一个$$5 \times 5$$的filter。三个$$3 \times 3$$的filter堆叠起来，就等价于一个$$7 \times 7$$的filter的感受野。所以说，我们通过堆叠三层$$3 \times 3$$的filter而不是一层$$7 \times 7$$的filter，得到了什么？首先，我们的层与层之间还有非线性层，而$$7 \times 7$$的只有一个非线性层，这能使得我们的决策函数更加复杂。其次，我们减少了参数的数量：假设我们的$$3 \times 3$$的层的输入和输出的channel都是$$C$$，从而对于一共是27$$C^2$$个参数；而同时，一个$$7 \times 7$$的filter的参数是49$$C^2$$。
 
 注意到我们还使用了$$1 \times 1$$大小的convolutional layer，这样的层可以在不影响其他层卷积感受野的情况下，增加模型的非线性程度，也可以改变通道数，因为这个层之后也是有activation function的。
@@ -217,12 +238,15 @@ Table2总结了每个网络的参数的数量。尽管我们的网络深度很�
 **AlexNet(2012) $$\rightarrow$$ ResNet(2016)**
 
 **1. title**
+
 deep residual learning是文章提出的方法，而image recognition则是要解决的问题，同样也是简洁明了的标题。
 
 **2. Authors**
+
 四个人都是大佬，这是在微软研究院所做的工作。
 
 **3. Abstract**
+
 训练深的神经网络非常不容易。我们使用深的残差网络使得训练比之前容易很多。我们将结构设计为，让每一层去学习相对于这一层输入的残差（因为结构设计为$$output = x + f(x)$$，从而$$f(x) = output - x$$即是残差）。我们通过大量的实验来证明我们提出的residual networks很容易训练，对于增加的深度来说也是一样。在ImageNet数据集上我们使用了152层深度的网络，比VGG深了8倍。最后我们在ILSVRC 2015的竞赛里达到了3.57%的test error而获得了冠军。我们还在CIFAR-10数据集上演示了如何训练100和1000层的网络。
 
 对于很多视觉的任务来说，深度是很重要的。我们仅仅是将分类器用到的feature换成deep residual network所学习到的feature，就使得COCO object detection的准确率提升了很多。我们还赢得了ImageNet detectino， ImageNet localization，COCO detection和COCO segmentation比赛的冠军。
@@ -270,19 +294,23 @@ COCO detection, and COCO segmentation in ILSVRC & COCO 2015比赛均获得了第
 >introductino是abstract的扩充，也是对文章整个过程的一个描述。这篇文章的introduction写的很标准。读者看完之后就能了解文章最核心的内容是什么。
 
 **5. Related Work**
+
 **5.1 Residual Representations**
+
 **5.2 Shortcut Connections**
 
 
 **6. Deep Residual Learning**
 
 **6.1 Residual Learning**
+
 假设$$H(x)$$是我们想要通过几层堆叠的layers要拟合的mapping，$$x$$是这些堆叠的layers的输入。如果假设多层的layers的堆叠能够拟合任意复杂的mapping，那么它也可以拟合residual mapping，也就是$$H(x)-x$$（假设输入和输出的维度是一样的）。所以说，我们不让堆叠的layers去拟合$$H(x)$$，而是显式的让它们去拟合residual mapping，$$F(x)=H(x)-x$$。从而我们所想要拟合的原mapping就可以表示为$$H(x)=F(x)+x$$。虽然说堆叠的layers都有能力去学习$$H(x)$$和$$F(x)$$，但是对于neural networks来说，学习的难易程度是不一样的。
 
 上述的过程是由我们在introduction里的内容而启发的。如果我们所添加的layers在学习之后就是identity mapping，那么添加了这些layers至少不应该使得training error变大。但实际上，很深的neural networks的效果是会变差的，也就是说training error是会变大的。发生这种现象表明想要深的网络训练好，是很困难的。而使用residual的结构，则会使得训练简单很多。
 
 
 **6.2 Identity Mapping by Shortcuts**
+
 我们每过几层就采用residual learning的结构。而每个residual block就如fig 2所示。公式化来说，我们的residual block是这样的：
   
 $$y = F(x, \{W_i\}) + x$$
@@ -301,12 +329,15 @@ residual mapping $$F$$的设计是多样的。我们这篇文章里$$F$$的设�
 
 
 **6.3 Network Architectures**
+
 我们测试了多种不同的plain/residual neural networks，对于我们的结论并没有什么不一样。用于ImageNet的plain和residual network结构分别如下：
 
 **Plain Network**
+
 我们的plain network的结构如fig 3中间那幅图所示。
 
 **Residual Network**
+
 我们在plain network的基础上加入shortcut connections，从而将网络改成了residual neural networks。对于输入和输出维度相同的residual blocks，shortcut connections就直接是elementwise addition。而对于不同的情况，比如说fig 3里的虚线，可以用zero padding的方法，也可以用$$ 1 \times 1$$的convolution来使得feature map的通道数相符。
 
 ![network]({{ '/assets/images/RESNET-3.PNG' | relative_url }})
@@ -314,6 +345,7 @@ residual mapping $$F$$的设计是多样的。我们这篇文章里$$F$$的设�
 *Fig 3. ImageNet的示例结构。左侧：VGG-19模型。中间：34层的plain network。右边：34层的residual network。*
 
 **6.4 Implementation**
+
 输入的图片的短边随机从256到480的范围内采样，长边则是按比例计算。之后再从已经scale的图片里随机裁剪$$224 \times 224$$大小的图片，之后再随机的选择是否需要水平翻转。再之后将图片的平均值减去（elementwise）。而且在每个convolution之后，activation之前还采用了batch normalization。使用SGD进行优化，batch_size选取为256。learning rate从0.1开始并且在error到达平台期后手动减小至1/10。使用了weight decay-0.0001和momentum=0.9。并没有使用dropout。
   
 >dropout常见于MLP或者fully connected layer里，convolution layer一般不用。
@@ -326,6 +358,7 @@ residual mapping $$F$$的设计是多样的。我们这篇文章里$$F$$的设�
 **7 Experiments**
 
 **7.1 ImageNet Classification**
+
 我们在ImageNet 2012 classification dataset上验证我们的方法，这个数据集有1000个类。模型在128万张图片上进行训练，并在50000张图片上进行验证。最后在100000张测试图片上测试最后的结果并报告。我们验证了top-1和top-5的error rate。
  * Plain networks
  对于plain networks，我们验证了18层和34层的效果。34层的plain network在fig 3中间进行了描述。而18层的plain network是相似的。从Table 1能看到模型的细节。
@@ -470,9 +503,11 @@ They also mention that we need to note the differences between CV and NLP tasks.
 *NIPS 2014*
 
 **1. Abstract**
+
 1. The abstract of this paper is very standard and unique. This abstract generally introduces the main concept of this paper, i.e., GAN, rather than introducing the problem and existing methods. This abstract is kind of like the Wikipedia introduction of some concept. If you are very confident that your paper is very novel and proposes a very useful idea, model or concept that can be recorded in this area, you can use this kind of writing style of abstract. This is very clear to the community, but not very clear to the people that do not know any about this area.
 
 **2. Introduction**
+
 2. This paper thinks that besides deep learning architectures, deep learning will learn the representations of data probability distributions over all kinds of data, including natural images, audio waveforms containing speech, symbols in natural language processing, etc. This idea is always held by Yoshua Bengio and his group.
 
 3. Discriminative models in deep learning have already invovled into various kinds and solved many kinds of problems. But generative models, instead, still have lots of part remained mysterious. This due to the fact that in order to learn data distributions underlying generative models, you need many approximation methods to approximate the distribution in order to make calculation work. But this process will make the distribution unaccurate and even not working. So in this paper, they do not try to approximate the distributions, they use deep learning models to do this job.
@@ -490,6 +525,7 @@ They also mention that we need to note the differences between CV and NLP tasks.
 
 
 **4. Adversarial nets**
+
 1. Generator wants to learn the distribution of the input training data $$x$$, $$p_g$$. We give an example of GAN. Suppose there is a video game and it can generate images of the game, and now we want to learn a generator to generate the images of the game. Suppose that our display resolution is 4K, then each time we need to generate an image vector of length 4k. Each pixel could be considered as a random variable, thus this vector can be considered as a multi-dimensional ramdon variable of length 4k. We know that this vector is controled by the underlying game code, and this code is actually the underlying $$p_g$$ for this vector. Now how to let the generator to generate data? We define a prior on the input noise variable $$p_z(z)$$, this $$z$$ could be a 100 dimensional Guassion distribution with mean 0 and variable matrix I. The generator aims to map $$z$$ onto $$x$$, the generator model can be formed as $$G(z, \theta_g)$$. Return to our game example. In order to generate game images, one way is that we can conversly compile the game code, and know the underlying game code. In this way, we can acutally know how the game images are generated. This method can be considered similar to the methods described in the related work that aim to construct the underlying distribution. Another way is that we neglect the underlying code, we guess that this game is not very complicated, thus maybe there are only 100 variables underlying are used to control the generation of images. Thus we contructed a known distribution of dimension 100 $$z$$, and due to the fact that MLP is able to approximate any functions, we let this MLP to map the input $$z$$ into the image space $$x$$. 
 
 2. The discriminator $$D(x, \theta_d)$$ is also an MLP, and its output is a scalar value, for distinguishing between the true data and generated data. Thus actually $$D$$ is a two-label classifier. We know where our input data is from (true or generated), thus we can give them labels. 
@@ -523,6 +559,7 @@ i.e., the error probability (the training criterion of discriminator) of the dis
 
 
 **5. Experiments**
+
 The experiments in this paper is not good enough and quite simple.
 
 
