@@ -200,7 +200,7 @@ deep residual learning是文章提出的方法，而image recognition则是要�
 
 但虽然现在深的网络能够训练了，实际上网络的性能随着深度的增加而变差了，如fig 1所示。而这样一个现象并不是因为overfitting，这是因为此时训练误差也变大了（overfitting指的是训练误差小，而测试误差大）。
 
-![Hard to Train]({{ '/assets/images/ResNet-1.PNG' | relative_url }})
+![Hard to Train]({{ '/assets/images/RESNET-1.PNG' | relative_url }})
 {: style="width: 600px; max-width: 100%;"}
 *Fig 1. 左侧是20层和56层普通的网络在CIFAR-10数据集上的training error，而右侧是test error。可以看到，深的网络的training error和test error都更大。*
 
@@ -210,7 +210,142 @@ deep residual learning是文章提出的方法，而image recognition则是要�
 
 >这篇文章提出的方法就是显式的构造一个结构，使得浅的网络的深的改造不会比浅层网络更差。
 
-在这篇文章里，我们通过介绍deep residual learning framework来解决这个问题。
+在这篇文章里，我们通过介绍deep residual learning framework来解决这个问题。我们并不是让堆叠的layers构成的网络来学习一个要学的mapping，而是显式的构造结构从而让每层学习residual mapping。对于我们要添加的层来说，输入为$$x$$，而我们希望能够学习到的mapping是$$H(x)$$，我们并不直接让网络来学习$$H(x)$$，而且让他来学习$$F(x)=H(x)-x$$，从而这样的话，我们希望学习到的mapping $$H(x)=F(x)+x$$。我们假设优化redisual mapping要比优化初始的mapping要容易。在最极端的情况，如果浅层网络就已经足够了，那实际上所添加的网络就是identity mapping，那这个时候residual mapping就是0。
+
+>这里就是residual learning的核心的思想。见fig 2。
+
+![Residual Block]({{ '/assets/images/RESNET-2.PNG' | relative_url }})
+{: style="width: 600px; max-width: 100%;"}
+*Fig 2. residual learning：一个模块.*
+
+在模型设计里实现上述的residual结构，即$$F(x)+x$$可以通过shortcut来实现，如fig 2所示。
+
+>但实际上shortcut的结构在很久以前就提出过了。
+
+shortcut的结构很简单的就实现了我们的residual learning的结构，而且其就是简单的identity mapping，所以不增加参数也不增加计算复杂度，而且也不影响反向传播算法的使用。
+
+我们在ImageNet上进行了实验证明了之前所说的过深的网络可能会造成的问题，并且也验证了我们提出的方法的有效性。1) 我们用了residual结构的很深的网络也能够很容易的被训练，而没有用residual结构的网络在网络加深的过程中训练error会增加。2) 我们的residual neural network可以享受由深度网络带来的性能上的提升，从而在ILSVRC比赛里打败了之前的那些网络。
+
+相同的现象在CIFAR-10这个数据集上也得到了验证，从而说明我们的方法并不是仅仅局限于ImageNet这一个数据集的。
+
+我们设计了一个152层的residual neural network在ILSVRC-2015的比赛里赢得了第一名。而且我们还将residual neural network用于ImageNet detection, ImageNet localization,
+COCO detection, and COCO segmentation in ILSVRC & COCO 2015比赛均获得了第一名。这些证据足以说明我们的residual neural network这个框架是十分有效的。
+
+
+>introductino是abstract的扩充，也是对文章整个过程的一个描述。这篇文章的introduction写的很标准。读者看完之后就能了解文章最核心的内容是什么。
+
+
+#### 5. Related Work
+
+##### 5.1 Residual Representations
+
+##### 5.2 Shortcut Connections
+
+
+#### 6. Deep Residual Learning
+
+##### 6.1 Residual Learning
+
+假设$$H(x)$$是我们想要通过几层堆叠的layers要拟合的mapping，$$x$$是这些堆叠的layers的输入。如果假设多层的layers的堆叠能够拟合任意复杂的mapping，那么它也可以拟合residual mapping，也就是$$H(x)-x$$（假设输入和输出的维度是一样的）。所以说，我们不让堆叠的layers去拟合$$H(x)$$，而是显式的让它们去拟合residual mapping，$$F(x)=H(x)-x$$。从而我们所想要拟合的原mapping就可以表示为$$H(x)=F(x)+x$$。虽然说堆叠的layers都有能力去学习$$H(x)$$和$$F(x)$$，但是对于neural networks来说，学习的难易程度是不一样的。
+
+上述的过程是由我们在introduction里的内容而启发的。如果我们所添加的layers在学习之后就是identity mapping，那么添加了这些layers至少不应该使得training error变大。但实际上，很深的neural networks的效果是会变差的，也就是说training error是会变大的。发生这种现象表明想要深的网络训练好，是很困难的。而使用residual的结构，则会使得训练简单很多。
+
+
+##### 6.2 Identity Mapping by Shortcuts
+
+我们每过几层就采用residual learning的结构。而每个residual block就如fig 2所示。公式化来说，我们的residual block是这样的：
+
+$$y = F(x, \{W_i\}) + x$$
+
+$$x,y$$分别是这个block的输入和输出，而$$F$$代表residual mapping，$$W_i$$是参数。
+
+上述公式里的shortcut既没有增加新的参数，也没有增加计算复杂度。这不仅在实践中会高效很多，也使得我们在实验中进行对比的时候，能控制其他变量不变，只是将shortcut的部分去掉，从而对比很公平。
+
+在上述公式里我们可以看到，最后的结果$$y$$是residual mapping $$F$$和$$x$$的element-wise的addition，从而$$x$$和$$F$$的维度得是一样的。如果它们的维度不一样，比如说input和output的channels发生了变化，我们就引入linear projection $$W_s$$来解决问题：
+
+$$y = F(x, \{W_i\}) + W_sx$$
+
+residual mapping $$F$$的设计是多样的。我们这篇文章里$$F$$的设计用了2层或者3层 layers，而更多的层也是可以的。但是如果只有一层，那么其实residual block就变成了linear layer：$$y = Wx + x$$，这样是不行的。
+
+而且上述的这些论述不仅仅是对于layers是MLP时候，layers是CNN的时候，同样也是适用的。
+
+
+##### 6.3 Network Architectures
+
+我们测试了多种不同的plain/residual neural networks，对于我们的结论并没有什么不一样。用于ImageNet的plain和residual network结构分别如下：
+
+* Plain Network
+我们的plain network的结构如fig 3中间那幅图所示。
+
+* Residual Network
+我们在plain network的基础上加入shortcut connections，从而将网络改成了residual neural networks。对于输入和输出维度相同的residual blocks，shortcut connections就直接是elementwise addition。而对于不同的情况，比如说fig 3里的虚线，可以用zero padding的方法，也可以用$$ 1 \times 1$$的convolution来使得feature map的通道数相符。
+
+![network]({{ '/assets/images/RESNET-3.PNG' | relative_url }})
+{: style="width: 600px; max-width: 100%;"}
+*Fig 3. ImageNet的示例结构。左侧：VGG-19模型。中间：34层的plain network。右边：34层的residual network。*
+
+##### 6.4 Implementation
+
+输入的图片的短边随机从256到480的范围内采样，长边则是按比例计算。之后再从已经scale的图片里随机裁剪$$224 \times 224$$大小的图片，之后再随机的选择是否需要水平翻转。再之后将图片的平均值减去（elementwise）。而且在每个convolution之后，activation之前还采用了batch normalization。使用SGD进行优化，batch_size选取为256。learning rate从0.1开始并且在error到达平台期后手动减小至1/10。使用了weight decay-0.0001和momentum=0.9。并没有使用dropout。
+
+>dropout常见于MLP或者fully connected layer里，convolution layer一般不用。
+
+在测试的时候，我们从测试图片里随即裁剪10张进行测试。而且还对scale不同的image进行了测试再将结果取平均。
+
+>这些都是刷榜的技巧，使得结果更好。
+
+
+#### 7 Experiments
+
+#### 7.1 ImageNet Classification
+
+我们在ImageNet 2012 classification dataset上验证我们的方法，这个数据集有1000个类。模型在128万张图片上进行训练，并在50000张图片上进行验证。最后在100000张测试图片上测试最后的结果并报告。我们验证了top-1和top-5的error rate。
+
+* Plain networks
+对于plain networks，我们验证了18层和34层的效果。34层的plain network在fig 3中间进行了描述。而18层的plain network是相似的。从Table 1能看到模型的细节。
+
+![table]({{ '/assets/images/RESNET-4.PNG' | relative_url }})
+{: style="width: 600px; max-width: 100%;"}
+*Table 1. ImageNet上所使用的plain networks的结构。conv3_1，conv4_1，conv5_1通过stride=2实施了降采样。*
+
+fig 4显示了18层和34层的plain network和residual network在training error和validation error上的区别。我们再一次发现，34层的plain network还不如18层的好，这说明34层的plain network欠拟合。
+
+![plain]({{ '/assets/images/RESNET-5.PNG' | relative_url }})
+{: style="width: 600px; max-width: 100%;"}
+*Fig 4. 左边：plain network。右边：residual network。*
+
+我们认为上述的这种plain network欠拟合的问题，并不是因为梯度消失导致的。因为我们的网络里都加入了batch normalization。我们猜测可能是因为深的neural networks有着指数降低的收敛率，从而使得training error的降低很困难。但这个问题的原因还需要未来的工作来解决。
+
+* Residual Networks
+从fig 4我们可以看到residual结构很好地解决了深度neural network欠拟合的问题，因为对于34层的ResNet，其training error和validation error都要比18层的ResNet低，说明他确实学习到了更优越的性能并做到了generalization。
+
+* Identity vs. Projection Shortcuts
+有不同的shortcut的方法。(1) 只用zero-padding的方法来对于维度不同的情况处理 (2) 只使用projection，也就是$$1 \times 1$$的convolution来对维度不同的情况处理 (3) 只使用projection来处理，但对于维度相同的情况仍然也加上。
+
+>注意，在输入和输出维度不同的residual block里，虽然使用projection能够使得通道数很容易的匹配，但是实际上输出的高宽也是输入的一半，所以可以使用stride=2的$$1 \times 1$$的convolution来实现。
+
+
+* Deeper Bottleneck Architectures
+我们对于更加深的网络，比如说ResNet-50，101，152都采用了一种bottleneck的设计，这样可以减少计算复杂度，使得训练更快一些。我们可以在fig 5看到设计的结构。对于高通道数的输入，先用$$1 \times 1$$的convolution将通道数降低，再做普通的convolution，最后再用$$1 \times 1$$的convolution将通道数升回去。
+
+
+![bottleneck]({{ '/assets/images/RESNET-6.PNG' | relative_url }})
+{: style="width: 600px; max-width: 100%;"}
+*Fig 5. 左边：普通的residual block。右边：加了bottleneck结构的residual block。*
+
+
+##### 7.2 CIFAR-10 and Analysis
+
+
+##### 7.3 Object Detection on PASCAL and MS COCO
+
+
+
+
+
+
+
+
 
 
 
@@ -222,32 +357,12 @@ deep residual learning是文章提出的方法，而image recognition则是要�
 这篇文章是没有结论的。因为文章内所要说的结果太多了，超出了会议规定的文章最大页数。这种写法是不建议的，最好还是要有conclusion，使得文章具有完整性。
 
 
-
-The biggest contribution of this paper is to offer a model strucuture that makes the training of very deep neural networks possible. The model in this paper won the ILSVRC 2015 competition classification task.
-
-For naive convolutional neural networks, using very deep architecture will not cause over-fitting easily, but cause under-fitting, i.e., the model is very hard to train. Because not only the testing error of deep models are higher, the training error is also higher. The phenomenon is shown in the below figures. 
-
-
-![Hard to Train]({{ '/assets/images/ResNet-1.PNG' | relative_url }})
-{: style="width: 600px; max-width: 100%;"}
-*Fig 1. Training error (left) and test error (right) on CIFAR-10 with 20-layer and 56-layer “plain” networks. The deeper network has higher training error, and thus test error. Similar phenomena shows on ImageNet.*
-
 ![Main result]({{ '/assets/images/ResNet-2.PNG' | relative_url }})
 {: style="width: 600px; max-width: 100%;"}
 *Fig 2. Training on ImageNet. Thin curves denote training error, and bold curves denote validation error of the center crops. Left: plain networks of 18 and 34 layers. Right: ResNets of 18 and 34 layers. In this plot, the residual networks have no extra parameter compared to their plain counterparts.*
 
-When the network becomes deep, the problem of gradients vanishing/exploring will be remarkable. Former methods to alleviate this problem include setting good initiation parameters, using batch normalization. These methods makes training deep networks become possible, but actually the performance becomes worse. In principle, this should not be the case. Because if we have a shallow network, and then we add several more layers to create its deep counterpart. The deep network should be at least good as the shalow one, because it can let the added layers be just identity mapping. But these kind of parameters are very hard for deep networks to learn, thus the above phenomenon exists.
 
-In this paper, having the above ideas in mind, the authors create a model that explictly having structures to represent this **identity mapping**. In this paper, they use a shortcut directly add $$x$$ from the input to the output of two layers. If the groundtruth is $$H(x)$$, they actually want the two layers to learn the "residual", i.e., $$f(x)=H(x)-x$$, where $$H(x)$$ is the desired output and $$x$$ is the input, with respect to this two layer structure. The shorcut here resemble the identity mapping.
-zero-padding or $$1 \times 1$$ convolution are used to solve the problem that $$f(x)$$ and $$x$$ has different width $$&$$ length and channels.
 
-![Residual Block]({{ '/assets/images/ResNet-3.PNG' | relative_url }})
-{: style="width: 600px; max-width: 100%;"}
-*Fig 3. Residual learning: a building block.*
-
-Some implementation details are different from the AlexNet, for example, the shorter side of input image is firstly randomly scaled to a number in \[256,480] and then a $$224 \times 224$$ patch is sampled from the original input. There are no fully-connected layers except for the last softmax classifier, thus drop out is also not implemented.
-
-Another structure design in this paper is the bottleneck design. This design helps not increase parameter numbers too much while using very deep architectures (bigger than 50). Use the below figure as an example. The input has size $$width \times length \times 256$$. Firstly the input is compressed into $$width \times length \times 64$$ by using $$1 \times 1$$ convolution, then normal convolutional layers are deployed. In the end, $$1 \times 1$$ convolution is used again to raise the output channel to 256. This process will make the computation complexity of this structure be similar to the left one, but the model depth will be much deeper. Also, due to the existence of the shortcut connection, the information loss in this process only happens in the residual computation, and the information in the input is not influenced.
 
 ![Bottleneck]({{ '/assets/images/ResNet-4.PNG' | relative_url }})
 {: style="width: 600px; max-width: 100%;"}
