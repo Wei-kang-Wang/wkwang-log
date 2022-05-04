@@ -167,14 +167,59 @@ Hinton大佬的文章，那肯定是值得看的。
 
 *ICLR 2015*
 
+#### 1. Title
+和AlexNet、ResNet的标题一样的风格，都是直接说明什么模型（方法）解决什么问题。
 
-### 3. [GoogleNet: Going Deeper with Convolutions](https://arxiv.org/pdf/1409.4842.pdf)
-*Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir Anguelov, Dumitru Erhan, Vincent Vanhoucke, Andrew Rabinovich*
+#### 2. Authors
+Andrew Zisserman是Oxford VGG实验室的leader，很强的组。
 
-*CVPR 2015*
+#### 3. Abstract
+这篇工作我们探究了CNN的深度对于大规模image recognition任务精度的影响。我们的主要贡献是十分详尽的研究了网络深度的作用，而我们的网络使用的是很小的convolutional filters（$$3 \times 3$$），我们的结果显示深度到16-19层的时候，任务的精度能有很大的提升。这些结果是我们参加ImageNet Challenge 2014的模型的基础，我们的模型赢得了localisation的第一名，以及classification的第二名。我们同时也说明我们的方法对于其它的数据集仍然有很好的效果。我们将两个效果最好的CNN模型公布了，希望能够帮助之后在CVi领域使用深度视觉特征的研究。
+
+#### 4. Introduction
+CNN最近在大规模的image和video recognition任务中获得了巨大的胜利，也是因为大规模的公开的数据集比如说ImageNet，以及高性能的计算资源比如说GPU，才使得这种成功成为可能。在ILSVRC-2014中，deep visual recognition architecture已经展露了头角，在前几年的比赛里，ILSVRC-2011的冠军使用的是high-dimensional shallow feature encodings，ILSVRC-2012年的冠军使用的是deep CNN（也就是AlexNet）。
+
+随着CNN在CV领域逐渐变得常见，有很多人尝试改进AlexNet以获得更高的精度。比如说，ILSVRC-2013年的冠军就是将AlexNet改进为第一层使用更小的convolutional filter以及更小的stride。另一条改进AlexNet效果的路则是利用不同scale的输入image来训练。在我们这篇文章里，我们解决CNN结构的另一个重要的问题：深度。为了达到这个目的，我们将架构的其它参数固定，然后通过增加更多的convolutional layer来使得网络加深，这在训练上和计算上都是可行的，因为我们使用了$$ 3 \times 3$$的filters（$$ 3 \times 3$$的filters配合padding和stide=1可以使得输出的feature map和输入的feature map长宽不变，从而可以无限的加深下去）。
+
+结果是，我们获得了一个精度更高的CNN模型，不仅在ILSVRC classification和localisation任务上取得了sota的效果，还可以用在其它的image recognition数据集上，仍然可以获得很好的效果，即使是很简单的设计（比如说将deep features直接利用SVM分类，不需要任何的fine-tuning）。我们公开了两个效果最好的模型为了将来的研究。
+
+这篇文章剩下的部分结构如下。在section5里，我们描述了我们设计的CNN模型。image classification的训练和测试细节再section6里。我们的框架和其它人的模型的对比再section7里。section8总结整篇文章。
 
 
-### 4. [ResNet: Deep Residual Learning for Image Recognition](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
+#### 5. ConvNet Configurations
+为了在一个公平的设定下研究增加CNN的深度带来的影响，我们所有的CNN层都使用同一个结构。在这一个section里，我们先描述我们的CNN模型的整体结构，然后再描述一些细节的设置。我们的设计细节最后再和之前的工作进行对比。
+
+
+##### 5.1 Architecture
+在我们的训练过程中，我们的CNN输入是一个固定大小的$$224 \times 224$$的RGB image。我们做的唯一的pre=processing就是在训练集里，将所有的图片都减去它们的平均值（element-wise）。这个image之后通过一系列的convolutional layer，在这些convolutional layer里，我们都使用的是$$3 \times 3$$的filters（这是能够获取一个pixel的上下左右信息的最小的filter size）。stride一直设定为1，而padding的设置使得每层convolutional layer的输入和输出的长宽是一样的，也就是说对于$$3 \times 3$$的filter，padding是1。而max-pooling在某些convolutional layer后会出现，整个CNN一共有五个max-pooling，都是使用的$$2 \times 2$$的大小，stride是2。
+
+在Convolutional layers之后，接了三个fully connected layers：前两个都是有4096个通道，而第三个是1000个通道，因为ILSVRC的分类是1000类，所以用这个作为输出，正好每个通道表示每个类。最后一层是一个soft-max layer，将第三个fully connected layer的输出转换为表示为每个类的概率。
+
+对于所有的隐藏层，我们都用ReLU作为activation function。我们所有网络都没有用到local response normalisation（LRN）的技术。
+
+##### 5.2 Configurations
+我们这篇文章里所使用的CNN的结构配置总结在Table1里，每列表示一个网络。再之后我们就使用A-E来表示这些网络。所有的网络设计都按照5.1里描述的那样，它们仅仅在深度上有区别：从11层（8层CNN，3层fc）到19层（16层CNN，3层fc）。convolutional layer的宽度也不大（也就是每个convolutional layer输出的channel数），从64开始，每次遇到max-pooling之后就增加一倍，直到到达512为止。
+
+![TABLE1]({{ '/assets/images/VGG-1.PNG' | relative_url }})
+{: style="width: 600px; max-width: 100%;"}
+*Table 1*
+
+Table2总结了每个网络的参数的数量。尽管我们的网络深度很大，但我们网络的参数的数量并不比那些有着更大convolutional filters的更浅的网络要多。
+
+![TABLE2]({{ '/assets/images/VGG-2.PNG' | relative_url }})
+{: style="width: 600px; max-width: 100%;"}
+*Table 2*
+
+##### 5.3 Discussion
+我们的CNN结构和在ILSVRC-2012和ILSVRC-2013竞赛里表现最好的那些模型都很不一样。他们的网络的第一层用stride=4的$$11 \times 11$$的filter，或者用stride=2的$$7 \times 7$$的filter，然而我们这篇文章里用的是很小的stride=1的$$3 \times 3$$的filter。很容易看出来，两个$$3 \times 3$$的filter堆叠起来，就等价于一个$$5 \times 5$$的filter。三个$$3 \times 3$$的filter堆叠起来，就等价于一个$$7 \times 7$$的filter的感受野。所以说，我们通过堆叠三层$$3 \times 3$$的filter而不是一层$$7 \times 7$$的filter，得到了什么？首先，我们的层与层之间还有非线性层，而$$7 \times 7$$的只有一个非线性层，这能使得我们的决策函数更加复杂。其次，我们减少了参数的数量：假设我们的$$3 \times 3$$的层的输入和输出的channel都是$$C$$，从而对于一共是27$$C^2$$个参数；而同时，一个$$7 \times 7$$的filter的参数是49$$C^2$$。
+
+注意到我们还使用了$$1 \times 1$$大小的convolutional layer，这样的层可以在不影响其他层卷积感受野的情况下，增加模型的非线性程度，也可以改变通道数，因为这个层之后也是有activation function的。
+
+之前也有人使用过小的convolutional filters，但是它们的网络并不深，而且没有在ILSVRC数据集上进行测试。Goodfellow关于识别街景图片里的数字的文章使用了深的CNN（11层）并且说明深的网络效果更好。GoogLeNet在我们这篇文章的同时也研究了小的convolutional filters和深的CNN。
+
+
+
+### 3. [ResNet: Deep Residual Learning for Image Recognition](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
 *Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun*
 
 *CVPR 2016*
@@ -352,43 +397,11 @@ fig 4显示了18层和34层的plain network和residual network在training error�
 
 >两项梯度相加，就很有可能使得梯度不是那么小了，从而就可以训练的动了。
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#### 7. Conclusion
+#### 8. Conclusion
 
 这篇文章是没有结论的。因为文章内所要说的结果太多了，超出了会议规定的文章最大页数。这种写法是不建议的，最好还是要有conclusion，使得文章具有完整性。
 
 
-![Main result]({{ '/assets/images/ResNet-2.PNG' | relative_url }})
-{: style="width: 600px; max-width: 100%;"}
-*Fig 2. Training on ImageNet. Thin curves denote training error, and bold curves denote validation error of the center crops. Left: plain networks of 18 and 34 layers. Right: ResNets of 18 and 34 layers. In this plot, the residual networks have no extra parameter compared to their plain counterparts.*
-
-
-
-
-![Bottleneck]({{ '/assets/images/ResNet-4.PNG' | relative_url }})
-{: style="width: 600px; max-width: 100%;"}
-*Fig 4. Left: normal residual block. Right: Bottleneck residual block.*
-
-Suppose $$g(x)$$ is a neural network. Adding more layers to this net will make the model function become $$f(g(x))$$. $$\frac{d f(g(x))}{d x} = \frac{d f(g(x))}{d g(x)} \frac{d g(x)}{d x}$$ is the gradients of the new model and $$\frac{d g(x)}{d x}$$ is the original one's. Gradients are always be quite small, thus the multplication will make the gradients of the new model be much smaller than the original one's, thus the training of deep model is very hard.
-
-But if we use the ResNet structure in this paper, then our new deep counterpart of $$g(x)$$ becomes $$f(g(x))+g(x)$$, and the gradient becomes $$\frac{d f(g(x))}{d g(x)} \frac{d g(x)}{d x} + \frac{d g(x)}{d x}$$, which is comparable to the original one's.
-
-The key idea is: **Always make the gradients be large enough, and then your model can be trained well!**
 
 
 ### MAE: [Masked Autoencoders Are Scalable Vision Learners](https://arxiv.org/pdf/2111.06377.pdf)
