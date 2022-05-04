@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: false
-title: "[翻译]Deep Learning with PyTorch"
+title: "[书]Deep Learning with PyTorch"
 date: 2021-11-29 01:09:00
 tags: book-reading
 ---
