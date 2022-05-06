@@ -415,7 +415,75 @@ residual mapping $$F$$的设计是多样的。我们这篇文章里$$F$$的设�
 
 ## Transformer-related architectures
 
-### 1. [Masked Autoencoders Are Scalable Vision Learners](https://arxiv.org/pdf/2111.06377.pdf)
+### 1. [Attention Is All You Need](https://proceedings.neurips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf)
+*Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin*
+
+*NIPS 2017*
+
+**1. Title**
+
+这个标题很有意思，开创了一个潮流，之后很多论文都用类似的标题。
+
+**2. Authors**
+
+这篇论文有8个作者，且对文章的贡献都是均等的，而且还有额外的解释说明了每个作者的贡献。这是很少见的，但是这是Google的论文，他们经常做这种骚操作。
+
+**3. Abstract**
+主流的序列转录模型（输入和输出都是序列，比如说机器翻译，输入是一种语言序列，输出是另一种语言序列）主要都是用复杂的recurrent或者convolutional的neural network，而且都是有encoder和decoder的结构。而且表现很好的那些模型，在encoder和decoder之间是有attention机制进行连接的。我们这篇文章提出了一个简单的架构，只用attention机制，而没有任何recurrent或者convolutional的结构，叫做Transformer。我们在两个机器翻译任务上测试了Transformer，发现它效果更好，而且并行度更好所以训练的时间也更短。我们的模型在WMT 2014 English-to-German的翻译任务上达到了28.4 BLEU。在WMT-2014 English-to-French的翻译任务上，通过8个GPU训练了3.5天达到了41.8的BLEU。
+
+
+>这篇文章一开始是针对机器翻译而写的，所以整篇文章、摘要都只提到了机器翻译的实验。之后因为Bert等文章使得Transformer这篇文章火了，才受到大量人的关注。但这篇文章一开始就是机器翻译领域的文章。
+
+**3. Introduction**
+RNN，包括LSTM，gated RNN等，在序列转录任务里包括Language modeling，machine translation等具有重要的地位，基于RNN的模型也在这些任务里获得了最好的结果。recurrent language models和encoder-decoder architecture是最主流的两个模型。
+
+RNN计算一个序列的时候，是从左往右挨个词来看。对于第t个词，会计算一个输出$$h_t$$，也叫做它的隐藏状态，而$$h_t$$是由前面一个词的隐藏状态$$h_{t-1}$$和当前的词来决定的。这样就可以将历史信息传递过去，这也就是RNN为什么能够处理时序信息的关键。这个时序的特征使得并行计算是不可行的，这对于很长的序列是很致命的。另一个缺点是时序信息是按串联的方法依次传递下去的，所以对于很早的历史信息就可能会丢失掉。解决这个问题的办法就是使用更大的$$h_t$$，但是这会导致计算量和内存量的需求变大。
+
+attention机制已经在很多任务的模型里被应用了，对于input和output序列来说，attention机制可以表示它们之间或者内部的依赖关系，而不需要顾及依赖关系双方的距离有多远。但attention机制一直是与RNN一起使用的。
+
+>在RNN里用的attention机制主要是将encoder的信息有效的传递给decoder。
+
+在这篇文章里，我们提出了Transformer，不再使用recurrence结构而是只使用attention机制来构建input和output之间的依赖关系。我们的Transformer可以进行并行计算，使得训练时间大大减短，而且效果更好。
+
+>这个introduction写的比较短，可以认为是abstract的扩充。这么写是因为后面的主题内容过多，而NIPS是一个篇幅较短的会议，所以只能压缩其他部分的内容。
+
+
+**4. Background**
+
+为了减少序列计算的成本，很多基于CNN的架构被提了出来，它们都是使用并行计算来构建input和output之间的依赖关系。但是因为CNN的卷积核是有大小的，CNN的卷积操作是在数据上按照卷积核的大小以一定步长滑动的，所以说如果两个相距很远的词想要被学习到之间的关系，就需要很多的卷积操作才可以（因为CNN是卷积层的叠加，后面的卷积操作基于前面的卷积操作）。从而CNN的这种特性使得学习距离很远的词之间的依赖关系变的更加的复杂。使用Transformer结构的话，模型一层就可以看到所有的词，就不会有CNN那样的问题。但CNN的一个优势是有很多的通道，而每个通道都可以代表不同的模式，而我们也想在Transformer里实现这样的效果，所以我们使用Multi-head attention的结构，希望能够模仿这种多通道的效果。
+
+self-attention，有时候也叫做intra-attention，是一种attention机制，它作用在一个单一序列的不同的位置上，从而计算出这个序列有效的representation。self-attention机制也并不是这篇文章提出来的，很早以前就在很多地方被使用过了。
+
+Transformer是第一个只依赖于self-attention机制而不需要用到任何recurrent或者convolutional结构来计算input和output的representations的模型。
+
+
+**Model Architecture**
+
+目前比较好的序列转录模型都有一个encoder-decoder的结构。encoder将输入的序列$$(x_1,...,x_n)$$映射到$$z = (z_1, ..., z_n)$$，$$z$$的长度也是$$n$$，而且每个$$z_i$$是一个向量，是$$x_i$$的feature。而decoder则是将$$z$$作为输入，而输出一个$$(y_1,...,y_m)$$，$$m$$和$$n$$是不一定一样的。而且$$(y_1,...,y_m)$$里的$$y_i$$是一个一个依次生成的。这样的一个生成的方式叫做auto-regressive，也就是说在每一步都需要前面已经生成的$$y$$作为额外的输入，配合$$z$$来生成新的$$y$$。
+
+而Transformer也是采用了这样一种encoder-decoder的结构，Transformer将self-attention和point-wise fully connected layers堆叠在一起实现的encoder和decoder。如fig 1左右两部分所示。
+
+
+
+
+
+
+
+
+**8. Conclusion**
+我们介绍了Transformer，这是第一个仅仅依赖于attention机制的序列转录模型，将所有的recurrent layers都换成了multi-headed self-attention。
+
+在机器翻译这个任务上，Transformer要比那些recurrent或者convolutional layers结构的模型训练起来要快很多。在WMT-2014 English-to-German和English-to-French的任务上确实效果很好。
+
+我们对于这种只利用了attention机制的模型十分有信心，认为它可以被应用在别的任务之上。我们打算将Transformer应用到text以外的数据上，包括images，audio，video等。而使得生成不是那么的时许化也是另一个未来的研究方向。
+
+
+
+
+
+
+
+### 2. [Masked Autoencoders Are Scalable Vision Learners](https://arxiv.org/pdf/2111.06377.pdf)
 
 *Kaiming He, Xinlei Chen, Saining Xie, Yanghao Li, Piotr Dollar, Ross Girshick*
 
@@ -488,11 +556,6 @@ They also mention that we need to note the differences between CV and NLP tasks.
 
 1. The introduction part is a little long, partly because this paper uses lots of figures. Fruitful figures in CV paper is a good thing. The writing style of the introduction is not just an extension of the abstract (like GAN paper), but raising the topic into a more high level, and raise questions. This paper aims to solve this kind of question. It's a very good writing style. This can explain the necessity of this paper and give the basic idea of how the authors understand this problem. This could make the paper insightful, rather than just a technic report explaining the model details (like AlexNet paper).
 
-
-### 2. [Attention Is All You Need](https://proceedings.neurips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf)
-*Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin*
-
-*NIPS 2017*
 
 
 ## Generative Models
