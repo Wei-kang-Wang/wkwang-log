@@ -510,7 +510,287 @@ main()
 
 >即使c声明为int也没关系，读入的字符的值会存入这个variable里，然后在putchar的时候，因为putchar会将任何variable里存的值都当作一个字符来对待，所以输出还是字符，即使这个variable被声明为不是char类型。
 
-EOF是<stdio.h>里定义的一个整数，它的值只要和任何的char类型的值不一样就行。
+EOF是<stdio.h>里定义的一个整数，它的值只要和任何的char类型的值不一样就行。通过用#define来为EOF定义一个symbolic constant，我们在program里就不需要每次都明确的写出具体的数值了。
+
+上述的代码还可以写的更精炼一点。在C语言里，任何的assignment，比如说
+
+```c
+c = getchar()
+```
+
+是一个expression而且有一个值，这个值就是左边在assignment之后的值。这个性质表明一个assignment可以是一个更大的expression的一部分。所以说我们可以将c的assignment放在while loop的test里：
+
+```c
+#include <stdio.h>
+
+/* copy input to output; 2nd version */
+main()
+{
+    int c;
+    
+    while ((c = getchar()) != EOF)
+        putchar(c);
+}
+```
+
+上述的while语句，获得了一个character，将它assign给c，然后再测试这个character是不是EOF。如果不是，while loop的主体就被执行，输出那个character。之后while loop再重复。当输入的character是EOF时，while loop停止，main function结束。
+
+上述的版本使得代码更加精炼，更便于阅读。
+
+上述代码里assignment语句外面的那层括号是有必要的。因为!=的优先级要高于assignment符号=，所以如果没有外面那层括号，那么!=会先执行，之后再执行=，所以说:
+
+```c
+c = getchar() != EOF
+```
+
+等价于
+
+```c
+c = (getchar() != EOF)
+```
+
+因为c声明的是int类型，所以上述语句会导致c是0或者1，并不是我们想要的结果。
+
+
+#### 1.5.2 Character Counting
+
+我们下一个program用来计算字符数，和上面那个copy program类似：
+
+```c
+#include <stdio.h>
+
+/* count characters in input; 1st version */
+main()
+{
+    long nc;
+    
+    nc = 0;
+    while (getchar() != EOF)
+        ++nc;
+    printf("%ld\n", nc)
+}
+```
+
+我们上述的program里的statement：
+
+```c
+++nc
+```
+
+用了一个新的operator，++，指的是增加1。它等价于
+
+```c
+nc = nc + 1
+```
+
+但是++nc更加简洁并且更高效。还有个类似的operator，--，表示减小1。而operators ++和--即可以用在前面，也可以用在后面，++nc和nc++都是一个意思，但是这两种expression的数值是不一样的，我们在chapter2里会提到。但是++nc和nc++都是将nc的值加上1。
+
+上述character counting program用一个long variable来累计计算值，而不是int。long variable至少有32bits。因为int variable是16bits的，最大数值就是32767，作为计数器在这种情况下很容易就超出范围了。而且在printf function里使用%ld也告诉了printf function以long integer的形式输出这个值。
+
+我们还可以用double（double precision float）类型来表示更大的数值：
+
+```c
+#include <stdio.h>
+
+/* count characters in input; 2nd version */
+main()
+{
+    double nc;
+    
+    for (nc = 0; getchar() != EOF; ++nc)
+        ;
+    printf("%.0f\n", nc);
+}
+```
+
+printf function表示float和double都是%f；而%.0f就不会输出小数点后面的部分了（虽然本来也就是0）。
+
+上述for loop的循环体是空的，因为所有的任务在test condition和increment部分就做完了。但是C语言的语法要求for statement必须有一个循环体。独立的分号;，叫做null statement，就是为了满足这个条件的。我们将它单独成行，为了更便于辨识。
+
+在我们离开character counting program之前，注意到如果输入不含字符，那么while或者for的test对于第一次getchar的调用不满足condition，从而循环体不执行，program会输出0，是正确的。这一点很重要。while和for循环一个比较优越的点在于它们在循环体执行前就会进行test condition的测试。如果条件一开始就不满足，那就不执行循环体了。programs要对于零长输入也表现得很聪明。while和for statements就做得很好，对于这种特殊的边界情况也能给出合理的值。
+
+
+#### 1.5.3 Line Counting
+
+下一个program用来计算输入的行数。正如我们之前所说的，标准库确保输入的text流以一系列的行的形式出现，每一行由一个换行符结尾。因此，计算行数也就等价于计算换行符的个数：
+
+```c
+#include <stdio.h>
+
+/* count lines in input */
+main()
+{
+    int c, nl;
+    
+    nl = ;
+    while ((c = getchar()) != EOF)
+        if (c == '\n')
+            ++nl;
+    printf("%d\n", nl);
+}
+```
+
+while loop的主体包含了一个if，它是用来控制什么时候做++nl的。if statement会检测用括号括起来的condition，如果condition满足，就会执行if statement内的statement（或者用花括号括起来的statements）。
+
+注意到，虽然while loop的循环体里有两行而不是一行，但这两行还是被认为是一个statement，所以并不需要花括号。
+
+==在C语言里表示等于（如同Pascal里的=或者Fortran里的.EQ），这是用来与assignment进行区分的。
+
+一个在单引号之间的字符表示的是一个整数值，而这个整数值是这个字符在机器的字符集里对应的值（比如说ASCII）。这叫做一个character constant。比如说，'A'是一个character constant；在ASCII字符集里它的值是65，也就是机器内部表示character A所用的值。但是显然用不一样的字符集，'A'的值就可能会不一样。
+
+而escape sequences，也就是类似于'\n'的，它也是character constant，'\n'表示换行符的值，在ASCII里，是10。我们需要注意，'\n'是一个单个的character，在expression里它只是一个整数；换句话说，'\n'是一个string constant，但只含有一个character。string和character的关系我们在chapter2里会说。
+
+
+#### 1.5.4 Word Counting
+
+一个word被定义为一个不包含空格、tab或者换行符的字符串。下面是个简单的例子：
+
+```c
+#include <stdio.h>
+
+#define IN  1   /* inside a word */
+#define OUT 0  /* outside a word */
+
+/* count lines, words, and characters in input */
+main()
+{
+    int c, nl, nw, nc, state;
+    
+    state = OUT;
+    nl = nw = nc = 0;
+    while ((c = getchar()) != EOF){
+        ++nc;
+        if (c == '\n')
+            ++nl;
+        if (c == ' ' || c == '\n' || c == '\t')
+            state = OUT;
+        else if (state == OUT){
+            state = IN;
+            ++nw;
+        }
+    }
+    printf("%d %d %d\n", nl, nw, nc);
+}
+```
+
+每次program遇到一个word的第一个字符，它就会多算一次。state这个variable记录这个program目前是在一个word内还是外；一开始的时候是不在的，所以初始化为OUT。我们用symbolic constant来将IN和OUT指定为0和1，这样会有更好的阅读效果。对于很大的programs，我们会发现使用symbolic constants来表示这些常数会使得修改代码变得简单很多。
+
+```c
+nl = nw = nc = 0;
+```
+
+这一行将三个variables都assign为0。这种现象是因为assignment是一个有值的expression而且assignment是从右往左进行的。上述代码和下面的等价：
+
+```c
+nl = (nw = (nc = 0));
+```
+
+在C语言里，||表示OR。对于AND，用&&表示，它的优先级高于||。用||或者&&连接的expressions是从左到右衡量的，而且一旦True或者False的值确定了，就不再继续算了（比如说全是||连接的expressions，只要有一个True的，后续不用衡量了，结果是True）。
+
+上述代码里还出现了else，它在if statement的condition是False的时候提供了可选择的操作。普遍的形式是这样的：
+
+```c
+if (expression)
+    statement;
+else 
+    statement;
+```
+
+在if-else结构里，只有一个statement会被执行。每个statement都可以是单个的statement，也可以是用花括号括起来的多个statements。在上面的例子里，else后面跟的是另一个if statement，而这个if statement用花括号括起来了两个statements作为自己的主体。所以说其实对于这个else，它的statement就是这个if statement，所以整个if statement看成一个整体还是只是一个statement，所以并不需要花括号。
+
+
+### 1.6 Arrays
+
+让我们来写一个program，用来计算每个数字、每个white space characters（blank，tab和newline）、以及所有其它字符组成的整体，这三个部分所出现的次数。也就是说，我们的input一共有12各种类（数字10种，后面2种）。我们用一个array来统计每个数字出现的次数，要比使用十个单独的variables来统计要容易很多。
+
+```c
+#include <stdio.h>
+
+/* count digits, white space, others */
+main()
+{
+    int c, i, nwhite, nother;
+    int ndigit[10];
+    
+    nwhite = nother = 0;
+    for (i = 0; i < 10; ++i)
+        ndigit[i] = 0;
+    
+    while ((c = getchar()) != EOF)
+        if (c >= '0' && c <= '9')
+            ++ndigit[c-'0'];
+        else if (c == ' ' || c == '\n' || c == '\t')
+            ++nwhite;
+        else
+            ++nother;
+    printf("digits =");
+    for (i = 0; i < 10; ++i)
+        printf("%d", ndigit[i]);
+    printf(", white space = %d, other = %d\n",
+                nwhite, nother);
+}
+```
+
+上述代码里的声明
+
+```c
+int ndigit[10];
+```
+
+声明ndigit是一个由10个int类型组成的array。在C语言里，array的下标从0开始计数，所以这个array的elements是ndigit$$\[0\]$$，ndigit$$\[1\]$$，ndigit$$\[2\]$$，ndigit$$\[3\]$$，ndigit$$\[4\]$$，ndigit$$\[5\]$$，ndigit$$\[6\]$$，ndigit$$\[7\]$$，ndigit$$\[8\]$$，ndigit$$\[9\]$$。这一点在初始化array的for loop里也能看得出来。
+
+下标可以是任何integer expression，包括如i这样的integer variable，也包括integer constant。
+
+上述的代码基于表示digits的字符的特殊的性质。比如说，
+
+```c
+if (c >= '0' && c <= '9')
+```
+
+就可以确定c是否是一个表示数字的字符。如果是的话，那么它的值应该是c - '0'。而这种做法仅仅对于'0', '1', ... , '9'有着连续的值的时候才可行。幸运的是，这对于绝大多数character set来说都是可行的。
+
+根据定义，char类型其实是由整数来表示的，所以char variables和char constants在代数expressions里和int类型没啥区别。这是很自然也是很方便的；比如c-'0'是一个值在0到9之间的integer expression，从而是ndigit的一个有效的下标。
+
+在上述代码里，决定一个character是digits，还是white spaces还是其它的characters是用下面来实现的：
+
+```c
+if (c >= '0' && c <= '9')
+    ++ndigit[c-'0'];
+else if (c == ' ' || c == '\n' || c == '\t')
+    ++nwhite;
+else
+    ++nother;
+```
+
+这样一种写法：
+
+```c
+if (condition)
+    statement;
+else if (condition);
+    statement;
+else
+    statement;
+```
+
+在程序需要表示多条路的选择的时候经常出现。conditions按照从上到下的顺序进行衡量，直到某个condition满足；然后相对应的statement被执行，然后整个结构结束。如果没有任何一个条件满足，最后一个else对应的statement就会被执行。如果最后一个else和它的statement被省略了，那么就没有任何操作会被执行。在初始的if和最后的else之间可以有任意多个else if。
+
+我们建议使用上面这种写的方式，因为如果在每个else if的地方，都换一行并且缩进一个tab来写if，对于很长的这种结构，缩进就会太多。
+
+switch statement将会在chapter4里被提到，它提供了另一种方式来处理有多条选择的情况。
+
+
+### 1.7 Functions
+
+
+
+
+
+
+
+
+
+
 
 
 
