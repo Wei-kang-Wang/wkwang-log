@@ -782,6 +782,122 @@ switch statement将会在chapter4里被提到，它提供了另一种方式来�
 
 ### 1.7 Functions
 
+在C语言里，一个function等价于Fortran语言里的一个subroutine或者function，或者是Pascal里的一个procedure或者function。一个function提供了一个简单的方法将一些计算包装起来，之后我们再使用的时候就不必关心内部的计算细节了。拥有正确设计的functions，我们甚至可以忽略这个function内部做了什么，只需要知道这个function能做什么就可以了。C语言使得使用function很简单高效。
+
+到现在为止，我们仅仅用过那些提供给我们的functions，比如说printf，getchar，putchar等；现在我们可以自己写几个functions了。既然C语言里没有提供求乘方的function，那我们可以通过写一个叫做power(m,n)的function来实现乘法功能，从而解释function的工作机理。power(m,n)是求m的n次方，m和n都是正整数。（标准库里有pow(x,y) function，计算的是$$x^y$$）
+
+下面就是power function和使用它的main function构成的program：
+
+```c
+#include <stdio.h>
+
+int power(int m, int n);
+
+/* test power function */
+main()
+{
+    int i;
+    
+    for (i = 0; i < 10; ++i)
+        printf("%d %d %d\n", i, power(2, i), power(-3, i));
+    return 0;
+}
+
+/* power: raise base to n-th power; n >=0 */
+int power(int base, int n)
+{
+    int i, p；
+    
+    p = 1;
+    for (i = 1; i <= n; ++i)
+        p = p * base;
+    return p;
+}
+```
+
+一个function定义有如下的格式：
+
+```c
+return-type function-name(parameter declarations, if any)
+{
+    declarations
+    statements
+}
+```
+
+function的定义可以以任意的顺序出现，也可以在一个source file或者多个source file里，但是一个function并不能被分割到多个files里进行定义。如果一个program分散在多个source files里，你可能需要在编译和加载的时候多注意，但这是操作系统的问题，不是语言本身的问题。
+
+上述定义的power function在main function里被调用了两次：
+
+```c
+printf("%d %d %d\n", i, power(2, i), power(-3, i));
+```
+
+每一次对power function的调用都要传递两个arguments，而会输出一个integer。
+
+上述代码的第一行
+
+```c
+int power(int base, int n)
+```
+
+声明了参数类型和名字，以及function会返回什么类型的结果。power function的参数的名字是local的，也就是说它只能在power function内部使用，在power function之外就看不到了。这也是说，在power function外我们也可以用同样名字的variables而不会引起问题。我们可以看到，在上述代码里，power function和main function里都有i，但没有引起冲突。
+
+对于一个function的变量，我们用parameter来命名，当然formal argument和actual argument也是一样的意思。
+
+上述代码里，power function用return来返回计算的值。return后面可以接任意的expression。
+
+一个function不一定需要return一个值；可以仅仅用一个return，用来表示这个function执行完毕了。调用一个function的function也可以忽略被调用的function返回的值。
+
+注意到，main function的结尾处也有个return statement。main function也可以和其它function一样，给它的caller返回一个值，而它的caller则是这个program所在的操作系统环境。对于main function，return 0;表示正常的结束；return一个非零的值则表示出现异常。我们之前的代码都省略了main function的return statement，但实际上应该要有，这样的代码更便于维护，而且main function应该向它的caller传递执行的信息。
+
+在main function之前的声明
+
+```c
+int power(int base, int n);
+```
+
+说的是power是一个function，期待两个int arguments，并且返回一个int。这个声明，叫做function prototype，需要和power function的定义以及使用相匹配。如果一个function的定义或者任何使用和它的prototype不匹配，就会报错。但prototype的parameter名字不需要匹配。而且，在一个function prototype里，parameter名字实际上是可选的，所以说：
+
+```c
+int power(int, int)
+```
+
+代替上面的那行也是一样的。但是在prototype里写上恰当的名字可以使得代码可读性增强。
+
+对于过去版本的function定义，在ANSI C里是这样的：
+
+```c
+/* power: raise base to n-th power; n >= 0 */
+/*         (old-version)                   */
+power(base, n)
+int base, n;
+{
+    int i, p;
+    
+    p = 1;
+    for (i = 1; i <= n; ++i)
+        p = p * base;
+    return p;
+}
+```
+
+可以看到，变量名在函数名后的括号里被确定，并且在花括号之前，变量的类型就要被声明。而没有被声明的变量一律以int类型对待。
+
+并且代码开头power function的声明在旧版本里变成这样：
+
+```c
+int power()
+```
+
+旧版本会被取代，所以强烈建议使用新版本。
+
+
+
+### 1.8 Arguments - Call by Value
+
+
+
 
 
 
