@@ -457,12 +457,145 @@ self-attention，有时候也叫做intra-attention，是一种attention机制，
 Transformer是第一个只依赖于self-attention机制而不需要用到任何recurrent或者convolutional结构来计算input和output的representations的模型。
 
 
-**Model Architecture**
+**5. Model Architecture**
 
 目前比较好的序列转录模型都有一个encoder-decoder的结构。encoder将输入的序列$$(x_1,...,x_n)$$映射到$$z = (z_1, ..., z_n)$$，$$z$$的长度也是$$n$$，而且每个$$z_i$$是一个向量，是$$x_i$$的feature。而decoder则是将$$z$$作为输入，而输出一个$$(y_1,...,y_m)$$，$$m$$和$$n$$是不一定一样的。而且$$(y_1,...,y_m)$$里的$$y_i$$是一个一个依次生成的。这样的一个生成的方式叫做auto-regressive，也就是说在每一步都需要前面已经生成的$$y$$作为额外的输入，配合$$z$$来生成新的$$y$$。
 
 而Transformer也是采用了这样一种encoder-decoder的结构，Transformer将self-attention和point-wise fully connected layers堆叠在一起实现的encoder和decoder。如fig 1左右两部分所示。
 
+![architecture]({{ '/assets/images/TRANSFORMER-1.PNG' | relative_url }})
+{: style="width: 600px; max-width: 100%;"}
+*Fig 1. Transformer：模型结构。*
+ 
+**5.1 Encoder and Decoder stacks**
+ 
+**Encoder**: encoder是由$$N=6$$个完全一样的层堆叠构成的。而每个层都有两个子层。第一个子层是multi-head self-attention机制，第二个子层实际上就是个MLP。对于每个子层我们还有残差连接，而且每个子层还有个layer normalization。也就是说，每个子层的输出为： LayerNorm(x + Sublayer(x))，其中Sublayer(x)是子层里的function（也就是前面说的multi-head self-attention或者是MLP）。为了简便残差连接，这个模型里所有的子层，以及初始的input embedding，输出的大小都是$$d_{model} = 512$$。
+
+>这种简单的设计使得模型调参很简单，因为encoder部分就两个超参数，$$N$$和$$d_{model}$$。
+
+>通过和BatchNorm对比一下解释LayerNorm是什么，以及为什么我们在这种输入是变长的模型里不使用BatchNorm。假设我们的输入是2维的，row表示batch，column表示feature，也就是每一行是个样本，每一列是个特征。BatchNorm是对于每个batch，将每列特征的均值变成0，方差变成1，这是通过计算整个batch对于每一列的均值和方差，之后再减去均值，除以方差的根号来实现的。最后还有可学习的参数，$$\lambda$$和$$\beta$$，来对normalization的值做一个线性转换，使得其表达性更强。而LayerNorm和BatchNorm很像，也是用来做归一化的，但区别在于LayerNorm是将这个2维输入的每一行进行归一化，也就是对于每个输入，其内部进行归一化。如fig 2所示。
+
+![LN]({{ '/assets/images/TRANSFORMER-2.PNG' | relative_url }})
+{: style="width: 600px; max-width: 100%;"}
+*Fig 2. BatchNorm和LayerNorm的2维例子，row是batch，column是feature。*
+
+>但是对于Transformer或者正常的RNN而言，输入是3维的，因为输入的是一个batch的序列，而每个序列里有很多个元素，每个元素又可以被表示为一个embedding向量，从而输入是个$$batch \times sequence \times features$$的三维数据。对于BatchNorm来说，我们仍然对于每个feature都做归一化，如fig 3蓝色方框所示，也就是对于每个feature而言，对于所有的batch和所有的sequence的元素求归一化。而对于LayerNorm来说，我们对每个batch做归一化，也就是说对于每个batch来说，我们对所有的feature和所有的sequence内的元素求归一化，如fig 3黄色所示。
+
+![EX]({{ '/assets/images/TRANSFORMER-3.PNG' | relative_url }})
+{: style="width: 600px; max-width: 100%;"}
+*Fig 3. BatchNorm和LayerNorm的3维例子。*
+
+>所以说为什么要用LayerNorm而不是BatchNorm呢？因为很多时候，我们一个batch里面的sequence里包含的元素的个数是不等的，如fig 3所示。那么如果用BatchNorm，如fig 4蓝色部分所示，在计算方差和均值的时候，有很多部分是0，是没有用的。那么在各个batch之间，这种sequence内元素长度的变化，会导致方差和均值计算的不稳定，很波动。而且还有个问题就是如果在测试的时候遇到了一个sequence，里面包含的元素的数量比所有的训练时候所看到的sequence内的元素数量都要多，如fig 4上面那条蓝色的长条所示，那么这个时候用之前所计算的均值和方差来处理这个数据就是不合理的。而对于LayerNorm来说就不存在这个问题，因为LayerNorm计算均值和方差是在每个sequence内部计算的，所以不存在其它的sequence还能影响它，从而长度也不会影响。
+
+![E4]({{ '/assets/images/TRANSFORMER-4.PNG' | relative_url }})
+{: style="width: 600px; max-width: 100%;"}
+*Fig 4. BatchNorm和LayerNorm生成的结果的样子。*
+
+
+**Decoder**: decoder和encoder是很像的。decoder同样是由$$N=6$$个相同的层堆叠而成的。每个层有和encoder一样的两个子层，而且decoder还多了个子层，同样也是multi-head attention，但这回不是self-attention，而是利用了encoder的输出。decoder里的每个子层也用了残差连接的结构，并且跟上了layernorm。因为我们采用的是自回归的方式，所以decoder里的multi-head self-attention的结构也需要更改一下，将还没有看到的那些输出遮住，也就是我们所说的masked multi-head attention。
+
+接下来我们来看每个子层是什么样的。
+
+**5.2 Attention**
+
+一个attention function可以被描述为将一个query和一个key-value对的集合映射到一个output，其中query，key，value和output都是向量。output是values的一个加权和，而每个value的权重则是通过用compatibility function来衡量query和key获得的。而不同的attention的结构里，compatibility function用的不一样，也就是衡量相似度的方式不一样。
+
+**5.2.1 Scaled Dot-Product Attention**
+
+我们这篇文章里用的attention叫做scaled dot-product attention，如fig 5左边所示。
+
+![att]({{ '/assets/images/TRANSFORMER-5.PNG' | relative_url }})
+{: style="width: 600px; max-width: 100%;"}
+*Fig 5. 左：scaled dot-product attention。右：multi-head attention（有多个并行计算的attention layers）。*
+
+我们attention的输入里的query和key的维度都是$$d_k$$，而value的维度是$$d_v$$（从而output的维度也是$$d_v$$）。我们的做法是对于query和每个key做dot product，再除以$$\sqrt(d_k)$$，然后再用一个softmax function来获取每个value的权重。
+
+在具体操作中，我们针对一系列的query同时进行计算。将这些query表示为Q，key和value也同样表示为K和V，Q, K, V都是矩阵。从而，output的矩阵就是：
+
+$$Attention(Q, K, V) = softmax(\frac{QK^T}{\sqrt(d_k)})V$$
+
+两种最常见的attention functions是additive attention和dot product attention。我们这里用的就是dot product attention，除了还额外除以了$$\sqrt(d_k)$$。而addtive attention是通过一个只有一个隐藏层的MLP实现的， 它可以处理query和key不等长的情况。这两种attention function在理论上复杂度差不多，但在实践上因为矩阵乘法有高效算法，所以后者会快很多。
+
+当$$d_k$$不大的时候，上述两种attention function的效果差不多，但$$d_k$$大的时候，如果不除以$$\sqrt(d_k)$$，additive attention的效果要更好。我们猜测是因为$$d_k$$很大的时候，计算出来的dot product有的会很大，从而到了softmax function的饱和区，会在反向传播的时候产生很小的gradient，影响训练效果。所以我们除以了$$\sqrt(d_k)$$。
+（因为softmax的作用本来就是达到一个效果，在大的地方输出接近1，小的地方输出接近0，如果已经达到了这种效果了，那么softmax就难以再训练了）
+
+而对于mask而言，上述计算依然进行，只不过在进入softmax之前，对于那些还不应该被看到的output的value对应的权重，将其都置成非常大的负数，比如说-1e10，这样在进入softmax之后，其权重就几乎是0，从而被排除在外。
+
+**5.2.2 Multi-Head Attention**
+
+与其我们只用一个key，value和query的维度都为d_{model}的attention function，我们发现将query，key和value用不同的可学习的linear projection映射到$$d_k$$，$$d_k$$和$$d_v$$维度$$h$$次，从而学习$$h$$个output的效果更好。这些$$h$$个attention function还可以并行操作，从而计算的更快。而这$$h$$个output连接在一起，维度是$$d_k \times h$$，再经过一次linear projection，从而得到$$d_v$$维度的output。如fig 5右侧所示。
+
+>为什么要用multi-head的结构呢？因为我们可以发现attention function其实没有什么可以学习的参数，相似度就是内积。但我们有时候希望能学习到更多的模式，而这些模式可能需要不一样的计算相似度的方法。如果用的是additive attention的结构，其实那里面还有一些可以学习的参数，但这里没有。从而这里的做法是给$$h$$次低维的投影，希望其能够找到有效的投影模式，从而学到有效的内容。而投影是有参数可以学习的，从而增加了模型的学习能力。有点像CNN里的多个通道的意思。
+
+multi-head attention使得模型能够从不同的subspace里学到不同的信息。
+
+$$MultiHead(Q,K,V) = Concat(head_1, ..., head_h)W^O$$
+
+其中$$head_i = Attention(QW_I^Q, KW_i^K, VW_i^V)$$，而这些linear projections都是可学习的矩阵$$W_i^Q \in R^{d_{model} \times d_k}$$，$$W_i^K \in R^{d_{model} \times d_k}$$，$$W_i^V \in R^{d_{model} \times d_v}$$，$$W^O \in R^{hd_v \times d_{model}}$$。
+
+在这篇文章里，我们使用$$h=8$$。使用$$d_k=d_v=d_{model}/h=64$$。因为我们做multi-head的时候降维度了，所以其实multi-head的计算量和single-head的差不多。
+
+**5.2.3 Applications of Attention in our Model**
+
+整个Transformer模型用三种不同的方式使用multi-head attention。
+
+* 在encoder-decoder的attention子层里，query是从前面一个decoder的子层来的，而key和value则是由encoder的输出提供。这种设计可以使得decoder里的每个位置都能获取输入的sequence所有位置的信息。这模仿了在sequence-to-sequence模型里的典型的encoder-decoder attention的机制。
+* encoder本身包含了self-attention子层。在一个self-attention子层里，key，value和query都是一样的，也就是前一个子层的输出。从而encoder的每一个位置都可以获取encoder其它位置的信息。
+* 相似的，decoder里也有self-attention子层，它允许decoder的每个位置都能获取该位置之前的所有位置的信息。因为这是个auto-regressive的模式，所以说每个位置后面的信息它是获取不到的。我们通过在softmax之前将对应的权重设置为很大的负数来做到mask out。
+
+
+**3.3 Position-wise Feed-Forward Networks**
+
+encoder和decoder的每个层，除了有attention子层以外，也有还有一个fully connected network，其对于输入的每个词单独作用（也就是说有每个子层只有一个MLP，其作用在每个词上，也就是每个position上，而不是一个整体的大的MLP，这就是position wise名字的来由）。而这个MLP有两个线性层，并且其中还有ReLU：
+
+$$FFN(x) = max(0, xW_1 + b_1)W_2 + b_2$$
+
+虽然说在同一个子层里对于不同的position（词）我们使用的是同一个MLP，也就是同一个linear transformation（with ReLU），但不同的层其内部的MLP的参数还是不一样的。另一种描述这个MLP的方式就是kernel size是1的convolution。对于这个FFN来说，input和output的维度都是$$d_{model}=512$$，内部隐藏层的维度是$$d_{ff}=2048$$。
+
+>attention的作用其实就是将序列里的信息抓取出来，做一次汇聚。因为在汇聚之后每个position其实就已经有序列整体的信息了，所以说不同position的MLP可以是同一个。
+
+>RNN和Transformer的区别：见fig 6。Transformer和RNN一样，都是用一个MLP来做语义空间的转换，而且RNN也是用了同一个MLP来处理不同position（实际上RNN就只有一个MLP在不断更新），但不一样的是如何传递序列信息。RNN是把上一个时刻的输出作为下一个时刻的一个输入，而Transformer是通过attention结构来获得全局的序列信息，再用MLP进行转换。它们的关注点都在于如何有效使用序列信息，但实现的方式不一样。
+
+
+**Embeddings and Softmax**
+
+和别的sequence tranduction模型类似，我们使用需要学习的embedding来将encoder和decoder的输入的tokens都映射到$$d_{model}$$维的向量。我们同样使用需要学习的linear transformation和softmax function将decoder的输出转换为预测下一个token的概率。在我们的模型里，encoder和decoder的tokens的embeddings层的权重和decoder之后的linear transformation的权重是共享的。在embedding层，我们将这个层的参数乘以$$\sqrt(d_{model})$$。
+
+>因为embedding最后容易将每个输入的norm都学成l2norm接近于1，所以乘上一个系数，以便它的值的范围和positional encoding的范围差不多，不至于过小。
+
+
+**Positional Encoding**
+
+>attention其实并没有任何时许信息，那么即使打乱一个句子的词的顺序，也会是一样的效果，这是不应该出现的，所以我们需要加入时序信息。RNN是本身就有时序结构，而Transformer的做法是直接在输入里加入时序信息。
+
+因为我们的模型并没有recurrence或者convolution的结构，所以为了我们的模型能够利用sequence的时序信息，我们需要加入一些sequence里的tokens的相对或者绝对的位置信息。为了达到这个目标，我们在encoder和decoder的输入的embeddings上加上了positional encoding。positional encoding和embedding一样也是$$d_{model}$$维的，所以两者可以相加。positional encoding有很多种。
+
+在我们这篇文章里，我们使用不同频率的sine和cosine function来表示positional encodings：
+
+$$PE_{(pos, 2i)} = sin(pos/10000^{2i/d_{model}})$$
+
+$$PE_{(pos, 2i+1)} = cos(pos/10000^{2i/d_{model}})$$
+
+其中pos是position，i是dimension。也就是说，每一个dimension，都对应着一个三角函数。
+
+
+**4. Why Self-Attention**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
 
 
 
