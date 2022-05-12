@@ -896,6 +896,105 @@ int power()
 
 ### 1.8 Arguments - Call by Value
 
+C语言的functions的一个方面可能很多人不了解。在C语言里，所有的function arguments都是通过value传递的。这个的意思是原始的variables将值给暂时的variables，然后再作为arguments给函数。也就是说函数的arguments是其对应的variables的副本。这和通过引用的方式来获取arguments的值有很大的不同，在那种情况下，被调用的函数是可以获取arguments对应的原始的variables的，而不是只能获取一个副本。
+
+通过值来调用实际上是有很多好处的。它可以使得program更加简单，因为arguments就可以被看成在被调用的function里新构造的local variables。比如说，下面这个power function就使用了这个性质：
+
+```c
+/* power: raise base to n-th power; n >= 0; version 2 */
+int power(int base, int n)
+{
+    int p;
+    
+    for (p = 1; n > 0; --n)
+        p = p * base
+    return p;
+}
+```
+
+在上述代码里，argument n就被用作了一个暂时的variable，并且逐步减少直到变成0；从而就不再需要另一个variable i来计数了。而在power function内对n进行的操作，对于power function所需要的这个argument n对应的外部的variable是没有任何影响的。
+
+当有必要的时候，让function能够改变其argument对应的外部variable的值也是可以的。这个时候caller需要提供这个argument对应的variable的address（也就是这个variable的pointer），然后被调用的function一定要声明这个parameter是一个pointer，并采用通过访问address的形式获取这个值。我们将会在chapter5里介绍pointer。
+
+但是对于array来说情况又不一样了。当一个array的名字被当作一个argument时，传递给function的值就是这个array开头的address，并没有任何array内部的值会传递给这个function。通过下标，function可以获取这个array的值。这是我们下一节马上要说的内容。
+
+
+### 1.9 Character Arrays
+
+C语言里最常见的array就是字符组成的array。为了解释character array的使用以及functions如何操作它们，我们来写一个program用来读取一个text lines的集合并且打印出最长的那个。
+
+伪代码如下：
+
+```c
+while (there is another line)
+    if (it is longer than the previous longest)
+        (save it)
+        (save its length)
+print longest line
+```
+
+上述的伪代码将program自然的分割成了几部分。一部分获取新行，一部分储存，剩下的控制过程。
+
+让我们先写一个独立的function getline，用来获取input的下一行。getline需要对于end of file返回一个信号；或者说返回line的长度，这样返回的是0就是end of file了。
+
+当我们找到了一行，比之前找到的最长的行要长的时候，它需要被存下来。从而我们需要第二个function copy，用来将某行复制到一个地方存下来。
+
+最后我们需要一个main program来控制getline和copy。
+
+```c
+#include <stdio.h>
+#define MAXLINE 1000   /* maximum input line length */
+
+int getline(char line[], int maxline);
+void copy(char to[], char from[]);
+
+/* print the longest input line */
+main()
+{
+    int len;                /* current line length */
+    int max;                /* maximum length seen so far */
+    char line[MAXLINE];     /* current input line */
+    char longest[MAXLINE];  /* longest line saved here */
+    
+    max = 0;
+    while ((len = getline(line, MAXLINE) > 0)
+        if (len > max){
+            max = len;
+            copy(longest, line);
+        }
+    if (max > 0)            /* there is a line */
+        printf("%s", longest);
+    return 0;
+}
+
+/* getline: read a line into s, return length */
+int getline(char s[], int lim)
+{
+    int c, i;
+    
+    for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
+        s[i] = c;
+    if (c == '\n'){
+        s[i] = c;
+        ++i;
+    }
+    s[i] = '\0';
+    return i;
+}
+
+/* copy: copy 'from' into 'to'; assume to is big enough */
+void copy(char to[], char from[])
+{
+    int i;
+    
+    i = 0;
+    while ((to[i] = from[i]) != '\0')
+        ++i
+}
+```
+
+
+
 
 
 
