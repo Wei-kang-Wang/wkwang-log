@@ -544,7 +544,7 @@ $$MultiHead(Q,K,V) = Concat(head_1, ..., head_h)W^O$$
 * 相似的，decoder里也有self-attention子层，它允许decoder的每个位置都能获取该位置之前的所有位置的信息。因为这是个auto-regressive的模式，所以说每个位置后面的信息它是获取不到的。我们通过在softmax之前将对应的权重设置为很大的负数来做到mask out。
 
 
-**3.3 Position-wise Feed-Forward Networks**
+**5.3 Position-wise Feed-Forward Networks**
 
 encoder和decoder的每个层，除了有attention子层以外，也有还有一个fully connected network，其对于输入的每个词单独作用（也就是说有每个子层只有一个MLP，其作用在每个词上，也就是每个position上，而不是一个整体的大的MLP，这就是position wise名字的来由）。而这个MLP有两个线性层，并且其中还有ReLU：
 
@@ -557,14 +557,14 @@ $$FFN(x) = max(0, xW_1 + b_1)W_2 + b_2$$
 >RNN和Transformer的区别：见fig 6。Transformer和RNN一样，都是用一个MLP来做语义空间的转换，而且RNN也是用了同一个MLP来处理不同position（实际上RNN就只有一个MLP在不断更新），但不一样的是如何传递序列信息。RNN是把上一个时刻的输出作为下一个时刻的一个输入，而Transformer是通过attention结构来获得全局的序列信息，再用MLP进行转换。它们的关注点都在于如何有效使用序列信息，但实现的方式不一样。
 
 
-**Embeddings and Softmax**
+**5.4 Embeddings and Softmax**
 
 和别的sequence tranduction模型类似，我们使用需要学习的embedding来将encoder和decoder的输入的tokens都映射到$$d_{model}$$维的向量。我们同样使用需要学习的linear transformation和softmax function将decoder的输出转换为预测下一个token的概率。在我们的模型里，encoder和decoder的tokens的embeddings层的权重和decoder之后的linear transformation的权重是共享的。在embedding层，我们将这个层的参数乘以$$\sqrt(d_{model})$$。
 
 >因为embedding最后容易将每个输入的norm都学成l2norm接近于1，所以乘上一个系数，以便它的值的范围和positional encoding的范围差不多，不至于过小。
 
 
-**Positional Encoding**
+**5.5 Positional Encoding**
 
 >attention其实并没有任何时许信息，那么即使打乱一个句子的词的顺序，也会是一样的效果，这是不应该出现的，所以我们需要加入时序信息。RNN是本身就有时序结构，而Transformer的做法是直接在输入里加入时序信息。
 
@@ -579,40 +579,25 @@ $$PE_{(pos, 2i+1)} = cos(pos/10000^{2i/d_{model}})$$
 其中pos是position，i是dimension。也就是说，每一个dimension，都对应着一个三角函数。
 
 
-**4. Why Self-Attention**
+**6. Why Self-Attention**
+
+在这一节里我们将会比较self-attention层和recurrent以及convolution层之间各个不同的方面。
+
+首先是每个层的计算复杂度。另一个是可以被并行的计算的总和。第三个是长距离的两个position之间需要信息交互需要的计算量。学习长距离的依赖关系对于很多sequence transduction任务来说都是很具有挑战性的。影响模型学习长距离依赖关系的一个重要的点就是距离远的两个position之间的信息传递最少要经过多少计算。任意的两个position之间的信息交换所需的计算量越小，模型学习这种长距离的依赖关系的能力就越强。结果如table 1所示。
+
+![tab]({{ '/assets/images/TRANSFORMER-7.PNG' | relative_url }})
+{: style="width: 600px; max-width: 100%;"}
+*Table 1. *
+
+**Experiment**和**Result**就不讲了，因为都是NLP领域的实验，和我的方向没什么关系。
 
 
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 
-
-
-
-
-
-
-
-**8. Conclusion**
+**7. Conclusion**
 我们介绍了Transformer，这是第一个仅仅依赖于attention机制的序列转录模型，将所有的recurrent layers都换成了multi-headed self-attention。
 
 在机器翻译这个任务上，Transformer要比那些recurrent或者convolutional layers结构的模型训练起来要快很多。在WMT-2014 English-to-German和English-to-French的任务上确实效果很好。
 
 我们对于这种只利用了attention机制的模型十分有信心，认为它可以被应用在别的任务之上。我们打算将Transformer应用到text以外的数据上，包括images，audio，video等。而使得生成不是那么的时许化也是另一个未来的研究方向。
-
-
-
-
 
 
 
