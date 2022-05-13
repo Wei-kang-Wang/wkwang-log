@@ -603,7 +603,7 @@ $$PE_{(pos, 2i+1)} = cos(pos/10000^{2i/d_{model}})$$
 
 ### 2. [BERT: Pre-training of Deep Bidirectional Transformers for Language understanding](https://arxiv.org/pdf/1810.04805.pdf)
 
-*Jacob Devlin, Ming-Wei Chang, Kenton Lee, Kristina Toutanova**
+*Jacob Devlin, Ming-Wei Chang, Kenton Lee, Kristina Toutanova*
 
 *Arxiv 2018*
 
