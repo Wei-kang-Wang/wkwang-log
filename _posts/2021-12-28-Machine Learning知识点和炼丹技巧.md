@@ -43,7 +43,9 @@ $$x_1$$的范围是个位数，而$$x_2$$的范围是1e+3左右，假设$$x_1$$�
 {: style="width: 800px; max-width: 100%;"}
 *Fig 2. Feature Scaling Algorithm.*
 
-而在deep learning中，我们经常会对hidden layer输出的值做feature scaling：也就是input在做完feature scaling之后进入layer1，经过layer1运算后的output在进入layer2之前也做一次feature scaling，经过layer2运算后的output在进入layer3之前也做一次feature scaling，一直这样下去。如fig 3所示。
+### Batch Normalization
+
+而在deep learning中，我们经常会对hidden layer输出的值做feature scaling：也就是input在做完feature scaling之后进入layer1，经过layer1运算后的output在进入layer2之前也做一次feature scaling，经过layer2运算后的output在进入layer3之前也做一次feature scaling，一直这样下去。如fig 3所示。不仅仅对input做scaling，还对neural network的中间层做scaling，粗糙的说，这就叫做batch normalization（实际上还有两个要学习的参数）。
 
 ![feature scaling nn]({{ '/assets/images/batch_normalization_3.png' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
@@ -60,9 +62,6 @@ $$x_1$$的范围是个位数，而$$x_2$$的范围是1e+3左右，假设$$x_1$$�
 
 而feature scaling则很好的减弱了这个问题，其对每个layer的output都做了标准化的normalization，从而每个layer的输入都有mean=0，covariance=1，这样一个固定的statistics。
 
-
-### Batch Normalization
-
 normalization可以放在activation function之前，也可以放在其之后。将normalization放在activation function之前，对于某些activation functions，比如说tanh或者sigmoid，因为其会有saturation region，而我们最好避免input落在saturation region里，因为这样会使得训练不动。所以先做normalization可以确保其不在saturation region里。
 
 ![bn]({{ '/assets/images/batch_normalization_41.png' | relative_url }})
@@ -77,9 +76,7 @@ normalization可以放在activation function之前，也可以放在其之后。
 {: style="width: 800px; max-width: 100%;"}
 *Fig 5. Full batch normalization.*
 
-上述是training过程中batch normalization的做法，而在testing的时候，testing的data是一个个进来的，所以没法计算mean和variance。有两种方法：
-* 将整个training set的mean和variance算出来。但计算量大，不切实际
-* 在training的过程中不断地更新mean和variance，从而计算出整个training set的近似的mean和variance（mean是准确的，但variance是近似的）
+上述是training过程中batch normalization的做法，而在testing的时候，testing的data是一个个进来的，所以没法计算mean和variance。方法是在training的时候，记录下来每一个batch对应的$$\mu$$和$$\sigma^2$$，然后利用某种加权和的方式（比如说exponential weighted average, $$E_{t+1} = \alpha a + (1-\alpha)E_{t}$$）计算出整个training集的$$\mu$$和$$\sigma^2$$，从而在test时候用。
 
 如fig 6所示。
 
@@ -90,6 +87,15 @@ normalization可以放在activation function之前，也可以放在其之后。
 使用batch normalization带来的好处：
 * 减少训练实际，使得训练很深的网络变得可能。因为internal covariate shift被减弱了，所以可以用大的learning rate了。而且因为exploding/vanishing gradient的现象被减轻了（特别是对于activation function有saturation part的情况，比如说tanh或者sigmoid）
 * initialization的影响减弱了。
+
+### Andrew Ng对于BatchNormalization的解释（https://www.youtube.com/watch?v=nUUqwaxLnWs）
+
+**Intuition 1**: 对input做feature scaling可以帮助训练，而同样的操作也可以针对neural networks的中间层输出来做。
+
+**Intuition 2**: 对于一个网络来说，如果输入的training data的mean和variance一直在变，这个网络很难训练好，或者说如果训练集和测试集的mean和variance差别很大，那么这个训练好的网络在测试集上效果也不会好。比如说，仅仅在黑猫图片上训练的检测猫的神经网络，对于彩色猫的测试集效果不好。那么对于一个神经网络来说，对于较深的层来说，它的输入就是较浅的层的输出，而因为较浅的层也有可学习的权重，所以这个输出一直在变化，也就是covariance shift，这样导致较深层的输入一直在变化，从而很难学习。而batch normalization的作用就是让深层的输入较少的收到浅层的输出的影响。
+
+**Intuition 3**: batch normalization还有一些regularization的作用。因为每一层的mean和variance都是根据一个batch算出来的，而不是所有的数据，这引入了一些noise。
+
 
 
 
