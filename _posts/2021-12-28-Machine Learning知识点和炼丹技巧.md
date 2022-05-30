@@ -25,9 +25,9 @@ date: 2021-12-18 01:09:00
 
 假设$x_1$和$x_2$的数据差距很大：
 
-$x_1$的范围是个位数，而$x_2$的范围是1e+3左右，假设$$x_1$$所乘的weight是$$w_1$$，$$x_2$$所乘的weight是$$w_2$$，那么因为$$x_2$$会比$$x_1$$大很多，所以$$w_2$$和$$w_1$$同等变化，$$w_2$$的影响会更大。
+$x_1$的范围是个位数，而$x_2$的范围是1e+3左右，假设$x_1$所乘的weight是$w_1$，$x_2$所乘的weight是$w_2$，那么因为$x_2$会比$x_1$大很多，所以$w_2$和$w_1$同等变化，$w_2$的影响会更大。
 
-将$$w_1$$和$$w_2$$对于loss的影响作图，如fig 1所示。在$$w_1$$方向上的梯度，在$$w_2$$方向上的梯度较大。这样会让training变得不容易，因为要在不同的方向上给不同的learning rate。
+将$w_1$和$w_2$对于loss的影响作图，如fig 1所示。在$w_1$方向上的梯度，在$w_2$方向上的梯度较大。这样会让training变得不容易，因为要在不同的方向上给不同的learning rate。
 
 所以说我们通过feature scaling的方式把不同的feature做normalization，从而使得loss关于不同参数的图看起来像正圆形（2维），从而就可以设置一个training rate了。如fig 1右侧。
 
@@ -76,7 +76,7 @@ normalization可以放在activation function之前，也可以放在其之后。
 {: style="width: 800px; max-width: 100%;"}
 *Fig 5. Full batch normalization.*
 
-上述是training过程中batch normalization的做法，而在testing的时候，testing的data是一个个进来的，所以没法计算mean和variance。方法是在training的时候，记录下来每一个batch对应的$$\mu$$和$$\sigma^2$$，然后利用某种加权和的方式（比如说exponential weighted average, $$E_{t+1} = \alpha a + (1-\alpha)E_{t}$$）计算出整个training集的$$\mu$$和$$\sigma^2$$，从而在test时候用。
+上述是training过程中batch normalization的做法，而在testing的时候，testing的data是一个个进来的，所以没法计算mean和variance。方法是在training的时候，记录下来每一个batch对应的$\mu$和$\sigma^2$，然后利用某种加权和的方式（比如说exponential weighted average, $E_{t+1} = \alpha a + (1-\alpha)E_{t}$）计算出整个training集的$\mu$和$\sigma^2$，从而在test时候用。
 
 如fig 6所示。
 
