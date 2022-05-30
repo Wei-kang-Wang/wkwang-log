@@ -123,7 +123,7 @@ SVD的原始想法起源于eigendecomposition，所以我们先来介绍eigendec
 * 所有的eigenvalues都是实数。
 * 对应于不同的eigenvalues的eigenvectors是orthogonal的（不仅限于linear independent了）。
 * 如果$$S$$是positive semi-definite（positive definite）的，那么其所有的eigenvalues都是非负（正）的。
-* 如果$$\lambda_1$$和$$\lambda_n$$分别是最大的和最小的eigenvalues，那么$$\lambda_1 = max_{||x||=1} <x, Sx>$$，以及$$\lambda_1 = min_{||x||=1} <x, Sx>$$。
+* 如果$$\lambda_1$$和$$\lambda_n$$分别是最大的和最小的eigenvalues，那么$$\lambda_1 = max_{||x||=1}(<x, Sx>)$$，以及$$\lambda_1 = min_{||x||=1}(<x, Sx>)$$。
 
 对于eigenvalues的计算公式，我们有$$det(S-\lambda I) = 0$$，也就是关于$$\lambda$$的方程。假设这个关于$$\lambda$$的方程只有$$k$$个不同的根，即$$det(S-\lambda I) = (\lambda - \lambda_1)^{n_1} (\lambda - \lambda_2)^{n_2}...(\lambda - \lambda_k)^{n_k}=0$$。称$$n_i$$为eigenvalue $$\lambda_i$$的代数重数。对于特定的一个eigenvalue $$\lambda_i$$，我们有$$Sv = \lambda_i v$$，即$$(S-\lambda_i I) v = 0$$，从而其对应的eigenvectors都在矩阵$$S-\lambda_i I$$的null space里，这个null space对应的维数$$m_i$$称为eigenvalue $$\lambda_i$$的几何重数。我们有代数重数不小于几何重数这样的限制。
 
@@ -295,7 +295,7 @@ $$argmax_{||x||=1}(||Ax||)$$
 ![3]({{ '/assets/images/SVD-3.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
->对于最大的特征值来说，其是$$argmax_{||x||=1} <x, Ax>$$的解，因为引入了内积，所以引入了方向。
+>对于最大的特征值来说，其是$$argmax_{||x||=1}(<x, Ax>)$$的解，因为引入了内积，所以引入了方向。
 
 方向不变和拉伸最大都是矩阵的内禀的性质，方向不变在马尔科夫随机场中很重要；而拉伸最大方向则是数据方差分布最大的方向，所以所含的信息量最大，是PCA等方法中的核心思想。
 
