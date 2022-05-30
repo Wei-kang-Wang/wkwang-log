@@ -39,7 +39,9 @@ Fisher Information的定义：
 
 对于这样一个log likelihood function，它越平越宽，就代表我们对参数的估计能力越差，它越高越窄，就代表我们对参数的估计能力越好，也就是信息量越大。这个log likelihood function在MLE的结果$\hat{\theta}$处（也就是顶点处）的弯曲程度，就是通过在这个点处的负二阶导数来表示的。弯曲程度越大，整个log likelihood的形状就越偏向于高而窄，也就代表掌握的信息越多。
 
-在一般情况下，通过对score function在真实值处的泰勒展开，应用中心极限定理，弱大数定律，依照概率一致收敛，以及Slutsky定理，可以证明MLE的渐进分布的方差是$I^{-1}(\theta)$，即$Var(\hat{\theta}_{MLE}) = I^{-1}(\theta)$
+在一般情况下，通过对score function在真实值处的泰勒展开，应用中心极限定理，弱大数定律，依照概率一致收敛，以及Slutsky定理，可以证明MLE的渐进分布的方差是$I^{-1}(\theta)$，即$Var(\hat{\theta}_{MLE}) = I^{-1}(\theta)$，这也就是Fisher Information的第三条数学意义。
+
+这样说不严谨，严格地说，是$\sqrt{n}(\hat{\theta}_{MLE} - \theta) \rightarrow N(0, I^*(\theta)^{-1})$，这里$I^{*}(\theta)$是当只观察到一个$X$值时候的Fisher Information，当有$n$个i.i.d.观察值时，$I^{*}(\theta) = I(\theta)/n$。这个的直观解释就是，Fisher Information反映了我们对参数估计的准确度，它越大，对参数估计越准确，也即代表了更多的信息。
 
 
 
