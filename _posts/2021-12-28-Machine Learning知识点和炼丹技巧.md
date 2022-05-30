@@ -134,7 +134,7 @@ $$
 \lambda_1 & 0 & 0 & \cdots & 0 \\
 0 & \lambda_2 & 0 & \cdots & 0 \\
  & & \vdots & & \\
-0 & 0 & \cdots & 0 \lambda_n \\f
+0 & 0 & \cdots & 0 & \lambda_n \\
 \end{pmatrix}
 $$
 
@@ -142,7 +142,7 @@ $$
 
 
 >对于不是对称的一般的实矩阵$A \in R^{n \times n}$，也有上述类似的decomposition。会存在orthogonal matrix $V \in R^{n \times n}$，和$\Sigma \in R^{n \times n}$，满足$A = V \Sigma V^T$，而$\Sigma$是一个block对角矩阵，也就是说$\Sigma = diag\left{A_1, A_2, \codts, A_m, 0, \cdots, 0 \right}$，而每个$A_i$都是一个二维的skew-symmetric矩阵，满足
->$$\begin{pmatrix} 0 & a_i \\ -a_i & 0 \end{pmatrix}$$，其中$a_i$是实数。
+>$$\begin{pmatrix} 0 & a_i \\ -a_i & 0 \\ \end{pmatrix}$$，其中$a_i$是实数。
 
 >为什么对称的实数方矩阵满足每个eigenvalue的代数重数等于几何重数，可以通过归纳法来证明。
 
@@ -150,9 +150,9 @@ $$
 
 现在我们再来看singular value decomposition。singular value decomposition是eigenvalue decomposition对于一般矩阵$A \in C^{m \times n}$的推广。
 
-SVD的正式定义为：对于矩阵$A \in R^{m \times n}$，$m \geq n$，并且$rank(A) = p$，我们有三个矩阵$U \in R^{m \times p}$，$V \in R^{n \times p}$和$\Sigma \in R^{p \times p}$具有以下性质，$U$和$V$的列都是orthonormal的，且$\Sigma = diag\left{\sigma_1, \sigma_2, \cdots, \sigma_p\right}$，$\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_p$，满足：$$A = U\SigmaV^T$$
+SVD的正式定义为：对于矩阵$A \in R^{m \times n}$，$m \geq n$，并且$rank(A) = p$，我们有三个矩阵$U \in R^{m \times p}$，$V \in R^{n \times p}$和$\Sigma \in R^{p \times p}$具有以下性质，$U$和$V$的列都是orthonormal的，且$\Sigma = diag\left{\sigma_1, \sigma_2, \cdots, \sigma_p \right}$，$\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_p$，满足：$$A = U\SigmaV^T$$
 
-注意到，上述SVD的定义是对eigenvalue decomposition的推广，后者将一个对称的方阵分解为：$A = V\SigmaV^T$，而$V$是orthonormal的，$\Sigma=\left{\lambda_1, \cdots, \lambda_n\right}$。SVD使得分解任何非满秩的非方矩阵成为了可能。从下述证明我们也可以看出其实SVD也是从eigenvalue decomposition推导出来的。
+注意到，上述SVD的定义是对eigenvalue decomposition的推广，后者将一个对称的方阵分解为：$A = V\SigmaV^T$，而$V$是orthonormal的，$\Sigma=\left{\lambda_1, \cdots, \lambda_n \right}$。SVD使得分解任何非满秩的非方矩阵成为了可能。从下述证明我们也可以看出其实SVD也是从eigenvalue decomposition推导出来的。
 
 **Proof:**
 
