@@ -186,7 +186,7 @@ $$u_k = \frac{1}{\sigma_k}Av_{i_k}$$
 
 其中$$k=1,\cdots,p$$。也就是说，$$Av_{i_k} = \sigma_k u_k$$。因为$$v_{i_1},\cdots,v_{i_p}$$并不在$$ker(A)$$内，所以上述$$u_k$$都不是0。而且这些$$u_k \in R^{m}$$还是orthonormal的：
 
-$$<u_i,u_j> = \frac{1}{\sigma_i \sigma_j}<Avi, Avj> = \frac{1}{\sigma_i \sigma_j}<v_i, A^TAv_j> = \delta_{ij}$$
+$$\left\langle u_i,u_j \right\rangle = \frac{1}{\sigma_i \sigma_j} \left\langle Avi, Avj \right\rangle = \frac{1}{\sigma_i \sigma_j} \left\langle v_i, A^TAv_j \right\rangle = \delta_{ij}$$
 
 将集合$$(u_1, \cdots, u_p)$$拓展到$$R^m$$的一个基$$(u_1, \cdots, u_m)$$。因为$$Av_i = \sigma_i u_i$$，所以我们有：
 
