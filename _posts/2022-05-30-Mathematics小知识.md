@@ -1,8 +1,8 @@
 ---
 layout: post
 comments: false
-title: "Machine Learning知识点和炼丹技巧"
-date: 2021-12-18 01:09:00
+title: "Mathematics小知识"
+date: 2022-05-30 01:09:00
 
 ---
 
