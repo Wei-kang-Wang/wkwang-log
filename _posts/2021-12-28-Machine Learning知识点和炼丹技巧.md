@@ -17,9 +17,9 @@ date: 2021-12-18 01:09:00
 
 ---
 
-## 1. Batch Normalization
+## 1. Batch Normalization 批标准化
 
-### Feature Scaling (or Feature Normalization)
+### 1.1 Feature Scaling (or Feature Normalization)
 
 先从Feature scaling，或者叫做Feature normalization说起。
 
@@ -43,7 +43,7 @@ $x_1$的范围是个位数，而$x_2$的范围是1e+3左右，假设$x_1$所乘�
 {: style="width: 800px; max-width: 100%;"}
 *Fig 2. Feature Scaling Algorithm.*
 
-### Batch Normalization
+### 1.2 Batch Normalization
 
 而在deep learning中，我们经常会对hidden layer输出的值做feature scaling：也就是input在做完feature scaling之后进入layer1，经过layer1运算后的output在进入layer2之前也做一次feature scaling，经过layer2运算后的output在进入layer3之前也做一次feature scaling，一直这样下去。如fig 3所示。不仅仅对input做scaling，还对neural network的中间层做scaling，粗糙的说，这就叫做batch normalization（实际上还有两个要学习的参数）。
 
@@ -88,7 +88,7 @@ normalization可以放在activation function之前，也可以放在其之后。
 * 减少训练实际，使得训练很深的网络变得可能。因为internal covariate shift被减弱了，所以可以用大的learning rate了。而且因为exploding/vanishing gradient的现象被减轻了（特别是对于activation function有saturation part的情况，比如说tanh或者sigmoid）
 * initialization的影响减弱了。
 
-### Andrew Ng对于BatchNormalization的解释（https://www.youtube.com/watch?v=nUUqwaxLnWs）
+### 1.3 Andrew Ng对于BatchNormalization的解释（https://www.youtube.com/watch?v=nUUqwaxLnWs）
 
 **Intuition 1**: 对input做feature scaling可以帮助训练，而同样的操作也可以针对neural networks的中间层输出来做。
 
@@ -99,6 +99,91 @@ normalization可以放在activation function之前，也可以放在其之后。
 
 
 
-## 2. Optimization Algorithms
+## 2. Singular Value Decomposition (SVD) 奇异值分解
+
+### 2.1 Eigendecomposition
+
+SVD的原始想法起源于eigendecomposition，所以我们先来介绍eigendecomposition。
+
+对于一个方矩阵$A \in C^{n \times n}$$，如果存在向量$v \in C^{n}$和标量$\lambda \in C$使得$Av = \lambda v$，那么就称$\lambda$为$A$的eigenvalue，而$v$为这个eigenvalue所对应的一个eigenvector。可以很直接地看出，对eigenvector进行scaling并不影响结果。
+
+求解eigenvalue的方式是，因为$Av = \lambda v$，所以$(A - \lambda I)v = 0$。而如果$det(A-\lambda I) \neq 0$，那么$A-\lambda I$就是invertible的，那么就会得到$v=0$，与eigenvector不能为0矛盾。从而$det(A-\lambda I)=0$。这个式子是关于$\lambda$的$n$阶多项式，从而在复数域内有$n$个解。而且可以看出来，所有的eigenvalues的乘积等于$det(A)$（重复的根也要重复乘上）。
+
+一个方矩阵$A$的所有eigenvalues构成的集合叫做这个矩阵的spectrum，记为$\sigma(A)$。
+
+下面我们只考虑实矩阵$A \in R^{n \times n}$。其有以下的性质：
+
+* 如果$\lambda$是$A$的eigenvalue，那么$\bar{\lambda}$也是$A$的eigenvalue。
+* 不同的eigenvalues对应的eigenvectors是线性无关的。
+
+对于对称实矩阵$S \in R^{n \times n}$，$S^{T} = S$，我们有很多特殊的很好的性质。
+
+如果一个对称实矩阵$S$满足对于任意$x \in R^{n}$都有$x^{T}Sx \geq 0$，那么称$S$是positive semi-definite的（如果是严格大于，那就是positive definite）。
+
+* 所有的eigenvalues都是实数。
+* 对应于不同的eigenvalues的eigenvectors是orthogonal的（不仅限于linear independent了）。
+* 如果$S$是positive semi-definite（positive definite）的，那么其所有的eigenvalues都是非负（正）的。
+* 如果$\lambda_1$和$\lambda_n$分别是最大的和最小的eigenvalues，那么$\lambda_1 = \max_{||x||=1} <x, Sx>$，以及$\lambda_1 = \min_{||x||=1} <x, Sx>$。
+
+对于eigenvalues的计算公式，我们有$det(S-\lambda I) = 0$，也就是关于$\lambda$的方程。假设这个关于$\lambda$的方程只有$k$个不同的根，即$det(S-\lambda I) = (\lambda - \lambda_1)^{n_1} (\lambda - \lambda_2)^{n_2}...(\lambda - \lambda_k)^{n_k}=0$。称$n_i$为eigenvalue $\lambda_i$的代数重数。对于特定的一个eigenvalue $\lambda_i$，我们有$Sv = \lambda_i v$，即$(S-\lambda_i I) v = 0$，从而其对应的eigenvectors都在矩阵$S-\lambda_i I$的null space里，这个null space对应的维数$m_i$称为eigenvalue $\lambda_i$的几何重数。我们有代数重数不小于几何重数这样的限制。
+
+对称实矩阵的好处就是，对于任何eigenvalue，都有其代数重数等于几何重数，也就是说假设我们将对称实矩阵$S$的$n$个eigenvalues排成一个对角矩阵$\Simga$（带重复的）：
+
+$$
+\begin{pmatrix}
+\lambda_1 & 0 & 0 & \cdots & 0 \\
+0 & \lambda_2 & 0 & \cdots & 0 \\
+ & & \vdots & & \\
+0 & 0 & \cdots & 0 \lambda_n \\f
+\end{pmatrix}
+$$
+
+我们可以对于每个eigenvalue都找到其对应的eigenvector，而且因为每个eigenvalue的几何重数等于代数重数，所以说对于重复的eigenvalue，仍然可以找到足够个数的线性无关的eigenvectors。将上述这些eigenvectors按照列排成一个矩阵，也就是每一列都是一个eigenvector，再将每一列的norm都变成1，那么这个矩阵就是一个orthonormal矩阵，记为V，有性质$VV^T = V^TV$。我们有$SV = V \Sigma$。从而$S = V \Sigma V^T$。而这个形式就是对称实矩阵$S$的eigendecomposition，满足中间的对角矩阵$\Sigma$都是$S$的eigenvalues，而$V$的每一列都是对应的eigenvector，而且满足$V$是个orthonormal的矩阵。
+
+
+>对于不是对称的一般的实矩阵$A \in R^{n \times n}$，也有上述类似的decomposition。会存在orthogonal matrix $V \in R^{n \times n}$，和$\Sigma \in R^{n \times n}$，满足$A = V \Sigma V^T$，而$\Sigma$是一个block对角矩阵，也就是说$\Sigma = diag\left{A_1, A_2, \codts, A_m, 0, \cdots, 0 \right}$，而每个$A_i$都是一个二维的skew-symmetric矩阵，满足
+>$$\begin{pmatrix} 0 & a_i \\ -a_i & 0 \end{pmatrix}$$，其中$a_i$是实数。
+
+>为什么对称的实数方矩阵满足每个eigenvalue的代数重数等于几何重数，可以通过归纳法来证明。
+
+### 2.2 Singular Value Decomposition
+
+现在我们再来看singular value decomposition。singular value decomposition是eigenvalue decomposition对于一般矩阵$A \in C^{m \times n}$的推广。
+
+SVD的正式定义为：对于矩阵$A \in R^{m \times n}$，$m \geq n$，并且$rank(A) = p$，我们有三个矩阵$U \in R^{m \times p}$，$V \in R^{n \times p}$和$\Sigma \in R^{p \times p}$具有以下性质，$U$和$V$的列都是orthonormal的，且$\Sigma = diag\left{\sigma_1, \sigma_2, \cdots, \sigma_p\right}$，$\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_p$，满足：$$A = U\SigmaV^T$$
+
+注意到，上述SVD的定义是对eigenvalue decomposition的推广，后者将一个对称的方阵分解为：$A = V\SigmaV^T$，而$V$是orthonormal的，$\Sigma=\left{\lambda_1, \cdots, \lambda_n\right}$。SVD使得分解任何非满秩的非方矩阵成为了可能。从下述证明我们也可以看出其实SVD也是从eigenvalue decomposition推导出来的。
+
+**Proof:**
+
+对于一个矩阵$A \in R^{m \times n}$，
+
+
+
+
+
+### 参考文献
+
+* https://zhuanlan.zhihu.com/p/30658304
+
+
+
+
+
+
+如果$\lambda$是矩阵$A$的eigenvalue，那么
+
+方矩阵不同的eigenvalue对应的eigenvector是线性无关的。
+
+
+
+
+
+
+**Theorem 1** 对于任意的实矩阵$A \in R^{n \times n}$，如果
+
+
+
+
 
 ---
