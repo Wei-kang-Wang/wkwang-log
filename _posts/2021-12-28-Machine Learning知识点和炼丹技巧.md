@@ -180,7 +180,7 @@ A(v_1, \cdots, v_n) = (u_1, \cdots, u_m) & 0 & \cdots & \sigma_{i_p} & \cdots & 
 \end{pmatrix}
 $$
 
-也就是$A\widetilde V = \widetilde U \widetilde \Sigma，因此$$A = \widetilde U \widetilde \Sigma \widetilde V^T$$
+也就是$A\widetilde V = \widetilde U \widetilde \Sigma$，因此$$A = \widetilde U \widetilde \Sigma \widetilde V^T$$
 
 现在将$\widetilde U$对应乘以0 singular values的列和$\widetilde V^T$对应的乘以0 singular values的行去掉，我们就得到了最终的$A = U \Sigma V^T$，其中$U \in R^{m \times p}$并且$V \in R^{n \times p}$。
 
