@@ -144,12 +144,14 @@ $$
 
 
 >对于不是对称的一般的实矩阵$A \in R^{n \times n}$，也有上述类似的decomposition。会存在orthogonal matrix $V \in R^{n \times n}$，和$\Sigma \in R^{n \times n}$，满足$A = V \Sigma V^T$，而$\Sigma$是一个block对角矩阵，也就是说$\Sigma = diag\left{A_1, A_2, \codts, A_m, 0, \cdots, 0 \right}$，而每个$A_i$都是一个二维的skew-symmetric矩阵，满足
+
 $$
 \begin{pmatrix}
 0 & a_i \\ 
 -a_i & 0 \\ 
 \end{pmatrix}
 $$
+
 >其中$a_i$是实数。
 
 ### 2.2 Singular Value Decomposition
