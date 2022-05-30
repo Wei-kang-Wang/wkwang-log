@@ -185,6 +185,23 @@ $$
 现在将$\widetilde U$对应乘以0 singular values的列和$\widetilde V^T$对应的乘以0 singular values的行去掉，我们就得到了最终的$A = U \Sigma V^T$，其中$U \in R^{m \times p}$并且$V \in R^{n \times p}$。
 
 
+**Another Proof:**
+
+矩阵$A^TA$和$AA^T$都是positive semidefinite的。因此，它们的eigenvalues都是非负的。
+
+如果$\lambda_i$是矩阵$A^TA$的一个非零的eigenvalue，其对应的eigenvector是$v_i$，那么我们可以有$A^TAv_i = \sigma_i^2 v_i$，其中$\sigma_i = \sqrt{\lambda_i}$。
+
+将上面的式子两边左乘$v_i^T$得到：$$v_i_TA^TAv_i = \sigma_i^2 v_i^T v_i$$因此$$v_i^TA^TAv_i = (Av_i)^T(Av_i) = ||Av_i||^2 = \sigma_i^2v_i^Tv_i = \sigma_i^2$$
+
+也就是说$||Av_i|| = \sigma_i$。
+
+再次回到$A^TAv_i = \sigma_i^2v_i$$，左乘$A$我们得到：$$AA^TAv_i = \sigma_i^2Av_i$$这个式子表明$Av_i$$是矩阵$$AA^T$$的eigenvector，对应的eigenvalue是$\sigma_i^2$。
+
+结合上面两点，我们知道$Av_i / \sigma_i$是矩阵$AA^T$的一个单位长度的eigenvector，而且$Av_i = \sigma_i u_i$。
+
+将上述所有的这些不为零的特征值都做上面的操作，并结合起来，就可以得到矩阵$A$的SVD分解了。
+
+
 
 
 
