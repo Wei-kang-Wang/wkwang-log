@@ -195,7 +195,7 @@ $$
 
 也就是说$||Av_i|| = \sigma_i$。
 
-再次回到$A^TAv_i = \sigma_i^2v_i$$，左乘$A$我们得到：$$AA^TAv_i = \sigma_i^2Av_i$$这个式子表明$Av_i$$是矩阵$$AA^T$$的eigenvector，对应的eigenvalue是$\sigma_i^2$。
+再次回到$A^TAv_i = \sigma_i^2v_i$，左乘$A$我们得到：$$AA^TAv_i = \sigma_i^2Av_i$$这个式子表明$Av_i$$是矩阵$$AA^T$$的eigenvector，对应的eigenvalue是$\sigma_i^2$。
 
 结合上面两点，我们知道$Av_i / \sigma_i$是矩阵$AA^T$的一个单位长度的eigenvector，而且$Av_i = \sigma_i u_i$。
 
