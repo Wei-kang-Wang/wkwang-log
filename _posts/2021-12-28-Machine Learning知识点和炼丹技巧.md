@@ -160,7 +160,7 @@ $$
 
 SVD的正式定义为：对于矩阵$A \in R^{m \times n}$，$m \geq n$，并且$rank(A) = p$，我们有三个矩阵$U \in R^{m \times p}$，$V \in R^{n \times p}$和$\Sigma \in R^{p \times p}$具有以下性质，$U$和$V$的列都是orthonormal的，且$\Sigma = diag\left{\sigma_1, \sigma_2, \cdots, \sigma_p \right}$，$\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_p$，满足：$$A = U \Sigma V^T$$
 
-注意到，上述SVD的定义是对eigenvalue decomposition的推广，后者将一个对称的方阵分解为：$A = V \Sigma V^T$，而$V$是orthonormal的，$\Sigma=\left{\lambda_1, \cdots, \lambda_n \right}$。SVD使得分解任何非满秩的非方矩阵成为了可能。从下述证明我们也可以看出其实SVD也是从eigenvalue decomposition推导出来的。
+注意到，上述SVD的定义是对eigenvalue decomposition的推广，后者将一个对称的方阵分解为：$A = V \Sigma V^T$，而$V$是orthonormal的，$\Sigma={\lambda_1, \cdots, \lambda_n}$。SVD使得分解任何非满秩的非方矩阵成为了可能。从下述证明我们也可以看出其实SVD也是从eigenvalue decomposition推导出来的。
 
 **Proof:**
 
