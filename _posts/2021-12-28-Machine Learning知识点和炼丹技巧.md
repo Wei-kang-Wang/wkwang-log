@@ -143,7 +143,7 @@ $$
 我们可以对于每个eigenvalue都找到其对应的eigenvector，而且因为每个eigenvalue的几何重数等于代数重数，所以说对于重复的eigenvalue，仍然可以找到足够个数的线性无关的eigenvectors。将上述这些eigenvectors按照列排成一个矩阵，也就是每一列都是一个eigenvector，再将每一列的norm都变成1，那么这个矩阵就是一个orthonormal矩阵，记为V，有性质$VV^T = V^TV$。我们有$SV = V \Sigma$。从而$S = V \Sigma V^T$。而这个形式就是对称实矩阵$S$的eigendecomposition，满足中间的对角矩阵$\Sigma$都是$S$的eigenvalues，而$V$的每一列都是对应的eigenvector，而且满足$V$是个orthonormal的矩阵。
 
 
->对于不是对称的一般的实矩阵$A \in R^{n \times n}$，也有上述类似的decomposition。会存在orthogonal matrix $V \in R^{n \times n}$，和$\Sigma \in R^{n \times n}$，满足$A = V \Sigma V^T$，而$\Sigma$是一个block对角矩阵，也就是说$\Sigma = diag\left{A_1, A_2, \codts, A_m, 0, \cdots, 0 \right}$，而每个$A_i$都是一个二维的skew-symmetric矩阵，满足
+>对于不是对称的一般的实矩阵$A \in R^{n \times n}$，也有上述类似的decomposition。会存在orthogonal matrix $V \in R^{n \times n}$，和$\Sigma \in R^{n \times n}$，满足$A = V \Sigma V^T$，而$\Sigma$是一个block对角矩阵，也就是说$\Sigma = diag(A_1, A_2, \codts, A_m, 0, \cdots, 0)$，而每个$A_i$都是一个二维的skew-symmetric矩阵，满足
 
 $$
 \begin{pmatrix}
@@ -158,9 +158,9 @@ $$
 
 现在我们再来看singular value decomposition。singular value decomposition是eigenvalue decomposition对于一般矩阵$A \in C^{m \times n}$的推广。
 
-SVD的正式定义为：对于矩阵$A \in R^{m \times n}$，$m \geq n$，并且$rank(A) = p$，我们有三个矩阵$U \in R^{m \times p}$，$V \in R^{n \times p}$和$\Sigma \in R^{p \times p}$具有以下性质，$U$和$V$的列都是orthonormal的，且$\Sigma = diag\left{\sigma_1, \sigma_2, \cdots, \sigma_p \right}$，$\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_p$，满足：$$A = U \Sigma V^T$$
+SVD的正式定义为：对于矩阵$A \in R^{m \times n}$，$m \geq n$，并且$rank(A) = p$，我们有三个矩阵$U \in R^{m \times p}$，$V \in R^{n \times p}$和$\Sigma \in R^{p \times p}$具有以下性质，$U$和$V$的列都是orthonormal的，且$\Sigma = diag(\sigma_1, \sigma_2, \cdots, \sigma_p)$，$\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_p$，满足：$$A = U \Sigma V^T$$
 
-注意到，上述SVD的定义是对eigenvalue decomposition的推广，后者将一个对称的方阵分解为：$A = V \Sigma V^T$，而$V$是orthonormal的，$\Sigma=diag\{\lambda_1, \cdots, \lambda_n\}$。SVD使得分解任何非满秩的非方矩阵成为了可能。从下述证明我们也可以看出其实SVD也是从eigenvalue decomposition推导出来的。
+注意到，上述SVD的定义是对eigenvalue decomposition的推广，后者将一个对称的方阵分解为：$A = V \Sigma V^T$，而$V$是orthonormal的，$\Sigma=diag(\lambda_1, \cdots, \lambda_n)$。SVD使得分解任何非满秩的非方矩阵成为了可能。从下述证明我们也可以看出其实SVD也是从eigenvalue decomposition推导出来的。
 
 **Proof:**
 
