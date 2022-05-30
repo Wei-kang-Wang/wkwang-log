@@ -49,7 +49,7 @@ $$E\left[S(X;\theta)^2\right] = -E\left[\frac{\partial^2}{\partial \theta^2} log
 
 一个normalized Bernoulli log likelihood的函数图像如下图所示：
 
-![fisher]({{ '/assets/images/FISHER-1.PNG' | relative_url }})
+![fisher]({{ '/assets/images/FISHER-1.png' | relative_url }})
 {: style="width: 600px; max-width: 100%;"}
 
 对于这样一个log likelihood function，它越平越宽，就代表我们对参数的估计能力越差，它越高越窄，就代表我们对参数的估计能力越好，也就是信息量越大。这个log likelihood function在MLE的结果$$\hat{\theta}$$处（也就是顶点处）的弯曲程度，就是通过在这个点处的负二阶导数来表示的。弯曲程度越大，整个log likelihood的形状就越偏向于高而窄，也就代表掌握的信息越多。
