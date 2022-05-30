@@ -23,11 +23,11 @@ date: 2021-12-18 01:09:00
 
 先从Feature scaling，或者叫做Feature normalization说起。
 
-假设$x_1$和$x_2$的数据差距很大：
+假设$$x_1$$和$$x_2$$的数据差距很大：
 
-$x_1$的范围是个位数，而$x_2$的范围是1e+3左右，假设$x_1$所乘的weight是$w_1$，$x_2$所乘的weight是$w_2$，那么因为$x_2$会比$x_1$大很多，所以$w_2$和$w_1$同等变化，$w_2$的影响会更大。
+$$x_1$$的范围是个位数，而$x_2$的范围是1e+3左右，假设$$x_1$$所乘的weight是$$w_1$$，$$x_2$$所乘的weight是$$w_2$$，那么因为$$x_2$$会比$$x_1$$大很多，所以$$w_2$$和$$w_1$$同等变化，$w_2$的影响会更大。
 
-将$w_1$和$w_2$对于loss的影响作图，如fig 1所示。在$w_1$方向上的梯度，在$w_2$方向上的梯度较大。这样会让training变得不容易，因为要在不同的方向上给不同的learning rate。
+将$$w_1$$和$$w_2$$对于loss的影响作图，如fig 1所示。在$$w_1$$方向上的梯度，在$$w_2$$方向上的梯度较大。这样会让training变得不容易，因为要在不同的方向上给不同的learning rate。
 
 所以说我们通过feature scaling的方式把不同的feature做normalization，从而使得loss关于不同参数的图看起来像正圆形（2维），从而就可以设置一个training rate了。如fig 1右侧。
 
@@ -76,7 +76,7 @@ normalization可以放在activation function之前，也可以放在其之后。
 {: style="width: 800px; max-width: 100%;"}
 *Fig 5. Full batch normalization.*
 
-上述是training过程中batch normalization的做法，而在testing的时候，testing的data是一个个进来的，所以没法计算mean和variance。方法是在training的时候，记录下来每一个batch对应的$\mu$和$\sigma^2$，然后利用某种加权和的方式（比如说exponential weighted average, $E_{t+1} = \alpha a + (1-\alpha)E_{t}$）计算出整个training集的$\mu$和$\sigma^2$，从而在test时候用。
+上述是training过程中batch normalization的做法，而在testing的时候，testing的data是一个个进来的，所以没法计算mean和variance。方法是在training的时候，记录下来每一个batch对应的$$\mu$$和$$\sigma^2$$，然后利用某种加权和的方式（比如说exponential weighted average, $$E_{t+1} = \alpha a + (1-\alpha)E_{t}$$）计算出整个training集的$$\mu$$和$$\sigma^2$$，从而在test时候用。
 
 如fig 6所示。
 
@@ -123,7 +123,7 @@ SVD的原始想法起源于eigendecomposition，所以我们先来介绍eigendec
 * 所有的eigenvalues都是实数。
 * 对应于不同的eigenvalues的eigenvectors是orthogonal的（不仅限于linear independent了）。
 * 如果$$S$$是positive semi-definite（positive definite）的，那么其所有的eigenvalues都是非负（正）的。
-* 如果$$\lambda_1$$和$$\lambda_n$$分别是最大的和最小的eigenvalues，那么$$\lambda_1 = \max_{||x||=1} <x, Sx>$$，以及$$\lambda_1 = \min_{||x||=1} <x, Sx>$$。
+* 如果$$\lambda_1$$和$$\lambda_n$$分别是最大的和最小的eigenvalues，那么$$\lambda_1 = max_{||x||=1} <x, Sx>$$，以及$$\lambda_1 = min_{||x||=1} <x, Sx>$$。
 
 对于eigenvalues的计算公式，我们有$$det(S-\lambda I) = 0$$，也就是关于$$\lambda$$的方程。假设这个关于$$\lambda$$的方程只有$$k$$个不同的根，即$$det(S-\lambda I) = (\lambda - \lambda_1)^{n_1} (\lambda - \lambda_2)^{n_2}...(\lambda - \lambda_k)^{n_k}=0$$。称$$n_i$$为eigenvalue $$\lambda_i$$的代数重数。对于特定的一个eigenvalue $$\lambda_i$$，我们有$$Sv = \lambda_i v$$，即$$(S-\lambda_i I) v = 0$$，从而其对应的eigenvectors都在矩阵$$S-\lambda_i I$$的null space里，这个null space对应的维数$$m_i$$称为eigenvalue $$\lambda_i$$的几何重数。我们有代数重数不小于几何重数这样的限制。
 
@@ -143,7 +143,7 @@ $$
 我们可以对于每个eigenvalue都找到其对应的eigenvector，而且因为每个eigenvalue的几何重数等于代数重数，所以说对于重复的eigenvalue，仍然可以找到足够个数的线性无关的eigenvectors。将上述这些eigenvectors按照列排成一个矩阵，也就是每一列都是一个eigenvector，再将每一列的norm都变成1，那么这个矩阵就是一个orthonormal矩阵，记为V，有性质$$VV^T = V^TV$$。我们有$$SV = V \Sigma$$。从而$$S = V \Sigma V^T$$。而这个形式就是对称实矩阵$$S$$的eigendecomposition，满足中间的对角矩阵$$\Sigma$$都是$$S$$的eigenvalues，而$$V$$的每一列都是对应的eigenvector，而且满足$$V$$是个orthonormal的矩阵。
 
 
->对于不是对称的一般的实矩阵$$A \in R^{n \times n}$$，也有上述类似的decomposition。会存在orthogonal matrix $$V \in R^{n \times n}$$，和$$\Sigma \in R^{n \times n}$$，满足$$A = V \Sigma V^T$$，而$$\Sigma$$是一个block对角矩阵，也就是说$$\Sigma = diag(A_1, A_2, \codts, A_m, 0, \cdots, 0)$$，而每个$$A_i$$都是一个二维的skew-symmetric矩阵，满足
+>对于不是对称的一般的实矩阵$$A \in R^{n \times n}$$，也有上述类似的decomposition。会存在orthogonal matrix $$V \in R^{n \times n}$$，和$$\Sigma \in R^{n \times n}$$，满足$$A = V \Sigma V^T$$，而$$\Sigma$$是一个block对角矩阵，也就是说$$\Sigma = diag(A_1, A_2, \cdots, A_m, 0, \cdots, 0)$$，而每个$$A_i$$都是一个二维的skew-symmetric矩阵，满足
 
 $$
 \begin{pmatrix}
@@ -295,7 +295,7 @@ $$argmax_{||x||=1}(||Ax||)$$
 ![3]({{ '/assets/images/SVD-3.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
->对于最大的特征值来说，其是$$argmax_{||x||=1}<x, Ax>$$的解，因为引入了内积，所以引入了方向。
+对于最大的特征值来说，其是$$argmax_{||x||=1}<x, Ax>$$的解，因为引入了内积，所以引入了方向。
 
 方向不变和拉伸最大都是矩阵的内禀的性质，方向不变在马尔科夫随机场中很重要；而拉伸最大方向则是数据方差分布最大的方向，所以所含的信息量最大，是PCA等方法中的核心思想。
 
