@@ -164,7 +164,25 @@ SVD的正式定义为：对于矩阵$A \in R^{m \times n}$，$m \geq n$，并且
 
 **Proof:**
 
-对于一个矩阵$A \in R^{m \times n}$，
+对于一个矩阵$A \in R^{m \times n}$，$m \geq n$而且$rank(A)=p$，那么我们有$$A^{T}A \in R^{n \times n}$是对称矩阵而且是positive semi-definite的。所以说它可以被进行eigenvalue decomposition，并且它的eigenvalues是非负的，表示为：$\sigma_1^2 \geq \cdots \geq \sigma_n^2$，以及相对应的orthonormal eigenvectors $v_1, \cdots, v_n$。这些非负的$\sigma_i$就叫做singular values。
+
+因为$$ker(A^TA) = ker(A)$$和$$range(A^TA) = range(A^T)，我们有$span(v_{i_1},\cdots, v_{i_p}) = range(A^T)以及$span(v_{i_{p+1}},\cdots,v_{i_{n}}) = ker(A)，这里$i_1,\cdots,i_n$是$1,\cdots,n$的一个排列，而且假设$\sigma_{i_1} \geq sigma_{i_2} \geq \cdots \geq sigma_{i_p}$。因为$v_1,\cdots,v_n$构成$R^{n}$空间的一组基，所以上述结果一定成立。从而，我们定义$$u_k = \frac{1}{\sigma_k}Av_{i_k}$$其中$k=1,\cdots,p$。也就是说，$Av_{i_k} = \sigma_k u_k$。因为$v_{i_1},\cdots,v_{i_p}$并不在$ker(A)$内，所以上述$u_k$都不是0。而且这些$u_k \in R^{m}$还是orthonormal的：$$<u_i,u_j> = \frac{1}{\sigma_i \sigma_j}<Avi, Avj> = \frac{1}{\sigma_i \sigma_j}<v_i, A^TAv_j> = \delta_{ij}$$
+
+将集合$(u_1, \cdots, u_p)$拓展到$R^m$的一个基$(u_1, \cdots, u_m)$。因为$Av_i = \sigma_i u_i$，所以我们有：
+
+$$
+\begin{pmatrix}
+ & \sigma_{i_1} & 0 & 0 & \cdots & 0 \\
+ & 0 & \sigma_{i_2} & 0 & \cdots & 0 \\
+A(v_1, \cdots, v_n) = (u_1, \cdots, u_m) & 0 & \cdots & \sigma_{i_p} & \cdots & 0 \\
+\cdots & \cdots & \cdots & \cdots & \cdots & 0 \\
+0 & \cdots & \cdots & \cdots & \cdots & 0 \\
+\end{pmatrix}
+$$
+
+也就是$A\widetilde V = \widetilde U \widetilde \Sigma，因此$$A = \widetilde U \widetilde \Sigma \widetilde V^T$$
+
+现在将$\widetilde U$对应乘以0 singular values的列和$\widetilde V^T$对应的乘以0 singular values的行去掉，我们就得到了最终的$A = U \Sigma V^T$，其中$U \in R^{m \times p}$并且$V \in R^{n \times p}$。
 
 
 
