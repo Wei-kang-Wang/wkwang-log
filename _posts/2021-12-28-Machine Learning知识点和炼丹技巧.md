@@ -127,7 +127,7 @@ SVD的原始想法起源于eigendecomposition，所以我们先来介绍eigendec
 
 对于eigenvalues的计算公式，我们有$det(S-\lambda I) = 0$，也就是关于$\lambda$的方程。假设这个关于$\lambda$的方程只有$k$个不同的根，即$det(S-\lambda I) = (\lambda - \lambda_1)^{n_1} (\lambda - \lambda_2)^{n_2}...(\lambda - \lambda_k)^{n_k}=0$。称$n_i$为eigenvalue $\lambda_i$的代数重数。对于特定的一个eigenvalue $\lambda_i$，我们有$Sv = \lambda_i v$，即$(S-\lambda_i I) v = 0$，从而其对应的eigenvectors都在矩阵$S-\lambda_i I$的null space里，这个null space对应的维数$m_i$称为eigenvalue $\lambda_i$的几何重数。我们有代数重数不小于几何重数这样的限制。
 
-对称实矩阵的好处就是，对于任何eigenvalue，都有其代数重数等于几何重数，也就是说假设我们将对称实矩阵$S$的$n$个eigenvalues排成一个对角矩阵$\Simga$（带重复的）：
+对称实矩阵的好处就是，对于任何eigenvalue，都有其代数重数等于几何重数，也就是说假设我们将对称实矩阵$S$的$n$个eigenvalues排成一个对角矩阵$\Sigma$（带重复的）：
 
 $$
 \begin{pmatrix}
@@ -173,24 +173,6 @@ SVD的正式定义为：对于矩阵$A \in R^{m \times n}$，$m \geq n$，并且
 ### 参考文献
 
 * https://zhuanlan.zhihu.com/p/30658304
-
-
-
-
-
-
-如果$\lambda$是矩阵$A$的eigenvalue，那么
-
-方矩阵不同的eigenvalue对应的eigenvector是线性无关的。
-
-
-
-
-
-
-**Theorem 1** 对于任意的实矩阵$A \in R^{n \times n}$，如果
-
-
 
 
 
