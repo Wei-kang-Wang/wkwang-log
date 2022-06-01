@@ -113,7 +113,7 @@ $$\lambda_1 = \frac{1+\sqrt{5}}{2}, \lambda_2 = \frac{1-\sqrt{5}}{2}$$
 
 更神奇的是，如果任意选取坐标$$(x,y)$$，在不断的乘以矩阵$$A$$，最终坐标仍然会收敛到最大的特征值对应的特征向量附近，而且当乘上的矩阵逼近于无穷时，会收敛到这个特征向量。也就是说，上面所得出的黄金分割比，与初始值无关，而是斐波那契数列的推导式的内禀性质，也就是矩阵$$A$$的内禀性质，也就是其最大的特征值。
 
-我们计算矩阵$$A$$两个特征值对应的特征向量，可以得到$$lambda_1$$对应的特征向量$$v_1 = \left[\lambda_1, 1 \right]^T$$，$$\lambda_2$$对应的特征向量$$v_2 = \left[\lambda_2, 1 \right]^T$$，再将$$v_1$$和$$v_2$$归一化，得到了$$v_1 = \left[\sqrt{\frac{5+\sqrt{5}}{10}}, \sqrt{\frac{5-\sqrt{5}}{10}}\right]^T = \sqrt{\frac{5-\sqrt{5}}{10}} \left[\lambda_1, 1 \right]^T $$，以及$$v_2 = \left[\sqrt{\frac{5-\sqrt{5}}{10}}， \sqrt{\frac{5+\sqrt{5}}{10}}\right]^T = \sqrt{\frac{5+\sqrt{5}}{10}} \left[\lambda_2, 1 \right]^T$$。因为eigenvalue decomposition并不需要对应的eigenvector是归一化的，我们就直接使用$$v_1 = \left[\lambda_1, 1 \right]^T$$和$$v_2 = \left[\lambda_2, 1 \right]^T$$了。$$v_1，v_2$$分别是矩阵$$A$$的eigenvalue decomposition里的$$S$$的两列：
+我们计算矩阵$$A$$两个特征值对应的特征向量，可以得到$$\lambda_1$$对应的特征向量$$v_1 = \left[\lambda_1, 1 \right]^T$$，$$\lambda_2$$对应的特征向量$$v_2 = \left[\lambda_2, 1 \right]^T$$，再将$$v_1$$和$$v_2$$归一化，得到了$$v_1 = \left[\sqrt{\frac{5+\sqrt{5}}{10}}, \sqrt{\frac{5-\sqrt{5}}{10}}\right]^T = \sqrt{\frac{5-\sqrt{5}}{10}} \left[\lambda_1, 1 \right]^T $$，以及$$v_2 = \left[\sqrt{\frac{5-\sqrt{5}}{10}}， \sqrt{\frac{5+\sqrt{5}}{10}}\right]^T = \sqrt{\frac{5+\sqrt{5}}{10}} \left[\lambda_2, 1 \right]^T$$。因为eigenvalue decomposition并不需要对应的eigenvector是归一化的，我们就直接使用$$v_1 = \left[\lambda_1, 1 \right]^T$$和$$v_2 = \left[\lambda_2, 1 \right]^T$$了。$$v_1，v_2$$分别是矩阵$$A$$的eigenvalue decomposition里的$$S$$的两列：
 
 $$S = {\left[ \begin{array}{cc} \lambda_1 & \lambda_2 \\ 1 & 1 \end{array} \right]}$$
 
@@ -134,7 +134,7 @@ $$ = \frac{1}{\sqrt{5}} {\left[ \begin{array}{cc} \lambda_1 & \lambda_2 \\ 1 & 1
 
 $$ = \frac{1}{\sqrt{5}} {\left[ \begin{array}{c} \lambda_1^{k+1} - \lambda_2^{k+1} \\ \lambda_1^{k}-\lambda_2^k \end{array} \right]}$$
 
-而$$(\lambda_1^{k+1} - \lambda_2^{k+1}) / lambda_1^{k}-\lambda_2^k \end{array} \approx \lambda_1$$，也就是说，斐波那契数列前后两项的比值约等于黄金分割比。而在$$k$$趋近于无穷的时候，上述约等于则无限趋近于等于。
+而$$(\lambda_1^{k+1} - \lambda_2^{k+1}) / \lambda_1^{k}-\lambda_2^k \approx \lambda_1$$，也就是说，斐波那契数列前后两项的比值约等于黄金分割比。而在$$k$$趋近于无穷的时候，上述约等于则无限趋近于等于。
 
 
 
