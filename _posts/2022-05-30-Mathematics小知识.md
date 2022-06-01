@@ -137,6 +137,10 @@ $$ = \frac{1}{\sqrt{5}} {\left[ \begin{array}{c} \lambda_1^{k+1} - \lambda_2^{k+
 而$$(\lambda_1^{k+1} - \lambda_2^{k+1}) / \lambda_1^{k}-\lambda_2^k \approx \lambda_1$$，也就是说，斐波那契数列前后两项的比值约等于黄金分割比。而在$$k$$趋近于无穷的时候，上述约等于则无限趋近于等于。
 
 
+### 参考文献
+
+* https://zhuanlan.zhihu.com/p/354102331
+
 
 
 
