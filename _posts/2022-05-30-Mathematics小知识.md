@@ -57,6 +57,88 @@ $$E\left[S(X;\theta)^2\right] = -E\left[\frac{\partial^2}{\partial \theta^2} log
 在一般情况下，通过对score function在真实值处的泰勒展开，应用中心极限定理，弱大数定律，依照概率一致收敛，以及Slutsky定理，可以证明MLE的渐进分布的方差是$$I^{-1}(\theta)$$，即$$Var(\hat \theta_{{MLE}}) = I^{-1}(\theta)$$，这也就是Fisher Information的第三条数学意义。这样说不严谨，严格地说，是$$\sqrt{n}(\hat \theta_{MLE} - \theta) \rightarrow N(0, I^{\ast}(\theta)^{-1})$$，这里$$I^{\ast}(\theta)$$是当只观察到一个$$X$$值时候的Fisher Information，当有$$n$$个i.i.d.观察值时，$$I^{\ast}(\theta) = I(\theta)/n$$。这个的直观解释就是，Fisher Information反映了我们对参数估计的准确度，它越大，对参数估计越准确，也即代表了更多的信息。
 
 
+### 参考文献
+* https://www.zhihu.com/question/26561604/answer/33275982
+
+
+## 2. 矩阵特征向量和特征值的意义
+
+一般来说，长期趋势往往体现的是内禀的性质。
+
+长远来看，矩阵的特征值表示矩阵的缩放比。
+
+如果要计算矩阵$$A^100$$，矩阵的乘法计算量大，那能否利用一个标量$$\lambda$$来代替矩阵，只计算$$\lambda^100$$就行呢？在很多应用里，比如说马尔可夫随机场模型里经常要计算矩阵的高阶乘法，比如说$$A^100$$。
+
+我们通过斐波那契数列和黄金分割比来说明特征值和特征向量的意义。
+
+斐波那契数列的表达式为：$$F_n = F_{n-1} + F_{n-2}$$。写成矩阵的形式：
+
+$${\left[ \begin{array}{cc} F_n \\ F_{n-1} \end{array} \right]} = {\left[ \begin{array}{cc} 1 & 1 \\ 1 & 0 \end{array} \right]} {\left[ \begin{array}{c} F_{n-1} \\ F_{n-2} \end{array} \right]}$$
+
+我们将利用特征值来计算斐波那契额数列的通项公式，从而说明矩阵特征值能体现矩阵长期趋势的原因。
+
+定义：$$u_n = {\left[ \begin{array}{c} F_n \\ F_{n-1} \end{array} \right]}$$，$$A = {\left[ \begin{array}{cc} 1 & 1 \\ 1 & 0 \end{array} \right]}$$，那么
+
+$$u_n = Au_{n-1}$$
+
+初始条件：$$u_0 = {\left[ \begin{array}{ccc} 1 \\ 0 \end{array} \right]}$$
+
+$$u_1 = Au_0$$
+
+$$u_2 = Au_1$$
+
+$$\cdots$$
+
+$$u_n = A^nu_o$$
+
+因为矩阵$$A$$是满秩的，所以其可以进行eigenvalue decomposition，也就是说$$A = S\Lambda S^{-1}$$，其中$$\Lambda$$是对角矩阵，对角线上的值是可以重复出现的特征值，而$$S$$的每一列则是对应特征值的特征向量，这些特征向量是线性无关的（因为矩阵满秩，所以做得到），$$S$$是orthonormal矩阵。
+
+从而我们利用特征值和特征向量来求$$A^n$$：
+
+$$A^2 = S \Lambda S^{-1} S \Lambda S^{-1} = S \Lambda^2 S^{-1}$$
+
+从而我们可以知道：
+
+$$A^k = S \Lambda^k S^{-1}$$
+
+对所有的正整数$$k$$都成立。
+
+我们来求一下$$\Lambda$$。另$$det|\lambda I - A| = 0$$，得到
+
+$$\lambda_1 = \frac{1+\sqrt{5}}{2}, \lambda_2 = \frac{1-\sqrt{5}}{2}$$
+
+如果我们将相邻的两个斐波那契数列的项分别作为一个点的$$x,y$$坐标，如上面所示。我们可以知道相邻两个点就可以用乘以矩阵$$A$$得到。我们对于这些点做线性回归，结果是斜率约等于$$\lambda_1$$。也就是说相邻的两个斐波那契额数相差$$\lambda_1$$倍，与黄金分割比相同。也就是说，矩阵最大的特征值，就是黄金分割比的值。
+
+从这个例子可以直觉上理解：一个矩阵的$$n$$次方可以类比于这个矩阵最大的特征值的$$n$$次方。
+
+更神奇的是，如果任意选取坐标$$(x,y)$$，在不断的乘以矩阵$$A$$，最终坐标仍然会收敛到最大的特征值对应的特征向量附近，而且当乘上的矩阵逼近于无穷时，会收敛到这个特征向量。也就是说，上面所得出的黄金分割比，与初始值无关，而是斐波那契数列的推导式的内禀性质，也就是矩阵$$A$$的内禀性质，也就是其最大的特征值。
+
+我们计算矩阵$$A$$两个特征值对应的特征向量，可以得到$$lambda_1$$对应的特征向量$$v_1 = \left[\lambda_1, 1 \right]^T$$，$$\lambda_2$$对应的特征向量$$v_2 = \left[\lambda_2, 1 \right]^T$$，再将$$v_1$$和$$v_2$$归一化，得到了$$v_1 = \left[\sqrt{\frac{5+\sqrt{5}}{10}}, \sqrt{\frac{5-\sqrt{5}}{10}}\right]^T = \sqrt{\frac{5-\sqrt{5}}{10}} \left[\lambda_1, 1 \right]^T $$，以及$$v_2 = \left[\sqrt{\frac{5-\sqrt{5}}{10}}， \sqrt{\frac{5+\sqrt{5}}{10}}\right]^T = \sqrt{\frac{5+\sqrt{5}}{10}} \left[\lambda_2, 1 \right]^T$$。因为eigenvalue decomposition并不需要对应的eigenvector是归一化的，我们就直接使用$$v_1 = \left[\lambda_1, 1 \right]^T$$和$$v_2 = \left[\lambda_2, 1 \right]^T$$了。$$v_1，v_2$$分别是矩阵$$A$$的eigenvalue decomposition里的$$S$$的两列：
+
+$$S = {\left[ \begin{array}{cc} \lambda_1 & \lambda_2 \\ 1 & 1 \end{array} \right]}$$
+
+而$$S^{-1}$$则是
+
+$$S^{-1} = \frac{1}{\sqrt{5}} {\left[ \begin{array}{cc} 1 & -\lambda_2 \\ -1 & \lambda_1 \end{array} \right]}$$
+
+
+所以我们得到：
+
+$$u_k = A^ku_0 = S \Lambda^k S^{-1}u_0 = \frac{1}{\sqrt{5}} S \Lambda^k {\left[ \begin{array}{cc} 1 & -\lambda_2 \\ -1 & \lambda_1 \end{array} \right]} u_0$$
+
+$$ = \frac{1}{\sqrt{5}} {\left[ \begin{array}{cc} \lambda_1 & \lambda_2 \\ 1 & 1 \end{array} \right]} {\left[ \begin{array}{cc} \lambda_1 & 0 \\ 0 & \lambda_2 \end{array} \right]}^k {\left[ \begin{array}{c} 1 \\ 0 \end{array} \right]}$$
+
+$$ = \frac{1}{\sqrt{5}} {\left[ \begin{array}{cc} \lambda_1 & \lambda_2 \\ 1 & 1 \end{array} \right]} {\left[ \begin{array}{cc} \lambda_1^k & 0 \\ 0 & \lambda_2^k \end{array} \right]} {\left[ \begin{array}{c} 1 \\ -1 \end{array} \right]}$$
+
+$$ = \frac{1}{\sqrt{5}} {\left[ \begin{array}{cc} \lambda_1 & \lambda_2 \\ 1 & 1 \end{array} \right]} {\left[ \begin{array}{c} \lambda_1^k \\ -\lambda_2^k \end{array} \right]}$$
+
+$$ = \frac{1}{\sqrt{5}} {\left[ \begin{array}{c} \lambda_1^{k+1} - \lambda_2^{k+1} \\ \lambda_1^{k}-\lambda_2^k \end{array} \right]}$$
+
+而$$(\lambda_1^{k+1} - \lambda_2^{k+1}) / lambda_1^{k}-\lambda_2^k \end{array} \approx \lambda_1$$，也就是说，斐波那契数列前后两项的比值约等于黄金分割比。而在$$k$$趋近于无穷的时候，上述约等于则无限趋近于等于。
+
+
+
+
 
 
 ---
