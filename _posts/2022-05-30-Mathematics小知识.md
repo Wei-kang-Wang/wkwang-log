@@ -103,7 +103,7 @@ $$A^k = S \Lambda^k S^{-1}$$
 
 对所有的正整数$$k$$都成立。
 
-我们来求一下$$\Lambda$$。另$$det|\lambda I - A| = 0$$，得到
+我们来求一下$$\Lambda$$。令$$det \left |\lambda I - A \right | = 0$$，得到
 
 $$\lambda_1 = \frac{1+\sqrt{5}}{2}, \lambda_2 = \frac{1-\sqrt{5}}{2}$$
 
