@@ -77,7 +77,7 @@ Hyperparameter: Number of Keypoints $$K$$.
 
 This paper proposed a framework to learn 3D keypoints of hand. 
 
-The input is a keypoint detector $$d_0$$ trained on a small labelled dataset $$T_0$$, a sequence of images $$\left{I_v^f, v=1,2,...,V, f=1,2,..,F\right}$$, with $$v$$ denote the camera view and $$f$$ denote the time frame.
+The input is a keypoint detector $$d_0$$ trained on a small labelled dataset $$T_0$$, a sequence of images $${I_v^f, v=1,2,...,V, f=1,2,..,F}$$, with $$v$$ denote the camera view and $$f$$ denote the time frame.
 
 Hyperparameter: Number of Keypoints $$K$$.
 
