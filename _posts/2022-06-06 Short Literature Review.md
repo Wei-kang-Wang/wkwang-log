@@ -77,11 +77,11 @@ Hyperparameter: Number of Keypoints $$K$$.
 
 This paper proposed a framework to learn 3D keypoints of hand. 
 
-The input is a keypoint detector $$d_0$$ trained on a small labelled dataset $$T_0$$, a sequence of images $$\left{ I_v^f, v=1,2,...,V, f=1,2,..,F \right}$$, with $$v$$ denote the camera view and $$f$$ denote the time frame.
+The input is a keypoint detector $$d_0$$ trained on a small labelled dataset $$T_0$$, a sequence of images $$\lbrace I_v^f, v=1,2,...,V, f=1,2,..,F \rbrace$$, with $$v$$ denote the camera view and $$f$$ denote the time frame.
 
 Hyperparameter: Number of Keypoints $$K$$.
 
-**Step1** First use $$d_0$$ to calculate the image coordinates (no depth) and confidence of each keypoint $$k$$ of $$I_v^f$$, denoted as $$x_v^{f,k}$$ and $$C_v^{f,k}$$. Then use the random sample consensus to pick inliers out of each set $$\left{(x_v^{k}, C_v^{k})\right}$$ for each time frame $$f$$. Then the 3D wolrd coodinates are computed as:
+**Step1** First use $$d_0$$ to calculate the image coordinates (no depth) and confidence of each keypoint $$k$$ of $$I_v^f$$, denoted as $$x_v^{f,k}$$ and $$C_v^{f,k}$$. Then use the random sample consensus to pick inliers out of each set $$\lbrace (x_v^{k}, C_v^{k}) \rbrace$$ for each time frame $$f$$. Then the 3D wolrd coodinates are computed as:
 
 $$X_v^{k} = argmin_X \Sigma_{v \in I_v^{k}} ||P_v(X)-x_v^k||^2_F$$
 
