@@ -88,7 +88,7 @@ normalization可以放在activation function之前，也可以放在其之后。
 * 减少训练实际，使得训练很深的网络变得可能。因为internal covariate shift被减弱了，所以可以用大的learning rate了。而且因为exploding/vanishing gradient的现象被减轻了（特别是对于activation function有saturation part的情况，比如说tanh或者sigmoid）
 * initialization的影响减弱了。
 
-### 1.3 Andrew Ng对于BatchNormalization的解释（https://www.youtube.com/watch?v=nUUqwaxLnWs）
+### 1.3 [Andrew Ng对于BatchNormalization的解释](https://www.youtube.com/watch?v=nUUqwaxLnWs)
 
 **Intuition 1**: 对input做feature scaling可以帮助训练，而同样的操作也可以针对neural networks的中间层输出来做。
 
@@ -123,7 +123,9 @@ SVD的原始想法起源于eigendecomposition，所以我们先来介绍eigendec
 * 所有的eigenvalues都是实数。
 * 对应于不同的eigenvalues的eigenvectors是orthogonal的（不仅限于linear independent了）。
 * 如果$$S$$是positive semi-definite（positive definite）的，那么其所有的eigenvalues都是非负（正）的。
-* 如果$$\lambda_1$$和$$\lambda_n$$分别是最大的和最小的eigenvalues，那么$$\lambda_1 = max_{||x||=1} \left\langle x, Sx \right\rangle$$以及$$\lambda_n = min_{||x||=1} \left\langle x, Sx \right\rangle$$
+* 如果$$\lambda_1$$和$$\lambda_n$$分别是最大的和最小的eigenvalues，那么
+
+$$\lambda_1 = max_{||x||=1} \left\langle x, Sx \right\rangle$$以及$$\lambda_n = min_{||x||=1} \left\langle x, Sx \right\rangle$$
 
 对于eigenvalues的计算公式，我们有$$det(S-\lambda I) = 0$$，也就是关于$$\lambda$$的方程。假设这个关于$$\lambda$$的方程只有$$k$$个不同的根，即$$det(S-\lambda I) = (\lambda - \lambda_1)^{n_1} (\lambda - \lambda_2)^{n_2}...(\lambda - \lambda_k)^{n_k}=0$$。称$$n_i$$为eigenvalue $$\lambda_i$$的代数重数。对于特定的一个eigenvalue $$\lambda_i$$，我们有$$Sv = \lambda_i v$$，即$$(S-\lambda_i I) v = 0$$，从而其对应的eigenvectors都在矩阵$$S-\lambda_i I$$的null space里，这个null space对应的维数$$m_i$$称为eigenvalue $$\lambda_i$$的几何重数。我们有代数重数不小于几何重数这样的限制。
 
