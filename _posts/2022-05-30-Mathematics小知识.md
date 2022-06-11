@@ -276,6 +276,77 @@ $$AP = P \begin{pmatrix} J_1 & 0 & 0 \\ 0 & J_2 & 0 \\ 0 & 0 & J_3 \end{pmatrix}
 
 
 
+## 4. 实对称矩阵特性、相似变换与SVD分解
+
+如果$$n$$阶方阵可以对角化，那么$$P$$阵是$$n$$个线性无关的特征向量组成的：
+
+$$AP = P \begin{pmatrix} \lambda_1 & 0 & 0 & \cdots & 0 \\ 0 & \lambda_2 & 0 & \cdots & 0 \\ \vdots & \vdots & \vdots & \cdots & \vdots \\ 0 & 0 & 0 & \cdots & \lambda_n \end{pmatrix}$$
+
+$$P = (x_1, x_2, \cdots, x_n)$$。
+
+但是一般的矩阵并不会是一个方阵，同时是一个$$m \times n$$的矩阵，那么这样的矩阵是否能进行某种对角化？
+
+为了实现非方阵$$A \in R^{m \times n}$$的对角化，我们对$$A A^T \in R^{m \times m}$$或者$$A^T A \in R^{n \times n}$$进行对角化。但是为了仍然可以根据$$A A^T$$和$$A^T A$$推导出$$A$$的一个分解形式，假设这个分解形式为$$A = U \Sigma V^T$$，$$U \in R^{m \times m}, \Sigma \in R^{m \times n}, V \in R^{n \times n}$$，那么：
+
+$$A^T A = (V \Sigma^T U^T) (U \Sigma V^T) = V \Sigma^T U^T U \Sigma V^T$$
+
+$$A A^T = (U \Sigma V^T) (V \Sigma^T U^T) = U \Sigma V^T V \Sigma^T U^T$$
+
+我们希望中间的$$U^T U = I$$以及$$V^T V = I$$，也就是说$$U,V$$是orthonormal的，即单位正交矩阵。
+
+首先我们来看方阵$$A^T A$$，对于任意特征值$$A^T A x_i = \lambda_i x_i$$，两边除以特征向量的模，等式依然成立$$A^T A \frac{x_i}{\lVert x_i \rVert} = \lambda_i \frac{x_i}{\lVert x_i \rVert}$$。我们令$$P_1 = (\frac{x_1}{\lVert x_1 \rVert}, \frac{x_2}{\lVert x_2 \rVert}, \cdots, \frac{x_n}{\lVert x_n \rVert})$$，同样也有：
+
+$$A^TAP_1 = P_1 \begin{pmatrix} \lambda_1 & 0 & 0 & \cdots & 0 \\ 0 & \lambda_2 & 0 & \cdots & 0 \\ \vdots & \vdots & \vdots & \cdots & \vdots \\ 0 & 0 & 0 & \cdots & \lambda_n \end{pmatrix}$$
+
+且有$$P_1^TP_1 = I$$。
+
+现在问题是，矩阵$$A^TA \in R^{n \times n}$$就一定可以进行相似对角化么？答案是肯定的，因为其是实对称矩阵，就一定能够可以找到$$n$$个相互垂直的特征向量。
+
+为什么实对称矩阵一定可以被相似对角化呢？因为任何方阵都可以被Jordan block对角化，但是其就会失去对称性，从而矛盾，所以对称矩阵一定可以被相似对角化。
+
+而且实对称矩阵的不同eigenspace里的向量正交（对于普通方阵，其不同eigenspace里的向量只是线性无关，但不一定正交）。
+
+所以实对称矩阵有非常好的性质，其所有的特征值都是实数，还可以被分为$$r$$个相互独立的特征空间，然后将这些特征空间里的特征向量都单位化，就可以得到这个矩阵的相似对角阵的$$P$$，且$$P^{-1}P = I$$。
+
+因此，$$A^T A \in R^{n \times n}$$可以相似对角化，它存在有$$n$$个相互正交的单位向量组成的矩阵$$P_1$$使得：
+
+$$A^TA = P_1 \begin{pmatrix} \lambda_1 & 0 & 0 & \cdots & 0 \\ 0 & \lambda_2 & 0 & \cdots & 0 \\ \vdots & \vdots & \vdots & \cdots & \vdots \\ 0 & 0 & 0 & \cdots & \lambda_n \end{pmatrix}P_1^{-1} = P_1 \begin{pmatrix} \lambda_1 & 0 & 0 & \cdots & 0 \\ 0 & \lambda_2 & 0 & \cdots & 0 \\ \vdots & \vdots & \vdots & \cdots & \vdots \\ 0 & 0 & 0 & \cdots & \lambda_n \end{pmatrix} P_1^T$$
+
+类似的，$$A A^T \in R^{m \times m}$$可以相似对角化，它存在有$$m$$个相互正交的单位向量组成的矩阵$$P_2$$使得：
+
+$$A A^T = P_2 \begin{pmatrix} \Lambda_1 & 0 & 0 & \cdots & 0 \\ 0 & \Lambda_2 & 0 & \cdots & 0 \\ \vdots & \vdots & \vdots & \cdots & \vdots \\ 0 & 0 & 0 & \cdots & \Lambda_m \end{pmatrix}P_2^{-1} = P_2 \begin{pmatrix} \Lambda_1 & 0 & 0 & \cdots & 0 \\ 0 & \Lambda_2 & 0 & \cdots & 0 \\ \vdots & \vdots & \vdots & \cdots & \vdots \\ 0 & 0 & 0 & \cdots & \Lambda_m \end{pmatrix} P_2^T$$
+
+取$$V = P_1$$，$$U = P_2$$，那么$$A^T A = V \Sigma^T U^T U \Sigma V^T = P_1 \Sigma_^T \Sigma P_1^T \in R^{n \times n}$$，我们有：
+
+$$\begin{pmatrix} \lambda_1 & 0 & 0 & \cdots & 0 \\ 0 & \lambda_2 & 0 & \cdots & 0 \\ \vdots & \vdots & \vdots & \cdots & \vdots \\ 0 & 0 & 0 & \cdots & \lambda_n \end{pmatrix} = \Sigma^T \Sigma$$
+
+同样的$$A A^T = (U \Sigma V^T) (V \Sigma^T U^T) = U \Sigma V^T V \Sigma^T U^T = P_2 \Sigma \Sigma^T P_2^T \in R^{m \times m}$$，我们有：
+
+$$\begin{pmatrix} \Lambda_1 & 0 & 0 & \cdots & 0 \\ 0 & \Lambda_2 & 0 & \cdots & 0 \\ \vdots & \vdots & \vdots & \cdots & \vdots \\ 0 & 0 & 0 & \cdots & \Lambda_m \end{pmatrix} = \Sigma \Sigma^T$$
+
+然后，因为$$A^TA$$和$$AA^T$$具有相同的eigenvalues，从而上述的$$\lambda_i$$们和$$\Lambda_i$$们实际上是相同的（多出来的就是0）。从而我们就可以根据上面的式子解出$$\Sigma$$的值了。
+
+于是$$A = U \Sigma V^T = P_2 \Sigma P_1^T \in R^{m \times n}$$。
+
+假设$$m < n$$，那么
+
+$$\Sigma = \begin{pmatrix} \sqrt{\Lambda_1} & 0 & \cdots & 0 & 0 & \cdots & 0 \\ 0 & \sqrt{\Lambda_2} & \cdots & 0 & 0 & \cdots & 0 \\ \vdots & \vdots & \cdots & \vdots & 0 \cdots & 0 \\ 0 & 0 & \cdots & \sqrt{\Lambda_m} & 0 & \cdots & 0 \end{pmatrix}$$
+
+其中右边的$$n-m$$列都是0。
+
+如果$$m > n$$，那么
+
+$$\Sigma = \begin{pmatrix} \sqrt{\Lambda_1} & 0 & \cdots & 0 \\ 0 & \sqrt{\Lambda_2} & \cdots & 0 \\ \vdots & \vdots & \cdots & \vdots \\ 0 & 0 & \cdots & \sqrt{\Lambda_n} \\ 0 & 0 & \cdots 0 \\ \vdots & \vdots & \cdots & \vdots \\ 0 & 0 & \cdots 0 \end{pmatrix}$$
+
+其中下面的$$m-n$$行都是0。
+
+
+SVD分解实际上是通过将一个非方阵的$$A \in R^{m \times n}$$矩阵，通过$$A^TA$$和$$AA^t$$得到方阵，分别找到使得$$A^TA$$和$$AA^T$$对角化的矩阵$$P_1$$和$$P_2$$，利用$$A^TA$$和$$AA^T$$正好是对称矩阵，其拥有正交的$$P_1$$和$$P_2$$，而且$$A^TA$$和$$AA^T$$拥有相同的特征值，从而得到了使得非方阵$$A$$对角化的方法：$$A = P_2 \Sigma P_1^T$$，其中$$\Sigma$$是一个以$$A^TA$$的特征值的开方为对角元素的对角矩阵。
+
+
+
+
+
 
 
 
