@@ -267,7 +267,7 @@ $$(x_1, v_1, w_1) J_1 = (x_1, v_1, w_1) \begin{pmatrix} \lambda_1 & 1 & 0 \\ 0 &
 
 对于特征值$$\lambda_2$$，假设$$(A - \lambda_2) x = 0$$的eigenspace只有1维，从而也就只有一个Jordan block。任意选取一个基$$y_1$$，假设对于$$y_1$$我们发现的Jordan block的size为2，也就是能找到$$r_1$$满足$$(A - \lambda_2 I) r_1 = y_1$$，却无法找到$$s_1$$满足$$(A - \lambda_2 I)s_1 = r_1$$。从而
 
-$$J_3 = \begin{pmatrix} \lambda_2 & 1 \\ 0 & \lamdba_2 \end{pmatrix}$$。
+$$J_3 = \begin{pmatrix} \lambda_2 & 1 \\ 0 & \lambda_2 \end{pmatrix}$$。
 
 最后，我们使得$$A$$能够约当块对角化的矩阵$$P$$设置为$$(x_1, v_1, w_1, x_2, y_1, r_1)$$，可以使得：
 
