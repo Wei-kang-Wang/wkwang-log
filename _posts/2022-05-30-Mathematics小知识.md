@@ -271,7 +271,9 @@ $$J_3 = \begin{pmatrix} \lambda_2 & 1 \\ 0 & \lamdba_2 \end{pmatrix}$$。
 
 最后，我们使得$$A$$能够约当块对角化的矩阵$$P$$设置为$$(x_1, v_1, w_1, x_2, y_1, r_1)$$，可以使得：
 
-$$AP = P \begin{\matrix} J_1 & 0 & 0 \\ 0 & J_2 & 0 \\ 0 & 0 & J_3 \end{pmatrix}$$
+$$AP = P \begin{\pmatrix} J_1 & 0 & 0 \\ 0 & J_2 & 0 \\ 0 & 0 & J_3 \end{pmatrix}$$
+
+
 
 
 
