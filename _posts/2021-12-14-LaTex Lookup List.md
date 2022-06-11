@@ -23,12 +23,11 @@ date: 2021-12-14 01:09:00
 | :------: | :------: | :------: |
 | 圆括号，小括号 | \left( \frac{a}{b} \right) | $$\left( \frac{a}{b} \right)$$ |
 | 方括号，中括号 | \left[ \frac{a}{b} \right] | $$\left[ \frac{a}{b} \right]$$ |
-| 花括号，大括号 | \left\{ \frac{a}{b} \right\} | $$\left\{ \frac{a}{b} \right\}$$ |
 | 花括号，大括号 | \lbrace \frac{a}{b} \rbrace | $$\lbrace \frac{a}{b} \rbrace$$ |
-| 尖括号 | \left\langle \frac{a}{b} \right\rangle | $$\left\langle \frac{a}{b} \right\rangle$$ |
-| 双竖线，范式 | \left \| \frac{a}{b} \right\| | $$\left \| \frac{a}{b} \right\|$$ |
-| 取整符号 | \left\lfloor \frac{a}{b} \right\rfloor | $$\left\lfloor \frac{a}{b} \right\rfloor$$ |
-| 取顶符号 | \left\lceil \frac{a}{b} \right\rceil | $$\left\lceil \frac{a}{b} \right\rceil$$ |
+| 尖括号 | \langle \frac{a}{b} \rangle | $$\langle \frac{a}{b} \rangle$$ |
+| 双竖线，范式 | \lVert \frac{a}{b} \rVert | $$\lVert \frac{a}{b} \rVert$$ |
+| 取整符号 | \lfloor \frac{a}{b} \rfloor | $$\lfloor \frac{a}{b} \rfloor$$ |
+| 取顶符号 | \lceil \frac{a}{b} \rceil | $$\lceil \frac{a}{b} \rceil$$ |
 | 混合符号 | \left( 0,1 \right] | $$\left( 0,1 \right]$$ |
 | 单侧括号 | \left .\frac{a}{b} \right\} | $$\left .\frac{a}{b} \right\}$$ |
 
