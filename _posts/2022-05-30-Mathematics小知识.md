@@ -197,6 +197,42 @@ $$H(p_1, p_2, \cdots, p_n) = K log s - K\Sigma_{i=1}^n p_i log n_i = -K \left[ \
 
 
 
+## 3. 矩阵的eigenvalue，eigenvector，algebraic multiplicity和geometric multiplicity和相似对角化
+
+$$Ax = \lambda x$$，$$A \in R^{n \times n}$$为$$n$$阶方阵，$$x$$叫做$$A$$的特征向量，eigenvector，$$\lambda$$叫做特征值，eigenvalue。
+
+寻找矩阵的特征值，是通过求解$$A$$的行列式$$det(\lambda I - A)=0=(\lambda - \lambda_1)^{n_1} (\lambda - \lambda_2)^{n_2} \cdots (\lambda - \lambda_r)^{n_r}$$，$$n_1 + n_2 + \cdots + n_r = n$$，一共$$r$$个不同的特征值。多项式$$det(\lambda I - A)$$的根有$$n$$个，不同的根有$$r$$个，根$$\lambda_1$$有$$n_1$$重，$$\lambda_2$$有$$n_2$$重，以此类推。
+
+找到特征值之后，就可以找到特征值对应的特征向量了。特征值$$\lambda_i$$对应的特征向量的求解方式为，寻找方程$$Ax = \lambda_i x$$的解，也就是$$(A-\lambda_i I) x = 0$$的解。也就是说特征值对应的特征向量在方阵$$A-\lambda_i I$$的null space，$$N(A-\lambda_i I)$$里。
+
+每个特征值对应的特征向量都有无数个，问题是特征向量构成的特征空间，eigenspace有几维，也就是$$N(A - \lambda_i I)$$有几维。假设$$N(A - \lambda_i I)$$有$$m_i$$维，那么其是否等于特征值$$\lambda_i$$的重根的个数呢？并且$$A$$的$$r$$个eigenspace的维度加起来是否等于$$n$$呢？
+
+我们容易验证对角矩阵的所有eigenspace的维数加起来是$$n$$，并且对应不同特征值的特征向量是线性无关的。假设$$A$$的特征值$$\lambda_1$$的eigenspace，$$N(A - \lambda_1 I)$$维度为$$m_1$$，$$\lambda_2$$的eigenspace的维度为$$m_2$$，以此类推。从而我们有$$m_1 + m_2 + \cdots + m_r = n$$。每个eigenspace，$$N(A - \lambda_k I)$$里，分别取$$m_k$$个线性无关的向量，$$1 \leq k \leq r$$，然后将所有的这样的向量综合起来，记为$$x_1, \cdots, x_n$$，则其为$$R^n$$的一组基。从而：
+
+$$A(x_1, x_2, \cdots, x_n) = (\lambda_1 x_1, \lambda_2 x_2, \cdots, \lambda_n x_n) = (x_1, x_2, \cdots, x_n) \begin{pmatrix} \lambda_1 & 0 & 0 & \cdots & 0 \\ 0 & \lambda_2 & 0 & \cdots & 0 \\ \vdots & \vdots & \vdots & \cdots & \vdots \\ 0 & 0 & 0 & \cdots & \lambda_n \end{pmatrix}$$
+
+令$$P = (x_1, x_2, \cdots, x_n) \in R^{n \times n}$$，那么上面的式子就是：
+
+$$AP = P \begin{pmatrix} \lambda_1 & 0 & 0 & \cdots & 0 \\ 0 & \lambda_2 & 0 & \cdots & 0 \\ \vdots & \vdots & \vdots & \cdots & \vdots \\ 0 & 0 & 0 & \cdots & \lambda_n \end{pmatrix}$$
+
+因为$$P$$里的列向量都是线性无关的，也就是$$n$$阶方阵$$P$$的秩$$rank(P) = n$$，所以上面式子两侧乘以$$P^{-1}$$，就将$$A$$进行了相似对角化。
+
+如果$$m_1 + m_2 + \cdots + m_r \neq n$$，而是$$m_1 + m_2 + \cdots + m_r = m < n$$，那么矩阵$$P$$就是$$n \times m$$的矩阵，$$P$$不再是方阵，$$rank(P) = m < n$$，从而矩阵$$P$$不可逆，也就无法通过$$P^{-1}AP$$来对矩阵进行相似对角化。
+
+因此，只有当所有特征值对应的特征空间合起来的维度为$$n$$时，矩阵才可以相似对角化。而且不同的$$(x_1, x_2, \cdots, x_n)$$的书写顺序，对应的对角矩阵里面$$\lambda_i$$的顺序也不一样。
+
+我们有$$det(\lambda I - A)=0=(\lambda - \lambda_1)^{n_1} (\lambda - \lambda_2)^{n_2} \cdots (\lambda - \lambda_r)^{n_r}$$，$$n_1 + n_2 + \cdots + n_r = n$$，一共$$r$$个不同的特征值。多项式$$det(\lambda I -A)$$中，$$\lambda - \lambda_1$$的次数为$$n_1$$，记为特征值$$\lambda_1$$的代数重数，algebraic multiplicity。$$\lambda_1$$的eigenspace的维数$$m_1$$，叫做特征值$$\lambda_1$$的几何重数，geometric multiplicity。那么每个特征值的几何维数是否等于代数维数呢？答案是代数维数不小于几何维数，即$$n_1 \geq m_1$$。
+
+从而$$m_1 \leq n_1, m_2 \leq n_2, \cdots, m_r \leq n_r$$，我们有$$m_1 + m_2 + \cdots + m_r = m \leq n = n_1 + n_2 + \cdots + n_r$$。因为$$m \leq n$$，所以所有的特征空间的线性无关的特征向量合起来的矩阵$$P \in R^{n \times m}$$，在等号不成立的时候不是方阵，从而上述矩阵相似对角化操作无法实行。
+
+
+
+
+
+
+
+
+
 
 
 ---
