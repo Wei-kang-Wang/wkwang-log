@@ -184,7 +184,9 @@ $$K log s = H(p_1, p_2, \cdots, p_n) + K \Sigma_{i=1}^n p_i log n_i$$
 
 因此，
 
-$$H(p_1, p_2, \cdots, p_n) = K log s - K\Sigma_{i=1}^n p_i log n_i = -K \left[ \Sigma_{i=1}^n p_i(log n_i - log s) \right] = -K \left[ \Sigma_{i=1}^n p_i (log (\frac{n_i}{s}) \right] = -K \Sigma_{i=1}^n p_i log p_i$$
+$$H(p_1, p_2, \cdots, p_n) = K log s - K\Sigma_{i=1}^n p_i log n_i = -K \left[ \Sigma_{i=1}^n p_i(log n_i - log s) \right] $$
+
+$$= -K \left[ \Sigma_{i=1}^n p_i (log (\frac{n_i}{s}) \right] = -K \Sigma_{i=1}^n p_i log p_i$$
 
 这样就得到了信息熵的一般表达式。
 
@@ -224,6 +226,54 @@ $$AP = P \begin{pmatrix} \lambda_1 & 0 & 0 & \cdots & 0 \\ 0 & \lambda_2 & 0 & \
 我们有$$det(\lambda I - A)=0=(\lambda - \lambda_1)^{n_1} (\lambda - \lambda_2)^{n_2} \cdots (\lambda - \lambda_r)^{n_r}$$，$$n_1 + n_2 + \cdots + n_r = n$$，一共$$r$$个不同的特征值。多项式$$det(\lambda I -A)$$中，$$\lambda - \lambda_1$$的次数为$$n_1$$，记为特征值$$\lambda_1$$的代数重数，algebraic multiplicity。$$\lambda_1$$的eigenspace的维数$$m_1$$，叫做特征值$$\lambda_1$$的几何重数，geometric multiplicity。那么每个特征值的几何维数是否等于代数维数呢？答案是代数维数不小于几何维数，即$$n_1 \geq m_1$$。
 
 从而$$m_1 \leq n_1, m_2 \leq n_2, \cdots, m_r \leq n_r$$，我们有$$m_1 + m_2 + \cdots + m_r = m \leq n = n_1 + n_2 + \cdots + n_r$$。因为$$m \leq n$$，所以所有的特征空间的线性无关的特征向量合起来的矩阵$$P \in R^{n \times m}$$，在等号不成立的时候不是方阵，从而上述矩阵相似对角化操作无法实行。
+
+Jordan Canonical Form Theorem告诉我们由于$$r$$个特征空间的维数的和$$m \leq n$$，所以矩阵无法进行相似对角化，但可以退而求其次，将矩阵相似变换为$$m$$个Jordan block的对角形式：
+
+$$\begin{pmatrix} J_1 & 0 & 0 & \cdots & 0 \\ 0 & J_2 & 0 & \cdots & 0 \\ \vdots & \vdots & \vdots & \cdots & \vdots \\ 0 & 0 & 0 & \cdots & J_m \end{pmatrix} \in R^{n \times n}$$
+
+其中第$$i, i=1,2,\cdots, r$$个约当块为
+
+$$J_i = \begin{pmatrix} \lambda_i & 1 & 0 & \cdots & 0 \\ 0 & \lambda_i & 1 & \cdots & 0 \\ \vdots & \vdots & \vdots & \cdots & 1 \\ 0 & 0 & 0 & \cdots & \lambda_i \end{pmatrix}$$
+
+那么问题是，将矩阵$$A$$变换为约当块对角型的$$n$$阶矩阵$$P \in R^{n \times n}$$是什么样呢？
+
+$$J_A = \begin{pmatrix} J_1 & 0 & 0 & \cdots & 0 \\ 0 & J_2 & 0 & \cdots & 0 \\ \vdots & \vdots & \vdots & \cdots & \vdots \\ 0 & 0 & 0 & \cdots & J_m \end{pmatrix} \in R^{n \times n} = p^{-1} A P$$。
+
+可进行相似对角化的矩阵$$A$$，在对角化之后的每个对角元$$\lambda_i$$都对应矩阵$$P$$的某个特征值的eigenspace里的一个基向量，特征值$$\lambda_1$$就对应矩阵$$P$$的$$m_1=n_1$$个基，特征值$$\lambda_2$$就对应$$P$$矩阵的$$m_2 = n_2$$个基，以此类推。那么对于不可相似对角化，而只能相似约当块对角化的矩阵$$A$$，每个Jordan Block也对应某个特征值的eigenspance里的一个基向量。所以如果特征值$$\lambda_1$$的eigenspace是三维的，即$$m_1 = 3$$，那么$$\lambda_1$$就对应三个Jordan block。所以如果将$$A$$进行约当块对角化，那么约当块的个数为$$m$$个，也就是所有eigenspace的维度合起来的值，并不等于特征值的个数，也不等于代数重数的和。
+
+假设特征值$$\lambda_1$$的eigenspace，$$N(A - \lambda_1 I)$$有$$m_1 = 2$$维，就对应有2个约当块，那么它们的size应该是多大呢？
+
+我们有，因为$$A$$和$$J_A$$相似，所以$$det(A - \lambda I) = det(J_A - \lambda I) = (\lambda - \lambda_1)^{n_1} (\lambda - \lambda_2)^{n_2} \cdots (\lambda - \lambda_r)^{n_r}$$，所以特征值$$\lambda_1$$的$$m_1$$个约当块的size之和一定等于$$n_1$$，从而我们知道了代数重数和几何重数的关系。显然，如果所有的Jordan block的size都是1，那么代数重数等于几何重数。
+
+我们有$$dim \left[ N(A - \lambda_1 I) \right] = dim \left[ P^{-1} N(A - \lambda_1 I) P \right] = dim \left[ N(P^{-1} A P - \lambda_1 P^{-1} I P \right] = dim \left[ J_A - \lambda_1 I \right]$$。而且：
+
+$$J_A - \lambda_1 I = \begin{pmatrix} 0 & \ast & 0 & \cdots & \cdots & \cdots & \cdots & \cdots & 0 \\ 0 & 0 & \ast & 0 & \cdots & \cdots & \cdots & \cdots & 0 \\ \vdots & 0 & \vdots & \ast & 0 & \cdots & \cdots & \cdots & 0 \\ 0 & \cdots & 0 & 0 & 0 & \cdots & \cdots & \cdots & 0 \\ 0 \cdots & \cdots & 0 & \lambda_1 - \lambda_2 \neq 0 & \ast & 0 & \cdots & 0 \\ \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\ 0 & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & 0 \lambda_1 - \lambda_r \neq 0 \end{pmatrix}$$
+
+其中$$\ast$$可能是1也可能是0。假设特征值的代数重数为11，那么$$J_A - \lambda_1 I$$的对角线上有11个0。假设特征值$$\lambda_1$$的几何重数为5，所以对应有5个约当块，这五个约当块加起来的size为11。
+
+对于任意某个特征值$$\lambda_i$$的eigenspace的某个基$$x_1$$，我们有$$(A-\lambda_i I)x_1 = 0$$。如果找到$$v_1$$使得$$(A - \lambda_i I)v_1 = x_1$$有解，也就是$$(A - \lambda_i I) (A - \lambda_i I) v_1 = 0$$。也就是$$(A - \lambda_i I) ^2 v_1 = 0$$的解至少有1维，也就是$$(A - \lambda_i I) ^2$$的零空间维数至少为1，说明对应于$$x_1$$的Jordan Block的size至少为2。如果进一步找到$$(A - \lambda_i I) w_1 = v_1$$，那么$$(A - \lambda_i I) ^3 w_1 = 0$$，从而对应$$x_1$$的Jordan block的size至少为3。一直这么找下去，直到没有解为止。如果最大size的Jordan block为$$l$$，我们设它对应的最底层的变量为$$u$$，也就是找不到$$y$$使得$$(A - \lambda_i I) y = u$$。往回推，因为$$u$$是由$$(A - \lambda_i I) u = u_1$$，(A - \lambda_i I) u_1 = u_2, \cdots, (A - \lambda_i I) u_k = u_{k+1}$$这样一集一集推来的，从而$$(A - \lambda_i I) u = u_1, (A - \lambda_i I) (A - \lambda_i I) u = u_2, \cdots, (A - \lambda_i I) ^{l-1}u = x$$，其中$$x$$是$$\lambda_i$$的eigenspace里的某个基，$$(A - \lambda_i I) x = 0$$。$$(A - \lambda_i I) ^l u =0$$。
+
+假设矩阵$$A$$有两个特征值$$\lambda_1$$和$$\lambda_2$$。对于特征值$$\lambda_1$$，假设$$(A - \lambda_1 I) x = 0$$的解有2维，也就是$$\lambda_1$$的eigenspace是2维，所以$$\lambda_1$$对应的Jordan block有两个。任意选取$$\lambda_1$$的eigenspace的一组基$$x_1, x_2$$。假设对于$$x_1$$的Jordan block的size是3，也就是能找到$$(A - \lambda_1 I) v_1 = x_1, (A - \lambda_1 I) w_1 = v_1$$，但无法找到$$z_1$$满足$$(A - \lambda_1 I) z_1 = w_1$$，所以
+
+$$J_1 = \begin{pmatrix} \lambda_1 & 1 & 0 \\ 0 & \lambda_1 & 1 \\ 0 & 0 & \lambda_1 \end{pmatrix}$$
+
+我们进行以下操作：
+
+$$(x_1, v_1, w_1) J_1 = (x_1, v_1, w_1) \begin{pmatrix} \lambda_1 & 1 & 0 \\ 0 & \lambda_1 & 1 \\ 0 & 0 & \lambda_1 \end{pmatrix} = (\lambda_1 x_1, x_1 + \lambda_1 v_1, v_1 + \lambda_1 w_1) = A (x_1, v_1, w_1) \tag{1}$$
+
+也就是$$\lambda_1 x_1 = A x_1, x_1 + v_1 \lambda_1 = A v_1, v_1 + \lambda_1 w_1 = A w_1$$，从而$$(A - \lambda_1 I) x_1 = 0, (A - \lambda_1 I )v_1 = x_1, (A - \lambda_1 I) w_1 = v_1$$。满足条件，从而等式1成立。
+
+假设对于$$x_2$$来说，无法找到$$v_2$$满足$$(A - \lambda_1 I) v_2 = x_2$$，即Jordan block的size是1。那么$$J_2 = \begin{pmatrix} \lambda_1 \end{pmatrix}$$。
+
+对于特征值$$\lambda_2$$，假设$$(A - \lambda_2) x = 0$$的eigenspace只有1维，从而也就只有一个Jordan block。任意选取一个基$$y_1$$，假设对于$$y_1$$我们发现的Jordan block的size为2，也就是能找到$$r_1$$满足$$(A - \lambda_2 I) r_1 = y_1$$，却无法找到$$s_1$$满足$$(A - \lambda_2 I)s_1 = r_1$$。从而
+
+$$J_3 = \begin{pmatrix} \lambda_2 & 1 \\ 0 & \lamdba_2 \end{pmatrix}$$。
+
+最后，我们使得$$A$$能够约当块对角化的矩阵$$P$$设置为$$(x_1, v_1, w_1, x_2, y_1, r_1)$$，可以使得：
+
+$$AP = P \begin{\matrix} J_1 & 0 & 0 \\ 0 & J_2 & 0 \\ 0 & 0 & J_3 \end{pmatrix}$$
+
+
 
 
 
