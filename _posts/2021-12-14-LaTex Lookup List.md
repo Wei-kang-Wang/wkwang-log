@@ -51,7 +51,8 @@ date: 2021-12-14 01:09:00
 | 使用等宽字体 | \texttt{text} | $$\texttt{text}$$ |
 | 使用无衬线字体 | \textsf{text} | $$\textsf{text}$$ |
 | 所有字母大写 | \uppercase{text} | $$\uppercase{text}$$ |
-| 空心字母 | 先导入包\usepackage{amsfonts,amssymb}，\mathbb{text} | $$\mathbb{text}$$ |
+| 空心字母 | 先导入包\usepackage{amsfonts,amssymb}，\mathbb{t} | $$\mathbb{t}$$ |
+| 花体字母 | \mathcal{L} | $$\mathcal{L}$$ |
 
 
 ## 3. Latex集合
