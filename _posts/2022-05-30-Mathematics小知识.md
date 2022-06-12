@@ -247,7 +247,7 @@ $$J_A = \begin{pmatrix} J_1 & 0 & 0 & \cdots & 0 \\ 0 & J_2 & 0 & \cdots & 0 \\ 
 
 我们有$$dim \left[ N(A - \lambda_1 I) \right] = dim \left[ P^{-1} N(A - \lambda_1 I) P \right] = dim \left[ N(P^{-1} A P - \lambda_1 P^{-1} I P \right] = dim \left[ J_A - \lambda_1 I \right]$$。而且：
 
-$$J_A - \lambda_1 I = \begin{pmatrix} 0 & \ast & 0 & \cdots & \cdots & \cdots & \cdots & \cdots & 0 \\ 0 & 0 & \ast & 0 & \cdots & \cdots & \cdots & \cdots & 0 \\ \vdots & 0 & \vdots & \ast & 0 & \cdots & \cdots & \cdots & 0 \\ 0 & \cdots & 0 & 0 & 0 & \cdots & \cdots & \cdots & 0 \\ 0 \cdots & \cdots & 0 & \lambda_1 - \lambda_2 \neq 0 & \ast & 0 & \cdots & 0 \\ \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\ 0 & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots &  \lambda_1 - \lambda_r \neq 0 \end{pmatrix}$$
+$$J_A - \lambda_1 I = \begin{pmatrix} 0 & \ast & 0 & \cdots & \cdots & \cdots & \cdots & \cdots & 0 \\ 0 & 0 & \ast & 0 & \cdots & \cdots & \cdots & \cdots & 0 \\ \vdots & 0 & \vdots & \ast & 0 & \cdots & \cdots & \cdots & 0 \\ 0 & \cdots & 0 & 0 & 0 & \cdots & \cdots & \cdots & 0 \\ 0 & \cdots & \cdots & 0 & \lambda_1 - \lambda_2 \neq 0 & \ast & 0 & \cdots & 0 \\ \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\ 0 & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \lambda_1 - \lambda_r \neq 0 \end{pmatrix}$$
 
 其中$$\ast$$可能是1也可能是0。假设特征值的代数重数为11，那么$$J_A - \lambda_1 I$$的对角线上有11个0。假设特征值$$\lambda_1$$的几何重数为5，所以对应有5个约当块，这五个约当块加起来的size为11。
 
