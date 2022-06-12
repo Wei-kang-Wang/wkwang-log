@@ -316,7 +316,7 @@ $$A^TA = P_1 \begin{pmatrix} \lambda_1 & 0 & 0 & \cdots & 0 \\ 0 & \lambda_2 & 0
 
 $$A A^T = P_2 \begin{pmatrix} \Lambda_1 & 0 & 0 & \cdots & 0 \\ 0 & \Lambda_2 & 0 & \cdots & 0 \\ \vdots & \vdots & \vdots & \cdots & \vdots \\ 0 & 0 & 0 & \cdots & \Lambda_m \end{pmatrix}P_2^{-1} = P_2 \begin{pmatrix} \Lambda_1 & 0 & 0 & \cdots & 0 \\ 0 & \Lambda_2 & 0 & \cdots & 0 \\ \vdots & \vdots & \vdots & \cdots & \vdots \\ 0 & 0 & 0 & \cdots & \Lambda_m \end{pmatrix} P_2^T$$
 
-取$$V = P_1$$，$$U = P_2$$，那么$$A^T A = V \Sigma^T U^T U \Sigma V^T = P_1 \Sigma_^T \Sigma P_1^T \in R^{n \times n}$$，我们有：
+取$$V = P_1$$，$$U = P_2$$，那么$$A^T A = V \Sigma^T U^T U \Sigma V^T = P_1 \Sigma^T \Sigma P_1^T \in R^{n \times n}$$，我们有：
 
 $$\begin{pmatrix} \lambda_1 & 0 & 0 & \cdots & 0 \\ 0 & \lambda_2 & 0 & \cdots & 0 \\ \vdots & \vdots & \vdots & \cdots & \vdots \\ 0 & 0 & 0 & \cdots & \lambda_n \end{pmatrix} = \Sigma^T \Sigma$$
 
