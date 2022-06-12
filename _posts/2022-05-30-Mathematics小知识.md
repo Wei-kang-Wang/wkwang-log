@@ -330,13 +330,13 @@ $$\begin{pmatrix} \Lambda_1 & 0 & 0 & \cdots & 0 \\ 0 & \Lambda_2 & 0 & \cdots &
 
 假设$$m < n$$，那么
 
-$$\Sigma = \begin{pmatrix} \sqrt{\Lambda_1} & 0 & \cdots & 0 & 0 & \cdots & 0 \\ 0 & \sqrt{\Lambda_2} & \cdots & 0 & 0 & \cdots & 0 \\ \vdots & \vdots & \cdots & \vdots & 0 \cdots & 0 \\ 0 & 0 & \cdots & \sqrt{\Lambda_m} & 0 & \cdots & 0 \end{pmatrix}$$
+$$\Sigma = \begin{pmatrix} \sqrt{\Lambda_1} & 0 & \cdots & 0 & 0 & \cdots & 0 \\ 0 & \sqrt{\Lambda_2} & \cdots & 0 & 0 & \cdots & 0 \\ \vdots & \vdots & \cdots & \vdots & 0 & \cdots & 0 \\ 0 & 0 & \cdots & \sqrt{\Lambda_m} & 0 & \cdots & 0 \end{pmatrix}$$
 
 其中右边的$$n-m$$列都是0。
 
 如果$$m > n$$，那么
 
-$$\Sigma = \begin{pmatrix} \sqrt{\Lambda_1} & 0 & \cdots & 0 \\ 0 & \sqrt{\Lambda_2} & \cdots & 0 \\ \vdots & \vdots & \cdots & \vdots \\ 0 & 0 & \cdots & \sqrt{\Lambda_n} \\ 0 & 0 & \cdots 0 \\ \vdots & \vdots & \cdots & \vdots \\ 0 & 0 & \cdots 0 \end{pmatrix}$$
+$$\Sigma = \begin{pmatrix} \sqrt{\Lambda_1} & 0 & \cdots & 0 \\ 0 & \sqrt{\Lambda_2} & \cdots & 0 \\ \vdots & \vdots & \cdots & \vdots \\ 0 & 0 & \cdots & \sqrt{\Lambda_n} \\ 0 & 0 & \cdots & 0 \\ \vdots & \vdots & \cdots & \vdots \\ 0 & 0 & \cdots & 0 \end{pmatrix}$$
 
 其中下面的$$m-n$$行都是0。
 
