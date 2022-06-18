@@ -309,19 +309,12 @@ $$argmax_{||x||=1} \left\langle x, Ax \right\rangle$$
 
 方向不变和拉伸最大都是矩阵的内禀的性质，方向不变在马尔科夫随机场中很重要；而拉伸最大方向则是数据方差分布最大的方向，所以所含的信息量最大，是PCA等方法中的核心思想。
 
-
-
-
-
-
-
-
-
 ### 参考文献
 
 * https://zhuanlan.zhihu.com/p/30658304
 * https://zhuanlan.zhihu.com/p/353637184
 
 
+## 3. SVM
 
 ---
