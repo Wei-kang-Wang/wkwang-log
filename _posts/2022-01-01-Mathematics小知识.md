@@ -344,7 +344,7 @@ $$\Sigma = \begin{pmatrix} \sqrt{\Lambda_1} & 0 & \cdots & 0 \\ 0 & \sqrt{\Lambd
 SVD分解实际上是通过将一个非方阵的$$A \in R^{m \times n}$$矩阵，通过$$A^TA$$和$$AA^t$$得到方阵，分别找到使得$$A^TA$$和$$AA^T$$对角化的矩阵$$P_1$$和$$P_2$$，利用$$A^TA$$和$$AA^T$$正好是对称矩阵，其拥有正交的$$P_1$$和$$P_2$$，而且$$A^TA$$和$$AA^T$$拥有相同的特征值，从而得到了使得非方阵$$A$$对角化的方法：$$A = P_2 \Sigma P_1^T$$，其中$$\Sigma$$是一个以$$A^TA$$的特征值的开方为对角元素的对角矩阵。
 
 
-## 5. 凸优化笔记（一）：基础知识
+## 5. 凸优化笔记
 
 在统计学和机器学习领域，绝大部分想做的事都是一种优化问题。所以面对具体的应用问题，要做的事情可以概括为如下图所示：
 
@@ -372,7 +372,7 @@ optimization问题是十分热的问题，现有算法还有很大的优化提�
 ![2]({{ '/assets/images/OPTIM-2.PNG' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-### Convex Set
+### 5.2 Convex Set
 
 集合$$C$$是$$R^n, n=1,2,3,\cdots$$的子集，如果集合$$C$$满足$$\forall x,y \in C$$，有$$tx + (1-t)y \in C$$对于$$0 \leq t \leq 1$$都成立，那么集合$$C$$就是凸集。
 
@@ -388,7 +388,7 @@ optimization问题是十分热的问题，现有算法还有很大的优化提�
 * 验证定义中的条件是否满足
 * 验证其是不是某些已知凸集的运算，该运算是不是能够保证凸性
 
-### 5.2 Convex Function
+### 5.3 Convex Function
 
 如果函数$$f: R^n \longrightarrow R$$满足：
 
@@ -407,7 +407,7 @@ optimization问题是十分热的问题，现有算法还有很大的优化提�
 * 按定义判断条件是否满足
 * 其是否是某些已知凸函数之间的运算，以及该运算是否能够保证凸性
 
-### 5.3 Optimization Problem
+### 5.4 Optimization Problem
 
 $$min_{x \in D} f(x)$$
 
@@ -428,7 +428,7 @@ $$h_j(x) = 0, j=1,\cdots, r$$
 
 以上定义了什么是优化问题，那么什么是凸优化问题呢？
 
-### 5.4 Convex Optimization Problem
+### 5.5 Convex Optimization Problem
 
 如果上述优化问题中的函数$$f$$，$$g_i$$（$$m$$个）是凸的，而且$$h_j$$（$$r$$个）是affine的（因为$$h_j$$是等式，即$$h_j(x) = a_j^T x + b_j, j=1,2,\cdots,r$$，那么该问题就是一个凸优化问题。
 
@@ -448,7 +448,7 @@ $$h_j(x) = 0, j=1,\cdots, r$$
 ![6]({{ '/assets/images/OPTIM-6.PNG' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-### 5.5 Convex vs. Non-convex
+### 5.6 Convex vs. Non-convex
 
 为什么研究者大多会把问题转换为凸优化问题？因为对于凸优化问题，local minima也就是global minima。
 
@@ -460,7 +460,16 @@ $$h_j(x) = 0, j=1,\cdots, r$$
 上图里的右边，因为问题是非凸的，如果起始点在红线和黄线的圆圈处，沿着下降的方向，会收敛到右图中右边的local minima。而如果起始点在绿线、蓝线和紫线的圆圈处，沿着下降的方向，会收敛到左边的local minima。最终收敛到哪里，依赖于系统的起始点在哪里。而且这两个local minima的值是不一样的。这个性质是很不好的。非凸优化的难点，就在于如何在这种性质的情况下，仍然能找到全局最优点，或者尽量小的局部最优点。
 
 
-## 6. 凸优化笔记（二）：几类标准问题以及linear programming
+### 5.7 为什么要把问题写成standard form
+
+因为这样可以让人们方便利用计算机最快速的求解convex optimization问题，通常需要将问题重新写成standard form。求解优化问题如果要利用计算机来进行的，常用的convex optimization tools，包括cvx，yalmip(matlab)，cvxpy，picos(python)等求解优化问题是分为两步的：
+
+* 1. 检验问题是不是凸的
+* 2. 把问题转化成这些tools内部的solver能够方便求解的标准形式
+
+Margaret Wright的notes，[Fast Times in Linear Programming: Early Success, Revolutions, and Mysteries]()里，写出了从最初的simplex algorithm（基于最优点一定在corner point的intuition而设计的算法）到内点法的各种历史八卦和新算法设计的思考出发点。
+
+### 5.8 几类标准问题
 
 凸优化的标准问题有四类：
 
@@ -473,6 +482,8 @@ $$h_j(x) = 0, j=1,\cdots, r$$
 
 ![8]({{ '/assets/images/OPTIM-8.PNG' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
+
+### 5.9 Linear Programming
 
 如果凸优化问题里的$$f(x)=c^T x$$，$$g_i(x) = D_i^T x - d_i$$，$$h_j = A_j^T x - b_i$$，也就是：
 
@@ -487,23 +498,72 @@ $$Ax = b$$
 那么上述这种特殊情况下的凸优化问题，叫做linear programming问题。下图给出了在二维情况下polytope的可行域内的情况，图中的objective function由虚线表示，同一条虚线上的$$f(x)$$的值是相等的，$$f(x)$$的最优先在最下面的点$$x^{\ast}$$。
 
 
-### 6.1 为什么要把问题写成standard form
+### 5.10 Quadratic Programming
 
-因为这样可以让人们方便利用计算机最快速的求解convex optimization问题，通常需要将问题重新写成standard form。求解优化问题如果要利用计算机来进行的，常用的convex optimization tools，包括cvx，yalmip(matlab)，cvxpy，picos(python)等求解优化问题是分为两步的：
+quadratic programming的形式如下：
 
-* 1. 检验问题是不是凸的
-* 2. 把问题转化成这些tools内部的solver能够方便求解的标准形式
+$$min_{x \in D} c^T x + \frac{1}{2} x^T Q x$$
 
-Margaret Wright的notes，[Fast Times in Linear Programming: Early Success, Revolutions, and Mysteries]()里，写出了从最初的simplex algorithm（基于最优点一定在corner point的intuition而设计的算法）到内点法的各种历史八卦和新算法设计的思考出发点。
+subject to $$Dx \leq d$$
 
+$$Ax = b$$
 
-### 6.2 Linear Programming的standard form
+如果矩阵$$Q$$是positive definite，那么上述就是一个凸优化问题，如果$$Q$$是negative definite的，那就不是凸优化问题了。下图是$$Q$$是positive definite和negative definite的两种情况：
 
+![9]({{ '/assets/images/OPTIM-9.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
+我们指的QP问题，就默认是$$Q$$是semi-positive definite的。从以上定义看出，如果$$Q=0$$，那么问题就变成了LP问题，所以LP问题是QP问题的特例。
 
+下图给出了quadratic programming的例子，虚线是目标函数（同一条虚线上的$$f(x)$$的值是相等的，可以看出与linear programming的不同，一个是直线，而这个是曲线），最优值在$$x^{\ast}$$。图中目标函数是椭圆因为其是quadratic的。
 
+![10]({{ '/assets/images/OPTIM-10.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
+举一个典型的例子：SVM，support vector machine算法
 
+在监督学习里，SVM是一种分类算法，它是一个QP问题。已知下图中的红点类和绿点类是两个不同的类，怎么找到一个hyperplane将两类数据分开，并使得该hyperplane到两类数据的margin最大，也就是找到图中的黑线：$$w^T x + b$$，使得绿色类的所有点（假设有$$p$$个）满足$$w^T x_{green} + b \geq 1$$，红色类的所有的点（假设有$$q$$个）满足$$w^T x_{red} + b \leq -1$$。
+
+![11]({{ '/assets/images/OPTIM-11.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+图中灰色的部分就是margin，有两个support vectors（离黑线最近的两个点）。如果要最大化两个类的margin，就相当于：
+
+$$max \frac{2}{\lVert w \rVert}$$
+
+而最大化$$\frac{2}{\lVert w \rVert}$$等价于最小化$$\frac{1}{2} \lVert w \rVert ^2$$，于是问题formulate为：
+
+$$min_{w \in D} \frac{1}{2} w^T w$$
+
+subject to $$w^T x_{green} + b \geq 1$$
+
+$$-w^T x_{red} - b \geq 1$$
+
+其中决策变量是$$w$$，而$$x_{green}$$和$$x_{red}$$都是已知的点，代入上述条件即可，因为绿色有$$p$$个点，从而得到$$p$$个不等式，而同理红色的点对应了$$q$$个不等式。
+
+但在很多实际的情况下，两个类之间并没有上图那样的明确的界限，而是像下图这样没有明确界限，但仍然可分：
+
+![12]({{ '/assets/images/OPTIM-12.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+这时需要在将两类分开的前提下，同时尽量减少错误的分类。我们可以通过引入一个额外的参数来实现，将两个条件$$w^T x_{green} + b \geq 1$$，和$$w^T x_{red} + b \leq -1$$放宽为：$$w^T x_{green} + b \geq 1 - \epsilon_i$$，$$i=1,\cdots,p$$，$$-w^T x_{red} - b \geq -1 - \xi_j$$，$$j=1,\cdots,q$$。所以优化问题变为：
+
+$$min_{w, \epsilon, \xi} \frac{1}{2} w^T w + C(\Sigma_{i=1}^p \epsilon_i + \Sigma_{j=1}^q \xi_{j})$$
+
+subject to $$w^T x_{green} + b \geq 1 - \epsilon_i$$
+
+$$-w^T x_{red} - b \geq 1 - \xi_j$$
+
+$$\epsilon \geq 0$$
+
+$$\xi \geq 0$$
+
+从而决策变量不仅仅是$$w$$，而是$$(w, \epsilon, \xi)$$。objective function是决策变量的quadratic的形式，而且不等式约束也是线性的，所以是QP问题。
+
+下图给出了选取不同参数$$C$$的分类效果图，$$C$$越大，灰色阴影部分的margin就越小，错误分类的概率就越小。$$C$$不是决策变量，而是手动调节的参数，这类参数称为超参数，hyper-parameter。
+
+![13]({{ '/assets/images/OPTIM-13.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
 
 
