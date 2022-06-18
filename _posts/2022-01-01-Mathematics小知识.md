@@ -497,6 +497,9 @@ $$Ax = b$$
 
 那么上述这种特殊情况下的凸优化问题，叫做linear programming问题。下图给出了在二维情况下polytope的可行域内的情况，图中的objective function由虚线表示，同一条虚线上的$$f(x)$$的值是相等的，$$f(x)$$的最优先在最下面的点$$x^{\ast}$$。
 
+![0]({{ '/assets/images/OPTIM-0.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
 
 ### 5.10 Quadratic Programming
 
