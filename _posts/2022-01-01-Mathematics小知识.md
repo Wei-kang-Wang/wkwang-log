@@ -344,9 +344,160 @@ $$\Sigma = \begin{pmatrix} \sqrt{\Lambda_1} & 0 & \cdots & 0 \\ 0 & \sqrt{\Lambd
 SVD分解实际上是通过将一个非方阵的$$A \in R^{m \times n}$$矩阵，通过$$A^TA$$和$$AA^t$$得到方阵，分别找到使得$$A^TA$$和$$AA^T$$对角化的矩阵$$P_1$$和$$P_2$$，利用$$A^TA$$和$$AA^T$$正好是对称矩阵，其拥有正交的$$P_1$$和$$P_2$$，而且$$A^TA$$和$$AA^T$$拥有相同的特征值，从而得到了使得非方阵$$A$$对角化的方法：$$A = P_2 \Sigma P_1^T$$，其中$$\Sigma$$是一个以$$A^TA$$的特征值的开方为对角元素的对角矩阵。
 
 
+## 5. 凸优化笔记（一）：基础知识
+
+在统计学和机器学习领域，绝大部分想做的事都是一种优化问题。所以面对具体的应用问题，要做的事情可以概括为如下图所示：
+
+![1]({{ '/assets/images/OPTIM-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+即：如何将头脑中的conceptual idea转换写成寻找决策变量$$x$$的最优化问题$$min_{x \in D} f(x)$$。
+
+所以，学习optimization，就是学习：
+
+* 如何把具体问题formulate成为一个优化问题
+* 现有算法是如何具体解算这个优化问题，$$P: min_{x \in D} f(x)$$
+* 面对不同的具体问题如何选择已有算法或者甚至设计新的合适的算法来解决
+
+绝大部分情况下，只需要做到第一点，就是将问题转换为凸优化问题，并写成标准形式，剩下的就交给已有的优化工具箱去解决。第二和第三点是做优化相关研究工作者的前沿工作。
+
+optimization问题是十分热的问题，现有算法还有很大的优化提升空间，而且还有很多问题没有得到很好的解决（machine learning领域就有很多）
+
+### 5.1 Convexity
+
+历史上，优化问题通常聚焦在linear programming（线性规划）。最初人们认为，优化问题是线性还是非线性，是不同优化问题的根本区别。（参考Dr. Margaret Wright所写的notes：[Fast Times in Linear Programming: Early Success, Revolutions, and Mysteries]）。
+
+但现在人们认为，优化问题是凸还是非凸彩色不同的优化问题之间的根本区别。因为有些问题，虽然是非线性，但是很好解决（因为是凸的），而有些问题虽然说线性，但是很难解决，因为是非凸的。
+
+![2]({{ '/assets/images/OPTIM-2.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+### Convex Set
+
+集合$$C$$是$$R^n, n=1,2,3,\cdots$$的子集，如果集合$$C$$满足$$\forall x,y \in C$$，有$$tx + (1-t)y \in C$$对于$$0 \leq t \leq 1$$都成立，那么集合$$C$$就是凸集。
+
+下图第一行是凸集，第二行是非凸集：
+
+![3]({{ '/assets/images/OPTIM-3.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+常见的convex sets有hyperplane（比原空间小一个维度的子空间，比如说三维空间里的任意平面）, halfspace（hyperplane将原空间分为的两部分就是halfspaces）, polytope，polyhedra，ellipsoid，non-negative orthant，norm ball，norm cone，positive (semi)definite matrix构成的集合等等。
+
+凸集之间的某些运算能保证结果仍然是凸的。判断一个集合是不是凸集，一般就是两种方法：
+
+* 验证定义中的条件是否满足
+* 验证其是不是某些已知凸集的运算，该运算是不是能够保证凸性
+
+### 5.2 Convex Function
+
+如果函数$$f: R^n \longrightarrow R$$满足：
+
+* 1. $$dom(f) \subset R^n$$是凸集，其中$$dom(f)$$是$$f$$的定义域
+* 2. $$f(tx + (1-t)y) \leq tf(x) + (1-t)f(y)$$，$$\forall x,y \in dom(f), 0 \leq t \leq 1$$
+
+下图是一个凸函数的例子：
+
+![4]({{ '/assets/images/OPTIM-4.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+除了上述的定义，还有等价的通过epigraph的定义方法：如果$$f(x)$$的epigraph $$\lbrace (x,t): f(x) \leq t \rbrace$$是凸集，那么$$f(x)$$是凸函数。或者，如果$$-f(x)$$是concave的，那么$$f(x)$$是convex的。如果$$f(x)$$是一阶或者二阶可微，还可以通过一阶或者二阶条件来定义。
+
+常见的convex function有$$ax+b$$，$$e^{ax}$$，$$x^a(x>0, a \geq 1$$或者$$a \leq 0$$，$$\lvert x \rvert ^p (p \geq 1)$$，$$xlogx (x>0)$$，$$L_p norm (p \geq 1)$$，$$\Sigma e^{x_i}$$，$$f(X) = Trace(AX) + b$$（$$A$$是一个矩阵），$$\sigma_{max}(X)$$（$$X$$是个矩阵， $$\sigma_{max}$$是最大的特征值）等等。凸函数的某些运算或者变量替换仍然会是凸的。判断一个函数是不是凸的，一般也是两种方法：
+
+* 按定义判断条件是否满足
+* 其是否是某些已知凸函数之间的运算，以及该运算是否能够保证凸性
+
+### 5.3 Optimization Problem
+
+$$min_{x \in D} f(x)$$
+
+subject to $$g_i (x) \leq 0, i=1,\cdots, m$$
+
+$$h_j(x) = 0, j=1,\cdots, r$$
+
+其中，$$D = dom(f) \cap \Cap_{i=1}^m dom(g_i) \cap \Cap_{j=1}^r dom(h_j)$$，也就是所有的条件$$g_i$$和$$h_j$$以及$$f$$的定义域的交集。$$x$$被称为决策变量（decision variable），$$f(x)$$称作目标函数（objective function），是一个标量；$$g_i$$（$$m$$个）称作不等式约束（inequality constraints），是个标量；$$h_j$$（$$r$$个）称作等式约束（equality constraints），是个标量。一般都统一将优化函数写为minimize（因为maximize就相当于minimize原函数乘以负1）。
+
+我们面对具体的问题，要做的就是怎么把问题写成如同上述的形式，并且设计算法寻找$$x$$，使得$$x$$在满足那些约束的前提下让objective function $$f$$最小。如果某个点$$x \in D$$，且将$$x$$代入到函数$$g_i$$（$$m$$个）和$$h_j$$（$$r$$个）中分别都满足$$g_i(x) \leq 0$$和$$h_j(x) = 0$$，那么$$x$$就称作该优化问题的可行解（feasible point）。feasible point可能根本不存在，或者存在一个，或者存在多个甚至无穷个。如果存在多个或者无穷个feasible points，我们需要找到这些feasible points里，能让$$f(x)$$最小的那个点$$x^{\ast}$$，那$$x^{\ast}$$就是该优化问题的最优解，optimal。
+
+函数$$f$$，$$g_i$$和$$h_j$$可以是$$x$$的任意形式的函数（线性或者非线性），某些形式会让问题好解决，有些形式会让问题很难解决，甚至至今也没什么好办法。
+
+不等式约束$$g_i \leq 0$$和等式约束$$h_j=0$$，从根本上说是约束了可行的求解域，如下图所示：
+
+![5]({{ '/assets/images/OPTIM-5.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+以上定义了什么是优化问题，那么什么是凸优化问题呢？
+
+### 5.4 Convex Optimization Problem
+
+如果上述优化问题中的函数$$f$$，$$g_i$$（$$m$$个）是凸的，而且$$h_j$$（$$r$$个）是affine的（因为$$h_j$$是等式，即$$h_j(x) = a_j^T x + b_j, j=1,2,\cdots,r$$，那么该问题就是一个凸优化问题。
+
+>为什么等式约束$$h_j$$需要是affine的？因为affine的等式约束保证了可行域仍然是凸集（直线是凸集，而曲线则是非凸集），非affine的约束就是曲线了，可行域就非凸了。
+
+所以某个问题是凸优化问题，需要满足以下四个条件：
+
+* 1. $$dom(f)$$是凸集
+* 2. objective function $$f(x)$$是凸函数
+* 3. $$g_i$$（$$m$$个）inequality constraints是凸函数
+* 4. $$h_j$$（$$r$$个）equality constraints是affine函数
+
+如之前所说，不等式约束和等式约束实际上就是约束了可行的求解域。那么凸优化问题中，$$g_i \leq 0$$导致的可行域是凸的，$$h_j=0$$是affine的，最终的可行域$$D$$是这些函数以及$$f$$的可行域的交集，而凸集的交集一定是凸的，所以最终的可行域也是凸的。
+
+对于优化问题，convex到non-convex是由易到难，constrained到non-constrained也是由易到难。
+
+![6]({{ '/assets/images/OPTIM-6.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+### 5.5 Convex vs. Non-convex
+
+为什么研究者大多会把问题转换为凸优化问题？因为对于凸优化问题，local minima也就是global minima。
+
+![7]({{ '/assets/images/OPTIM-7.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+上图里的左边，因为问题是凸的，所以不管起始点是红色，蓝色，绿色，黄色还是紫色，只要沿着下降的方向（下降的方向也可以有很多种，但是只要是下降的就行），永远都会收敛到同一个最颠，而且就是全局最低点。
+
+上图里的右边，因为问题是非凸的，如果起始点在红线和黄线的圆圈处，沿着下降的方向，会收敛到右图中右边的local minima。而如果起始点在绿线、蓝线和紫线的圆圈处，沿着下降的方向，会收敛到左边的local minima。最终收敛到哪里，依赖于系统的起始点在哪里。而且这两个local minima的值是不一样的。这个性质是很不好的。非凸优化的难点，就在于如何在这种性质的情况下，仍然能找到全局最优点，或者尽量小的局部最优点。
 
 
+## 6. 凸优化笔记（二）：几类标准问题以及linear programming
 
+凸优化的标准问题有四类：
+
+* 1. linear programming（LP）
+* 2. quadratic programming（QP）
+* 3. semi-definite programming（SDP）
+* 4. cone programming（CP）
+
+这四类问题有包含关系，如下所示：
+
+![8]({{ '/assets/images/OPTIM-8.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+如果凸优化问题里的$$f(x)=c^T x$$，$$g_i(x) = D_i^T x - d_i$$，$$h_j = A_j^T x - b_i$$，也就是：
+
+$$min_{x \in D} c^T x$$
+
+subject to $$Dx \leq d$$
+
+$$Ax = b$$
+
+其中矩阵$$D$$每行都是$$D_i^T$$，而矩阵$$A$$每行都是$$A_j^T$$，$$d$$和$$b$$是向量。
+
+那么上述这种特殊情况下的凸优化问题，叫做linear programming问题。下图给出了在二维情况下polytope的可行域内的情况，图中的objective function由虚线表示，同一条虚线上的$$f(x)$$的值是相等的，$$f(x)$$的最优先在最下面的点$$x^{\ast}$$。
+
+
+### 6.1 为什么要把问题写成standard form
+
+因为这样可以让人们方便利用计算机最快速的求解convex optimization问题，通常需要将问题重新写成standard form。求解优化问题如果要利用计算机来进行的，常用的convex optimization tools，包括cvx，yalmip(matlab)，cvxpy，picos(python)等求解优化问题是分为两步的：
+
+* 1. 检验问题是不是凸的
+* 2. 把问题转化成这些tools内部的solver能够方便求解的标准形式
+
+Margaret Wright的notes，[Fast Times in Linear Programming: Early Success, Revolutions, and Mysteries]()里，写出了从最初的simplex algorithm（基于最优点一定在corner point的intuition而设计的算法）到内点法的各种历史八卦和新算法设计的思考出发点。
+
+
+### 6.2 Linear Programming的standard form
 
 
 
