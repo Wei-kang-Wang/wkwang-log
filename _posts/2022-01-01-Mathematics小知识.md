@@ -344,7 +344,7 @@ $$\Sigma = \begin{pmatrix} \sqrt{\Lambda_1} & 0 & \cdots & 0 \\ 0 & \sqrt{\Lambd
 SVD分解实际上是通过将一个非方阵的$$A \in R^{m \times n}$$矩阵，通过$$A^TA$$和$$AA^t$$得到方阵，分别找到使得$$A^TA$$和$$AA^T$$对角化的矩阵$$P_1$$和$$P_2$$，利用$$A^TA$$和$$AA^T$$正好是对称矩阵，其拥有正交的$$P_1$$和$$P_2$$，而且$$A^TA$$和$$AA^T$$拥有相同的特征值，从而得到了使得非方阵$$A$$对角化的方法：$$A = P_2 \Sigma P_1^T$$，其中$$\Sigma$$是一个以$$A^TA$$的特征值的开方为对角元素的对角矩阵。
 
 
-## 5. 凸优化笔记
+## 5. 凸优化简介
 
 在统计学和机器学习领域，绝大部分想做的事都是一种优化问题。所以面对具体的应用问题，要做的事情可以概括为如下图所示：
 
@@ -483,7 +483,7 @@ Margaret Wright的notes，[Fast Times in Linear Programming: Early Success, Revo
 ![8]({{ '/assets/images/OPTIM-8.PNG' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-### 5.9 Linear Programming
+**Linear Programming**
 
 如果凸优化问题里的$$f(x)=c^T x$$，$$g_i(x) = D_i^T x - d_i$$，$$h_j = A_j^T x - b_i$$，也就是：
 
@@ -501,7 +501,7 @@ $$Ax = b$$
 {: style="width: 800px; max-width: 100%;"}
 
 
-### 5.10 Quadratic Programming
+**Quadratic Programming**
 
 quadratic programming的形式如下：
 
@@ -567,6 +567,22 @@ $$\xi \geq 0$$
 
 ![13]({{ '/assets/images/OPTIM-13.PNG' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
+
+
+**Semi-definite Programming**
+
+semi-definite programming (SDP）的形式为：
+
+$$min_{x \in D} c^T x$$
+
+subject to $$x1 F_1 + x_2 F_2 + \cdots + x_n F_n \leq F_0$$
+
+$$Ax = b$$
+
+其中$$x = (x_1, x_2, \cdots, x_n)^T \in R^n$$，$$F_i \in R^{d \times d}$$是对称矩阵，$$A \in R^{m \times n}$$。
+
+
+
 
 
 
