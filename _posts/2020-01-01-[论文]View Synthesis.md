@@ -25,12 +25,148 @@ tags: paper-reading
 
 *ECCV*
 
+![1]({{ '/assets/images/NERF-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 1 我们提出一个方法从一系列图片来优化一个continuous的5D neural radiance field representation（在任何位置上的volume density和view-dependent color）去表示一个scene。我们使用volume rendering里的方法来沿着ray积累这个scene representation的samples，从而可以从任意相机角度来渲染这个scene。这里，我们可视化了100个Drums这个场景的views，其是被环绕的一个半球的区域内随机采样出来的。我们还展示了从我们的已经被优化了的NeRF representation里得到的两个这个场景的新角度的照片。*
+
 我们提出一个方法，使用一系列input views作为输入，通过优化一个潜在的continuous volumetric scene函数来对复杂场景生成新的角度的views。我们的算法使用一个MLP（而不是CNN）来表示一个scene，其输入是一个连续的5D coordinate（空间位置$$(x,y,z)$$以及view的方向$$(\theta, \phi)$$），输出是volume density和那个位置$$(x,y,z)$$的view dependent emitted radiance。我们通过沿着相机rays来查找5D coordinate，并使用经典的volume rendering方法来将网络输出的color和density投射到一张照片上。因为volume rendering本身就是differentiable的，所以我们唯一需要的输入就是一系列已知相机姿态的不同角度的照片，也就是一个场景不同角度的views。我们描述如何高效的优化neural radiance fields来渲染有很复杂geometry和appearance的场景的新的角度的photorealistic的图像，并且展示了效果要比之前的neural rendering和view synthesis的工作的效果要好很多。view synthesis的结果最好用视频来看，在补充材料里有。
 
 
 这篇文章用一种全新的方法来解决view synthesis这个被研究了很久的问题，方法是，通过直接优化一个连续的5D scene representation的参数来最小化渲染images的error。
 
 我们将一个静态的场景表示为一个连续的5D函数，输出空间中每个点$$(x,y,z)$$在每个角度$$(\theta, \phi)$$情况下的emitted radiance，以及一个density。这个density作为一个可微分的opacity存在，其控制着一条射线穿过$$(x,y,z)$$这个点时，需要有多少的radiance被考虑进去。我们的方法优化一个MLP（没有任何卷积）来表示上述这个5D的function，其输入为一个5D coordinate $$(x,y,z,\theta,\phi)$$，输出为一个volume density和view-dependent RGB color，所以是一个regression问题。
+
+为了从一个特定的视角来渲染这个neural radiance field（NeRF），我们需要：1)从相机发射rays穿过场景来采样一系列3D的点；2)使用这些点和对应的2D的角度输入作为5D输入给网络来输出每个点的color和density；3)使用经典的volume rendering方法来收集这些colors和densities，从而生成一张2D的照片。因为上述过程是可以微分的，所以我们可以使用梯度下降的方法通过最小化输入图片和网络生成图片两者之间的差异来优化这个模型。对于多个角度拍摄的这个场景的图片都进行上述最小化的操作，我们所学习到的这个网络就能够对于场景中真实存在物体的位置给出很高的volume density和准确的colors。fig 2给出了这整个过程的pipeline。
+
+![2]({{ '/assets/images/NERF-2.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 2 neural radiance field scene representation和differentiable rendering procedure的一个overview。我们通过沿着camera ray采样5D coordinates（location和viewing direction）来生成images。(a)将这些locations喂给一个MLP来输出color和volume density；(b) 使用volume rendering方法来将这些values composite到一个image里；(c) 这个rendering function是可微分的，所以我们可以通过最小化生成的images和ground truth images之间的差异来优化这个scene representation。*
+
+我们发现对于一个复杂的scene，用基础的方法来优化上述这个neural radiance field representation是不能让其收敛到很好的情况的，而且对于每个camera ray都需要很多的采样点。我们通过给原始的5D输入加上positional encoding，从而使得这个MLP能够表示更高频率的函数，来解决这个问题。我们还提出了一个hierarchical的采样方法来减少所需要的采样点的个数。
+
+我们的方法继承了volumetric representation的优势：可以表示复杂的真实世界的geometry和appearance，而且很适合利用projected images来进行基于梯度的优化。而且，我们的方法克服了表示高分辨率的场景的时候所需要存储大量离散的voxel grids的问题。总而言之，这篇文章的贡献包括：
+
+* 提出了一个将具有复杂geometry和appearance的连续的scene表示为5D neural radiance fields的方法，将其用MLP来表示
+* 基于经典的volume rendering方法的一个可微分的rendering方法，可以让我们通过RGB图片来优化上面提到的表示neural radiance field的MLP。而且还提出了一种hierarchical的采样方法。
+* 提出一个positional encoding将每个5D输入map到一个更高维度的空间，从而使得优化能够表示更高频率的scene的neural radiance fields成为现实
+
+我们定性定量的表明我们的方法要比现在state-of-the-art的view synthesis方法要好，包括那些将3D representations fit到scene的工作，也包括那些训练CNN来预测采样的volumetric representations的工作。以我们的了解，这篇论文提出了第一个能够从真实世界的scene或者objects的众多角度的RGB图片中学习到连续的neural scene representation，并且渲染出新的角度的高分辨率的photorealistic的图片的模型。
+
+
+**2. Related Work**
+
+近期CV领域一个有前途的方向是将objects和scenes encode到一个MLP的参数里，也就是直接从一个3D的location映射到一个shape的隐式的representation，比如说在某个位置的signed distance：[A Volumetric Method for Building Complex Models from Range Images](https://dl.acm.org/doi/pdf/10.1145/237170.237269)。但是到目前为止，这些方法（利用MLP来表示representations）都无法做到基于discrete representations（比如triangle meshes，voxel grids等）的方法那样，生成十分逼真的图片。在这一节里，我们回顾一下两条line of research，并将它们与我们的方法进行对比，突出neural scene representations表达复杂场景并能渲染出逼真照片的能力。
+
+一些相似的方法也是使用MLP来从低维的coordinates映射到colors，但这些方法用来表示的是其它的graphics functions，比如说images（[Compositional pattern producing networks: A novel abstraction of development]()），textured materials（[Learning a neural 3d texture space from 2d exexmplars]()，[Unified neural encoding of BTFs]()，[Neural BTF compression and interpolation]()）以及indirect illumination values（[Global illumination with radiance regression functions]()）。
+
+*Neural 3D shape representations*
+
+最近的工作通过优化一个将xyz坐标映射到signed distance functions（[Local implicit grid representations for 3d scenes]，[DeepSDF: Learning continuous signed distance functions for shape representation]）或者occupancy fields（[Local deep implicit functions for 3d shapes]，[Occupancy networks: Learning a 3D reconstruction in function space]）的神经网络，将连续的3D shapes当作level sets来研究其隐式表示。然而，这些方法都需要ground truth的3D geometry，一般都是从某些synthesis的3D shape dataset里获得的，比如说ShapeNet（[Shapenet: An introduction-rich 3d model repository]）。后续的工作放宽了需要3D shapes的这个要求，他们通过构造可微分的rendering functions来实现，而这些rendering functions允许只利用2D images来优化neural implicit shape representations。[Differentiable volumetric rendering: Learning implicit 3D representations without 3D supervision]()将surfaces表示为3D occupancy fields，并且使用了某种数值方法来找到每个ray和surface的相交点，然后利用隐式微分来计算该点的导数。每个ray和surface的焦点都是网络的输入，输出是该点的diffuse color。[Continuous 3D-structure-aware neural scene representations]()使用一个并不是那么直接的3D representation，输出是每个3D coordinate的一个feature向量和RGB color，并且利用一个由RNN组成的可微分的rendring function来沿着每条ray计算，从而判断surface位于什么为止。
+
+尽管这些方法潜在的可以表示复杂的、高分辨率的geometry，但是它们现在只被用于有着低geometry复杂度的很简答的shape上，从而导致过于平滑的渲染效果。我们这篇文章表明使用5D输入（3D的位置，2D的相机角度），能够让网络表示高分辨率的geometry，并且能对复杂场景的新的view也生成photorealistic的照片。
+
+
+*View synthesis and image-based rendering*
+
+给定views的dense采样，很逼真的新的views可以直接被简单的light field sample interpolation方法构造出来，[The lumigraph]()，[Unstructured light fields]()和[Light field rendering]()。而对于基于稀疏的views的新的view synthesis，CV和graphics研究团体通过从images里预测传统的geometry和appearance representations做出了很大进步。一类很流行的方法使用scenes的mesh representations，而这些scenes有着diffuse或者view-dependent的appearance。可微分的rasterizers或者pathtracers可以直接优化这些mesh representations从而重构输入图片。然而基于image reprojection的对mesh的优化往往效果不好。而且，这个方法需要一个有着固定拓扑结构的template mesh，这对于真实世界的场景往往是获取不到的。
+
+另一类比较流行的方法使用volumetric representations来解决从一系列RGB图片中学习到高质量的逼真的view synthesis问题。volumetric方法能够很逼真的表示复杂的shapes和materials，而且很适合用来做基于梯度下降的优化。早期的volumetric方法使用图像直接给voxel grids染色。对于更近期的一些方法（[DeepView: view synthesis with learned gradient descent]()，[Single-image tomography: 3d volumes from 2d cranial x-rays]()，[Learning a multi-view stereo machine]()，[Local light field fusion: Practical view synthesis with prescriptive sampling guidlines]()，[Soft 3D reconstruction for view synthesis]()，[Pushing the boundaries of view extrapolation with multiplane images]()，[Multi-view supervision for single-view reconstruction via differentiable ray consistency]()，[Stereo magnification: Learning view synthesis using multiplane images]()），他们使用多个场景的大的数据集来训练网络能够从输入的图像里预测volumetric representation，之后在测试阶段再利用alpha-compositing或者可学习的compositing，沿着rays来渲染出新角度的views。另一些工作对于每个scene联合优化一个CNN和sampled voxel grids，使得这个CNN可以对于低分辨率voxel grids中阐述的discretization artifacts进行补偿。
+
+虽然上述这些volumetric方法对于novel view synthesis获得了很大的成功，但是他们对于更高分辨率的图片的生成受限于时间和空间复杂度——因为他们需要discrete sampling——渲染高分辨率的图片需要对3D空间进行更精细的采样。我们通过利用MLP来encode一个volume来解决这个问题，其不仅能生成更加逼真的图像，而且和这些sampled volumetric representations的方法相比，所需要的存储空间要小得多。
+
+
+**3. Neural Radiance Field Scene Representation**
+
+我们将一个continous scene表示为一个5D vector-valued function，其输入是一个3D location，$$\pmb{x} = (x,y,z)$$和一个2D的view direction，$$(\theta, \phi)$$，输出是一个emitted color，$$\pmb{c} = (r,g,b)$$以及一个volume density $$\rho$$。在实践中，我们将方向表示为一个3D Cartesian单位向量$$\pmb{d}$$。我们用一个MLP来近似这个连续的5D scene representation：$$F_{\Theta}:(\pmb{x}, \pmb{d}) \longrightarrow (\pmb{c}, \rho)$$，并且优化这个MLP的weights，$$\Theta$$。
+
+我们通过将volume density $$\rho$$仅仅表示为输入location $$\pmb{x}$$的函数，而输出的color $$\pmb{c}$$表示为输入location $$\pmb{x}$$和direction $$\pmb{d}$$的函数，来鼓励representation是multiview consistent的。为了实现这点，MLP $$F_{\Theta}$$首先利用8层MLP来处理输入的3D坐标$$\pmb{x}$$（每层256个通道，使用ReLU作为激活函数），然后输出$$\rho$$和一个256维的feature向量。这个feature向量再和相机角度$$\pmb{d}$$链接，喂给另一个MLP（每层128通道，使用ReLU作为激活函数）输出view-dependent RGB color。
+
+我们可以从fig 3看到我们的方法如何利用输入的相机角度来表示non-Lambertian效果。fig 4表示，如果没有相机角度这个输入，仅仅利用$$\pmb{x}$$作为输入，那么表示高光反射的位置就会出现问题。
+
+
+**4. Volume Rendering with Radiance Fields
+
+我们的5D neural radiance field将一个scene表示为空间中任意一个点的volume density和directional emitted radiance。对于任意穿过这个scene的ray的渲染color，使用的是经典的volume rendering方法（[Ray tracing volume densities]()）。volume density $$\rho(\pmb{x})$$可以被理解为从相机出发的ray在点$$\pmb{x}$$处被拦下来的概率。相机ray $$\pmb{r}(t) = \pmb{o} + t \pmb{d}$$的color，$$C(\pmb{r})$$是：
+
+$$C(\pmb{r}) = \int_{t_n}^{t_f} T(t)\rho(\pmb{r}(t))\pmb{c}(\pmb{r}(t), \pmb{d})dt$$
+
+其中$$T(t) = exp(-\int_{t_n}^t \rho(\pmb{r}(s))ds)$$，而$$t_n$$和$$t_f$$是相机ray的起始和终止点。
+
+
+>这个$$C(\pmb{r})$$表示的就是从某个相机角度出发的ray的平均color，积分内的值，可以理解为，$$T(t)$$表示从出发点到$$t$$位置为止积累的透明度，如果在碰到$$t$$以前就碰到了其它的透明度很低的点了（也就是真实的scene的点，$$\rho$$很大），那这个点之后的$$T$$都很小了，所以即使以后再遇到真实的scene的点，$$\rho$$很大，也不会将这个新遇到的点的color记进去的，这也符合事实，因为我们从一个角度来看scene的话，前面的点会挡住后面的点，那看到的只能是前面的点的颜色。
+
+$$T(t)$$这个函数表示的是沿着ray从$$t_n$$到$$t$$积攒的透明度，也就是ray从$$t_n$$到$$t$$没有碰到任何particle的概率。从continuous neural radiance field渲染一个view，那么对于每个相机角度，假设有个虚拟的相机放在该处，则对于该相机的每个像素点都需要计算通过该像素点的ray的$$C(\pmb{r})$$的值。
+
+我们使用quadrature来近似上述这个integral的值。deterministic quadrature，经常被用来渲染discretized voxel grids，会限制我们的representation的分辨率，因为这样color的值只会在一些固定的离散区域被考虑，这样MLP就只会拟合这些特定离散位置点的color，从而限制了更精确、分辨率更高的渲染。所以，我们使用了一种stratified sampling方法，将$$\left[t_n,t_f\right]$$分为$$N$$等份个bins，然后在每个bin里随机取一个点：
+
+$$t_i \sim \mathcal{U} \left[t_n + \frac{i=1}{N}(t_f - t_n), t_n + \frac{i}{N}(t_f - t_n)\right]$$
+
+尽管我们使用的是一个采样的离散集合来估计这个integral，stratified sampling使得我们可以表示一个continuous scene representation，因为加入了随机性使得MLP是在连续的位置上被优化的。我们使用这些采样点来估计$$C(\pmb{r})$$的值：
+
+$$\hat C(\pmb{r}) = \Sigma_{i=1}^N T_i(1 - exp(-\sigma_i \delta_i)) \pmb c_i$$
+
+其中$$T_i = exp(-\Sigma_{j=1}^{i-1} \sigma_j \delta_j)$$，$$\delta_i = t_{i+1} - t_i$$是两个相邻采样点之间的距离。上述这个从一个集合的$$(\pmb c_i, \sigma_i)$$来d计算$$\hat C(\pmb{r})$$的函数是可微的。
+
+
+**5. Optimizing a Neural Radiance Field
+
+在前面的章节里，我们描述了将一个scene建模为一个neural radiance field的核心内容，并介绍了如何从这个representation里渲染新的views。然而，这些对于生成state-of-the-art效果的图片来说并不够。我们介绍两个improvements来使得表示高分辨率的复杂scenes成为现实。第一个是对于输入coordinates的positional encoding，其可以帮助MLP拟合更高频率的函数（高频一般意味着更多的细节），第二个是使用了一种hierarchical的采样方法使得我们可以高效的采样这个高频的representation。
+
+
+**5.1 Positional encoding
+
+尽管神经网络是universal function approximators，我们发现将网络$$F_{\Theta}$$直接作用在$$xyz\theta \phi$$上会导致渲染的结果对于color和geometry的高频变化效果不好（也就是变化很频繁的区域，而这往往是细节区域）。这和[On the spectral bias of neural networks]()$$里的关于神经网络倾向于学习low frequency function的观点一致。他们还说在输入网络之前，将输入使用high frequency function映射到更高维的空间，会使得网络能学习到含有高频变化的部分。
+
+我们将这个想法用在neural scene representations的设计里，我们将$$F_{\Theta}$$重写为两个functions的复合函数：$$F_{\Theta} = F_{\Theta}^{'} \circ \gamma，$$F_{\Theta}^{'}$$是需要被学习的，而$$\gamma$$不需要。这样操作会显著提升效果，由fig 4可以看出。这里$$\gamma$$是一个从$$\mathbb R$$到更高维空间$$\mathbb R^{2L}$$的映射，而
+$$F_{\Theta}^{'}$$还是个MLP。我们使用的encoding function是：
+
+$$\gamma(p) = (sin(2^0 \pi p), cos(2^0 \pi p), \cdots, sin(2^{L-1}\pi p), cos(2^{L-1}\pi p))$$
+
+上述的$$\gamma$$对于输入的3D坐标$$\pmb{x}$$里的每个坐标分别使用（这些坐标在被$$\gamma$$操作之前就被归一化到了$$\left[-1,1\right]$$之间），对于表示相机角度的Cartesian viewing direction unit vecotr $$\pmb{d}$$的三个坐标也分别使用（这个unit vector的三个坐标本身就在$$\left[-1,1\right]$$之间了）。在这篇文章里，对于$$\pmb{x}$$，$$L=10$$，对于$$\pmb{d}$$，$$L=4$$。
+
+在Transformer里也用到了相似的encoding的方式，在那里叫做positional encoding。但是Transformer用它的原因和我们这里的截然不同（它是为了给无法识别顺序的网络框架输入的sequence的顺序信息）。而我们这里用到的原因是通过将输入映射到高维空间里，使得MLP能够更加轻易的拟合高频函数。
+
+![3]({{ '/assets/images/NERF-3.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 3 view-dependent emitted radiance的一个可视化。我们的neural radiance field representation输入为3D locations和2D viewing direction，输出为RGB color。这里，我们对于Ship scene，在neural representation里可视化两个位置的directional color distributions。在(a)和(b)里，我们展示了两个3D points在不同camera角度下的appearance：一个3D points是船舷，另一个是水面。我们的方法预测了这两个点在不同相机角度下的appearance，在(c)里我们显示了在viewing directions构成的半球上，每个3D points的appearance是怎么连续变化的。*
+
+![4]({{ '/assets/images/NERF-4.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 4 这里我们展示了我们的方法是如何从view-dependent emitted radiance以及positional encoding上受益的。将view-dependent移除，那我们的模型就无法预测那些镜面反射的点。将positional encoding移除，我们的模型对于那些高频的geometry和texture的预测就会很差，从而导致一个过于光滑的appearance。*
+
+**5.2 Hierarchical volume sampling
+
+我们的渲染策略是沿着每个camera ray稠密的采样$$N$$个query points，来evaluate neural radiance field network。这样的方式是不高效的：没有物体的free space以及被遮住的occluded regions，它们对于渲染的图片没有贡献，但却被重复的采样了很多次。我们从之前的volume rendering的论文里获取了灵感，提出了一个通过根据正比于点在最终渲染的图片上的贡献来采样点的方式提高渲染效率的策略。
+
+和仅仅用一个网络来表示scene不一样，我们同时使用两个网络，一个coarse，一个fine。我们先利用stratified sampling的方式采样$$N_c$$个点，然后用第四节里提到的方法来evaluate这个coarse网络。我们将coarse网络里活得的alpha composited color $$\hat C_c (\pmb{r})$$表示为沿着这个ray的所有采样点的colors $$c_i$$的加权和：
+
+$$\hat C_c (\pmb{r}) = \Sigma_{i=1}^{N_c} w_i c_i$$
+
+其中$$w_i = T_i ( 1 - exp(-\sigma_i \delta_i))$$。
+
+将这些weights归一化为：$$\hat w_i = w_i / \Sigma_{j=1}^{N_c} w_j$$，就产生了一个沿着ray的piecewise-constant PDF。之后再从这个distribution上采样$$N_f$$个点，最后利用第四届里的方法使用所有的$$N_f + N_c$$个采样点来计算$$\hat C_f (\pmb{r})$$。这个方法为我们认为会有更多有用信息的位置增加了更多的点。
+
+
+**5.3 Implementation details
+
+我们为每个scene优化一个单独的neural continuous volume representation network。我们仅仅需要一系列该scene的RGB图片、每张图片对应的相机角度和intrinsic parameters，以及scene bounds（对于生成数据，我们有相机角度、intrinsic parameters和scene bounds的ground truth，而对于真实数据，我们使用COLMAP structure-from-motion package（[Structure-from-motion revisited]()）来估计这些参数）。在每个optimization iteration，我们从数据集里所有的pixels里随机采样一个batch的camera rays，然后利用第五节里说的方法query $$N_c$$个点给coarse network，query $$N_c + N_f$$个点给fine network。我们之后再用第四节里说的volume rendering procedure来为这两个点的集合渲染出这条ray的color。我们的loss仅仅是渲染出来的颜色和真实的pixel颜色之间的$$L_2$$距离：
+
+$$\mathcal L = \Sigma_{\pmb r in \mathcal R} \left[ \lVert \hat C_c (\pmb{r}) - C(\pmb r) \rVert_2^2 + \lVert \hat C_f (\pmb{r}) - C(\pmb r) \rVert_2^2 \right]$$
+
+其中$$\mathcal R$$是每个batch里的rays，$$C(\pmb r)$$，$$C_c (\pmb r)$$和$$C_f(\pmb r)$$分别是ray $$\pmb r$$的ground truth，coarse volume predicted和fine volume predicted RGB颜色。我们同样在loss里加入了coarse network，因为这样才能使得采样的distribution是有效的。
+
+在真实的实验里，我们的batch size是4096 rays，$$N_c = 64$$，$$N_f = 128$$。我们使用了Adam优化器，learning rate开始设置为$$5 \times 10^{-4}$$，decay是 exponentially设置为$$5 \times 10^{-5}$$。其余的Adam参数为默认值。对于一个scene，使用单张NVIDIA V100 GPU需要循环100-300K个循环，需要1-2天的时间。
+
+
+**6. Conclusion
+
+我们的工作使用MLP来表示objects和scenes，解决了之前工作的不足。我们将scenes表示为5D neural radiance fields（一个MLP函数，输入是3D location和2D viewing direction，输出是volume density和view-dependent emitted radiance），相比较于之前的训练CNN来输出discretized voxel representations的方法，这个方法能够生成更好的渲染结果。
+
+尽管我们提出了一个hierarchical sampling的方法使得渲染更加的高效，但在高效优化neural radiance field和采样的方向还有很多工作要做。另一个将来的方向是interpretability：sampled representations比如说voxel grids和meshes允许推理和思考所渲染的图片的效果以及失败的情况，但是将scenes表示为MLP的参数之后，我们就无法分析这些了。我们相信这篇文章推动了基于现实世界的graphics pipeline的发展，因为真实的objects和scenes现在可以被表示为neural radiance fields了，而多个objects或者scenes可以组合称为更复杂的scenes。
+
+
+
+
 
 
 
