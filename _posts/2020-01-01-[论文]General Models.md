@@ -655,75 +655,121 @@ BERT在概念上简单，而且在实验上效果很好。它在11个NLP任务�
 
 *Kaiming He, Xinlei Chen, Saining Xie, Yanghao Li, Piotr Dollar, Ross Girshick*
 
-*Arxiv 2021*
+*[CVPR 2022 Oral]*
 
-**Transformer $$\rightarrow$$ Bert(using transformer framework, but with self-supervised learning), Transformer $$\rightarrow$$ ViT(using transformer idea in CV), ViT $$\rightarrow$$ MAE (just like Bert' relation to Transformer)**
+**Transformer $$\rightarrow$$ Bert(使用了Transformer架构，但是使用self-supervised的学习方法), Transformer $$\rightarrow$$ ViT(在CV中使用Transformer架构), ViT $$\rightarrow$$ MAE (正如Bert和Transformer的关系一样，MAE就是使用self-supervised的学习方法的CV中的Transformer架构)**
 
 **Transformer $$\rightarrow$$ Bert $$\rightarrow$$ MAE $$\leftarrow$$ ViT $$\leftarrow$$ Transformer**
 
-**1. Title**
+**标题**
 
-"Scalable" are usually used when your model is very big, and "efficient" are usually used when your model is quite quick. These are two pupolar words in a title. "Vision learners" is a more broad word rather than classifier or other specific models. The "auto" in "Autoencoders" means that the input $$x$$ and label $$y$$ comes from the same data. "Auto" models are a kind of general models. In NLP, most works are actually "auto", so they usually just neglect this word. But in CV, these kind of works are not very much, because the label for images seldom comes from images themselves, thus "Autoencoders" in this title is essential. It means that in this work, the labels for images come from images themselves, distinguished from other works.
+标题里经常用两个词，scalable和efficient。如果做的算法很快，就可以是efficient，或者real-time，如果做的模型很大的话，就可以是scalable。vision learners说明不依赖于具体的模型种类，是一个backbone就行。autoencoders里的auto表明的是“自”的意思，不是“自动”的意思。“自”模型的特点就是标号$$y$$和样本$$x$$来自于同一个东西，比如说在NLP里，用前后的词来预测词，用来预测的标号和样本都是词，是同一种东西，所以是“自”模型（在Transformer里提到了这个是auto-aggressive模型）。在NLP里，因为“自”模型比较常见，所以只用encoder而省略前面的auto也可以，但在CV里，标号来自于图片本身的情况较少，所以需要加上auto，强调一下和其他工作的区别。
 
-The whole sentance, "a" are "b" "c", where "a" and "c" are nouns and "b" are adjectives, are a popular naming pattern recently. This is a very useful sentance, since it contains the conclusion in the title, and it's objective.
+这个标题的格式，在GPT里也用到了，"a" are "b" "c", 其中"a" and "c"是名词，"b"是形容词。这种句式实际上把结论放在了标题里。而且这种说法比较客观。
 
-**2. Abstract**
+**摘要**
 
-The idea is to mask random patches of an image and let the model to reconstruct the masked pixels. This idea is quite similar to Bert, since in Bert, they let the model to learn masked words according to other words. There are two core ideas of this model: firstly the whole model is a asymmetric encoder-decoder architecture, since the masked patches will not be encoded and the decoder will reconstruct the whole input image from non-masked representations and masked tokens. Secondly, masking high portion of the image (e.g., 75%) will yield a nontrivial sefl-supervised learning task. Because only masking few pixels, we can just using interpolation to archive pretty good result. These two ideas make training a large model efficiently becomes possible: because large portion will be masked and not encoded, and this problem is hard enough to implement large models to learn. Since this work is a counterpart to Bert, it actually used as some pretrained technic for transfer leaning.
+这篇文章说明masked autoencoders(MAE)对于CV来说是一个scalable的self-supervised learner。我们的MAE方法很简单：将输入图片的随机的patch遮起来，然后重构这些被遮住的地方。这个模型基于两个核心设计。首先，我们开发了一个非对称的encoder-decoder结构，encoder仅仅在那些可以看到的image patches上操作（并没有mask tokens的信息），而decoder从encoder给出的可见的image patches上学到的latent representations结合mask tokens来重构原图片。decoder的设计是很轻量级的。其次，我们发现，将原输入图片遮住很大一部分，比如说75%，会使得问题变成一个不那么简单并且有意义的self-supervisory任务（如果只遮住一小部分，那模型可能学会插值就能获得不错的效果，但如果遮住很大一部分，就会迫使模型学习那些更好的特征）。将这两点结合起来，使得我们能够高效且准确的训练大型模型。这个模型主要是用作迁移学习的，是一个预训练模型，可以用于一系列下游的CV任务。
 
 
-**3. Figures**
-
-Have a look at figure1. Figure1 is usually at the upper right part of a CV paper and should be the most important figure of this paper to generally explain the idea of this paper. Figure1 describes the whole process of the MAE model. The input image will be cut into patches, and patches are randomly masked. Only non-masked patches are encoded by the encoder to get the representations of each non-masked patches. Then the representations are streched, and arranged according to the positions of there non-masked patches, and masked patches are also included, using only the position information. And finally the decoder will reconstruct the pixel information based on this streched representations. Note that in the figure, the box of encoder is bigger than the one of decoder, indicating that the encoder is more complex and is the key structure in this model.
+**图**
 
 ![MAE]({{ '/assets/images/MAE-1.PNG' | relative_url }})
 {: style="width: 800px; max-width: 100%;" class="center"}
-*Fig 1. MAE architecture.*
+*Fig 1. MAE architecture。在pre-training过程中，很大一部分随机挑选的image patches会被遮住（比如75%）。从而encoder实际上只需要对很小一部分的image patches进行编码。mask tokens在encoder编码之后被用进来和encoder所得到的features一起按顺序排列好传给一个轻量级的decoder来重构原始输入图片。在pre-training之后，decoder就不需要了，encoder就可以直接被用于获取图片的有效特征（这个时候就不需要遮盖了，这个encoder就是一个特征提取器），用于下游任务。*
 
-Now turn to figure2 and figure3. Figure2 shows the reconstruction ability of MAE model on the ImageNet validation set, while figure3 shows the same results on COCO dataset. 
+![IMAGENET-TEST]({{ '/assets/images/MAE-2.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 2. 在ImageNet验证集上测试MAE的效果。这些用于测试的图片都是没有参预训练的。左侧一列是随机去掉80%的image patches部分的图片，中间是MAE重构的效果，右边一列是真实的原图片。*
 
-Figure4 shows that for the same image, masking different portion of the original image will result in different reconstructions.
+![COCO-TEST]({{ '/assets/images/MAE-3.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 3. 在COCO验证集上测试MAE的效果，使用的MAE模型是在ImageNet上训练的（也就是和figure2里用的模型参数一样）。注意到最右侧两个例子，虽然说还原的不对，但是语义上能说得通。*
 
-These three figures (2, 3, 4) have very good results on reconstruction based on very large portion of original images been masked. I think one reason could be that the model have learned the common information of one category, and once it encountered an image of this category with large portion occluded, it can use the information of other images of the same category to assist the reconstruction of this image.
-
-**4. Discussion and Conclusion**
-
-The authors think this model is simple and can be scaled well. Being simple is because it's based on Vision Transformer, and being scaled-well is because it does not encode masked patches and saves lots of calculation for encoding.
-
-The authors also argue that supervised learning still dominates the CV community, different than the NLP groups. And this model has an unsupervised setting, and could be an important future direction for CV.
-
-They also mention that we need to note the differences between CV and NLP tasks. Images and languages are signals of different nature and this intrinsic difference must be addressed carefully. A word is itself a semantic part, and different words form sentences. But for images, a pixel or a patch is not a semantic part of an image. Even having these differences, MAE (based on transformer architecture) could learn some good hidden representations. This part needs future works.
+![PORTION-TEST]({{ '/assets/images/MAE-4.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 4. 使用遮盖比例75%的数据集来训练的MAE在ImageNet验证集上的重构效果，这时候我们采用了更高的遮盖比例。这说明我们的方法可以泛化。*
 
 
-**5. Introduction**
+**Discussion and Conclusion**
 
-1. Tell a story which is that deep learning has made great progress in CV, but still requires plenty of labeled data. And in NLP, self-supervised techniques are very popular, e.g., BERT, GPT. etc. Masked autoencoders are also not a novel thing in CV, for example, denoising autoencoders (decades before) involve adding noise to the image and then denoising the noise, and by doing this can let the model learn the useful representations of the images. Some works recently have used BERT structure into CV, but still not having very good results. So the question is: **what makes masked autoencoding different between vision and languages?** The authors give three answers to this question. 1). The architecture is different. For NLP, popular architecture is Transformer. And once you mask a word, you can always know the position information of the masked word easily. But for CV, the popular architecture is CNN. CNN uses convolution calculation sliding over the whole feature maps. Thus you mask one area of the image, and you can hardly track the positions of the masked area after several layers of convolution. But this problem has been issued by the introduction of Vision Transformer (ViT). But actually, why transformer needs position information is that attention mechanism in transformer does not have position information. But CNN naturaly contains position information because the convolution window slides over the feature maps, and record the results of each area into specific location of the resulting next layer feature maps. 2). Information density is different. For language, a word is a semantic identity, and removing words, even few, can make one sentences vague. But there are much information redundacy within an image. Only removing a patch of an image, you can reconstruct this part by interpolating using neighborhood pixels. Because of this reason, masked autoencoding is not very useful in CV, because it does not learn useful semantic representations. In this paper, the authors just simply mask large portion of the images to make the task challenging and thus the leaRned representations in this way is information rich enough, not just interpolating but learning global information instead. 3). The autoencoder's decoder. The decoder for language models usually output a word, which is a very high-level semantic information. So the decoder in NLP tasks are quite simple, just MLP could be enough. But for CV tasks, the output of the decoder of the autoencoder of the CV task are normly pixels, i.e., the reconstruction of the original image, which is a very low-level semantic representation. Thus if the CV task is difficult, for example, the semantic segmentation, the decoder should be more complex rather than the NLP models. Note that for simple CV tasks, such as classification, decoders are also very simple, such as in ResNet, the decoder is just several layers of MLP.
+简单的并且可以scale的方法是整个深度学习的核心。在NLP里，简单的self-supervised方法最近很火。但在CV领域，现有的pre-training框架还主要是监督的（也有一些self-supervised的工作进展）。在这片文中丽，我们发现autoencoder就可以做出一个很好的pre-training框架。现在，我们没准可以像在NLP里一样成功的在CV领域使用self-supervised方法了。
 
-2. Based on the ideas above, they propose MAE. MAE uses a asymmetric architecture of encoder and decoder to reconstruct images with large portion been masked. Being asymmetric means that the input information of the encoder and the decoder is different, in their setting, encoder only encodes non-masked patches, while decoder also has the position information of masked patches. This setting could make the computation of encoder be much less, and more layers can be added and model can be easily scaled. 
-
-3. They finally show that MAE trained on only ImageNet-1K dataset can have very good performance as pre-trained model for downstream tasks such as object detection, instance segmentation, semantic segmentation, etc. So MAE in CV serves as some similar role as the BERT in NLP.
+但是，我们要注意到images和languages是有天然区别的两类signals，而且这样的区别一定要被谨慎对待。images仅仅是被记录的光亮强度，并没有像language一样可以被语义分割为一个个的单词。我们并没有尝试在image中遮住objects，而是随机的遮挡住patches，这些patches并不一定会构成有意义的语义块。同样的，MAE也是重构像素值，而并不是重构有语义的块。但是，实验表明我们的模型仍然能够推出复杂的重构，这表明其学习到了很多视觉概念，也就是语义。我们认为者是因为MAE内部的hidden representations涵盖了这些语义。这可能是将来的研究方向。
 
 
-**6. Related works**
+**Introduction**
 
-1. Masked language models, including BERT, GPT, etc.
+深度学习目睹了一系列capacity和capability增长的模型架构的诞生。这样越来越大的模型就需要越来越多的数据，特别是带有标签的数据。
 
-2. Autoencoding models in CV community. 
+这个问题最近在NLP领域被self-supervised pre-training方法的提出而解决了。他们的方法，基于GPT里的autoaggressive语言模型以及BERT里的masked autoencoding，实际上概念上很简单：将原数据一部分移除掉，然后让模型来学习预测这部分被移除掉的数据。这些方法现在让训练有数千亿参数的可以泛化的NLP模型都变得可行了。
 
-3. Masked image encoding in CV community. iGPT, BEiT are very closed papers, but they do not explan them clearly. Recommend that for very closely-related papers, you need to explain them and show the differences between your paper and their's.
+masked autoencoders，是一种更加general的denosing autoencoders（在图片中人为添加噪音，然后通过去噪的方式来对图片的特征进行更好的提取），这个想法在CV领域也不那么新鲜。BERT在NLP领域获得了很大的成功，但是autoencoding方法在视觉领域的应用距离NLP里的成功还很远。于是我们提出了问题：是什么使得在vision和language里使用maksed autoencoding不一样呢？我们希望能从以下几个角度来回答。
 
-4. Self-supervised learning in CV community.
+1）直到最近，NLP和CV的模型结构都不一样。在视觉领域，CNN是最主流的模型。卷积是在regular grids上操作的，而且将mask tokens或者positional embeddings这种indicators加进去不是那么的容易。而这种模型结构上的差异，在ViT提出之后就不是问题了。
+
+2）language和vision之间的information density不一样。languages是人类产生的信号，其具有高度的语义性，而且information-dense。让一个模型对一个句子只需要能够预测若干个缺失的单词，这个模型就需要有很复杂的language理解能力。但images是natural signals，而且有着很大的spatial redundancy，比如说，一个缺失的patch可以只需要有一些高层的很简单的信息就可以被其领域的patches重构回来。为了克服这个不同点，并且鼓励模型学习有用的features，我们说明一个很简单的策略在CV里很有效：随机遮挡很高比例的patches。这个策略很大程度上减少了redundancy，而且构造了一个具有挑战性的self-supervisory任务，其需要对图片有整体性的理解而不仅仅是low-level的image statistics。从之前的fig 2-4可以看出MAE的重构效果。
+
+3）autoencoder的decoder，其的作用是将encoder给出的latent reprensentation再映射回输入，在language和image两个领域的重构任务也不一样。在视觉领域，decoder重构的是像素，所以其输出是低语义层次的，比普通的识别任务输出的语义层次要低。而对于language，deocder预测的是缺失的words，其含有丰富的语义信息。在BERT里，decoder可以随便选（BERT里就是一个MLP），但是在images领域，decoder的设计决定了encoder所学习到的latent representation的语义层次的高度。
+
+由这些想法所启发，我们为visual representation learning提出了MAE这个模型。我们的MAE对于输入的图片随机遮盖patches，并且在像素空间内重构这些被遮盖的patches。MAE有一个非对称的encoder-decoder的设计。我们的encoder仅仅在那些可见的patches上操作（并没有mask tokens），而decoder是轻量级的，从encoder给出的latent representation和mask tokens一起来重构输入，如fig1所示。这样的设计大大减小了模型的计算量。在这种设计下，一个非常高比例遮挡的策略可以获得双赢：不仅让encoder能学习到更有效地representation，其还只需要encode一小部分patches。这可以大大减小训练的时间以及训练占用的内存，从而可以使MAE方法scale到更大规模的模型上。
+
+我们的MAE学习到泛化效果很好的高capacity的模型。使用MAE pre-training，我们可以仅仅使用ImageNet-1K数据集就训练那些十分需要数据的模型，比如说ViT-Large/-Huage（[An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale](https://openreview.net/pdf?id=YicbFdNTTy)），并且泛化效果还更好。我们同时还在object detection，instance segmentation，semantic segmentation等后续任务上测试了MAE在transfer learning领域的效果。都要比利用其它的方法包括监督方法进行预训练的效果要好。这些结论和在NLP里发现的结果差不多，所以希望autoencoder在CV领域也能有在NLP领域那样的发展。
 
 
-**7. Approach**
+**Related works**
+
+*Masked language modeling*
+
+Masked语言模型和它们的autoregressive counterparts，比如BERT和GPT，在NLP领域是非常成功的pre-training模型。这些方法遮住输入sequence的一部分然后训练模型来预测这部分。这些方法的scaliability也很好，而且这些模型产生的预训练的representations对于下游任务来说泛化效果也很好。
 
 
+*Autoencoding*
 
+autoencoding是一个学习representations的经典方法。其有一个encoder来将输入映射到一个latent representation上，并有一个decoder来重构这个输入。比如说，PCA和k-means就是autoencoders。Denoising autoencoders（DAE）是一类autoencoders，其先给输入加上噪音，再学习如何重构原始的，没有被污染的输入。一系列方法都可以看作使用不同的噪音的DAE，比如，masking pixels，或者移除color channels等。我们的MAE也是一种DAE，但是和经典的DAE有着很大的不同。
+
+
+*Masked Image Encoding*
+
+masked image encoding方法通过遮盖的方式污染图片，然后再来学习图片的representations。最早的工作是将masking当作一种噪声，所以是DAE的一种特殊情况。context encoder使用CNN来学习那些缺失的部分。由NLP里的成功所启发，最近的方法都基于Transformers。iGPT在pixels构成的sequence上操作，像GPT一样预测被遮住的pixels。
+
+
+*Self-supervised Learning*
+
+非监督学习的方法在CV领域非常火热，通常集中研究于各种pre-training的任务。最近，contrastive learning非常的流行，[A Simple Framework for Contrastive Learning of Visual Representations](http://proceedings.mlr.press/v119/chen20j.html)，[Momentum Contrast for Unsupervised Visual Representation Learning](https://openaccess.thecvf.com/content_CVPR_2020/papers/He_Momentum_Contrast_for_Unsupervised_Visual_Representation_Learning_CVPR_2020_paper.pdf)，[Representation Learning with Contrastive Predictive Coding](https://arxiv.org/pdf/1807.03748.pdf?fbclid=IwAR2G_jEkb54YSIvN0uY7JbW9kfhogUq9KhKrmHuXPi34KYOE8L5LD1RGPTo)，[Unsupervised Feature Learning via Non-Parametric Instance Discrimination](https://openaccess.thecvf.com/content_cvpr_2018/html/Wu_Unsupervised_Feature_Learning_CVPR_2018_paper.html)，其在两张或者多张图片间对相似性进行表示。contrastive learning的方法太过于依赖data augmentation。autoencoding采用了概念上不同的另一个方向，也显示出了不一样的效果。
+
+
+**Approach**
+
+我们的MAE是一个简单的autoencoding的方法，其在给定原输入部分的patches的情况下重构原输入。和所有的autoencoders一样，我们的方法有一个encoder来将观察到的数据映射到一个latent representation，也有一个decoder来从这个latent representation重构原始的输入。和经典的autoencoders不一样，我们采用一种非对称的设计，encoder只在那些没有被遮住的patches上操作，不考虑mask tokens，并且使用一个轻量化的decoder，从mask tokens和latent representations来重构原始的输入。fig1描述了整个流程。
+
+*Masking*
+
+和ViT里的方法一样，我们先将图片分成regular的不重合的patches。然后我们随机挑选出一些patches，然后把剩下的都mask掉。我们的patch采样方式很简单：不重复的随机挑选，使用的是均匀分布（也就是每个patch被选中的概率相等）。
+
+具有很高的遮挡比例的随机采样很大程度上消去了图片的redundancy，因此创建了一个任务，其不能够简单的只是通过领域patches插值就能解决。我们采用的是uniform distribution，其可以避免潜在的center bias（也就是更倾向于遮住图像中心的区域）。而且，这样很高比例的遮挡可以使我们能够scale我们的encoder到很大的模型，因为输入给encoder的计算量大大减小了。
+
+*MAE encoder*
+
+我们的encoder就是一个ViT，但是输入仅仅是那些没有被遮住的patches。正如在标准的ViT模型里一样，我们的encoder通过一个线性projection加上positional embeddings来embed patches，然后再用一系列Transformer模块来处理。然而，我们的encoder只需要在一小部分的输入图片patches上进行计算，而且并没有使用mask tokens。这使得我们训练很大的模型和很大的数据集成为可能。
+
+*MAE decoder*
+
+MAE的decoder的输入是full set of tokens，包括（1）encoded没被遮挡的patches；（2）mask tokens。由fig1可见。每个mask token是一个shared，learned向量，说明该处有一个缺失的patch需要被预测。我们给这个集合里所有的tokens都加入了positional encodings；如果没有这个，mask tokens就没有它们在image中的位置信息了。decoder也有另外一些Transformer blocks。
+
+MAE的decoder只用于在pre-training的时候做image reconstruction任务，只有encoder在生成后续所用的representation时会被用到。因此，decoder的结构可以被灵活的设计，和encoder的结构可以没有关系。
+
+*Reconstruction target*
+
+我们的MAE通过预测每个masked patch的像素值来重构输入。decoder的输出的每个element都是一个向量的像素值，表示的是一个patch。decoder的最后一层是一个linear projection，其输出的通道数等于每个patch里像素的个数。decoder的输出被reshape成为一个重构的image。我们的loss计算的是重构的image和原始输入之间的MSE。
+
+我们还研究了另一个reconstruction target，也就是每个masked patch的normalized像素值。也就是说，我们计算一个patch里的所有像素的mean和deviation，然后normalize这个patch。使用normalized pixels能够改善encoder所学习到的representation的质量。
+
+*Simple implementation*
+
+我们的MAE pre-training可以被高效的部署。首先，我们对于每个input patch都生成一个token（这个token也就是通过linear projection和一个added positional embedding得到的）。然后我们随机打乱tokens再排成一列，直接去除掉这列后面那部分tokens（去除比例就是masking ratio）。这个过程为encoder产生了一小部分tokens（也就是没被遮住的那部分），也就等价于不重复的随机挑选patches。在encoding之后，我们将encoded patches构成的list通过加上mask tokens来延长，然后再unshuffle整个list（因为之前为了随机选patches而shuffle了，现在逆过来这个过程），从而tokens就对应了它们正确的位置。decoder被应用到这个list上（加上了positional embeddings）。
 
 **The writing style of this paper**
-
-1. The introduction part is a little long, partly because this paper uses lots of figures. Fruitful figures in CV paper is a good thing. The writing style of the introduction is not just an extension of the abstract (like GAN paper), but raising the topic into a more high level, and raise questions. This paper aims to solve this kind of question. It's a very good writing style. This can explain the necessity of this paper and give the basic idea of how the authors understand this problem. This could make the paper insightful, rather than just a technic report explaining the model details (like AlexNet paper).
-
 
 
 ## Generative Models
