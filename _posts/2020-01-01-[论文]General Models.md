@@ -755,7 +755,7 @@ masked image encoding方法通过遮盖的方式污染图片，然后再来学�
 
 *MAE decoder*
 
-MAE的decoder的输入是full set of tokens，包括（1）encoded没被遮挡的patches；（2）mask tokens。由fig1可见。每个mask token是一个shared，learned向量，说明该处有一个缺失的patch需要被预测。我们给这个集合里所有的tokens都加入了positional encodings；如果没有这个，mask tokens就没有它们在image中的位置信息了。decoder也有另外一些Transformer blocks。
+MAE的decoder的输入是full set of tokens，包括（1）encoded没被遮挡的patches；（2）mask tokens。由fig1可见。每个mask token是一个shared，learned向量，也就是每个被遮住的patch都用同一个向量来表示，而这个向量的值也是通过学习得到的。我们给这个集合里所有的tokens都加入了positional encodings；如果没有这个，mask tokens就没有它们在image中的位置信息了。decoder也有另外一些Transformer blocks。
 
 MAE的decoder只用于在pre-training的时候做image reconstruction任务，只有encoder在生成后续所用的representation时会被用到。因此，decoder的结构可以被灵活的设计，和encoder的结构可以没有关系。
 
@@ -770,6 +770,12 @@ MAE的decoder只用于在pre-training的时候做image reconstruction任务，�
 我们的MAE pre-training可以被高效的部署。首先，我们对于每个input patch都生成一个token（这个token也就是通过linear projection和一个added positional embedding得到的）。然后我们随机打乱tokens再排成一列，直接去除掉这列后面那部分tokens（去除比例就是masking ratio）。这个过程为encoder产生了一小部分tokens（也就是没被遮住的那部分），也就等价于不重复的随机挑选patches。在encoding之后，我们将encoded patches构成的list通过加上mask tokens来延长，然后再unshuffle整个list（因为之前为了随机选patches而shuffle了，现在逆过来这个过程），从而tokens就对应了它们正确的位置。decoder被应用到这个list上（加上了positional embeddings）。
 
 **The writing style of this paper**
+
+这篇文章的introduction很长。第一是因为他使用了大量的图片，这是好事。第二个原因是因为他使用了一种问问题，回答问题，再引出论文想法的写法，这种写法是很好的。如果不这么写的话，那就是将abstract进行扩充，那其实最后就得到了这里introduction最后的两段话。因为这篇文章的技术细节并不复杂，所以作者采用了一种回到更本质的问题的方法，也就是将Bert从NLP用到CV的时候会有什么问题，然后再一一回答，之后引出MAE这个算法。也就是将这个算法为什么要设计成这样说的很清楚。这种写法是很推荐的。因为论文除了要讲清楚怎么做的，还要讲清楚为什么要这么做，也就是motivation。
+
+但是在related work部分，虽然提到了很多相关工作，但是对于iGPT和Beit这两篇相关性最大的论文，并没有详细介绍他们的方法，这是不推荐的。
+
+
 
 
 ## Generative Models
