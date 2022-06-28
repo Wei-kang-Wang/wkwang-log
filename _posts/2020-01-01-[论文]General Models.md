@@ -644,14 +644,122 @@ BERT在概念上简单，而且在实验上效果很好。它在11个NLP任务�
 
 
 
+### 3. [An Image is worth 16 $$\times$$ 16 workds: Transformers for image recognition at scale](https://openreview.net/forum?id=YicbFdNTTy)
+
+*Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenbron, Xiaohua Zhai, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg Heigold, Sylvain Gelly, Jakob Uszkoreit, Neil Houlsby*
+
+*ICLR 2021 Oral*
+
+**Abastract**
+
+当Transformer架构已经成为NLP任务的标准架构时，Transformer在CV领域的应用仍然没有太大的发展。在视觉领域，attention要么和CNN一起被使用，要么就修改CNN结构里的某些内容，但是CNN的整体结构是没有改变的。我们将会表明完全依赖CNN是没有必要的，一个应用在图像patches上的Transformer在image classification任务上就可以表现得很好。当在大量的数据上与训练之后再转移到一些中等数据集大小的recognition benchmarks上（比如IamgeNet，CIFAR-100，VTAB等）时，Vision Transformer（ViT）具有和CNN sota相同的效果。
 
 
+**1. Introduction**
+
+self-attention架构，特别是Transformers，在NLP领域现在是最主流的。现在最主要的方法是在一个大的text corpus上进行预训练，然后再在特定任务的数据集上fine-tune。多亏了Transformer架构计算上的高效性和scalability，我们可以训练很大的Transformer架构的模型（超过1000亿个参数）。随着模型和数据集的增长，目前还没有看到饱和的发生。
+
+在CV领域，卷积架构仍然占据着主导地位，比如AlexNet，LeNet，ResNet等。受到NLP领域成功的启发，一些工作开始尝试将CNN架构和self-attention机制结合起来，[Non-local Neural Networks](https://openaccess.thecvf.com/content_cvpr_2018/papers/Wang_Non-Local_Neural_Networks_CVPR_2018_paper.pdf)，[End-to-end object detection with Transformers](https://arxiv.org/pdf/2005.12872.pdf)。有些工作尝试将CNN里的卷积计算换掉，[Stand-alone self-attention in vision models](https://arxiv.org/pdf/1906.05909.pdf)，[Stand-alone axial-attention for panoptic segmentation](https://arxiv.org/pdf/2003.07853.pdf)。这些将CNN里的卷积替换掉的模型，虽然理论上很高效，但是还并不能被高效用在目前硬件设备上。因此，在大规模的image recognition任务上，经典的类ResNet架构还是sota。
+
+被Transformer在NLP领域的scalability的成功所启发，我们尝试直接将一个标准的Transformer模型应用在image上，做尽可能少的改动。为了做到这点，我们将一张图片分为patches，然后将这些patches的linear embeddings排成sequence作为Transformer的输入。image patches被当作NLP里的tokens（words）。我们以监督学习的方式来在image classification任务上训练这个模型。
+
+当没有使用很强的regularization，在中等大小的数据集上训练时，比如说ImageNet，Transformer的结果比ResNet的结果要第几个百分点。这似乎说明Transformer在image上这样使用的效果并不好：Transformers并没有CNN固有的一些inductive biases，比如translation equivariance和locality，因此在有限的数据集上训练的模型泛化效果并不好。
+
+但是，当我们在更大的数据集上训练的时候（1400万-3亿张图片），情况就有所变化了。Transformer在images上的效果要比很多任务的sota效果要好。
 
 
+**2. Related Work**
+
+Transformer是用来做machine translation而被提出的，现在已经在很多NLP任务里是sota的架构了。大型的Transformer-based模型通常在大的corpora上预训练，然后在具体任务上微调。BERT使用了一种denoising的self-supervised预训练任务，而GPT line of work使用language modeling作为其预训练任务。
+
+naive的直接将self-attention机制用到images上就会变成让每个pixel来注意其它的pixels。这会造成pixel数量平方级别的计算，这scale到实际任务是不现实的。因此，为了将Transformer用到image领域，很多研究者尝试了一些近似的办法。[]()对于每个pixel，只将self-attention应用在其邻域内的pixels上，而不是考虑所有的pixels。这样的local multi-head dot-product self-attention blocks可以完全替代convolutions操作。
+
+最接近我们这篇文章的是这篇文章，[On the relationship between self-attention and convolutional layers](https://arxiv.org/pdf/1911.03584.pdf)，其从image中获取$$2 \times 2$$的patches，并在这些patches上应用self-attention。这篇工作和我们这篇文章非常的相似，但是我们的工作更进一步的阐明大规模的预训练使得Transformers和sota的CNN框架效果差不多甚至更好。进一步的，这篇文章使用了较小的patches，只有$$2 \times 2$$，使得模型更加适用于小分辨率的图片，而我们的方法对于中等分辨率的图片仍然可以适用。
+
+还有很多工作尝试将CNN和self-attention相结合，比如，[]()将CNN得到的feature map和self-attention得到的feature map结合起来用于image classification，或者说在CNN得到的feature maps上再继续用self-attention得到更好的features，在object detection，video processing，image classification，unsupervised object discovery和unified text-vision tasks上都有使用。
+
+另一个相关的工作是image GPT (iGPT) [Generative pretraining from pixels](http://proceedings.mlr.press/v119/chen20s/chen20s.pdf)，其在减小了图片的分辨率和color space之后再在图片pixels上使用Transformers。模型是以一种非监督学习的方式被当做一个generative model来训练的，所得到的representation之后可以被fine-tune，也可以直接被用来做classification，在ImageNet上的classification有72%的准确率。
 
 
+**3. Method**
 
-### 3. [Masked Autoencoders Are Scalable Vision Learners](https://arxiv.org/pdf/2111.06377.pdf)
+在模型设计上我们尽可能使用原始的Transformer的设计。
+
+![1]({{ '/assets/images/VIT-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 1. Model Overview. 我们将图片分为固定数量的patches，将其每个都进行linearly embedding，再加上position embedding是，喂给一个标准的Transformer encoder。为了能够实现classification，我们在sequence之前加了一个多余的可学习的classification token。*
+
+**3.1 Vision Transformer (ViT)**
+
+整个模型的样子如fig1所示。标准的Transformer的输入是一个1维的sequence，由token embeddings组成。为了处理2维图片，我们将图片$$\pmb{x} \in R^{H \times W \times C}$$ reshape到一个由展平的2D patches构成的sequence $$\pmb{x_p} \in R^{N \times (P^2 \dot C)}$$，其中$$(H,W)$$是原图片的分辨率，$$C$$是原图片的通道数，$$(P,P)$$是每个patch的分辨率，$$N = HW/P^2$$是patches的数量，其也是sequence的长度。Transformer在它的层之间使用的都是一个不变的latent vector size $$D$$，所以我们将patches展平，并使用一个可训练的线性投射（公式1）将其映射到一个$$D$$维的向量。我们将这个patch经过投射之后得到的$$D$$维向量成为patch embedding。
+
+和BERT里的class token类似，我们在上述patch embeddings构成的sequence的头部加上一个可学习的embedding，$$z_0^0 = x_{class}$$，其在经过$$L$$个Transformer模块（也就是层）之后的值$$z_L^0$$用来表示image representation $$\pmb y$$，如公式4所示。在pre-training和fine-tuning的过程中，$$z_L^0$$都和一个classification head相连，这个classification head在pre-training的时候是具有一个隐层的MLP，而在fine-tuning的时候只是一层线性层。
+
+position embeddings也被加入到patch embeddings当中，为了保留位置信息。我们使用标准的可学习的1D positional embeddings，因为更复杂的2D positional embeddings并没带来什么效果提升。现在这个embedding vectors sequence可以作为Transformer encoder的输入了。
+
+Transformer encoder有multiheaded self-attention层（MSA）（公式2）、MLP blocks（公式3）以及每层计算完都会进行LayerNorm，并且在每个block之间还有residual连接。
+
+$$\pmb{z_0} = \left[x_{class}; x_p^1 \pmb{E}; x_p^2 \pmb{E}; \cdots ; x_p^N \pmb{E} \right] + \pmb{E_{pos}} \tag{1}$$
+
+其中$$\pmb{E} \in \mathbb{R}^{(P^2 \dot C) \times D}, \pmb{E_{pos}} \in \mathbb{R}^{(N+1) \times D}$$
+
+$$\pmb{z_l^{'}} = MSA(LN(\pmb{z_{l-1}^{'}})) + \pmb{z_{l-1}^{'}} \tag{2}$$
+
+其中$$l=1, \cdots, L$$。
+
+$$\pmb{z_l} = MSA(LN(\pmb{z_l^{'}})) + \pmb{z_l^{'}} \tag{3}$$
+
+其中$$l=1, \cdots, L$$。
+
+$$\pmb y = MLP(z_L^0) \tag{4}$$
+
+
+*Inductive bias*
+
+我们发现vision transformer相比于CNN少了很多image-specific inductive bias。在CNN里，locality，二维的领域结构以及translation equivariance在模型的每一层里都存在。而在ViT里，只有MLP是local和translation equivariant的，self-attention层是global的。
+
+
+*Hybrid Architecture*
+
+作为原始图片patches的一个替代，输入Transformer模型的sequence也可以从一个CNN的feature map获得。在这个hybrid模型里，patch embedding projection $$\pmb E$$被用在从feature map上获取的patches上。
+
+
+**3.2 Fine-tuning and higher resolution**
+
+我们在大型数据集上预训练ViT，之后再在下游任务的小数据集上微调。在微调的时候，我们将pre=trained prediction head移除，加上一个初始化为0的$$D \times K$$的feedforward层，其中$$K$$表示的是下游任务的classes。一般来说，在分辨率更高的图片上微调效果会更好，这个时候我们保持patch大小不变，这样就会有更多的patches，ViT可以处理长度变化的patch embedding sequence，所以并没有问题，但这个时候预训练的positional encoding可能就不好使了，我们可以根据预训练的positional encoding embeddings在图片中的位置，使用2D插值来计算高分辨率图片的positional encoding embeddings。
+
+
+**4. Experiments**
+
+别的部分省略
+
+**4.1 Inspecting vision transformer**
+
+为了理解vision transformer是如何处理图片数据的，我们来分析其内部的representations。vision transformer的第一层是将展平的patches线性投射到一个满足transformer尺寸的embedding上，也就是一个更低维度的空间里。fig2左侧展示了所学习到的embedding filters的几个最主要的部分。这些部分有点像表示patches里的低维结构信息的basis functions。
+
+在这个linearly projection之后，一个可学习的position embedding被加在patch representation上。fig2中间显示的是模型尝试去学习encode图片中patches之间的distances，和positional encoding类似，也就是相近的patches就有类似的positional encodings。而且，能看出来显示出了行列的结构，同一行/列的patches有着类似的embeddings。
+
+![2]({{ '/assets/images/VIT-2.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 2. 左侧：RGB embedding filters（初始的28个主成分）。中间：position embeddings。右边：head的注意区域大小和网络深度的关系。每个点表示的是一层里16个head中的某个head的mean attention distance accross images。*
+
+self-attention允许ViT在整张图片上整合信息，即使对于很低的层也是这样。我们来看看这个网络到底将这个特性实现了多少。基于attention weights，我们来计算在图片中的mean attention distance accross images，见fig2右侧，也就是每个点能关注到周围多大的区域。这个attention distance和CNN里的receptive field有点像。我们发现，有些heads在很浅的层就已经注意到了这张图的几乎所有部分，表明全局化的整合整张图的信息这个特性确实被这个模型用到了。我们还发现，模型会注意到那些有助于classification的图片区域，如fig3所示。
+
+![3]({{ '/assets/images/VIT-3.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 3.*
+
+
+**5. Conclusion**
+
+我们探索了将Transformer用在image recognition领域的可行性。和以往使用self-attention的方法不同，我们并不为架构引入image-specific inductive biases。相反的，我们将一张图片理解为patches的sequence，然后用标准的Transformer来处理。但这简单的，但是scable的方法和在大数据集上预训练结合起来效果很好。因此，Vision Transformer达到了或者超过一些image classification的sota结果。
+
+虽然结果很鼓舞人，但是还有很多问题没有解决。一个是如何将ViT应用到其它的CV任务上，比如说detection和segmentation。而且，如何将文章中的large scale supervised预训练变成self-supervised预训练也是很重要的。
+
+>实际上MAE就做到了。
+
+
+### 4. [Masked Autoencoders Are Scalable Vision Learners](https://arxiv.org/pdf/2111.06377.pdf)
 
 *Kaiming He, Xinlei Chen, Saining Xie, Yanghao Li, Piotr Dollar, Ross Girshick*
 
