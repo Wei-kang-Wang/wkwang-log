@@ -621,25 +621,15 @@ BERT是起好了一个名字，这样方便之后的人引用或者提及。pre-
 
 是Google AI语言组的人，一作从有想法到跑第一次代码成功只花了几周的时间，之后写完论文也就花了几个月的时间。
 
+
 **Abstract**
 
-我们介绍一个新的语言表示模型，叫做BERT，这个名字来源于Bidirectional Encoder Representation from Transformers。和最近的一些语言表示模型不一样，BERT设计的用来训练深的双向的representation，是通过在所有的layers里联合左右两边的上下文信息利用无标签的文本来学习的。我们的结果是，预训练的BERT模型加了一个输出层再进行finetune之后就可以对于一系列任务，比如说question answering，language reference等达到sota的效果，而并不需要针对不同的任务对模型结构进行调整。
+我们提出了一个新的language representation模型，叫做BERT，是Bidirectional Encoder Representations from Transformers的简称。
 
-BERT在概念上简单，而且在实验上效果很好。它在11个NLP任务上得到了sota的结果，包括GLUE，MultiNLI,SQuAD v1.1,SQuAD v2.0等。
 
->第二段直接说明了BERT十分强大，并且列出了绝对的效果和相对的效果，都是十分优秀的。
 
 **1. Introduction**
 
-语言模型的与训练可以提升很多NLP任务的效果。这些被提升的NLP任务包括两类：1）sentence-level的任务比如说natural language inference、paraphrasing等，主要是用来预测句子之间的关系；2）token-level的任务（词元层面）比如说named entity recognition和question answering，模型需要更细的token层面的输出。
-
->这说明预训练模型在NLP领域已经有了不少应用了，而在CV领域实际上已经用了几十年了，所以并不是一个新的概念。BERT并不是第一个用预训练模型加强一系列后续NLP任务的论文，但是它的效果却是最好的，所以火了。
-
-在使用预训练的language representation(特征表示）帮助下游的NLP任务的时候，一般有两种策略：feature-based和fine-tuning。feature-based的代表作，ELMo，对于每一个下游的任务，都构造和这个任务相关的网络结构，将预训练的特征表示作为额外的特征和这个任务的输入共同输入这个网络之中。fine-tuning方法，代表作是GPT，它不需要针对具体任务改变模型结构，而是对于已经预训练好的模型，用新的任务的数据再对网络进行训练，从而微调网络参数。这两个策略在预训练的时候都采用了相同的目标函数，他们都使用unidirectional lanaguage模型来学习language representations（单向的）。
-
->因为传统的语言模型都是预测模型，也就是说根据之前的词，来预测下一个词是什么，所以当然就是单向的。
-
-我们认为现在的这些方法和技术限制了预训练特征的能力，特别是对于fine-tuning策略的模型。主要的限制点就是标准的语言模型是单向的，从而这个限制了预训练的时候可以选择的模型结构。比如说，在GPT里，他们使用了从左到右的模型结构，每个token都只能获取之前的tokens的信息（在Transformer的self-attention层里）。这样的限制对于sentence-level的任务是有局限性的，对于token-level的任务（尤其是当使用fine-tuning策略时），比如说question answering，会导致很不好的结果，因为这些任务里双向的上下文的内容显得很重要。
 
 
 
