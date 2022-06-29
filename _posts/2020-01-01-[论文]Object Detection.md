@@ -140,7 +140,7 @@ RCNN在VOC07上获得了显著的性能提升，在mean Average precision（mAP�
 *NeurIPS 2015*
 
 
-### [Feature Pyramid Networks for Object Detection](https://openaccess.thecvf.com/content_cvpr_2017/papers/Lin_Feature_Pyramid_Networks_CVPR_2017_paper.pdf)
+### [FPN: Feature Pyramid Networks for Object Detection](https://openaccess.thecvf.com/content_cvpr_2017/papers/Lin_Feature_Pyramid_Networks_CVPR_2017_paper.pdf)
 
 *CVPR 2017*
 
@@ -167,7 +167,7 @@ RCNN在VOC07上获得了显著的性能提升，在mean Average precision（mAP�
 
 *ECCV 2016*
 
-### [Focal Loss for Dense Object Detection](https://openaccess.thecvf.com/content_ICCV_2017/papers/Lin_Focal_Loss_for_ICCV_2017_paper.pdf)
+### [Retina-Net: Focal Loss for Dense Object Detection](https://openaccess.thecvf.com/content_ICCV_2017/papers/Lin_Focal_Loss_for_ICCV_2017_paper.pdf)
 
 *ICCV 2017*
 
