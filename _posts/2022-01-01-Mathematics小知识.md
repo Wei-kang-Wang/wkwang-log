@@ -582,7 +582,13 @@ $$Ax = b$$
 其中$$x = (x_1, x_2, \cdots, x_n)^T \in R^n$$，$$F_i \in R^{d \times d}$$是对称矩阵，$$A \in R^{m \times n}$$。
 
 
-## 6. 统计学（浙大，概率论与数理统计）
+## 6. 浅谈变分原理
+
+### 参考文献
+
+* https://zhuanlan.zhihu.com/p/139018146
+
+## 6. 简单数理统计（浙大，概率论与数理统计）
 
 ### 6.7 参考文献
 
@@ -717,5 +723,25 @@ $$Ax = b$$
 * https://zhuanlan.zhihu.com/p/352464021
 * https://zhuanlan.zhihu.com/p/353246777
 * https://zhuanlan.zhihu.com/p/355142950
+
+
+## 15. 高等数理统计（茆诗松，概率论与数理统计教程和韦博成，参数统计教程）
+
+### 15.15 参考文献
+
+* https://zhuanlan.zhihu.com/p/70018601
+* https://zhuanlan.zhihu.com/p/85026175
+* https://zhuanlan.zhihu.com/p/87520809
+* https://zhuanlan.zhihu.com/p/87796459
+* https://zhuanlan.zhihu.com/p/89868315
+* https://zhuanlan.zhihu.com/p/91730443
+* https://zhuanlan.zhihu.com/p/94011595
+* https://zhuanlan.zhihu.com/p/94590802
+* https://zhuanlan.zhihu.com/p/100749535
+* https://zhuanlan.zhihu.com/p/104237281
+* https://zhuanlan.zhihu.com/p/102550823
+* https://zhuanlan.zhihu.com/p/104721146
+* https://zhuanlan.zhihu.com/p/105360052
+* https://zhuanlan.zhihu.com/p/105714434
 
 ---
