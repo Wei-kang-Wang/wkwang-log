@@ -584,164 +584,147 @@ $$Ax = b$$
 
 ## 6. 浅谈变分原理
 
-### 参考文献
+对付数学物理中的极值问题，变分法（variational principle）是非常重要的工具。此post介绍了变分法的基本思想。
+
+1696年6月，瑞士科学家Johann Bernoulli在Acta Eruditorum上向全世界的科学家发起一项挑战。他提出了一个问题：让一个物体从静止开始沿着一个光滑无摩擦的轨道下滑到一个固定点，如果要求下滑过程耗时最短，轨道应该是什形状？
+
+这个问题被称作最速降曲线问题（the brachistochrone problem）。Johann本文利用光学原理类比给出了一种解法，他哥哥Jacob Berboulli想到了另一种解法，而Leibniz、L’Hospital等都给出了各自的解法。
+
+而Newton提出了一种新颖的方法解决此问题，即为变分法。
+
+假设我们有两个定点$$(a,p)$$和$$(b,q)$$，连接这两点的任意曲线的方程$$y=y(x)$$都将满足如下边界条件：
+
+$$y(a) = p, y(b) = q \tag{1}$$
+
+现在考虑如下形式的定积分：
+
+$$I = \int_{a}^{b} f(y, y^{'}) dx \tag{2}$$
+
+其中$$f(y,y^{'})$$是关于$$y(x)$$和其一阶导数$$y^{'}(x)$$的函数，我们期望找到一个具体的$$y(x)$$，使得$$I$$到达极值（极大或极小）。
+
+注意在一般的极值问题中，我们考察的是自变量$$x$$的变化：$$x$$取值多少时，函数会有极值。而现在这个新问题的不同之处是，我们考察的是函数$$y(x)$$的变化：$$y(x)$$是什么形式时，$$I$$会有极值（高级的叫法，$$I$$称为函数$$y(x)$$的泛函）。然而这两类问题仍有共同之处：当$$I$$取极值时，对$$y(x)$$作微小的变化，$$I$$在一级近似下应该保持不变。
+
+![v1]({{ '/assets/images/V-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+如果$$y(x)$$有微小改变$$\delta y(x)$$（$$\delta y(x)$$称作函数$$y(x)$$的变分），那么$$f(y,y^{'})$$的变化为：
+
+$$\delta f = \frac{\partial f}{\partial y} \delta y + \frac{\partial f}{\partial y^{'}} \delta y^{'} \tag{3}$$
+
+$$I$$相应的变化为：
+
+$$\delta I = \int_{a}^{b} \left[ \frac{\partial f}{\partial y} \delta y + \frac{\partial f}{\partial y^{'}} \delta y^{'} \right] dx \tag{4}$$
+
+公式4方括号里的第二项可以改写为$$\frac{\partial f}{\partial y^{'}} \frac{d(\delta y)}{dx}$$，然后我们可以分部积分：
+
+$$\int_{a}^{b} \frac{\partial f}{\partial y^{'}} \delta y^{'} dx = \int_{a}^{b} \frac{\partial f}{\partial y^{'}} d(\delta y)$$
+
+$$=\frac{\partial f}{\partial y^{'}} \delta y \vert_a^b - \int_{a}^{b} \delta y \frac{d}{dx}(\frac{\partial f}{\partial y^{'}})dx$$
+
+由于$$y(x)$$的边界条件固定，$$\delta y(a) = \delta y(b) = 0$$，所以上述分部积分第一项为零。从而代回公式4中，可得：
+
+$$\delta I = \int_{a}^{b} \left[ \frac{\partial f}{\partial y} - \frac{d}{dx} (\frac{\partial f}{\partial y^{'}}) \right]\delta y(x) dx \tag{5}$$
+
+如果$$I$$有极值，对任意满足边界条件的$$\delta y(x)$$，都必须有$$\delta I = 0$$，从而：
+
+$$\frac{\partial f}{\partial y} - \frac{d}{dx}(\frac{\partial f}{\partial y^{'}}) = 0 \tag{6}$$
+
+这就是Euler-Lagrange方程，它是变分法的核心定理。有了这个定理，就可以找出所求的极值函数$$y(x)$$。
+
+通常来说，Euler-Lagrange方程会是一个二阶的微分方程，$$y(x)$$的通解中含有的两个待定常数刚好可以通过两个边界条件确定。
+
+**例1：两点间的最短路径**
+
+给定平面上两点$$(a,p)$$和$$(b,q)$$，连接它们的长度最短的曲线是什么？
+
+曲线的长度计算为：
+
+$$S = \int_{a}^{b} \sqrt{1 + y^{'2}} dx $$
+
+现在希望$$S$$有最小值，取$$f(y,y^{'}) = \sqrt{1 + y^{'2}$$，运用Euler-Lagrange方程来找到$$y(x)$$。
+
+注意到$$\frac{\partial f}{\partial y} = 0$$，$$\frac{\partial f}{\partial y^{'}} = \frac{y^{'}}{\sqrt{1 + y^{'2}}}$$
+
+代入Euler-Lagrange方程里，可得：
+
+$$\frac{d}{dx}\frac{y^{'}}{\sqrt{1 + y^{'2}}}=0$$
+
+从而$$\frac{y^{'}}{\sqrt{1 + y^{'2}}}$$是个常数，也就是$$y^{'}$$也是个常数，从而$$y(x)=kx+c$$是个直线，又要通过$$(a,p)$$和$$(b,q)$$两点。
+
+
+**例2：最速降曲线**
+
+我们将坐标系的y轴向下，斜向下的轨道就可以由$$y(x)$$给出，其中轨道的起点和终点分别设为$$(0,0)$$和$$(a,b)$$，从而来求最速降曲线的函数式。
+
+![v2]({{ '/assets/images/V-2.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+当物体下滑到$$(x,y)$$位置时，结合物理定律：
+
+$$\frac{1}{2}mv^2 = mgy$$
+
+$$v = \sqrt{2gy}$$
+
+根据定义：
+
+$$v = \frac{ds}{dt} = \sqrt{1 + y^{'2}} \frac{dx}{dt}$$
+
+将上面两个式子联立，得：
+
+$$dt = \sqrt{\frac{1 + y^{'2}}{2gy}}dx$$
+
+积分之后就可以得到总时间：
+
+$$T = \frac{1}{\sqrt{2g}} \int_{0}^{a} \sqrt{\frac{1 + y^{'2}}{y}}dx$$
+
+为了找出让$$T$$取得极小的$$y(x)$$，我们可以取$$f(y,y^{'}) = \sqrt{\frac{1 + y^{'2}}{y}}dx$$，再利用Euler-Lagrange公式来计算：
+
+$$\frac{1}{2} \sqrt{\frac{1+y^{'2}}{y^3}} + \frac{d}{dx}(\frac{y^{'}}{\sqrt{y(1 + y^{'2})}}) = 0$$
+
+化简得：
+
+$$\frac{1}{2} (1+y^{'2}) + yy^{''}=0$$
+
+两侧乘以$$2y^{'}$$，可以得到：
+
+$$\frac{d}{dx} \left[y(1+y^{'2})\right] = 0$$
+
+$$y(1+y^{'2}) = k$$
+
+$$y^{'} = \sqrt{\frac{k-y}{y}}$$
+
+其中$$k$$是一个常数。
+
+从而：
+
+$$x = \int dx = \int \sqrt{\frac{y}{k-y}} dy$$
+
+做三角换元，设$$y = ksin^2 \theta$$，则：
+
+$$x = k \int (1-cos2\theta) d\theta$$
+
+从而：
+
+$$x = k \theta - \frac{1}{2} k sin2 \theta + c$$
+
+其中$$c$$是积分常数。再将$$\theta$$替换为$$y$$，就可以得到：
+
+$$x(y) = k arcsin \sqrt{\frac{y}{k}} - \sqrt{y(k-y)} + c$$
+
+轨道起点是$$(0,0)$$，可以得到$$c=0$$，于是：
+
+$$x(y) = k arcsin \sqrt{\frac{y}{k}} - \sqrt{y(k-y)}$$
+
+轨道终点是$$(a,b)$$，所以上述上述$$k$$满足：
+
+$$karcsin \sqrt{\frac{b}{k}} - \sqrt{b(k-b)} = a$$
+
+这是一条摆线。
+
+**参考文献**
 
 * https://zhuanlan.zhihu.com/p/139018146
 
-## 6. 简单数理统计（浙大，概率论与数理统计）
 
-### 6.7 参考文献
-
-* https://zhuanlan.zhihu.com/p/29068570
-* https://zhuanlan.zhihu.com/p/29091290
-* https://zhuanlan.zhihu.com/p/29135727
-* https://zhuanlan.zhihu.com/p/29154307
-* https://zhuanlan.zhihu.com/p/29208753
-* https://zhuanlan.zhihu.com/p/29480270
-* https://zhuanlan.zhihu.com/p/29758751
-
-
-## 7. 抽象代数
-
-### 7.12 参考文献
-
-* https://zhuanlan.zhihu.com/p/30384157
-* https://zhuanlan.zhihu.com/p/30496016
-* https://zhuanlan.zhihu.com/p/30668738
-* https://zhuanlan.zhihu.com/p/30797590
-* https://zhuanlan.zhihu.com/p/30845557
-* https://zhuanlan.zhihu.com/p/31441459
-* https://zhuanlan.zhihu.com/p/31516301
-* https://zhuanlan.zhihu.com/p/31909442
-* https://zhuanlan.zhihu.com/p/32152134
-* https://zhuanlan.zhihu.com/p/32418036
-* https://zhuanlan.zhihu.com/p/32530225
-
-## 8. 实分析（Stein, Real Analysis）
-
-### 8.10 参考文献
-
-* https://zhuanlan.zhihu.com/p/31982152
-* https://zhuanlan.zhihu.com/p/33180264
-* https://zhuanlan.zhihu.com/p/33350896
-* https://zhuanlan.zhihu.com/p/33480239
-* https://zhuanlan.zhihu.com/p/33616656
-* https://zhuanlan.zhihu.com/p/33761437
-* https://zhuanlan.zhihu.com/p/33834703
-* https://zhuanlan.zhihu.com/p/33866656
-* https://zhuanlan.zhihu.com/p/33879863
-
-## 9. 实分析（周民强，实变函数论第三版）
-
-### 9.8 参考文献
-
-* https://zhuanlan.zhihu.com/p/34191290
-* https://zhuanlan.zhihu.com/p/34893497
-* https://zhuanlan.zhihu.com/p/35378076
-* https://zhuanlan.zhihu.com/p/36367639
-* https://zhuanlan.zhihu.com/p/36755508
-* https://zhuanlan.zhihu.com/p/36921064
-* https://zhuanlan.zhihu.com/p/37123013
-
-## 10. 拓扑学（Munkres，Topology）
-
-### 10.7 参考文献
-
-* https://zhuanlan.zhihu.com/p/33143298
-* https://zhuanlan.zhihu.com/p/33249330
-* https://zhuanlan.zhihu.com/p/33311995
-* https://zhuanlan.zhihu.com/p/33444380
-* https://zhuanlan.zhihu.com/p/33692808
-* https://zhuanlan.zhihu.com/p/33789792
-
-## 11. 拓扑学（尤承业，基础拓扑学讲义）
-
-## 11.8 参考文献
-
-* https://zhuanlan.zhihu.com/p/34986735
-* https://zhuanlan.zhihu.com/p/35050567
-* https://zhuanlan.zhihu.com/p/35125375
-* https://zhuanlan.zhihu.com/p/35177017
-* https://zhuanlan.zhihu.com/p/36029065
-* https://zhuanlan.zhihu.com/p/35864474
-* https://zhuanlan.zhihu.com/p/36722787
-* https://zhuanlan.zhihu.com/p/37070641
-
-
-## 12. 数值优化（Nocedal, Wright, Numerical Optimization (Second Edition)）
-
-### 12.13 参考文献
-
-* https://zhuanlan.zhihu.com/p/118443321
-* https://zhuanlan.zhihu.com/p/121001066
-* https://zhuanlan.zhihu.com/p/129844645
-* https://zhuanlan.zhihu.com/p/143103337
-* https://zhuanlan.zhihu.com/p/143535012
-* https://zhuanlan.zhihu.com/p/144736223
-* https://zhuanlan.zhihu.com/p/158206612
-* https://zhuanlan.zhihu.com/p/161390629
-* https://zhuanlan.zhihu.com/p/163527928
-* https://zhuanlan.zhihu.com/p/165930639
-* https://zhuanlan.zhihu.com/p/174245041
-* https://zhuanlan.zhihu.com/p/181718998
-
-
-## 13. 凸优化（CMU Course: Ryan Tibshirani的Convex Optimization）
-
-### 13.13 参考文献
-
-* https://zhuanlan.zhihu.com/p/194308254
-* https://zhuanlan.zhihu.com/p/210252556
-* https://zhuanlan.zhihu.com/p/226381487
-* https://zhuanlan.zhihu.com/p/237582181
-* https://zhuanlan.zhihu.com/p/258138843
-* https://zhuanlan.zhihu.com/p/259399116
-* https://zhuanlan.zhihu.com/p/260819137
-* https://zhuanlan.zhihu.com/p/264515249
-* https://zhuanlan.zhihu.com/p/265785675
-* https://zhuanlan.zhihu.com/p/266625103
-* https://zhuanlan.zhihu.com/p/267542995
-* https://zhuanlan.zhihu.com/p/268912334
-
-
-## 14. 随机过程（Richard Durrett, Essentials of Stochastic Processes）
-
-### 14.16 参考文献
-
-* https://zhuanlan.zhihu.com/p/334739650
-* https://zhuanlan.zhihu.com/p/335796325
-* https://zhuanlan.zhihu.com/p/337130907
-* https://zhuanlan.zhihu.com/p/337993832
-* https://zhuanlan.zhihu.com/p/339121930
-* https://zhuanlan.zhihu.com/p/339972698
-* https://zhuanlan.zhihu.com/p/341164317
-* https://zhuanlan.zhihu.com/p/341873401
-* https://zhuanlan.zhihu.com/p/343585535
-* https://zhuanlan.zhihu.com/p/344841436
-* https://zhuanlan.zhihu.com/p/345820722
-* https://zhuanlan.zhihu.com/p/347895833
-* https://zhuanlan.zhihu.com/p/352464021
-* https://zhuanlan.zhihu.com/p/353246777
-* https://zhuanlan.zhihu.com/p/355142950
-
-
-## 15. 高等数理统计（茆诗松，概率论与数理统计教程和韦博成，参数统计教程）
-
-### 15.15 参考文献
-
-* https://zhuanlan.zhihu.com/p/70018601
-* https://zhuanlan.zhihu.com/p/85026175
-* https://zhuanlan.zhihu.com/p/87520809
-* https://zhuanlan.zhihu.com/p/87796459
-* https://zhuanlan.zhihu.com/p/89868315
-* https://zhuanlan.zhihu.com/p/91730443
-* https://zhuanlan.zhihu.com/p/94011595
-* https://zhuanlan.zhihu.com/p/94590802
-* https://zhuanlan.zhihu.com/p/100749535
-* https://zhuanlan.zhihu.com/p/104237281
-* https://zhuanlan.zhihu.com/p/102550823
-* https://zhuanlan.zhihu.com/p/104721146
-* https://zhuanlan.zhihu.com/p/105360052
-* https://zhuanlan.zhihu.com/p/105714434
 
 ---
