@@ -727,7 +727,15 @@ fine-tuning是十分自然地，因为Transformer里的self-attention机制使�
 
 
 
-### 3. [An Image is worth 16 $$\times$$ 16 workds: Transformers for image recognition at scale](https://openreview.net/forum?id=YicbFdNTTy)
+### 3. [iGPT: Generative Pretraining from Pixels](http://proceedings.mlr.press/v119/chen20s/chen20s.pdf)
+
+
+
+### 4. [BEiT: BERT Pre-Training of Image Transformers](https://arxiv.org/pdf/2106.08254.pdf)
+
+
+
+### 5. [An Image is worth 16 $$\times$$ 16 workds: Transformers for image recognition at scale](https://openreview.net/forum?id=YicbFdNTTy)
 
 *Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenbron, Xiaohua Zhai, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg Heigold, Sylvain Gelly, Jakob Uszkoreit, Neil Houlsby*
 
@@ -842,7 +850,7 @@ self-attention允许ViT在整张图片上整合信息，即使对于很低的层
 >实际上MAE就做到了。
 
 
-### 4. [Masked Autoencoders Are Scalable Vision Learners](https://arxiv.org/pdf/2111.06377.pdf)
+### 6. [Masked Autoencoders Are Scalable Vision Learners](https://arxiv.org/pdf/2111.06377.pdf)
 
 *Kaiming He, Xinlei Chen, Saining Xie, Yanghao Li, Piotr Dollar, Ross Girshick*
 
@@ -852,18 +860,18 @@ self-attention允许ViT在整张图片上整合信息，即使对于很低的层
 
 **Transformer $$\rightarrow$$ Bert $$\rightarrow$$ MAE $$\leftarrow$$ ViT $$\leftarrow$$ Transformer**
 
-**标题**
+**Title**
 
 标题里经常用两个词，scalable和efficient。如果做的算法很快，就可以是efficient，或者real-time，如果做的模型很大的话，就可以是scalable。vision learners说明不依赖于具体的模型种类，是一个backbone就行。autoencoders里的auto表明的是“自”的意思，不是“自动”的意思。“自”模型的特点就是标号$$y$$和样本$$x$$来自于同一个东西，比如说在NLP里，用前后的词来预测词，用来预测的标号和样本都是词，是同一种东西，所以是“自”模型（在Transformer里提到了这个是auto-aggressive模型）。在NLP里，因为“自”模型比较常见，所以只用encoder而省略前面的auto也可以，但在CV里，标号来自于图片本身的情况较少，所以需要加上auto，强调一下和其他工作的区别。
 
 这个标题的格式，在GPT里也用到了，"a" are "b" "c", 其中"a" and "c"是名词，"b"是形容词。这种句式实际上把结论放在了标题里。而且这种说法比较客观。
 
-**摘要**
+**Abstract**
 
 这篇文章说明masked autoencoders(MAE)对于CV来说是一个scalable的self-supervised learner。我们的MAE方法很简单：将输入图片的随机的patch遮起来，然后重构这些被遮住的地方。这个模型基于两个核心设计。首先，我们开发了一个非对称的encoder-decoder结构，encoder仅仅在那些可以看到的image patches上操作（并没有mask tokens的信息），而decoder从encoder给出的可见的image patches上学到的latent representations结合mask tokens来重构原图片。decoder的设计是很轻量级的。其次，我们发现，将原输入图片遮住很大一部分，比如说75%，会使得问题变成一个不那么简单并且有意义的self-supervisory任务（如果只遮住一小部分，那模型可能学会插值就能获得不错的效果，但如果遮住很大一部分，就会迫使模型学习那些更好的特征）。将这两点结合起来，使得我们能够高效且准确的训练大型模型。这个模型主要是用作迁移学习的，是一个预训练模型，可以用于一系列下游的CV任务。
 
 
-**图**
+**Figures**
 
 ![MAE]({{ '/assets/images/MAE-1.PNG' | relative_url }})
 {: style="width: 800px; max-width: 100%;" class="center"}
@@ -889,7 +897,7 @@ self-attention允许ViT在整张图片上整合信息，即使对于很低的层
 但是，我们要注意到images和languages是有天然区别的两类signals，而且这样的区别一定要被谨慎对待。images仅仅是被记录的光亮强度，并没有像language一样可以被语义分割为一个个的单词。我们并没有尝试在image中遮住objects，而是随机的遮挡住patches，这些patches并不一定会构成有意义的语义块。同样的，MAE也是重构像素值，而并不是重构有语义的块。但是，实验表明我们的模型仍然能够推出复杂的重构，这表明其学习到了很多视觉概念，也就是语义。我们认为者是因为MAE内部的hidden representations涵盖了这些语义。这可能是将来的研究方向。
 
 
-**Introduction**
+**1. Introduction**
 
 深度学习目睹了一系列capacity和capability增长的模型架构的诞生。这样越来越大的模型就需要越来越多的数据，特别是带有标签的数据。
 
@@ -908,7 +916,7 @@ masked autoencoders，是一种更加general的denosing autoencoders（在图片
 我们的MAE学习到泛化效果很好的高capacity的模型。使用MAE pre-training，我们可以仅仅使用ImageNet-1K数据集就训练那些十分需要数据的模型，比如说ViT-Large/-Huage（[An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale](https://openreview.net/pdf?id=YicbFdNTTy)），并且泛化效果还更好。我们同时还在object detection，instance segmentation，semantic segmentation等后续任务上测试了MAE在transfer learning领域的效果。都要比利用其它的方法包括监督方法进行预训练的效果要好。这些结论和在NLP里发现的结果差不多，所以希望autoencoder在CV领域也能有在NLP领域那样的发展。
 
 
-**Related works**
+**2. Related works**
 
 *Masked language modeling*
 
@@ -930,7 +938,7 @@ masked image encoding方法通过遮盖的方式污染图片，然后再来学�
 非监督学习的方法在CV领域非常火热，通常集中研究于各种pre-training的任务。最近，contrastive learning非常的流行，[A Simple Framework for Contrastive Learning of Visual Representations](http://proceedings.mlr.press/v119/chen20j.html)，[Momentum Contrast for Unsupervised Visual Representation Learning](https://openaccess.thecvf.com/content_CVPR_2020/papers/He_Momentum_Contrast_for_Unsupervised_Visual_Representation_Learning_CVPR_2020_paper.pdf)，[Representation Learning with Contrastive Predictive Coding](https://arxiv.org/pdf/1807.03748.pdf?fbclid=IwAR2G_jEkb54YSIvN0uY7JbW9kfhogUq9KhKrmHuXPi34KYOE8L5LD1RGPTo)，[Unsupervised Feature Learning via Non-Parametric Instance Discrimination](https://openaccess.thecvf.com/content_cvpr_2018/html/Wu_Unsupervised_Feature_Learning_CVPR_2018_paper.html)，其在两张或者多张图片间对相似性进行表示。contrastive learning的方法太过于依赖data augmentation。autoencoding采用了概念上不同的另一个方向，也显示出了不一样的效果。
 
 
-**Approach**
+**3. Approach**
 
 我们的MAE是一个简单的autoencoding的方法，其在给定原输入部分的patches的情况下重构原输入。和所有的autoencoders一样，我们的方法有一个encoder来将观察到的数据映射到一个latent representation，也有一个decoder来从这个latent representation重构原始的输入。和经典的autoencoders不一样，我们采用一种非对称的设计，encoder只在那些没有被遮住的patches上操作，不考虑mask tokens，并且使用一个轻量化的decoder，从mask tokens和latent representations来重构原始的输入。fig1描述了整个流程。
 
@@ -960,7 +968,7 @@ MAE的decoder只用于在pre-training的时候做image reconstruction任务，�
 
 我们的MAE pre-training可以被高效的部署。首先，我们对于每个input patch都生成一个token（这个token也就是通过linear projection和一个added positional embedding得到的）。然后我们随机打乱tokens再排成一列，直接去除掉这列后面那部分tokens（去除比例就是masking ratio）。这个过程为encoder产生了一小部分tokens（也就是没被遮住的那部分），也就等价于不重复的随机挑选patches。在encoding之后，我们将encoded patches构成的list通过加上mask tokens来延长，然后再unshuffle整个list（因为之前为了随机选patches而shuffle了，现在逆过来这个过程），从而tokens就对应了它们正确的位置。decoder被应用到这个list上（加上了positional embeddings）。
 
-**The writing style of this paper**
+**4. The writing style of this paper**
 
 这篇文章的introduction很长。第一是因为他使用了大量的图片，这是好事。第二个原因是因为他使用了一种问问题，回答问题，再引出论文想法的写法，这种写法是很好的。如果不这么写的话，那就是将abstract进行扩充，那其实最后就得到了这里introduction最后的两段话。因为这篇文章的技术细节并不复杂，所以作者采用了一种回到更本质的问题的方法，也就是将Bert从NLP用到CV的时候会有什么问题，然后再一一回答，之后引出MAE这个算法。也就是将这个算法为什么要设计成这样说的很清楚。这种写法是很推荐的。因为论文除了要讲清楚怎么做的，还要讲清楚为什么要这么做，也就是motivation。
 
