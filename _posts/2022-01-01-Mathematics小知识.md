@@ -582,7 +582,7 @@ $$Ax = b$$
 其中$$x = (x_1, x_2, \cdots, x_n)^T \in R^n$$，$$F_i \in R^{d \times d}$$是对称矩阵，$$A \in R^{m \times n}$$。
 
 
-## 6. 统计学入门
+## 6. 统计学（浙大，概率论与数理统计）
 
 ### 6.7 参考文献
 
@@ -595,7 +595,7 @@ $$Ax = b$$
 * https://zhuanlan.zhihu.com/p/29758751
 
 
-## 7. 抽象代数入门
+## 7. 抽象代数
 
 ### 7.12 参考文献
 
@@ -611,7 +611,7 @@ $$Ax = b$$
 * https://zhuanlan.zhihu.com/p/32418036
 * https://zhuanlan.zhihu.com/p/32530225
 
-## 8. 实分析入门
+## 8. 实分析（Stein, Real Analysis）
 
 ### 8.10 参考文献
 
@@ -637,7 +637,7 @@ $$Ax = b$$
 * https://zhuanlan.zhihu.com/p/36921064
 * https://zhuanlan.zhihu.com/p/37123013
 
-## 10. 拓扑学入门
+## 10. 拓扑学（Munkres，Topology）
 
 ### 10.7 参考文献
 
