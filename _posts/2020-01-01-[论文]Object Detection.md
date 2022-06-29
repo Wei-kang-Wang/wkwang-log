@@ -78,7 +78,7 @@ VJ detector使用了最直接的detection的方式：sliding Windows。也就是
 
 Histogram of Oriented Gradients（HOG）feature descriptor在2005年由N.Dalal和B.Triggs提出。HOG可以被认为是scale-invariant feature transform和shape contexts的一个重要的改进。为了平衡feature invariance（包括translation，scale，illumination等）和nonlinearity（区分不同种类的objects），也就是说既想detectors能够包容同类objects图片内的变化，有希望objects抓住不同类objects之间的差异，HOG descriptor被设计用来在一个稠密的grid上进行计算。尽管HOG可以被用来检测一系列不同的object类别，它实际上是因为pedestrian detection任务而开发的。为了能够检测不同大小的objects，HOG detector将原输入图片rescale了几次并且保持detection window的大小不变。HOG detector在很长一段时间内都是很多重要的object detectors的基础，并且在CV应用领域用了很多年。
 
-* **Deformable Part-based Model (DPM)
+* **Deformable Part-based Model (DPM)**
 
 DPM，作为VOC-07, 08以及09 detection比赛的冠军，是传统object detection方法的巅峰。DPM是由P.Felzenszwalb在2008年作为HOG detector的扩展而提出，之后由R.Girshick做了一系列的重要改进。
 
@@ -91,7 +91,7 @@ DPM遵循divide and conquer原则来做object detection的任务，也就是训�
 
 ##### 2.1.2 Milestones: CNN based Two-stage Detectors
 
-随着hand-crafted features的表现日趋饱和，object detection在2010年之后到达了它的顶峰。在2012年，全世界都目睹了CNN的重生。因为一个deep CNN可以学习到一张图片robust和high-level的representation，一个自然的问题就是我们是否可以将CNN应用到object detection里。R.Girshick在2014年第一个尝试，他提出[regions with CNN features（RCNN）](https://csdl-downloads.ieeecomputer.org/trans/tp/2016/01/07112511.pdf?Expires=1653343859&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jc2RsLWRvd25sb2Fkcy5pZWVlY29tcHV0ZXIub3JnL3RyYW5zL3RwLzIwMTYvMDEvMDcxMTI1MTEucGRmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjUzMzQzODU5fX19XX0_&Signature=A8dh9Uv-dQy3sCoJ80e2lDvKub7UkVgFsEAxeNS7r1UWaFGJu2g8v3mxJIQtjuOjVjd67AU2HvQv1T55O61n6PBczfV03SwEXa5ZyFD2LVmjRWHS7fbUHEAKC4iLIpTVkTmQ2COKXWT8iJ36yR~V3~nyXJAP9JlMFljksVgAMEDK4FEuDu66xp5Ps5mPO6nvAkNScLZdVoIkXXw~DzfQd-QkJOBTRaHUAUB9un1sKLOrRS87vj5QlsVQvgmO-BfLmI-qUn8w5LLlyBa3TVpLDTRk9BEn3Rv-9faz32TE6OUZDaTyvd-4SKAy88JgWXQ-qpdPkGbUHRxv~HYB4mgAAg__&Key-Pair-Id=K12PMWTCQBDMDT)用于object detection。从此，object detection开启了飞速发展的时代。
+随着hand-crafted features的表现日趋饱和，object detection在2010年之后到达了它的顶峰。在2012年，全世界都目睹了CNN的重生。因为一个deep CNN可以学习到一张图片robust和high-level的representation，一个自然的问题就是我们是否可以将CNN应用到object detection里。R.Girshick在2014年第一个尝试，他提出[regions with CNN features（RCNN）](https://ieeexplore.ieee.org/ielaam/34/7346524/7112511-aam.pdf)用于object detection。从此，object detection开启了飞速发展的时代。
 
 在deep learning时代，object detection可以被分为两种方式：two-stage detection和one-stage detection，前者将detection描述为coarse-to-fine的过程，而后者直接一步到位。
 
@@ -120,18 +120,63 @@ RCNN在VOC07上获得了显著的性能提升，在mean Average precision（mAP�
 
 
 
+## CNN based two-staged detectors
 
-
-
-
-
-## [Region-based convolutional networks for accurate object detection and segmentation](https://csdl-downloads.ieeecomputer.org/trans/tp/2016/01/07112511.pdf?Expires=1653343859&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jc2RsLWRvd25sb2Fkcy5pZWVlY29tcHV0ZXIub3JnL3RyYW5zL3RwLzIwMTYvMDEvMDcxMTI1MTEucGRmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjUzMzQzODU5fX19XX0_&Signature=A8dh9Uv-dQy3sCoJ80e2lDvKub7UkVgFsEAxeNS7r1UWaFGJu2g8v3mxJIQtjuOjVjd67AU2HvQv1T55O61n6PBczfV03SwEXa5ZyFD2LVmjRWHS7fbUHEAKC4iLIpTVkTmQ2COKXWT8iJ36yR~V3~nyXJAP9JlMFljksVgAMEDK4FEuDu66xp5Ps5mPO6nvAkNScLZdVoIkXXw~DzfQd-QkJOBTRaHUAUB9un1sKLOrRS87vj5QlsVQvgmO-BfLmI-qUn8w5LLlyBa3TVpLDTRk9BEn3Rv-9faz32TE6OUZDaTyvd-4SKAy88JgWXQ-qpdPkGbUHRxv~HYB4mgAAg__&Key-Pair-Id=K12PMWTCQBDMDT)
+### [RCNN: Region-based convolutional networks for accurate object detection and segmentation](https://ieeexplore.ieee.org/ielaam/34/7346524/7112511-aam.pdf)
 
 *TPAMI 2016*
 
-## [Spatial pyramid pooling in deep convolutional networks for visual recognition](http://datascienceassn.org/sites/default/files/Spatial%20Pyramid%20Pooling%20in%20Deep%20Convolutional%20Networks%20for%20Visual%20Recognition.pdf)
+
+### [Spatial pyramid pooling in deep convolutional networks for visual recognition](http://datascienceassn.org/sites/default/files/Spatial%20Pyramid%20Pooling%20in%20Deep%20Convolutional%20Networks%20for%20Visual%20Recognition.pdf)
 
 *ECCV 2014*
+
+### [Fast R-CNN](https://openaccess.thecvf.com/content_iccv_2015/papers/Girshick_Fast_R-CNN_ICCV_2015_paper.pdf)
+
+*ICCV 2015*
+
+### [Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks](https://proceedings.neurips.cc/paper/2015/hash/14bfa6bb14875e45bba028a21ed38046-Abstract.html)
+
+*NeurIPS 2015*
+
+
+### [Feature Pyramid Networks for Object Detection](https://openaccess.thecvf.com/content_cvpr_2017/papers/Lin_Feature_Pyramid_Networks_CVPR_2017_paper.pdf)
+
+*CVPR 2017*
+
+
+## CNN based one-staged detectors
+
+### [YOLO v1: You Only Look Once: Unified, Real-Time Object Detection](https://www.cvfoundation.org/openaccess/content_cvpr_2016/papers/Redmon_You_Only_Look_CVPR_2016_paper.pdf)
+
+*CVPR 2016*
+
+### [YOLO v2: YOLO9000: Better, Faster, Stronger](https://openaccess.thecvf.com/content_cvpr_2017/papers/Redmon_YOLO9000_Better_Faster_CVPR_2017_paper.pdf)
+
+*CVPR 2017*
+
+### [YOLOv3: An Incremental Improvement](https://arxiv.org/pdf/1804.02767.pdf)
+
+*Arxiv 2018*
+
+### [YOLOv4: Optimal Speed and Accuracy of Object Detection](https://arxiv.org/pdf/2004.10934.pdf)
+
+*Arxiv 2020*
+
+### [SSD: Single Shot MultiBox Detector](https://link.springer.com/chapter/10.1007/978-3-319-46448-0_2)
+
+*ECCV 2016*
+
+### [Focal Loss for Dense Object Detection](https://openaccess.thecvf.com/content_ICCV_2017/papers/Lin_Focal_Loss_for_ICCV_2017_paper.pdf)
+
+*ICCV 2017*
+
+
+
+
+
+## Transformer-based detectors
+
 
 
 
