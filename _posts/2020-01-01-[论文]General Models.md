@@ -729,6 +729,23 @@ fine-tuning是十分自然地，因为Transformer里的self-attention机制使�
 
 ### 3. [iGPT: Generative Pretraining from Pixels](http://proceedings.mlr.press/v119/chen20s/chen20s.pdf)
 
+*Mark Chen, Alec Radford, Rewon Child, Jeff Wu, Heewoo Jun, David Luan, Ilya Sutskever*
+
+*ICML 2020*
+
+**Abstract**
+
+受到NLP领域的非监督representation学习的进展所启发，我们探究了相似的模型是否能够从图像中也学习到有意义的representations。我们训练了一个sequence Transformer来以自回归的方式预测pixels，而不需要有任何这个2D图像结构上的信息。尽管在低分辨率的ImageNet上不使用标签进行训练，我们发现一个GPT-2规模的模型可以学到很强的图片representations，我们使用linear probing，fine-tuning和low-data classification来验证这个representation的表现。在CIFAR-10这个数据集上，我们使用一个linear probe获得了96.3%准确率，比使用监督学习方法的ResNet效果要好。使用fine-tuning的话可以达到99.0%的准确率，和现在最好的监督学习框架类似。
+
+
+**1. Introduction**
+
+非监督的预训练在深度学习发展过程中扮演了核心角色。从2000年开始，Deep Belief Network，Denoising Autoencoder等就被广泛用在CV和speech recognition领域的神经网络的设计上。研究者们认为能学习到数据分布$$P(X)$$的模型对于监督学习模型$$P(Y \vert X)$$也能提供有效的features。然而，一些高级的技术比如说piecewise linear activation functions，normalization strategies等使得对于很多任务，我们并不需要很好的预训练也能获得很好的结果。还有一些CV研究对于非监督的representations的有效性提出了质疑。这些工作使得主流视觉研究认为sota的结果可以通过直接用模型encode prior structure并且使用大量的监督数据来学习representations来得到。还有些研究甚至表明unsupervised预训练对于模型的效果是有害的。
+
+从而，非监督的预训练在其它的领域繁荣发展起来。其将很多NLP任务的sota结果往前推进了一步。有意思的是，现在的主流非监督representation学习框架，BERT，使用的目标函数是预测被污染的输入数据，很像denoising autoencoders，这是CV最初玩的东西。
+
+作为一个更高维度的，有更多噪音的，以及信息更加荣誉的数据格式，图像要比文本更加难以进行generative modeling。
+
 
 
 ### 4. [BEiT: BERT Pre-Training of Image Transformers](https://arxiv.org/pdf/2106.08254.pdf)
