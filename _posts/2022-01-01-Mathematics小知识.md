@@ -641,7 +641,7 @@ $$\frac{\partial f}{\partial y} - \frac{d}{dx}(\frac{\partial f}{\partial y^{'}}
 
 $$S = \int_{a}^{b} \sqrt{1 + y^{'2}} dx $$
 
-现在希望$$S$$有最小值，取$$f(y,y^{'}) = \sqrt{1 + y^{'2}$$，运用Euler-Lagrange方程来找到$$y(x)$$。
+现在希望$$S$$有最小值，取$$f(y,y^{'}) = \sqrt{1 + y^{'2}}$$，运用Euler-Lagrange方程来找到$$y(x)$$。
 
 注意到$$\frac{\partial f}{\partial y} = 0$$，$$\frac{\partial f}{\partial y^{'}} = \frac{y^{'}}{\sqrt{1 + y^{'2}}}$$
 
@@ -720,6 +720,7 @@ $$x(y) = k arcsin \sqrt{\frac{y}{k}} - \sqrt{y(k-y)}$$
 $$karcsin \sqrt{\frac{b}{k}} - \sqrt{b(k-b)} = a$$
 
 这是一条摆线。
+
 
 **参考文献**
 
