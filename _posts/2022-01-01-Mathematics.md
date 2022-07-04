@@ -120,18 +120,74 @@ $$lim_{n \rightarrow \infty} P \lbrace \frac{\eta_n - np}{\sqrt{np(1-p)}} \leq x
 
 我们在做统计推断的时候，总是不可避免的需要使用这些抽样统计量来描述样本的分布。常见的抽样分布都是基于正态分布的样本的。
 
-**卡方分布（$$\Xi^2$$）**
+**卡方分布（$$\chi^2$$）**
 
-设$$X_1,X_2,\cdots,X_n$$为来自总体$$N(0,1)$$的样本，则称统计量$$\xi^2 = X_1^2 + X_2^2 + \cdots + X_n^2$$服从自由度为$$n$$的$$\Xi^2分布（称为卡方分布），记为$$\Xi^2 \sim \Xi^2(n)$$。
+设$$X_1,X_2,\cdots,X_n$$为来自总体$$N(0,1)$$的样本，则称统计量$$\chi^2 = X_1^2 + X_2^2 + \cdots + X_n^2$$服从自由度为$$n$$的$$\chi^2分布（称为卡方分布），记为$$\chi^2 \sim \chi^2(n)$$。
 
 如下是卡方分布的密度函数图像：
 
+![chi]({{ '/assets/images/GLTJ-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
+卡方分布的一些性质如下：
+* 可加性：设$$\chi_1^2 \sim \chi^2(n_1), \chi_2^2 \sim \chi^2(n_2)$$，且$$\chi_1^2, \chi_2^2$$相互独立，那么有$$\chi_1^2 + \chi_2^2 \sim \chi^2(n_1+n_2)$$。
+* 假设$$\chi \sim \chi^2(n)$$，那么$$E(\chi^2) = n$$，$$D(\chi^2) = 2n$$。
+* 上$$\alpha$$分位点：对于给定的正数$$\alpha$$，$$0<\alpha<1$$，称满足条件$$P \lbrace \chi^2 > \chi^2_{\alpha}(n) \rbrace = \int_{\chi_{\alpha}^2}^{\infty} f(y) dy = \alpha$$的点$$\chi_{\alpha}^2(n)$$为分布上的$$\alpha$$分位点。
+* Fisher：当$$n$$充分大的时候，近似的有$$\chi_{\alpha}^2(n) \approx \frac{1}{2} (z_{\alpha} + \sqrt{2n-1})^2$$，其中$$z_{\alpha}$$为标准正态分布的上$$\alpha$$分位点。实际情况下一般在$$n>40$$的时候使用。
+
+
+**$$t$$分布**
+
+设$$X \sim N(0,1), Y \sim \chi^2(n)$$，且$$X,Y$$相互独立，那么我们称随机变量$$t = \frac{X}{\sqrt{Y/n}}$$服从自由度为$$n$$的$$t$$分布，也叫学生氏分布。
+
+上述定义可以理解为：分子服从正态分布，分母服从标准化后的卡方分布。
+
+我们也可以同理定义$$t$$分布的分位点。
+
+$$t$$分布的密度函数图像如下：
+
+![t]({{ '/assets/images/GLTJ-2.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+$$t$$分布的一些性质如下：
+
+* $$t_{1-\alpha}(n) = -t_{\alpha}(n)$$
+* n>45: t_{\alpha} \ approx z_{\alpha}$$
+* E(t_{\alpha}(n)) = 0, D(t_{\alpha}(n)) = \frac{n}{n-2}$$
+
+
+**$$F$$分布**
+
+设$$U \sim \chi^2(n_1), V \sim \chi^2(n_2)$$，且$$U,V$$相互独立，则称随机变量$$F = \frac{U/n_1}{V/n_2}$$服从自由度为$$(n_1,n_2)$$的$$F$$分布，记为$$F \sim F(n_1,n_2)$$。
+
+这个公式相当于在$$t$$分布的基础上又增加一步：分子是标准化的卡方分布，分母也是标准化后的卡方分布。
+
+下面为$$F$$分布的图像：
+
+![F]({{ '/assets/images/GLTJ-3.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+同理也可以定义$$F$$分布的分位点。
+
+$$F$$分布的性质：
+
+* $$F \sim F(n_1,n_2)$$，那么$$\frac{1}{F} \sim F(n_2, n_1)$$
+* F_{1-\alpha}(n_1,n_2) = \frac{1}{F_{\alpha}(n_2,n_1)}
+
+### 参考文献
+
+* https://zhuanlan.zhihu.com/p/29068570
+
+
+### 1.2 Lecture 2
+
+### 1.2.1 正态总体的样本均值与方差的分布定理
+
+我们预先假设总体为$$X$$，样本均值和方差分别为$$\bar X, S^2$$，那么只要总体$$X$$的均值和方差存在，设为$$\mu, \sigma^2$$，那么就容易得到：$$E(\bar X) = \mu$$，$$D(\bar X) = \frac{\sigma^2}{n}$$。
 
 
 ### 1.7 参考文献
 
-* https://zhuanlan.zhihu.com/p/29068570
 * https://zhuanlan.zhihu.com/p/29091290
 * https://zhuanlan.zhihu.com/p/29135727
 * https://zhuanlan.zhihu.com/p/29154307
