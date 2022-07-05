@@ -729,7 +729,9 @@ fine-tuning是十分自然地，因为Transformer里的self-attention机制使�
 ### 3. GPT-1, GPT-2和GPT-3
 
 GPT-1：[Improving Language Understanding by Generative Pre-Training](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)
+
 GPT-2: [Language Models are Unsupervised Multitask Learners](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)
+
 GPT-3: [Language Models are Few-Shot Learners](https://arxiv.org/pdf/2005.14165.pdf)
 
 GPT系列和BERT系列的模型在今天的自然语言处理界已经可以说是无人不知无人不晓。尤其是GPT2出来的时候，openai放话说因为该模型的功能太强大，担心被有心之人滥用所以选择不开源，炒足了噱头，引起了巨大的媒体轰动。虽然过了几年回头看，觉得该团队对该模型有些过于自信，但无可否认的是该系列的模型在刚刚发布的时候，对于各项任务的处理都有优异的表现甚至是STATE OF THE ART的级别。有意思的是，GPT1的论文在投稿的时候并不是一帆风顺，甚至几番被拒稿并且从未被任何顶会接受。其中一个原因便是GPT1的模型在架构上几乎没有任何的创新。但为什么每次新的GPT模型放出后都受到一众大佬的研究与热议，而具体文章的（开创性）贡献在哪呢。
@@ -907,10 +909,126 @@ linear probing和fine-tuning的方法差不多，除了一点：average pooling�
 
 
 
-### 5. [BEiT: BERT Pre-Training of Image Transformers](https://arxiv.org/pdf/2106.08254.pdf)
+### 5. [BEIT: BERT Pre-Training of Image Transformers](https://arxiv.org/pdf/2106.08254.pdf)
+
+[CODE](https://aka.ms/beit)
+
+**Abstract**
+
+我们介绍了一个self-supervised vision representation模型，BEIT，是Bidirectional Encoder representation from Image Transformers的缩写。和NLP领域的BERT论文一样，我们提出一个masked image modeling的任务来预训练vision Transformers。在pre-training的时候，每个图片有两个views，也就是image patches（比如说每个patch是$$16 \times 16$$大小），和visual tokens（比如说离散的tokens）。我们先将原始的图片tokenize维visual tokens。然后随机的遮住某些image patches，然后将其喂给Transformer。pre-training的目标函数是基于被污染的image patches来还原原始的visual tokens。在BEIT进行完pre-training之后，我们在预训练好的encoder之后直接接上task layers来进一步在下游任务上fine-tune模型参数。在image classification和semantic segmentation任务上的实验表明我们的方法达到了sota的效果。
 
 
+**1. Introduction**
 
+Transformer已经在CV领域获得了令人瞩目的效果（ViT）。然而，实验显示vision Transformers需要比CNN更多的训练数据。为了解决这个需要大量数据的问题，self-supervised pre-training是一个能够使用大规模数据的可靠的方法。有好几个line of research已经在研究vision Transformers了，有constrastive learning（[An Empirical Study of Training Self-Supervised Vision Transformers](https://openaccess.thecvf.com/content/ICCV2021/papers/Chen_An_Empirical_Study_of_Training_Self-Supervised_Vision_Transformers_ICCV_2021_paper.pdf)，[Self-Supervised Learning with Swin Transformers](https://arxiv.org/pdf/2105.04553.pdf)）和self-distillation（[Emerging Properties in Self-Supervised Vision Transformers](https://openaccess.thecvf.com/content/ICCV2021/papers/Caron_Emerging_Properties_in_Self-Supervised_Vision_Transformers_ICCV_2021_paper.pdf)）。
+
+BERT在NLP领域获得了很大的成功。BERT里的masked language modeling任务首先随机在一个text里mask一部分tokens，然后利用Transformer来encode被污染的text从而恢复这些被mask的tokens。受到BERT的启发，我们将这个denoising auto-encoder的想法用到预训练vision Transformer里，这还没有被vision团体研究过。然而直接将BERT里的预训练照搬到image上是不可行的。首先，对于vision Transformer的输入单元来说，并没有已经存在了的vocabulary。这样我们利用Transformer来预测被mask的tokens，就不能直接使用一个softmax classifier来对所有可能的输出结果计算概率值。而对于NLP来说，language vocabulary是存在的，这样auto-encoding的prediction就可以很容易地进行。一个直接的解决办法就是将这个问题转变为一个regression问题，让模型来预测被遮住patches的原始像素值。然而，这样的pixel-level recovery任务会让模型在预测短程dependency以及高频细节上浪费过多的capacity（[Zero-shot text-to-image generation](http://proceedings.mlr.press/v139/ramesh21a/ramesh21a.pdf)解释了原因）。我们的目的是克服上述vision Transformers的pre-training的困难。
+
+在这篇文章里，我们提出了一个self-supervised vision representation模型，BEIT，Bidirectional Encoder representation from Image Transformers。受到BERT的启发，我们提出一个pre-training任务，叫做maksed image modeling（MIM）。正如fig1所示，MIM使用每张图片的两个views，也就是image patches和visual tokens。我们将图片分为一系列的patches，作为Transformer的input representation。我们将图片tokenize为一系列离散的visual tokens，这是通过discrete VAE的latent codes实现的（[Zero-shot text-to-image generation](http://proceedings.mlr.press/v139/ramesh21a/ramesh21a.pdf)）。在pre-training过程中，我们随机mask image patches里的一部分，然后将剩下的部分喂给Transformer。模型学习的是恢复原图片的visual tokens，而不是原图片被遮住patches的原始像素值。
+
+>但实际上Maksed auto-encoder就是还原的被遮住patches的原始像素值
+
+我们先进行self-supervised learning，然后再两个下游任务上fine-tune已经预训练好的BEIT：image classification和semantic segmentation。实验结果表明BEIT要比其它的self-supervised learning方法的效果好。而且，BEIT是监督预训练的相互补充。BEIT的效果还可以进一步的利用监督数据在ImageNet上微调而变的更好。ablation study表明我们提出的方法对于BEIT能够很好的预训练图片数据都是很重要的。除了在下游任务上的表现，fine-tuning的收敛速度和稳定性也变得好了很多。而且，self-supervised BEIT可以在预训练的时候学习合理的semantic regions。
+
+我们的贡献总结如下：
+
+* 我们提出了一个masked image modeling任务来在self-supervised方式下预训练vision Transformers。我们也从variational autoencoder的角度给出了理论性的解释。
+* 我们预训练BEIT然后使用下游任务来fine-tune模型，下游任务包括image classification，semantic segmentation等。
+* 我们表明self-supervised BEIT的self-attention机制学习到了semantic regions以及object的boundaries，而且这都是在没有任何标注的情况下完成的。
+
+
+**2. Methods**
+
+给定一张输入图片$$x$$，BEIT将其encode为contextualized vector representations。如fig1所示，BEIT在self-supervised的方式下使用masked image modeling(MIM)任务来预训练。MIM基于encoding vectors来恢复被遮住的image patches。对于下游任务（比如说image classification，semantic segmentation），我们在预训练好的BEIT上加上task layers然后在特定的数据集上fine-tune模型参数。
+
+**2.1 Image representations**
+
+在我们的方法里，图片有两种representations，image patches和visual tokens。这两个representations作为预训练时候网络的输入和输出形式。
+
+**2.1.1 Image patch**
+
+参照ViT里的做法，2D图片被分割为一系列的patches，从而一个标准的Transformer能够直接将其作为输入。我们将图片$$\pmb x \in \mathbb R^{H \times W \times C}$$ reshape为$$N = HW/P^2$$个patches $$x^p \in \mathbb R^{N \times (P^2C)}$$，其中$$C$$是通道数，$$(H,W)$$是输入图片的分辨率，$$(P,P)$$是每个patch的分辨率。image patches $$\lbrace x_i^p \rbrace_{i=1}^N$$进一步被展平为向量，然后再被linearly projected，和BERT里的word embeddings类似。image patches有着原始像素的信息，作为BEIT的输入features。
+
+在我们的实验里，我们将每张$$224 \times 224$$的照片分为$$14 \times 14$$的grid，从而每个patch大小都为$$16 \times 16$$。
+
+**2.1.2 Visual token**
+
+和NLP里的方法类似，我们通过一个image tokenizer将图片表示为一系列离散tokens组成的sequence。我们将图片$$\pmb x \in \mathbb R^{H \times W \times C}$$ tokenize为$$\pmb z  = \left[ z_1, \cdots, z_N \right] \in \mathcal V^{h \times w}$$，其中vocabulary $$\mathcal V = \lbrace 1, \cdots, \vert \mathcal V \vert \rbrace$$包含离散token的下标。
+
+使用[Zero-shot text-to-image generation](http://proceedings.mlr.press/v139/ramesh21a/ramesh21a.pdf)里的方法，我们通过discrete variational autoencoder（dVAE）来学习这个image tokenizer。在visual token学习的过程中有两个modules，tokenizer和decoder。tokenizer $$q_{\phi}(\pmb z \vert \pmb x)$$将图片$$\pmb x$$利用一个visual codebook（也就是vocabulary）映射到discrete tokens $$\pmb z$$上。decoder $$p_{\psi}(\pmb x \vert \pmb z)$$学习基于visual tokens $$\pmb z$$来恢复原输入$$\pmb x$$。reconstruction目标函数被写为$$\mathbb E_{\pmb z \sim q_{\phi}(\pmb z \vert \pmb x)} \left[ log p_{psi}(\pmb x \vert \pmb z) \right]$$。因为latent visual tokens $$\pmb z$$是离散的，所以模型是non-differentiable的。Gumbel-softmax relaxation被用来训练模型参数。而且在dVAE训练的时候，对于$$q_{\phi}$$使用了一个uniform的prior。
+
+我们将每张图tokenize为一个$$14 \times 14$$的grid（和image patches的时候分的grid大小一样）。visual tokens和image patches的数目是一样的。vocabulary大小为$$\lvert \matchcal V \rvert=8192$$。在这篇文章里，直接使用了[Zero-shot text-to-image generation](http://proceedings.mlr.press/v139/ramesh21a/ramesh21a.pdf)里的公开的[image tokenizer](https://github.com/openai/DALL-E)。
+
+
+**2.2 Backbone Network: Image Transformer**
+
+正如ViT里一样，我们使用标准的Transformer作为backbone network。从而我们实验的结果就可以和之前的方法直接进行比较了。
+
+Transformer的输入是一系列image patches $$\lbrace \pmb x_{i}^p \rbrace_{i=1}^N$$。这些patches然后经过linearly projection变为patch embeddings，$$\pmb E \pmb x_{i}^p$$，其中$$\pmb E \in \mathbb R^{P^2C) \times D}$$。我们再在输入的sequence前面加一个特殊的token $$\left[ S \right]$$。我们同时也加上了标准的1维可学习的position embeddings到patch embeddings上，$$\pmb E_{pos} \in R^{N \times D}$$。输入向量$$\pmb H_0 = \left[\pmb e_{\left[S\right]}, \left[ \pmb E \pmb x_{1}^p, \cdots, \pmb E \pmb x_{N}^p \right] + \pmb E_{pos} \right]$$被喂给Transformer的encoder。encoder包含$$L$$层Transformer blocks，从而$$\pmb H^l = Transformer(\pmb H^{l-1})$$，其中$$l=1,\cdots,L$$。最后一层的输出向量$$\pmb H^L = \left[ \pmb h_{\left[S\right]}^L, \pmb h_1^L, \cdots, \pmb h_N^L \right]$$作为image patches的encoded representations，其中$$\pmb h_i^L$$是第$$i$$个image patch的representation向量。
+
+
+**2.3 Pre-Training BEIT: Masked Image Modeling**
+
+我们提出一个masked image modeling (MIM)任务来预训练BEIT。我们随机mask一部分image patches，然后让模型来预测被遮住的那部分patches对应的visual tokens。
+
+![beit]({{ '/assets/images/BEIT-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 1. BEIT pre-training的一个overview。在pre-traininng之前，我们使用autoencoding方式的reconstruction来学习一个image tokenizer，将一个图片根据所学习到的vocabulary来tokenize为一系列离散的visual tokens。在pre-training的过程中，每个图片都有两个views，image patches和visual tokens。我们将image patches的一部分随机遮住（图中的灰色patches就表示被遮住的patches）然后将它们替换为一个特殊的mask embedding $$\left[ M \right]$$。然后将这些image patches喂给一个vision Transformer。pre-training任务的目的是基于被遮住的image patches来预测相对应的visual tokens。*
+
+fig1显示了整个方法的过程。正如2.1里所说，给定一张图片，我们将其分割为$$N$$个image patches $$\lbrace \pmb x_{i}^p \rbrace_{i=1}^N$$，同时也将其tokenize为$$N$$个visual tokens $$\\brace z_i \rbrace_{i=1}^N$$。我们选择随机遮住40%的image patches，其中被遮住的位置记为$$\mathcal M \in \lbrace{1, \cdots, N \rbrace$$。然后我们将被遮住的patches的embeddings换为一个可学习的embedding，$$\pmb e_{\left[M\right]} \in \mathbb R^D$$。被污染的image patches $$x^{\mathcal M} = \lbrace \pmb x_i^p: i \notin \mathcal M \rbrace_{i=1}^N \Cup \lbrace \pmb e_{\left[M\right]}: i \in \mathcal M \rbrace_{i=1}^N$$被喂给一个$$L$$层的Transformer（如2.2里所述）。最后的输出向量$$\lbrace \pmb h_{i}^L \rbrace_{i=1}^N$$被认为是输入image patches的encoded representations。对于每个被遮住的position，$$\lbrace \pmb h_i^L: i \in \mathcal M \rbrace_{i=1}^N$$，我们使用一个softmax classifier来预测相对应的visual tokens：$$p_{MIM}(z^{'} \vert x^{\mathcal M}) = softmax_{z^{'})(\pmb W_c \pmb h_i^L + \pmb b_c)$$，其中$$x^{\mathcal M}$$是输入的corrupted图像，$$\pmb W_c \in \mathbb R^{\vert \mathcal V \vert \times D}$$，$$\pmb b_c \in \mathbb R^{\vert \mathcal V \vert}$$。pre-training的目标函数是最大化在给定corrupted图片的基础上正确的visual tokens $$z_i$$的log-likelihood函数：
+
+$$max \Sigma_{x \in \mathcal D} \mathbb E_{\mathcal M} \left[ \Sigma_{i \in \mathcal M} log p_{MIM}(z_i \vert x^{\mathcal M}) \right]$$
+
+其中$$\mathcal D$$是训练图片组成的集合，$$\mathcal M$$表示随机选取的mask位置，$$x^{\mathcal M}$$表示根据$$\mathcal$$ mask之后的corrupted图片。
+
+MIM任务受到BERT里所使用的maksed language modeling的高度启发，而BERT里使用的MLM是现在NLP领域最成功的预训练目标函数。然而，直接使用pixel-level auto-encoding来做vision pre-training会使得模型过于在意短程dependency和高频细节。BEIT通过预测离散的visual tokens来克服了这个问题，visual tokens将细节总结为更高层次的抽象特征了。ablation study表明我们这种方法要比pixel-level的auto-encoding效果好很多。
+
+
+**2.4 From the perspective of Variational Autoencoder**
+
+BEIT的预训练可以被看作一个variational autoencoder的训练。$$x$$是原始的输入图片，$$\tilde x$$是被mask后的图片，$$z$$是visual tokens。考虑log-likelihood $$p(x \vert \tilde x)$$的evidence lower bound（ELBO），也就是从corrupted图片中恢复原图片的log-likelihood：
+
+$$\Sigma_{(x_i, \tilde x_i) \in \mathcal D} log p(x_i \vert \tilde x_i) \geq \Sigma_{(x_i, \tilde x_i) \in \mathcal D} (\mathbb E_{z_i \sim q_{\phi}(\pmb z \vert x_i) \left[ log p_{\psi}(x_i \vert z_i) \right] - D_{KL} \left[q_{\phi}(\pmb z \vert x_i), p_{\theta} (\pmb z \vert \tilde x_i) \right]) \tag{1}$$
+
+上述式子右边的第一项是visual token reconstruction的目标函数，$$q_{\phi}(z \vert x)$$表示的是用来获取visual tokens的image tokenizer；$$p_{\psi}(x \vert z)$$表示的是给定visual tokens我们能获取到的原输入图片的函数；$$p_{\theta}(z \vert \tilde x)$$表示的是基于masked的images来获取visual tokens的函数，也就是我们的MIM任务代表的函数。
+
+我们通过两步来学习这个模型。首先，我们获取image tokenizer，将其当作一个discrete variational autoencoder。这一步里我们最小化reconstruction loss $$-\mathbb E_{z_i \sim q_{\phi}(\pmb z \vert x_i) \left[ log p_{\psi}(x_i \vert z_i)\right]$$，使用的是一个uniform prior。然后，我们控制$$q_{\phi}$$和$$p_{\psi}$$不变，来学习prior $$p_{\theta}$$。我们将$$q_{\phi}(\pmb z \vert x_i)$$使用一个可能性最大的visual token简要表示为一个one-point distribution：$$\hat z_i = argmax_z q_{\phi}(z \vert x_i)$$。从而，公式1右侧可以写为：
+
+$$\Sigma_{(x_i, \tilde x_i) \in \mathcal D} (\mathbb E_{z_i \sim q_{\phi}(\pmb z \vert x_i) \left[ log p_{\psi}(x_i \vert z_i) \right] + logp_{\theta}(\hat z_i \vert \tilde x_i)) \tag{2}$$
+
+其中第一项是visual token reconstruction，而第二项是masked image modelling，也就是我们的BERT预训练的目标函数。
+
+
+**2.5 Pre-training setup**
+
+BEIT的模型结构和ViT里的一样。我们使用一个12层的Transformer，hidden size是768，并且有12个attention heads。feed-forward网络的中间层大小为3072。我们使用$$16 \times 16$$的image patch大小。我们直接使用[Zero-shot text-to-image generation](http://proceedings.mlr.press/v139/ramesh21a/ramesh21a.pdf)里训练好的image tokenizer。visual tokens的vocabulary大小为8192。
+
+我们在ImageNet-1K上预训练BEIT，其有大约120万张图片。我们还使用了random resized cropping，horizontal flipping，color jittering等方法来做数据增强。我们使用$$224 \times 224$$大小的输入分辨率。从而visual patches和visual tokens的数目都是$$14 \times 14$$。我们最多mask 40%的patches。
+
+预训练会运行800个epoches，batch size为2000。optimizer使用的是Adam。learning rate是1.5e-3，10个epoches用来热身，使用的是cosine learning rate decay。weight decay是0.05。训练使用16张V100显卡大约进行了5天时间。
+
+
+**2.6 Fine-tuning BEIT on downstream vision tasks**
+
+在BEIT上预训练之后，我们在Transformer上加一个task layer，然后再下游任务上进一步微调模型参数，如同BERT里的方法一样。我们使用image classification和semantic segmentation作为下游任务。
+
+*Image classification*
+
+对于image classification这个任务，我们直接是用一个简单的linear classifier作为task layer。我们先使用average pooling来aggregate representations，然后将aggregated之后的global representation喂给一个softmax classifier。然后category probabilities就被计算为：$$softmax(avg(\lbrace \pmb h_i^L \rbrace_{i=1}^N \pmb W_c))$$，其中$$\pmb h_i^L$$是第$$i$$个image patch的对应的encoding向量，$$\pmb W_c \in \mathbb R^{D \times C}$$是projection矩阵，$$C$$是labels的个数。我们maximize正确标签数据的likelihood就可以fine-tuneBEIT和softmax classifier的参数。
+
+*Semantic segmentation*
+
+对于semantic segmentation，我们使用预训练好的BEIT作为backbone encoder，然后使用几个deconvolution层作为decoder来产生segmentation。这个模型也是end-to-end被fine-tuned的。
+
+
+**3. Conclusion**
+
+在这篇文章里，我们描述了vision Transformer的一个self-supervised预训练的框架，在下游任务上获得了很好的效果，包括image classification，semantic segmentation等等。我们所提出的方法类似于BERT，但是是应用在图片上的。
+
+在将来，我们希望之后的工作基于以下几个方向：
+
+* 设计具有scalability的BEIT预训练模型，从而使得BEIT预训练达到BERT预训练在NLP领域的效果
+* 为多模态预训练设计一个统一的方法，从而可以使用相似的目标函数和相似的模型来对texts和images共同进行预训练。
 
 
 ### 6. [An Image is worth 16 $$\times$$ 16 workds: Transformers for image recognition at scale](https://openreview.net/forum?id=YicbFdNTTy)
