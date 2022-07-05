@@ -617,7 +617,7 @@ $$PE_{(pos, 2i+1)} = cos(pos/10000^{2i/d_{model}})$$
 
 BERT是起好了一个名字，这样方便之后的人引用或者提及。pre-training意味着我们这篇文章的目的是训练一个pre-trained的模型，用于后续其它一批任务上。deep bidirectional transformers解释了所用的主要的网络结构，而language understanding则解释了这个pre-trained模型之后可以应用在哪些任务上。
 
-所以说这个标题告诉我们，BERT这个模型是一个深的双向的transformer，是用来做预训练的，针对的是一般的语言理解型的任务。
+所以说这个标题告诉我们，BERT这个模型是一个深的双向的transformer，是用来做预训练的，针对的是一般的语言理解的任务。
 
 **Authors**
 
@@ -626,7 +626,9 @@ BERT是起好了一个名字，这样方便之后的人引用或者提及。pre-
 
 **Abstract**
 
-我们提出了一个新的language representation模型，叫做BERT，是Bidirectional Encoder Representations from Transformers的简称。和最近的language representation模型不一样，BERT通过在每一层里都联合左右两侧的上下文来在没有标签的文本上学习预训练的bidirectional representation。结果是，预训练的BERT模型再加上一个附加的output层就可以对一系列任务都有sota的效果，比如说question answering，language inference等，而不需要对具体任务来调整模型的结构。
+我们提出了一个新的language representation模型，叫做BERT，是Bidirectional Encoder Representations from Transformers的简称。和最近的language representation模型（ELMO和GPT）不一样，BERT通过在每一层里都联合左右两侧的上下文来在没有标签的文本上学习预训练的bidirectional representation。结果是，预训练的BERT模型再加上一个附加的output层就可以对一系列任务都有sota的效果，比如说question answering，language inference等，而不需要对具体任务来调整模型的结构。
+
+>ELMO使用的是RNN的架构，所以对于不同的下游任务模型结构要做不同的修改，而GPT虽然也使用的Transformer，但是GPT是单向的预测，并没有用到双向上下文信息。
 
 BERT在概念上很简单，在实验上效果很好。其在11个NLP任务上达到了sota的效果。
 
@@ -637,9 +639,11 @@ BERT在概念上很简单，在实验上效果很好。其在11个NLP任务上�
 
 现在有两种将预训练的语言特征应用到下游任务的方法：feature-based和fine-tuning。feature-based方法，比如说ELMo，使用task-specific架构，将预训练的特征作为补充特征来使用。fine-tuning方法，比如说GPT，尽量对于各种任务都使用同样的模型结构，在各个不同任务的数据集上来微调已经预训练好的模型参数。这两种方法在预训练时是一样的，使用的是一样的目标函数，也就是使用unidirectional language models来学习语言特征。
 
+>unidirectional language models就是经典的语言模型，也就是从过去的词和句子来预测接下来的词或者句子。
+
 我们认为现有的这些方法限制了预训练语言特征的效果，特别是对于fine-tuning方法。最主要的一个限制点是标准的语言模型是单向的（unidirectional），这限制了可以被用来做预训练的模型种类。比如，在GPT里，作者使用了一个从左到右的模型结构，其中每个token在Transformer结构的网络里只能获取它之前的tokens的信息。这样的限制对于sentence-level的任务来说是sub-optimal的，而对于使用fine-tuning方法的token-level任务来说也是很不好的，比如说question answering，因为双向信息会格外的重要。
 
-在这篇文章里，我们改进了fine-tuning based方法，提出了BERT：Bidirectional Encoder Representations from Transformers。BERT通过使用了一个masked language model (MLM)减轻了之前提到的单方向的限制。masked language model随机的在输入里遮住一些tokens，而目标则是根据上下文来预测被遮住的tokens。和从左到右的预训练模型不一样，MLM的目标函数使得所学习到的representations能够融合左右两侧的信息，也就允许我们预训练一个bidirectional Transformer。除了MLM，我们还使用了一个next sentence prediction任务来联合预训练text-pair representations。我们这篇文章的贡献总结如下：
+在这篇文章里，我们改进了fine-tuning based方法，提出了BERT：Bidirectional Encoder Representations from Transformers。BERT通过使用了一个masked language model (MLM)减轻了之前提到的单方向的限制。masked language model随机的在输入里遮住一些tokens，而目标则是根据上下文来预测被遮住的tokens。和从左到右的预训练模型不一样，MLM的目标函数使得所学习到的representations能够融合左右两侧的信息，也就允许我们预训练一个bidirectional Transformer。除了MLM，我们还使用了一个next sentence prediction任务来联合预训练text-pair representations（这个任务是给定两个句子，预测这两个句子是不是相邻的，这个任务可以让模型学习句子层面的信息）。我们这篇文章的贡献总结如下：
 
 * 我们阐述了双向预训练模型对于语言representations的重要性。和GPT使用单向语言模型学习representation不同，BERT使用MLM来学习双向语言representations。这和ELMo也不一样，ELMo是仅仅将从左到右和从右到左分别学习到的语言representations简单的连了起来。
 * 我们说明这样的预训练representations使得很多针对具体任务设计具体模型结构的努力变得不再需要了。BERT是第一个在很多sentence-level和token-level的下游任务上都获得了sota效果的预训练模型，效果超过了很多根据具体任务设计具体模型结构的方法。
@@ -687,11 +691,15 @@ $$BERT_{BASE}$$的模型大小（参数个数）设计为和GPT差不多，为�
 
 *Input/Output Representations*
 
-为了使得BERT能够处理一系列下游任务，BERT的input representation可以用一个token sequence既能表示单个sentence，又能表示一对sentences构成的pair（比如说，$$\langle Question, Answer \rangle$$）。一个sentence可以是任意长度的连续文本，而并不是我们平常意义里的一个sentence。一个sequence表示的是BERT的token sequence输入，可能是一个sentence也可能是两个打包在一起的sentence pair。
+为了使得BERT能够处理一系列下游任务，BERT的输入用一个token sequence来表示，这个sequence既能表示单个sentence，又能表示一对sentences构成的pair（比如说，$$\langle Question, Answer \rangle$$）。一个sentence可以是任意长度的连续文本，而并不是我们平常意义里的一个sentence。一个sequence表示的是BERT的token sequence输入，可能是一个sentence也可能是两个打包在一起的sentence pair。
 
-我们使用有30000个token vocabulary的Wordpiece embeddings（[Google’s Neural Machine Translation System: Bridging the Gap between Human and Machine Translation](https://arxiv.org/pdf/1609.08144.pdf%20(7.pdf)）。每个sequence的第一个token都被设定为一个特殊的classification token，记为$$\left[ CLS \right]$$。这个token最终对应的模型的hidden state被认为是aggregated sequence representation被用来做classification任务。sentences pairs会被pack到一起成为一个sequence。我们使用下述方法来区分一个sequence里的两个sentences。首先，我们用一个特殊的token，$$\left[ SEP \right]$$来区分它们。其次，我们给每个token都加上一个可学习的embedding来表示这个token是属于sentence A还是sentence B。正如fig1所示，我们将输入的embedding记为$$E$$，特殊token，$$\left[ CLS \right]$$的最终的hidden vector记为$$C \in R^{H}$$，第$$i$$个输入token的最终的hidden vector记为$$T_i \in R^{H}$$。
+>Transformer那篇文章的输入是一个序列对，因为既有encoder又有decoder所以可以实现。但BERT只有一个encoder，为了使得输入仍然可以是一个序列对，就只能使用上面这种方法。
 
-对于某个token，它的输入representation通过将token的embedding，segment和position encoding加起来而获得。这个构造的可视化见fig2。
+我们使用有30000个token vocabulary的Wordpiece embeddings（[Google’s Neural Machine Translation System: Bridging the Gap between Human and Machine Translation](https://arxiv.org/pdf/1609.08144.pdf%20(7.pdf)）（Wordpiece这种切词方法使得我们的词典并不是很大，从而使得嵌入层的参数没那么多，如果词典很大的话，那可学习参数都跑到嵌入层去了，就无法好好学习Transformer里的参数了）。每个sequence的第一个token都被设定为一个特殊的classification token，记为$$\left[ CLS \right]$$。这个token最终对应的模型的hidden state被认为是aggregated sequence representation被用来做classification任务（也就是这个token对应的输出最终表示的是一整个sequence的信息，因为Transformer使用自注意力机制，所以每个词都能看到所有其它词的内容，而无所谓这个词的位置在哪，所以将这个token放在第一个位置也是可以的）。sentences pairs会被pack到一起成为一个sequence。我们使用下述方法来区分一个sequence里的两个sentences。首先，我们用一个特殊的token，$$\left[ SEP \right]$$来区分它们。其次，我们给每个token都加上一个可学习的embedding来表示这个token是属于sentence A还是sentence B。正如fig1所示，我们将输入的embedding记为$$E$$，特殊token，$$\left[ CLS \right]$$的最终的hidden vector记为$$C \in R^{H}$$，第$$i$$个输入token的最终的hidden vector记为$$T_i \in R^{H}$$。
+
+对于某个token，它输入给BERT的向量表示是这个token本身的embedding，加上它在哪个句子对应的embedding，再加上position encoding而获得。这个构造的可视化见fig2。
+
+>在Transformer里，positional encoding是手动设置的，但是在BERT里，token本身的embedding，还是属于哪个句子的embedding，或者是positional embedding都是学习得来的。
 
 ![2]({{ '/assets/images/BERT-2.PNG' | relative_url }})
 {: style="width: 800px; max-width: 100%;" class="center"}
@@ -705,9 +713,9 @@ $$BERT_{BASE}$$的模型大小（参数个数）设计为和GPT差不多，为�
 
 直觉上，认为一个双向的模型肯定比一个单向的从左到右的模型或者只是简单的将从左到右和从右到左模型的输出连起来的模型要强大是很正常的。但实际上，标准的conditional language model只能是从左到右或者从右到左训练，因为双向会使得每个词非直接的看到自己，从而模型可以在多层结构的上下文环境中很容易的预测target word。
 
-为了能够训练双向的representations，我们只是将一些输入的tokens遮起来，然后让模型来预测这些遮起来的词。我们将这个过程成为masked language model（MLM）。之后，模型对应于被遮住的tokens的最后的hidden vectors被为给一个output softmax over the vocabulary，正如标准的LM里所做的那样。在我们的所有的实验里，我们遮住每个sequence里随机的15%的tokens。和denoising auto-encoders不同，我们仅仅是预测被遮住的tokens，而并不是要重构整个原输入。
+为了能够训练双向的representations，我们只是将一些输入的tokens遮起来，然后让模型来预测这些遮起来的词。我们将这个过程称为masked language model（MLM）。之后，模型对应于被遮住的tokens的最后的hidden vectors被喂给一个output softmax over the vocabulary，来预测这个被遮住token到底是哪个词，正如标准的LM里所做的那样。在我们的所有的实验里，我们遮住每个sequence里随机的15%的tokens。和denoising auto-encoders不同，我们仅仅是预测被遮住的tokens，而并不是要重构整个原输入。
 
-尽管这样做让我们可以获得一个双向预训练模型，一个缺点是在预训练和fine-turning的时候会不一样，因为fine-tuning的时候并没有$$\left[ MASK \right]$$ token。为了缓解这个问题，我们在预训练的时候再加入一些随机性。当第$$i$$个token被选中作为mask token时，我们80%的概率将其作为mask token，10%的几率将其作为一个随机token，10%的几率不改动。然后$$T_i$$再和最初的token利用cross-entropy loss计算差别。
+尽管这样做让我们可以获得一个双向预训练模型，一个缺点是模型的输入数据在预训练和fine-turning的时候会不一样，因为fine-tuning的时候并没有$$\left[ MASK \right]$$ token。为了缓解这个问题，我们在预训练的时候再加入一些随机性。当第$$i$$个token被选中作为mask token时，我们80%的概率将其作为mask token，10%的几率将其替换为一个随机token，10%的几率不改动。然后$$T_i$$再和最初的token利用cross-entropy loss计算差别。
 
 *Task 2: Next Sentence Prediction (NSP)*
 
@@ -718,12 +726,19 @@ $$BERT_{BASE}$$的模型大小（参数个数）设计为和GPT差不多，为�
 
 fine-tuning是十分自然地，因为Transformer里的self-attention机制使得BERT能够建模很多下游的任务（不管输入是单个文本或者文本对），fine-turning的时候将输入输出换掉就行。对于那些使用文本对的任务，一个常见的方式是在使用bidirectional cross attention之前先独立的encode文本对。BERT并不这样做。BERT使用self-attention机制来将这两个stages统一到了一起，直接使用self-attention机制来对pack到一个sequence的两个sentences构成的pair进行处理，等价于在两个sentences之间进行bidirectional cross attention。
 
-对于每个任务，我们很简单的将该任务的输入和输出放到BERT里，来微调BERT的系数。对于输入来说，预训练时候的sentence A和sentence B就类似于（1）paraphrasing任务里的sentence pair；（2）entailment任务里的hypothesis-premise pairs；（3）question answering里的question-passage pairs；和（4）text classification或者sequence tagging里的一个degenerate text pair。对于输出来说，对于token-level的任务（比如说sequence tagging或者question answering），token representation被喂给一个output layer，而对于classification-level的任务（比如说entailment或者sentiment analysis），$$\left[ CLS \right]$$ representation被喂给一个output layer。
+>BERT和基于encoder和decoder的架构有什么不一样，这样的架构比如说Transformer。对于BERT来说，其直接将两个句子对打包在一起放进去了，所以self-attention就使得BERT能够直接看到两个句子之间的关系，但是在encoder-decoder的架构里，encoder一般是看不到decoder里的信息的。所以说BERT处理这种任务效果会更好。但也付出了代价，BERT就无法做机器翻译这种类型的任务了。
+
+对于每个任务，我们很简单的将该任务的输入和输出放到BERT里，来微调BERT的系数。对于输入来说，预训练时候的sentence A和sentence B就类似于（1）paraphrasing任务里的sentence pair；（2）entailment任务里的hypothesis-premise pairs；（3）question answering里的question-passage pairs；和（4）text classification或者sequence tagging里的一个degenerate text pair。对于输出来说，对于token-level的任务（比如说sequence tagging或者question answering），token representation被喂给一个output layer，而对于classification-level的任务（比如说entailment或者sentiment analysis），$$\left[ CLS \right]$$ representation被喂给一个output layer。所以说不管怎么样，在BERT输出之后加一个层就可以做各种不同的任务了。
 
 
 **4. Conclusion**
 
 最近由于language models的transfer learning所带来的实验上效果的提升已经证明了种族的非监督的预训练已经是很多语言模型的不可或缺的一部分了。特别是，这些预训练模型使得某些难以获得数据的任务也能够从很深的网络中获利。我们主要的贡献是进一步将上述发现拓展到bidirectional的模型架构，允许一个预训练模型在不改变结构的情况下处理一批下游任务。
+
+
+**写作总结**
+
+BERT使用的是encoder，而GPT使用的是decoder，BERT使用了双向性的结构，得到了很多好处，但也失去了一些，比如说做机器翻译就不好做了，做文本的摘要提取也不好做了，也就是那些生成类的任务都不好做了。但是分类相关的问题在NLP里更加常见一点，所以BERT受到了非常大的追捧。BERT很符合深度学习的发展，BERT在一个很大的数据集上预训练好，然后在后续一系列的任务上微调之后都能获得很好的效果，这样一个预训练的模型就显得很重要。对于NLP群体来说，BERT这样一个很大的模型在很大的数据集上预训练好了的模型，就很重要了。
 
 
 ### 3. GPT-1, GPT-2和GPT-3
