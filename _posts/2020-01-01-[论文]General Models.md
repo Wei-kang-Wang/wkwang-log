@@ -1048,31 +1048,48 @@ BEIT的模型结构和ViT里的一样。我们使用一个12层的Transformer，
 
 ### 6. [An Image is worth 16 $$\times$$ 16 workds: Transformers for image recognition at scale](https://openreview.net/forum?id=YicbFdNTTy)
 
+还有一个[Arxiv版本](https://arxiv.org/pdf/2010.11929.pdf)，内容略有不同。
+
 *Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenbron, Xiaohua Zhai, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg Heigold, Sylvain Gelly, Jakob Uszkoreit, Neil Houlsby*
 
 *ICLR 2021 Oral*
 
+>这篇文章是2021年里CV领域最重要的文章，它打破了自从2012年AlexNet提出以来CNN在CV领域的统治地位，其将一个NLP领域的模型Transformer应用到CV领域，在大规模非监督数据学习的基础上也能取得和CNN甚至超过CNN的预训练效果。而且ViT的出现打破了NLP和CV领域使用不同结构模型的壁垒，从而使得多模态也找到了新的方向。跟随ViT之后的研究层出不穷，已经有几百篇了，有将其拓展到别的任务的，有对模型本身进行改进的，有对模型进行分析的，还有对目标函数或者训练方式进行改进的。ViT开启了CV的一个新时代。现在几乎所有的CV任务，基于ViT的模型都取得了最好的结果，比如ImageNet上的classification就是用传统ViT达到了目前最好的效果，而Swim Transformer（ICCV 2021最佳论文）在COCO数据集上的目标检测任务也达到了最佳效果。而且ViT的模型结构以及特性和CNN有很大的不同，所以是很重要的开创性的工作。
+
 **Abastract**
 
-当Transformer架构已经成为NLP任务的标准架构时，Transformer在CV领域的应用仍然没有太大的发展。在视觉领域，attention要么和CNN一起被使用，要么就修改CNN结构里的某些内容，但是CNN的整体结构是没有改变的。我们将会表明完全依赖CNN是没有必要的，一个应用在图像patches上的Transformer在image classification任务上就可以表现得很好。当在大量的数据上与训练之后再转移到一些中等数据集大小的recognition benchmarks上（比如IamgeNet，CIFAR-100，VTAB等）时，Vision Transformer（ViT）具有和CNN sota相同的效果。
+当Transformer架构已经成为NLP任务的标准架构时，Transformer在CV领域的应用仍然没有太大的发展。在视觉领域，attention要么和CNN一起被使用，要么就修改CNN结构里的卷积将其替换为attention机制，但是CNN的整体结构是没有改变的（比如说ResNet有很多层，我们只是将每层里面的卷积操作给替换成自注意力机制，而并没有改变大的模型层次结构）。我们将会表明完全依赖CNN是没有必要的，一个应用在图像patches上的Transformer在image classification任务上就可以表现得很好。当在大量的数据上预训练之后再转移到一些针对具体下游任务的中小型数据集上（比如IamgeNet，CIFAR-100，VTAB等）时，Vision Transformer（ViT）具有和CNN sota相媲美的效果。而且Vision Transformer需要更少的训练资源（但实际上计算量还是很大的）。
 
 
 **1. Introduction**
 
-self-attention架构，特别是Transformers，在NLP领域现在是最主流的。现在最主要的方法是在一个大的text corpus上进行预训练，然后再在特定任务的数据集上fine-tune。多亏了Transformer架构计算上的高效性和scalability，我们可以训练很大的Transformer架构的模型（超过1000亿个参数）。随着模型和数据集的增长，目前还没有看到饱和的发生。
+self-attention架构，特别是Transformers，在NLP领域现在是最主流的。现在最主要的方法是在一个大的text corpus上进行预训练，然后再在特定任务的数据集上fine-tune。多亏了Transformer架构计算上的高效性和可扩展性（scalability），我们可以训练很大的Transformer架构的模型（超过1000亿个参数）。随着模型和数据集的增长，目前还没有看到性能饱和（也就是过拟合）的发生。
 
-在CV领域，卷积架构仍然占据着主导地位，比如AlexNet，LeNet，ResNet等。受到NLP领域成功的启发，一些工作开始尝试将CNN架构和self-attention机制结合起来，[Non-local Neural Networks](https://openaccess.thecvf.com/content_cvpr_2018/papers/Wang_Non-Local_Neural_Networks_CVPR_2018_paper.pdf)，[End-to-end object detection with Transformers](https://arxiv.org/pdf/2005.12872.pdf)。有些工作尝试将CNN里的卷积计算换掉，[Stand-alone self-attention in vision models](https://arxiv.org/pdf/1906.05909.pdf)，[Stand-alone axial-attention for panoptic segmentation](https://arxiv.org/pdf/2003.07853.pdf)。这些将CNN里的卷积替换掉的模型，虽然理论上很高效，但是还并不能被高效用在目前硬件设备上。因此，在大规模的image recognition任务上，经典的类ResNet架构还是sota。
+>将Transformer结构直接应用到图像领域的难处。Transformer的输入是一个序列，然后利用自注意力机制计算序列里两两元素的关系。所以第一个难点是如何将一个2D的图片表示为一个1D的序列。最直观的方法就是将每个像素点都当作一个元素，直接将图片拉直为一个序列送进Transformer里计算。但是这样做的话序列长度太长，计算复杂度太高（目前NLP领域的Transformer的输入序列长度大多也就是几百，如果直接将一个$$224 \times 224$$的图片拉直输入，那计算复杂度太高了，目前无法计算）。
+
+在CV领域，卷积架构仍然占据着主导地位，比如AlexNet，LeNet，ResNet等。受到NLP领域成功的启发，一些工作开始尝试将CNN架构和self-attention机制结合起来，[Non-local Neural Networks](https://openaccess.thecvf.com/content_cvpr_2018/papers/Wang_Non-Local_Neural_Networks_CVPR_2018_paper.pdf)（这篇文章的想法是既然直接将图片拉直送人Transformer计算复杂度太高，那就将中间层的feature map拉直送入Transformer，一般来说对于CNN，feature map的大小是会随着网络深度的增加而减小的，如果一个$$14 \times 14$$的feature map拉直，长度也就只有196，如果channels个数也不多，那这个计算复杂度还是可以接受的），[End-to-end object detection with Transformers](https://arxiv.org/pdf/2005.12872.pdf)。有些工作尝试将CNN里的卷积计算换掉，[Stand-alone self-attention in vision models](https://arxiv.org/pdf/1906.05909.pdf)（这篇文章的想法是既然整张图拉直计算复杂度太高，那就只将某个窗口内的图拉直送入Transformer，这样的想法就有点像CNN的做法了，因为CNN也是每个卷积操作只关注局部信息），[Stand-alone axial-attention for panoptic segmentation](https://arxiv.org/pdf/2003.07853.pdf)（这篇文章的做法是将2D的图片当作两个1D的向量的乘积，然后在这两个1D的向量上分别做Transformer，这样计算量就大大降低了）。这些将CNN里的卷积替换掉的模型，虽然理论上很高效，但是还并不能被高效用在目前硬件设备上。因此，在大规模的image recognition任务上，经典的类ResNet架构还是sota。
+
+>自注意力早就在CV领域被研究了，而且甚至使用自注意力完全替代卷积操作。所以这篇文章就从如何设计一个具有可扩展性的大规模的应用在CV领域的Transformer架构这个角度出发来写的。
 
 被Transformer在NLP领域的scalability的成功所启发，我们尝试直接将一个标准的Transformer模型应用在image上，做尽可能少的改动。为了做到这点，我们将一张图片分为patches，然后将这些patches的linear embeddings排成sequence作为Transformer的输入。image patches被当作NLP里的tokens（words）。我们以监督学习的方式来在image classification任务上训练这个模型。
 
-当没有使用很强的regularization，在中等大小的数据集上训练时，比如说ImageNet，Transformer的结果比ResNet的结果要第几个百分点。这似乎说明Transformer在image上这样使用的效果并不好：Transformers并没有CNN固有的一些inductive biases，比如translation equivariance和locality，因此在有限的数据集上训练的模型泛化效果并不好。
+>强调以监督方式来训练模型是因为Transformer在NLP领域基本上都是以非监督的方式进行训练的，要么就是单方向的generative language modelling（GPT），要么就是双方向的masked language modelling（BERT）。
+
+当没有使用很强的regularization，在中等大小的数据集上训练时，比如说ImageNet，Transformer的结果比ResNet的结果要低几个百分点。这似乎说明Transformer在image上这样使用的效果并不好：Transformers并没有CNN固有的一些归纳偏置（inductive biases），比如translation equivariance和locality，因此在有限的数据集上训练的模型泛化效果并不好。
+
+>归纳偏置（inductive bias）实际上就是先验知识，也就是我们已经知道的假设。CNN的两个归纳偏置，locality指的是相邻的区域一般具有相似的特征，靠得越近的区域相关性就越强。另一个归纳偏置叫做平移等变性（translation equivariance），写成公式表示就是$$f(g(x)) = g(f(x))$$，也就是先做$$f$$操作还是先做$$g$$操作，结果是不变的。将$$f$$理解为卷积，而$$g$$理解为平移。因为卷积操作相当于将一个模板沿着图片位置滑动，所以说即使图片内的物体进行了平移，并不改变计算的结果。
+
+所以CNN有着这两个很强的归纳偏置，而Transformer什么也没有，所有的知识都需要Transformer自己去数据里学。
 
 但是，当我们在更大的数据集上训练的时候（1400万-3亿张图片），情况就有所变化了。Transformer在images上的效果要比很多任务的sota效果要好。
 
 
+>这个introduction的写法还是很好的，首先说明Transformer在NLP领域应用的效果很好，而且目前都还没有饱和的现象，那这么好的模型应用到CV领域会怎么样呢？然后说明这个方向肯定已经有很多人研究过了，但是这些研究要么就是将自注意力机制和CNN结合起来，要么就是替换CNN里的卷积操作为自注意力操作，并没有改变整体的结构。从而说明前面那些工作和这篇文章的本质上的区别。之后再引入这篇文章里提出的Vision Transformer。最后一段介绍一下很好的效果。
+
+
 **2. Related Work**
 
-Transformer是用来做machine translation而被提出的，现在已经在很多NLP任务里是sota的架构了。大型的Transformer-based模型通常在大的corpora上预训练，然后在具体任务上微调。BERT使用了一种denoising的self-supervised预训练任务，而GPT line of work使用language modeling作为其预训练任务。
+Transformer是用来做machine translation而被提出的，现在已经在很多NLP任务里是sota的架构了。大型的Transformer-based模型通常在大的corpora上预训练，然后在具体任务上微调。BERT使用了一种denoising的self-supervised预训练任务，而GPT line of work使用language modeling（基于之前的词或者句子预测下一个词或者句子）作为其预训练任务。
 
 naive的直接将self-attention机制用到images上就会变成让每个pixel来注意其它的pixels。这会造成pixel数量平方级别的计算，这scale到实际任务是不现实的。因此，为了将Transformer用到image领域，很多研究者尝试了一些近似的办法。[]()对于每个pixel，只将self-attention应用在其邻域内的pixels上，而不是考虑所有的pixels。这样的local multi-head dot-product self-attention blocks可以完全替代convolutions操作。
 
@@ -1080,16 +1097,20 @@ naive的直接将self-attention机制用到images上就会变成让每个pixel�
 
 还有很多工作尝试将CNN和self-attention相结合，比如，[]()将CNN得到的feature map和self-attention得到的feature map结合起来用于image classification，或者说在CNN得到的feature maps上再继续用self-attention得到更好的features，在object detection，video processing，image classification，unsupervised object discovery和unified text-vision tasks上都有使用。
 
-另一个相关的工作是image GPT (iGPT) [Generative pretraining from pixels](http://proceedings.mlr.press/v119/chen20s/chen20s.pdf)，其在减小了图片的分辨率和color space之后再在图片pixels上使用Transformers。模型是以一种非监督学习的方式被当做一个generative model来训练的，所得到的representation之后可以被fine-tune，也可以直接被用来做classification，在ImageNet上的classification有72%的准确率。
+另一个相关的工作是image GPT (iGPT) [Generative pretraining from pixels](http://proceedings.mlr.press/v119/chen20s/chen20s.pdf)，其在减小了图片的分辨率和color space之后再在图片pixels上使用Transformers。模型是以一种非监督学习的方式被当做一个generative model来训练的，所得到的representation之后可以被fine-tune，也可以直接被用来做classification，在ImageNet上的classification有72%的准确率。这个准确率要比这篇文章提出的ViT的准确率要低不少。
+
+>实际上在CV领域，一般来说生成模型都会比判别模型效果差。但MAE这篇文章就做到了生成模型要比判别模型的效果要好，而且迁移到其它任务上（比如目标检测）进行微调之后效果也很好。
+
+>这个related work写的非常全面彻底。
 
 
 **3. Method**
 
-在模型设计上我们尽可能使用原始的Transformer的设计。
+在模型设计上我们尽可能使用原始的Transformer的设计。因为其已经有了很成熟的代码库和高效实现了。
 
 ![1]({{ '/assets/images/VIT-1.PNG' | relative_url }})
 {: style="width: 800px; max-width: 100%;" class="center"}
-*Fig 1. Model Overview. 我们将图片分为固定数量的patches，将其每个都进行linearly embedding，再加上position embedding是，喂给一个标准的Transformer encoder。为了能够实现classification，我们在sequence之前加了一个多余的可学习的classification token。*
+*Fig 1. 模型总览图（Model Overview）。 我们将图片分为固定数量的patches，将其每个都进行linearly embedding，再加上position embedding是，喂给一个标准的Transformer encoder。为了能够实现classification，我们在sequence之前加了一个多余的可学习的classification token。*
 
 **3.1 Vision Transformer (ViT)**
 
@@ -1097,7 +1118,10 @@ naive的直接将self-attention机制用到images上就会变成让每个pixel�
 
 和BERT里的class token类似，我们在上述patch embeddings构成的sequence的头部加上一个可学习的embedding，$$z_0^0 = x_{class}$$，其在经过$$L$$个Transformer模块（也就是层）之后的值$$z_L^0$$用来表示image representation $$\pmb y$$，如公式4所示。在pre-training和fine-tuning的过程中，$$z_L^0$$都和一个classification head相连，这个classification head在pre-training的时候是具有一个隐层的MLP，而在fine-tuning的时候只是一层线性层。
 
-position embeddings也被加入到patch embeddings当中，为了保留位置信息。我们使用标准的可学习的1D positional embeddings，因为更复杂的2D positional embeddings并没带来什么效果提升。现在这个embedding vectors sequence可以作为Transformer encoder的输入了。
+position embeddings也被加入到patch embeddings当中，为了保留位置信息。我们使用标准的可学习的1D positional embeddings（也就是BERT里用的那种位置编码），因为更复杂的2D positional embeddings并没带来什么效果提升。现在这个embedding vectors sequence可以作为Transformer encoder的输入了。
+
+>比如说输入的图片是$$224 \times 224 \times 3$$大小，选择的patch大小为$$16 \times 16$$，这样的话，就会有$$224 / 16 = 14$$，一共$$14 \times 14 = 196$$个image patches，而每个patch的大小为$$16 \times 16 \times 3$$。然后将每个patch展平，就是一个$$16 \times 16 \times 3 = 768$$大小的向量。然后使用一个大小为$$768 \times 768$$的projection矩阵，$$E$$，将这$$196$$个长度为$$768$$的向量进行线性投射。从而得到了大小为$$196 \times 768$$的tokens的embeddings，再加上开头的特殊的$$\left[ CLS \right]$$token的embedding，就是$$197 \times 768$$的token embeddings。最后再加上positional encodings，我们的positional encodings也是一个$$197 \times 768$$的矩阵，其中每一行代表每个位置的positional encoding，这个矩阵也是可以学的。所以最终输入Transformer的东西，就是一个$$197 \times 768$$的矩阵。
+>接下来就是输入Transformer的encoder里，encoder会有$$L$$个blocks，对于每个block，首先经过layer norm，不改变tensor的大小，然后对于ViT-base来说，其自注意力机制的heads个数为12，所以会将$$197 \times 768$$先利用12个线性投射，获得12个大小为$$197 \times 768 / 12 = 197 \times 64$$大小的tensors，这些tensors分别作为自注意力里的$$q,k,v$$进行自注意力计算，得到了12个大小为$$197 \times 64$$的输出，然后再concatenate起来，重新得到了$$197 \times 768$$大小的tensor，进行残差连接后再经过一次layer norm，然后经过一个mlp，一般扩大4倍，从而变成$$197 \times 3072$$，然后再计算回来，变回$$197 \times 768$$，再进行一次残差链接，从而输出。这样重复进行$$L$$个block，最终输出结果。
 
 Transformer encoder有multiheaded self-attention层（MSA）（公式2）、MLP blocks（公式3）以及每层计算完都会进行LayerNorm，并且在每个block之间还有residual连接。
 
@@ -1115,11 +1139,11 @@ $$\pmb{z_l} = MSA(LN(\pmb{z_l^{'}})) + \pmb{z_l^{'}} \tag{3}$$
 
 $$\pmb y = MLP(z_L^0) \tag{4}$$
 
+*归纳偏置（Inductive bias）*
 
-*Inductive bias*
+我们发现vision transformer相比于CNN少了很多image-specific inductive bias。在CNN里，locality，二维的领域结构以及translation equivariance在模型的每一层里都存在。而在ViT里，只有MLP是local和translation equivariant的，self-attention层是global的。ViT除了在一开始的位置编码用了图片这个数据的2维特征之外，就再也没有使用任何图片的归纳偏置了，也就是说并没有用任何这个输入数据是2维图片的domain knowledge。而且位置编码也是随机初始化，然后在训练过程中学习到的，并没有携带任何2D信息。
 
-我们发现vision transformer相比于CNN少了很多image-specific inductive bias。在CNN里，locality，二维的领域结构以及translation equivariance在模型的每一层里都存在。而在ViT里，只有MLP是local和translation equivariant的，self-attention层是global的。
-
+>正是因为ViT并没有用到domain knowledge，所有的知识都得自己学，所以其在中小数据集上效果不如CNN，但是在大型数据集上，其学习全局知识的优势就能体现出来了。所以说CNN模型比较data efficient，而ViT模型更加的general。
 
 *Hybrid Architecture*
 
@@ -1128,35 +1152,90 @@ $$\pmb y = MLP(z_L^0) \tag{4}$$
 
 **3.2 Fine-tuning and higher resolution**
 
-我们在大型数据集上预训练ViT，之后再在下游任务的小数据集上微调。在微调的时候，我们将pre=trained prediction head移除，加上一个初始化为0的$$D \times K$$的feedforward层，其中$$K$$表示的是下游任务的classes。一般来说，在分辨率更高的图片上微调效果会更好，这个时候我们保持patch大小不变，这样就会有更多的patches，ViT可以处理长度变化的patch embedding sequence，所以并没有问题，但这个时候预训练的positional encoding可能就不好使了，我们可以根据预训练的positional encoding embeddings在图片中的位置，使用2D插值来计算高分辨率图片的positional encoding embeddings。
+我们在大型数据集上预训练ViT，之后再在下游任务的小数据集上微调。在微调的时候，我们将pre=trained prediction head移除，加上一个初始化为0的$$D \times K$$的feedforward层，其中$$K$$表示的是下游任务的classes。一般来说，在分辨率更高的图片上微调效果会更好，这个时候我们保持patch大小不变，这样就会有更多的patches，ViT可以处理长度变化的patch embedding sequence，所以并没有问题，但这个时候预训练的positional encoding可能就不好使了，我们可以根据预训练的positional encoding embeddings在图片中的位置，使用2D插值来计算高分辨率图片的positional encoding embeddings。如果使用了插值来进行新的位置编码的计算，那这里也算是引入了图片的2D信息的归纳偏置了。
 
 
 **4. Experiments**
 
-别的部分省略
+主要对比了ResNet，ViT和它们的混合模型的representation学习能力。为了了解每个模型想要学习好到底需要多少数据，他们在不同大小的数据集上进行预训练，然后在很多的下游任务数据集上进行测试。当考虑到预训练的计算代价的时候，ViT的表现很好，其能在很短的时间内在很多下游的任务上表现很好。
 
-**4.1 Inspecting vision transformer**
+最后文章还做了自监督的实验，也就是不用监督数据，而使用自监督数据进行预训练，这个方法还是比较有潜力的。
 
-为了理解vision transformer是如何处理图片数据的，我们来分析其内部的representations。vision transformer的第一层是将展平的patches线性投射到一个满足transformer尺寸的embedding上，也就是一个更低维度的空间里。fig2左侧展示了所学习到的embedding filters的几个最主要的部分。这些部分有点像表示patches里的低维结构信息的basis functions。
+>文章使用自监督方法的效果并没有使用监督方法的预训练效果好，然而后续很火的MAE就是沿着这条研究方向，使用自监督方法预训练模型达到甚至超过了ViT监督方法的效果。
 
-在这个linearly projection之后，一个可学习的position embedding被加在patch representation上。fig2中间显示的是模型尝试去学习encode图片中patches之间的distances，和positional encoding类似，也就是相近的patches就有类似的positional encodings。而且，能看出来显示出了行列的结构，同一行/列的patches有着类似的embeddings。
+**4.1 Setup**
+
+*数据集*
+
+预训练使用的数据集有ImageNet-1k，也就是有1000个类的ImageNet数据集，大约130万张图片，ImageNet-21k，也就是有21000类的ImageNet数据集，大约1400万张图片，还有Google的JFT数据集，18000类，大约3亿张图片。而下游任务使用的是分类任务，使用很常见的CIFAR，Oxford-pet，Oxford-flower这些数据集。
+
+*模型变体*
+
+一共使用了三种模型，和Transformer那篇文章对应的，也就是ViT-base，ViT-Large和ViT-Huge。而且patch的大小也和模型结构有关。
+
+**4.2 Pre-training data requirement**
+
+![5]({{ '/assets/images/VIT-5.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 2. 图片里方块就表示的是各种ResNet，比如最靠左侧的一列，下面的方块可能就是ResNet52，上面的方块就是ResNet152，从而图中灰色的区域就表示了ResNet所能达到的效果范围。而从图中可以看出来，对于小的数据集ImageNet-1k，ViT的效果全面不如ResNet。因为Transformer没有归纳偏置，需要更多的数据来学习的更好。而在ImageNet-21k这个数据集上，ViT和ResNet的效果就差不多了。而在JFT上训练的时候，ViT的效果比ResNet全面要好。*
+
+这个图表示的意思就是，如果你的数据集比较小的话，那还是ResNet的效果会比较好，如果想用ViT的话，至少得准备ImageNet-21k那么大的数据集。如果你有较大的数据集的话，用ViT的效果会跟好一些，而且ViT的训练相对来说会快很多。
+
+**4.3 Inspecting vision transformer**
+
+为了理解vision transformer是如何处理图片数据的，我们来分析其内部的representations。vision transformer的第一层是将展平的patches线性投射到一个满足transformer尺寸的embedding上（也就是$$E$$），也就是一个更低维度的空间里。fig3左侧展示了所学习到的embedding filters的几个最主要的部分。这些部分有点像表示patches里的低维结构信息的basis functions。
+
+>我们可以看到，第一层，也就是$$E$$学到的特征很像那些gabor filter，和CNN第一层所学习到的特征很像，都是颜色、纹理特征。
+
+在这个linearly projection之后，一个可学习的position embedding被加在patch representation上。fig3中间显示的是模型尝试去学习encode图片中patches之间的distances，和positional encoding类似，也就是相近的patches就有类似的positional encodings。而且，能看出来显示出了行列的结构，同一行/列的patches有着类似的embeddings。
 
 ![2]({{ '/assets/images/VIT-2.PNG' | relative_url }})
 {: style="width: 800px; max-width: 100%;" class="center"}
-*Fig 2. 左侧：RGB embedding filters（初始的28个主成分）。中间：position embeddings。右边：head的注意区域大小和网络深度的关系。每个点表示的是一层里16个head中的某个head的mean attention distance accross images。*
+*Fig 3. 左侧：RGB embedding filters（初始的28个主成分）。中间：position embeddings。右边：head的注意区域大小和网络深度的关系。每个点表示的是一层里16个head中的某个head的mean attention distance accross images。*
 
-self-attention允许ViT在整张图片上整合信息，即使对于很低的层也是这样。我们来看看这个网络到底将这个特性实现了多少。基于attention weights，我们来计算在图片中的mean attention distance accross images，见fig2右侧，也就是每个点能关注到周围多大的区域。这个attention distance和CNN里的receptive field有点像。我们发现，有些heads在很浅的层就已经注意到了这张图的几乎所有部分，表明全局化的整合整张图的信息这个特性确实被这个模型用到了。我们还发现，模型会注意到那些有助于classification的图片区域，如fig3所示。
+self-attention允许ViT在整张图片上整合全局信息，即使对于很低的层也是这样。我们来看看这个网络到底将这个特性实现了多少。基于attention weights，我们来计算在图片中的mean attention distance accross images，见fig3右侧，也就是每个点能关注到周围多大的区域。这个attention distance和CNN里的receptive field有点像。对于这张图来说，使用的是ViT-L/16，只有24个层，所以说横轴是24，而每层都有16个heads，也就是每一列都是16个圆点。纵轴的mean attention distance的计算就是，对于两个pixels，我们计算这两个pixels所在的patches之间的自注意力的weights乘以这两个pixels之间的距离，再将所有的这样的pixels对对应的这个值加起来。我们发现，有些heads在很浅的层就已经能注意到距离很远的pixels了，表明模型在一开始确实就能注意到整张图的全局信息了。而随着网络越来越深，所有的heads的注意的pixels之间的距离都很远了，就意味着网络学习到了语义概念，而不是根据临近的像素点进行判断。
+
+我们还发现，模型会注意到那些有助于classification的图片区域，如fig4所示。
 
 ![3]({{ '/assets/images/VIT-3.PNG' | relative_url }})
 {: style="width: 800px; max-width: 100%;" class="center"}
-*Fig 3.*
+*Fig 4.*
+
+**4.4 使用自监督方式预训练ViT**
+
+仿照BERT里的masked language modelling的设计，对于图片来说，先将其分割为patches，然后将一些patches mask掉，利用其它的patches来还原被mask的patches。但是这样的方法预训练出来的效果和表现最好的监督方式预训练出来的效果还是差了4个百分点。作者还提到了还可以利用constrastive learning的方式来进行自监督预训练ViT，其可以是未来的研究方向。
+
+>因为constrastive learning是2020年CV领域最火的自监督方法。MoCo v3和DINO都是使用constrastive learning的方式来训练的ViT。
+
+**5. Ablation Analysis**
+
+**5.1 关于使用$$\left[CLS\right]$$ token还是使用全部sequence token进行average pooling效果的对比
+
+对于CNN来说，比如说ResNet50，再最后一层卷积层得到的feature map大小比如说是$$14 \times 14 \times 128$$，这个时候要进入classifier了，就可以使用global average pooling，在$$H$$和$$W$$的维度上都降为1，也就是说在average pooling的filter大小为$$14 \times 14$$，从而得到了一个$$128$$维的向量，就可以方便的连接几层MLP，再传入softmax做分类了。上述global average pooling的操作相当于flatten的操作。而在ViT里，为了做后续的classification，我们添加了一个$$\left[CLS \right]$$的token，然后利用这个token最后的输出向量，接上MLP和softmax来进行分类判断。其实也可以不使用这个$$\left[CLS\right]$$token，而直接对于输入的image patches序列tokens的输出，进行一波average pooling（沿着sequence的维度），从而将一个sequence的tokens的features，压缩到一个token的feature，再接上MLP和softmax来进行分类判断。文中使用前一种方法只是因为BERT使用的是这个方法，文章也对这两种方法的结果进行了对比，实验证明效果差不多。
+
+但是要注意，这两种情况下学习率是不一样的，如果使用同样的学习率，会导致效果不好，见下图：
+
+![4]({{ '/assets/images/VIT-4.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 5. class token和global average pooling classifiers效果的对比，效果差不多，但得使用不同的learning rate。*
 
 
-**5. Conclusion**
+**5.2 不同的positional encoding对于实验效果的影响**
 
-我们探索了将Transformer用在image recognition领域的可行性。和以往使用self-attention的方法不同，我们并不为架构引入image-specific inductive biases。相反的，我们将一张图片理解为patches的sequence，然后用标准的Transformer来处理。但这简单的，但是scable的方法和在大数据集上预训练结合起来效果很好。因此，Vision Transformer达到了或者超过一些image classification的sota结果。
+有三种不同的positional encoding方法：
 
-虽然结果很鼓舞人，但是还有很多问题没有解决。一个是如何将ViT应用到其它的CV任务上，比如说detection和segmentation。而且，如何将文章中的large scale supervised预训练变成self-supervised预训练也是很重要的。
+* 1D的位置编码，也就是BERT里使用的方法，也就是假如有$$14 \times 14=196$$个patches，那么就利用$$196 \times D$$大小的矩阵来表示这些patches的positional encoding，其中$$D$$就是输入embedding的维度，对于上面的例子来说就是768。
+* 2D的位置编码，因为图片patches其实是在图片里有2D位置信息的，这样对于$$14 \times 14=196$$个patches，先用$$196 \times D/2$$大小的矩阵来表示其横向位置信息，然后再用$$196 \times D/2$$大小的矩阵来表示纵向位置信息，再将这两个矩阵concatenate起来。
+* 相对的位置编码
+
+实验表明，这三种位置编码最后导致的实验效果是差不多的。
+
+
+**6. Conclusion**
+
+我们探索了将Transformer用在image recognition领域的可行性。和以往使用self-attention的方法不同，除了在一开始切割image patches和positional encoding的时候用了一些图像的归纳偏置，我们并不为架构引入image-specific inductive biases。也就是我们不需要对vision领域有什么domain knowledge，直接将一张图片理解为patches的sequence，然后用标准的Transformer来处理。但这简单的，但是scable的方法和在大数据集上预训练结合起来效果很好。因此，Vision Transformer达到了或者超过一些image classification的sota结果。
+
+虽然结果很鼓舞人，但是还有很多问题没有解决。一个是如何将ViT应用到其它的CV任务上，比如说detection（DETR就做了这个工作）和segmentation。而且，如何将文章中的large scale supervised预训练变成self-supervised预训练也是很重要的。
 
 >实际上MAE就做到了。
 
