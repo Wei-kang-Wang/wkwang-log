@@ -1563,10 +1563,110 @@ for x in loader:            # 从dataloader里取一个mini batch的数据，有
     dequeue(queue)        # dequeue一个mini batch的keys
 ```
 
+*Shuffling BN*
+
+使用了BN之后，可能会导致当前batch的样本的信息泄露，因为需要计算当前batch的mean和variance，从而模型就很容易的找到那个正样本，而不需要真正去学一个好的模型，也就是说模型会找到一个shortcut solution。作者使用shuffling BN来解决这个问题。具体做法是，在取了一个batch的图片之后，生成了一个batch的query和一个batch的positive keys，因为使用的是多GPU训练，而BN的statistics计算是在每个GPU上单独计算的，所以在计算BN statistics之前先将这个batch里的positive keys的顺序打乱，计算BN statistics，然后再将顺序恢复。这样操作，就可以使得每个query和其对应的positive keys是用不同的BN statistics来归一化的，就避免了之前提到的问题。
+
+>BN是很难用的技术，很容易就会导致效果不好，而且很难debug。所以现在Transformer架构的提出，直接使用Layer norm，让事情变得简单很多。
+
+**4. Experiments**
+
+作者使用了两个数据集：ImageNet数据集和Instagram 10亿数据集。因为文中使用的是instance discrimination这个代理任务，这个代理任务认为每个图片都是一类，所以文中将ImageNet-1k叫做ImageNet-1M。Instagram 1B数据集要复杂很多，这是真实世界的场景的图片， 可能含有一个或者多个物体，而且物体不一定位于图片中央，而ImageNet-1k数据集里都是一个位于图片中间的物体。
+
+>MoCo使用的训练机器以及训练时间已经非常的亲民了，而且模型对于下游任务的泛化效果非常好。所以MoCo是一个既轻便又有效的模型，所以获得了很广泛的应用。所以尽管SimCLR的实验效果更好一些，但大家广泛使用的还是MoCo这套框架。
+
+**4.1 Linear Classification Protocol**
+
+当我们已经预训练好了模型之后，将预训练好的模型冻住，因为使用的是ResNet50的架构，所以作者在global average pooling层将feature map展平之后，直接在后面接上一个全连接层作为分类头，再监督训练这个分类头100个epoch。之后在ImageNet-1k测试集上测试分类的效果。
+
+对于后面接的那个现行的分类头的训练，作者做了grid search（也就是找到最好的训练参数），发现最佳的learning rate是30。这是十分离谱的，因为一般来说除了在神经网络搜索，比如说NAS这种工作里之外，大部分的模型的learning rate都不会比1还大。而且这已经是一个预训练好的网络了，现在要做的只是微调，所以learning rate不应该太大。作者认为出现这种现象的原因是因为在ImageNet上通过无监督学习学到的特征分布和有监督学习学到的特征分布是非常不一样的。
+
+**4.1.1 Ablation: contrastive loss mechanisms（使用queue构造大字典的好处）
+
+我们对比了fig2里提到的三种对比学习的机制的效果：也就是end-to-end，memory bank和MoCo。我们使用了相同的代理任务，并且使用了相同的InfoNCE作为loss function。结果由fig3表示。
+
+![4]({{ '/assets/images/MOCO-4.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*fig 3. 横轴是使用的负样本的个数，可以粗略的认为就是字典的大小。纵轴是在ImageNet上linear classification protocol的准确率。*
+
+受限于显卡内存，end-to-end的方法并不能使用非常大的字典，所以文章里最大只用到了1024。但是memory bank的方法可以使用很大的字典，所以它的曲线延伸了很远，但是效果要比end-to-end以及MoCo的方法都要差，作者认为就是因为字典里特征不一致导致的。可以看到，MoCo和end-to-end的方法在一开始重合度是很高的，但是因为没有实验支持，所以也不知道end-to-end的效果在字典很大的时候是否还能继续保持下去。但至少说明，MoCo是一个既能有很大字典又能有很好效果的方法，它是性能最好、对硬件要求最低、可扩展性也是最好的方法。
+
+**4.1.2 Ablation: momentum（动量带来的好处）
+
+![5]({{ '/assets/images/MOCO-5.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+
+可以看到，使用较大的动量，能达到比较好的效果。但是将动量变小到0.99或者0.9的时候，性能下降就比较明显了。当去掉动量之后，模型不能收敛，loss一直在震荡，从而训练失败。上述结果表明，建立一个特征一致性的字典是非常重要的。
+
+>文章提出了几点贡献，就需要对这些贡献做相对的消融实验，这样才能证明所提出的贡献是有效的。
+
+**4.1.3 Comparison with previous results**
+
+![6]({{ '/assets/images/MOCO-6.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+
+这里所有的方法都是在linear classification protocol的框架下进行的，也都是在ImageNet这个数据集上进行的。这些方法都是将预训练好的网络当作一个特征提取器，抽出来特征，再去训练一个全连接层当作分类头，最后得到这些表里的结果。所有的这些结果都没有去更新预训练好的那个模型backbone。而且因为对于无监督学习来说，模型的大小是很重要的，一般来说，模型越大，效果就越好，所以为了公平比较，作者还列出了各个方法所使用的模型的参数数量（也就是模型大小）。
+
+
+**4.2 Transferring features**
+
+作者想验证一下，MoCo非监督预训练所学习到的特征，到底能不能在下游任务上取得很好的迁移学习效果。这是这篇文章的点睛之笔。
+
+无监督学习的主要目标，就是要去学习一个可以迁移的特征。在ImageNet上做有监督的预训练的最大的作用，就是这个预训练好的模型可以作为下游任务的初始化，从而下游任务在这个预训练好的模型上微调就可以，这样即使下游任务只有很少的标注数据的时候，也能有很好的效果。作者使用CV领域最常见的一个任务，detection，来进行MoCo无监督预训练模型和有监督预训练的比较（都是在ImageNet上）。
+
+但是还需要先说两个问题。
+
+*Normalization*
+
+首先就是归一化。在4.1里一开始也提到了，如果拿MoCo预训练的模型直接作为特征提取器，那么在下游linear classification protocol任务微调的时候，最佳学习率是30，因为MoCo预训练所学习到的特征和有监督学习所学习到的特征分布是非常不一样的。但我们现在要使用MoCo预训练模型来做不同的下游任务，如果对于每个下游任务都做grid search就太复杂了，都去找一下它的最佳学习率是不现实的，也失去了无监督预训练的意义。
+
+而当特征分布不一样的时候，最常见的解决方法就是归一化。作者在微调的时候使用了feature normalization的方法。现在之前预训练好的模型参数不再固定了，整个模型的参数都在微调了，而且使用了Sync BN的方式（也就是说在多卡训练的时候，在每个GPU上计算出来的BN mean和variance都统一起来计算一个统一的mean和variance，然后再应用到每个GPU上的BN的计算）。这样就会让特征的归一化做的更加彻底，也会让模型训练更加稳定。而且对于下游任务新增加的那些层，我们也为他们加上BN，这样可以控制值域的范围，从而更好的使得特征归一化。
+
+我们对使用MoCo非监督和有监督预训练的框架在微调的时候都使用了上述的normalization操作，这样MoCo预训练模型在微调的时候就可以使用和监督预训练模型相同的超参数作为训练参数（比如learning rate）来进行微调了。
+
+*Schedules*
+
+对于一些下游任务，如果它的训练集很大的话，比如说COCO上的detection，那其实即使模型是随机初始化的，效果也会很好，那这样的话，预训练就没有什么意义了，那不管是无监督预训练还是有监督预训练就没有意义了，我们直接随机初始化模型，然后在下游任务数据集上训练就行了。但作者提出，即使是这样的情况，也需要在下游任务上训练很久才能有很好的效果。所以说对这样的下游任务，我们缩短它的训练时间，从而我们还可以比较我们的MoCo无监督预训练模型和有监督预训练模型的效果。
+
+将上述两点结合起来，对于MoCo预训练来说，我们在下游任务上的微调使用的超参数就和监督方式预训练模型使用的超参数一样了。这样就省了我们为不同下游任务寻找不同超参数的烦恼。
+
+**4.2.1 PASCAL VOC object detection**
+
+![7]({{ '/assets/images/MOCO-7.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+
+两个表格用了不同的网络结构，每个表格都是四行，第一行是随机初始化的网络，是baseline，第二行是在ImageNet上使用监督学习的方式进行预训练，第三四行是MoCo预训练方式，使用的分别是ImageNet和Instagram数据集。
+
+之前对end-to-end、memeory bank和MoCo这三种对比学习的方式进行比较是在ImageNet上进行linear classification protocol对比的，这次再在下游任务上比较这三种方式的效果，进一步增强说服力。而且end-to-end和memory bank的非监督预训练模型在下游任务上的效果并没有超过监督学习预训练模型的效果，只有MoCo是真的超越了。
+
+![8]({{ '/assets/images/MOCO-8.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+
+**4.2.2 COCO object detection and segmentation**
+
+![9]({{ '/assets/images/MOCO-9.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+
+进一步在COCO数据集上也进行了detection任务效果的测试。因为COCO数据集很大，不需要预训练也能有很好的效果，所以作者对于不同的模型框架也比较了不同的下游任务训练时长下的效果。MoCo仍然是效果最好的。
+
+而且作者还不辞辛苦的在COCO数据集上的很多下游任务上都进行了测试，MoCo的效果都要比有监督的预训练模型效果好（或者差不多），可见MoCo确实是很有效果的。
+
+![10]({{ '/assets/images/MOCO-10.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+
+作者还提供了一个总结。MoCo在很多下游任务上都要比有监督的预训练模型效果要好，但是在某些任务上MoCo的效果差一点，这些任务是实例分割（instance segmentation）和语义分割（semantic segmentation）的任务上。
+
+>从而有些人怀疑，对比学习是不是不太适合做这种dense prediction的任务（每个像素点都要去预测的任务）的预训练。后续也有了很多基于这个出发点的工作，比如说[Dense Contrastive Learning for Self-Supervised Visual Pre-Training](https://openaccess.thecvf.com/content/CVPR2021/papers/Wang_Dense_Contrastive_Learning_for_Self-Supervised_Visual_Pre-Training_CVPR_2021_paper.pdf)，[Exploring Cross-Image Pixel Contrast for Semantic Segmentation](https://openaccess.thecvf.com/content/ICCV2021/papers/Wang_Exploring_Cross-Image_Pixel_Contrast_for_Semantic_Segmentation_ICCV_2021_paper.pdf)，[Propagate Yourself: Exploring Pixel-Level Consistency for Unsupervised Visual Representation Learning](https://arxiv.org/pdf/2011.10043.pdf)等。
+
+总体来说，MoCo在很多下游视觉任务上，已经将无监督预训练模型和有监督预训练模型之间的差别抹平了。
+
+而且，和NLP里得出的结论一样，如果有更大的数据集，有更大的模型，那么无监督预训练的效果就会更好。这个也符合真实世界里无监督学习的目标。
+
 
 **5. Discussion and Conclusion**
 
 我们提出的无监督表征学习方法在一系列视觉任务上都取得了很好的结果。但有一些开放性的问题值得讨论。首先，当我们使用10亿的数据集而不是ImageNet那个100万的数据集的时候，性能提升是有的，但是比较小。这说明大规模的数据集并没有被很好的利用起来。一个更好的代理任务可能可以解决这个问题。除了这个简单的instance discrimination的代理任务，我们有没有可能将MoCo和其它的代理任务，比如说masked auto-encoding结合起来用呢？比如说NLP里的BERT。MoCo设计的初衷就是去构造一个大的字典，从而让正负样本能够更有效地去对比，提供一个稳定的自监督信号，最后去训练这个模型。
+
 
 
 ## Generative Models
