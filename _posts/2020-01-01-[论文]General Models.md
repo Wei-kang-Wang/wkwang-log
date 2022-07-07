@@ -1056,7 +1056,7 @@ BEIT的模型结构和ViT里的一样。我们使用一个12层的Transformer，
 
 >这篇文章是2021年里CV领域最重要的文章，它打破了自从2012年AlexNet提出以来CNN在CV领域的统治地位，其将一个NLP领域的模型Transformer应用到CV领域，在大规模非监督数据学习的基础上也能取得和CNN甚至超过CNN的预训练效果。而且ViT的出现打破了NLP和CV领域使用不同结构模型的壁垒，从而使得多模态也找到了新的方向。跟随ViT之后的研究层出不穷，已经有几百篇了，有将其拓展到别的任务的，有对模型本身进行改进的，有对模型进行分析的，还有对目标函数或者训练方式进行改进的。ViT开启了CV的一个新时代。现在几乎所有的CV任务，基于ViT的模型都取得了最好的结果，比如ImageNet上的classification就是用传统ViT达到了目前最好的效果，而Swim Transformer（ICCV 2021最佳论文）在COCO数据集上的目标检测任务也达到了最佳效果。而且ViT的模型结构以及特性和CNN有很大的不同，所以是很重要的开创性的工作。
 
-**Abastract**
+**Abstract**
 
 当Transformer架构已经成为NLP任务的标准架构时，Transformer在CV领域的应用仍然没有太大的发展。在视觉领域，attention要么和CNN一起被使用，要么就修改CNN结构里的卷积将其替换为attention机制，但是CNN的整体结构是没有改变的（比如说ResNet有很多层，我们只是将每层里面的卷积操作给替换成自注意力机制，而并没有改变大的模型层次结构）。我们将会表明完全依赖CNN是没有必要的，一个应用在图像patches上的Transformer在image classification任务上就可以表现得很好。当在大量的数据上预训练之后再转移到一些针对具体下游任务的中小型数据集上（比如IamgeNet，CIFAR-100，VTAB等）时，Vision Transformer（ViT）具有和CNN sota相媲美的效果。而且Vision Transformer需要更少的训练资源（但实际上计算量还是很大的）。
 
@@ -1469,7 +1469,7 @@ Facebook的大佬，五个人在Google scholar上的引用量加起来有50万�
 
 假设我们已经有了一个编码好的query $$q$$，以及一系列已经编码好的样本$$\lbrace k_0, k_1, \cdots \rbrace$$（它们就是一个字典的keys）。假设在这个字典里，只有一个key（$$k_{+}$$）是和这个query配对的，也就是说$$q$$和$$k_{+}$$互为正样本对。然后我们就需要设计一个目标函数，这个目标函数应该要满足，当$$q$$和$$k_{+}$$相似的时候，loss值比较低，以及$$q$$和其它的keys的值不相近的时候，loss的值也比较低。我们利用向量之间的内积来表示它们之间的相似性（越大越相似），这篇论文采用了InfoNCE这样一个loss函数：
 
-$$\mathcal L_q = -log \frac{exp(q \dot k_{+} / \tau)}{\Sigma_{i=0}^K exp(q \dot k_i / \tau)} \tag{1}$$
+$$\mathcal L_q = -log \frac{exp(q \cdot k_{+} / \tau)}{\Sigma_{i=0}^K exp(q \cdot k_i / \tau)} \tag{1}$$
 
 其中$$\tau$$是个超参数，用来控制分布形状的（更加peak或者更加平滑）。实际上上述公式和计算softmax的cross entropy loss一模一样，区别只是在于对于cross entropy loss，$$K$$指的是分类的类别数，而对于InfoNCE，$$K$$指的是负样本的个数，也就是字典的大小减1。上述公式1的分母实际上是一个正样本和$$K$$个负样本的和。实际上InfoNCE也就是做一个$$(K+1)$$类的分类任务，将$$q$$分到$$k_{+}$$这个类。
 
