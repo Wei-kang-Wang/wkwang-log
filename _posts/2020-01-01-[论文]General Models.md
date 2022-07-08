@@ -1581,7 +1581,7 @@ for x in loader:            # 从dataloader里取一个mini batch的数据，有
 
 对于后面接的那个现行的分类头的训练，作者做了grid search（也就是找到最好的训练参数），发现最佳的learning rate是30。这是十分离谱的，因为一般来说除了在神经网络搜索，比如说NAS这种工作里之外，大部分的模型的learning rate都不会比1还大。而且这已经是一个预训练好的网络了，现在要做的只是微调，所以learning rate不应该太大。作者认为出现这种现象的原因是因为在ImageNet上通过无监督学习学到的特征分布和有监督学习学到的特征分布是非常不一样的。
 
-**4.1.1 Ablation: contrastive loss mechanisms（使用queue构造大字典的好处）
+**4.1.1 Ablation: contrastive loss mechanisms（使用queue构造大字典的好处）**
 
 我们对比了fig2里提到的三种对比学习的机制的效果：也就是end-to-end，memory bank和MoCo。我们使用了相同的代理任务，并且使用了相同的InfoNCE作为loss function。结果由fig3表示。
 
@@ -1591,7 +1591,7 @@ for x in loader:            # 从dataloader里取一个mini batch的数据，有
 
 受限于显卡内存，end-to-end的方法并不能使用非常大的字典，所以文章里最大只用到了1024。但是memory bank的方法可以使用很大的字典，所以它的曲线延伸了很远，但是效果要比end-to-end以及MoCo的方法都要差，作者认为就是因为字典里特征不一致导致的。可以看到，MoCo和end-to-end的方法在一开始重合度是很高的，但是因为没有实验支持，所以也不知道end-to-end的效果在字典很大的时候是否还能继续保持下去。但至少说明，MoCo是一个既能有很大字典又能有很好效果的方法，它是性能最好、对硬件要求最低、可扩展性也是最好的方法。
 
-**4.1.2 Ablation: momentum（动量带来的好处）
+**4.1.2 Ablation: momentum（动量带来的好处）**
 
 ![5]({{ '/assets/images/MOCO-5.PNG' | relative_url }})
 {: style="width: 800px; max-width: 100%;" class="center"}
@@ -1663,9 +1663,27 @@ for x in loader:            # 从dataloader里取一个mini batch的数据，有
 而且，和NLP里得出的结论一样，如果有更大的数据集，有更大的模型，那么无监督预训练的效果就会更好。这个也符合真实世界里无监督学习的目标。
 
 
+>上述的实验里，4.1部分是linear classification protocol，也就是先在ImageNet上使用文中提到的MoCo方式进行无监督与训练，然后再有监督的训练一个分类头，从而在ImageNet测试集上测试classification任务的效果，而和文中方法对比的方法也就是end-to-end和memory bank的无监督预训练方式。注意到，MoCo的预训练方法最后达到的linear classification准确率其实也就只有60%多，这和利用有监督方法在整个ImageNet上训练，然后测试的效果不能比（现在最好已经到80%多了）。但是这篇文章的目的本身也就不是为了在这个任务上和有监督的方法比，这一节的目的就是为了让MoCo和end-to-end以及memory bank的方法比，从而证明都是无监督对比学习，MoCo的方式是最好的（但肯定比不过有监督学习。但是在4.2里，情况就不一样了。因为对于一些下游任务来说，其数据集可能不够大，比如说在PASCAL VOC数据集上进行的试验，如果是一般的方法，那就是随机初始化模型，然后在PASCAL VOC数据集上进行监督学习，作者证明这样的效果不如先将模型初始化为MoCo在ImageNet上预训练好的模型，然后再在PASCAL VOC数据集上监督学习来的效果好，从而证明了MoCo无监督预训练的有效性。而对于COCO数据集，这个数据集很大，所以如果直接随机初始化，然后再在这个数据集上进行监督学习，和利用MoCo预训练初始化，然后再在COCO数据集上进行监督学习，最后的效果差不多。这就体现不出来MoCo预训练的作用了。所以作者采用了减少在COCO数据集上监督学习时间的操作，作者说，如果使用了MoCo预训练模型，那么即使在COCO数据集上进行很少的几个epoch，就可以达到不错的效果，这样也证明了MoCo预训练模型的作用。
+
+
 **5. Discussion and Conclusion**
 
 我们提出的无监督表征学习方法在一系列视觉任务上都取得了很好的结果。但有一些开放性的问题值得讨论。首先，当我们使用10亿的数据集而不是ImageNet那个100万的数据集的时候，性能提升是有的，但是比较小。这说明大规模的数据集并没有被很好的利用起来。一个更好的代理任务可能可以解决这个问题。除了这个简单的instance discrimination的代理任务，我们有没有可能将MoCo和其它的代理任务，比如说masked auto-encoding结合起来用呢？比如说NLP里的BERT。MoCo设计的初衷就是去构造一个大的字典，从而让正负样本能够更有效地去对比，提供一个稳定的自监督信号，最后去训练这个模型。
+
+
+### 对比学习串烧：对比学习在CV领域的发展历程总结
+
+将具有代表性的工作进行总结，对比学习在CV领域的发展大致可以分为四个阶段：（1）百花齐放：InstDisc（），CPC（），CMC（）。在这个阶段，方法、模型都还没有统一，目标函数也没有统一，代理任务也没有统一，所以说是一个百花齐放的时代。（2）CV双雄：MoCo和SimCLR之间的较量，介绍MoCov1，SimCLRv1，MoCov2，SimCLRv2，以及CPC和CMC的延伸工作，还有SwAV。这个阶段发展非常迅速，这些工作一般都是间隔一到两个月就进行了更新。ImageNet上最好的成绩基本上每个月都在被刷新。（3）不用负样本也可以做对比学习：BYOL（）以及后续的一些改进。最后，SimSiam将上述所有的方法进行了总结，都融入了一个框架之中。SimSiam是使用CNN做对比学习的一个总结性的工作。之后就到了Transformer时代。（4）Transformer：MoCov3和DINO。
+
+>Vision Transformer十分火爆，所以很多人都使用ViT来设计模型。对于无监督学习来说，不管是对比学习，还是掩码学习，现在大家主要都是用ViT来做了。
+
+### 第一阶段
+
+### 1. [InstDisc: Unsupervised Feature Learning via Non-Parametric Instance Discrimination](https://openaccess.thecvf.com/content_cvpr_2018/papers/Wu_Unsupervised_Feature_Learning_CVPR_2018_paper.pdf)
+
+>这篇文章就是MoCo那篇文章里提到的使用memory bank方法的论文，也是MoCo那篇论文里的文献61，被多次提及。这篇工作是mmlab做的，也是大佬作品。
+
+是这篇文章提出了个体判别（instance discrimination）这个代理任务，后续很多论文（包括MoCo）都是使用的这个代理任务。如果说MoCo是个里程碑式的工作，那么InstDisc这篇工作就是巨人的肩膀。除了MoCo还有很多工作，很多实验的细节都是直接根据这篇论文里的实验设置来的。
 
 
 
