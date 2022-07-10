@@ -1673,18 +1673,164 @@ for x in loader:            # 从dataloader里取一个mini batch的数据，有
 
 ### 对比学习串烧：对比学习在CV领域的发展历程总结
 
-将具有代表性的工作进行总结，对比学习在CV领域的发展大致可以分为四个阶段：（1）百花齐放：InstDisc（），CPC（），CMC（）。在这个阶段，方法、模型都还没有统一，目标函数也没有统一，代理任务也没有统一，所以说是一个百花齐放的时代。（2）CV双雄：MoCo和SimCLR之间的较量，介绍MoCov1，SimCLRv1，MoCov2，SimCLRv2，以及CPC和CMC的延伸工作，还有SwAV。这个阶段发展非常迅速，这些工作一般都是间隔一到两个月就进行了更新。ImageNet上最好的成绩基本上每个月都在被刷新。（3）不用负样本也可以做对比学习：BYOL（）以及后续的一些改进。最后，SimSiam将上述所有的方法进行了总结，都融入了一个框架之中。SimSiam是使用CNN做对比学习的一个总结性的工作。之后就到了Transformer时代。（4）Transformer：MoCov3和DINO。
+将具有代表性的工作进行总结，对比学习在CV领域的发展大致可以分为四个阶段：（1）百花齐放：InstDisc（[Unsupervised Feature Learning via Non-Parametric Instance Discrimination](https://openaccess.thecvf.com/content_cvpr_2018/papers/Wu_Unsupervised_Feature_Learning_CVPR_2018_paper.pdf)），CPC（），CMC（）。在这个阶段，方法、模型都还没有统一，目标函数也没有统一，代理任务也没有统一，所以说是一个百花齐放的时代。（2）CV双雄：MoCo和SimCLR之间的较量，介绍MoCov1，SimCLRv1，MoCov2，SimCLRv2，以及CPC和CMC的延伸工作，还有SwAV。这个阶段发展非常迅速，这些工作一般都是间隔一到两个月就进行了更新。ImageNet上最好的成绩基本上每个月都在被刷新。（3）不用负样本也可以做对比学习：BYOL（）以及后续的一些改进。最后，SimSiam将上述所有的方法进行了总结，都融入了一个框架之中。SimSiam是使用CNN做对比学习的一个总结性的工作。（4）之后就到了Transformer时代。Transformer：MoCov3和DINO。
 
 >Vision Transformer十分火爆，所以很多人都使用ViT来设计模型。对于无监督学习来说，不管是对比学习，还是掩码学习，现在大家主要都是用ViT来做了。
 
-### 第一阶段
+#### 第一阶段
 
-### 1. [InstDisc: Unsupervised Feature Learning via Non-Parametric Instance Discrimination](https://openaccess.thecvf.com/content_cvpr_2018/papers/Wu_Unsupervised_Feature_Learning_CVPR_2018_paper.pdf)
+第一阶段将会介绍四篇论文。它们使用的代理任务是不一样的，有个体判别，有生成模型来预测未来的数据，还有多视角多模态的判别。它们使用的目标函数也不是很相同，有NCE，有InfoNCE，还有NCE的其他变体。使用的模型也不一样，比如说InstDisc就使用一个编码器和一个memory bank，而InvaSpread就只使用了一个编码器，CPC使用了一个编码器和一个自回归模型（RNN或者LSTM），CMC就可能会有多个编码器。它们所针对的任务也从音频到图片、文字、强化学习等，非常丰富多彩。所以第一阶段是一个百花齐放的阶段。大概是从2018年到2019年中期。
+
+#### 1. [InstDisc: Unsupervised Feature Learning via Non-Parametric Instance Discrimination](https://openaccess.thecvf.com/content_cvpr_2018/papers/Wu_Unsupervised_Feature_Learning_CVPR_2018_paper.pdf)
+
+*CVPR 2018*
 
 >这篇文章就是MoCo那篇文章里提到的使用memory bank方法的论文，也是MoCo那篇论文里的文献61，被多次提及。这篇工作是mmlab做的，也是大佬作品。
 
 是这篇文章提出了个体判别（instance discrimination）这个代理任务，后续很多论文（包括MoCo）都是使用的这个代理任务。如果说MoCo是个里程碑式的工作，那么InstDisc这篇工作就是巨人的肩膀。除了MoCo还有很多工作，很多实验的细节都是直接根据这篇论文里的实验设置来的。
 
+![instdisc1]({{ '/assets/images/INSTDISC-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 1. 作者提出的方法收到了有监督学习的启发。如果将一张leopard的图片，喂给一个已经用有监督学习方式训练好了的分类器，我们可以发现分类器给出的分类结果，概率大小排名前几的都是和leopard很相关的类别，比如说leopard，jaguar，cheetach，snow leopard等，从图片语义角度来看，这些类别的图片和leopard的图片长的都是很相似的。而概率大小排名靠后的那些类别，比如说lifeboat，shopping cart，bookcase等，都是和leopard没有一点关系的类别。造成这样的结果并不是因为标签语义上相似的原因（因为并没有参杂NLP的内容，所以所有的标签在模型看来应该是同等关系和地位的），只是因为这些类别的图片的appearance就是有很多相似性。作者根据这个观察，提出了个体判别（instance discrimination）这个任务，将按照类别的有监督学习推到了极致：将每一个instance都看成一个类别，也就是每一张图片都是一个类别，而我们的目标就是让模型学习一个特征，将每一张图片都区分开来。*
+
+>这个想法十分自然但又十分合理，因为模型本身就对于每张图片就应该会给出不同的feature embedding，只不过同一个类别的图片的embedding比较接近而已。但作者通过上述实验结果发现，即使是不同的类别的图片，只要其appearance比较接近，那它们的embedding也会比较类似，这样的想法推到极致，就变成了那可以让模型认为每一张图片都是一个类别，这并不影响同一个真实类别的图片的embedding相似这样一个事实。但这样设置就巧妙了不再使用标记的监督信号，从而造就了一个无监督学习的任务：instance discrimination。
+
+>这个fig1画的很好，不仅介绍了研究动机，也一句话介绍了instance discrimination这个代理任务，十分清晰明了。
+
+![instdisc2]({{ '/assets/images/INSTDISC-2.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 2. 介绍了文章使用的方法，也就是pipeline。作者使用一个CNN backbone将每一张输入图片都编码为一个特征，而这些特征在最后的特征空间内，都能尽可能的分开（因为对于instance discrimination这个任务来说，每个图片自成一类，所以每张图片的特征都应该和其它图片的特征尽量的分开）。而训练这个神经网络的方法就是对比学习，从而需要有正样本和负样本。对于instance discrimination这个任务来说，正样本就是经过一些数据增强的这张图片本身，而负样本就是数据集里所有的其他图片。而问题是，如果做对比学习，如此庞大的负样本特征应该如何存储呢？作者提出了使用memory bank的形式，将所有的图片的特征都存到这个memory bank里，也就是一个2D的矩阵，每一行是一个图片的特征。ImageNet一共有128万张图片，从而memory bank就有128万行，从而特征的维度就不能太高，要不然存储的空间就太大了。作者使用的是128维。*
+
+整个的前向过程（forward）如下：比如说batch size使用的是256，而模型是ResNet50。从而最后分类头之前的输出特征是2048维，使用MLP将其降维到128维，再对每个图片的特征做$$L_2$$ normalization，从而得到了一个$$256 \times 128$$的矩阵，这就代表了正样本。而负样本就是从memory bank里随机抽取而来，在这篇论文里作者每次抽取4096个负样本。这样有了正样本和负样本，就可以使用NCEloss来计算loss从而更新网络参数了。一旦网络更新完了之后，就可以将这个mini batch，也就是这256张图片计算出来的特征，在memory bank里进行更新，从而更新memory bank里所存储的图片的特征。然后就是重复这个过程，不断更新模型，更新特征，更新memory bank，从而使得最终学习到的特征具有区分性。
+
+这篇论文里还有很多细节都设计得很巧妙，比如说proximal regularization，因为和正常的classification任务不一样，我们这里每个图片就是一个类，从而每一类就一张图片，会因为采样的问题导致训练有很大的波动，从而作者设计了一个方法，这个方法其实很类似于MoCo里的动量更新的思想，但是MoCo里是使用动量更新模型参数，而这里是使用动量更新feature embedding。假设输入图片是$$x_i$$，网络是$$f_{\theta}$$，特征是$$v_i^{(t)}$$，那么$$v_i^{(t)} = f_{\theta}(x_i)$$。在$$t-1$$时刻的memory bank就是$$V = \lbrace v^{(t-1}} \rbrace$$。然后，对于这个正样本的loss就定义如下：
+
+$$-log h(i, v_i^{(t-1)}) + \lambda \lVert v_i^{(t)} - v_{i-1}^{(t-1)} \rVert_2^2 $$
+
+其中$$h$$表示的是某种NCEloss函数。所以说，就是用$$t-1$$时刻的feature embedding来计算NCEloss，同时又让$$t$$时刻的feature embedding和$$t-1$$时刻的feature embedding不要想差的太远，也就是控制feature embedding的变化程度，从而达到使得训练更加平滑的目的。
+
+效果如fig3所示。
+
+![instdisc3]({{ '/assets/images/INSTDISC-3.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 3. Proximal regularization的效果。原始的没有使用这个方式的训练曲线非常抖动，加了proximal regularization的训练曲线平滑多了。*
+
+除了proximal regularization，文章第四节里的实验设置里的超参数设置，比如说NCEloss里的温度系数，feature embedding的大小，batch size的大小，负样本的个数，learning rate的大小，训练的epoch数量等，都被后来的论文尤其是MoCo沿用了下来，所以说INSTDISC这篇论文是对比学习的里程碑式的工作。
+
+这篇文章提出了instance discrimination这个代理任务，而且将这个代理任务和NCEloss相结合，取得了不错的无监督表征学习的结果。同时他还提出了使用别的数据结构（memory bank来存储负样本，还提出了proximal regularization来用动量的方式对feature embedding进行更新，对后来的对比学习的工作起到了至关重要的推进作用。
+
+
+#### 2. [InvaSpread: Unsupervised embedding learning via invariant and spreading instance feature](https://openaccess.thecvf.com/content_CVPR_2019/papers/Ye_Unsupervised_Embedding_Learning_via_Invariant_and_Spreading_Instance_Feature_CVPR_2019_paper.pdf)
+
+*CVPR 2019*
+
+这篇论文可以被理解为SimCLR的前身。作者提出的方法没有使用额外的数据结构来存储负样本，其负样本就是来自于一个mini batch，而且只使用一个encoder来进行end-to-end的学习。这篇文章提出的方法就是基本的对比学习。
+
+![inva1]({{ '/assets/images/INVA-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 1. 同一张图片经过不同的数据增强之后，经过编码器得到的特征应该很类似，而不同的图片经过编码器之后得到的特征应该差别较大。*
+
+这篇文章的basic idea很简单，对于相似的图片或者物体，其特征应该invariant，对于不同的图片或者物体，其特征应该spreading，就是标题里的两个单词。
+
+具体做法如fig2所示。
+
+![inva2]({{ '/assets/images/INVA-2.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 2. 代理任务上，这篇文章也选取了个体判别这个任务，我们主要来看作者是如何选取正负样本，以及正负样本的个数。来看前向过程。batch size是256，也就是fig2里最左侧上面有256张图片（$$x_1, x_2, \cdots, x_{256}$$）。而经过了数据增强，fig2左侧下面也是256张图片。对于一张图片，比如$$x_1$$来说，其正样本就是经过数据增强后的图片$$\hat x_1$$，负样本就是剩下的所有的图片，包括$$x_2,x_3, \cdots, x_{256}$$，也包括经过了数据增强后的图片$$\hat x_2, \hat x_3, \cdots, \hat x_{256}$$。也就是对于这个mini batch来说，正样本个数是256个，负样本的个数是$$(256-1) \times 2$$。这里就和之前InstDisc那篇论文里的方法不太一样了，这里不从memory bank里取负样本，而是直接从一个mini batch里取负样本，这样做的好处就是可以做end-to-end的训练了，这也就是MoCo那篇文章里所对比的end-to-end的方法。剩下的前向过程和InstDisc里的方法就差不多了，也是使用了NCEloss的一个变体。*
+
+之所以说这篇论文，是因为它属于另一个流派，也就是端到端（end-to-end）的方式，只需要一个编码器，不需要使用外部的数据结构来存储大量的负样本，它的正负样本都来自于同一个mini-batch。然而既然其和SimCLR那么相似，为什么没有取得SimCLR那么好的效果呢？这个原因在MoCo那篇论文里已经提及，就是因为这样的方法需要字典足够的大，也就是做对比学习的时候，负样本最好足够多。而这篇文章所使用的batch size就是256，远比SimCLR里使用TPU的batch size小，而且也没有SimCLR里使用的那么多的数据增强操作。所以这篇文章的结果并没有那么好，所以并没有引起多少关注，但实际上和SimCLR是一样的。
+
+
+#### 3. [CPC: Representation Learning with Contrastive Predictive Coding](https://arxiv.org/pdf/1807.03748.pdf)
+
+[CODE](https://github.com/jefflai108/Contrastive-Predictive-Coding-PyTorch)
+
+*Arxiv 2019*
+
+前两篇论文都是使用个体判别这个任务做的对比学习，而这篇论文使用了不一样方法。一般机器学习就分为判别式模型（discriminative model）和生成式模型（generative model），个体判别这个任务显然是属于判别式模型，而相对应的肯定就会有一些生成式模型的代理任务，就比如这篇文章CPC里所用的predictive coding这个任务。
+
+CPC这篇论文实际上很厉害，它是一个很通用的结构，其可以处理音频、图片、文本以及在强化学习中使用。为了简单起见，fig1里以音频输入作为例子来介绍CPC的结构。
+
+![cpc1]({{ '/assets/images/CPC-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 1. CPC的一个overview。*
+
+CPC这个模型的想法是，我们有一个时序的输入，比如说fig1里的$$\cdots, x_{t-3}, x_{t-2}, x_{t-1}, x_t, x_{t+1}, x_{t+2}, x_{t+3}, x_{t+4}, \cdots$$，$$x_t$$是当前时刻，往前的是之前的时刻的输入，往后的是将来的时刻的输入。我们现在将之前时刻的输入，也就是$$x_t$$（包括$$x_t$$）之前时刻的输入都喂给一个相同的编码器，这个编码器对于不同时刻的输入就会给出对应的特征，再将这些特征序列喂给一个自回归（auto-aggressive）的模型，常见的就是RNN或者LSTM，从而得到每个时刻最终的输出，而时刻$$t$$的输入$$x_t$$对应的最后的输出就是$$C_t$$，context representation，这是代表上下文的一个特征表示。作者认为，如果这个$$C_t$$学习的足够好，也就是其真的有当前以及之前的输入的信息，那它应该可以做出一些合理的预测。所以就应该可以用$$C_t$$来预测未来时刻的编码器的输出，也就是$$x_{t+1}$$往后的输入经过编码器之后得到的输出$$z_{t+1}$$等等。
+
+那对比学习体现在哪里呢？这里的正样本就是未来时刻的输入$$x_{t+1}, x_{t+2}, x_{t+3}, \cdots$$通过编码器得到的未来时刻的输出，$$z_{t+1}, z_{t+2}, z_{t+3}, \cdots$$，而query则是根据$$C_t$$经过某些模型得到的未来时刻的输出的预测。负样本的定义就很广泛，可以任意选取输出，根据这个编码器得到的输出，都可以作为负样本来使用。
+
+CPC里的这套思想是很普适的。将输入换成文本，就相当于每个时刻的输入是一个个的单词，而将输入换成图片，就可以在图片中截取图片patches，就可以利用一部分的图片patches，来预测其它部分的patches。方法非常的灵活。
+
+
+#### 4. [CMC: Contrastive Multiview Coding](https://arxiv.org/pdf/1906.05849.pdf)
+
+*Arxiv 2019*
+
+这篇论文定义正样本的方式就更加广泛了：一个物体的多个模态可以被当作正样本。
+
+人类观察这个世界是通过很多个传感器的，比如说眼睛、耳朵等。这些都充当着不同的传感器来给大脑提供不同的信号，将每个传感器所提供的信息看作一个view。那每个view都是带有噪声的，而且可能是不完整的。但是最重要的那些信息，是在这些views之间共享的，比如说基础的物理定律、几何形状或者说它们的语义信息等。比如说，一只狗，既可以被看到，也可以被听到，也可以被感受到。基于上述想法，作者提出他们想要去学习一个强大的特征，这个特征具有view-invariant的特性。也就是说CMC这篇工作的目的就是要增大不同views之间的mutual information。如果能学习到一个特征，能抓住所有的views里的最关键的信息，那这个特征就非常的好了。
+
+那么CMC是如何选取正样本、负样本来做对比学习的呢？fig1解释了这个过程。
+
+![cmc1]({{ '/assets/images/CMC-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 1. 文中选取的是NYU-RGBD这个数据集。这个数据集对于每个图片有四个view，分别是原始的图片，图片的深度信息（也就是每个点距离相机的距离），surface normal信息和经过物体分割后的图片。CMC认为尽管上述输入是不同的模态，但是其对应的都是同一个场景，它们应该互为正样本，也就是说，当我们有了一个特征空间的时候，同一张图片的四个views得出的四个特征，在这个特征空间里就应该很接近。如果我们在随机挑一张图片的任意一个view，其生成的特征，就应该和这些特征远离。这就是CMC定义正负样本的方式。*
+
+定义好了正负样本之后，剩下的工作就和之前的对比学习工作的操作差不多了。但CMC还有两点值得注意。
+
+首先，CMC是第一个做多视角的对比学习的工作，其不仅证明了对比学习的灵活性，还证明了这种多视角、多模态的可行性。所以接下来，OpenAI很快做出了CLIP（[Learning Transferable Visual Models From Natural Language Supervision](https://arxiv.org/pdf/2103.00020.pdf)），也就是说如果有一张图片，还有一个描述这张图片内容的文本，那么这张图片和这个文本就可以当作一个正样本对，就可以来做多模态的对比学习。同时，CMC这篇文章的作者，利用对比学习的思想，做了一篇蒸馏的工作，它们的主要想法是，对于不同的网络，不管网络是大是小，是什么形式的，只要输入的是同一张图片，它们的输出特征就应该尽可能的类似，也就是teacher模型的输出和student模型的输出对于同一张图片来说尽可能的类似。通过这种方式，将teacher模型和student模型对于同一张图片的输出特征作为一个正样本对，从而可以去做对比学习（ICLR2020的文章，[Contrastive representation distillation](https://arxiv.org/pdf/1910.10699.pdf)）。CMC这篇论文让人们意识到了对比学习的灵活性。
+
+其次就是，CMC的最大的一个局限性就是，对于不同的模态，不同的视角，我们可能需要不一样的编码器，因为输入的形式可能非常的不一样。这就可能导致，你使用几个视角，就得使用几个编码器。在训练的时候，计算代价就有点高。比如说在CLIP这篇论文里，它的文本端就使用了一个类似于BERT的Transformer，而图片端就使用了一个ViT，也就是需要两个编码器。但是Transformer有个很大的好处，其是有可能能够处理多模态的数据的。现在已经有人这么做了，ICLR 2022的一篇文章MA CLIP（[MA-CLIP: Towards Modality-Agnostic Contrastive Language-Image Pre-training](https://openreview.net/forum?id=ROteIE-4A6W)）就使用一个Transformer同时处理两个输入模态。这可能才是Transformer最吸引人的地方，就是一个网络可以处理很多模态的数据，而不用对网络和数据做多少操作。
+
+
+#### 第二阶段
+
+从2019年中到2020年中。而这一阶段所要讲的就是MoCo和SimCLR。
+
+#### 1. [MoCov1: Momentum Contrast for Unsupervised Visual Representation Learning](https://openaccess.thecvf.com/content_CVPR_2020/papers/He_Momentum_Contrast_for_Unsupervised_Visual_Representation_Learning_CVPR_2020_paper.pdf)
+
+*CVPR 2020 Best Paper Candidate*
+
+我们已经精读过了这篇论文，所以这里就主要介绍一下和其他论文的区别与联系。MoCo或者叫做MoCov1主要就是将所有的对比学习的问题都归纳为了一个字典查询的问题。它提出了两个主要的内容，一个是使用队列表示字典，另一个是使用动量的方式更新编码器参数，从而去构造一个又大又一致的字典，从而帮助更好的对比学习。
+
+MoCo和InstDisc是非常类似的，其就是使用队列来取代memory bank，作为一个额外的数据结构来存储这些负样本。用动量编码器（momentum encoder）去取代了InstDisc论文里loss里的proximal regularization，从而能达到动量的更新编码器的目的，而不是动量的去更新编码器所学习到的特征，从而能得到更好的结果。但是整体的出发点，包括实现的细节都是十分类似的。MoCo这篇论文使用的也是ResNet50作为模型框架，也是使用了0.07的温度参数，图片的特征维度也是设定为128维，也使用了$$L_2$$ normalization，这都是和InstDisc一样的。只不过MoCo使用了InfoNCE，而InstDisc使用的是NCE作为目标函数。而且MoCo里的数据增强方式也和InstDisc一样，训练200个epoch，初始learning rate是0.03都和InstDisc保持一致。所以说也可以认为MoCo是InstDisc的改进工作。
+
+但是MoCo真正出色的地方有两点。首先，它的改进真的是简单有效，而且影响了后续一系列的工作。比如说动量编码器，在后续的SimCLR，BYOL，一直到最新的对比学习的工作都还在使用。说明它的改进是深刻而又有效的，不仅帮助MoCo在无监督预训练模型上的下游任务里超过了有监督预训练模型，对于后续的工作也是影响巨大。另一个就是MoCo的写作方式。一种普通的写作方式就是在introduction里介绍对比学习是什么，然后已经有了哪些工作，比如说有end-to-end的方法，有InstDisc这种使用memory bank的方法，然后介绍它们各自的缺点和局限性。从而这篇文章提出MoCo，用队列去解决字典大小的问题，用动量编码器去解决字典里特征不一致的问题。最后通过实验证明效果很好，第一次用一个无监督训练的模型在下游任务上的效果要比有监督预训练模型的效果好。上述这种写法也是一种直接明了的写作方式，大部分论文的写作都是按照这个套路来的。但是MoCo的作者的写作水平明显就高了一个层次。上来先介绍CV和NLP之间的区别，然后说明为什么无监督学习在CV这边做的并不好。第二段再说对比学习，但也并不是像上面那样详细的介绍之前的对比学习的方法，而是将对比学习解释为了一个字典查找的问题，将问题给归纳升华了。然后在CV和NLP大一统的框架下，在所有对比学习方法都大一统的框架下，作者提出了MoCo这样一个方法。希望能用一个又大又一致的字典，去整体提高对比学习的性能。从而一下提高了论文的写作的格局，这远不是之前那种写作方式可以比的。而且在introduction里的写作风格还延续到了第三节的method里。作者并没有一上来就给出一个模型总览图，也没有具体说MoCo的模型是什么，代理任务是什么，而是先从最后的目标函数入手，定义了正负样本，然后再去解释网络结构，再利用伪代码来介绍算法。而且在3.1里，为了让模型更加普适，作者并没定义输入是什么，也没有定义网络结构是什么样的，也就是说，什么样的输入都可以，它可以是图片，可以是图片patches，也可以是具有上下文信息的图片patches，而图片patches则是对应了CPC这篇论文。而query和key的编码器既可以是相同的，可以是部分共享的，也可以是完全不同的，相同的就对应了InvaSpread那篇论文，而完全不同的就对应了CMC那篇论文。所以说MoCo这种自顶向下的写作方式也是非常值得借鉴的。但这需要有极强的功力，写得不好的话，就很难让读者看懂了。
+
+
+#### 2. [SimCLRv1: A Simple Framework for Contrastive Learning of Visual Representations](http://proceedings.mlr.press/v119/chen20j/chen20j.pdf)
+
+*ICML 2020*
+
+*Ting Chen, Simon Kornblith, Mohammad Norouzi, Geoffrey Hinton*
+
+这是Hinton指导的，在Google做的论文。这个方法如标题所示，真的非常简单，概念简单，方法简单，只不过需要很大的batch size，从而不是很好上手。
+
+![simclr1]({{ '/assets/images/SIMCLR-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 1. 输入是一个mini batch的图片，$$\pmb x$$，对这个mini batch里所有的图片做数据增强，从而得到$$\pmb x_i$$和$$\pmb x_j$$。同一张图片经过不同的数据增强得到的图片就是正样本，而不同的图片就是负样本。从而如果batch size是$$N$$，那么正样本的个数是$$N$$，负样本就是经过这两次数据增强后的除了这张图片以外的所有的图片，也就是$$2(N-1)$$张。这和InvaSpread里的一样，只不过InvaSpread里是原图片和经过一次数据增强后的图片，这里没有再用原图片。再有了正负样本之后，就使用编码器$$f$$进行编码，这里的$$f$$是共用的。如果这个$$f$$是ResNet50的话，那这里的$$\pmb h$$就是2048维的。SimCLR的一个重大的创新点是在$$\pmb h$$后又加了一个projector，也就是一层MLP，也就是一个全连接层加上一个ReLU。但是就是这么一个简单的MLP，使得其在ImageNet的分类任务上直接提升了10%，这样的效果在别的无监督学习方法或者有监督学习方法里很难观察到的。很少有加上一个MLP就提升了10%的效果的。所以说这是一个非常有趣也非常惊讶的结果。一般来说，$$z$$的维度会比$$h$$要小一点，为了和之前的工作保持一致性，这篇文章里也将$$z$$设置为128维。最后在$$z$$上进行对比学习，它们使用的是normalized temperature scaled的交叉熵函数作为目标函数。normalized的意思就是将$$z$$进行了$$l_2$$归一化，temperature scaled就是加了温度系数$$\tau$$，所以说这里的目标函数和NCE loss也是很相似的。这个projection head，$$g$$只有在训练的时候才会被使用，在做下游任务的时候，就不需要$$g$$了，而是使用$$h$$来做下游任务。这样就能够和之前的工作进行公平的对比，因为我们并没有新增层数，还是用的ResNet50，而新增的$$g$$只是为了让预训练效果更好。*
+
+>注意，在MoCo还有InstDisc，InvaSpread等工作里，是将ResNet的global average pooling层的输出取出，这层的输出是2048维，然后加了一个$$nn.Linear$$层，将其降维为$$128$$维，然后做的后续操作。注意$$nn.Linear$$层只是对于输入$$x$$做一个$$xA +b$$的操作，并没有ReLU等非线性操作。而对于这篇文章的projection head $$g$$，同样也是对于ResNet的global average pooling输出，加上了一个带有一个隐层的MLP，也就是$$g$$，如果$$g$$的输入是$$x$$的话，那输出就是$$W_2(\sigma(W_1 x))$$，这里$$\sigma$$表示的是非线性函数，比如说ReLU。注意这里是有很大区别的，这也是SimCLR这篇文章说的一个很大的创新点。
+
+SimCLR确实是很简单，和MoCo比起来，这里只有一个编码器，既不需要memory bank，也不需要queue，也不需要动量编码器，正负样本也都是从同一个mini batch里来的。整个前向过程非常直接，就是图片进入编码器编码，然后projector降维，最后算一个对比学习的loss。非常符合大家对深度学习这个工作的期待。
+
+InvaSpread可以看作是SimCLR的前身。整体的思路和结构是很相似的。而SimCLR和InvaSpread的区别也写在了文章的贡献列表里了。首先，SimCLR用了更多的数据增强，它们说对比学习需要很强的数据增强技术。第二个，就是他们加了一个projection head，$$g$$函数，一个可以学习的非线性变换（带有一个隐层的MLP）。最后，就是他们用了更大的batch size，而且训练的时间更久。
+
+作者也说了，文中提到的技术或多或少都在以前的工作里出现过，作者说本文的方法就是将这些方法结合，但是确实达到了很好的效果。而且在附录里做了大量的消融实验，从而证明每个模块都是不可或缺的。但实际上因为SimCLR确实好用，其方法对后续的工作产生了长远的影响，比如说MoCov2，BYOL里也在编码器之后加上了这样一个projection head。并且本文里提到的数据增强的操作，在后续文章里也被广泛的使用。以及文章里使用的lars这个优化器去做大batch size的训练，之后的BYOL也采用了同样的策略。总之，SimCLR十分简单，但却也为后续的很多研究铺平了道路。
+
+我们来看一下SimLCR里的数据增强。
+
+![simclr2]({{ '/assets/images/SIMCLR-2.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 2. 各种图像增强方法。*
+
+我们再来看一下projection head的影响。
+
+![simclr3]({{ '/assets/images/SIMCLR-3.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*Fig 3. 这里，蓝色表示的是和InstDisc，MoCo，InvaSpread等论文里一样的方法，也就是对于ResNet的global average pooling层的2048维的输出，进行一个nn.Linear操作，也就是一个linear projection。红色表示的是本文里用的方法，也就是对于ResNet的global average pooling层的2048维的输出，进行一个带有一个隐层的MLP的计算，也就是$$W_2(\sigma(W_1 x))$$。而绿色表示的是直接将ResNet的global average pooling层的2048维的输出拿来做计算。*
+
+从fig3可以得出两个结论。第一，加上了projection之后效果会增强很多，而nonlinear projection（本文里的做法）要比InstDisc等文章里用的linear projection的做法效果还要好。第二，projection的维度对结果的影响并不明显。
 
 
 ## Generative Models
