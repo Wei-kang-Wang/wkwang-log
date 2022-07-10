@@ -1703,7 +1703,7 @@ for x in loader:            # 从dataloader里取一个mini batch的数据，有
 
 整个的前向过程（forward）如下：比如说batch size使用的是256，而模型是ResNet50。从而最后分类头之前的输出特征是2048维，使用MLP将其降维到128维，再对每个图片的特征做$$L_2$$ normalization，从而得到了一个$$256 \times 128$$的矩阵，这就代表了正样本。而负样本就是从memory bank里随机抽取而来，在这篇论文里作者每次抽取4096个负样本。这样有了正样本和负样本，就可以使用NCEloss来计算loss从而更新网络参数了。一旦网络更新完了之后，就可以将这个mini batch，也就是这256张图片计算出来的特征，在memory bank里进行更新，从而更新memory bank里所存储的图片的特征。然后就是重复这个过程，不断更新模型，更新特征，更新memory bank，从而使得最终学习到的特征具有区分性。
 
-这篇论文里还有很多细节都设计得很巧妙，比如说proximal regularization，因为和正常的classification任务不一样，我们这里每个图片就是一个类，从而每一类就一张图片，会因为采样的问题导致训练有很大的波动，从而作者设计了一个方法，这个方法其实很类似于MoCo里的动量更新的思想，但是MoCo里是使用动量更新模型参数，而这里是使用动量更新feature embedding。假设输入图片是$$x_i$$，网络是$$f_{\theta}$$，特征是$$v_i^{(t)}$$，那么$$v_i^{(t)} = f_{\theta}(x_i)$$。在$$t-1$$时刻的memory bank就是$$V = \lbrace v^{(t-1}} \rbrace$$。然后，对于这个正样本的loss就定义如下：
+这篇论文里还有很多细节都设计得很巧妙，比如说proximal regularization，因为和正常的classification任务不一样，我们这里每个图片就是一个类，从而每一类就一张图片，会因为采样的问题导致训练有很大的波动，从而作者设计了一个方法，这个方法其实很类似于MoCo里的动量更新的思想，但是MoCo里是使用动量更新模型参数，而这里是使用动量更新feature embedding。假设输入图片是$$x_i$$，网络是$$f_{\theta}$$，特征是$$v_i^{(t)}$$，那么$$v_i^{(t)} = f_{\theta}(x_i)$$。在$$t-1$$时刻的memory bank就是$$V = \lbrace v^{(t-1)} \rbrace$$。然后，对于这个正样本的loss就定义如下：
 
 $$-log h(i, v_i^{(t-1)}) + \lambda \lVert v_i^{(t)} - v_{i-1}^{(t-1)} \rVert_2^2 $$
 
