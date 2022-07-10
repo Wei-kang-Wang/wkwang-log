@@ -1673,7 +1673,7 @@ for x in loader:            # 从dataloader里取一个mini batch的数据，有
 
 ### 对比学习串烧：对比学习在CV领域的发展历程总结
 
-将具有代表性的工作进行总结，对比学习在CV领域的发展大致可以分为四个阶段：（1）百花齐放：InstDisc，CPC，CMC，MoCo。在这个阶段，方法、模型都还没有统一，目标函数也没有统一，代理任务也没有统一，所以说是一个百花齐放的时代。（2）CV双雄：MoCo和SimCLR之间的较量，介绍MoCov1，SimCLRv1，MoCov2，SimCLRv2，以及CPC和CMC的延伸工作，还有SwAV。这个阶段发展非常迅速，这些工作一般都是间隔一到两个月就进行了更新。ImageNet上最好的成绩基本上每个月都在被刷新。（3）不用负样本也可以做对比学习：BYOL以及后续的一些改进。最后，SimSiam将上述所有的方法进行了总结，都融入了一个框架之中。SimSiam是使用CNN做对比学习的一个总结性的工作。（4）之后就到了Transformer时代。Transformer：MoCov3和DINO。
+将具有代表性的工作进行总结，对比学习在CV领域的发展大致可以分为四个阶段：（1）百花齐放：InstDisc，InvaSpread，CPC，CMC。在这个阶段，方法、模型都还没有统一，目标函数也没有统一，代理任务也没有统一，所以说是一个百花齐放的时代。（2）CV双雄：MoCo和SimCLR之间的较量，介绍MoCov1，SimCLRv1，MoCov2，SimCLRv2，以及CPC和CMC的延伸工作，还有SwAV。这个阶段发展非常迅速，这些工作一般都是间隔一到两个月就进行了更新。ImageNet上最好的成绩基本上每个月都在被刷新。（3）不用负样本也可以做对比学习：BYOL以及后续的一些改进。最后，SimSiam将上述所有的方法进行了总结，都融入了一个框架之中。SimSiam是使用CNN做对比学习的一个总结性的工作。（4）之后就到了Transformer时代。Transformer：MoCov3和DINO。
 
 >Vision Transformer十分火爆，所以很多人都使用ViT来设计模型。对于无监督学习来说，不管是对比学习，还是掩码学习，现在大家主要都是用ViT来做了。
 
