@@ -1673,7 +1673,7 @@ for x in loader:            # 从dataloader里取一个mini batch的数据，有
 
 ### 对比学习串烧：对比学习在CV领域的发展历程总结
 
-将具有代表性的工作进行总结，对比学习在CV领域的发展大致可以分为四个阶段：（1）百花齐放：InstDisc（[Unsupervised Feature Learning via Non-Parametric Instance Discrimination](https://openaccess.thecvf.com/content_cvpr_2018/papers/Wu_Unsupervised_Feature_Learning_CVPR_2018_paper.pdf)），CPC（），CMC（）。在这个阶段，方法、模型都还没有统一，目标函数也没有统一，代理任务也没有统一，所以说是一个百花齐放的时代。（2）CV双雄：MoCo和SimCLR之间的较量，介绍MoCov1，SimCLRv1，MoCov2，SimCLRv2，以及CPC和CMC的延伸工作，还有SwAV。这个阶段发展非常迅速，这些工作一般都是间隔一到两个月就进行了更新。ImageNet上最好的成绩基本上每个月都在被刷新。（3）不用负样本也可以做对比学习：BYOL（）以及后续的一些改进。最后，SimSiam将上述所有的方法进行了总结，都融入了一个框架之中。SimSiam是使用CNN做对比学习的一个总结性的工作。（4）之后就到了Transformer时代。Transformer：MoCov3和DINO。
+将具有代表性的工作进行总结，对比学习在CV领域的发展大致可以分为四个阶段：（1）百花齐放：InstDisc，CPC，CMC，MoCo。在这个阶段，方法、模型都还没有统一，目标函数也没有统一，代理任务也没有统一，所以说是一个百花齐放的时代。（2）CV双雄：MoCo和SimCLR之间的较量，介绍MoCov1，SimCLRv1，MoCov2，SimCLRv2，以及CPC和CMC的延伸工作，还有SwAV。这个阶段发展非常迅速，这些工作一般都是间隔一到两个月就进行了更新。ImageNet上最好的成绩基本上每个月都在被刷新。（3）不用负样本也可以做对比学习：BYOL以及后续的一些改进。最后，SimSiam将上述所有的方法进行了总结，都融入了一个框架之中。SimSiam是使用CNN做对比学习的一个总结性的工作。（4）之后就到了Transformer时代。Transformer：MoCov3和DINO。
 
 >Vision Transformer十分火爆，所以很多人都使用ViT来设计模型。对于无监督学习来说，不管是对比学习，还是掩码学习，现在大家主要都是用ViT来做了。
 
@@ -1785,7 +1785,9 @@ CPC里的这套思想是很普适的。将输入换成文本，就相当于每�
 
 #### 第二阶段
 
-从2019年中到2020年中。而这一阶段所要讲的就是MoCo和SimCLR。
+从2019年中到2020年中。而这一阶段所要讲的就是MoCo和SimCLR。因为MoCo和SimCLR的效果很好，所以这段时间Arxiv每个月都有关于对比学习的论文。这股潮流直到2020年底Vision Transformer的提出才消褪。
+
+到了第二阶段，不同的论文里很多的细节都趋于统一了，比如说目标函数基本就是infoNCE了，而模型也都是一个编码器（ResNet50或者更大的）后面加上一个projection head，大家也都采用了更强的数据增强，也都想用动量编码器，也都尝试去训练更久。最后在ImageNet上的准确率也逐渐逼近有监督学习的baseline模型。
 
 #### 1. [MoCov1: Momentum Contrast for Unsupervised Visual Representation Learning](https://openaccess.thecvf.com/content_CVPR_2020/papers/He_Momentum_Contrast_for_Unsupervised_Visual_Representation_Learning_CVPR_2020_paper.pdf)
 
@@ -1831,6 +1833,93 @@ InvaSpread可以看作是SimCLR的前身。整体的思路和结构是很相似�
 *Fig 3. 这里，蓝色表示的是和InstDisc，MoCo，InvaSpread等论文里一样的方法，也就是对于ResNet的global average pooling层的2048维的输出，进行一个nn.Linear操作，也就是一个linear projection。红色表示的是本文里用的方法，也就是对于ResNet的global average pooling层的2048维的输出，进行一个带有一个隐层的MLP的计算，也就是$$W_2(\sigma(W_1 x))$$。而绿色表示的是直接将ResNet的global average pooling层的2048维的输出拿来做计算。*
 
 从fig3可以得出两个结论。第一，加上了projection之后效果会增强很多，而nonlinear projection（本文里的做法）要比InstDisc等文章里用的linear projection的做法效果还要好。第二，projection的维度对结果的影响并不明显。
+
+
+#### 3. [MoCov2: Improved Baselines with Momentum Contrastive Learning](https://arxiv.org/pdf/2003.04297.pdf))
+
+MoCov2实际上只有两页，只能算作一片技术报告，而不是一篇论文了。但是即使只有两页，仍然传达了相当大的信息量。
+
+作者在看到SimCLRv1的效果很好，并且发现SimCLR提出的方法都可以很简便的拿来用在MoCo上之后，就在MoCov1的基础上加上了projection head和更多的数据增强操作，从而大幅超过了MoCov1的效果，也超过了SimCLRv1的效果。
+
+>SimCLRv1是2月13日放在Arxiv上，而MoCov2是3月9号放到Arxiv上的。效率十分惊人。
+
+MoCov2相对于MoCov1的改进由table1进行了总结：
+
+![mocov21]({{ '/assets/images/MOCOV2-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+
+一共改动了四块内容：加了projection head，也就是nonlinear projection；做了更多的数据增强；使用cosine learning rate schedule调整learning rate；使用了更多的epoch。
+
+最后这个epoch很有意思。不仅是MoCov2，SimCLR以及最近的MAE也都是，训练的时间越久，效果就越好。这似乎是很多无监督学习模型的一个特性。
+
+作者最后还是说，相对于SimCLR来说，MoCo的最大优势就是硬件要求低，只需要在一台八张V100的机器上训练1-2天就能得到表中的结果，而SimCLR要获得类似的结果需要付出更大的硬件代价以及时间更久。
+
+
+#### 4. [SimCLRv2: Big Self-supervised Models are Strong Semi-Supervised Learners]()
+
+这篇文章的重点并不在于SimCLR的改进，而是提出一种新的学习模式，也就是先使用自监督学习的方法来学习一个模型，再利用很小一部分有标签的数据对模型进行微调，再微调之后再利用这个学习好的模型对很多无标签的数据生成伪标签，从而就可以在另一个模型上进行自监督学习了。
+
+作者只是在第3页提到了如何改进之前的SimCLRv1模型。做了如下三点改进：
+
+* 有一个公认的事实就是无监督学习利用更大的模型效果就会更好，于是作者将之前的ResNet50换成了ResNet-152，从而这个backbone网络变得很强。
+* 加深了之前的nonlinear projection，也就是projection head，将之前的linear + relu + linear加深成了linear + relu + lineaer + relu + linear，也就是有两个隐层。作者也做了更多的实验加深更多的层数，发现两层就足够了，再加深也不会有什么改变。
+* 也使用了MoCo里的动量编码器。但实际上只提升了一个点。作者解释道因为他们已经使用了非常大的mini batch了，比如说8192，已经有非常多的负样本了。
+
+>但是这里很奇怪，MoCo之所以使用动量编码器，是因为不想使用很大的mini-batch又想尽量使得更新不同样本的编码器尽量相同的无奈之举。但实际上在SimCLR里，它们直接使用一个编码器每次提取所有的负样本的特征，这些负样本的特征是100%一致的，因为压根就是同一个编码器提取出来的，所以说还有什么必要使用动量编码器呢？即使每次更新很慢，造成的结果只是每次计算loss的时候，负样本的特征都差不多，但MoCo实际上并不关心次与次之间的负样本是不是一致，它只关心每次更新所有的负样本是否一致。
+
+但是SimCLRv1和SimCLRv2都只做了分类的任务，但是MoCo在下游很多任务上都做了测试，而且还尝试了很多的数据集。所以MoCo系列的工作就更加CV friendly，所以他们投的都是CV的会议。而SimCLRv1投的是ICML，SimCLRv2投的是Neurips。所以说选中会议很很重要。
+
+
+#### 5. [SwAV: Unsupervised Learning of Visual Features by Contrastive Cluster Assignments](https://proceedings.neurips.cc/paper/2020/file/70feb62b69f16e0238f741fab228fec2-Paper.pdf)
+
+*Neurips 2020*
+
+SwAV的全称呼是swaped assignment views，意思就是给定一张图片，如果能生成不同视角（views），那希望能通过一个视角得到的特征，来预测另外一个视角得到的特征，因为所有这些视角得到的特征，按道理来说都应该是很接近的。
+
+这篇文章就是将对比学习和聚类结合到了一起。聚类本身也是一种无监督的特征学习方式，而且其也是希望相似的物体在聚类中心附近，而不相似的物体尽量推开，推到别的聚类中心。所以聚类本身和对比学习的目标以及做法都比较接近。
+
+fig1解释了SwAV是如何将对比学习和聚类方法结合起来的。
+
+![swav1]({{ '/assets/images/SWAV-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*fig 1. 左侧是对比学习的方法，右侧是SwAV的方法。左侧的方法已经很了解了，同一张图片$$x$$，做两次数据增强得到了$$x_1,x_2$$，然后通过一个编码器得到了$$z_1,z_2$$，再利用某种对比学习loss来计算相似性。而SwAV的想法是，直接将样本通过编码器得到的特征进行比较，这个方法太原始而且浪费资源了。即使是MoCo，他也只是使用了6万多个负样本，而并没有使用全部的128万个负样本，所以这还是个近似。SwAV想法是能否不近似呢，而且能否不直接与所有的负样本进行比较呢？SwAV提出，与其和所有的负样本比，比如和一些具有代表性的负样本比，也就是和聚类的中心比。聚类中心就是右图里的$$C$$，它实际上是个矩阵，维度是$$D \times K$$，其中$$D$$是特征维度，和$$z$$一样，也就是128维，而$$K$$是聚类中心的个数，取的是3000，这是之前很多聚类的论文里用的超参数。来看一下SwAV的前向过程。前面部分还是一样的，输入是$$x$$，经过两种数据增强之后，再经过编码器，得到了特征$$z_1,z_2$$。但现在不直接比较$$z_1,z_2$$来计算contrastive loss。相同的，我们还是认为$$z_1,z_2$$应该是相似的。但这个时候，我们使用聚类的方法，用$$z_1$$和$$C$$生成一个目标$$Q_1$$，用$$z_2$$和$$C$$生成一个目标$$Q_2$$，$$Q_1, Q_2$$就相当于ground truth，它们的大小为$$B \times K$$。而它的代理任务是，如果$$z_1,z_2$$很相似，那它们应该是可以互相去做预测的。所以说利用$$z_1$$点乘$$C$$应该可以去预测$$Q_2$$，反之亦然。所以说点乘之后的结果就是预测，而ground truth就是之前按照clustering分类而得到的$$Q_1,Q_2$$。所以通过以上这种换位预测（swapped prediction）的方式，SwAV可以对这个模型进行训练。*
+
+使用这种方法的好处有哪些呢？
+* 首先，正如这篇论文里所说，如果要使用负样本的话，就需要使用成千上万个负样本，而且即使如此，也只是一个近似。但如果现在去和聚类中心进行对比，只需要几百或者几千个聚类中心就足以表示所有的负样本了。因为原本数据集就没有那么多个类，ImageNet才1000类，COCO就80个类，所以说文中所用的3000个聚类中心足够用了。但是3000相对于MoCo里用的好几万的负样本来说，数量还是小了很多的。
+* 其次，这些聚类中心是可以有明确的语义的，而之前的方法都是抽样的负样本，这样找到的负样本可能含有正样本，或者说样本类比也不均衡。所以不如使用聚类中心有效。
+
+>对聚类方法感兴趣，可以看这篇论文一作的另一篇聚类的文章deep cluster（[Deep Clustering for Unsupervised Learning of Visual Features](https://openaccess.thecvf.com/content_ECCV_2018/papers/Mathilde_Caron_Deep_Clustering_for_ECCV_2018_paper.pdf)）。
+
+来看看SwAV的效果。SwAV的效果非常好，不仅比MoCov1，MoCov2，SimCLRv1，SimCLRv2，InstDisc，CMC，CPC的效果都要好，而且比之后要说的BYOL，SimSiam的效果也要好。它实际上是目前使用ResNet50做backbone的工作里分最高的，75.3%。而比较的任务还是ImageNet上的linear classification，也就是预训练好之后，模型就冻住，只训练全连接层来做classification。
+
+![swav2]({{ '/assets/images/SWAV-2.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*fig 2.*
+
+fig2显示了效果。在对比学习出来之前，无监督学习效果都不到60%。在MoCo提出之后，后续的对比学习方法逐渐分数开始提高。但SwAV还是要比他们都要好。而且和有监督的baseline的76.5%的准确率差不了多少了。而且这个有监督的baseline是从头到尾都在ImageNet上训练，最后在测试集上测试结果的，而我们的SwAV在测试结果的时候模型参数是冻住的，都没有再微调。
+
+SwAV的效果这么好，另一个重点是它使用了一个非常有用的trick：增加正样本的数量。原先的方法都是每张图片只有一个正样本，也就是说，对于一张$$224 \times 224$$的图片，先将其resize到$$256 \times 256$$，然后再随机crop两个$$224 \times 224$$的图片，这样两个图片是很大的，所以有很多的重合部分，而且也都基本包含了图片的全部信息。作者认为，这样的操作只能让模型学习到图片的全局信息，如果想学习到局部信息，那就需要一些小一点的crop。而且作者还希望能增加模型的正样本的数量，但又不希望增加模型的复杂度，所以他们最后的做法是，将在resize之后的图片上，crop两个$$160 \times 160$$的图片，再crop四个$$96 \times 96$$的图片，这样就有了6张图片了。作者认为那两张大的图片应该掌握了图片的全局信息，而小的crops则应该掌握更多的局部信息。
+
+作者之后做了实验，发现这种multi-crop的方法很有用，除了对于监督学习来说效果变差以外，对于其它的无监督对比学习方法，比如说SimCLR等，正确率都有较大的增长。而且对于聚类的无监督学习方法，比如说deepCluster，multi-crop带来的提升就更大了。
+
+所以说，如果去掉multi-crop这个技术，那实际上SwAV的效果和MoCov2的效果就差不多了，所以说使用聚类加上对比学习和仅仅使用对比学习的效果是差不多的，而multi-crop这个技术带来了很大的提升。所以后续很多工作实际上借鉴了multi-crop这个技术，而并没有过多关注SwAV这篇论文用到的方法。
+
+
+#### 6. [CPCv2: Data-Efficient Image Recognition with Contrastive Predictive Coding](https://arxiv.org/pdf/1905.09272v3.pdf)
+
+也是融合了很多的技巧，用了更大的模型，用了更大的图像块，做了更多方向上的下游任务，将batch norm换成了layer norm，还使用了更多的数据增强。直接将CPCv1在ImageNet上的40%的结果提升到了70%多，就和之前所说的其他方法都差不多了。
+
+
+#### 7. [CMCv2: What Makes for Good Views for Contrastive Learning?](https://arxiv.org/pdf/2005.10243.pdf)
+
+[CODE](https://hobbitlong.github.io/InfoMin/)
+
+也叫做InfoMin。做的是一种分析性的工作。文章主要提出一个InfoMin的原则，最小化互信息，minimal mutual information。这看似和之前的方法的想法相反，因为之前都是想尽量最大化两个views之间的mutual information。作者的实际意思是，mutual information不能太大也不能太小，一味的太大会导致模型泛化效果不好，所以文章的重点在于如何找到一个合适的mutual information。作者按照InfoMin的原则，使用合适的数据增强，和合适的views之后，作者发现对于很多对比学习的方法效果都有提升。他们最后的结果在ImageNet上的正确率也有73%，也是很不错的。
+
+
+#### 第三阶段
+
+讲一下不同负样本的对比学习。
 
 
 ## Generative Models
