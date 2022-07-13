@@ -76,8 +76,7 @@ tags: paper-reading
 *CVPR 2022*
 
 
-### 11. [Human Mesh Recovery from Multiple Shots
-](https://openaccess.thecvf.com/content/CVPR2022/papers/Pavlakos_Human_Mesh_Recovery_From_Multiple_Shots_CVPR_2022_paper.pdf)
+### 11. [Human Mesh Recovery from Multiple Shots](https://openaccess.thecvf.com/content/CVPR2022/papers/Pavlakos_Human_Mesh_Recovery_From_Multiple_Shots_CVPR_2022_paper.pdf)
 
 *CVPR 2022*
 
