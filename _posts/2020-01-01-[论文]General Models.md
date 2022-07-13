@@ -2002,6 +2002,12 @@ This paper proposes a very novel idea and model, thus it elaborates the details 
 If you are confident that your work is novel and very important, you can use this kind of writing style. Otherwise, you need to describe clearly the existing works and your contribution to this problem.
 
 
+### 2. [Auto-Encoding Variational Bayes](https://openreview.net/forum?id=33X9fd2-9FyZd)
+
+*ICLR 2014*
+
+
+
 
 ---
 
