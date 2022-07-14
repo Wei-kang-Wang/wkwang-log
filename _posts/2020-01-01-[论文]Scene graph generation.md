@@ -18,7 +18,7 @@ tags: paper-reading
 ---
 
 
-### 1. [Learning Physical Graph Representations from Visual Scenes](https://neuroailab.github.io/physical-scene-graphs/)
+### 1. [Learning Physical Graph Representations from Visual Scenes](https://arxiv.org/pdf/2006.12373.pdf)
 
 [POST](https://neuroailab.github.io/physical-scene-graphs/)
 
@@ -83,7 +83,13 @@ graph construction就是一个层次化的可学习的graph pooling和graph vect
 
 graph pooling操作背后的思想就是来推测PSG每一层的nodes（也就是scene elements），哪些是和其他nodes physically connected的从而该被聚集到一起作为下一层的新的vertex的。一个graph pooling模块通过从输入level的attributes vector $$A_l$$来预测within-level edges $$E_l$$来进行上述计算，有了edges之后，再聚类这一层的graph $$\mathcal G = (V_l, E_l)$$从而得到新一层的vertices $$V_{l+1}$$和child-to-parent edge structure $$P_l$$。每一层的edges $$E_l$$是通过一个learnable affinity function预测而来，这个function的输入是一对attribute vectors，$$A_l(v) \oplus A_l(w)$$，输出是这两个vertices $$v$$和$$w$$是连接起来的概率。这些概率最后会和一个thredshold比较从而决定是连接还是不连接，最后对于所有的vertex pairs生成一个binary adjacency matrix。不同的affinity functions和thresholding的值对结果造成的影响不大，这是因为是非监督学习的缘故。
 
-我们在得到$$E_l$$之后，通过标准的Label Propagation (LP)算法（[Label propagation for clustering](https://arxiv.org/pdf/1709.05634.pdf)）来聚类graph $$\mathcal G_l$$。LP算法首先对于$$V_l$$里的每个vertex都给一个的独特的segment label（随机给的），然后对于每个vertex，找到它附近距离为1的那些vertex里和它label最像的vertex，并聚合，重复上述操作十次。所得到的clusters就被认为是新的vertices $$V_{l+1}$$，并且从前一层$$V_l$$里到后一层$$V_{l+1}$$里就对应定义了新的child-to-parent edges（也就是前一层哪些点聚类为了下一层新的点，那前一层的这些点都要和后一层这个新的点连上）。注意到上述的聚类过程并没有指明最后需要有多少个类（不像k-means），从而使得对于不同的场景可以找到不同数量的objects或者object parts。然而，LP的缺点是不能微分，所以graph pooling模块的参数不能够端到端的被上述PSGNet所优化，graph pooling的参数是利用self-supervised perceptual grouping loss来优化的，在下面的PSGNet training一节会说。
+我们在得到$$E_l$$之后，通过标准的Label Propagation (LP)算法（[Label propagation for clustering](https://arxiv.org/pdf/1709.05634.pdf)）来聚类graph $$\mathcal G_l$$。LP算法首先对于$$V_l$$里的每个vertex都给一个的独特的segment label（随机给的），然后对于每个vertex，找到它附近距离为1的那些vertex里和它label最像的vertex，并聚合，重复上述操作十次。所得到的clusters就被认为是新的vertices $$V_{l+1}$$，并且从前一层$$V_l$$里到后一层$$V_{l+1}$$里就对应定义了新的child-to-parent edges（也就是前一层哪些点聚类为了下一层新的点，那前一层的这些点都要和后一层这个新的点连上）。注意到上述的聚类过程并没有指明最后需要有多少个类（不像k-means），从而使得对于不同的场景可以找到不同数量的objects或者object parts。然而，LP的缺点是不能微分，所以graph pooling模块的参数不能够端到端的被上述PSGNet所优化，graph pooling的参数是利用self-supervised perceptual grouping loss来优化的，在下面的PSGNet training一节会说。上述过程见fig1所示。
+
+LP算法的输入仅仅是edges $$E_l$$、目前这一层的nodes的个数$$\lvert V_l \rvert$$、以及一个超参数用来控制循环的次数。每个node初始化为是它自己的类，从而给出了一个标签的集合$$\left[ \lvert V_l \rvert \right]$$。然后对于$$q > 0$$，第$$q$$个循环的标签是从第$$q-1$$个循环的标签计算而来，对于第$$q$$个循环里的node $$v \in V_l$$，这个node的label被设置为和它相连的nodes在iteration $$q-1$$的时候的labels里最常见的那个label。如果有打成平手的情况，就从平手的里面随机选一个。重复上述过程若干个循环，将同一个label的vertices认为是一个node，从而构造出了新一层的nodes。而child-to-parent edges集合$$P_l$$可以理解为一个函数：$$V_l \rightarrow \left[m \right]$$，其中$$m$$是$$l+1$$层按照上述过程找到的nodes，也就是聚类中心，而$$P_l$$就是将这些聚类中心包含的$$l$$层的点与每个聚类中心连接起来。这种child-to-parent edges $$P_l$$可以被理解为某种依赖于输入的pooling操作。而且之后的graph vectorization也使用了这里聚类的信息，来为每层的node聚集其对应的上一层的child nodes的attributes的信息。
+
+![pgr1]({{ '/assets/images/PGR-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 1.*
 
 **2.2.2.2 Graph Vectorization**
 
@@ -95,6 +101,25 @@ graph pooling操作背后的思想就是来推测PSG每一层的nodes（也就�
 
 $$A_{l+1}(v) = A_{l+1}^{agg}(v) \oplus \frac{1}{\lvert V_{l+1} \rvert} \Sigma_{w \in V_{l+1}} H_{l+1}^{new}(A_{l+1}^{agg}(v), A_{l+1}^{agg}(w))$$
 
+![pgr2]({{ '/assets/images/PGR-2.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 2. PSG representation和PSGNet结构的一个总览图。棕色的盒子表示的是PSGNet的三个stages：（1）利用一个ConvRNN从视频输入里提取features；（2）从利用ConvRNN提取的features上构造graph；（3）graph rendering用来做端到端的训练。第二个stage，构造graph的部分，由一对可学习的模块组成：graph pooling和graph vectorization，它两一起作用从上一层PSG level生成新的PSG level。graph pooling将上一层PSG level里的nodes分割为新的cluster，表示新的nodes，而graph vectorization则通过总结前面以及更前面的nodes的attributes来为新的nodes计算attributes。图片的中间下面还显示了三个level的PSG。*
+
+
+**2.3 PSGNet Decoding and Training**
+
+PSGNet training的目的就是使得PSG encoder所得出的PSG中间层特征能够表示输入场景视频的视觉以及物理结构特征。在一个经典的encoder-decoder框架下，中间层特征将会被喂给一个可训练的decoder神经网络用来渲染输出，输出将会以自监督或者ground truth监督的形式进行比较从而训练网络。但是，这个标准的过程并不能保证我们的PSG中间层特征就反映了输入的物理结构，因为只要decoder组有足够的capacity以及我们拥有足够的数据，那么即使中间层特征是entangled，unstructured的，模型仍然可以使得loss变得很小，也就是说训练loss很小，但所获得的中间层PSG特征并不好。于是有一些非监督的scene decomposition方法regularize训练过程，或者加上了结构化约束来做到将scenes分割为离散的objects：[Monet: Unsupervised scene decomposition and representation]()，[Multi-object representation learning with iterative variational inference]()，[beta-VAE: Learning Basic Visual Concepts with a Constrained Variational Framework]()。
+
+PSGNet不仅仅给encoder-decoder架构里的中间层特尔在加了约束（也就是我们所用的PSG数据结构，将场景表示为层次化的图），还使用没有参数的decoders来渲染输出结果，从而迫使PSGs要更加显式、更加丰富的表示场景里的objects以及它们的性质，因为此时没有有力的decoder来帮助渲染出好的结果了（如果decoder很给力的话，那即使中间层特征差了点，也能渲染出好的结果）。PSGNet的decoders使用paint by numbers的策略，使用预测到的nodes的attributes $$\lbrace A_l \rbrace$$作为颜料（paint），使用scene segmentations $$\lbrace S_l \rbrace$$作为regions来填上这些paints或者去做reconstruction（paint by numbers的意思就是一张图每个位置都有数字，凭借数字找到对应的颜料，从而给这个位置涂色，在这里就是用registration来表示每个node对应的位置，而这个node的attributes就是这个位置该使用的颜料，也就是该涂的颜色）。这个渲染的过程没有任何可训练的参数，PSGNets就被强迫让PSG显式的编码这些scene properties（比如说每个node对应着每个object，从而这个node的attributes就应该显式的表示出来这个node对应的像素点处的RGB值，深度等信息，只有这样才能够正确的得出渲染结果）。我们使用了几种decoding的方式：（1） quadratic texture rendering（QTR），fig1 top right部分，它使用一个quadratic function来计算每个vertex $$v$$的attributes $$A_l$$，并将其涂色到该vertex由registration对应的base tensor对应的pixel的位置处。（2）quadratic shape rendering（QSR），fig1 bottom right部分，它预测的是一个PSG node $$v$$会在原始的输入（base tensor）上对应的2D轮廓。QSR利用[Cvxnets: Learnable convex decomposition]()里提到的方法使用一系列quadratic signed distance function constraints的intersection来构造这样的shape，而这个构造所需要的参数就由这个node的attribute所提供。注意到所生成的2D轮廓并没直接用到这个node的registration $$S_l$$，这点和QTR不一样。
+
+**2.3.1 Training the Feature Extractor and Vectorization Modules with Rendering Losses**
+
+每一个QTR和QSR都使用PSG的node的attribute向量里不同的部分来渲染结果（可能会使用多个QTR或者QSR），而使用的loss function决定了这部分attribute向量将会encode场景什么样的信息。在这篇文章里，我们对于QTR这个任务采用自监督的方式，也就是将PSG每一个level的输出都通过某个QTR进行渲染，得到的结果是RGB图片，以及这张图片在输入视频里的相对时间信息（也就是位于第几帧），loss就是简单的$$L_2$$ loss，与原输入进行对比。我们还使用了一系列的QSR任务，它们只作用在最顶层的PSG level，从而鼓励这些QSR所对应的node的部分attribute向量
+编码了场景里objects的轮廓信息。这里的loss使用的是每个QSR输出的每个像素点位置的segment index，和PSG给出的ground truth，registration $$S_L \left[i,j \right]$$之间的一个softmax cross-entropy loss（registration $$S_L$$实际上就是一个大小为原输入图片大小的矩阵，而矩阵每个点处的值就是其对应的node的值，比如说如果是node $$i$$，那对应的值就是$$i$$，而QSR利用每个node计算出来的轮廓，也就是shape，其轮廓内部也就对应这个node对应的像素点，也应该填入这个node对应的值，所以说它们量能够计算一个softmax cross-entropy loss。最后，我们利用监督学习的方法利用由数据集提供的实际的depth和surface normal vector images，用QTR来使得PSG显式的编码场景的几何信息。这些渲染的loss的反向传播可以训练ConvRNN这个feature extractor以及graph vectorization模块，但是因为graph pooling模块的LP操作并不可微分，所以我们还得单独训练graph pooling部分。
+
+**2.3.2 Training Affinity Functions with Perceptual Grouping Principles**
+
+每个graph pooling模块都需要一个loss function来优化它的affinity functions。在这篇文章里，我们使用了四种不同的loss functions来编码四种聚类思想：（1）attribute similarity（P1）：那些attribute很相近的nodes应该被聚类在一起，因为它们很可能是从同一个object来的；（2）statistical co-occurence（P2）：那些经常一起出现的nodes应该被聚类在一起，因为这表明它们和可能来自于同一个object。文中使用一个VAE来编码attribute pairwise differences，并且使用reconstruction loss作为衡量affinity的一个倒数（也就是loss越大，affinity就越小）。如果一对node是经常一起出现的，那他们在训练中会更经常被见到，所以reconstruction loss要比没关系的两个node构成的pair要低；（3）motion-driven similarity（P3）：那些一起移动的nodes应该被聚类在一起，而不需要考虑这些node的appearance信息，因为一起移动的nodes很可能就是属于同一个object的；（4）Self-supervision from motion（P4）：在某一帧图片里的两个nodes，如果它们在之前的帧里被发现一起移动，那它们应该被聚类到一起。
 
 
 
