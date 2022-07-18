@@ -1,12 +1,12 @@
 ---
 layout: post
 comments: false
-title: "[论文]Scene Graph Generation"
+title: "[论文]Scene Graph Generation/Semantic Segmentation"
 date: 2021-11-29 01:09:00
 tags: paper-reading
 ---
 
-> This post is a summary of scene graph generation papers.
+> This post is a summary of scene graph generation or semantic segmentation papers.
 
 
 <!--more-->
@@ -120,6 +120,30 @@ PSGNet不仅仅给encoder-decoder架构里的中间层特尔在加了约束（�
 **2.3.2 Training Affinity Functions with Perceptual Grouping Principles**
 
 每个graph pooling模块都需要一个loss function来优化它的affinity functions。在这篇文章里，我们使用了四种不同的loss functions来编码四种聚类思想：（1）attribute similarity（P1）：那些attribute很相近的nodes应该被聚类在一起，因为它们很可能是从同一个object来的；（2）statistical co-occurence（P2）：那些经常一起出现的nodes应该被聚类在一起，因为这表明它们和可能来自于同一个object。文中使用一个VAE来编码attribute pairwise differences，并且使用reconstruction loss作为衡量affinity的一个倒数（也就是loss越大，affinity就越小）。如果一对node是经常一起出现的，那他们在训练中会更经常被见到，所以reconstruction loss要比没关系的两个node构成的pair要低；（3）motion-driven similarity（P3）：那些一起移动的nodes应该被聚类在一起，而不需要考虑这些node的appearance信息，因为一起移动的nodes很可能就是属于同一个object的；（4）Self-supervision from motion（P4）：在某一帧图片里的两个nodes，如果它们在之前的帧里被发现一起移动，那它们应该被聚类到一起。
+
+
+
+### 2. [U-Net: Convolutional Networks for Biomedical Image Segmentation](https://link.springer.com/content/pdf/10.1007/978-3-319-24574-4_28.pdf)
+
+*Olaf Ronneberger, Philipp Fischer, Thomas Brox*
+
+*MICCAI 2015*
+
+这篇文章很古老，在现在看来很多内容已经不必再说或者已经过时甚至不正确。但文章里提出的U型结构的用于segmentation的网络结构还是很经典的。
+
+![unet1]({{ '/assets/images/UNET-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 1. 一个U-net的网络结构示意图。每个蓝色的box表示的是一个多通道的feature map，通道数写在每个box上面，而每个box左下角标记了feature map的height和width。白色的box表示cropped的feature maps。箭头则按照图中右下角的标识来辨别。*
+
+U-Net的左侧叫做contracting path，右侧叫做expansive path，因为左侧使得feature maps的width和height逐渐减小，而右侧使得feature maps的width和height逐渐增大。上述卷积层都没有加padding，所以一个stride是1，卷积核是3的卷积层会导致feature map的width和height各减小2。
+
+网络右侧的up convolution层是这样的：先进行一层up sampling，然后再进行卷积核为2的卷积，可以使用tensorflow里的conv_transpose函数或者pytorch里的ConvTranspose2d函数来实现，比如说将大小为$$28 \times 28$$的feature map变成大小为$$56 \times 56$$的feature map，设置ConvTranspose2d里的size为2，stride为2，padding为0，就相当于在$$28 \times 28$$的每一行每一列之间都插入一行一列，就得到了一个$$55 \times 55$的feature map，然后再在周围加上大小为1的padding，从而得到$$57 \times 57$$的feature map，最后进行$$2 \times 2$$的卷积，步长为1，就得到了$$56 \times 56$$的feature map。ConvTranspose2d里的$$stride-1$$表示插入的行数和列数，$$size-padding-1$$表示padding的大小。而关于卷积的计算则和正常的卷积相同。
+
+而网络的最后一层，也就是右侧的最后一层使用了卷积核为1的卷积，从而将通道数为64的feature map变成通道数为2的feature map，而不改变feature map的width和height。这个运算可以理解为：因为这个任务是做segmentation，所以每个像素点的位置都有自己的feature，长度为64，而这个卷积就是将每个像素点位置的特征综合起来，输出为2，表示的是类别，也就是这个像素点属于哪一类，黑还是白（也就是0还是1）。所以说实际上这个网络的输出就相当于是objects的boundaries的输出。而我们实际操作的时候，输出的类别可以大于2，这样就可以表示多个不同的objects的segmentation了。
+
+文章中说，从左侧到右侧的feature mapconcatenation之前做的cropping是必要的，因为每次卷积都会导致边界信息的丢失，所以我们也不需要前面层的边界的信息通过concatenation的方式传递到后面的层，也就是使用centercropping。
+
+
 
 
 
