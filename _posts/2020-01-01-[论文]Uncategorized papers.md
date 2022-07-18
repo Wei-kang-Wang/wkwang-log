@@ -150,4 +150,20 @@ tags: paper-reading
 *CVPR 2022*
 
 
+### 23. [DeepBBS: Deep Best Buddies for Point Cloud Registration](https://arxiv.org/pdf/2110.03016.pdf)
+
+*3DV 2021*
+
+
+### 24. [U-Net: Convolutional Networks for BiomedicalImage Segmentation](https://link.springer.com/content/pdf/10.1007/978-3-319-24574-4_28.pdf)
+
+*MICCAI 2015*
+
+
+### 25. [MA-CLIP: Towards Modality-Agnostic Contrastive Language-Image Pre-training](https://openreview.net/forum?id=ROteIE-4A6W)
+
+*Under Review ICLR 2022*
+
+
+
 ---
