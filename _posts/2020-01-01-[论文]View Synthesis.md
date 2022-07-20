@@ -19,7 +19,7 @@ tags: paper-reading
 
 ## 3D View Synthesis
 
-### 1. [NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis](https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123460392.pdf)
+### [NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis](https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123460392.pdf)
 
 *Ben Mildenhall, Pratul P. Srinivasan, Matthew Tancik, Jonathan T. Barron, Ravi Ramamoorthi, Ren Ng*
 
@@ -165,11 +165,62 @@ $$\mathcal L = \Sigma_{\pmb r in \mathcal R} \left[ \lVert \hat C_c (\pmb{r}) - 
 尽管我们提出了一个hierarchical sampling的方法使得渲染更加的高效，但在高效优化neural radiance field和采样的方向还有很多工作要做。另一个将来的方向是interpretability：sampled representations比如说voxel grids和meshes允许推理和思考所渲染的图片的效果以及失败的情况，但是将scenes表示为MLP的参数之后，我们就无法分析这些了。我们相信这篇文章推动了基于现实世界的graphics pipeline的发展，因为真实的objects和scenes现在可以被表示为neural radiance fields了，而多个objects或者scenes可以组合称为更复杂的scenes。
 
 
-### 2. [KeypointNeRF: Generalizing Image-based Volumetric Avatars using Relative Spatial Encoding of Keypoints](https://markomih.github.io/KeypointNeRF/)
+### [KeypointNeRF: Generalizing Image-based Volumetric Avatars using Relative Spatial Encoding of Keypoints](https://markomih.github.io/KeypointNeRF/)
 
 [POST](https://markomih.github.io/KeypointNeRF/)
 
 *ECCV 2022*
+
+
+### [KeypointNeRF: Generalizing Image-based Volumetric Avatars using Relative Spatial Encoding of Keypoints](https://arxiv.org/pdf/2205.04992.pdf)
+
+[POST](https://markomih.github.io/KeypointNeRF/)
+
+*Marko Mihajlovic, Aayush Bansal, Michael Zollhoefer, Siyu Tang, Shunsuke Saito*
+
+*ECCV 2022*
+
+
+**Abstract**
+
+使用像素对齐（pixel-aligned）的features来做基于图片的体素avatars（image-base volumetric avatars）能保证结果可以泛化到没有见过的实体和姿态上去。先前的工作全局空间编码（global spatial encoding）和多角度的geometric consistency（multi-view geometric consistency）来减少空间不确定性（spatial ambiguity）。然而，global encodings经常会对训练数据overfitting，而从稀疏的几个views之间也很很难学习到multi-view consistency。在这篇文章里，我们研究了现有的spatial encoding方法的问题，并提出了一个简单但是很有效的方法来从稀疏的views（也就是只有几张不同角度的照片）来构造高保真的（high-fidelity）volumetric avatars。一个关键的想法就是使用稀疏的3D Keypoints来编码相对的空间3D信息。这个方法对于角度的稀疏性以及跨数据集之间的差异性是鲁棒的。我们的方法在head reconstruction领域超过了sota的方法的效果。对于未知身份的human body reconstruction，我们也达到了和之前工作差不多的效果，而之前的工作是通过使用参数化的human body模型以及使用时序feature aggregation实现的。我们的实验证明之前的那些方法之所以会效果不好，很大程度上是因为spatial encoding的方式选的不好，因此我们提出了一个构造基于图片的高保真的avatars的新方向。
+
+
+**1. Introduction**
+
+可渲染的3D human representations对于social telepresence，mixed reality，entertainment platforms等来说都是很重要的一个部分。经典的基于mesh的方法需要空间稠密的多个角度的立体数据（dense multi-view stereo）：[]()，[]()，[]()；或者需要融合深度信息：[]()。这些方法的结果的保真性不高，因为获取准确的geometry reconstruction的难度很大。最近，neural volumetric representations（[Neural Volumes: Learning Dynamic Renderable Volumes from Images](https://stephenlombardi.github.io/projects/neuralvolumes/)，[NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis](https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123460392.pdf)）的提出使得高保真的avatar reconstruction成为了可能，特别是当准确的几何特性无法获得的时候（比如说头发的几何特性）。通过加入human-specific parametric shape models，获取大批的不同角度的数据只需要通过简单的设置相机参数就可以通过模型来获得了。然而，这些基于学习的方法是subject-specific的（也就是说每个模型只能针对某个具体的场景，因为实际上模型并没有学习到场景内到底有什么物体以及它的特性等这种high-level的semantic information，Nerf学习到的是一个不具有semantic information的整个空间的基于角度的颜色感知），而且需要对于每个场景训练好几天的时间，这样就大大限制了模型的可扩展性（scalability）。如果想要volumetric avatars迅速普及，需要能够做到，用户拿着手机给他自己从几个角度来几张自拍，传入网络里，然后很快就能构建出一个avatar出来。为了达到这个目标，我们需要能够从两三个views里学到准确的基于图像的volumetric avatars。
+
+fully convolutiona pixel-aligned features（也就是说输出的feature map和输入的图片的尺寸是一样的，从而feature map每个位置的各个通道组成的feature就代表输入图片这个像素点位置的feature）使用了多个尺度的信息，从而让很多2D的CV任务效果都变好了（包括[PixelNet: Representation of the pixels, by the pixels, and for the pixels](https://arxiv.org/pdf/1702.06506.pdf)，[Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields](https://openaccess.thecvf.com/content_cvpr_2017/papers/Cao_Realtime_Multi-Person_2D_CVPR_2017_paper.pdf)，[Fully Convolutional Networks for Semantic Segmentation
+](https://openaccess.thecvf.com/content_cvpr_2015/papers/Long_Fully_Convolutional_Networks_2015_CVPR_paper.pdf)，[Stacked Hourglass Networks for
+Human Pose Estimation](https://islab.ulsan.ac.kr/files/announcement/614/Stacked%20Hourglass%20Networks%20for%20Human%20Pose%20Estimation.pdf)）。应用在occupancy和texture领域（[Pifu: Pixel-aligned implicit function for high-resolution clothed human digitization]()）以及neural radiance fields领域（[Neural human performer: Learning generalizable radiance fields for human performance rendering]()，[Pva: Pixel-aligned volumetric avatars]()，[pixelnerf: Neural radiance fields from one or few images]()）的pixel-aligned representations使得这些方法能够泛化到没有见过的主体上去。pixel-aligned neural fields通过一个像素位置（pixel location）和空间编码函数（spatial encoding function）来推断field quantities，加入spatial encoding function是为了避免ray-depth不确定性。在这篇文章里，各种不同的spatial encoding functions都被研究了：[Portrait neural radiance fields from a single image]()，[Arch++: Animation-ready clothed human reconstruction revisited]()，[Arch: Animatable reconstruction of clothed humans]()，[Pva: Pixel-aligned volumetric avatars]()。然而，spatial encoding的效用并没有被完全理解。在这篇文章里，我们详细分析了使用pixel-aligned neural radiance fields方法为human faces建模的spatial encodings方法。我们的实验证明spatial encoding的选择影响了reconstruction的效果，也影响了模型泛化到未见过的人或者未见过的角度上的效果。那些使用了深度信息的模型会容易过拟合，过分拟合训练数据的分布，而使用multi-view stereo约束的方法对于稀疏的views的情况的效果就很不好了。
+
+我们提出一个简单但是有效的方法利用了稀疏的3D keypoints来解决上述这些方法里存在的问题。3D keypoints可以很简单的用一个训练好的2D keypoints detector，比如说[Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields](https://openaccess.thecvf.com/content_cvpr_2017/papers/Cao_Realtime_Multi-Person_2D_CVPR_2017_paper.pdf)，和简单的multi-view triangulation来计算而得，[Nultiple view geometry in computer vision](http://www.r-5.org/files/books/computers/algo-list/image-processing/vision/Richard_Hartley_Andrew_Zisserman-Multiple_View_Geometry_in_Computer_Vision-EN.pdf)。我们将3D keypoints看作spatial anchors，然后将其它部分的相对3D空间信息（relative 3D spatial information）都编码到这些keypoints上去。和global spatial encoding（[Pifu: Pixel-aligned implicit function for high-resolution clothed human digitization]()，[Pifuhd: Multi-level pixel-aligned implicit function for high-resolution 3d human digitization]()，[pixelnerf: Neural radiance fields from one or few images]）不同，relative spatial encoding并不需要知道相机参数。这个特性使得基于relative spatial encoding的方法对于姿态（pose）来说很鲁棒。3D keypoints还让我们可以使用同样的方法来处理faces和bodies。我们的方法使得我们可以从两三个views上生成volumetric facial avatars，而且效果是sota的，而且提供更多的views会让效果更好。我们的方法同样在human body reconstruction这个任务上和Neural Human Performer(NHP)（[Neural human performer: Learning generalizable radiance fields for human performance rendering]()）达到了差不多的效果。NHP依赖于准确的参数化的human body模型，以及时序的feature aggregation，而我们的方法仅仅需要3D keypoints。我们的方法同时也不过过拟合训练数据的分布。我们可以将训练好的模型（不需要任何微调）对于从未见过的人的照片，生成其的avatars。我们认为这种能够对没见过的数据（人脸）生成volumetric avatars的能力是源于我们对于spatial encoding的选择。我们的主要贡献如下：
+
+* 一个简单的利用3D keypoints的框架，可以从两三个不同角度的输入图片生成volumetric avatars，而且还可以泛化到从未见过的人。
+* 对于已有的spatial encodings进行了一个细致的分析。
+* 我们的模型在一个数据集上训练好之后，对于任何其他的没有见过的人的几个角度的照片，仍然可以生成volumetric avatars，这样好的泛化效果是之前的工作所没有的。
+
+
+**2. Related work**
+
+我们的目标是从很少的views（甚至两张）来构造高保真的volumetric avatars。
+
+*Classical Template-based Techniques* 
+
+早期的avatar reconstruction需要大量的图片，以及将一个template mesh匹配到3D point cloud等操作。[Real-time facial animation with image-based dynamic avatars]()提出使用一个粗造的geometry来为face建模，并使用一个可变性的hair model。[Avatar digitization from a single image for real-time rendering]()从一个数据集里获取hair model的信息，并组合facial和hair的细节信息。[Video based reconstruction of 3d people models]()使用基于轮廓的建模方法基于一个单目的视频来获取一个body avatar。对于geometry和meshes的以来限制了这些方法的发挥，因为某些区域比如hair，mouth，teeth等的geometry非常难以获得。
+
+
+*Neural Rendering*
+
+neural rendering（[State of the Art on Neural Rendering](https://arxiv.org/pdf/2004.03805.pdf)，[Advanced in neural rendering](https://arxiv.org/pdf/2111.05849.pdf)）通过直接从原始的sensor measurements里学习image formation的组成部分来解决那些template-based的方法解决不了的问题。2D neural rendering方法，比如DVP（[Deep Video Portraits](https://arxiv.org/pdf/1805.11714.pdf)），ANR（[Anr: Articulated neural rendering for virtual avatars](https://openaccess.thecvf.com/content/CVPR2021/papers/Raj_ANR_Articulated_Neural_Rendering_for_Virtual_Avatars_CVPR_2021_paper.pdf)），SMPLpix（[Smplpix: Neural avatars from 3d human models](https://arxiv.org/pdf/2008.06872.pdf)）使用了surface rendering和U-Net结构来减小生成的图片和真实图片之间的差距。这些2D方法的一个缺点是它们无法以一种时序紧密联系的方式（temporally coherent manner）来生成图片里物体新的角度的图片。Deep Appearance Models（[Deep appearance models for face rendering]()）联合使用了一个粗造的3D mesh和基于角度的texture mapping来从稠密的各个角度的images以监督学习的方式来学习face avatars。使用一个3D的mesh极大地帮助了新视角生成，但是这个方法在某些区域就很难生成真实的效果好的图片，比如说hair或者mouth里面，因为这些地方的3D mesh本身就缺乏对应的几何信息，因为根本就很难获取。现在的sota方法比如说NeuralVolumes（[Neural volumes: learning dynamic renderable volumes from images]()）和Nerf（[Nerf: Representing scenes as neural radiance fields for view synthesis]()）使用了differentiable volumetric rendering而不是meshes。这些方法能够在那些很难估计3D geometry的区域仍然有好的效果。之后还有更多的改进版本进一步改善了效果：[Flame-in-nerf: Neural control of radiance fields for free view face animation]()，[Mixture of volumetric primitives for efficient neural rendering]()，[Learning compositional radiance fields of dynamic human heads]()。但这些方法需要稠密的multi-view的图片，并且一个模型只针对一个场景，需要训练好几天才能有好的效果。
+
+
+*Sparse View Reconstruction*
+
+大规模的模型部署需要用户提供两到三张不同角度的照片，就可以生成avatars。通过使用pixel-aligned features（[Pifu: Pixel-aligned implicit function for high-resolution clothed human digitization]()，[Pifuhd: Multi-level pixel-aligned implicit function for high-resolution 3d human digitization]()），我们就可以训练这样的网络了：从几个views来生成avatars的网络。各种不同的方法都将multi-view约束、pixel-aligned features与NeRF结合起来来学习可泛化的view-synthesis：[Mvsnerf: Fast generalizable radiance field reconstruction from multi-view stereo]()，[Stereo radiance fields(srf): Learning view synthesis from sparse views of novel scenes]()，[Ibrnet: Learning multi-view image-based rendering]()，[pixelnerf: Neural radiance fields from one or few images]()。在这篇文章里，我们会发现这些方法对于没见过的human face和bodies很难只从几张views就生成细节很好的结果。
+
+
+*Learning Face and Body Reconstruction*
 
 
 
