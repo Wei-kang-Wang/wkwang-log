@@ -1922,6 +1922,53 @@ SwAV的效果这么好，另一个重点是它使用了一个非常有用的tric
 讲一下不同负样本的对比学习。
 
 
+
+### [Dense Contrastive Learning for Self-Supervised Visual Pre-training](https://openaccess.thecvf.com/content/CVPR2021/papers/Wang_Dense_Contrastive_Learning_for_Self-Supervised_Visual_Pre-Training_CVPR_2021_paper.pdf)
+
+[CODE](https://git.io/DenseCL)
+
+*Xinlong Wang, Rufeng Zhang, Chunhua Shen, Taokong, Lei Li*
+
+*CVPR 2021*
+
+**Abstract**
+
+到现在为止，大多数的自监督学习方法都是为了image classification任务设计以及优化的。这些pre-trained模型对于需要dense prediction的任务来说就是sub-optimal的了，因为image-level和pixel-level的prediction之间存在很大的差距。为了填补这个空缺，我们的目标是设计一个高效的dense自监督学习方法，通过考虑local features之间的关系，来学习pixel-level（或者叫做local features）的feature。我们提出的框架名字叫做dense contrastive learning（DenseCL），它是通过在pixel-level上优化输入一对图片之间的features来实现自监督学习的。
+
+相对于baseline，MoCo-v2来说，我们的方法计算速度略微变慢了一点，但可以忽略不计（小于1%），但是对于需要dense prediction的下游任务，比如说object detection，semantic segmentation，instance segmentation等，效果都要好很多。而且要比目前的sota效果都要好很多：和MoCo-v2 baseline相比，我们在PASCAL VOC object detection任务上有2.0% AP的提升，在COCO object detection任务上有1.1% AP的提升，在COCO instance segmentation任务上有0.9% AP的提升，在PASCAL VOC semantic segmentation任务上有3.0% mIoU的提升，在Cityscapes semantic segmentation上有1.8% mIoU的提升。
+
+
+**1. Introduction**
+
+预训练现在已经成了CV领域的一个范式了。一个经典的预训练框架下，模型首先在一个大规模的数据集上预训练，然后再在下游任务上利用较少的数据进行微调模型。用监督方式在ImageNet上进行预训练来解决classification任务的这个方式，在CV领域流行了很多年。然而，在ImageNet上用监督方式进行的预训练使用的是classification任务，它与下游那些需要dense prediction的任务，比如说object detection，semantic segmentation等，本质上有着较大的差距。classification任务关注的是对于一张输入图片给一个标签，而后者需要针对每个像素点都进行计算。比如说，semantic segmentation的目标是对于每个pixel都给一个标签，object detection则是对于图中每个物体都要预测一个bounding box和标签。对于上述这个问题，一个直接的解决办法就是直接使用dense prediction的任务来进行预训练。然而，这些dense prediction任务的标注是很难的，所以说并不太可能能获取一个很大的有标签的数据集来做dense prediction的预训练。
+
+最近，无监督的视觉预训练火了起来，其想要从没有标签的数据集中来学习图片的representations。有一些工作已经取得了不错的效果（SimCLR，MoCo等），其对于有些下游任务，和使用ImageNet上进行classification的预训练效果差不多甚至更好。然而，之前提到的ImageNet使用classification任务进行预训练从而导致由于预训练任务和下游dense prediction任务之间差距过大而导致的下游任务效果不好的这个问题仍然存在。首先，绝大多数自监督方法在预训练时使用的代理任务是instance discrimination，也就是每个image属于一类，这还是image-level的classification任务。其次，现存的无监督预训练方法的下游任务都是classification。然而，正如[Rethinking imagenet pre-training](https://openaccess.thecvf.com/content_ICCV_2019/papers/He_Rethinking_ImageNet_Pre-Training_ICCV_2019_paper.pdf)里所说的，在下游classification任务上效果好，不代表这个预训练的特征在object detection等任务上效果会好。因此，适用于dense prediction下游任务的自监督学习方法需求性是很强的。而且因为是无监督预训练方式，标注也是不需要的。一个简单的想法就是使用某种dense prediction的任务作为预训练任务，这样预训练任务和下游任务之间的距离就被缩小了。
+
+受到有监督的dense prediction任务的启发（比如说semantic segmentation），我们提出了dense contrastive learning（DenseCL）方法来进行无监督的预训练。DenseCL将预训练里的任务看作一个pairwise contrastive learning任务而不是全局的image classification任务。首先，文章提出了一个dense projection head，其将backbone获得的feature map映射为dense feature vectors（也就是每个pixel都有个feature vector）。文章里所用的projection head因为输出的是dense vectors，所以天然的保留了位置信息（MoCo等方法里用的projection head是将从backbone得到的feature map通过global average pooling直接映射到了单个vector，来表示整张图的信息）。其次，文章通过获取不同views之间的correspondence信息来为每个local feature定义positive sample。为了构建一个非监督的目标函数，文章进一步定义了一个dense contrastive loss，将CPC那篇文章里定义的InfoNCE loss拓展为dense形式的。通过使用上述方法，文章使用一个fully convolutional network来实现了dense contrastive learning，这和很多dense prediction的下游任务是相同的。
+
+文章的主要贡献总结如下：
+
+* 文章提出了一个新的contrastive learning的框架：dense contrastive learning，其在像素层面或者在local features层面进行contrastive learning从而来学习特征。
+* 通过使用提出的dense contrastive learning，文章定义了一个简单高效的自监督学习方法，来为下游dense prediction任务预训练特征，这个自监督预训练方法叫做DenseCL，其填补了自监督预训练和dense prediction下游任务之间的差异。
+* DenseCL在很多dense prediction下游任务上的效果要比MoCo v2这个baseline好很多，包括object detection，instance segmentation，semantic segmentation等，而且要比使用监督方式在ImageNet上使用classification进行预训练的效果要更加好。
+
+
+**2. Related Work**
+
+*Self-supervised pre-training*
+
+自监督预训练的成功，归功于两个方面：contrastive learning和pretext tasks。用来训练网络的目标函数一般就是reconstruction loss或者是contrastive loss（衡量不同views之间的co-occurrence）。contrastive learning目前是sota方法所使用的目标函数：也就是之前串烧里所说的那些contrastive learning的方法。
+
+研究者们还探究了很多的pretext tasks来为了更好的学习到好的representation。这些代理任务包括：colorization，context autoencoders，inpainting，spatial jigsaw puzzle，discriminate orientation等等（可以参见self-supervised learning的那个网页）。这些方法在CV领域只获取了有限的效果。突破性的方法是在SimCLR这篇论文里所提出来的instance discrimination这样一个代理任务。这个代理任务认为同一张图片augment出来的不同的图片所得到的feature是相似的，和其他图片都是不相似的，也就是说，每张图片自成一类。在之后的工作里，contrastive learning框架+instance discrimination代理任务，从而进行无监督的预训练，已经成为了最流行的方式。文章提出的DenseCL也率属于自监督预训练模型框架，但DenseCL所学习到的特征对于dense prediction的下游任务比如说semantic segmentation，object detection等有着更好的效果。
+
+*Pre-training for dense prediction tasks*
+
+预训练已经在很多dense prediction任务上取得了不错的效果，比如说对于object detection（[You Only Look Once: Unified, real-time object detection]()，[Faster R-CNN：Towards real-time object detection with region proposal networks]()），semantic segmentation（[Fully convolutional networks for semantic segmentation]()）。这些模型都是先用ImageNet上的classification监督任务预训练好的模型进行微调得到的。已经有一些工作开始研究在模型结构层面探究在ImageNet上使用classification任务进行预训练和dense prediction下游任务之间的差距：[HyperNet: Towards accurate region proposal generation and joint object detection]()，[DetNet: Design backbone for object detection]()，[Deep high-resolution representation learning for human pose estimation]()，[EfficientDet: Scalable and efficient object detection]()。YOLO9000这篇文章提出在classification和detection数据集上来训练detector。[Rethinking imagenet pre-training](https://openaccess.thecvf.com/content_ICCV_2019/papers/He_Rethinking_ImageNet_Pre-Training_ICCV_2019_paper.pdf)说即使使用非常大的数据集（比如说Instagram数据集，要比ImageNet大3000倍）进行使用classification任务的预训练，其对于后续的object detection任务效果的提升是非常小的。最近也有工作表明在有标注的object detection数据集（比如说COCO）上进行监督方式的预训练，对于下游的object detection和semantic segmentation任务可以取得和使用ImageNet进行classification预训练差不多的效果。尽管针对dense prediction下游任务的预训练这样一个问题在DenseCL提出之前就被研究过，却很少有研究如何使用非监督的方式对dense prediction下游任务进行预训练的。[Contrastive learning of global and local features for medical image segmentation with limited annotations]()和[Unsupervised learning of dense visual representations]()这两篇文章也认为在local features层面进行contrastive learning是很重要的。但和这篇文章相比，一个最大的不同是它们利用的是geometric transformation来构造的positive pairs。这会带来以下几个问题：1）不灵活的data augmentation。需要为每个类型的data augmentation精心设计来保证dense matching。2）有限的应用场景。如果两个views之间的geometric transformation不可用的时候，这个方法就不行了，比如说从一个视频里截取的两张图片可以被认为是positive pairs，但就没有geometric transformation信息了。而本文章提出的方法和data pre-processing的过程毫无关系，因此可以实现快速而灵活的操作，而不需要考虑使用了什么data augmentation或者说图片是怎么采样得到的。
+
+*Visual correspondence*
+
+visual correspondence问题考虑的是从同一个场景得到的两张图片pixel之间的对应关系，这对于很多应用，比如说optical flow，structure-from-motion，visual SLAM，3D reconstruction等问题来说都是很重要的一部分。visual correspondence可以被描述为学习匹配的patches或者points之间的feature相似性。最近，有一系列基于CNN的方法被提出用来衡量不同图片patches之间的相似性，包括监督（[Universal correspondence network]()，[FCSS: Fully convolutional self-similarity for dense semantic correspondence]()）和非监督（[Unsupervised learning of dense shape correspondence]()，[Unsupervised feature learning for dense correspondences across scenes]()）的方法。前期的这些工作往往是针对某个特性的应用场景来学习correspondence，而且大多都是有明确的监督信号的。而DenseCL学习到的特征却可以在很多dense prediction任务中都被使用。
+
 ## Generative Models
 
 ### 1. [Generative Adversarial Nets](https://proceedings.neurips.cc/paper/2014/file/5ca3e9b122f61f8f06494c97b1afccf3-Paper.pdf)
