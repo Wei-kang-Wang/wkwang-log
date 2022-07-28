@@ -1969,6 +1969,63 @@ SwAV的效果这么好，另一个重点是它使用了一个非常有用的tric
 
 visual correspondence问题考虑的是从同一个场景得到的两张图片pixel之间的对应关系，这对于很多应用，比如说optical flow，structure-from-motion，visual SLAM，3D reconstruction等问题来说都是很重要的一部分。visual correspondence可以被描述为学习匹配的patches或者points之间的feature相似性。最近，有一系列基于CNN的方法被提出用来衡量不同图片patches之间的相似性，包括监督（[Universal correspondence network]()，[FCSS: Fully convolutional self-similarity for dense semantic correspondence]()）和非监督（[Unsupervised learning of dense shape correspondence]()，[Unsupervised feature learning for dense correspondences across scenes]()）的方法。前期的这些工作往往是针对某个特性的应用场景来学习correspondence，而且大多都是有明确的监督信号的。而DenseCL学习到的特征却可以在很多dense prediction任务中都被使用。
 
+
+**3. Method**
+
+**3.1 Background**
+
+对于非监督的representation learning预训练，最关键的突破就是MoCo和SimCLR（还有之前contrastive learning串烧里说的那些），这两篇论文都是从无标签的数据上使用contrastive learning学习到好的representations。下面简要介绍一下sota的非监督learning框架，从而浓缩为一个框架。
+
+*Pipeline*
+
+给定一个无标签的数据集，我们使用instance discrimination作为代理任务，其会将每张图片的features都和其它图片的features区分开。对于每张图片，使用随机的data augmentation得到随机的views，然后将每个view都喂给一个encoder从而得到features。encoder由两个部分组成：backbone和projection head，两者是按顺序连接起来的。backbone是我们在预训练结束之后，对于下游任务来说还需要微调的东西，而projection head在预训练使用完之后就不需要了。encoder是使用contrastive loss进行优化的，如fig1里的(a)所示。
+
+*Loss Function*
+
+如MoCo那篇论文里所说的，contrastive learning的过程可以被理解为一个字典查找的过程。对于每个被编码的query $$q$$，有一个集合的被编码的keys $$\lbrace k_0, k_1, \cdots \rbrace$$，其中有一个$$k_+$$是positive key，是匹配$$q$$的。被编码的query和keys是不同的views经过backbone和projection head所得到的，对于每个query，其positive是从同一张图片的不同的view编码得来的，而其余的keys都是不同图片的views。一个contrastive loss function，叫做InfoNCE，可以将query和positive变得很相似，而和其它的keys变得不相似：
+
+$$\mathcal L_q = -log \frac{exp(q \cdot k_+ / \tau}{exp(q \cdot k_+) + \Sigma_{k_-} exp(q \cdot k_- / \tau)}$$
+
+其中$$\tau$$是温度系数，是个超参数。
+
+![dense1]({{ '/assets/images/DENSE-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;" class="center"}
+*fig 1. *
+
+
+**2.2 DenseCL Pipeline**
+
+文章提出了一个新的自监督的学习框架，是为了dense prediction的下游任务而设计的，这个框架叫做DenseCL。DenseCL将现有的自监督representation学习框架扩展到了dense的范畴。和2.1 background里提到的框架比，核心区别在于encoder和loss function的设计不一样。给定一个输入的view，其先通过一个backbone（比如ResNet或者VGG等CNN框架）得到dense feature map，然后再通过一个如下描述的projection head计算输出。这个projection head由两个平行的sub-heads组成：global projection head和dense projection head。global projection head就和之前提到的那些方法（MoCo等）里的projection head一样，获取的是view的全局整体特征。而dense projection head的输入是从backbone获取的feature map，而输出仍然是dense feature vectors。
+
+dense projection head的设计是。不再使用average global pooling和MLP，而是使用$$1 \times 1$$的convolutional layers。backbone和这两个平行的projection head是端到端进行训练的，通过优化一个联合的同时在global features和local features层面上的pairwise contrastive (dis)similarity loss来实现的。
+
+
+**2.3 Dense Contrastive Learning**
+
+我们通过将原先的contrastive loss function拓展到一个dense的情况来进行dense contrastive learning。对于每个被编码的query $$r$$，我们定义一个集合的被编码的keys $$\lbrace t_0, t_1, \cdots \rbrace$$。然而，现在每个query并不再表示整张view，而表示的是每个view的一个局部区域。具体来说，每个被编码的query表示的是由dense projection head得到的ddense feature vector的一个像素点，其中dense feature vector的大小为$$S_h$$和$$S_w$$，它两可以相等也可以不等，简单起见，设置$$S_h = S_w = S$$。接下来我们要为每个从dense feature vector找到的query，得到它的negative keys和positive keys。其中negative keys比较简单，就是其它输入图片的views通过backbone和global projection head所得到的features，记为$$t_-$$，而positive keys则是我们需要重点关注的，其是从同一张图片的另一个views通过backbone和dense projection head所得到的大小为$$S_h \times S_w$$的dense feature vectors里的$$S^2$$个像素点中的一个，然而如何找到这一个在接下来的2.4里说，现在假设我们已经找到了，记为$$t_+$$。从而这个dense contrastive loss定义如下：
+
+$$\mathcal L_r = \frac{1}{S^2} \Sigma_{s} -log \frac{epx(r^s \cdot t^s_+ / \tau)}{epx(r^s \cdot t^s_+) + \Sigma_{t^s_- epx(r^s \cdot t^s_- / \tau)}$$
+
+其中$$r^s$$表示的是dense feature vector的第$$s$$个被编码的query（一共有$$S^2$$个）。
+
+总体来说，DenseCL的loss就是：
+
+$$\mathcal L = (1 - \lambda) \mathcal L_q + \lambda \mathcal L_r$$
+
+其中$$\lambda$$是控制loss比例的超参数。在下面的实验里$$\lambda=0.5$$。
+
+
+**2.4 Dense Correspondence across views**
+
+我们对于输入的一张图片的两个views来找到它们之间的dense correspondence。对于每个view，backbone获取了feature map，记为$$\pmb F \in \mathbb R^{H \times W \times K}$$，基于这个feature map，dense projection head获取了dense feature vectors $$\Theta \in \mathbb R^{S_h \times S_w \times E$$}$$。我们这里设置$$S_w = S_h = S$$，但其实它们也是可以不同的。dense correspondence则是在两个views的dense feature vectors，$$\Theta_1$$和$$\Theta_2$$，之间获取的。文章是使用backbone feature maps $$\pmb F_1$$和$$\pmb F_2$$来匹配$$\pmb \Theta_1$$和$$\pmb \Theta_2$$的。首先将$$\pmb F_1$$和$$\pmb F_2$$使用adaptive average pooling降采样到大小为$$S \times S$$，然后再计算它两之间的cosine similarity矩阵 $$\Delta \in \mathbb R^{S^2 \times S^2}$$。而$$\pmb \Theta_1$$和$$\pmb \Theta_2$$之间的匹配规则是：每个view的dense feature vector的每个像素点在另一个view里的匹配点就是和这个像素点similarity最高的那个像素点。具体来说，对于$$\pmb \Theta_1$$，我们想找到$$\pmb \Theta_1$$里每个像素点在$$\pmb \Theta_2$$里的对应点，就是沿着dimension=2来计算$$\Delta$$的argmax：
+
+$$c_i = argmax_j sim(\pmb f_i, \pmb f_j^{'})$$
+
+其中$$\pmb f_i$$是$$\pmb F_1$$的第$$i$$个feature vector，而$$\pmb f_j^{'}$$则是$$\pmb F_2$$的第$$j$$个feature vector。$$sim(u,v)$$表示$$u$$和$$v$$之间的cosine similarity。上述结果表明$$\pmb \Theta_1$$的第$$i$$个像素点对应的是$$\pmb \Theta_2$$里的第$$c_i$$个像素点。上述整个过程可以使用矩阵计算很快速的完成。
+
+
+
+
 ## Generative Models
 
 ### 1. [Generative Adversarial Nets](https://proceedings.neurips.cc/paper/2014/file/5ca3e9b122f61f8f06494c97b1afccf3-Paper.pdf)
