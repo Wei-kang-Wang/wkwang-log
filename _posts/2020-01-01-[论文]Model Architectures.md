@@ -2035,6 +2035,11 @@ $$c_i = argmax_j sim(\pmb f_i, \pmb f_j^{'})$$
 
 *ICCV 2021*
 
+
+### 6. [MA-CLIP: Towards Modality-Agnostic Contrastive Language-Image Pre-training](https://openreview.net/forum?id=ROteIE-4A6W)
+
+*Under Review ICLR 2022*
+
 ---
 
 *If you notice mistakes and errors in this post, don't hesitate to contact me at* **wkwang0916 at outlook dot com** *and I would be super happy to correct them right away!*
