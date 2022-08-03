@@ -2024,7 +2024,16 @@ $$c_i = argmax_j sim(\pmb f_i, \pmb f_j^{'})$$
 其中$$\pmb f_i$$是$$\pmb F_1$$的第$$i$$个feature vector，而$$\pmb f_j^{'}$$则是$$\pmb F_2$$的第$$j$$个feature vector。$$sim(u,v)$$表示$$u$$和$$v$$之间的cosine similarity。上述结果表明$$\pmb \Theta_1$$的第$$i$$个像素点对应的是$$\pmb \Theta_2$$里的第$$c_i$$个像素点。上述整个过程可以使用矩阵计算很快速的完成。
 
 
+### 4. [Crafting Better Contrastive Views for Siamese Representation Learning](https://openaccess.thecvf.com/content/CVPR2022/papers/Peng_Crafting_Better_Contrastive_Views_for_Siamese_Representation_Learning_CVPR_2022_paper.pdf)
 
+*CVPR 2022*
+
+
+### 5. [Instances as Queries](https://openaccess.thecvf.com/content/ICCV2021/papers/Fang_Instances_As_Queries_ICCV_2021_paper.pdf)
+
+[CODE](https://github.com/hustvl/QueryInst)
+
+*ICCV 2021*
 
 ---
 
