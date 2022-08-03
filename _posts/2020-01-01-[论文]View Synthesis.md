@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: false
-title: "[论文]View Synthesis"
+title: "[论文]Synthesis, Reconstruction and Generation"
 date: 2020-01-01 01:09:00
 tags: paper-reading
 ---
@@ -221,6 +221,123 @@ neural rendering（[State of the Art on Neural Rendering](https://arxiv.org/pdf/
 
 
 *Learning Face and Body Reconstruction*
+
+
+### [3D Moments from Near-Duplicate Photos](https://3d-moments.github.io/static/pdfs/3d_moments.pdf)
+
+[POST](https://3d-moments.github.io/)
+
+*CVPR 2022*
+
+### [NeuMesh: Learning Disentangled Neural Mesh-based Implicit Field for Geometry and Texture Editing](https://arxiv.org/pdf/2207.11911.pdf)
+
+[POST](https://zju3dv.github.io/neumesh/)
+
+*ECCV 2022 Oral*
+
+### [Eikonal Fields for Refractive Novel-View Synthesis](https://eikonalfield.mpi-inf.mpg.de/paper/eikonalfield_2022.pdf)
+
+[POST](https://eikonalfield.mpi-inf.mpg.de/)
+
+*SIGGRAPH 2022*
+
+### [Interacting Attention Graph for Single Image Two-Hand Reconstruction](https://openaccess.thecvf.com/content/CVPR2022/papers/Li_Interacting_Attention_Graph_for_Single_Image_Two-Hand_Reconstruction_CVPR_2022_paper.pdf)
+
+*CVPR 2022*
+
+### [Block-NeRF: Scalable Large Scene Neural View Synthesis](https://waymo.com/intl/zh-cn/research/block-nerf/)
+
+[POST](https://waymo.com/intl/zh-cn/research/block-nerf/)
+
+*CVPR 2022*
+
+### [AutoRF: Learning 3D Object Radiance Fields from Single View Observations](https://sirwyver.github.io/AutoRF/)
+
+[POST](https://sirwyver.github.io/AutoRF/)
+
+*CVPR 2022*
+
+### [Interacting Attention Graph for Single Image Two-Hand Reconstruction](https://openaccess.thecvf.com/content/CVPR2022/papers/Li_Interacting_Attention_Graph_for_Single_Image_Two-Hand_Reconstruction_CVPR_2022_paper.pdf)
+
+*CVPR 2022*
+
+
+### [GRAM: Generative Radiance Manifolds for 3D-Aware Image Generation](https://openaccess.thecvf.com/content/CVPR2022/papers/Deng_GRAM_Generative_Radiance_Manifolds_for_3D-Aware_Image_Generation_CVPR_2022_paper.pdf)
+
+*CVPR 2022*
+
+
+### [Human Mesh Recovery from Multiple Shots](https://openaccess.thecvf.com/content/CVPR2022/papers/Pavlakos_Human_Mesh_Recovery_From_Multiple_Shots_CVPR_2022_paper.pdf)
+
+*CVPR 2022*
+
+### [De-rendering 3D Objects in the wild](https://www.robots.ox.ac.uk/~vgg/research/derender3d/)
+
+[POST](https://www.robots.ox.ac.uk/~vgg/research/derender3d/)
+
+*CVPR 2022*
+
+
+### [OcclusionFusion: Occlusion-aware Motion Estimation for Real-time Dynamic 3D Reconstruction](https://arxiv.org/pdf/2203.07977.pdf)
+
+[POST](https://wenbin-lin.github.io/OcclusionFusion/)
+
+*CVPR 2022*
+
+
+### [NeuralRecon: Real-Time Coherent 3D Reconstruction from Monocular Video](https://zju3dv.github.io/neuralrecon/)
+
+[POST](https://zju3dv.github.io/neuralrecon/)
+
+*CVPR Oral & Best Paper Candidate*
+
+
+### [NeRFRen: Neural Radiance Fields with Reflections](https://bennyguo.github.io/nerfren/)
+
+[POST](https://bennyguo.github.io/nerfren/)
+
+*CVPR 2022*
+
+
+### [Learning Object-Compositional Neural Radiance Field for Editable Scene Rendering](https://zju3dv.github.io/object_nerf/)
+
+[POST](https://zju3dv.github.io/object_nerf/)
+
+*ICCV 2021*
+
+
+
+### [Robust Equivariant Imaging: a fully unsupervised framework for learning to image from noisy and partial measurements](https://openaccess.thecvf.com/content/CVPR2022/papers/Chen_Robust_Equivariant_Imaging_A_Fully_Unsupervised_Framework_for_Learning_To_CVPR_2022_paper.pdf)
+
+*CVPR 2022*
+
+
+### 17. [Unsupervised 3D Shape Completion through GAN Inversion](https://graphics.stanford.edu/courses/cs348n-22-winter/PapersReferenced/Zhang%20et%20al.%20-%202021%20-%20Unsupervised%203D%20Shape%20Completion%20through%20GAN%20Inversion.pdf)
+
+*CVPR 2021*
+
+
+### 18. [EG3D: Efficient Geometry-aware 3D Generative Adversarial Networks](https://nvlabs.github.io/eg3d/)
+
+[POST](https://nvlabs.github.io/eg3d/)
+
+*CVPR 2022*
+
+
+
+### [ARF: Artistic Radiance Fields](https://www.cs.cornell.edu/projects/arf/)
+
+[POST](https://www.cs.cornell.edu/projects/arf/)
+
+*ECCV 2022*
+
+
+### [StylizedNeRF (Jittor): Consistent 3D Scene Stylization as Stylized NeRF via 2D-3D mutual learning](https://openaccess.thecvf.com/content/CVPR2022/papers/Huang_StylizedNeRF_Consistent_3D_Scene_Stylization_As_Stylized_NeRF_via_2D-3D_CVPR_2022_paper.pdf)
+
+[CODE](https://github.com/IGLICT/StylizedNeRF)
+
+*CVPR 2022*
+
 
 
 
