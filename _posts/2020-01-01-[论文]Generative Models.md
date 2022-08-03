@@ -113,4 +113,39 @@ If you are confident that your work is novel and very important, you can use thi
 
 *CVPR 2022*
 
+
+### 5. [CariGANs: Unpaired Photo-to-Caricature Translation](https://ai.stanford.edu/~kaidicao/carigan.pdf)
+
+[POST](https://cari-gan.github.io/)
+
+*SIGGRAPH Asia 2018*
+
+
+### 6. [3DN: 3D Deformation Network](https://openaccess.thecvf.com/content_CVPR_2019/papers/Wang_3DN_3D_Deformation_Network_CVPR_2019_paper.pdf)
+
+[CODE](https://github.com/laughtervv/3DN)
+
+*CVPR 2019*
+
+
+### 7. [High-Resolution Image Synthesis and Semantic Manipulation with Conditional GANs](https://openaccess.thecvf.com/content_cvpr_2018/papers/Wang_High-Resolution_Image_Synthesis_CVPR_2018_paper.pdf)
+
+[POST](https://tcwang0509.github.io/pix2pixHD/)
+
+*CVPR 2018*
+
+
+## [Layout to image generation论文](https://paperswithcode.com/task/layout-to-image-generation)
+
+这个是从scene graph生成image的benchmarks还有相关的论文的网页。
+
+### 1. [Image Generation from Scene Graphs](https://openaccess.thecvf.com/content_cvpr_2018/CameraReady/0764.pdf)
+
+*CVPR 2018*
+
+
+
+
+
+
 ---
