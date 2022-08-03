@@ -171,8 +171,9 @@ U-Net的左侧叫做contracting path，右侧叫做expansive path，因为左侧
 
 *CVPR 2022*
 
+### 8. [Unsupervised Semantic Segmentation by Distilling Feature Correspondences](https://openreview.net/forum?id=SaKO6z6Hl0c)
 
-
+*ICLR 2022*
 
 
 
