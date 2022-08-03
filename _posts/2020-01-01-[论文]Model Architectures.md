@@ -2040,6 +2040,14 @@ $$c_i = argmax_j sim(\pmb f_i, \pmb f_j^{'})$$
 
 *Under Review ICLR 2022*
 
+
+
+## Uncategorized Papers
+
+### 1. [Neural Ordinary Differential Equations](https://proceedings.neurips.cc/paper/2018/file/69386f6bb1dfed68692a24c8686939b9-Paper.pdf)
+
+*NeurIPS 2018*
+
 ---
 
 *If you notice mistakes and errors in this post, don't hesitate to contact me at* **wkwang0916 at outlook dot com** *and I would be super happy to correct them right away!*
