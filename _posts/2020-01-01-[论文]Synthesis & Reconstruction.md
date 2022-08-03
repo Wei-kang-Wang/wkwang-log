@@ -366,6 +366,17 @@ neural rendering（[State of the Art on Neural Rendering](https://arxiv.org/pdf/
 *ICCV 2021*
 
 
+### 26. [Structure-aware Editable Morphable Model for 3D Facial Detail Animation and Manipulation](https://arxiv.org/pdf/2207.09019.pdf)
+
+*ECCV 2022*
+
+
+### 27. [Pose2Room: Understanding 3D Scenes from Human Activities](https://arxiv.org/pdf/2112.03030.pdf)
+
+[POST](https://yinyunie.github.io/pose2room-page/)
+
+*ECCV 2022*
+
 
 ## Reconstruction
 
