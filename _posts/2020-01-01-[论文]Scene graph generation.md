@@ -176,7 +176,16 @@ U-Net的左侧叫做contracting path，右侧叫做expansive path，因为左侧
 *ICLR 2022*
 
 
+### 9. [Real-Time High-Resolution Background Matting](https://grail.cs.washington.edu/projects/background-matting-v2/#/)
 
+*CVPR 2021*
+
+
+### 10. [D2NeRF: Self-Supervised Decoupling of Dynamic and Static Objects from a Monocular Video](https://d2nerf.github.io/)
+
+[POST](https://d2nerf.github.io/)
+
+*CVPR 2022*
 
 
 
