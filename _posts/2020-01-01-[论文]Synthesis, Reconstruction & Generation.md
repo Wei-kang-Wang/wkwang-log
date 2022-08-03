@@ -19,7 +19,7 @@ tags: paper-reading
 
 ## 3D View Synthesis
 
-### [NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis](https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123460392.pdf)
+### 1. [NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis](https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123460392.pdf)
 
 *Ben Mildenhall, Pratul P. Srinivasan, Matthew Tancik, Jonathan T. Barron, Ravi Ramamoorthi, Ren Ng*
 
@@ -84,7 +84,7 @@ tags: paper-reading
 我们可以从fig 3看到我们的方法如何利用输入的相机角度来表示non-Lambertian效果。fig 4表示，如果没有相机角度这个输入，仅仅利用$$\pmb{x}$$作为输入，那么表示高光反射的位置就会出现问题。
 
 
-**4. Volume Rendering with Radiance Fields
+**4. Volume Rendering with Radiance Fields**
 
 我们的5D neural radiance field将一个scene表示为空间中任意一个点的volume density和directional emitted radiance。对于任意穿过这个scene的ray的渲染color，使用的是经典的volume rendering方法（[Ray tracing volume densities]()）。volume density $$\rho(\pmb{x})$$可以被理解为从相机出发的ray在点$$\pmb{x}$$处被拦下来的概率。相机ray $$\pmb{r}(t) = \pmb{o} + t \pmb{d}$$的color，$$C(\pmb{r})$$是：
 
@@ -108,12 +108,12 @@ $$\hat C(\pmb{r}) = \Sigma_{i=1}^N T_i(1 - exp(-\sigma_i \delta_i)) \pmb c_i$$
 其中$$T_i = exp(-\Sigma_{j=1}^{i-1} \sigma_j \delta_j)$$，$$\delta_i = t_{i+1} - t_i$$是两个相邻采样点之间的距离。上述这个从一个集合的$$(\pmb c_i, \sigma_i)$$来d计算$$\hat C(\pmb{r})$$的函数是可微的。
 
 
-**5. Optimizing a Neural Radiance Field
+**5. Optimizing a Neural Radiance Field**
 
 在前面的章节里，我们描述了将一个scene建模为一个neural radiance field的核心内容，并介绍了如何从这个representation里渲染新的views。然而，这些对于生成state-of-the-art效果的图片来说并不够。我们介绍两个improvements来使得表示高分辨率的复杂scenes成为现实。第一个是对于输入coordinates的positional encoding，其可以帮助MLP拟合更高频率的函数（高频一般意味着更多的细节），第二个是使用了一种hierarchical的采样方法使得我们可以高效的采样这个高频的representation。
 
 
-**5.1 Positional encoding
+**5.1 Positional encoding**
 
 尽管神经网络是universal function approximators，我们发现将网络$$F_{\Theta}$$直接作用在$$xyz\theta \phi$$上会导致渲染的结果对于color和geometry的高频变化效果不好（也就是变化很频繁的区域，而这往往是细节区域）。这和[On the spectral bias of neural networks]()$$里的关于神经网络倾向于学习low frequency function的观点一致。他们还说在输入网络之前，将输入使用high frequency function映射到更高维的空间，会使得网络能学习到含有高频变化的部分。
 
@@ -134,7 +134,7 @@ $$\gamma(p) = (sin(2^0 \pi p), cos(2^0 \pi p), \cdots, sin(2^{L-1}\pi p), cos(2^
 {: style="width: 800px; max-width: 100%;"}
 *Fig 4 这里我们展示了我们的方法是如何从view-dependent emitted radiance以及positional encoding上受益的。将view-dependent移除，那我们的模型就无法预测那些镜面反射的点。将positional encoding移除，我们的模型对于那些高频的geometry和texture的预测就会很差，从而导致一个过于光滑的appearance。*
 
-**5.2 Hierarchical volume sampling
+**5.2 Hierarchical volume sampling**
 
 我们的渲染策略是沿着每个camera ray稠密的采样$$N$$个query points，来evaluate neural radiance field network。这样的方式是不高效的：没有物体的free space以及被遮住的occluded regions，它们对于渲染的图片没有贡献，但却被重复的采样了很多次。我们从之前的volume rendering的论文里获取了灵感，提出了一个通过根据正比于点在最终渲染的图片上的贡献来采样点的方式提高渲染效率的策略。
 
@@ -147,7 +147,7 @@ $$\hat C_c (\pmb{r}) = \Sigma_{i=1}^{N_c} w_i c_i$$
 将这些weights归一化为：$$\hat w_i = w_i / \Sigma_{j=1}^{N_c} w_j$$，就产生了一个沿着ray的piecewise-constant PDF。之后再从这个distribution上采样$$N_f$$个点，最后利用第四届里的方法使用所有的$$N_f + N_c$$个采样点来计算$$\hat C_f (\pmb{r})$$。这个方法为我们认为会有更多有用信息的位置增加了更多的点。
 
 
-**5.3 Implementation details
+**5.3 Implementation details**
 
 我们为每个scene优化一个单独的neural continuous volume representation network。我们仅仅需要一系列该scene的RGB图片、每张图片对应的相机角度和intrinsic parameters，以及scene bounds（对于生成数据，我们有相机角度、intrinsic parameters和scene bounds的ground truth，而对于真实数据，我们使用COLMAP structure-from-motion package（[Structure-from-motion revisited]()）来估计这些参数）。在每个optimization iteration，我们从数据集里所有的pixels里随机采样一个batch的camera rays，然后利用第五节里说的方法query $$N_c$$个点给coarse network，query $$N_c + N_f$$个点给fine network。我们之后再用第四节里说的volume rendering procedure来为这两个点的集合渲染出这条ray的color。我们的loss仅仅是渲染出来的颜色和真实的pixel颜色之间的$$L_2$$距离：
 
@@ -158,21 +158,15 @@ $$\mathcal L = \Sigma_{\pmb r in \mathcal R} \left[ \lVert \hat C_c (\pmb{r}) - 
 在真实的实验里，我们的batch size是4096 rays，$$N_c = 64$$，$$N_f = 128$$。我们使用了Adam优化器，learning rate开始设置为$$5 \times 10^{-4}$$，decay是 exponentially设置为$$5 \times 10^{-5}$$。其余的Adam参数为默认值。对于一个scene，使用单张NVIDIA V100 GPU需要循环100-300K个循环，需要1-2天的时间。
 
 
-**6. Conclusion
+**6. Conclusion**
 
 我们的工作使用MLP来表示objects和scenes，解决了之前工作的不足。我们将scenes表示为5D neural radiance fields（一个MLP函数，输入是3D location和2D viewing direction，输出是volume density和view-dependent emitted radiance），相比较于之前的训练CNN来输出discretized voxel representations的方法，这个方法能够生成更好的渲染结果。
 
 尽管我们提出了一个hierarchical sampling的方法使得渲染更加的高效，但在高效优化neural radiance field和采样的方向还有很多工作要做。另一个将来的方向是interpretability：sampled representations比如说voxel grids和meshes允许推理和思考所渲染的图片的效果以及失败的情况，但是将scenes表示为MLP的参数之后，我们就无法分析这些了。我们相信这篇文章推动了基于现实世界的graphics pipeline的发展，因为真实的objects和scenes现在可以被表示为neural radiance fields了，而多个objects或者scenes可以组合称为更复杂的scenes。
 
 
-### [KeypointNeRF: Generalizing Image-based Volumetric Avatars using Relative Spatial Encoding of Keypoints](https://markomih.github.io/KeypointNeRF/)
 
-[POST](https://markomih.github.io/KeypointNeRF/)
-
-*ECCV 2022*
-
-
-### [KeypointNeRF: Generalizing Image-based Volumetric Avatars using Relative Spatial Encoding of Keypoints](https://arxiv.org/pdf/2205.04992.pdf)
+### 2. [KeypointNeRF: Generalizing Image-based Volumetric Avatars using Relative Spatial Encoding of Keypoints](https://arxiv.org/pdf/2205.04992.pdf)
 
 [POST](https://markomih.github.io/KeypointNeRF/)
 
@@ -223,120 +217,112 @@ neural rendering（[State of the Art on Neural Rendering](https://arxiv.org/pdf/
 *Learning Face and Body Reconstruction*
 
 
-### [3D Moments from Near-Duplicate Photos](https://3d-moments.github.io/static/pdfs/3d_moments.pdf)
+### 3. [3D Moments from Near-Duplicate Photos](https://3d-moments.github.io/static/pdfs/3d_moments.pdf)
 
 [POST](https://3d-moments.github.io/)
 
 *CVPR 2022*
 
-### [NeuMesh: Learning Disentangled Neural Mesh-based Implicit Field for Geometry and Texture Editing](https://arxiv.org/pdf/2207.11911.pdf)
+### 4. [NeuMesh: Learning Disentangled Neural Mesh-based Implicit Field for Geometry and Texture Editing](https://arxiv.org/pdf/2207.11911.pdf)
 
 [POST](https://zju3dv.github.io/neumesh/)
 
 *ECCV 2022 Oral*
 
-### [Eikonal Fields for Refractive Novel-View Synthesis](https://eikonalfield.mpi-inf.mpg.de/paper/eikonalfield_2022.pdf)
+### 5. [Eikonal Fields for Refractive Novel-View Synthesis](https://eikonalfield.mpi-inf.mpg.de/paper/eikonalfield_2022.pdf)
 
 [POST](https://eikonalfield.mpi-inf.mpg.de/)
 
 *SIGGRAPH 2022*
 
-### [Interacting Attention Graph for Single Image Two-Hand Reconstruction](https://openaccess.thecvf.com/content/CVPR2022/papers/Li_Interacting_Attention_Graph_for_Single_Image_Two-Hand_Reconstruction_CVPR_2022_paper.pdf)
 
-*CVPR 2022*
-
-### [Block-NeRF: Scalable Large Scene Neural View Synthesis](https://waymo.com/intl/zh-cn/research/block-nerf/)
+### 6. [Block-NeRF: Scalable Large Scene Neural View Synthesis](https://waymo.com/intl/zh-cn/research/block-nerf/)
 
 [POST](https://waymo.com/intl/zh-cn/research/block-nerf/)
 
 *CVPR 2022*
 
-### [AutoRF: Learning 3D Object Radiance Fields from Single View Observations](https://sirwyver.github.io/AutoRF/)
+### 7. [AutoRF: Learning 3D Object Radiance Fields from Single View Observations](https://sirwyver.github.io/AutoRF/)
 
 [POST](https://sirwyver.github.io/AutoRF/)
 
 *CVPR 2022*
 
-### [Interacting Attention Graph for Single Image Two-Hand Reconstruction](https://openaccess.thecvf.com/content/CVPR2022/papers/Li_Interacting_Attention_Graph_for_Single_Image_Two-Hand_Reconstruction_CVPR_2022_paper.pdf)
+
+### 8. [GRAM: Generative Radiance Manifolds for 3D-Aware Image Generation](https://openaccess.thecvf.com/content/CVPR2022/papers/Deng_GRAM_Generative_Radiance_Manifolds_for_3D-Aware_Image_Generation_CVPR_2022_paper.pdf)
 
 *CVPR 2022*
 
 
-### [GRAM: Generative Radiance Manifolds for 3D-Aware Image Generation](https://openaccess.thecvf.com/content/CVPR2022/papers/Deng_GRAM_Generative_Radiance_Manifolds_for_3D-Aware_Image_Generation_CVPR_2022_paper.pdf)
-
-*CVPR 2022*
-
-
-### [Human Mesh Recovery from Multiple Shots](https://openaccess.thecvf.com/content/CVPR2022/papers/Pavlakos_Human_Mesh_Recovery_From_Multiple_Shots_CVPR_2022_paper.pdf)
-
-*CVPR 2022*
-
-### [De-rendering 3D Objects in the wild](https://www.robots.ox.ac.uk/~vgg/research/derender3d/)
-
-[POST](https://www.robots.ox.ac.uk/~vgg/research/derender3d/)
-
-*CVPR 2022*
-
-
-### [OcclusionFusion: Occlusion-aware Motion Estimation for Real-time Dynamic 3D Reconstruction](https://arxiv.org/pdf/2203.07977.pdf)
-
-[POST](https://wenbin-lin.github.io/OcclusionFusion/)
-
-*CVPR 2022*
-
-
-### [NeuralRecon: Real-Time Coherent 3D Reconstruction from Monocular Video](https://zju3dv.github.io/neuralrecon/)
-
-[POST](https://zju3dv.github.io/neuralrecon/)
-
-*CVPR Oral & Best Paper Candidate*
-
-
-### [NeRFRen: Neural Radiance Fields with Reflections](https://bennyguo.github.io/nerfren/)
+### 9. [NeRFRen: Neural Radiance Fields with Reflections](https://bennyguo.github.io/nerfren/)
 
 [POST](https://bennyguo.github.io/nerfren/)
 
 *CVPR 2022*
 
 
-### [Learning Object-Compositional Neural Radiance Field for Editable Scene Rendering](https://zju3dv.github.io/object_nerf/)
+### 10. [Learning Object-Compositional Neural Radiance Field for Editable Scene Rendering](https://zju3dv.github.io/object_nerf/)
 
 [POST](https://zju3dv.github.io/object_nerf/)
 
 *ICCV 2021*
 
 
-
-### [Robust Equivariant Imaging: a fully unsupervised framework for learning to image from noisy and partial measurements](https://openaccess.thecvf.com/content/CVPR2022/papers/Chen_Robust_Equivariant_Imaging_A_Fully_Unsupervised_Framework_for_Learning_To_CVPR_2022_paper.pdf)
-
-*CVPR 2022*
-
-
-### 17. [Unsupervised 3D Shape Completion through GAN Inversion](https://graphics.stanford.edu/courses/cs348n-22-winter/PapersReferenced/Zhang%20et%20al.%20-%202021%20-%20Unsupervised%203D%20Shape%20Completion%20through%20GAN%20Inversion.pdf)
-
-*CVPR 2021*
-
-
-### 18. [EG3D: Efficient Geometry-aware 3D Generative Adversarial Networks](https://nvlabs.github.io/eg3d/)
-
-[POST](https://nvlabs.github.io/eg3d/)
-
-*CVPR 2022*
-
-
-
-### [ARF: Artistic Radiance Fields](https://www.cs.cornell.edu/projects/arf/)
+### 11. [ARF: Artistic Radiance Fields](https://www.cs.cornell.edu/projects/arf/)
 
 [POST](https://www.cs.cornell.edu/projects/arf/)
 
 *ECCV 2022*
 
 
-### [StylizedNeRF (Jittor): Consistent 3D Scene Stylization as Stylized NeRF via 2D-3D mutual learning](https://openaccess.thecvf.com/content/CVPR2022/papers/Huang_StylizedNeRF_Consistent_3D_Scene_Stylization_As_Stylized_NeRF_via_2D-3D_CVPR_2022_paper.pdf)
+### 12. [StylizedNeRF (Jittor): Consistent 3D Scene Stylization as Stylized NeRF via 2D-3D mutual learning](https://openaccess.thecvf.com/content/CVPR2022/papers/Huang_StylizedNeRF_Consistent_3D_Scene_Stylization_As_Stylized_NeRF_via_2D-3D_CVPR_2022_paper.pdf)
 
 [CODE](https://github.com/IGLICT/StylizedNeRF)
 
 *CVPR 2022*
+
+
+
+
+
+## Reconstruction
+
+### 1. [Interacting Attention Graph for Single Image Two-Hand Reconstruction](https://openaccess.thecvf.com/content/CVPR2022/papers/Li_Interacting_Attention_Graph_for_Single_Image_Two-Hand_Reconstruction_CVPR_2022_paper.pdf)
+
+*CVPR 2022*
+
+
+### 2. [Human Mesh Recovery from Multiple Shots](https://openaccess.thecvf.com/content/CVPR2022/papers/Pavlakos_Human_Mesh_Recovery_From_Multiple_Shots_CVPR_2022_paper.pdf)
+
+*CVPR 2022*
+
+
+### 3. [De-rendering 3D Objects in the wild](https://www.robots.ox.ac.uk/~vgg/research/derender3d/)
+
+[POST](https://www.robots.ox.ac.uk/~vgg/research/derender3d/)
+
+*CVPR 2022*
+
+
+### 4. [OcclusionFusion: Occlusion-aware Motion Estimation for Real-time Dynamic 3D Reconstruction](https://arxiv.org/pdf/2203.07977.pdf)
+
+[POST](https://wenbin-lin.github.io/OcclusionFusion/)
+
+*CVPR 2022*
+
+
+### 5. [NeuralRecon: Real-Time Coherent 3D Reconstruction from Monocular Video](https://zju3dv.github.io/neuralrecon/)
+
+[POST](https://zju3dv.github.io/neuralrecon/)
+
+*CVPR Oral & Best Paper Candidate*
+
+
+### 6. [Robust Equivariant Imaging: a fully unsupervised framework for learning to image from noisy and partial measurements](https://openaccess.thecvf.com/content/CVPR2022/papers/Chen_Robust_Equivariant_Imaging_A_Fully_Unsupervised_Framework_for_Learning_To_CVPR_2022_paper.pdf)
+
+*CVPR 2022*
+
+
 
 
 ## Generative Models
@@ -422,5 +408,17 @@ If you are confident that your work is novel and very important, you can use thi
 ### 2. [Auto-Encoding Variational Bayes](https://openreview.net/forum?id=33X9fd2-9FyZd)
 
 *ICLR 2014*
+
+
+### 3. [Unsupervised 3D Shape Completion through GAN Inversion](https://graphics.stanford.edu/courses/cs348n-22-winter/PapersReferenced/Zhang%20et%20al.%20-%202021%20-%20Unsupervised%203D%20Shape%20Completion%20through%20GAN%20Inversion.pdf)
+
+*CVPR 2021*
+
+
+### 4. [EG3D: Efficient Geometry-aware 3D Generative Adversarial Networks](https://nvlabs.github.io/eg3d/)
+
+[POST](https://nvlabs.github.io/eg3d/)
+
+*CVPR 2022*
 
 ---
