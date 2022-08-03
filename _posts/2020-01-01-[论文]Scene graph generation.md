@@ -144,10 +144,32 @@ U-Net的左侧叫做contracting path，右侧叫做expansive path，因为左侧
 文章中说，从左侧到右侧的feature mapconcatenation之前做的cropping是必要的，因为每次卷积都会导致边界信息的丢失，所以我们也不需要前面层的边界的信息通过concatenation的方式传递到后面的层，也就是使用centercropping。
 
 
+### 3. [SeqFormer: Sequential Transformer for Video Instance Segmentation](https://arxiv.org/pdf/2112.08275.pdf)
+
+[CODE](https://github.com/wjf5203/SeqFormer)
+
+*ECCV 2022 Oral*
 
 
+### 4. [In Defense of Online Models for Video Instance Segmentation](https://arxiv.org/pdf/2207.10661.pdf)
+
+*ECCV 2022 Oral*
 
 
+### 5. [SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers](https://proceedings.neurips.cc/paper/2021/hash/64f1f27bf1b4ec22924fd0acb550c235-Abstract.html)
+
+*NeurIPS 2021*
+
+
+### 6. [GroupViT: Semantic Segmentation Emerges from Text Supervision](https://openaccess.thecvf.com/content/CVPR2022/papers/Xu_GroupViT_Semantic_Segmentation_Emerges_From_Text_Supervision_CVPR_2022_paper.pdf)
+
+*CVPR 2022*
+
+### 7. [End-to-End Referring Video Object Segmentation with Multimodal Transformers](https://arxiv.org/pdf/2111.14821.pdf)
+
+[CODE](https://github.com/mttr2021/MTTR)
+
+*CVPR 2022*
 
 
 
