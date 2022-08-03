@@ -282,6 +282,88 @@ neural rendering（[State of the Art on Neural Rendering](https://arxiv.org/pdf/
 *CVPR 2022*
 
 
+### 13. [Unsupervised Novel View Synthesis from a Single Image](https://arxiv.org/pdf/2102.03285.pdf)
+
+*Arxiv 2021*
+
+
+### 14. [TensoRF: Tensorial Radiance Fields](https://arxiv.org/pdf/2203.09517.pdf)
+
+[POST](https://apchenstu.github.io/TensoRF/)
+
+*ECCV 2022*
+
+
+### 15. [NeRF in the wild: Neural Radiance Fields for Unconstrained Photo Collections](https://arxiv.org/pdf/2008.02268.pdf)
+
+[POST](https://nerf-w.github.io/)
+
+
+### 16. [Single-view View Synthesis with Multiple Images](https://openaccess.thecvf.com/content_CVPR_2020/papers/Tucker_Single-View_View_Synthesis_With_Multiplane_Images_CVPR_2020_paper.pdf)
+
+[POST](https://single-view-mpi.github.io/)
+
+
+### 17. [SynSin: End-to-end View Synthesis from a Single Image](https://arxiv.org/pdf/1912.08804.pdf)
+
+[POST](https://www.robots.ox.ac.uk/~ow/synsin.html)
+
+*CVPR 2020 Oral*
+
+
+### 18. [NeX: Real-time View Synthesis with Neural Basis Expansion](https://arxiv.org/pdf/2103.05606.pdf)
+
+[POST](https://nex-mpi.github.io/)
+
+*CVPR 2021 Oral*
+
+
+### 19. [pixelNeRF: Neural Radiance Fields from One or Few Images](https://arxiv.org/pdf/2012.02190.pdf)
+
+[POST](https://alexyu.net/pixelnerf/)
+
+*CVPR 2021*
+
+
+### 20. [GIRAFFE: Representing Scenes as Compositional Generative Neural Feature Fields](http://www.cvlibs.net/publications/Niemeyer2021CVPR.pdf)
+
+[POST](https://m-niemeyer.github.io/project-pages/giraffe/index.html)
+
+*CVPR 2021 Best Paper*
+
+
+### 21. [NeRFReN: Neural Radiance Fields with Reflections](https://openaccess.thecvf.com/content/CVPR2022/html/Guo_NeRFReN_Neural_Radiance_Fields_With_Reflections_CVPR_2022_paper.html)
+
+[POST](https://bennyguo.github.io/nerfren/)
+
+*CVPR 2022*
+
+
+### 22. [Pix2NeRF: Unsupervised Conditional $$\pi$$-GAN for Single Image to Neural Radiance Fields Translation
+](https://openaccess.thecvf.com/content/CVPR2022/papers/Cai_Pix2NeRF_Unsupervised_Conditional_p-GAN_for_Single_Image_to_Neural_Radiance_CVPR_2022_paper.pdf)
+
+*CVPR 2022*
+
+
+### 23. [IBRNet: Learning Multi-View Image-Based Rendering](https://openaccess.thecvf.com/content/CVPR2021/papers/Wang_IBRNet_Learning_Multi-View_Image-Based_Rendering_CVPR_2021_paper.pdf)
+
+[POST](https://ibrnet.github.io/)
+
+*CVPR 2021*
+
+
+### 24. [Infinite Nature: Perpetual View Generation of Natural Scenes from a Single Image](https://openaccess.thecvf.com/content/ICCV2021/papers/Liu_Infinite_Nature_Perpetual_View_Generation_of_Natural_Scenes_From_a_ICCV_2021_paper.pdf)
+
+[POST](https://infinite-nature.github.io/)
+
+*ICCV 2021 Oral*
+
+
+### 25. [MINE: Towards Continuous Depth MPI with NeRF for Novel View Synthesis](https://arxiv.org/pdf/2103.14910.pdf)
+
+[POST](https://vincentfung13.github.io/projects/mine/)
+
+*ICCV 2021*
 
 
 
@@ -321,6 +403,13 @@ neural rendering（[State of the Art on Neural Rendering](https://arxiv.org/pdf/
 ### 6. [Robust Equivariant Imaging: a fully unsupervised framework for learning to image from noisy and partial measurements](https://openaccess.thecvf.com/content/CVPR2022/papers/Chen_Robust_Equivariant_Imaging_A_Fully_Unsupervised_Framework_for_Learning_To_CVPR_2022_paper.pdf)
 
 *CVPR 2022*
+
+
+### 7. [MoFA: Model-based Deep Convolutional Face Autoencoder for Unsupervised Monocular Reconstruction](https://vcai.mpi-inf.mpg.de/projects/MoFA/paper.pdf)
+
+[POST](https://vcai.mpi-inf.mpg.de/projects/MoFA/)
+
+*ICCV 2017 Oral*
 
 
 
