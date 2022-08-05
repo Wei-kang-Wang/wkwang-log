@@ -363,7 +363,7 @@ $$C = \sum_i KL(P_i \mid \mid Q_i) = \sum_i \sum_j p_{j \mid i} \log \frac{p_{j 
 
 每个数据点有了$$\sigma_i$$之后，$$p_{j \mid i}$$就可以计算了，从而$$P_i$$也可以算出来，是一个固定的值。我们的目标函数里的变量为$$y_i$$，从而其就等价于优化$$\sum_i \sum_j -p_{j \mid i} \log q_{j \mid i}$$，这个式子和softmax非常的类似。softmax的目标函数是$$\sum_i y_i \log p_i$$，其中$$y_i$$为ground truth标签，$$p_i$$是预测的标签，都是一个向量。计算目标函数对于$$y_i$$的梯度，得到：
 
-$$\frac{\partial C}{\partial y_i} = -2 \sum_{j} (p_{i \mid j} - p_{i \mid j} q_{i \mid j} + p_{j \mid i} - p_{j \mid i} \sum_{t \neq i} p_{j \mid i} q_{t \mid i})(y_i - y_j)$$
+$$\frac{\partial C}{\partial y_i} = 2 \sum_j (p_{j \mid i} + p_{i \mid j} - q_{j \mid i} - p_{i \mid j} q_{i \mid j})(y_i - y_j)$$
 
 但优化上述目标函数比较困难，一开始可以使用较小的$$\sigma$$来进行初始化。而且可以引入momentum来更新$$y_i$$，即每次更新不仅和这次的梯度有关，还和之前的值有关。还可以在优化的初始阶段引入高斯噪声，再类似于模拟退火的方式逐渐减小该噪声避免陷入局部最优解。
 
