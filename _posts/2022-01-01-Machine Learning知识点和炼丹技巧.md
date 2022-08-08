@@ -228,7 +228,7 @@ $$v_i^T A^T A v_i = \sigma_i^2 v_i^T v_i$$
 
 $$v_i^TA^TAv_i = (Av_i)^T(Av_i) = ||Av_i||^2 = \sigma_i^2v_i^Tv_i = \sigma_i^2$$
 
-也就是说$$||Av_i|| = \sigma_i$$。
+也就是说$$\lVert Av_i \rVert = \sigma_i$$。
 
 再次回到$$A^TAv_i = \sigma_i^2v_i$$，左乘$$A$$我们得到：
 
