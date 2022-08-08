@@ -594,7 +594,9 @@ $$\Lambda$$为对角矩阵，对角线上的值就是矩阵特征值（可能有
 
 $$D(x) = \frac{1}{m} \sum_{i=1}^m (\langle x_i, \omega \rangle)^2 = \frac{1}{m} \sum_{i=1}^m (x_i^T \omega)^2 = \frac{1}{m} \sum_{i=1}^m (x_i^T \omega)^T (x_i^T \omega) $$
 
-$$= \frac{1}{m} \sum_{i=1}^m \omega^T x_i x_i^T \omega = \omega^T (\frac{1}{m} \sum_{i=1}^m x_i x_i^T) \omega$$。
+
+$$= \frac{1}{m} \sum_{i=1}^m \omega^T x_i x_i^T \omega = \omega^T (\frac{1}{m} \sum_{i=1}^m x_i x_i^T) \omega $$。
+
 
 可以看到，$$\frac{1}{m} x_i x_i^T$$就是原本数据的协方差，记这个为$$C$$，从而我们的目标为：
 
