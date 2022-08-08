@@ -510,6 +510,11 @@ $$
 从而我们的优化问题变为：**将一组$$m$$个$$N$$维向量数据降为$$K$$维，其目标是选择$$K$$个单位正交基，使得原始数据变换到这组基上后（也就是在这组基上的坐标值），各个变量之间的协方差为0，而变量的方差的和尽可能的大（也就是在正交的基的约束下，选择使得变换后的变量方差最大的K个基）。
 
 
+>这两个链接给了协方差矩阵的一些解释和定义：
+>https://math.stackexchange.com/questions/1742193/covariance-of-two-random-vectors
+>https://math.stackexchange.com/questions/99560/generalization-of-variance-to-random-vectors
+
+
 **5.2.2. 具体计算**
 
 针对上述的优化目标，以下进行数学推导。
@@ -668,6 +673,9 @@ PCA需要对协方差矩阵$$C = \frac{1}{m} X X^T$$进行特征值分解，而S
 **5.7. 参考文献**
 
 * https://zhuanlan.zhihu.com/p/77151308
+* https://zhuanlan.zhihu.com/p/32412043
+* https://zhuanlan.zhihu.com/p/37777074
+* https://www.zhihu.com/question/41120789
 
 
 
