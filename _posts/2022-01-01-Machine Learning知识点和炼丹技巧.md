@@ -64,7 +64,7 @@ $$x_1$$的范围是个位数，而$x_2$的范围是1e+3左右，假设$$x_1$$所
 
 normalization可以放在activation function之前，也可以放在其之后。将normalization放在activation function之前，对于某些activation functions，比如说tanh或者sigmoid，因为其会有saturation region，而我们最好避免input落在saturation region里，因为这样会使得训练不动。所以先做normalization可以确保其不在saturation region里。
 
-![bn]({{ '/assets/images/batch_normalization_41.png' | relative_url }})
+![bn]({{ '/assets/images/batch_normalization_4.png' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 *Fig 4. Batch Normalization.*
 
@@ -197,12 +197,13 @@ $$\left\langle u_i,u_j \right\rangle = \frac{1}{\sigma_i \sigma_j} \left\langle 
 将集合$$(u_1, \cdots, u_p)$$拓展到$$R^m$$的一个基$$(u_1, \cdots, u_m)$$。因为$$Av_i = \sigma_i u_i$$，所以我们有：
 
 $$
+A(v_1, \cdots, v_n) = (u_1, \cdots, u_m)
 \begin{pmatrix}
- & \sigma_{i_1} & 0 & 0 & \cdots & 0 \\
- & 0 & \sigma_{i_2} & 0 & \cdots & 0 \\
-A(v_1, \cdots, v_n) = (u_1, \cdots, u_m) & 0 & \cdots & \sigma_{i_p} & \cdots & 0 \\
- & \cdots & \cdots & \cdots & \cdots & 0 \\
- & 0 & \cdots & \cdots & \cdots & 0 \\
+\sigma_{i_1} & 0 & 0 & \cdots & 0 \\
+0 & \sigma_{i_2} & 0 & \cdots & 0 \\
+0 & \cdots & \sigma_{i_p} & \cdots & 0 \\
+\cdots & \cdots & \cdots & \cdots & 0 \\
+0 & \cdots & \cdots & \cdots & 0
 \end{pmatrix}
 $$
 
