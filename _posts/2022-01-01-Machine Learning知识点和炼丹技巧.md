@@ -574,10 +574,10 @@ $$D = \frac{1}{m} Y Y^T = \frac{1}{m} PX X^T P^T = PCP^T$$
 $$E^T C E = \Lambda = 
 
 \begin{pmatrix}
-lambda_1 & & & \\
- & \lambda & & \\
+\lambda_1 & & & \\
+ & \lambda_2 & & \\
  & & \cdots & \\
- & & & \lambda
+ & & & \lambda_n
 \end{pmatrix}
 $$
 
@@ -590,11 +590,15 @@ $$\Lambda$$为对角矩阵，对角线上的值就是矩阵特征值（可能有
 
 在我们上述求解的过程中，我们希望变化后的变量具有的性质为：变量间协方差为零，变量内方差和尽可能的大。我们使用的是实对称矩阵的性质完成的。实际上还可以通过将其转化为最优化问题利用拉格朗日乘子法来予以推导。
 
-对于归一化的正交基来说，向量在每个基下面的坐标就是这个向量和这个基的内积。所以说，对于这组正交基里的某一个基$$\omega$$来说，其和原始数据的每个向量做内积，对应的就是在这个正交基的框架下，每个原始数据对应的新的数据在这个基$$\omega$$下的坐标值（它们整体组成了新的一个变量，也就是$$Y$$里的某一行）。从而，我们计算这个基作用在原始数据集上找到的新的数据集的坐标值构成的新的这个变量的方差为：$$D(x) = \frac{1}{m} \sum_{i=1}^m (\langle x_i, \omega \rangle)^2 = \frac{1}{m} \sum_{i=1}^m (x_i^T \omega)^2 = \frac{1}{m} \sum_{i=1}^m (x_i^T \omega)^T (x_i^T \omega) = \frac{1}{m} \sum_{i=1}^m \omega^T x_i x_i^T \omega = \omega^T (\frac{1}{m} \sum_{i=1}^m x_i x_i^T) \omega$$。
+对于归一化的正交基来说，向量在每个基下面的坐标就是这个向量和这个基的内积。所以说，对于这组正交基里的某一个基$$\omega$$来说，其和原始数据的每个向量做内积，对应的就是在这个正交基的框架下，每个原始数据对应的新的数据在这个基$$\omega$$下的坐标值（它们整体组成了新的一个变量，也就是$$Y$$里的某一行）。从而，我们计算这个基作用在原始数据集上找到的新的数据集的坐标值构成的新的这个变量的方差为：
+
+$$D(x) = \frac{1}{m} \sum_{i=1}^m (\langle x_i, \omega \rangle)^2 = \frac{1}{m} \sum_{i=1}^m (x_i^T \omega)^2 = \frac{1}{m} \sum_{i=1}^m (x_i^T \omega)^T (x_i^T \omega) $$
+
+$$= \frac{1}{m} \sum_{i=1}^m \omega^T x_i x_i^T \omega = \omega^T (\frac{1}{m} \sum_{i=1}^m x_i x_i^T) \omega$$。
 
 可以看到，$$\frac{1}{m} x_i x_i^T$$就是原本数据的协方差，记这个为$$C$$，从而我们的目标为：
 
-$$ max \brace \omega^T C \omega$$
+$$ max \lbrace \omega^T C \omega \rbrace$$
 
 $$s.t., \omega^T \omega = 1$$
 
