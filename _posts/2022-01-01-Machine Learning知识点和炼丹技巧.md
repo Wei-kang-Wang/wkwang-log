@@ -316,11 +316,11 @@ $$argmax_{||x||=1} \left\langle x, Ax \right\rangle$$
 * https://zhuanlan.zhihu.com/p/353637184
 
 
-## 3. SVM
+## 3. Support Vector Machine（SVM）原理
 
 
 
-## 4. t-SNE
+## 4. t-student Stochastic Neighborhood Embedding（t-SNE）原理
 
 t-SNE（t-distributed stochastic neighbor embedding）是用于降维的一种算法，是由Laurens van der Maaten和Geoffrey Hinton在2008年的时候提出的。此外，t-SNE还是一种非线性的降维方法，非常适合将高维数据降维到2维或者3维从而用于可视化。
 
@@ -448,7 +448,7 @@ $$q_{i,j} = \frac{(1 + \mid \mid y_i - y_j \mid \mid ^2)^{-1}}{\sum_{k \neq l}(1
 * http://www.datakit.cn/blog/2017/02/05/t_sne_full.html
 
 
-## 5. PCA
+## 5. Principal Component Analysis（PCA）原理分析
 
 PCA（principal component analysis）是一种常见的数据分析方式，常用于高维数据的降维，可以用于提取数据的主要特征。
 
