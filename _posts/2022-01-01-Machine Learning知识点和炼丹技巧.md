@@ -320,6 +320,13 @@ $$argmax_{||x||=1} \left\langle x, Ax \right\rangle$$
 ## 3. Support Vector Machine（SVM）原理
 
 
+https://www.stat.cmu.edu/~larry/=sml/SVM.pdf
+https://zhuanlan.zhihu.com/p/77750026
+https://zhuanlan.zhihu.com/p/31886934
+https://blog.csdn.net/u012990623/article/details/40272619
+https://zhuanlan.zhihu.com/p/31886934#:~:text=%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%EF%BC%88support%20vector,%E7%9A%84%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB%E5%99%A8%E3%80%82
+
+
 
 ## 4. t-student Stochastic Neighborhood Embedding（t-SNE）原理
 
