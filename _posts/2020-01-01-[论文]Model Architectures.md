@@ -1365,6 +1365,11 @@ MAE的decoder只用于在pre-training的时候做image reconstruction任务，�
 但是在related work部分，虽然提到了很多相关工作，但是对于iGPT和Beit这两篇相关性最大的论文，并没有详细介绍他们的方法，这是不推荐的。
 
 
+### 8. [MIST: Multiple Instance Spatial Transformer](https://openaccess.thecvf.com/content/CVPR2021/html/Angles_MIST_Multiple_Instance_Spatial_Transformer_CVPR_2021_paper.html)
+
+*CVPR 2021*
+
+
 
 ## Contrastive Learning Models
 
@@ -2047,6 +2052,12 @@ $$c_i = argmax_j sim(\pmb f_i, \pmb f_j^{'})$$
 ### 1. [Neural Ordinary Differential Equations](https://proceedings.neurips.cc/paper/2018/file/69386f6bb1dfed68692a24c8686939b9-Paper.pdf)
 
 *NeurIPS 2018*
+
+
+### 2. [Rethinking ImageNet Pre-training](https://openaccess.thecvf.com/content_ICCV_2019/papers/He_Rethinking_ImageNet_Pre-Training_ICCV_2019_paper.pdf)
+
+*ICCV 2019*
+
 
 ---
 
