@@ -188,6 +188,46 @@ U-Net的左侧叫做contracting path，右侧叫做expansive path，因为左侧
 *CVPR 2022*
 
 
+### 11. [SCOPS: Self-Supervised Co-Part Segmentation](https://openaccess.thecvf.com/content_CVPR_2019/html/Hung_SCOPS_Self-Supervised_Co-Part_Segmentation_CVPR_2019_paper.html)
+
+*CVPR 2019*
+
+
+### 12. [Causal Discovery in Physical Systems from Videos](https://proceedings.neurips.cc/paper/2020/hash/6822951732be44edf818dc5a97d32ca6-Abstract.html)
+
+*NeurIPS 2020*
+
+
+### 13. [Neural Scene Decomposition for Multi-Person Motion Capture](https://openaccess.thecvf.com/content_CVPR_2019/html/Rhodin_Neural_Scene_Decomposition_for_Multi-Person_Motion_Capture_CVPR_2019_paper.html)
+
+*CVPR 2019*
+
+
+### 14. [Unsupervised Disentanglement of Pose, Appearance and Background from Images and Videos](https://ieeexplore.ieee.org/abstract/document/9340560)
+
+*TPAMI 2022*
+
+
+### 15. [PiCIE: Unsupervised Semantic Segmentation Using Invariance and Equivariance in Clustering](https://openaccess.thecvf.com/content/CVPR2021/html/Cho_PiCIE_Unsupervised_Semantic_Segmentation_Using_Invariance_and_Equivariance_in_Clustering_CVPR_2021_paper.html)
+
+*CVPR 2021*
+
+
+### 16. [Unsupervised Image Representation Learning with Deep Latent Particles](https://arxiv.org/pdf/2205.15821.pdf)
+
+[POST](https://taldatech.github.io/deep-latent-particles-web/)
+
+*ICML 2022*
+
+
+### 17. [GANSeg: Learning To Segment by Unsupervised Hierarchical Image Generation](https://openaccess.thecvf.com/content/CVPR2022/html/He_GANSeg_Learning_To_Segment_by_Unsupervised_Hierarchical_Image_Generation_CVPR_2022_paper.html)
+
+*CVPR 2022*
+
+
+### 18. [Unsupervised Part Segmentation Through Disentangling Appearance and Shape](https://openaccess.thecvf.com/content/CVPR2021/html/Liu_Unsupervised_Part_Segmentation_Through_Disentangling_Appearance_and_Shape_CVPR_2021_paper.html)
+
+*CVPR 2021*
 
 
 ---
