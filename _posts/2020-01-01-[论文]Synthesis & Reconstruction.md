@@ -378,6 +378,47 @@ neural rendering（[State of the Art on Neural Rendering](https://arxiv.org/pdf/
 *ECCV 2022*
 
 
+### 28. [One-Shot Free-View Neural Talking-Head Synthesis for Video Conferencing](https://openaccess.thecvf.com/content/CVPR2021/html/Wang_One-Shot_Free-View_Neural_Talking-Head_Synthesis_for_Video_Conferencing_CVPR_2021_paper.html)
+
+*CVPR 2021*
+
+
+### 29. [Transferring Dense Pose to Proximal Animal Classes](https://openaccess.thecvf.com/content_CVPR_2020/html/Sanakoyeu_Transferring_Dense_Pose_to_Proximal_Animal_Classes_CVPR_2020_paper.html)
+
+*CVPR 2020*
+
+
+### 30. [DeepI2I: Enabling Deep Hierarchical Image-to-Image Translation by Transferring from GANs](https://proceedings.neurips.cc/paper/2020/hash/88855547570f7ff053fff7c54e5148cc-Abstract.html)
+
+*NeurIPS 2020*
+
+
+### 31. [LatentKeypointGAN: Controlling GANs via Latent Keypoints](https://arxiv.org/pdf/2103.15812.pdf)
+
+[POST](https://xingzhehe.github.io/LatentKeypointGAN/)
+
+*Arxiv 2022*
+
+
+
+## Animation
+
+### 1. [First Order Motion Model for Image Animation](https://proceedings.neurips.cc/paper/2019/hash/31c0b36aef265d9221af80872ceb62f9-Abstract.html)
+
+*NeurIPS 2019*
+
+
+### 2. [Animating Arbitrary Objects via Deep Motion Transfer](https://openaccess.thecvf.com/content_CVPR_2019/html/Siarohin_Animating_Arbitrary_Objects_via_Deep_Motion_Transfer_CVPR_2019_paper.html)
+
+*CVPR 2019*
+
+
+### 3. [Motion Representations for Articulated Animation](https://openaccess.thecvf.com/content/CVPR2021/html/Siarohin_Motion_Representations_for_Articulated_Animation_CVPR_2021_paper.html)
+
+*CVPR 2021*
+
+
+
 ## Reconstruction
 
 ### 1. [Interacting Attention Graph for Single Image Two-Hand Reconstruction](https://openaccess.thecvf.com/content/CVPR2022/papers/Li_Interacting_Attention_Graph_for_Single_Image_Two-Hand_Reconstruction_CVPR_2022_paper.pdf)
@@ -421,6 +462,11 @@ neural rendering（[State of the Art on Neural Rendering](https://arxiv.org/pdf/
 [POST](https://vcai.mpi-inf.mpg.de/projects/MoFA/)
 
 *ICCV 2017 Oral*
+
+
+### 8. [Unsupervised Part Discovery from Contrastive Reconstruction](https://proceedings.neurips.cc/paper/2021/hash/ec8ce6abb3e952a85b8551ba726a1227-Abstract.html)
+
+*NeurIPS 2021*
 
 
 
