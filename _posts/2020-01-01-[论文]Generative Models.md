@@ -135,6 +135,22 @@ If you are confident that your work is novel and very important, you can use thi
 *CVPR 2018*
 
 
+### 8. [Polymorphic-GAN: Generating Aligned Samples Across Multiple Domains With Learned Morph Maps](https://openaccess.thecvf.com/content/CVPR2022/html/Kim_Polymorphic-GAN_Generating_Aligned_Samples_Across_Multiple_Domains_With_Learned_Morph_CVPR_2022_paper.html)
+
+*CVPR 2022*
+
+
+### 9. [Self-Supervised Object Detection via Generative Image Synthesis](https://openaccess.thecvf.com/content/ICCV2021/html/Mustikovela_Self-Supervised_Object_Detection_via_Generative_Image_Synthesis_ICCV_2021_paper.html)
+
+*ICCV 2021*
+
+
+### 10. [Roof-GAN: Learning To Generate Roof Geometry and Relations for Residential Houses](https://openaccess.thecvf.com/content/CVPR2021/html/Qian_Roof-GAN_Learning_To_Generate_Roof_Geometry_and_Relations_for_Residential_CVPR_2021_paper.html)
+
+*CVPR 2021*
+
+
+
 ## [Layout to image generation论文](https://paperswithcode.com/task/layout-to-image-generation)
 
 这个是从scene graph生成image的benchmarks还有相关的论文的网页。
