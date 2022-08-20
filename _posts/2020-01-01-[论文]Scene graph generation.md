@@ -230,6 +230,11 @@ U-Net的左侧叫做contracting path，右侧叫做expansive path，因为左侧
 *CVPR 2021*
 
 
+### 19. [Adversarial Dual-Student with Differentiable Spatial Warping for Semi-Supervised Semantic Segmentation](https://arxiv.org/pdf/2203.02792.pdf)
+
+*Arxiv 2022*
+
+
 ---
 
 *If you notice mistakes and errors in this post, don't hesitate to contact me at* **wkwang0916 at outlook dot com** *and I would be super happy to correct them right away!*
