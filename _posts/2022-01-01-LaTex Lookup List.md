@@ -139,8 +139,6 @@ date: 2021-12-14 01:09:00
 | 最小值 | \min | $$\min_{c_k}$$ |
 | 求达到最大值的值 | \mathop {argmax} | $$\mathop {argmax}\_{c_k}$$ |
 | 求达到最小值的值 | \mathop {argmin} | $$\mathop {argmin}\_{c_k}$$ |
-| 求达到最大值的值 | arg\,\max | $$arg\,\max_{c_k}$$ |
-| 求达到最小值的值 | arg\,\min | $$arg\,\min_{c_k}$$ |
 | 开四次方 | \sqrt\[4\]{} | $$\sqrt\[4\]{\frac xy}$$ |
 
 
