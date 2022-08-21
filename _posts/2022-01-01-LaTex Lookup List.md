@@ -147,3 +147,17 @@ date: 2021-12-14 01:09:00
 ## 6. Latex分类表达式
 
 
+## 7. Latex上标
+
+
+| 功能 | 语法 | 显示 |
+| :------: | :------: | :------: |
+| 加帽 | \hat | $$\hat{a}$$ |
+| 加大帽 | \widehat | $$\widehat{a}$$ |
+| 加波浪线 | \tilde | $$\tilde{a}$$ |
+| 加大波浪线 | \widetilde | $$\widetilde{a}$$ |
+| 加横线 | \overline | $$\overline{a}$$ |
+| 加一个点 | \dot | $$\dot{a}$$ |
+| 加两个点 | \ddot | $$\ddot{a}$$ |
+
+
