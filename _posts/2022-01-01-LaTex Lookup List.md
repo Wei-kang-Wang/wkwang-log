@@ -29,7 +29,7 @@ date: 2021-12-14 01:09:00
 | 取整符号 | \lfloor \frac{a}{b} \rfloor | $$\lfloor \frac{a}{b} \rfloor$$ |
 | 取顶符号 | \lceil \frac{a}{b} \rceil | $$\lceil \frac{a}{b} \rceil$$ |
 | 混合符号 | \left( 0,1 \right] | $$\left( 0,1 \right]$$ |
-| 单侧括号 | \left .\frac{a}{b} \right\} | $$\left .\frac{a}{b} \right\}$$ |
+| 单侧括号 | \left. \frac{a}{b} \right\} | $$\left. \frac{a}{b} \right\}$$ |
 
 注意()是普通的小括号，而\left(和\left)可以使得括号大小和括号内的部分相对于，比如说有分式的时候。
 
