@@ -133,7 +133,7 @@ date: 2021-12-14 01:09:00
 | 下取整 | \lfloor 和 \rfloor | $$\lfloor x \rfloor$$ |
 | 求和 | \sum | $$\sum_{r=1}^n$$ |
 | 积分 | \int | $$\int_{r=1}^\infty$$ |
-| 多重积分 | \iint 和 \iiint等，有多少个i就是多少个多重积分 | $\int_{r=1}^\infty$$ |
+| 多重积分 | \iint 和 \iiint等，有多少个i就是多少个多重积分 | $$\iint_{i=1}^\infty$$ |
 | 连乘 | \prod | $$\prod_{i=1}^{K}$$ |
 | 最大值 | \max | $$\max_{c_k}$$ |
 | 最小值 | \min | $$\min_{c_k}$$ |
