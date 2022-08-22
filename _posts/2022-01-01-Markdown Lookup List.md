@@ -24,10 +24,17 @@ date: 2021-12-14 01:09:00
 {: style="width: 600px; max-width: 100%;"}
 *Fig 1. markdown中插入代码*
 
+
 ## 2. Markdown加粗
 
 普通文字加粗就是前后加上星号， 比如： **加粗**
 
 公式内字母加粗则是使用 \pmb{}，比如：$$\pmb{x}$$。
+
+
+## 3. Markdown加粗斜体
+
+既要将文字加粗又要将文字斜体，则使用\boldsymbol{a}，比如：$$\boldsymbol{a}$$。
+
 
 
