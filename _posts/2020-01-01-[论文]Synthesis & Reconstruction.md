@@ -400,6 +400,32 @@ neural rendering（[State of the Art on Neural Rendering](https://arxiv.org/pdf/
 *Arxiv 2022*
 
 
+### 32. [TransGaGa: Geometry-Aware Unsupervised Image-To-Image Translation](https://openaccess.thecvf.com/content_CVPR_2019/html/Wu_TransGaGa_Geometry-Aware_Unsupervised_Image-To-Image_Translation_CVPR_2019_paper.html)
+
+*CVPR 2019*
+
+
+### 33. [MobileNeRF: Exploiting the Polygon Rasterization Pipeline for Efficient Neural Field Rendering on Mobile Architectures](https://arxiv.org/pdf/2208.00277.pdf)
+
+[POST](https://mobile-nerf.github.io/)
+
+*Arxiv 2022*
+
+
+### 34. [PlenOctrees: For Real-time Rendering of Neural Radiance Fields](https://openaccess.thecvf.com/content/ICCV2021/papers/Yu_PlenOctrees_for_Real-Time_Rendering_of_Neural_Radiance_Fields_ICCV_2021_paper.pdf)
+
+[POST](https://alexyu.net/plenoctrees/)
+
+*ICCV 2021 Oral*
+
+
+### 35. [LOLNerf: Learn From One Look](https://openaccess.thecvf.com/content/CVPR2022/html/Rebain_LOLNerf_Learn_From_One_Look_CVPR_2022_paper.html)
+
+*CVPR 2022*
+
+
+
+
 
 ## Animation
 
@@ -469,6 +495,14 @@ neural rendering（[State of the Art on Neural Rendering](https://arxiv.org/pdf/
 *NeurIPS 2021*
 
 
+### 9. [Self-supervised Single-View 3D Reconstruction via Semantic Consistency](https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123590664.pdf)
+
+*ECCV 2020*
+
+
+### 10. [On the Generalization of Learning-Based 3D Reconstruction](https://openaccess.thecvf.com/content/WACV2021/html/Bautista_On_the_Generalization_of_Learning-Based_3D_Reconstruction_WACV_2021_paper.html)
+
+*WACV 2021*
 
 
 
