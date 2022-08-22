@@ -235,6 +235,11 @@ U-Net的左侧叫做contracting path，右侧叫做expansive path，因为左侧
 *Arxiv 2022*
 
 
+### 20. [DeepLab: Semantic Image Segmentation with Deep Convolutional Nets, Atrous Convolution, and Fully Connected CRFs](https://arxiv.org/pdf/1606.00915.pdf)
+
+*TPAMI 2017*
+
+
 ---
 
 *If you notice mistakes and errors in this post, don't hesitate to contact me at* **wkwang0916 at outlook dot com** *and I would be super happy to correct them right away!*
