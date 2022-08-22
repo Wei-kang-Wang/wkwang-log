@@ -2041,15 +2041,6 @@ $$c_i = argmax_j sim(\pmb f_i, \pmb f_j^{'})$$
 *ICCV 2021*
 
 
-### 6. [MA-CLIP: Towards Modality-Agnostic Contrastive Language-Image Pre-training](https://openreview.net/forum?id=ROteIE-4A6W)
-
-*Under Review ICLR 2022*
-
-
-### 7. [MIST: Multiple Instance Spatial Transformer](https://openaccess.thecvf.com/content/CVPR2021/html/Angles_MIST_Multiple_Instance_Spatial_Transformer_CVPR_2021_paper.html)
-
-*CVPR 2021*
-
 
 
 ## Uncategorized Papers
@@ -2062,6 +2053,21 @@ $$c_i = argmax_j sim(\pmb f_i, \pmb f_j^{'})$$
 ### 2. [Rethinking ImageNet Pre-training](https://openaccess.thecvf.com/content_ICCV_2019/papers/He_Rethinking_ImageNet_Pre-Training_ICCV_2019_paper.pdf)
 
 *ICCV 2019*
+
+
+### 3. [MA-CLIP: Towards Modality-Agnostic Contrastive Language-Image Pre-training](https://openreview.net/forum?id=ROteIE-4A6W)
+
+*Under Review ICLR 2022*
+
+
+### 4. [MIST: Multiple Instance Spatial Transformer](https://openaccess.thecvf.com/content/CVPR2021/html/Angles_MIST_Multiple_Instance_Spatial_Transformer_CVPR_2021_paper.html)
+
+*CVPR 2021*
+
+
+### 5. [Deep Clustering for Unsupervised Learning of Visual Features](https://openaccess.thecvf.com/content_ECCV_2018/papers/Mathilde_Caron_Deep_Clustering_for_ECCV_2018_paper.pdf)
+
+*ECCV 2018*
 
 
 ---
