@@ -506,4 +506,11 @@ neural rendering（[State of the Art on Neural Rendering](https://arxiv.org/pdf/
 
 
 
+## Editing
+
+### 1. [3D Part Guided Image Editing for Fine-Grained Object Understanding](https://openaccess.thecvf.com/content_CVPR_2020/html/Liu_3D_Part_Guided_Image_Editing_for_Fine-Grained_Object_Understanding_CVPR_2020_paper.html)
+
+*CVPR 2020*
+
+
 ---
