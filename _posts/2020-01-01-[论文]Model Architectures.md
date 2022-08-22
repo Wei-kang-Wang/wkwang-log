@@ -2046,6 +2046,11 @@ $$c_i = argmax_j sim(\pmb f_i, \pmb f_j^{'})$$
 *Under Review ICLR 2022*
 
 
+### 7. [MIST: Multiple Instance Spatial Transformer](https://openaccess.thecvf.com/content/CVPR2021/html/Angles_MIST_Multiple_Instance_Spatial_Transformer_CVPR_2021_paper.html)
+
+*CVPR 2021*
+
+
 
 ## Uncategorized Papers
 
