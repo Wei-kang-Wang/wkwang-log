@@ -150,6 +150,16 @@ If you are confident that your work is novel and very important, you can use thi
 *CVPR 2021*
 
 
+### 11. [CLIP: Learning Transferable Visual Models From Natural Language Supervision](http://proceedings.mlr.press/v139/radford21a/radford21a.pdf)
+
+*ICML 2021*
+
+
+### 12. [MA-CLIP: Towards Modality-Agnostic Contrastive Language-Image Pre-training](https://openreview.net/forum?id=ROteIE-4A6W&referrer=%5Bthe%20profile%20of%20Yu%20Cheng%5D(%2Fprofile%3Fid%3D~Yu_Cheng1))
+
+*Arxiv 2022*
+
+
 
 ## [Layout to image generation论文](https://paperswithcode.com/task/layout-to-image-generation)
 
