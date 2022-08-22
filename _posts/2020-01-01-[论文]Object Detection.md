@@ -179,6 +179,12 @@ RCNN在VOC07上获得了显著的性能提升，在mean Average precision（mAP�
 *ECCV 2020*
 
 
+## Generative model-based detectors
+
+### [Self-Supervised Object Detection via Generative Image Synthesis](https://openaccess.thecvf.com/content/ICCV2021/html/Mustikovela_Self-Supervised_Object_Detection_via_Generative_Image_Synthesis_ICCV_2021_paper.html)
+
+*ICCV 2021*
+
 
 
 ---
