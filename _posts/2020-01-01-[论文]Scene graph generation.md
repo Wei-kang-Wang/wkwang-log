@@ -262,6 +262,12 @@ U-Net的左侧叫做contracting path，右侧叫做expansive path，因为左侧
 *CVPR 2021*
 
 
+### 25. [MonoCInIS: Camera Independent Monocular 3D Object Detection Using Instance Segmentation](https://openaccess.thecvf.com/content/ICCV2021W/3DODI/html/Heylen_MonoCInIS_Camera_Independent_Monocular_3D_Object_Detection_Using_Instance_Segmentation_ICCVW_2021_paper.html)
+
+*ICCV 2021*
+
+
+
 ---
 
 *If you notice mistakes and errors in this post, don't hesitate to contact me at* **wkwang0916 at outlook dot com** *and I would be super happy to correct them right away!*
