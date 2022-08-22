@@ -240,6 +240,28 @@ U-Net的左侧叫做contracting path，右侧叫做expansive path，因为左侧
 *TPAMI 2017*
 
 
+### 21. [GANSeg: Learning To Segment by Unsupervised Hierarchical Image Generation](https://openaccess.thecvf.com/content/CVPR2022/html/He_GANSeg_Learning_To_Segment_by_Unsupervised_Hierarchical_Image_Generation_CVPR_2022_paper.html)
+
+*CVPR 2022*
+
+
+### 22. [SCOPS: Self-Supervised Co-Part Segmentation](https://openaccess.thecvf.com/content_CVPR_2019/html/Hung_SCOPS_Self-Supervised_Co-Part_Segmentation_CVPR_2019_paper.html)
+
+*CVPR 2019*
+
+
+### 23. [End-to-End Referring Video Object Segmentation with Multimodal Transformers](https://openaccess.thecvf.com/content/CVPR2022/papers/Botach_End-to-End_Referring_Video_Object_Segmentation_With_Multimodal_Transformers_CVPR_2022_paper.pdf)
+
+*CVPR 2022*
+
+[CODE](https://github.com/mttr2021/MTTR)
+
+
+### 24. [PiCIE: Unsupervised Semantic Segmentation Using Invariance and Equivariance in Clustering](https://openaccess.thecvf.com/content/CVPR2021/html/Cho_PiCIE_Unsupervised_Semantic_Segmentation_Using_Invariance_and_Equivariance_in_Clustering_CVPR_2021_paper.html)
+
+*CVPR 2021*
+
+
 ---
 
 *If you notice mistakes and errors in this post, don't hesitate to contact me at* **wkwang0916 at outlook dot com** *and I would be super happy to correct them right away!*
