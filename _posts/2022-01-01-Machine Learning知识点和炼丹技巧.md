@@ -755,4 +755,23 @@ PCA需要对协方差矩阵$$C = \frac{1}{m} X X^T$$进行特征值分解，而S
 从2010年之后，PASCAL VOC竞赛把这11份recall点换成了PR曲线中的所有recall数据点。这种方法叫做all-points-interpolation。这个AP值也就是PR曲线下的面积值。当我们可以计算出每个物体类别对应的模型AP后，我们只需要对于所有AP求和再平均，就可以得到用于评估目标检测模型的mAP了。
 
 
+## 7. 深度神经网络里GlobalAveragePooling层和Flatten层的区别与联系
+
+CNN模型在从卷积层转变为Dense层时，需要使用GlobalAveragePooling或者Flatten层将卷积层所输出的feature map（大小为$$W \times H \times C$$）转换为vector（大小为$$L \times C$$）。而我们介绍一下这两种方法之间的差别。
+
+GlobalAveragePooling层作用在大小为$$H \times W \times C$$的feature map上，对于每个通道里的$$H \times W$$个值，计算其平均值输出，从而输出大小为$$1 \times C$$，如下图所示：
+
+![gap1]({{ '/assets/images/GAP-1.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+而Flatten层的操作，顾名思义，直接将大小为$$H \times W \times C$$的feature map展平成大小为$$H \ast W \ast C$$的一维向量，再继续后面的dense layer操作。
+
+对于有些实验来说，GlobalAveragePooling要比Flatten效果更好。
+
+
+
+
+
+
+
 ---
