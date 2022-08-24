@@ -166,6 +166,18 @@ $$\mathcal L = \Sigma_{\pmb r in \mathcal R} \left[ \lVert \hat C_c (\pmb{r}) - 
 
 
 
+### [GRAF: Generative Radiance Fields for 3D-Aware Image Synthesis](https://proceedings.neurips.cc/paper/2020/file/e92e1b476bb5262d793fd40931e0ed53-Paper.pdf)
+
+*Nerf \rightarrow GRAF*
+
+*NeurIPS 2020*
+
+*Katja Schwarz, Yiyi Liao, Michael Niemeyer, Andreas Geiger*
+
+
+
+
+
 ### 2. [KeypointNeRF: Generalizing Image-based Volumetric Avatars using Relative Spatial Encoding of Keypoints](https://arxiv.org/pdf/2205.04992.pdf)
 
 [POST](https://markomih.github.io/KeypointNeRF/)
