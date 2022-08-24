@@ -168,11 +168,31 @@ $$\mathcal L = \Sigma_{\pmb r in \mathcal R} \left[ \lVert \hat C_c (\pmb{r}) - 
 
 ### [GRAF: Generative Radiance Fields for 3D-Aware Image Synthesis](https://proceedings.neurips.cc/paper/2020/file/e92e1b476bb5262d793fd40931e0ed53-Paper.pdf)
 
-*Nerf \rightarrow GRAF*
+*Nerf $$\rightarrow$$ GRAF*
 
 *NeurIPS 2020*
 
+[CODE](https://github.com/autonomousvision/graf)
+
 *Katja Schwarz, Yiyi Liao, Michael Niemeyer, Andreas Geiger*
+
+**Abstract**
+
+尽管2D的generative adversarial networks已经可以进行高分辨率的image synthesis了，但是其并不具备对三维世界的理解以及从三维场景生成二维图片生成的能力。因此，它们并没有明确控制相机角度或者物体的姿态。为了解决这个问题，最近有一些方法使用了将基于voxel的representations和differentiable rendering结合起来的方式。然而，现存的方法要么就是只能生成低分辨率的图片，要么就是无法将相机角度和场景特性相分开（比如说场景内的物体）。这篇文章为radiance fields提出了一个generative model。radiance fields方法最近对于单个场景的novel view synthesis效果很成功（也就是Nerf）。和基于voxel representations的方法相比，radiance fields并不仅仅是3D空间的一个粗糙的离散化（discretization），还具有能够分离相机姿态和场景特性的能力。通过引入一个multi-scale的基于patch的discriminator，作者可以仅仅通过训练那些没有相机参数的2D图片来生成新的角度的这个场景的高分辨率的图片。作者在几个具有挑战性的synthetic和real-world数据集上系统性的验证了所提出的方法。大量的实验证明了radiance fields对于generative image synthesis来说是一个很有力的representation，从而可以生成3D场景的高保真的2D图片。
+
+
+**1. Introduction**
+
+convolutional generative adverarial networks（也就是GAN）已经证明了它从无结构化信息的图片中生成高质量图片方面的能力。然而，尽管GAN很成功，如果输入信息里有3D shapes信息和相机参数信息，它仍然无法将它们解耦开。这和人类能够推理出场景的3D结构以及能够想象出场景的新的角度的照片的能力形成了对比。
+
+因为推理3D结构对于robotics，visual reality等领域都有着很重要的影响，最近一些工作开始考虑3D-aware image synthesis，其目标是通过对相机角度明确的控制，获得十分真实的图片生成。和2D GAN相反的是，3D-aware image synthesis学习到一个3D的scene representation之后，使用differentiable rendering的方式渲染出2D图片，因此这个方法对于场景内容和相机参数都有控制。因为3D的监督信息以及2D图片的相机角度信息比较难以获得，所以最近有一些工作尝试仅仅通过2D图片作为监督信息来进行3D场景的学习以及新角度的图片生成。为了实现这个目标，现有的方法使用了离散化的3D representations，也就是基于voxel的representations，既包括3D objects也包括3D features，如fig1所示。尽管这种方式可以实现后续的differentiable rendering，但是基于voxel的representations所需要的存储空间是随着场景尺寸三倍成长的，所以一般只能生成低分辨率的图片。基于voxel的3D feature representations在这方面会好一点，可以允许更高分辨率的图片生成，但是这需要学习一个从3D到2D的从features到RGB值得映射，这会导致模型学习到了一些在不同views之间不连续的特征。
+
+这篇文章认为上述所说的低分辨率的生成图片和entangled的特征可以被使用conditional radiance field所解决，也就是Nerf的一个conditional版本。更准确地说，作者做出了如下的贡献：（1）提出了GRAF，一个generative model来为radiance field从没有相机角度的各个角度的某个场景的图片集合生成高分辨率的3D-aware的新的角度的图片。除了能够生成新的角度的图片，这种方法还可以让我们对场景内物体的shape和appearance做出个性化的editing。（2）作者提出了一个基于patch的discriminator，其会采样同一张图片不同尺度的图片，这也就是作者提出的方法能够很高效的学到高分辨率generative radiance field的诀窍。（3）作者在生成和真实的数据集上都验证了所提出的方法的效果。结果和目前sota的方法都是差不多的。
+
+
+**3. Method**
+
+作者考虑3D-aware image synthesis这个任务，也就是在提供相机角度的情况下生成场景高质量的图片。
 
 
 
