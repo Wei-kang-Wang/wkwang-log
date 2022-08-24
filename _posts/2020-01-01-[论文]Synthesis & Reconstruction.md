@@ -29,12 +29,12 @@ tags: paper-reading
 {: style="width: 800px; max-width: 100%;"}
 *Fig 1 我们提出一个方法从一系列图片来优化一个continuous的5D neural radiance field representation（在任何位置上的volume density和view-dependent color）去表示一个scene。我们使用volume rendering里的方法来沿着ray积累这个scene representation的samples，从而可以从任意相机角度来渲染这个scene。这里，我们可视化了100个Drums这个场景的views，其是被环绕的一个半球的区域内随机采样出来的。我们还展示了从我们的已经被优化了的NeRF representation里得到的两个这个场景的新角度的照片。*
 
-我们提出一个方法，使用一系列input views作为输入，通过优化一个潜在的continuous volumetric scene函数来对复杂场景生成新的角度的views。我们的算法使用一个MLP（而不是CNN）来表示一个scene，其输入是一个连续的5D coordinate（空间位置$$(x,y,z)$$以及view的方向$$(\theta, \phi)$$），输出是volume density和那个位置$$(x,y,z)$$的view dependent emitted radiance。我们通过沿着相机rays来查找5D coordinate，并使用经典的volume rendering方法来将网络输出的color和density投射到一张照片上。因为volume rendering本身就是differentiable的，所以我们唯一需要的输入就是一系列已知相机姿态的不同角度的照片，也就是一个场景不同角度的views。我们描述如何高效的优化neural radiance fields来渲染有很复杂geometry和appearance的场景的新的角度的photorealistic的图像，并且展示了效果要比之前的neural rendering和view synthesis的工作的效果要好很多。view synthesis的结果最好用视频来看，在补充材料里有。
+我们提出一个方法，使用一系列input views作为输入，通过优化一个潜在的continuous volumetric scene函数来对复杂场景生成新的角度的views。我们的算法使用一个MLP（而不是CNN）来表示一个scene，其输入是一个连续的5D coordinate（空间位置$$(x,y,z)$$以及view的方向$$(\theta, \phi)$$），输出是volume density和那个位置$$(x,y,z)$$的view dependent emitted radiance（也就是RGB颜色）。我们通过沿着相机rays来查找5D coordinate，并使用经典的volume rendering方法来将网络输出的color和density投射到一张照片上。因为volume rendering本身就是differentiable的，所以我们唯一需要的输入就是一系列已知相机姿态的不同角度的照片，也就是一个场景不同角度的views。我们描述如何高效的优化neural radiance fields来渲染有很复杂geometry和appearance的场景的新的角度的photorealistic的图像，并且展示了效果要比之前的neural rendering和view synthesis的工作的效果要好很多。view synthesis的结果最好用视频来看，在补充材料里有。
 
 
 这篇文章用一种全新的方法来解决view synthesis这个被研究了很久的问题，方法是，通过直接优化一个连续的5D scene representation的参数来最小化渲染images的error。
 
-我们将一个静态的场景表示为一个连续的5D函数，输出空间中每个点$$(x,y,z)$$在每个角度$$(\theta, \phi)$$情况下的emitted radiance，以及一个density。这个density作为一个可微分的opacity存在，其控制着一条射线穿过$$(x,y,z)$$这个点时，需要有多少的radiance被考虑进去。我们的方法优化一个MLP（没有任何卷积）来表示上述这个5D的function，其输入为一个5D coordinate $$(x,y,z,\theta,\phi)$$，输出为一个volume density和view-dependent RGB color，所以是一个regression问题。
+我们将一个静态的场景表示为一个连续的5D函数，输出空间中每个点$$(x,y,z)$$在每个角度$$(\theta, \phi)$$情况下的emitted radiance，以及一个density（这个emitted radiance就可以理解为这个点在这个角度下的RGB值，而density就是这个点在空间中的透明度，也就是在物体表面还是内部）。这个density作为一个可微分的opacity存在，其控制着一条射线穿过$$(x,y,z)$$这个点时，需要有多少的radiance被考虑进去。我们的方法优化一个MLP（没有任何卷积）来表示上述这个5D的function，其输入为一个5D coordinate $$(x,y,z,\theta,\phi)$$，输出为一个volume density和view-dependent RGB color，所以是一个regression问题。
 
 为了从一个特定的视角来渲染这个neural radiance field（NeRF），我们需要：1)从相机发射rays穿过场景来采样一系列3D的点；2)使用这些点和对应的2D的角度输入作为5D输入给网络来输出每个点的color和density；3)使用经典的volume rendering方法来收集这些colors和densities，从而生成一张2D的照片。因为上述过程是可以微分的，所以我们可以使用梯度下降的方法通过最小化输入图片和网络生成图片两者之间的差异来优化这个模型。对于多个角度拍摄的这个场景的图片都进行上述最小化的操作，我们所学习到的这个网络就能够对于场景中真实存在物体的位置给出很高的volume density和准确的colors。fig 2给出了这整个过程的pipeline。
 
@@ -117,7 +117,7 @@ $$\hat C(\pmb{r}) = \Sigma_{i=1}^N T_i(1 - exp(-\sigma_i \delta_i)) \pmb c_i$$
 
 尽管神经网络是universal function approximators，我们发现将网络$$F_{\Theta}$$直接作用在$$xyz\theta \phi$$上会导致渲染的结果对于color和geometry的高频变化效果不好（也就是变化很频繁的区域，而这往往是细节区域）。这和[On the spectral bias of neural networks]()$$里的关于神经网络倾向于学习low frequency function的观点一致。他们还说在输入网络之前，将输入使用high frequency function映射到更高维的空间，会使得网络能学习到含有高频变化的部分。
 
-我们将这个想法用在neural scene representations的设计里，我们将$$F_{\Theta}$$重写为两个functions的复合函数：$$F_{\Theta} = F_{\Theta}^{'} \circ \gamma，$$F_{\Theta}^{'}$$是需要被学习的，而$$\gamma$$不需要。这样操作会显著提升效果，由fig 4可以看出。这里$$\gamma$$是一个从$$\mathbb R$$到更高维空间$$\mathbb R^{2L}$$的映射，而
+我们将这个想法用在neural scene representations的设计里，我们将$$F_{\Theta}$$重写为两个functions的复合函数：$$F_{\Theta} = F_{\Theta}^{'} \circ \gamma$$，$$F_{\Theta}^{'}$$是需要被学习的，而$$\gamma$$不需要。这样操作会显著提升效果，由fig 4可以看出。这里$$\gamma$$是一个从$$\mathbb R$$到更高维空间$$\mathbb R^{2L}$$的映射，而
 $$F_{\Theta}^{'}$$还是个MLP。我们使用的encoding function是：
 
 $$\gamma(p) = (sin(2^0 \pi p), cos(2^0 \pi p), \cdots, sin(2^{L-1}\pi p), cos(2^{L-1}\pi p))$$
