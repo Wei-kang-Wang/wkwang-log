@@ -727,5 +727,77 @@ $$karcsin \sqrt{\frac{b}{k}} - \sqrt{b(k-b)} = a$$
 * https://zhuanlan.zhihu.com/p/139018146
 
 
+## 7. Singular Value Decomposition（SVD分解）
+
+我们将会学习一个最普适的方法来“对角化”（diagonalize）一个矩阵。这个方法就叫做singular value decomposition。
+
+对于方矩阵来说，其有着很好的性质。特别是对于对称实方矩阵，其可以直接进行eigendecomposition。对于一般的方矩阵，也有类似的分解存在，可以参考machine learning知识点和技巧那里的SVD内容。
+
+但是对于一般的矩阵，其大小为$$m \times n$$，甚至没有办法定义eigenvalue和eigenvector。但是我们发现，对于任意的矩阵来说，$$A^T A$$和$$A A^T$$是方阵，而且还是对称矩阵，而且还是positive semi-definite的，其具有很好的性质：可以进行eigendecomposition。
+
+从而我们可以利用$$A^T A$$和$$A A^T$$来构造$$A$$的SVD分解。
+
+假设矩阵$$A$$的大小为$$m \times n$$，秩为$$r$$。那么矩阵$$A A^T$$的大小为$$m \times m$$，$$A^T A$$的大小为$$n \times n$$，且这两个矩阵的秩也都是$$r$$。
+
+>这是因为矩阵$$A$$的秩可以理解为矩阵$$A$$的列向量构成的向量子空间的维度，而矩阵$$A A^T$$的每一列都是矩阵$$A$$的列的线性组合（$$A A^T$$的每一列的组成的线性系数是$$A$$的每一行），所以说矩阵$$A A^T$$的列向量组成的空间的维度不大于$$r$$。但这不足以证明$$A A^T$$和$$A$$的秩一样。完整的证明方法是，证明$$A$$的null space和$$A A^T$$的null space的相同，参考这里：https://math.stackexchange.com/questions/349738/prove-operatornamerankata-operatornameranka-for-any-a-in-m-m-times-n
+
+矩阵$$A A^T$$和$$A^T A$$的秩都是$$r$$，而且都是positive semidefinite的，从而它们有$$r$$个eigenvalues（可能有重复），而且都是正的。并且也有$$r$$个线性无关的特征向量。因为这两个矩阵还都是对称的，所以它们的eigenvectors是orthogonal的，我们还可以将其归一化为orthonormal的。
+
+>$$A A^T$$和$$A^T A$$的特征值是相同的，这是因为:https://math.stackexchange.com/questions/1087064/non-zero-eigenvalues-of-aat-and-ata
+
+对于这些eigenvalues，将$$A^T A$$相对于这些eigenvalues的eigenvectors记为$$v_1, v_2, \cdots, v_r$$，这些将会构成矩阵$$A$$的SVD分解的行空间。而$$A A^T$$相对于这些eigenvalues的eigenvectors记为$$u_1, u_2, \cdots, u_r$$，这些将会构成矩阵$$A$$的SVD分解的列空间。
+
+而这些向量有着非常好的性质：
+
+$$A v_1 = \sigma_1 u_1, A v_2 = \sigma_2 u_2, \cdots, A v_r = \sigma_r u_r$$
+
+其中$$\sigma_1, \sigma_2, \cdots, \sigma_r$$是一些正数，被称为矩阵$$A$$的singular values。
+
+而上述的这些关系，可以让我们有如下的公式：
+
+$$A
+\begin{pmatrix}
+v_1 & \vdots & v_r
+\end{pmatrix}
+
+=
+
+\begin{pmatrix}
+u_1 & \cdots & u_r
+\end{pmatrix}
+
+\begin{pmatrix}
+\sigma_1 &  &  \\
+  & \ddots &  \\
+  &  &  \sigma_r
+\end{pmatrix}
+$$
+
+将上述公式记为$$AV = U \Sigma$$。
+
+根据之前的构造，矩阵$$V$$是orthonormal的，从而我们可以在两边乘以$$V^T$$，得到：$$A = U \Sigma V^T$$。这就是矩阵$$A$$的singular value decomposition。
+
+而如果我们希望将上述分解里的$$V$$和$$U$$都变成方阵也很简单。已知矩阵$$A$$的秩是$$r$$，从而$$A$$的null space的维度是$$n-r$$（因为$$Ax=0$$的解$$x$$表明$$x$$和矩阵$$A$$里的每一行都垂直，从而矩阵的null space就是和矩阵行向量构成的空间相垂直的空间，也就是维度为$$n-r$$），而$$A$$的left null space的维度是$$m-r$$（因为$$A^T x = 0$$的解$$x$$表明$$x$$和矩阵$$A$$里的每一列都垂直，从而矩阵的left null space就是和矩阵列向量构成的空间相互垂直的空间，也就是维度为$$m-r$$）。
+
+有了上述基础，我们可以将矩阵$$V$$再扩充$$n-r$$列，新增的列都和之前的列垂直，而且是归一化的，这些列都在$$A$$的null space里（根据上述基础，这是能做得到的），从而新的矩阵$$V$$大小为$$n \times n$$。实际上直接将之前的$$V$$的列继续扩充到$$n$$维，构成线性无关的向量，那么新增的向量也就是$$A$$的null space里的向量。接下来，也将矩阵$$U$$的列向量继续扩充，增加线性无关的向量，直到$$U$$变成$$m \times m$$，新增加的向量也就构成了矩阵$$A$$的left null space的一个基。而且我们还需要将$$\Sigma$$扩充为$$m \times n$$维，扩充方法就是增加列和行，里面都是0。
+
+矩阵$$A$$的SVD分解还可以写成：
+
+$$A = U \Sigma V^T = u_1 \sigma_1 v_1^T + u_2 \sigma_2 v_2^T + \cdots + u_r \sigma_r v_r^T$$
+
+每个$$u_i \sigma_i v_i^T$$的秩都是1。如果我们将那些singlar value很小的项去掉，就构成了原矩阵的一个近似，这有很广的应用。
+
+
+下面给出上述SVD分解的一个证明。
+
+因为矩阵$$A A^T$$和矩阵$$A^T A$$都是positive semidefinite的，其非零的特征值都是正的。
+
+假设$$\lambda_i$$是矩阵$$A^T A$$的一个非零的特征值，对应的特征向量为$$v_i$$，那么$$A^T A v_i = \lambda_i v_i$$，我们记$$\sigma_i = \sqrt{\lambda_i}$$，从而$$A^T A v_i = \sigma_i^2 v_i$$。
+
+从而，$$v_i^T A^T A v_i = \sigma_i^2 v_i^T v_i$$，也就是$$\sigma_i^2 = \sigma_i^2 v_i^T v_i = v_i^T A^T A v_i = (A v_i)^T (A v_i) = \lVert A v_i \rVert^2$$，从而我们有$$\lVert A v_i \rVert = \sigma_i$$。
+
+而且，因为$$A^T A v_i = \sigma_i^2 v_i$$，所以$$A A^T A v_i = \sigma_i^2 A v_i$$，也就是说$$A v_i$$是矩阵$$A A^T$$的相对于特征值$$\sigma_i^2$$的特征向量，将这个特征向量归一化之后就有$$u_i = A v_i / \lVert A v_i \rVert = A v_i / \sigma_i$$，也就是说，$$A v_i = \sigma_i u_i$$。证明了之前$$v_i$$和$$u_i$$之间的关系。
+
+
 
 ---
