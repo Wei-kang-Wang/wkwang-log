@@ -757,7 +757,7 @@ $$A v_1 = \sigma_1 u_1, A v_2 = \sigma_2 u_2, \cdots, A v_r = \sigma_r u_r$$
 
 $$A
 \begin{pmatrix}
-v_1 & \vdots & v_r
+v_1 & \cdots & v_r
 \end{pmatrix}
 
 =
@@ -802,7 +802,7 @@ $$A = U \Sigma V^T = u_1 \sigma_1 v_1^T + u_2 \sigma_2 v_2^T + \cdots + u_r \sig
 
 ## 8. 随机向量（random vector）以及variance-covariance matrix
 
-**Definition 1** 一个random vector $$\vec{X}$$是由联合分布表示的随机变量们构成的向量，$$\vec{X} = (X_1, X_2, \cdots, X_p)$$。这些随机变量X_1, \cdots, X_p$$由某个联合分布描述，其可能是独立的，可能是某部分和某部分是独立的，也可能有着很复杂的依赖关系。
+**Definition 1** 一个random vector $$\vec{X}$$是由联合分布表示的随机变量们构成的向量，$$\vec{X} = (X_1, X_2, \cdots, X_p)$$。这些随机变量$$X_1, \cdots, X_p$$由某个联合分布描述，其可能是独立的，可能是某部分和某部分是独立的，也可能有着很复杂的依赖关系。
 
 **Definition 2** 一个随机向量$$\vec{X} = \left[ X_1, X_2, \cdots, X_p \right]^T$$的期望$$E \vec{X}$$的计算方法为：$$E \vec{X} = \left[ E X_1, E X_2, \cdots, E X_p \right]$$。
 
@@ -810,7 +810,7 @@ $$A = U \Sigma V^T = u_1 \sigma_1 v_1^T + u_2 \sigma_2 v_2^T + \cdots + u_r \sig
 
 **Definition 3** 一个随机向量$$\vec{X}$$的variance-covariance matrix（或者简称covariance matrix）的定义为：$$Cov(\vec{X}) = E \left[ (\vec{X} - E \vec{X})(\vec{X} - E \vec{X})^T \right]$$。
 
-**Proposition 1** $$Cov({vec{X}) = E \left[ \vec{X} \vec{X}^T \right] - E \vec{X} (E \vec{X})^T$$
+**Proposition 1** $$Cov({\vec{X}) = E \left[ \vec{X} \vec{X}^T \right] - E \vec{X} (E \vec{X})^T$$
 
 **Proposition 2** 
 
@@ -818,7 +818,7 @@ $$Cov(\vec{X}) =
 \begin{pmatrix}
 Var(X_1) & Cov(X_1, X_2) & \cdots & Cov(X_1, X_p) \\
 Cov(X_2, X_1) & Var(X_2) & \cdots & Cov(X_2, X_p) \\
-\vdots & vdots & ddots & vdots \\
+\vdots & \vdots & \ddots & \vdots \\
 Cov(X_p, X_1) & Cov(X_p, X_2) & \cdots & Var(X_p)
 \end{pmatrix}
 $$
@@ -840,7 +840,7 @@ $$ = \vec{a}^T E \left[\vec{X} \vec{X}^T \right] \vec{a} - \vec{a}^T E \left[\ve
 
 $$ = \vec{a}^T (E \left[ \vec{X} \vec{X}^T \right] - E \left[\vec{X} \right] (E \left[\vec{X} \right])^T ) \vec{a} = \vec{a}^T Cov(\vec{X}) \vec{a}$$
 
-也就是说，如果知道了$$ E \left[ \vec{X} \right]$$和$$Cov(\vec{X})$$，那么就可以计算$$X_1, \X_2, \cdots, X_p$$的线性组合的期望和方差。
+也就是说，如果知道了$$ E \left[ \vec{X} \right]$$和$$Cov(\vec{X})$$，那么就可以计算$$X_1, X_2, \cdots, X_p$$的线性组合的期望和方差。
 
 
 **Proposition 1** 如果$$\Sigma$$是一个随机向量的variance-covariance matrix，那么对于任意的向量$$\vec{a}$$，我们都有：$$\vec{a}^T \Sigma \vec{a} \geq 0$$。也就是说，$$\Sigma$$是一个positive semi-definite矩阵。
