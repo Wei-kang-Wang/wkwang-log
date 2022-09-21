@@ -436,6 +436,103 @@ neural rendering（[State of the Art on Neural Rendering](https://arxiv.org/pdf/
 
 *CVPR 2019*
 
+[POST](https://wywu.github.io/projects/TGaGa/TGaGa.html)
+
+**Abstract**
+
+无监督的image-to-image translation的目标在于在两个视觉domains之间学习到一个映射。然而，因为这两类图片之间具有很大的geometry variations，这样的框架的学习往往都是失败的。在这篇工作里，作者介绍了一个新的disentangle-and-translate框架来解决这个复杂的image-to-image translation任务。这个方法并不会直接学习image spaces之间的映射，而是将image space解耦为appearance和geometry latent spaces的笛卡尔积。更严格地说，作者先介绍了一个geometry prior loss和一个conditional VAE loss来让网络能学习到相互独立且相互补充的representations。然后，在appearance和geometry space上分别独立进行image-to-image的translation任务。大量的实验证明了本文提出的方法达到了sota的效果，尤其是对于那些non-rigid的object的translation任务。而且如果用不同的数据作为appearance space，本文的方法还可以实现多模态之间的translation。
+
+
+**1. Introduction**
+
+无监督的image-to-image translation的目标是在没有任何监督信号的情况下，学习两个不同的image domains之间的translation。image translation这个概念在colorization，super-resolution以及style transfer等领域被用的很多。
+
+早期很多工作阐明了deep neural networks有能力可以进行改变局部纹理，改变图片的季节风格以及改变图片的作画风格。然而，研究者们最近发现了其在更加复杂的情况下就力不从心了，比如如果要进行translation的两个image domains之间有很大的geometry variation。为了解决这些更复杂的情况，我们需要在更高语义层面上设计这样的translation。比如说，基于对一匹马的脖子、身体和腿的理解，我们可以想象出一只具有相同姿态的长颈鹿。然而，如果仅仅是进行局部纹理的translation，这样的任务是无法完成的，因为这两类图片里的物体之间有着很大的geometry variantions。
+
+在更高的语义层面上进行translation并不是trivial的。几何信息往往扮演了很重要的角色，然而对于有些image-to-image translation来说，两个image domain之间的几何结构差别很大，比如说cat和human的faces，horse和giraffe。尽管两个image domain的物体都有着相似的部件，但这些部件在空间中的分布是非常不一样的。
+
+在这篇文章里，作者提出了一个新颖的geometry-aware的框架，来解决无监督的image-to-image translation。这个方法并不会直接在image space上进行translation，而是先将image映射到由geometry space和appearance space的笛卡尔积构成的空间里，然后再分别在这两个spaces上进行translation。为了鼓励网络能够更好的对这两个space进行解耦，作者提出了一个无监督的conditional的variational autoencoder (VAE)框架，其使用了KL散度和skip-connection的结构设计来使得网络能够得到互补且独立的geometry和appearance representations。接着作者再在这两个space上进行translation操作。大量的实验表明不管是在真实数据还是生成的数据上，这篇文章提出的方法效果都很好。
+
+本文的贡献总结如下：
+* 作者提出了一个新的框架来进行无监督的image-to-image translation。这个方法并不会直接在image space上进行translation，而是在它们被解耦知乎的appearance和geometry空间上进行。这篇文章的方法可以认为是CycleGAN的一个推广，其可以处理更复杂的objects，比如animals。
+* 对于appearance空间和geometry空间的很好的解耦可以使得文章的框架能够处理多模态的translation任务，也就是说只需要提供不同的appearance模板就行。
+
+
+**2. Related Work**
+
+*Image-to-image Translation*
+image-to-image的translation的目标是在source image domain和target image domain之间学习一个映射。Pix2Pix基于conditional GAN第一次提出了一个image-to-image的translation框架。之后有一些工作扩展了Pix2Pix使得其可以处理高分辨率或者video synthesis的任务。尽管这些工作已经取得了很好的效果，其需要成对的图片作为训练数据。对于无监督的image-to-image translation任务，其是没有成对的数据的，有的只是两个image domain的所有的图片的collections。Cycle-GAN，DiscoGAN，DualGAN以及UNIT都是基于cycle-consistency思想提出来的框架。GAN-imorph提出了一个带有膨胀卷积的discriminator用来获取一个信息更丰富的generator。然而，因为没有成对的图片作为训练数据，这样的translation任务本质上就是ill-posed的，因为基于训练数据，两个image domain之间可以存在无数个有效的映射。最近有一些工作已经开始尝试为多模态生成任务解决这个问题。CIIT，MUNIT，DRIT和EG-UNIT将图片space分解为一个domain-invariant内容空间和一个domain-specific style空间。然而，一旦做translation的两个image domain之间的几何结构信息差别太大，他们所假设的domain-invariant内容空间就会被违背了。尽管直觉上，不同的image domain是可以共享同一个content space的，但是使用同一个分布来表示不同的image domains里content分布的信息是很难的。所有的现存的方法在image domains之间有着很大的geometry variations的情况下，效果都不好。
+
+*Structural Representation Learning*
+为了建模图片里的内容，很多无监督的方法被提了出来，包括VAE，GAN，ARN等。最近，很多文章聚焦于无监督的landmark discovery来进行结构表征学习。因为landmark是物体结构的一个显式地表示，其相对于其它的特征能够更好的表示物体的几何结构信息。受到最近的landmark discovery工作的启发，本篇文章也使用了以堆叠的heatmap表示landmarks的方法来显式表示物体的结构信息。
+
+*Disentanglement of Representation*
+我们需要有一种很好的解耦方法来将appearnce和geometry特征分开。现在已经有很多的工作在研究face和person的图片生成任务。尽管他们的效果不错，但都需要有标注的信息进行监督学习。也有一些无监督解耦方法被提了出来，比如InfoGAN，$$\beta$$-VAE。然而，这些方法都缺乏可解释性，而且所学习到的解耦之后的特征都无法进行控制。本篇文章所使用的方法是可以以一种完全无监督的方法来获取appearance和geometry特征的解耦的。
+
+
+**3. Methodology**
+
+给定两个image domain，$$X$$和$$Y$$。要解决的任务是学习一对mapping，$$\Phi_{X \rightarrow Y}$$和$$\Phi_{Y \rightarrow X}$$，其可以将输入$$x \in X$$映射到$$y = \Phi_{X \rightarrow Y}(x)$$，其中$$y \in Y$$，反之亦然。这样的问题描述是一个典型的unpaired cross-domain image translation任务，其中最大的困难是其需要对两个image domain里的object的姿态，也就是geometry information进行改变。现存的方法致力于使用两个neural networks来拟合这两个mapping，但是训练起来非常的困难。在这篇文章里，作者假设每个image domain可以被解耦为一个structure space $$G$$和一个appearance space $$A$$的笛卡尔积。然后在每个space上再进行两个domain之间的translation，也就是两个geometry transformers $$\Phi_{X \rightarrow Y}^{g}$$，$$\Phi_{Y \rightarrow X}^{g}$$，和两个appearance transformers $$\Phi_{X \rightarrow Y}^{a}$$，$$\Phi_{Y \rightarrow X}^{a}$$。fig2解释了整个框架的结构。
+
+![gaga2]({{ '/assets/images/GAGA-2.PNG' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+*Fig 2 Architecture。作者提出的框架包括四个主要部分：两个autoencoders（X/Y domain）以及两个transformers（geometry/appearance）。Autoencoder：以X domain为例。对于输入x，使用一个encoder $$E_x^g$$来获取其的geometry representations $$g_x$$，其是一个通道数为30的heatmap，分辨率和输入图片$$x$$相同（每个通道都是一个heatmap，表示每个keypoint的位置信息）.然后，$$g_x$$再被编码从而得到geometry code $$c_x$$。同时，$$x$$还被喂给一个appearance encoder $$E_x^a$$来获取appearance code $$a_x$$。最后，$$a_x$$和$$c_x$$被连接在一起使用$$D_x$$来生成$$\hat{x}$$。Transformer：对于cross-domain的translation，geometry（$$g_x \iff g_y$$）和appearance transformation（$$a_x \iff a_y$$）是分别被操作的。*
+
+
+**3.1 Learning Disentangled Structure and Style Encoders**
+
+和之前那些使用单独一个卷积网络的encoder-decoder来encoder所有信息的结构不同，本文的方法试图分别encode图片里的geometry structure和appearance style。为了达到这个目标，作者对于geometry和appearance space都分别使用了一个conditional VAE。conditional VAE包括：（1）一个无监督的geometry estimator $$E_{\dot}^g(;\pi)$$；（2）一个geometry encoder $$E_{\dot}^c(;\theta)来将heatmap作为输入，输出为geometry code；（3）一个appearance encoder $$E_{\dot}^a(;\phi)$$来将appearance信息encode到space $$A$$当中；（4）一个decoder $$D_{\dot}(;\omega): C_{\dot} \times A_{\dot} \rightarrow X/Y$$，来将特征空间再映射回输入图片空间。
+
+>注意这些网络的下标的点，表示既可以是$$x$$也可以是$$y$$
+
+为了能够以无监督的方式解耦geometry和appearance信息，作者将loss设置为一个conditional VAE loss和一个geometry estimation的prior的loss的结合，也就是：
+
+$$\mathcal L_{disentangle} = \mathcal L_{CVAE} + \mathcal L_{prior}$$
+
+受到之前工作的启发，conditional VAE loss如下所示：
+
+$$\mathcal L_{CVAE}(\pi, \theta, \phi, \omega) = -KL(q_{\phi}(c \vert x, g) \Vert p(a \vert x)) + \lVert x - D(E^c(E^g(x)), E^a(x)) \rVert$$
+
+上述loss里的第一项是两个参数化的高斯分布之间的KL散度，第二项是reconstruction loss。在监督学习的框架下，这个loss是可以保证其可以学习到互补且独立的appearance和geometry信息的。但是本文解决的是无监督的情况，所以在没有对geometry map $$g$$进行监督的情况下，无法保证哪个encoder学习到的是geometry信息。而下面将要介绍的prior loss将会帮助我们对geometry estimator $$g$$进行约束。
+
+**3.2 Prior Loss for Geometry Estimator**
+
+和现有的那些框架试图encode所有的细节信息不同的是，我们的geometry estimator尝试仅仅去提取那些纯粹的geometry结构信息，而这是通过一系列landmark heatmap堆叠来表示的。为了实现这个目标，作者使用了物体的landmarks该如何分布的先验信息来帮助学习structure estimator $$E_x^g$$和$$E_y^g$$。
+
+作者使用的prior是：
+
+$$\mathcal L_{prior} = \sum_{i \neq j} exp(-\frac{\lVert g^i - g^j \rVert}{2 \sigma^2}) + Var(g)$$
+
+上述loss里的第一项是separation loss。如同之前的工作所研究的一样，如果不加这个约束，从随机的初始化开始，网络会学习到所有的landmarks都聚集在一个点上，这不是我们想要的。加了separation loss可以让landmark heatmap去覆盖object的其他区域。上述loss里的第二项是concentration loss，也就是说对于每个landmark的heatmap，我们不希望这个heatmap所代表的分布的方差太大，也就是说希望概率更加地集中于landmark那一个点。
+
+**3.3 Appearance Transformer**
+
+在有了解耦后的geometry和appearance空间之后，我们可以将原来的image-to-image translation问题分解为两个独立的问题。在这一节里，我们首先考虑appearance空间$$A_X$$，$$A_Y$$上的transformation $$\Phi^a$$。如果仅仅是用CycleGAN里的方法来解决，也就是说使用cycle consistency loss和adversarial loss来进行约束，是完全不够的。因为这两个约束只能保证网络学习到两个分布之间的一个translation，而这个translation具体是什么样的，完全是随机的。也就是说，其并不能保证$$a_x$$和$$\Phi_{X \rightarrow Y}(a_x)$$有着什么appearance上的关联。为了解决这个问题，作者提出了一个cross-domain appearance consisntecy loss来约束这个appearance transformer：
+
+$$\mathcal L_{con}^{a} = \lVert \zeta_{x} - \zeta(D_y(\Phi_{X \rightarrow Y}^{g} \ddot E_{x}^{g}(x), \Phi_{X \rightarrow Y}^{a} \ddot E_x^a (x))) \rVert
+
+其中$$\zeta$$是Gram matrix，也就是将输入通过一个预训练好的VGG-16网络得到的feature矩阵，乘以这个feature矩阵的转置得到的矩阵，$$\Phi_{X \rightarrow Y}^g \ddot E_x^g(x)$$是从$$X$$转换到到$$Y$$的geometry code，$$\Phi_{X \rightarrow Y}^a \ddot E_x^a(x)$$是从$$X$$转换到到$$Y$$的appearance code，$$D_y(,)$$是$$Y$$ domain的decoder。这个loss保证了生成图片和原始图片的appearance风格是一样的。在实验中，作者也尝试了只使用CycleGAN里的loss而不使用上述的这个loss，结果是每次训练，得到的结果都是不一样的，而加上了这个loss则变得稳定，而且结果的可解释性增强了。
+
+**3.4 Geometry Transformer**
+
+作者发现直接在$$E_x^g$$的输出的heatmaps之间学习一个geometry transformer是很困难的，因为CNN并不擅长获取图片里的几何结构信息。从而，作者使用了一个re-normalization operator $$R$$从heatmap中获取了每个landmark的位置信息。也就是说，geometry translation是基于landmark coordinate space上的，而并不是heatmap空间上。
+
+具体来说，对于每个landmark heatmap，作者计算了一个加权坐标值。尽管以2D坐标表示的landmark的维度要远小于图片本身，作者还是使用了PCA来对landmark representation进行了降维处理。这背后的原因是作者发现结果对于几何结构的微小改变要比原图片pixel值得微小改变要更加敏感。
+
+值得注意的是作者尝试了基于三种不同的geometry representations得geometry transformer，也就是geometry heatmaps，landmark coordinates和PCA处理后的landmark coordinates。然后作者发现，只有PCA处理后的landmark coordinate对应的训练过程更加地稳定。其为物体的几何形状构建了一个嵌入空间，这个空间里的每个维度都表示一个有意义的几何信息。因此，这个嵌入空间里的每个采样都会保有物体的基本形状信息，就会减少模型训练崩了的风险。
+
+
+**3.5 Other Constraints**
+
+除了之前提到的针对geometry的geometry prior loss和确保appearance consistency的consistency loss，作者还使用了cycle-consistency和adversarial loss来帮助模型训练。
+
+*Cycle-consistency loss*
+作者采用了三种cycle-consistency loss，$$\mathcal L_{cyc}^a$$，$$\mathcal L_{cyc}^g$$和$$\mathcal L_{cyc}^{pix}$$，分别对应于geometry space，appearance space和pixel space的cycle-consistency loss。
+
+*Adversarial loss*
+作者同样也使用了三种adversarial loss，也就是$$\mathcal L_{adv}^a$$，$$\mathcal L_{adv}^g$$和$$\mathcal L_{adv}^{pix}$$，分别对应于geometry space，appearance space和pixel space的adversarial loss。
+
+
 
 ### 33. [MobileNeRF: Exploiting the Polygon Rasterization Pipeline for Efficient Neural Field Rendering on Mobile Architectures](https://arxiv.org/pdf/2208.00277.pdf)
 
