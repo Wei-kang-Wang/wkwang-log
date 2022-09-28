@@ -57,7 +57,7 @@ $$E\left[S(X;\theta)^2\right] = -E\left[\frac{\partial^2}{\partial \theta^2} log
 在一般情况下，通过对score function在真实值处的泰勒展开，应用中心极限定理，弱大数定律，依照概率一致收敛，以及Slutsky定理，可以证明MLE的渐进分布的方差是$$I^{-1}(\theta)$$，即$$Var(\hat \theta_{{MLE}}) = I^{-1}(\theta)$$，这也就是Fisher Information的第三条数学意义。这样说不严谨，严格地说，是$$\sqrt{n}(\hat \theta_{MLE} - \theta) \rightarrow N(0, I^{\ast}(\theta)^{-1})$$，这里$$I^{\ast}(\theta)$$是当只观察到一个$$X$$值时候的Fisher Information，当有$$n$$个i.i.d.观察值时，$$I^{\ast}(\theta) = I(\theta)/n$$。这个的直观解释就是，Fisher Information反映了我们对参数估计的准确度，它越大，对参数估计越准确，也即代表了更多的信息。
 
 
-### 参考文献
+**参考文献**
 * https://www.zhihu.com/question/26561604/answer/33275982
 
 
@@ -137,7 +137,7 @@ $$ = \frac{1}{\sqrt{5}} {\left[ \begin{array}{c} \lambda_1^{k+1} - \lambda_2^{k+
 而$$(\lambda_1^{k+1} - \lambda_2^{k+1}) / \lambda_1^{k}-\lambda_2^k \approx \lambda_1$$，也就是说，斐波那契数列前后两项的比值约等于黄金分割比。而在$$k$$趋近于无穷的时候，上述约等于则无限趋近于等于。
 
 
-### 参考文献
+**参考文献**
 
 * https://zhuanlan.zhihu.com/p/354102331
 
@@ -192,8 +192,7 @@ $$= -K \left[ \Sigma_{i=1}^n p_i (log (\frac{n_i}{s}) \right] = -K \Sigma_{i=1}^
 
 常数$$K>0$$如何选取不关键，而且log的底也可以任意选取。
 
-
-### 参考文献
+**参考文献**
 
 * https://www.zhihu.com/question/30828247/answer/2146861892
 
@@ -363,7 +362,7 @@ SVD分解实际上是通过将一个非方阵的$$A \in R^{m \times n}$$矩阵�
 
 optimization问题是十分热的问题，现有算法还有很大的优化提升空间，而且还有很多问题没有得到很好的解决（machine learning领域就有很多）
 
-### 5.1 Convexity
+**5.1 Convexity**
 
 历史上，优化问题通常聚焦在linear programming（线性规划）。最初人们认为，优化问题是线性还是非线性，是不同优化问题的根本区别。（参考Dr. Margaret Wright所写的notes：[Fast Times in Linear Programming: Early Success, Revolutions, and Mysteries]）。
 
@@ -372,7 +371,7 @@ optimization问题是十分热的问题，现有算法还有很大的优化提�
 ![2]({{ '/assets/images/OPTIM-2.PNG' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-### 5.2 Convex Set
+**5.2 Convex Set**
 
 集合$$C$$是$$R^n, n=1,2,3,\cdots$$的子集，如果集合$$C$$满足$$\forall x,y \in C$$，有$$tx + (1-t)y \in C$$对于$$0 \leq t \leq 1$$都成立，那么集合$$C$$就是凸集。
 
@@ -388,7 +387,7 @@ optimization问题是十分热的问题，现有算法还有很大的优化提�
 * 验证定义中的条件是否满足
 * 验证其是不是某些已知凸集的运算，该运算是不是能够保证凸性
 
-### 5.3 Convex Function
+**5.3 Convex Function**
 
 如果函数$$f: R^n \longrightarrow R$$满足：
 
@@ -407,7 +406,7 @@ optimization问题是十分热的问题，现有算法还有很大的优化提�
 * 按定义判断条件是否满足
 * 其是否是某些已知凸函数之间的运算，以及该运算是否能够保证凸性
 
-### 5.4 Optimization Problem
+**5.4 Optimization Problem**
 
 $$min_{x \in D} f(x)$$
 
@@ -428,7 +427,7 @@ $$h_j(x) = 0, j=1,\cdots, r$$
 
 以上定义了什么是优化问题，那么什么是凸优化问题呢？
 
-### 5.5 Convex Optimization Problem
+**5.5 Convex Optimization Problem**
 
 如果上述优化问题中的函数$$f$$，$$g_i$$（$$m$$个）是凸的，而且$$h_j$$（$$r$$个）是affine的（因为$$h_j$$是等式，即$$h_j(x) = a_j^T x + b_j, j=1,2,\cdots,r$$，那么该问题就是一个凸优化问题。
 
@@ -448,7 +447,7 @@ $$h_j(x) = 0, j=1,\cdots, r$$
 ![6]({{ '/assets/images/OPTIM-6.PNG' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-### 5.6 Convex vs. Non-convex
+**5.6 Convex vs. Non-convex**
 
 为什么研究者大多会把问题转换为凸优化问题？因为对于凸优化问题，local minima也就是global minima。
 
@@ -460,7 +459,7 @@ $$h_j(x) = 0, j=1,\cdots, r$$
 上图里的右边，因为问题是非凸的，如果起始点在红线和黄线的圆圈处，沿着下降的方向，会收敛到右图中右边的local minima。而如果起始点在绿线、蓝线和紫线的圆圈处，沿着下降的方向，会收敛到左边的local minima。最终收敛到哪里，依赖于系统的起始点在哪里。而且这两个local minima的值是不一样的。这个性质是很不好的。非凸优化的难点，就在于如何在这种性质的情况下，仍然能找到全局最优点，或者尽量小的局部最优点。
 
 
-### 5.7 为什么要把问题写成standard form
+**5.7 为什么要把问题写成standard form**
 
 因为这样可以让人们方便利用计算机最快速的求解convex optimization问题，通常需要将问题重新写成standard form。求解优化问题如果要利用计算机来进行的，常用的convex optimization tools，包括cvx，yalmip(matlab)，cvxpy，picos(python)等求解优化问题是分为两步的：
 
@@ -469,7 +468,7 @@ $$h_j(x) = 0, j=1,\cdots, r$$
 
 Margaret Wright的notes，[Fast Times in Linear Programming: Early Success, Revolutions, and Mysteries]()里，写出了从最初的simplex algorithm（基于最优点一定在corner point的intuition而设计的算法）到内点法的各种历史八卦和新算法设计的思考出发点。
 
-### 5.8 几类标准问题
+**5.8 几类标准问题**
 
 凸优化的标准问题有四类：
 
