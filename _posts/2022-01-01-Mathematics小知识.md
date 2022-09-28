@@ -809,7 +809,7 @@ $$A = U \Sigma V^T = u_1 \sigma_1 v_1^T + u_2 \sigma_2 v_2^T + \cdots + u_r \sig
 
 **Definition 3** 一个随机向量$$\vec{X}$$的variance-covariance matrix（或者简称covariance matrix）的定义为：$$Cov(\vec{X}) = E \left[ (\vec{X} - E \vec{X})(\vec{X} - E \vec{X})^T \right]$$。
 
-**Proposition 1** $$Cov({\vec{X}) = E \left[ \vec{X} \vec{X}^T \right] - E \vec{X} (E \vec{X})^T$$
+**Proposition 1** $$Cov(\vec{X}) = E \left[ \vec{X} \vec{X}^T \right] - E \vec{X} (E \vec{X})^T$$
 
 **Proposition 2** 
 
