@@ -74,6 +74,69 @@ McLaren在设计塞纳时候得主要目标是设计一款更快圈速的超跑�
 
 每辆塞纳都是在英国Surrey的McLaren设计中心手工制作的，一共500辆，都已售出，每辆标价750000英镑，从2018第三个季度开始交付。
 
+![1]({{ '/assets/images/car/mclaren/senna/senna gtr/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![2]({{ '/assets/images/car/mclaren/senna/senna gtr/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![3]({{ '/assets/images/car/mclaren/senna/senna gtr/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![4]({{ '/assets/images/car/mclaren/senna/senna gtr/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![5]({{ '/assets/images/car/mclaren/senna/senna gtr/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![6]({{ '/assets/images/car/mclaren/senna/senna gtr/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![7]({{ '/assets/images/car/mclaren/senna/senna gtr/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![8]({{ '/assets/images/car/mclaren/senna/senna gtr/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![9]({{ '/assets/images/car/mclaren/senna/senna gtr/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![10]({{ '/assets/images/car/mclaren/senna/senna gtr/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![11]({{ '/assets/images/car/mclaren/senna/senna gtr/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![12]({{ '/assets/images/car/mclaren/senna/senna gtr/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![13]({{ '/assets/images/car/mclaren/senna/senna gtr/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![14]({{ '/assets/images/car/mclaren/senna/senna gtr/14.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![15]({{ '/assets/images/car/mclaren/senna/senna gtr/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![16]({{ '/assets/images/car/mclaren/senna/senna gtr/16.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![17]({{ '/assets/images/car/mclaren/senna/senna gtr/17.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![18]({{ '/assets/images/car/mclaren/senna/senna gtr/18.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![19]({{ '/assets/images/car/mclaren/senna/senna gtr/19.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![20]({{ '/assets/images/car/mclaren/senna/senna gtr/20.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![21]({{ '/assets/images/car/mclaren/senna/senna gtr/21.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
 ### 3.1 McLaren Senna GTR
 
 在2018年日内瓦车展上，McLaren揭露了概念版的赛道版塞纳，Senna GTR。但在两年后正式揭露的时候，Senna GTR使用了不一样的车体设计，使用了不同的尾翼设计，较缓和的车体动力学设计，不同的变速箱和悬挂系统设计，这些使得塞纳GTR成为了迈凯伦公司除了F1以外在赛道上最快的车型。
