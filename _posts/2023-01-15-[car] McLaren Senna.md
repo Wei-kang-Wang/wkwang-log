@@ -74,67 +74,67 @@ McLaren在设计塞纳时候得主要目标是设计一款更快圈速的超跑�
 
 每辆塞纳都是在英国Surrey的McLaren设计中心手工制作的，一共500辆，都已售出，每辆标价750000英镑，从2018第三个季度开始交付。
 
-![1]({{ '/assets/images/car/mclaren/senna/senna gtr/1.jpg' | relative_url }})
+![1]({{ '/assets/images/car/mclaren/senna/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![2]({{ '/assets/images/car/mclaren/senna/senna gtr/2.jpg' | relative_url }})
+![2]({{ '/assets/images/car/mclaren/senna/2.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![3]({{ '/assets/images/car/mclaren/senna/senna gtr/3.jpg' | relative_url }})
+![3]({{ '/assets/images/car/mclaren/senna/3.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![4]({{ '/assets/images/car/mclaren/senna/senna gtr/4.jpg' | relative_url }})
+![4]({{ '/assets/images/car/mclaren/senna/4.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![5]({{ '/assets/images/car/mclaren/senna/senna gtr/5.jpg' | relative_url }})
+![5]({{ '/assets/images/car/mclaren/senna/5.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![6]({{ '/assets/images/car/mclaren/senna/senna gtr/6.jpg' | relative_url }})
+![6]({{ '/assets/images/car/mclaren/senna/6.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![7]({{ '/assets/images/car/mclaren/senna/senna gtr/7.jpg' | relative_url }})
+![7]({{ '/assets/images/car/mclaren/senna/7.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![8]({{ '/assets/images/car/mclaren/senna/senna gtr/8.jpg' | relative_url }})
+![8]({{ '/assets/images/car/mclaren/senna/8.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![9]({{ '/assets/images/car/mclaren/senna/senna gtr/9.jpg' | relative_url }})
+![9]({{ '/assets/images/car/mclaren/senna/9.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![10]({{ '/assets/images/car/mclaren/senna/senna gtr/10.jpg' | relative_url }})
+![10]({{ '/assets/images/car/mclaren/senna/10.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![11]({{ '/assets/images/car/mclaren/senna/senna gtr/11.jpg' | relative_url }})
+![11]({{ '/assets/images/car/mclaren/senna/11.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![12]({{ '/assets/images/car/mclaren/senna/senna gtr/12.jpg' | relative_url }})
+![12]({{ '/assets/images/car/mclaren/senna/12.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![13]({{ '/assets/images/car/mclaren/senna/senna gtr/13.jpg' | relative_url }})
+![13]({{ '/assets/images/car/mclaren/senna/13.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![14]({{ '/assets/images/car/mclaren/senna/senna gtr/14.png' | relative_url }})
+![14]({{ '/assets/images/car/mclaren/senna/14.png' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![15]({{ '/assets/images/car/mclaren/senna/senna gtr/15.jpg' | relative_url }})
+![15]({{ '/assets/images/car/mclaren/senna/15.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![16]({{ '/assets/images/car/mclaren/senna/senna gtr/16.jpg' | relative_url }})
+![16]({{ '/assets/images/car/mclaren/senna/16.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![17]({{ '/assets/images/car/mclaren/senna/senna gtr/17.png' | relative_url }})
+![17]({{ '/assets/images/car/mclaren/senna/17.png' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![18]({{ '/assets/images/car/mclaren/senna/senna gtr/18.png' | relative_url }})
+![18]({{ '/assets/images/car/mclaren/senna/18.png' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![19]({{ '/assets/images/car/mclaren/senna/senna gtr/19.png' | relative_url }})
+![19]({{ '/assets/images/car/mclaren/senna/19.png' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![20]({{ '/assets/images/car/mclaren/senna/senna gtr/20.png' | relative_url }})
+![20]({{ '/assets/images/car/mclaren/senna/20.png' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![21]({{ '/assets/images/car/mclaren/senna/senna gtr/21.png' | relative_url }})
+![21]({{ '/assets/images/car/mclaren/senna/21.png' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
 ### 3.1 McLaren Senna GTR
