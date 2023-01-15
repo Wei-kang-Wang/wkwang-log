@@ -80,13 +80,203 @@ McLaren在设计塞纳时候得主要目标是设计一款更快圈速的超跑�
 
 塞纳GTR采用了更宽的前后翼子板，更大的前风翼，新的轮毂，以及更大的尾部扩散器（能提供1000公斤的下压力）。塞纳GTR限量仅售75台。
 
+![1]({{ '/assets/images/car/mclaren/senna/1.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![2]({{ '/assets/images/car/mclaren/senna/2.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![3]({{ '/assets/images/car/mclaren/senna/3.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![4]({{ '/assets/images/car/mclaren/senna/4.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![5]({{ '/assets/images/car/mclaren/senna/5.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![6]({{ '/assets/images/car/mclaren/senna/6.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![7]({{ '/assets/images/car/mclaren/senna/7.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![8]({{ '/assets/images/car/mclaren/senna/8.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![9]({{ '/assets/images/car/mclaren/senna/9.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![10]({{ '/assets/images/car/mclaren/senna/10.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![11]({{ '/assets/images/car/mclaren/senna/11.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![12]({{ '/assets/images/car/mclaren/senna/12.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![13]({{ '/assets/images/car/mclaren/senna/13.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![14]({{ '/assets/images/car/mclaren/senna/14.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![15]({{ '/assets/images/car/mclaren/senna/15.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![16]({{ '/assets/images/car/mclaren/senna/16.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![17]({{ '/assets/images/car/mclaren/senna/17.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![18]({{ '/assets/images/car/mclaren/senna/18.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![19]({{ '/assets/images/car/mclaren/senna/19.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![20]({{ '/assets/images/car/mclaren/senna/20.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![21]({{ '/assets/images/car/mclaren/senna/21.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![22]({{ '/assets/images/car/mclaren/senna/22.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![23]({{ '/assets/images/car/mclaren/senna/23.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![24]({{ '/assets/images/car/mclaren/senna/24.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![25]({{ '/assets/images/car/mclaren/senna/25.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![26]({{ '/assets/images/car/mclaren/senna/26.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![27]({{ '/assets/images/car/mclaren/senna/27.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![28]({{ '/assets/images/car/mclaren/senna/28.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![29]({{ '/assets/images/car/mclaren/senna/29.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![30]({{ '/assets/images/car/mclaren/senna/30.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![31]({{ '/assets/images/car/mclaren/senna/31.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![32]({{ '/assets/images/car/mclaren/senna/32.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![33]({{ '/assets/images/car/mclaren/senna/33.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![34]({{ '/assets/images/car/mclaren/senna/34.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![35]({{ '/assets/images/car/mclaren/senna/35.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![36]({{ '/assets/images/car/mclaren/senna/36.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![37]({{ '/assets/images/car/mclaren/senna/37.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![38]({{ '/assets/images/car/mclaren/senna/38.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![39]({{ '/assets/images/car/mclaren/senna/39.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![40]({{ '/assets/images/car/mclaren/senna/40.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![41]({{ '/assets/images/car/mclaren/senna/41.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![42]({{ '/assets/images/car/mclaren/senna/42.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![43]({{ '/assets/images/car/mclaren/senna/43.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![44]({{ '/assets/images/car/mclaren/senna/44.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![45]({{ '/assets/images/car/mclaren/senna/45.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![46]({{ '/assets/images/car/mclaren/senna/46.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![47]({{ '/assets/images/car/mclaren/senna/47.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![48]({{ '/assets/images/car/mclaren/senna/48.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![49]({{ '/assets/images/car/mclaren/senna/49.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![50]({{ '/assets/images/car/mclaren/senna/50.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![51]({{ '/assets/images/car/mclaren/senna/51.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![52]({{ '/assets/images/car/mclaren/senna/52.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![53]({{ '/assets/images/car/mclaren/senna/53.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![54]({{ '/assets/images/car/mclaren/senna/54.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![55]({{ '/assets/images/car/mclaren/senna/55.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![56]({{ '/assets/images/car/mclaren/senna/56.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![57]({{ '/assets/images/car/mclaren/senna/57.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![58]({{ '/assets/images/car/mclaren/senna/58.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![59]({{ '/assets/images/car/mclaren/senna/59.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![60]({{ '/assets/images/car/mclaren/senna/60.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![61]({{ '/assets/images/car/mclaren/senna/61.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![62]({{ '/assets/images/car/mclaren/senna/62.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![63]({{ '/assets/images/car/mclaren/senna/63.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
 ### 3.2 McLaren Senna LM
 
 塞纳LM也是一款赛道版塞纳，其车身和原版塞纳大体一样，但也采用了某些塞纳GTR的设计。车身的橙色是对McLaren F1 LM的致敬。塞纳LM仅制造了35辆。
 
 ### 3.3 McLaren Senna GTR LM
 
-注意和Senna LM是不一样的，只生产了5辆。
+注意和Senna LM是不一样的，只生产了5辆，为了纪念传奇赛车McLaren F1 LM，涂装也和其一样。
 
 
 
