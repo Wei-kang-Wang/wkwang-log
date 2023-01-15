@@ -1,3 +1,22 @@
+---
+layout: post
+comments: false
+title: "McLaren Senna"
+date: 2023-01-15 01:09:00
+
+---
+
+
+<!--more-->
+
+{: class="table-of-content"}
+* TOC
+{:toc}
+
+---
+
+
+
 McLaren Senna是一款由迈凯伦设计的中置引擎限量级超跑。塞纳是McLaren Ultimate Series里的第三款车，前两款是F1和P1。塞纳是在2017年12月10日线上首发的，于2018年在日内瓦车展上实体公布。
 
 
