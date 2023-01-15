@@ -152,18 +152,6 @@ McLaren在设计塞纳时候得主要目标是设计一款更快圈速的超跑�
 ![24]({{ '/assets/images/car/mclaren/senna/24.png' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![25]({{ '/assets/images/car/mclaren/senna/25.png' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![26]({{ '/assets/images/car/mclaren/senna/26.png' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![27]({{ '/assets/images/car/mclaren/senna/27.png' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![28]({{ '/assets/images/car/mclaren/senna/28.png' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
 ![29]({{ '/assets/images/car/mclaren/senna/29.png' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
