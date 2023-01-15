@@ -40,6 +40,130 @@ F40于1987年7月21日在Maranello的Civic Centre首发。本来F40是应该在�
 
 
 
+![1]({{ '/assets/images/car/Ferrari/F40/1.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![2]({{ '/assets/images/car/Ferrari/F40/2.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![3]({{ '/assets/images/car/Ferrari/F40/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![4]({{ '/assets/images/car/Ferrari/F40/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![5]({{ '/assets/images/car/Ferrari/F40/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![6]({{ '/assets/images/car/Ferrari/F40/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![7]({{ '/assets/images/car/Ferrari/F40/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![8]({{ '/assets/images/car/Ferrari/F40/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![9]({{ '/assets/images/car/Ferrari/F40/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![10]({{ '/assets/images/car/Ferrari/F40/10.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![11]({{ '/assets/images/car/Ferrari/F40/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![12]({{ '/assets/images/car/Ferrari/F40/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![13]({{ '/assets/images/car/Ferrari/F40/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![14]({{ '/assets/images/car/Ferrari/F40/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![15]({{ '/assets/images/car/Ferrari/F40/15.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![16]({{ '/assets/images/car/Ferrari/F40/16.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![17]({{ '/assets/images/car/Ferrari/F40/17.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![18]({{ '/assets/images/car/Ferrari/F40/18.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![19]({{ '/assets/images/car/Ferrari/F40/19.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![20]({{ '/assets/images/car/Ferrari/F40/20.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![21]({{ '/assets/images/car/Ferrari/F40/21.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![22]({{ '/assets/images/car/Ferrari/F40/22.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![23]({{ '/assets/images/car/Ferrari/F40/23.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![24]({{ '/assets/images/car/Ferrari/F40/24.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![25]({{ '/assets/images/car/Ferrari/F40/25.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![26]({{ '/assets/images/car/Ferrari/F40/26.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![27]({{ '/assets/images/car/Ferrari/F40/27.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![28]({{ '/assets/images/car/Ferrari/F40/28.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![29]({{ '/assets/images/car/Ferrari/F40/29.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![30]({{ '/assets/images/car/Ferrari/F40/30.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![31]({{ '/assets/images/car/Ferrari/F40/31.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![32]({{ '/assets/images/car/Ferrari/F40/32.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![33]({{ '/assets/images/car/Ferrari/F40/33.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![34]({{ '/assets/images/car/Ferrari/F40/34.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![35]({{ '/assets/images/car/Ferrari/F40/35.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![36]({{ '/assets/images/car/Ferrari/F40/36.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![37]({{ '/assets/images/car/Ferrari/F40/37.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![38]({{ '/assets/images/car/Ferrari/F40/38.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![39]({{ '/assets/images/car/Ferrari/F40/39.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![40]({{ '/assets/images/car/Ferrari/F40/40.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![41]({{ '/assets/images/car/Ferrari/F40/41.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
 ## 2. 赛车
 
 ### 2.1 LM
@@ -62,7 +186,218 @@ F40 Competizione的额定功率为700 PS；升级后的双涡轮增压V8发动�
 
 底盘编号80782的F40LM最初是作为公路车被购买的，并于1989年由法拉利官方进口商Kroymans BV进口到荷兰。随后，Kroymans赛车部门Cavallino Tuning的Peter van Erp将其转换为“Competizione”规格，包括新的减震器、新的仪表、制动器、车身和新的车漆。该车一直通过法拉利挑战赛得到提升，并在1995年进行了修改以保持该车的竞争力。英国改装厂G-Tex与 Michelotto合作进行了改装，包括空气千斤顶、升级的防滚架和发动机升级，将其输出功率提高到超过700 bhp。在卖给最近的车主后，车主对其进行了装饰改造，包括改成了Grigio Nardo（某种灰）的车漆和改成了蓝色织物座椅。
 
+![1]({{ '/assets/images/car/Ferrari/F40/F40 lm/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
+![2]({{ '/assets/images/car/Ferrari/F40/F40 lm/2.jpgg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![3]({{ '/assets/images/car/Ferrari/F40/F40 lm/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![4]({{ '/assets/images/car/Ferrari/F40/F40 lm/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![5]({{ '/assets/images/car/Ferrari/F40/F40 lm/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![6]({{ '/assets/images/car/Ferrari/F40/F40 lm/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![7]({{ '/assets/images/car/Ferrari/F40/F40 lm/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![8]({{ '/assets/images/car/Ferrari/F40/F40 lm/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![9]({{ '/assets/images/car/Ferrari/F40/F40 lm/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![10]({{ '/assets/images/car/Ferrari/F40/F40 lm/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![11]({{ '/assets/images/car/Ferrari/F40/F40 lm/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![12]({{ '/assets/images/car/Ferrari/F40/F40 lm/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![13]({{ '/assets/images/car/Ferrari/F40/F40 lm/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![14]({{ '/assets/images/car/Ferrari/F40/F40 lm/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![15]({{ '/assets/images/car/Ferrari/F40/F40 lm/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![16]({{ '/assets/images/car/Ferrari/F40/F40 lm/16.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![17]({{ '/assets/images/car/Ferrari/F40/F40 lm/17.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![18]({{ '/assets/images/car/Ferrari/F40/F40 lm/18.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![19]({{ '/assets/images/car/Ferrari/F40/F40 lm/19.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![20]({{ '/assets/images/car/Ferrari/F40/F40 lm/20.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![21]({{ '/assets/images/car/Ferrari/F40/F40 lm/21.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![22]({{ '/assets/images/car/Ferrari/F40/F40 lm/22.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![23]({{ '/assets/images/car/Ferrari/F40/F40 lm/23.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![24]({{ '/assets/images/car/Ferrari/F40/F40 lm/24.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![25]({{ '/assets/images/car/Ferrari/F40/F40 lm/25.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![26]({{ '/assets/images/car/Ferrari/F40/F40 lm/26.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![27]({{ '/assets/images/car/Ferrari/F40/F40 lm/27.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![28]({{ '/assets/images/car/Ferrari/F40/F40 lm/28.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![29]({{ '/assets/images/car/Ferrari/F40/F40 lm/29.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![30]({{ '/assets/images/car/Ferrari/F40/F40 lm/30.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![31]({{ '/assets/images/car/Ferrari/F40/F40 lm/31.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![32]({{ '/assets/images/car/Ferrari/F40/F40 lm/32.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![33]({{ '/assets/images/car/Ferrari/F40/F40 lm/33.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![34]({{ '/assets/images/car/Ferrari/F40/F40 lm/34.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![35]({{ '/assets/images/car/Ferrari/F40/F40 lm/35.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![36]({{ '/assets/images/car/Ferrari/F40/F40 lm/36.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![37]({{ '/assets/images/car/Ferrari/F40/F40 lm/37.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![38]({{ '/assets/images/car/Ferrari/F40/F40 lm/38.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![39]({{ '/assets/images/car/Ferrari/F40/F40 lm/39.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![40]({{ '/assets/images/car/Ferrari/F40/F40 lm/40.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![41]({{ '/assets/images/car/Ferrari/F40/F40 lm/41.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![42]({{ '/assets/images/car/Ferrari/F40/F40 lm/42.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![43]({{ '/assets/images/car/Ferrari/F40/F40 lm/43.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![44]({{ '/assets/images/car/Ferrari/F40/F40 lm/44.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![45]({{ '/assets/images/car/Ferrari/F40/F40 lm/45.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![46]({{ '/assets/images/car/Ferrari/F40/F40 lm/46.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![47]({{ '/assets/images/car/Ferrari/F40/F40 lm/47.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![48]({{ '/assets/images/car/Ferrari/F40/F40 lm/48.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![49]({{ '/assets/images/car/Ferrari/F40/F40 lm/49.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![50]({{ '/assets/images/car/Ferrari/F40/F40 lm/50.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![51]({{ '/assets/images/car/Ferrari/F40/F40 lm/51.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![52]({{ '/assets/images/car/Ferrari/F40/F40 lm/52.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![53]({{ '/assets/images/car/Ferrari/F40/F40 lm/53.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![54]({{ '/assets/images/car/Ferrari/F40/F40 lm/54.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![55]({{ '/assets/images/car/Ferrari/F40/F40 lm/55.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![56]({{ '/assets/images/car/Ferrari/F40/F40 lm/56.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![57]({{ '/assets/images/car/Ferrari/F40/F40 lm/57.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![58]({{ '/assets/images/car/Ferrari/F40/F40 lm/58.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![59]({{ '/assets/images/car/Ferrari/F40/F40 lm/59.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![60]({{ '/assets/images/car/Ferrari/F40/F40 lm/60.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![61]({{ '/assets/images/car/Ferrari/F40/F40 lm/61.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![62]({{ '/assets/images/car/Ferrari/F40/F40 lm/62.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![63]({{ '/assets/images/car/Ferrari/F40/F40 lm/63.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![64]({{ '/assets/images/car/Ferrari/F40/F40 lm/64.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![65]({{ '/assets/images/car/Ferrari/F40/F40 lm/65.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![66]({{ '/assets/images/car/Ferrari/F40/F40 lm/66.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![67]({{ '/assets/images/car/Ferrari/F40/F40 lm/67.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![68]({{ '/assets/images/car/Ferrari/F40/F40 lm/68.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![69]({{ '/assets/images/car/Ferrari/F40/F40 lm/69.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![70]({{ '/assets/images/car/Ferrari/F40/F40 lm/70.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![71]({{ '/assets/images/car/Ferrari/F40/F40 lm/71.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
 ## 3. 缺点
 
