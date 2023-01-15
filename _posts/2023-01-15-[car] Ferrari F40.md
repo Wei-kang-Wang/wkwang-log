@@ -1,3 +1,21 @@
+---
+layout: post
+comments: false
+title: "Ferrari F40"
+date: 2023-01-15 01:09:00
+
+---
+
+
+<!--more-->
+
+{: class="table-of-content"}
+* TOC
+{:toc}
+
+---
+
+
 Ferrari F40是一款中置引擎后驱的超跑，由Nicola Materazzi设计的。F40的生命周期是1987到1992，其后继赛车版本车型LM和GTE分别继续生产到了1994和1996年。F40是288 GTO的继承车型，其是Enzo Ferrari授权同意的最后一款法拉利，其也是为了纪念法拉利40周年而推出的。在当时，F40是最贵，最快也是动力最强的法拉利。
 
 
