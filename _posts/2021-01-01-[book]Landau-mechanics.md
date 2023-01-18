@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: false
-title: "[书]Theoretical Physics Volume 1 Mechanics"
+title: "[book]Theoretical Physics Volume 1 Mechanics"
 date: 2021-12-17 01:09:00
 tags: book-reading
 ---
