@@ -779,7 +779,7 @@ $$\theta_{t+1} = (1-\lambda) \theta_t - \alpha \nabla f_t (\theta_t)$$
 
 实际上，weight decay和给损失函数加上$$L_2$$ penalization等价。损失函数为$$f(\theta)$$，则新的损失函数为：
 
-$$\mathop{f(\theta)}\limits_{\tilde} = f(\theta} + \frac{\lambda^{'}}{2} \lVert \theta \rVert_2^2$$
+$$\mathop{f(\theta)}\limits_{\tilde} = f(\theta) + \frac{\lambda^{'}}{2} \lVert \theta \rVert_2^2$$
 
 但weight decay也仅仅是在SGD这种算法下和$$L_2$$ penalization是等价的，和别的算法（比如Adam）是没有直接关系的。
 
