@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: false
-title: "[书]Pattern Recognition and Machine Learning"
+title: "[book]Pattern Recognition and Machine Learning"
 date: 2021-12-17 01:09:00
 tags: book-reading
 ---
