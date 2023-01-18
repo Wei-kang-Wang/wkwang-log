@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: false
-title: "Mathematics小知识"
+title: "Mathematics Tips"
 date: 2022-05-30 01:09:00
 
 ---
