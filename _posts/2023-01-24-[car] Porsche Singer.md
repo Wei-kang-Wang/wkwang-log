@@ -16,146 +16,8 @@ date: 2023-01-24 01:09:00
 ---
 
 
-## 1. Singer Porsche 911 Turbo Study
-就个人而言，我就是喜欢保时捷930 Turbo，尤其是1978年到1989年间生产的3.3升版本，在西德的Zuffenhausen, Stuttgart生产了近19000台，应该不是稀有车，但随着最后一辆离开30多年前的工厂大门，你会明白并非所有这些都仍然存在，因此找到一个原始的930 Turbo可能很困难而且成本很高，在撰写本文时它们的平均价值约为 130000 美元每辆。
 
-但你也必须承认我们现在谈论的是一辆四十年前制造的老式跑车，而且发动机离汽车后部很远，驾驶保时捷 930 Turbo 需要练习才能靠近它的极限，这辆特定的车实际上得到了绰号“The Widowmaker”。早在 1975 年，当第一个版本推出时，这是保时捷第一款涡轮增压量产车。
-
-那么在2022年你会怎么做，当你终于设法积累了必要的资金来获得你儿时梦想的汽车，但你仍然想要现代化的设施，你求助于2009年在加利福尼亚成立的Singer，他刚刚发布了他们令人惊叹的保时捷911 Turbo Study，是对经典保时捷930 Turbo的现代诠释，但尽管看起来像一辆已有40年历史的汽车，但这是一款为21世纪做好准备的现代超级跑车。
-
-Singer Group Inc创始人兼执行主席Rob Dickinson表示：“1976年，我11岁时第一次乘坐保时捷 911时，我口干舌燥，说不出话来——那是一辆带有红色格子呢的黑色930 Turbo。在那个改变生活的时刻45年后，我很高兴展示我们的研究结果，该研究旨在捕捉保时捷第一款“超级跑车”的令人惊叹的快感，同时重新构想其性能和改进，并与车主合作将两者都带到新的高度。我相信这是对改变我和许多其他人生活的汽车的恰当致敬。”
-
-这些照片中看到的汽车实际上是一辆客户车，在保留豪华旅行体验的同时注重性能，在轻质碳纤维车身上涂上美丽的狼蓝色调，而不是3.3升涡轮增压发动机八十年代，Singer Turbo Study从3.8升双涡轮增压、中冷器水平对置六缸发动机获得动力，该发动机通过六速手动变速箱仅向后轮提供超过450马力的功率。
-
-所有这些Singer修复的保时捷911都以964型发动机为起点，这项涡轮增压研究接受了“Mezger”风冷六缸发动机的改进，扩大到3.8升，并配备了两个带电动废气门的涡轮增压器，定制空气对水中冷器，而后轮前面两侧的黑色“鱼翅”已被重新设计为功能性进气口，在这辆车上，发动机调整为450马力，但这只是一个起点，车主可以要求更高的数字。
-
-早在2014年，Singer就已经创建了他们的第一个ADW Classic Study，这也意味着这款新的Turbo Study可以提供全轮驱动或后轮驱动，具体取决于客户的喜好，并且整个车身都经过了重新设计它由碳纤维制成，灵感来自七十年代中期的标志性DNA，但具有优化的美学和功能性能。
-
-如果客户想要更高的性能，Singer可以通过使用强制感应从发动机获得更多动力，并且可以通过不同的悬架配置、定制的运动型排气系统、涡轮增压专用制动器为每个客户提供特定的整体驾驶体验与ABS自然，虽然可选的碳陶瓷盘也是可能的，但为了控制一切，Singer也在他们的汽车上提供牵引力控制。
-
-令人惊叹的外观也融入了令人惊叹的内饰，这辆特定的汽车配备了Malibu Sand内饰，带有黑森林木装饰，营造出奢华的外观，当然，这些真皮座椅带有加热功能，并且在巡航时可电动调节可以控制这种美丽的车轮后面的更长驱动器。
-
-Singer Group Inc.首席执行官Mazen Fawaz指出：“在2020年至2021年期间，我们的服务销售额翻了一番以上。我们在Torrance, California新建的规模大得多的综合设施使我们能够扩大团队，响应需求，并欢迎业主舒适。同时，在英国，我们的团队正在仔细执行动力学和轻量化研究支持的每项修复。业主对Turbo Study的反应令人难以置信，我们期待着与他们每一位合作，因为他们的修复工作正在取得进展。”
-
-我们将能够在即将于2022年6月23日至26日在英国举行的古德伍德速度节上欣赏新的Singer Turbo Study，在那里她不仅会进行静态展示，还会被带到著名的赛道上，所以我们不仅可以看到她，还可以听到双涡轮增压六缸发动机的轰鸣声。如果你住在美国，你将不得不等到2022年8月的汽车周，届时Singer会将Turbo Study带到北加州的蒙特雷半岛。
-
-![1]({{ '/assets/images/car/porsche/singer/turbo/3.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![2]({{ '/assets/images/car/porsche/singer/turbo/19.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![3]({{ '/assets/images/car/porsche/singer/turbo/20.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![4]({{ '/assets/images/car/porsche/singer/turbo/21.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![5]({{ '/assets/images/car/porsche/singer/turbo/22.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![6]({{ '/assets/images/car/porsche/singer/turbo/23.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![7]({{ '/assets/images/car/porsche/singer/turbo/24.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![8]({{ '/assets/images/car/porsche/singer/turbo/25.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![9]({{ '/assets/images/car/porsche/singer/turbo/26.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![10]({{ '/assets/images/car/porsche/singer/turbo/27.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![11]({{ '/assets/images/car/porsche/singer/turbo/28.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![12]({{ '/assets/images/car/porsche/singer/turbo/29.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![13]({{ '/assets/images/car/porsche/singer/turbo/30.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![14]({{ '/assets/images/car/porsche/singer/turbo/31.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![15]({{ '/assets/images/car/porsche/singer/turbo/32.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![16]({{ '/assets/images/car/porsche/singer/turbo/33.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![17]({{ '/assets/images/car/porsche/singer/turbo/34.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-## 2. New Singer Turbo Study
-我只是喜欢1978年至1989年之间制造的保时捷930 Turbo，它有巨大的“鲸鱼”后翼和后部Fuchs合金上的那些宽挡泥板，但这些车现在已经成为经典，而且它们的价格标签也相匹配他们的地位，最终会给你买一辆车龄超过30年的汽车，而且不会拥有我们已经习惯的所有便利设施，但是有一个解决方案，总部位于加利福尼亚的辛格最近公布了他们令人印象深刻的保时捷911 Turbo Study，是对经典保时捷930 Turbo的现代诠释，但尽管看起来像上个世纪的经典汽车，但这是一辆为21世纪做好准备的现代超级跑车。
-
-前段时间我们看到了第一台Singer Turbo Study，但是今天我们看到了另一台，这次更侧重于运动性能，包括功率增加到510 HP，这第二辆车，白色完成, 清楚地说明了这项研究和Singer与车主合作实现的能力，以提供个人愿景，请注意这辆特定汽车前引擎盖上的绿色条纹，以及切入该引擎盖的中央安装的加油口只是一个惊人的细节。
-
-侧视图清楚地显示了这款Singer Turbo Study外部使用的碳纤维部件，还注意到明亮的Turbo Racing White油漆，为了向原始保险杠上的“波纹”致敬，Singer在这两个部分都加入了通风口模仿外观的前后保险杠。就个人而言，我喜欢这些大福克斯风格的车轮，尤其是后部的深盘设计，这是经典，但我真的很喜欢它，就像辛格实际上在后部前面的那个黑色部分上放了一个进气口一样车轮，在由碳纤维制成的Singer上，但在原车上，这些是黑色贴花。
-
-它可能不是后来的保时捷930车型上最令人印象深刻的尾翼，但这个Singer装置上的碳纤维环绕看起来非常惊人，在隐藏在这个巨大机翼下方的通风口上，我们自然而然地发现了一个时尚的Singer脚本，带有著名“Porsche”字样的全宽红色反光镜仍然存在，而两个大口径排气管尖端恰好完成了Singer对这款21世纪诠释的经典外观，而“保险杠”删除则提供了令人惊讶的干净外观为了这份美好。
-
-Singer真正出名的另一个细节是其经典外观的内饰造型，它可能看起来很旧，但它配备了您对现代超级跑车的所有期望，这款特定的汽车配备了带有额外碳纤维的千鸟格“Grun”布内饰纤维装饰、轻质车门装饰以及门槛和传动隧道的涂漆表面。绝对华丽、轻巧的碳纤维座椅恰到好处地完善了内饰的外观和感觉，而六速手动变速箱则是必不可少的。
-
-但在这辆白色美女的内饰上还有更多发现，感应式电话充电如何，以及在这款以运动为中心的内饰中自然设置的冰冷空调装置，感觉那些轻质碳纤维轨道座椅和严肃的车门装饰只是进一步强调，内部部件采用颜色编码为Turbo Racing White车身，而我们在后部发现了一个交叉支架，这最终是一辆合法的道路赛车。
-
-![1]({{ '/assets/images/car/porsche/singer/turbo/1.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![2]({{ '/assets/images/car/porsche/singer/turbo/2.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![3]({{ '/assets/images/car/porsche/singer/turbo/4.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![4]({{ '/assets/images/car/porsche/singer/turbo/5.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![5]({{ '/assets/images/car/porsche/singer/turbo/6.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![6]({{ '/assets/images/car/porsche/singer/turbo/7.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![7]({{ '/assets/images/car/porsche/singer/turbo/8.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![8]({{ '/assets/images/car/porsche/singer/turbo/9.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![9]({{ '/assets/images/car/porsche/singer/turbo/10.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![10]({{ '/assets/images/car/porsche/singer/turbo/11.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![11]({{ '/assets/images/car/porsche/singer/turbo/12.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![12]({{ '/assets/images/car/porsche/singer/turbo/13.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![13]({{ '/assets/images/car/porsche/singer/turbo/14.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![14]({{ '/assets/images/car/porsche/singer/turbo/15.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![15]({{ '/assets/images/car/porsche/singer/turbo/16.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![16]({{ '/assets/images/car/porsche/singer/turbo/17.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![17]({{ '/assets/images/car/porsche/singer/turbo/18.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-
-## 3. Singer Porsche – Creators of the Ultimate Porsche 911s
+## 1. Singer Porsche – Creators of the Ultimate Porsche 911s
 Singer以“everything is important”为座右铭，下面来看他们如何通过在小细节上流汗打造世界上最好的定制保时捷。
 
 有人称它们为有史以来最好的风冷保时捷，也有人称它们为世界上最好的汽车。它们是保时捷911跑车，由Singer Vehicle Design进行修复、重新构想和重生。每一项委托都代表了客户与胜家之间的独特合作，结合了定制的碳纤维车身面板、最优质的优化机械和电气组件、最高级的材料和饰面，以及标志性风冷911黄金时代的精神。每一辆修复后的汽车是无可挑剔的工艺无与伦比的作品。
@@ -214,7 +76,7 @@ Singer Vehicle Design由Rob Dickinson的独特愿景驱动，他曾是汽车设�
 {: style="width: 800px; max-width: 100%;"}
 
 
-### 3.1 Rob Dickinson – Founder, Singer Vehicle Design
+### 1.1 Rob Dickinson – Founder, Singer Vehicle Design
 听起来像好莱坞电影。一位痴迷的前汽车设计师的独特愿景，后来成为一名摇滚音乐家，现在是世界上最重要的风冷保时捷精髓提炼者之一。这是 Rob Dickinson 和 Singer Vehicle Designs 的故事。
 
 像Singer Vehicle Designs这样的公司对他们出色的创始人的关注与对壮观汽车的关注一样多，因此我们想向您介绍Singer Vehicle Designs的创始人兼首席执行官Rob Dickinson。罗伯·迪金森 (Rob Dickinson) 是一位成就非凡的人。1965年7月23日出生于英国，他是一位歌手、词曲作者和企业家，在他的生活中取得了巨大的成功。
@@ -230,7 +92,7 @@ Rob对汽车的迷恋始于1970年在法国的一次家庭度假。正如他在�
 2009年，在担任巡回摇滚主唱十年之后，迪金森全职回归他对汽车的热情，并在洛杉矶创立了Singer Vehicle Design（总部仍设在那里）。这成为他对保时捷 911 的创造力和终生热爱的新出口。Singer Vehicle Design从修复和修改964开始，并不断创新和发展，包括新款瑞士手表和DLS中的终极911。至于Singer公司名称，既是为了纪念著名的保时捷工程师Norbert Singer，也是为了纪念Dickinson作为歌手的其他职业。
 
 
-### 3.2 What Is a Singer Porsche?
+### 1.2 What Is a Singer Porsche?
 这似乎是一个显而易见的问题，但答案却很微妙。Singer Porsche是经过修复的保时捷911吗？它是定制的经典911吗？它是一辆热棒歹徒保时捷吗？它是一个完全独特的模型吗？也许以上都是。
 
 Singer Vehicle Designs修复了风冷964 911保时捷，将它们变成了“终极 911”。最终的产品名称最能概括它，它是Singer Reimagined的保时捷911。它将修复工作集中在1989-1994年的保时捷964上（保时捷生产了大约60000辆，因此周围有很多，尽管由于它们作为修复基地的流行而价值飙升）。
@@ -241,14 +103,14 @@ Singer将这些疲惫不堪的964从头开始修复，同时优化汽车的各�
 
 Singer Porsche是终极911。
 
-#### 3.2.1 Where is Singer Vehicle Design Located?
+#### 1.2.1 Where is Singer Vehicle Design Located?
 像Singer这样的公司只能出现在阳光明媚的加州。洛杉矶和加利福尼亚是Singer Vehicle Design和Singer Reimagined DNA的基本组成部分。加州热爱试图改变世界的企业家，它是经典保时捷调谐器市场的中心。
 
 除了位于洛杉矶的总部外，Singer还在加利福尼亚建立了一个供应商和专家基地，他们与他们密切合作，帮助他们思考棘手的问题并进行创作。最近，胜家在全球范围内扩大了合作伙伴关系。他们在英国与Williams合作，日内瓦的Singer Reimagined也帮助他们在这些国家发展了该网络。
 
 需求意味着公司继续增长。从2009年在洛杉矶的一个破旧小作坊到加利福尼亚的两个站点、英国和瑞士的团队以及世界各地的代表。对于一个只想打造自己完美汽车的单身汉来说，这还不错。
 
-#### 3.2.2 Singer Porsche Price – How Much Is A Singer Porsche?
+#### 1.2.2 Singer Porsche Price – How Much Is A Singer Porsche?
 拥有最终重新设计的保时捷911并不便宜。Singer保时捷修复起价为395000美元加上捐赠的汽车，但大多数客户通常超过600000美元。最近的修复佣金在600000美元到650000美元之间。
 
 该系列的顶级产品是Singer和Williams的合作，其形式是疯狂重新构想的500马力Singer Vehicle Design DLS。它以180万美元的价格售出，并向客户提供了75个这种修复的例子（一如既往，每一件都为每位买家量身定制）。
@@ -256,20 +118,20 @@ Singer Porsche是终极911。
 如果所有这些听起来都贵得离谱，想想这些建筑和定制高端材料的工作。仅在工时中，“正常”构建就超过4000个。Rob经常讲的一个故事是，他刚开始（2009 年）时，Rob向他的第一批客户收取了300000美元，最后花了800000美元进行修复。从那时起，该公司一直努力在合理定价与正确完成工作的荒谬成本之间找到适当的平衡点。
 
 
-### 3.3 Buying & Building A Singer Porsche – The Process
+### 1.3 Buying & Building A Singer Porsche – The Process
 获得您自己的Singer汽车的过程不仅仅是砸钱。当然，每辆Singer Porsche都是从车主存入一大笔押金开始，然后开始制定他们梦想的规格清单，但他们还需要找到一辆964捐赠车（所以我们说的是1989年至1994年的保时捷911）。一旦他们被召集，他们就会把车送到Singer，然后团队开始工作，完全拆解汽车，对裸金属进行媒体爆破，添加碳纤维车身，然后Singer的技术人员各自等待轮到他们将911改造成最终形式Engine组装由Ed Pink Racing Engines负责，目前外包油漆，但悬架、装饰、内饰、组装以及最终装配和表面处理都在加利福尼亚州太阳谷的一家小得惊人的商店内完成。如果您想了解更多信息，我们将在下面详细介绍整个事情。
 
-#### 3.3.1 Buying a Singer Porsche – Get on the Wait list
+#### 1.3.1 Buying a Singer Porsche – Get on the Wait list
 截至2018年6月，Singer已经制造了100辆汽车。
 
 那么，如果您是幸运的人之一，刚刚出售了您的科技初创公司或您的对冲基金度过了美好的一年，并且您想购买Singer重新设计的终极保时捷，那么候补名单和流程是什么？您需要直接与Singer合作，最好排队，因为要等很长时间。
 
 在存入定金并确定规格后，修复可能需要8-10个月，而从定金到交付的典型等待期约为18个月。您正在等待将近两年的时间等待您的Singer Porsche，但当您考虑到每辆捐赠911都经过Singer的完整定制流程，最终成为964代保时捷的终极重新想象时，完全根据您的喜好进行个性化设置。
 
-#### 3.3.2 Specifying Your Reimagined Porsche
+#### 1.3.2 Specifying Your Reimagined Porsche
 Singer确实允许对这些汽车进行大量个性化设置。从广义上讲，您可以让您的Singer手专注于运动、奢华、华丽或简单低调。每辆修复过的汽车对车主来说都是独一无二的，都有自己的故事。
 
-#### 3.3.3 Chassis & Body
+#### 1.3.3 Chassis & Body
 您提供自己的完全合法道路1989-1994保时捷911 Coupe或Targa，以便它保留其车辆识别号 (VIN)、里程表读数并以相同方式合法注册、操作和获得许可。
 
 汽车被全面拆卸，所有要更换的车身都从汽车上拆下。单体壳（一体式车身）经过介质喷砂处理成裸露的金属，然后进行防锈处理。单体壳接受额外的焊接加固和制造，为新车身做准备。在那之后，汽车上几乎所有的面板都被碳纤维车身取代（车门保持钢材以在侧面碰撞时保持强度）。
@@ -280,7 +142,7 @@ Singer确实允许对这些汽车进行大量个性化设置。从广义上讲�
 
 汽车的空气动力学通过一组定制设计和测试的前后扰流板进行了优化，以实现高速稳定性。前扰流板是一个固定的、灵活的聚氨酯装置，而后扰流板是一个主动的、速度敏感的装置（根据速度自动升高和降低）。后扰流板采用60年代风格的精美电镀格栅，在其下方有一个有色丙烯酸屏幕，可以看到发动机。
 
-#### 3.3.4 Engine, Exhaust & Transmission Options
+#### 1.3.4 Engine, Exhaust & Transmission Options
 捐赠的汽车引擎被完全拆解，然后精心绘制蓝图、平衡并使用新的或最先进的组件手工打造。客户可以选择三种发动机，每一种都有独特的输出和特性，旨在匹配他们汽车的动力。
 
 发动机选项：3.8升，300马力。有一个3.8升的六缸发动机，功率为300马力。它具有博世发动机管理系统、排气装置和辅助设备，因此保留了发动机的原始排放标定。
@@ -293,7 +155,7 @@ Singer确实允许对这些汽车进行大量个性化设置。从广义上讲�
 
 变速箱：可以使用原装Porsche/Getrag G50装置。如果您选择此选项，单元将被剥离并重建。比率会发生变化，以匹配您是否想要更多的运动型或旅游型特性。换档连杆也进行了重建，以消除马虎并为您提供“步枪螺栓”的触感。您还可以选择6速Getrag G50/LSD单元或6速Getrag G50/LSD 993派生的4WD系统。后者旨在为您在所有路况下提供强大的动力输出，而前者则用于想从他们的Singer 911中寻找真正运动型驾驶的人。
 
-#### 3.3.5 Interior Options
+#### 1.3.5 Interior Options
 您的Singer 911带有定制的内饰。对细节的关注是惊人的。这里有太多的内饰选项无法一一列举，但足以说明这是您真正可以疯狂打造属于您自己的汽车的地方。材料、配件、座椅、方向盘、仪表、后座、内饰板等等都可以完全定制。
 
 ![1]({{ '/assets/images/car/porsche/singer/interior/123.jpeg' | relative_url }})
@@ -1362,7 +1224,7 @@ Singer确实允许对这些汽车进行大量个性化设置。从广义上讲�
 {: style="width: 800px; max-width: 100%;"}
 
 
-### 3.4 Singer Porsche Engine Builder – Meet Ed Pink Racing Engines
+### 1.4 Singer Porsche Engine Builder – Meet Ed Pink Racing Engines
 Ed Pink Racing Engines自1965年以来一直位于加利福尼亚州范奈斯。在其50年的经验中，他们制造了各种类型的赛车发动机。 Frank Honsowetz是Ed Pink Racing Engines的总经理，他不是保时捷人。他更喜欢制造飙车引擎，但这是Singer唯一信任的制造引擎的人。他一定很好。
 
 大多数Singer Porsche的核心发动机是由Ed Pink Racing Engines团队制造的4升风冷水平对置六缸发动机。
@@ -1662,7 +1524,7 @@ Ed Pink Racing Engines自1965年以来一直位于加利福尼亚州范奈斯。
 
 
 
-### 3.5 Ultimate Singer 911 Car – Singer Vehicle Design DLS
+### 1.5 Ultimate Singer 911 Car – Singer Vehicle Design DLS
 Singer Vehicle Design DLS赢得了我们最佳修复和定制保时捷911名单，Singer和威廉姆斯实际上成功地创造了世界上最先进的风冷保时捷911。终极、完美的911。
 
 被称为Singer Vehicle Design DLS（DLS 代表“动力学和轻量化研究”），由于一位回头客希望将他的1990保时捷911提升到“新水平”，因此有机会创造这辆车。该公司开始与一级方程式的威廉姆斯高级工程公司进行“动力学和轻量化研究”。结果令人惊叹，DLS绝对是杰作。价格是180万美元，将为客户制作75个。
@@ -1769,21 +1631,245 @@ Singer Vehicle Design DLS赢得了我们最佳修复和定制保时捷911名单�
 {: style="width: 800px; max-width: 100%;"}
 
 
+## 2. Singer Porsche 911 Turbo Study
+就个人而言，我就是喜欢保时捷930 Turbo，尤其是1978年到1989年间生产的3.3升版本，在西德的Zuffenhausen, Stuttgart生产了近19000台，应该不是稀有车，但随着最后一辆离开30多年前的工厂大门，你会明白并非所有这些都仍然存在，因此找到一个原始的930 Turbo可能很困难而且成本很高，在撰写本文时它们的平均价值约为 130000 美元每辆。
+
+但你也必须承认我们现在谈论的是一辆四十年前制造的老式跑车，而且发动机离汽车后部很远，驾驶保时捷 930 Turbo 需要练习才能靠近它的极限，这辆特定的车实际上得到了绰号“The Widowmaker”。早在 1975 年，当第一个版本推出时，这是保时捷第一款涡轮增压量产车。
+
+那么在2022年你会怎么做，当你终于设法积累了必要的资金来获得你儿时梦想的汽车，但你仍然想要现代化的设施，你求助于2009年在加利福尼亚成立的Singer，他刚刚发布了他们令人惊叹的保时捷911 Turbo Study，是对经典保时捷930 Turbo的现代诠释，但尽管看起来像一辆已有40年历史的汽车，但这是一款为21世纪做好准备的现代超级跑车。
+
+Singer Group Inc创始人兼执行主席Rob Dickinson表示：“1976年，我11岁时第一次乘坐保时捷 911时，我口干舌燥，说不出话来——那是一辆带有红色格子呢的黑色930 Turbo。在那个改变生活的时刻45年后，我很高兴展示我们的研究结果，该研究旨在捕捉保时捷第一款“超级跑车”的令人惊叹的快感，同时重新构想其性能和改进，并与车主合作将两者都带到新的高度。我相信这是对改变我和许多其他人生活的汽车的恰当致敬。”
+
+这些照片中看到的汽车实际上是一辆客户车，在保留豪华旅行体验的同时注重性能，在轻质碳纤维车身上涂上美丽的狼蓝色调，而不是3.3升涡轮增压发动机八十年代，Singer Turbo Study从3.8升双涡轮增压、中冷器水平对置六缸发动机获得动力，该发动机通过六速手动变速箱仅向后轮提供超过450马力的功率。
+
+所有这些Singer修复的保时捷911都以964型发动机为起点，这项涡轮增压研究接受了“Mezger”风冷六缸发动机的改进，扩大到3.8升，并配备了两个带电动废气门的涡轮增压器，定制空气对水中冷器，而后轮前面两侧的黑色“鱼翅”已被重新设计为功能性进气口，在这辆车上，发动机调整为450马力，但这只是一个起点，车主可以要求更高的数字。
+
+早在2014年，Singer就已经创建了他们的第一个ADW Classic Study，这也意味着这款新的Turbo Study可以提供全轮驱动或后轮驱动，具体取决于客户的喜好，并且整个车身都经过了重新设计它由碳纤维制成，灵感来自七十年代中期的标志性DNA，但具有优化的美学和功能性能。
+
+如果客户想要更高的性能，Singer可以通过使用强制感应从发动机获得更多动力，并且可以通过不同的悬架配置、定制的运动型排气系统、涡轮增压专用制动器为每个客户提供特定的整体驾驶体验与ABS自然，虽然可选的碳陶瓷盘也是可能的，但为了控制一切，Singer也在他们的汽车上提供牵引力控制。
+
+令人惊叹的外观也融入了令人惊叹的内饰，这辆特定的汽车配备了Malibu Sand内饰，带有黑森林木装饰，营造出奢华的外观，当然，这些真皮座椅带有加热功能，并且在巡航时可电动调节可以控制这种美丽的车轮后面的更长驱动器。
+
+Singer Group Inc.首席执行官Mazen Fawaz指出：“在2020年至2021年期间，我们的服务销售额翻了一番以上。我们在Torrance, California新建的规模大得多的综合设施使我们能够扩大团队，响应需求，并欢迎业主舒适。同时，在英国，我们的团队正在仔细执行动力学和轻量化研究支持的每项修复。业主对Turbo Study的反应令人难以置信，我们期待着与他们每一位合作，因为他们的修复工作正在取得进展。”
+
+我们将能够在即将于2022年6月23日至26日在英国举行的古德伍德速度节上欣赏新的Singer Turbo Study，在那里她不仅会进行静态展示，还会被带到著名的赛道上，所以我们不仅可以看到她，还可以听到双涡轮增压六缸发动机的轰鸣声。如果你住在美国，你将不得不等到2022年8月的汽车周，届时Singer会将Turbo Study带到北加州的蒙特雷半岛。
+
+![1]({{ '/assets/images/car/porsche/singer/turbo/3.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![2]({{ '/assets/images/car/porsche/singer/turbo/19.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![3]({{ '/assets/images/car/porsche/singer/turbo/20.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![4]({{ '/assets/images/car/porsche/singer/turbo/21.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![5]({{ '/assets/images/car/porsche/singer/turbo/22.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![6]({{ '/assets/images/car/porsche/singer/turbo/23.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![7]({{ '/assets/images/car/porsche/singer/turbo/24.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![8]({{ '/assets/images/car/porsche/singer/turbo/25.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![9]({{ '/assets/images/car/porsche/singer/turbo/26.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![10]({{ '/assets/images/car/porsche/singer/turbo/27.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![11]({{ '/assets/images/car/porsche/singer/turbo/28.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![12]({{ '/assets/images/car/porsche/singer/turbo/29.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![13]({{ '/assets/images/car/porsche/singer/turbo/30.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![14]({{ '/assets/images/car/porsche/singer/turbo/31.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![15]({{ '/assets/images/car/porsche/singer/turbo/32.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![16]({{ '/assets/images/car/porsche/singer/turbo/33.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![17]({{ '/assets/images/car/porsche/singer/turbo/34.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+## 3. New Singer Turbo Study
+我只是喜欢1978年至1989年之间制造的保时捷930 Turbo，它有巨大的“鲸鱼”后翼和后部Fuchs合金上的那些宽挡泥板，但这些车现在已经成为经典，而且它们的价格标签也相匹配他们的地位，最终会给你买一辆车龄超过30年的汽车，而且不会拥有我们已经习惯的所有便利设施，但是有一个解决方案，总部位于加利福尼亚的辛格最近公布了他们令人印象深刻的保时捷911 Turbo Study，是对经典保时捷930 Turbo的现代诠释，但尽管看起来像上个世纪的经典汽车，但这是一辆为21世纪做好准备的现代超级跑车。
+
+前段时间我们看到了第一台Singer Turbo Study，但是今天我们看到了另一台，这次更侧重于运动性能，包括功率增加到510 HP，这第二辆车，白色完成, 清楚地说明了这项研究和Singer与车主合作实现的能力，以提供个人愿景，请注意这辆特定汽车前引擎盖上的绿色条纹，以及切入该引擎盖的中央安装的加油口只是一个惊人的细节。
+
+侧视图清楚地显示了这款Singer Turbo Study外部使用的碳纤维部件，还注意到明亮的Turbo Racing White油漆，为了向原始保险杠上的“波纹”致敬，Singer在这两个部分都加入了通风口模仿外观的前后保险杠。就个人而言，我喜欢这些大福克斯风格的车轮，尤其是后部的深盘设计，这是经典，但我真的很喜欢它，就像辛格实际上在后部前面的那个黑色部分上放了一个进气口一样车轮，在由碳纤维制成的Singer上，但在原车上，这些是黑色贴花。
+
+它可能不是后来的保时捷930车型上最令人印象深刻的尾翼，但这个Singer装置上的碳纤维环绕看起来非常惊人，在隐藏在这个巨大机翼下方的通风口上，我们自然而然地发现了一个时尚的Singer脚本，带有著名“Porsche”字样的全宽红色反光镜仍然存在，而两个大口径排气管尖端恰好完成了Singer对这款21世纪诠释的经典外观，而“保险杠”删除则提供了令人惊讶的干净外观为了这份美好。
+
+Singer真正出名的另一个细节是其经典外观的内饰造型，它可能看起来很旧，但它配备了您对现代超级跑车的所有期望，这款特定的汽车配备了带有额外碳纤维的千鸟格“Grun”布内饰纤维装饰、轻质车门装饰以及门槛和传动隧道的涂漆表面。绝对华丽、轻巧的碳纤维座椅恰到好处地完善了内饰的外观和感觉，而六速手动变速箱则是必不可少的。
+
+但在这辆白色美女的内饰上还有更多发现，感应式电话充电如何，以及在这款以运动为中心的内饰中自然设置的冰冷空调装置，感觉那些轻质碳纤维轨道座椅和严肃的车门装饰只是进一步强调，内部部件采用颜色编码为Turbo Racing White车身，而我们在后部发现了一个交叉支架，这最终是一辆合法的道路赛车。
+
+![1]({{ '/assets/images/car/porsche/singer/turbo/1.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![2]({{ '/assets/images/car/porsche/singer/turbo/2.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![3]({{ '/assets/images/car/porsche/singer/turbo/4.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![4]({{ '/assets/images/car/porsche/singer/turbo/5.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![5]({{ '/assets/images/car/porsche/singer/turbo/6.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![6]({{ '/assets/images/car/porsche/singer/turbo/7.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![7]({{ '/assets/images/car/porsche/singer/turbo/8.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![8]({{ '/assets/images/car/porsche/singer/turbo/9.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![9]({{ '/assets/images/car/porsche/singer/turbo/10.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![10]({{ '/assets/images/car/porsche/singer/turbo/11.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![11]({{ '/assets/images/car/porsche/singer/turbo/12.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![12]({{ '/assets/images/car/porsche/singer/turbo/13.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![13]({{ '/assets/images/car/porsche/singer/turbo/14.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![14]({{ '/assets/images/car/porsche/singer/turbo/15.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![15]({{ '/assets/images/car/porsche/singer/turbo/16.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![16]({{ '/assets/images/car/porsche/singer/turbo/17.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![17]({{ '/assets/images/car/porsche/singer/turbo/18.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
 
 ## 4. Singer Porsche Commissions
 
-### 4.1 
+### 4.1 Taiwan commission
 
-### 4.2 
+### 4.2 Copenhagen commision
 
+### 4.3 Atlanta commission
 
+### 4.4 Berlin commission
 
+### 4.5 Big Sur commission
 
+### 4.6 Canyon Drive commission
 
-## 5. Singer Porsche Interiors
+### 4.7 Caroline commission
 
+### 4.8 Charlottesville commission
 
+### 4.9 Colorado Springs commission
 
-## 6. Singer Porsche Engine
+### 4.10 Darthmouth commission
+
+### 4.11 Easthampton commission
+
+### 4.12 Frederickburg commission
+
+### 4.13 Glencoe commission
+
+### 4.14 Gsteig commission
+
+### 4.15 Hidden Hills commission
+
+### 4.16 Hollywood commission
+
+### 4.17 Japan commission
+
+### 4.18 Jersey commission
+
+### 4.19 Kensington commission
+
+### 4.20 Lauf commission
+
+### 4.21 Lavender metallic commission
+
+### 4.22 Le mans commission
+
+### 4.23 Linden Green commission
+
+### 4.24 Long Island commission
+
+### 4.25 Luxemburg commission
+
+### 4.26 Max Power commission
+
+### 4.27 Mexico commission
+
+### 4.28 Milano commission
+
+### 4.29 Mulholland commission
+
+### 4.30 Naples commission
+
+### 4.31 New York commission
+
+### 4.32 New Zealand commission
+
+### 4.33 Newport commission
+
+### 4.34 Ottawa commission
+
+### 4.35 Oxford commission (DLS)
+
+### 4.36 Quartz commission (DLS)
+
+### 4.37 Queenstown commission
+
+### 4.38 Raffles commission
+
+### 4.39 Silverstone commission
+
+### 4.40 Southampton commission
+
+### 4.41 Stockholm commission
+
+### 4.42 Stone Grey commission
+
+### 4.43 Suisse commission
+
+### 4.44 Sun Valley commission
+
+### 4.45 Tatooine commission
+
+### 4.46 Thing 1
+
+### 4.47 Triplet commission
+
+### 4.48 Unico commission
+
+### 4.49 Westlake commission
+
+### 4.50 Wiesbaden commission
+
 
