@@ -142,6 +142,489 @@ Singer确实允许对这些汽车进行大量个性化设置。从广义上讲�
 
 汽车的空气动力学通过一组定制设计和测试的前后扰流板进行了优化，以实现高速稳定性。前扰流板是一个固定的、灵活的聚氨酯装置，而后扰流板是一个主动的、速度敏感的装置（根据速度自动升高和降低）。后扰流板采用60年代风格的精美电镀格栅，在其下方有一个有色丙烯酸屏幕，可以看到发动机。
 
+![1]({{ '/assets/images/car/porsche/singer/279.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/280.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/281.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/282.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/283.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/284.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/285.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/286.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/287.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/288.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/289.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/290.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/291.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/292.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/293.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/294.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/295.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/296.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/297.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/298.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/299.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/300.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/301.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/302.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/303.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/304.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/305.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/306.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/307.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/308.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/309.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/400.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/401.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/402.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/403.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/404.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/405.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/406.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/407.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/408.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/409.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/500.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/501.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/502.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/503.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/504.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/505.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/506.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/507.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/508.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/509.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/510.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/511.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/512.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/513.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/514.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/515.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/516.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/517.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/518.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/519.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/520.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/521.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer//522.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/523.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/524.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/525.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/526.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/527.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/528.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/529.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/530.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/531.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/532.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/533.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/534.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/535.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/536.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/537.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/538.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/539.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/540.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/541.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/542.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/543.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/544.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/545.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/546.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/547.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/548.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/549.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/550.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/551.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/552.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/553.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/554.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/555.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/556.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/557.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/558.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/559.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/560.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/561.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/562.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/563.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/564.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/565.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/566.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/567.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/568.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/569.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/570.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/571.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/572.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/573.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/574.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/575.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/576.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/577.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/578.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/579.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/580.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/581.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/582.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/583.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/584.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/585.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/586.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/587.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/588.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/589.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/590.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/591.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/592.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/593.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/594.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/595.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/596.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/597.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/598.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/599.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/600.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/601.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/602.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/603.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/604.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/605.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/606.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/607.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/608.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/609.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/610.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/611.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/612.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/613.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/614.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/615.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/616.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/617.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/618.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/619.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
 #### 1.3.4 Engine, Exhaust & Transmission Options
 捐赠的汽车引擎被完全拆解，然后精心绘制蓝图、平衡并使用新的或最先进的组件手工打造。客户可以选择三种发动机，每一种都有独特的输出和特性，旨在匹配他们汽车的动力。
 
@@ -154,6 +637,297 @@ Singer确实允许对这些汽车进行大量个性化设置。从广义上讲�
 定制排气：Singer Porsche最酷的功能之一是炫酷的陶瓷涂层哑光钛灰色排气管。排气不仅仅是展示。它由轻质不锈钢制成，Singer表示它可以改善油门响应、扭矩分配和高端功率。
 
 变速箱：可以使用原装Porsche/Getrag G50装置。如果您选择此选项，单元将被剥离并重建。比率会发生变化，以匹配您是否想要更多的运动型或旅游型特性。换档连杆也进行了重建，以消除马虎并为您提供“步枪螺栓”的触感。您还可以选择6速Getrag G50/LSD单元或6速Getrag G50/LSD 993派生的4WD系统。后者旨在为您在所有路况下提供强大的动力输出，而前者则用于想从他们的Singer 911中寻找真正运动型驾驶的人。
+
+![1]({{ '/assets/images/car/porsche/singer/engine/26.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/27.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/28.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/29.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/30.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/31.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/32.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/33.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/34.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/35.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/36.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/37.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/38.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/39.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/40.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/41.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/42.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/43.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/44.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/45.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/46.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/47.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/48.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/49.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/50.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/51.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/52.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/53.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/54.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/55.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/56.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/57.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/58.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/59.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/60.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/61.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/62.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/63.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/64.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/65.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/66.png' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/67.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/68.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/69.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/70.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/71.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/72.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/73.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/74.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/75.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/76.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/77.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/78.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/79.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/80.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/81.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/82.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/83.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/84.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/85.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/86.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/87.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/88.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/89.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/90.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/91.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/92.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/93jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/94.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/95.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/96.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/97.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/98.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/99.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/100.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/101.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/102.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/103.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/104.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/105.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/106.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/107.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/108.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/109.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/110.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/enginer/111.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/112.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/113.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/114.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/115.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/116.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/117.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/118.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/119.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/120.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/121.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/engine/122.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
 #### 1.3.5 Interior Options
 您的Singer 911带有定制的内饰。对细节的关注是惊人的。这里有太多的内饰选项无法一一列举，但足以说明这是您真正可以疯狂打造属于您自己的汽车的地方。材料、配件、座椅、方向盘、仪表、后座、内饰板等等都可以完全定制。
@@ -1230,297 +2004,6 @@ Ed Pink Racing Engines自1965年以来一直位于加利福尼亚州范奈斯。
 大多数Singer Porsche的核心发动机是由Ed Pink Racing Engines团队制造的4升风冷水平对置六缸发动机。
 
 每台发动机都被带入他们的Van Nuys工厂，进行拆卸、热油箱处理、机加工，并安装一个全新的旋转组件、一组气缸盖和气门机构部件。所有发动机都保留 964 的外壳，并采用定制的曲轴、油泵、活塞、气缸、连杆、凸轮、气缸盖、节气门体和进气系统。这些都不是现成的装置，发动机受益于状态- 进气设计、气缸盖、活塞、气缸和连杆设计方面的最先进创新和突破，以及燃油喷射和发动机管理方面的进步。
-
-![1]({{ '/assets/images/car/porsche/singer/engine/26.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/27.png' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/28.png' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/29.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/30.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/31.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/32.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/33.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/34.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/35.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/36.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/37.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/38.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/39.png' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/40.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/41.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/42.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/43.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/44.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/45.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/46.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/47.png' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/48.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/49.png' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/50.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/51.png' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/52.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/53.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/54.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/55.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/56.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/57.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/58.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/59.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/60.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/61.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/62.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/63.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/64.png' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/65.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/66.png' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/67.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/68.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/69.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/70.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/71.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/72.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/73.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/74.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/75.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/76.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/77.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/78.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/79.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/80.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/81.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/82.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/83.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/84.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/85.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/86.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/87.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/88.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/89.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/90.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/91.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/92.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/93jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/94.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/95.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/96.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/97.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/98.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/99.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/100.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/101.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/102.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/103.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/104.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/105.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/106.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/107.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/108.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/109.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/110.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/enginer/111.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/112.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/113.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/114.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/115.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/116.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/117.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/118.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/119.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/120.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/121.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/porsche/singer/engine/122.jpeg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
 
 
 
