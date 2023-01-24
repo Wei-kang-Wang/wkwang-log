@@ -1,3 +1,21 @@
+---
+layout: post
+comments: false
+title: "Porsche Singer"
+date: 2023-01-24 01:09:00
+
+---
+
+
+<!--more-->
+
+{: class="table-of-content"}
+* TOC
+{:toc}
+
+---
+
+
 ## 1. Singer Porsche 911 Turbo Study
 就个人而言，我就是喜欢保时捷930 Turbo，尤其是1978年到1989年间生产的3.3升版本，在西德的Zuffenhausen, Stuttgart生产了近19000台，应该不是稀有车，但随着最后一辆离开30多年前的工厂大门，你会明白并非所有这些都仍然存在，因此找到一个原始的930 Turbo可能很困难而且成本很高，在撰写本文时它们的平均价值约为 130000 美元每辆。
 
