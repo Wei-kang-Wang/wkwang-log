@@ -162,6 +162,58 @@ Singer以“everything is important”为座右铭，下面来看他们如何通
 
 Singer Vehicle Design由Rob Dickinson的独特愿景驱动，他曾是汽车设计师和摇滚音乐家，后来成为世界上最重要的风冷保时捷精髓提炼者之一。Rob对地球上最重要的跑车的毕生痴迷始于70年代在法国的一条高速公路上，现在在世界上最负盛名的汽车赛事的广场草坪和赛道上找到了家。
 
+![1]({{ '/assets/images/car/porsche/singer/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/16.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/porsche/singer/17.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
 ### 3.1 Rob Dickinson – Founder, Singer Vehicle Design
 听起来像好莱坞电影。一位痴迷的前汽车设计师的独特愿景，后来成为一名摇滚音乐家，现在是世界上最重要的风冷保时捷精髓提炼者之一。这是 Rob Dickinson 和 Singer Vehicle Designs 的故事。
 
