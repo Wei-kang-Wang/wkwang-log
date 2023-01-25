@@ -2257,19 +2257,370 @@ Singer真正出名的另一个细节是其经典外观的内饰造型，它可�
 
 ### 4.1 Taiwan commission
 
+![1]({{ '/assets/images/car/porsche/singer/commissions/taiwan/1.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![2]({{ '/assets/images/car/porsche/singer/commissions/taiwan/2.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![3]({{ '/assets/images/car/porsche/singer/commissions/taiwan/3.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![4]({{ '/assets/images/car/porsche/singer/commissions/taiwan/4.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![5]({{ '/assets/images/car/porsche/singer/commissions/taiwan/5.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![6]({{ '/assets/images/car/porsche/singer/commissions/taiwan/6.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![7]({{ '/assets/images/car/porsche/singer/commissions/taiwan/7.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
 ### 4.2 Copenhagen commision
+
+![1]({{ '/assets/images/car/porsche/singer/commissions/copenhagen/1.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![2]({{ '/assets/images/car/porsche/singer/commissions/copenhagen/2.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![3]({{ '/assets/images/car/porsche/singer/commissions/copenhagen/3.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![4]({{ '/assets/images/car/porsche/singer/commissions/copenhagen/4.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![5]({{ '/assets/images/car/porsche/singer/commissions/copenhagen/5.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![6]({{ '/assets/images/car/porsche/singer/commissions/copenhagen/6.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![7]({{ '/assets/images/car/porsche/singer/commissions/copenhagen/7.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![8]({{ '/assets/images/car/porsche/singer/commissions/copenhagen/8.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![9]({{ '/assets/images/car/porsche/singer/commissions/copenhagen/9.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![10]({{ '/assets/images/car/porsche/singer/commissions/copenhagen/10.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![11]({{ '/assets/images/car/porsche/singer/commissions/copenhagen/11.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![12]({{ '/assets/images/car/porsche/singer/commissions/copenhagen/12.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![13]({{ '/assets/images/car/porsche/singer/commissions/copenhagen/13.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![14]({{ '/assets/images/car/porsche/singer/commissions/copenhagen/14.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![15]({{ '/assets/images/car/porsche/singer/commissions/copenhagen/15.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![16]({{ '/assets/images/car/porsche/singer/commissions/copenhagen/16.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![17]({{ '/assets/images/car/porsche/singer/commissions/copenhagen/17.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![18]({{ '/assets/images/car/porsche/singer/commissions/copenhagen/18.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![19]({{ '/assets/images/car/porsche/singer/commissions/copenhagen/19.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![20]({{ '/assets/images/car/porsche/singer/commissions/copenhagen/20.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
 ### 4.3 Atlanta commission
 
+![1]({{ '/assets/images/car/porsche/singer/commissions/atlanta/1.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![2]({{ '/assets/images/car/porsche/singer/commissions/atlanta/2.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![3]({{ '/assets/images/car/porsche/singer/commissions/atlanta/3.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![4]({{ '/assets/images/car/porsche/singer/commissions/atlanta/4.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
 ### 4.4 Berlin commission
+
+![1]({{ '/assets/images/car/porsche/singer/commissions/berlin/1.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![2]({{ '/assets/images/car/porsche/singer/commissions/berlin/2.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![3]({{ '/assets/images/car/porsche/singer/commissions/berlin/3.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![4]({{ '/assets/images/car/porsche/singer/commissions/berlin/4.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![5]({{ '/assets/images/car/porsche/singer/commissions/berlin/5.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![6]({{ '/assets/images/car/porsche/singer/commissions/berlin/6.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![7]({{ '/assets/images/car/porsche/singer/commissions/berlin/7.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![8]({{ '/assets/images/car/porsche/singer/commissions/berlin/8.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![9]({{ '/assets/images/car/porsche/singer/commissions/berlin/9.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![10]({{ '/assets/images/car/porsche/singer/commissions/berlin/10.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![11]({{ '/assets/images/car/porsche/singer/commissions/berlin/11.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![12]({{ '/assets/images/car/porsche/singer/commissions/berlin/12.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![13]({{ '/assets/images/car/porsche/singer/commissions/berlin/13.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![14]({{ '/assets/images/car/porsche/singer/commissions/berlin/14.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![15]({{ '/assets/images/car/porsche/singer/commissions/berlin/15.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![16]({{ '/assets/images/car/porsche/singer/commissions/berlin/16.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![17]({{ '/assets/images/car/porsche/singer/commissions/berlin/17.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![18]({{ '/assets/images/car/porsche/singer/commissions/berlin/18.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![19]({{ '/assets/images/car/porsche/singer/commissions/berlin/19.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![20]({{ '/assets/images/car/porsche/singer/commissions/berlin/20.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![21]({{ '/assets/images/car/porsche/singer/commissions/berlin/21.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
 ### 4.5 Big Sur commission
 
+![1]({{ '/assets/images/car/porsche/singer/commissions/big sur/1.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![2]({{ '/assets/images/car/porsche/singer/commissions/big sur/2.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![3]({{ '/assets/images/car/porsche/singer/commissions/big sur/3.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![4]({{ '/assets/images/car/porsche/singer/commissions/big sur/4.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![5]({{ '/assets/images/car/porsche/singer/commissions/big sur/5.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![6]({{ '/assets/images/car/porsche/singer/commissions/big sur/6.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![7]({{ '/assets/images/car/porsche/singer/commissions/big sur/7.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![8]({{ '/assets/images/car/porsche/singer/commissions/big sur/8.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![9]({{ '/assets/images/car/porsche/singer/commissions/big sur/9.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![10]({{ '/assets/images/car/porsche/singer/commissions/big sur/10.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![11]({{ '/assets/images/car/porsche/singer/commissions/big sur/11.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
 ### 4.6 Canyon Drive commission
+
+![1]({{ '/assets/images/car/porsche/singer/commissions/canyon drive/1.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![2]({{ '/assets/images/car/porsche/singer/commissions/canyon drive/2.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![3]({{ '/assets/images/car/porsche/singer/commissions/canyon drive/3.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![4]({{ '/assets/images/car/porsche/singer/commissions/canyon drive/4.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![5]({{ '/assets/images/car/porsche/singer/commissions/canyon drive/5.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![6]({{ '/assets/images/car/porsche/singer/commissions/canyon drive/6.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![7]({{ '/assets/images/car/porsche/singer/commissions/canyon drive/7.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![8]({{ '/assets/images/car/porsche/singer/commissions/canyon drive/8.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![9]({{ '/assets/images/car/porsche/singer/commissions/canyon drive/9.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![10]({{ '/assets/images/car/porsche/singer/commissions/canyon drive/10.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![11]({{ '/assets/images/car/porsche/singer/commissions/canyon drive/11.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![12]({{ '/assets/images/car/porsche/singer/commissions/canyon drive/12.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![13]({{ '/assets/images/car/porsche/singer/commissions/canyon drive/13.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![14]({{ '/assets/images/car/porsche/singer/commissions/canyon drive/14.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![15]({{ '/assets/images/car/porsche/singer/commissions/canyon drive/15.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![16]({{ '/assets/images/car/porsche/singer/commissions/canyon drive/16.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![17]({{ '/assets/images/car/porsche/singer/commissions/canyon drive/17.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![18]({{ '/assets/images/car/porsche/singer/commissions/canyon drive/18.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![19]({{ '/assets/images/car/porsche/singer/commissions/canyon drive/19.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![20]({{ '/assets/images/car/porsche/singer/commissions/canyon drive/20.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![21]({{ '/assets/images/car/porsche/singer/commissions/canyon drive/21.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![22]({{ '/assets/images/car/porsche/singer/commissions/canyon drive/22.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
 ### 4.7 Caroline commission
 
+![1]({{ '/assets/images/car/porsche/singer/commissions/caroline/1.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![2]({{ '/assets/images/car/porsche/singer/commissions/caroline/2.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![3]({{ '/assets/images/car/porsche/singer/commissions/caroline/3.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![4]({{ '/assets/images/car/porsche/singer/commissions/caroline/4.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![5]({{ '/assets/images/car/porsche/singer/commissions/caroline/5.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![6]({{ '/assets/images/car/porsche/singer/commissions/caroline/6.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![7]({{ '/assets/images/car/porsche/singer/commissions/caroline/7.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![8]({{ '/assets/images/car/porsche/singer/commissions/caroline/8.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![9]({{ '/assets/images/car/porsche/singer/commissions/caroline/9.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![10]({{ '/assets/images/car/porsche/singer/commissions/caroline/10.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![11]({{ '/assets/images/car/porsche/singer/commissions/caroline/11.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![12]({{ '/assets/images/car/porsche/singer/commissions/caroline/12.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![13]({{ '/assets/images/car/porsche/singer/commissions/caroline/13.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![14]({{ '/assets/images/car/porsche/singer/commissions/caroline/14.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
 ### 4.8 Charlottesville commission
+
+![1]({{ '/assets/images/car/porsche/singer/commissions/charlottesville/1.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![2]({{ '/assets/images/car/porsche/singer/commissions/charlottesville/2.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![3]({{ '/assets/images/car/porsche/singer/commissions/charlottesville/3.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![4]({{ '/assets/images/car/porsche/singer/commissions/charlottesville/4.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![5]({{ '/assets/images/car/porsche/singer/commissions/charlottesville/5.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![6]({{ '/assets/images/car/porsche/singer/commissions/charlottesville/6.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![7]({{ '/assets/images/car/porsche/singer/commissions/charlottesville/7.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![8]({{ '/assets/images/car/porsche/singer/commissions/charlottesville/8.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![9]({{ '/assets/images/car/porsche/singer/commissions/charlottesville/9.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![10]({{ '/assets/images/car/porsche/singer/commissions/charlottesville/10.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![11]({{ '/assets/images/car/porsche/singer/commissions/charlottesville/11.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![12]({{ '/assets/images/car/porsche/singer/commissions/charlottesville/12.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![13]({{ '/assets/images/car/porsche/singer/commissions/charlottesville/13.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![14]({{ '/assets/images/car/porsche/singer/commissions/charlottesville/14.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![15]({{ '/assets/images/car/porsche/singer/commissions/charlottesville/15.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![16]({{ '/assets/images/car/porsche/singer/commissions/charlottesville/16.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![17]({{ '/assets/images/car/porsche/singer/commissions/charlottesville/17.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![18]({{ '/assets/images/car/porsche/singer/commissions/charlottesville/18.jpeg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
 ### 4.9 Colorado Springs commission
 
