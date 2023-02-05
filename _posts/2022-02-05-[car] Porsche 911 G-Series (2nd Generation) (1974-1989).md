@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: false
-title: "Porsche 911 G-Series (2 nd Generation) (1974-1989)"
+title: "Porsche 911 G-Series (2nd Generation) (1974-1989)"
 date: 2023-02-03 01:09:00
 
 ---
