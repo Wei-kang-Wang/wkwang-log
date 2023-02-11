@@ -78,6 +78,8 @@ tags: book-reading
 
 上述步骤就是将一个2维欧氏空间，拓展为一个射影空间，将欧氏空间内的点，拓展为射影空间内的homogeneous vectors。而上述步骤对于任意维的欧氏空间都是一样的。欧式空间$$\mathbb{R}^n$$可以被拓展为射影空间$$\mathbb{P}^n$$，我们只需要将长度为$$n$$的欧氏空间内的点的坐标，拓展到射影空间内的长度为$$n+1$$的homogenous vector就行了。我们会发现，在2维欧式空间里的无穷远点，在2维射影空间内变成了一条线，一般被称为line at infinity（这条线的方程就是$$(x,y,0)$$）。而3维射影空间内，则对应的是plane at infinity。
 
+>2维射影空间指的是对应的欧式空间是2维的，而实际上2维射影空间里的点是3维的，因为最后一个维度是1。而无穷远处的点，最后一个维度是0，但其只有一个自由度，所以相当于$$(x,1,0)$$，也就是构成了一条线。
+
 **Homogeneity**
 
 在欧氏几何里，所有的点都是同等的，也就是说整个空间是homogeneous的（同质的）。当我们引入坐标系的时候，就需要挑选一个特殊的点作为坐标原点，从而建立坐标系。而实际上这个点是可以任意挑选的，而坐标系也是可以任意建立的。任意两个坐标系可以通过平移旋转而重合。这样的操作就叫做Euclidean transform（欧式变换）。
@@ -95,7 +97,44 @@ tags: book-reading
 之前已经说了2维projective space可以通过在2维Euclidean space里添加一个无穷远的line来得到（3D就是添加一个无穷远的plane，以此类推）。我们现在来考虑如何从一个projective space回到一个Euclidean space。如下主要考虑2维和3维的情况。
 
 **Affine geometry**
-首先我们知道projective space是homogeneous的，也就是任意的坐标系的建立都不会有影响。而且在2维projective space里没有平行线的概念，因为所有的平行线都会在无穷远点相交（3维projective space里没有平行平面的概念，以此类推）。然而，在projective space里，也并不认为那些无穷远点就特殊，我们认为所有的这些点都是同等的。也就是说，在projective geometry里，讨论平行性是没有意义的，这个概念在projective geometry里不存在。
+首先我们知道projective space是homogeneous的，也就是任意的坐标系的建立都不会有影响。而且在2维projective space里没有平行线的概念，因为所有的平行线都会在无穷远点相交（3维projective space里没有平行平面的概念，以此类推）。然而，在projective space里，也并不认为那些无穷远点就特殊，我们认为所有的这些点都是同等的。也就是说，在projective geometry里，讨论欧氏空间里的那种平行性是没有意义的，这个概念在projective geometry里不存在，所以我们需要定义一种在射影空间里的平行性。
+
+也就是说，我们需要选出某条特殊的线，然后决定这条线是不是就是无穷远处的那条线（对于2维射影空间来说的）。这就造成了一个状态，也就是说尽管所有的点都是同等的，那还是会有一些点要比其它的点更加同等（也就是构成无穷远处直线的那些点，因为无穷远处的点都应该是完全等价的）。我们如下来考虑一个思想实验。从一张A4纸出发（有界限的2维欧氏空间），然后将其延展到无限远处，也就是说构造了一个2维的projective space $$\mathbb{P}^2$$，而现在这张纸就可以表示这个2维projective space的一部分。然后，在纸上画一条直线，我们认为它就是line at infinity。然后再画两条直线与之相交，因为这两条直线与ilne at infinity相交，我们就可以认为它两是平行的。考虑一个非常平的平原，然后用一台照相机来拍照，照相机的image plane是垂直于平地的，将这块平地叫做world plane，那么world plane的无穷远处的点在相机平面上就是一条水平的线，在相机前面的所有的world plane上的点都在image上有唯一的对应，而image上还会有above world plane的点，比如说天空，但将这些点和相机光心的连线再延长，就会与相机背后的world plane有一个交点，从而image plane上的点和world plane上的点一一对应（假设相机的角度是180度，world plane是无穷大的）。从而world plane里无穷远处的点对应到image plane里的一条水平的线，world plane上平行的线（比如说铁轨）对应到image plane里两条和水平线有交点的线。实际上，world plane和image plane只是描述一个projective plane的两种不同的方法。projective plane和一条指定的line（也就是表示无穷远处的那条线）的geometry就叫做affine geometry，将某个projective space里的指定的line映射到另一个projective space里的指定的line的projective变换就叫做affine transformation。
+
+>这是另一种理解affine transformation的办法。
+
+通过定义了projective space里的line at infinity，我们就可以定义projective space里的平行线了。而且一旦有了平行性，我们就可以定义一些其它的相关概念。比如说如果$$A,B,C,D$$是projective space里的四个点，$$AC$$和$$BD$$平行，$$AB$$和$$CD$$平行，那么$$AB$$和$$CD$$的长度就相等。
+
+**Euclidean geometry**
+
+在projective plane里定义了line at infinity之后，我们就有了平行性，并且有了affine geometry。affine geometry就是针对projective plane的一个规范，其会在plane中按照某种规则挑选出一条线作为line of infinity。
+
+如果我们选择了一些特殊的line作为line at infinity，那么affine geometry就会退化为Euclidean geometry。为了实现上述这种特殊的挑选，我们需要介绍一个本书最重要的概念：absolute conic。
+
+我们从2维geometry开始，先考虑圆的情况。注意到，圆在affine geometry里是没有意义的，因为任意的affine transformation，就会将圆变为椭圆。因此，affine geometry认为圆和椭圆是同一种概念。
+
+在Euclidean geometry里，圆和椭圆当然是不同的，而且有着非常不同的性质。从代数角度来说，一个椭圆可以被一个有两个变量的等式表示。因此两个椭圆最多可以有四个交点。然而，两个不同的圆最多只有两个交点。但是从代数的角度来说，描述圆的等式依然具有两个变量，而求交点的过程就是联立解两个2元2次方程组的过程，按道理应该有四个解，那是什么让圆变得特殊呢？实际上是因为方程的另外两个根是复数，所以就被舍去了。
+
+对于projective space来说，其坐标是homogeneous坐标，表示为$$(x,y,w)$$，而在projective space里，圆的方程是：$$(x-aw)^2 + (y-bw)^2 = r^2 w^2$$。其表示的是一个在projective space的homogenous coordinates下的中心点为$$(x_0,y_0,w_0)^T = (a,b,1)^T$$的圆。可以验证$$(x,y,w)^T = (1, i, 0)^T$$以及$$(1,-i,0)^T$$都是圆上的点。而且我们会发现，这两个点和$$a,b$$无关，也就是说所有的圆都经过这两个点，也就是说这两个点是任意两个圆的交点。因为这两个点最后一个坐标是0，其位于line at infinity上。这两个点叫做这个plane的circular points。尽管这两个点是复数，其满足一对实数定义的等式：$$x^2 + y^2 = 0, w=0$$。
+
+上述的结果给了我们如何从projective geometry定义Euclidean geometry的启示。对于一个projective geometry，我们挑出line at infinity，并在这条line上挑出两个circular points，就可以构造一个Euclidean geometry。虽然circular points是复数，但我们一般不需要去担心这个问题。现在，我们可以定义圆为任意的经过这两个circular points的conic（具有两个变量的2维曲线，也就是$$ax^2 + b y^2 + c xy + dx + ey + f = 0$$)。
+
+>对于标准的Euclidean coordinate system，circular points的坐标是$$(1,i,0)^T$$和$$(1,-i,0)^T$$。而如果我们已经有了一个Euclidian space，只需要选出一条线作为line at infinity，再在这条线上任意选出两个complex points作为circular points，就可以得到一个projective plane。
+
+>如何理解任意conic经过这两个circular points就是圆？因为任意的conic由五个点确定，而任意的圆由三个点确定，那剩下的两个点正好就是circular points。
+
+angle、length ratios等概念也可以由ciruclar points给出，这在后续的章节里会说。
+
+**3D Euclidean geometry**
+
+我们已经看到了如何从一个projective space里定义一个Euclidean space：只需要指定line at infinity以及circular points就可以。同样的概念也可以被用于3D geometry里。正如2维里的情况一样，这时我们来考虑3维里的球，以及它们是如何相交的。在Euclidean space里，两个球相交的结果是一个圆，但两个general的quadric surfaces相交的结果并不是这样（从代数上看）。这是因为，在projective plane里，也就是在homogeneous coordinate $$(X,Y,Z,T)^T$$的角度来看，任意的球都和平面有如下的curve交线：$$X^2 + Y^2 + Z^2 = 0, T=0$$。这是一个位于infinity的second-order的曲线（也就是一个conic），仅仅由复数点构成。这个曲线就叫做absolute conic，这是本书最重要的内容，其与相机内部参数的计算有关，将在后面被详细说明。
+
+同样的，从一个projective space，我们可以指定任意一个平面为plane at infinity，并在平面上指定任意一个曲线为absolute conic，这样就将一个projective space转换为了一个Euclidean space。
+
+
+## 1.2 Camera projections
+
+
 
 
 
