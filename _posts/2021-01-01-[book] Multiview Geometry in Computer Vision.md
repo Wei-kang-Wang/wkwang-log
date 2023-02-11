@@ -6,7 +6,7 @@ date: 2021-11-29 01:09:00
 tags: book-reading
 ---
 
-> 这是Multiview Geometry这本书的翻译版，加上了个人一些拙略的理解。
+> 这是Andrew Zisserman的Multiview Geometry in Computer Vision这本书的翻译版，加上了个人一些拙略的理解。
 
 
 <!--more-->
