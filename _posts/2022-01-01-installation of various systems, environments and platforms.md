@@ -2653,6 +2653,8 @@ tensorboard --logdir="/path/to/log-directory"
 最后，在本地访问地址：http://127.0.0.1:16006/
 
 
+**3. 参考资料**
+* https://zhuanlan.zhihu.com/p/359626009
 
 
 
