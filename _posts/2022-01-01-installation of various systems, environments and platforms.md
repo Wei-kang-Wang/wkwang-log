@@ -18,7 +18,7 @@ date: 2022-05-01 01:09:00
 ---
 
 
-## Linux系统用Anaconda安装pytorch + CUDA + cuDNN
+# Linux系统用Anaconda安装pytorch + CUDA + cuDNN
 
 **1. 安装Anaconda**
 
@@ -433,7 +433,7 @@ conda clean -t
 * https://blog.csdn.net/weixin_44100850/article/details/103308367
 
 
-## Linux安装tmux
+# Linux安装tmux
 
 tmux是一个 terminal multiplexer（终端复用器），它可以启动一系列终端会话。
 
@@ -571,7 +571,7 @@ kevin: 1 windows (created Sun Sep 30 10:17:00 2018) [136x29] (attached)
 
 
 
-## git的使用
+# git的使用
 
 **1. 介绍Git**
 
@@ -2614,6 +2614,43 @@ bootstrap的官方仓库twbs/bootstrap，你在GitHub上自己的账号里clone�
 如果你想修复bootstrap的一个bug，或者新增一个功能，立刻就可以开始在本地干活，干完后，推送到自己的远程仓库。
 
 如果你希望bootstrap官网库接受你的修改，你就可以在Github上发起一个pull request。这需要对方接受你的pull request，才能将你的修改加入官方库里。
+
+
+# 在服务器使用Tensorboard的方法
+
+Tensorboard在本机可以方便使用，但使用服务器时需要设置一下。
+
+**1. windows系统**
+
+在Windows系统装一个Xshell，在文件->属性->ssh->隧道->添加，类型local，源主机填127.0.0.1（意思是本机），端口设置一个，比如12345，目标主机为服务器，目标端口一般是6006，如果6006被占了可以改为其他端口。
+
+在服务器上运行
+
+```text
+tensorboard --logdir='logs' --port=6006
+```
+
+在本机打开网页127.0.0.1:12345 ，即可查看远程的tensorboard。
+
+**2. Mac或Linux系统**
+
+在登录远程服务器的时候使用命令：
+
+```text
+ssh -L 16006:127.0.0.1:6006 account@server.address
+```
+
+（代替一般ssh远程登录命令：ssh account@server.address）
+
+训练完模型之后使用如下命令：
+
+```text
+tensorboard --logdir="/path/to/log-directory"
+```
+
+（其中，/path/to/log-directory为自己设定的日志存放路径，因人而异）
+
+最后，在本地访问地址：http://127.0.0.1:16006/
 
 
 
