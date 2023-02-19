@@ -77,12 +77,12 @@ Felidea是Feliformia的一部分，Felidae是一个科，Feliformia是一个亚�
 
 下图是所有的猫科动物的关系图（包括现存的和灭绝的）：
 
-![0]({{ '/assets/images/animals/felidae/cat-1.png' | relative_url }})
+![0]({{ '/assets/images/animals/felidae/cat-1.PNG' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
 下图是所有的现存的猫科动物的关系图：
 
-![0]({{ '/assets/images/animals/felidae/cat-2.png' | relative_url }})
+![0]({{ '/assets/images/animals/felidae/cat-2.PNG' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
 
