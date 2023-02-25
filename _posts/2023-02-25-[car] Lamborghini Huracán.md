@@ -1939,73 +1939,192 @@ Current value	The Huracan Performante is not yet available on the second hand ma
 
 它的631马力5.2升V10发动机转速一直达到8500 rpm，当结合与双门轿跑车相同的升级（主动空气动力学、扭矩矢量、稳定性控制程序、减重）时，它简直令人难以置信。
 
-SPECS & PERFORMANCE
+2017年，兰博基尼在日内瓦车展上推出了令人印象深刻的Huracan Performante，现在，整整一年后，这款破纪录的V10敞篷版在瑞士的同一场车展上向公众展示。
 
-GENERAL
-Type	Huracan Performante Spyder
-Years built	2018 – 2019
-Presentation	March 2018 Geneva Auto Show
-Type of car	Two door Spyder, two seater
-Designed by	Automobili Lamborghini SpA
-Built by	Automobili Lamborghini SpA
-DIMENSIONS
-Wheelbase	2620 mm / 102.97 in
-Overall length	4520 mm / 177.64 in
-Overall width	1933 mm / 75.97 in
-Overall height	1165 mm / 45.78 in
-Front track	1668 mm / 65.55 in
-Rear track	1620 mm / 63.67 in
-Weight	1389 kg / 3063 lbs
-CHASSIS
-Structure	Hybrid chassis made from aluminum and carbon fiber
-Body	Outer skin made from aluminum and composite material, High-quality soft top
-Suspension	Aluminum double-wishbone suspension, Steel springs and hydraulic dampers, magneto-rheological damper control available as an option
-ESP	ESC/ABS characteristics adjustable via ANIMA, ESC can be deactivated
-Brakes	Hydraulic dual-circuit brake system with vacuum brake servo unit, 6-piston aluminum calipers at the front, 4-piston aluminum calipers at the rear. Carbon-ceramic discs, ventilated and cross-drilled
-Front	380×38 mm / 14.93 in
-Rear	356×32 mm / 13.99 in
-Steering type	Electromechanical power steering, optional LDS steering with variable steering ratio
-Front tire size	245/30 R20
-Rear tire size	305/30 R20
-Type of tire	Pirelli P Zero Corsa
-Front wheel	8.5 x 20 inch
-Rear wheel	11 x 20 inch
-Type of wheel	Narvi forged alloy wheels, optional Loge center lock wheels
-Mirrors	Electrically controlled exterior mirrors
-Rear spoiler	Standard, with integrated air ducts
-Airbags	Full-size dual-stage front airbags. Full-size lateral airbags. Knee airbags in specific markets.
-ENGINE
-Type	V-10 90 degree, IDS+MPI dual injection, 40 valves, mid mounted (longitudal), four wheel drive
-Cyl. Capacity	5204 cc / 317 ci
-Bore & stroke	84,5 x 92,8 mm
-Valve gear	Intake and exhaust camshafts with continually variable adjustmen
-Compr. Ratio	12.7
-Max. power	640 Bhp at 8000 rpm
-Max. torque	600 Nm at 6500 rpm
-Cooling system	Water and oil cooling systems
-Emission contr.	EURO 6 – LEV 3
-Engine management	Bosch MED 17 Master Slave
-Fuel system 	IDS+MPI dual injection
-Fuel consumption	14 Lit/100 Km
-Lubrication	Dry sump
-Electr. system	12 V
-DRIVETRAIN
-Type	7-speed LDF dual-clutch transmission, shift characteristics variable via ANIMA
-Disc diameter	87 mm / 7.35 in
-Clutch	Double plate
-PERFORMANCE
-Top speed	325 Km/h / 202 Mph
-0 – 100 Km/h	3.10 sec.
-0 – 200 Km/h	9.30 sec.
-CAPACITIES
-Fuel	83 Liter / 22 Gallon
-Luggage	100 Liter / 26 Gallon
-PRICING
-US MSRP	USD 308,859
-European MSRP	219,585 € (2018)
-Current value	None on the second hand market yet, first contracts might be sold at a premium
+Huracan Performante于2017年3月在纽伯格林赛道以6分52.01秒的单圈时间保持着这一纪录，此后Performante在世界各地的各种赛道上创造了不少于8次的记录，通过在原来的610hp V10上增加30hp并在此过程中减轻一些重量来实现。
 
+但可能对这一破纪录贡献最大的因素是ALA（Aerodinamica Lamborghini Attiva），这是一个巧妙的系统，可以动态改变这辆Bull周围的气流，以增加下压力并在条件需要时减少阻力。
 
+现在客户可以订购这款顶级Huracan的Spyder版本，外观与双门轿跑车相似，前保险杠很深，进气口很大，下侧门槛采用哑光或亮黑色，当然还有三色条纹（可以选择移除），而在后部，巨大的扩散器非常显眼，尾翼采用锻造复合材料制成。
+
+回到2017年9月，当兰博基尼推出Aventador S Roadster时，其车漆为特殊的蓝色，今天随着Huracan Performante Spyder的揭幕，我们看到另一种蓝色被用作介绍颜色，这次是亚光Blu Aegeus，并且车轮的中央锁止轮套在黄色制动卡钳上，看起来既优雅又低调。
+
+与Coupé车型相比，Spyder自然会增加汽车的重量，在这种情况下约为125公斤（1507公斤，而封闭版为1382公斤），但性能数据仍然令人印象深刻，从0到100公里/小时的加速需要3.1秒（比Coupé慢0.2秒），从0到200km/h只需9.3秒（比Coupé慢0.4秒），然而，两个版本的最高时速325Km/h相同。
+
+税前定价为219585欧元、192078英镑或308859美元，首批客户将在2018年夏季收到兰博基尼Huracan Performante Spyder。
+
+**SPECS & PERFORMANCE**
+
+**GENERAL**
+* Type	Huracan Performante Spyder
+* Years built	2018 – 2019
+* Presentation	March 2018 Geneva Auto Show
+* Type of car	Two door Spyder, two seater
+* Designed by	Automobili Lamborghini SpA
+* Built by	Automobili Lamborghini SpA
+
+**DIMENSIONS**
+* Wheelbase	2620 mm / 102.97 in
+* Overall length	4520 mm / 177.64 in
+* Overall width	1933 mm / 75.97 in
+* Overall height	1165 mm / 45.78 in
+* Front track	1668 mm / 65.55 in
+* Rear track	1620 mm / 63.67 in
+* Weight	1389 kg / 3063 lbs
+
+**CHASSIS**
+* Structure	Hybrid chassis made from aluminum and carbon fiber
+* Body	Outer skin made from aluminum and composite material, High-quality soft top
+* Suspension	Aluminum double-wishbone suspension, Steel springs and hydraulic dampers, magneto-rheological damper control available as an option
+* ESP	ESC/ABS characteristics adjustable via ANIMA, ESC can be deactivated
+* Brakes	Hydraulic dual-circuit brake system with vacuum brake servo unit, 6-piston aluminum calipers at the front, 4-piston aluminum calipers at the rear.
+* Carbon-ceramic discs, ventilated and cross-drilled
+* Front	380×38 mm / 14.93 in
+* Rear	356×32 mm / 13.99 in
+* Steering type	Electromechanical power steering, optional LDS steering with variable steering ratio
+* Front tire size	245/30 R20
+* Rear tire size	305/30 R20
+* Type of tire	Pirelli P Zero Corsa
+* Front wheel	8.5 x 20 inch
+* Rear wheel	11 x 20 inch
+* Type of wheel	Narvi forged alloy wheels, optional Loge center lock wheels
+* Mirrors	Electrically controlled exterior mirrors
+* Rear spoiler	Standard, with integrated air ducts
+* Airbags	Full-size dual-stage front airbags. Full-size lateral airbags. Knee airbags in specific markets.
+
+**ENGINE**
+* Type	V-10 90 degree, IDS+MPI dual injection, 40 valves, mid mounted (longitudal), four wheel drive
+* Cyl. Capacity	5204 cc / 317 ci
+* Bore & stroke	84,5 x 92,8 mm
+* Valve gear	Intake and exhaust camshafts with continually variable adjustmen
+* Compr. Ratio	12.7
+* Max. power	640 Bhp at 8000 rpm
+* Max. torque	600 Nm at 6500 rpm
+* Cooling system	Water and oil cooling systems
+* Emission contr.	EURO 6 – LEV 3
+* Engine management	Bosch MED 17 Master Slave
+* Fuel system 	IDS+MPI dual injection
+* Fuel consumption	14 Lit/100 Km
+* Lubrication	Dry sump
+* Electr. system	12 V
+
+**DRIVETRAIN**
+* Type	7-speed LDF dual-clutch transmission, shift characteristics variable via ANIMA
+* Disc diameter	87 mm / 7.35 in
+* Clutch	Double plate
+
+**PERFORMANCE**
+* Top speed	325 Km/h / 202 Mph
+* 0 – 100 Km/h	3.10 sec.
+* 0 – 200 Km/h	9.30 sec.
+
+**CAPACITIES**
+* Fuel	83 Liter / 22 Gallon
+* Luggage	100 Liter / 26 Gallon
+
+**PRICING**
+* US MSRP	USD 308,859
+* European MSRP	219,585 € (2018)
+* Current value	None on the second hand market yet, first contracts might be sold at a premium
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/16.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/17.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/18.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/19.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/20.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/21.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/22.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/23.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/24.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/25.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/26.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/27.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/28.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/29.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/30.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/31.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/32.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/33.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
 
 
