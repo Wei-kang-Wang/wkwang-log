@@ -883,21 +883,1150 @@ Huracán内部V10发动机的动力通过7速LDF变速箱输送到道路上，�
 
 这是最便宜的Huracan，可能也是最有趣的。著名的兰博基尼5.2 L V10已略微调谐至572马力和393磅/英尺的扭矩。仅后轮驱动。
 
-就在几周前，兰博基尼 Huracán LP610-4 Spyder 在法兰克福 IAA 上亮相后不久，Automobili Lamborghini SpA 发布了其 V10 系列的又一改进……兰博基尼 Huracán LP580-2。
+就在几周前，兰博基尼Huracán LP610-4 Spyder在法兰克福IAA上亮相后不久，Automobili Lamborghini SpA发布了其V10系列的又一改进：兰博基尼Huracán LP580-2。
 
-LP580-2 名称没有任何解释的余地……这是流行的新型 V10 车型的后轮驱动版本，发动机略微失谐，可向后轮输出 580 马力（或 425 千瓦），只为提供更令人兴奋的驾驶体验…… 或者正如 Stephan Winkelmann 所说：“对于认真的司机来说，这是一辆严肃的汽车：它是最大的驾驶乐趣”
+LP580-2是流行的新型V10车型的后轮驱动版本，发动机略微失谐，可向后轮输出580马力（或425千瓦），只为提供更令人兴奋的驾驶体验，或者正如Stephan Winkelmann所说：“对于认真的司机来说，它有着很大的驾驶乐趣”
 
-兰博基尼 Huracán LP580-2 将 60% 的重量放在后轮上，重量减轻了 33 千克，重量为 1,389 千克，功率的下降甚至不明显……添加新的动力管理系统，悬架改变，转向设置不同，稳定性和新的 驱动新型 LP580-2 的牵引力控制设置与她的四轮驱动车型截然不同。
+兰博基尼Huracán LP580-2将60%的重量放在后轮上，重量减轻了33千克，重量为1389千克，功率的下降甚至不明显，添加新的动力管理系统，悬架改变，转向设置不同，稳定性和新的 驱动新型LP580-2的牵引力控制设置与她的四轮驱动车型截然不同。
 
-事实上，Strada、Sport 和 Corsa 的 Anima 驾驶模式已经过重新编程以实现转向过度，因此您可以真正感受到兰博基尼真正的后轮驱动，新的前保险杠和重新设计的后部，新的 Huracan LP580-2 很快被公认为 不同于 LP610-4 版本。
+事实上，Strada、Sport和Corsa的Anima驾驶模式已经过重新编程以实现转向过度，因此您可以真正感受到兰博基尼真正的后轮驱动，新的前保险杠和重新设计的后部，新的Huracan LP580-2很快被公认为不同于LP610-4版本。
 
-前保险杠中较大的进气口主动增加了高速行驶时的下压力，而经过改进的上升式后扩散器改善了后部周围的气流……Huracán 无需使用此设置来调节后扰流板。
+前保险杠中较大的进气口主动增加了高速行驶时的下压力，而经过改进的上升式后扩散器改善了后部周围的气流，Huracán无需使用此设置来调节后扰流板。
 
-为了进一步区分 Huracán LP580-2 和 LP610-4 车型，仅后轮驱动的车型标配了新的 Kari 车轮，尺寸更小，19 英寸，倍耐力 PZero 轮胎专为这款后轮驱动的 Huracan 开发…… 钢制制动器作为标准配置，但也可选择更大的 20 英寸车轮和碳陶瓷盘式制动器。
+为了进一步区分Huracán LP580-2和LP610-4车型，仅后轮驱动的车型标配了新的Kari车轮，尺寸更小，19英寸，倍耐力PZero轮胎专为这款后轮驱动的Huracan开发，钢制制动器作为标准配置，但也可选择更大的20英寸车轮和碳陶瓷盘式制动器。
 
-重新设计的 580 马力 V10 发动机现在配备了气缸停用系统，当不需要时，整个气缸组都会关闭……在加速下，所有十个气缸都会立即再次激活……油耗仅为 11.9/100km，CO² 排放量为 278 g/ 对于这样一款高性能超级跑车来说，公里数是令人印象深刻的数字。
+重新设计的580马力V10发动机现在配备了气缸停用系统，当不需要时，整个气缸组都会关闭，在加速下，所有十个气缸都会立即再次激活，油耗仅为11.9/100km。
 
-新的兰博基尼 Huracán LP580-2 现在可以在您当地的经销商处购买，并且可以在 Huracán LP610-4 上的每个可用颜色中订购，无论是内部还是外部，订购系统上列出了几个选项，而像往常一样，Ad Personam 程序将 尝试满足客户可能拥有的几乎所有愿望。
+新的兰博基尼Huracán LP580-2现在可以在您当地的经销商处购买，并且颜色和Huracán LP610-4相同，无论是内饰还是外部。
+
+在欧洲，Huracán LP580-2的不含税售价为150000欧元。
+
+**SPECS & PERFORMANCE**
+
+**GENERAL**
+* Type:	Huracán LP580-2
+* Years built:	2016 – 2019
+* Presentation:	November LA Auto Show
+* Type of car	Two door coupé, two seater berlinetta
+* Designed by	Automobili Lamborghini SpA
+* Built by	Automobili Lamborghini SpA
+
+**DIMENSIONS**
+* Wheelbase:	2620 mm / 102.97 in
+* Overall length:	4459 mm / 175.24 in
+* Overall width:	1924 mm / 75.61 in
+* Overall height:	1165 mm / 45.78 in
+* Front track:	1668 mm / 65.55 in
+* Rear track:	1620 mm / 63.67 in
+* Weight:	1389 kg / 3063 lbs
+* Distribution:	40/60 % front / rear
+
+**CHASSIS**
+* Structure:	Hybrid chassis made from aluminum and carbon fiber
+* Body:	Outer skin made from aluminum, and composite material
+* Suspension:	Aluminum double-wishbone suspension. Steel springs and hydraulic dampers. MagneRide electromagnetic damper control available as an option
+* ESP:	ESC/ABS characteristics can be adjusted via ANIMA, ESC can be deactivated
+* Brakes:	Hydraulic dual-circuit brake system with vacuum brake servo unit, six-piston calipers at the front, four-piston calipers at the rear
+* Front: 365×34 mm / 14.34 in
+* Rear:	356×32 mm / 13.99 in
+* Steering type	Electromechanical power steering, optional LDS steering with variable ratio
+* Turning circle:	11,5 m / 36 ft
+* Front tire size:	245/35 R19
+* Rear tire size:	305/35 R19
+* Type of tire:	Pirelli P Zero
+* Front wheel:	8,5 x 19 inch
+* Rear wheel:	11 x 19 inch
+* Type of wheel:	Kari monoblock alloy wheels
+* Mirrors:	Electrically controlled exterior mirrors
+* Airbags:	Full size dual-stage front airbags and full size lateral airbags
+
+**ENGINE**
+* Type:	V-10 90 degree, IDS+MPI dual injection, 40 valves, mid mounted (longitudal), rear wheel drive
+* Cyl. Capacity:	5204 cc / 317 ci
+* Bore & stroke:	84,5 x 92,8 mm
+* Valve gear:	Intake and exhaust camshafts with continually variable adjustment
+* Compr. Ratio:	12.7
+* Max. power:	580 Bhp at 8000 rpm
+* Max. torque:	540 Nm at 6500 rpm
+* Cooling system:	Water and oil cooling systems
+* Emission contr.:	EURO 6
+* Engine management:	Bosch MED 17 Master slave
+* Fuel system: 	IDS+MPI dual injection
+* Fuel consumption:	12.3 Lit/100 Km
+* Lubrication:	Dry sump
+* Electr. system:	12 V
+
+**DRIVETRAIN**
+* Type:	7-speed LDF dual-clutch transmission, shift characteristics variable via Drive Select Mode
+* Clutch:	All-wheel drive with electrohydraulic multiplate clutch
+
+**PERFORMANCE**
+* Top speed:	320 Km/h / 199 Mph
+* 0 – 100 Km/h:	3.40 sec.
+* 0 – 200 Km/h:	10.10 sec.
+
+**CAPACITIES**
+* Fuel:	80 Liter / 21 Gallon
+
+**PRICING**
+* MSRP:	150,000 € (2016) USD 199,800 (2016)
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP580-2/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP580-2/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP580-2/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP580-2/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP580-2/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP580-2/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP580-2/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP580-2/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP580-2/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP580-2/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP580-2/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP580-2/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP580-2/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP580-2/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP580-2/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP580-2/16.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP580-2/17.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP580-2/18.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP580-2/19.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
+
+#### 1.1.1.4 Lamborghini Huracán RWD Spyder
+
+* Years: 2017 - 2019
+* Production: N/A units
+* Engine: 5.2 L Nat Aspirated V10
+* Power: 580 bhp @ 8,000 rpm
+* Torque: 398 ft lbs @ 6,500 rpm
+* 0-60 mph: 3.6 seconds
+* Top Speed: 196 mph
+
+还有什么能比后轮驱动的兰博基尼Huracan更好呢？同一辆车的敞篷版怎么样？是的，这就是Huracán RWD 580-2 Spyder，性能与Coupe版本的相当。
+
+早在2016年5月，我们就已经讨论过可能的兰博基尼Huracan LP580-2 Spyder，当时一辆测试车在圣亚加塔进行试驾时被发现，但Automobili Lamborghini SpA直到2016年11月中旬才正式推出新的Huracan RWD Spyder。
+
+从2017年1月起在全球经销商处有售，这款Huracan系列的新成员为兰博基尼的传统带来了后轮驱动的快感，同时是敞篷版的。
+
+通过移除前轮驱动器，与Huracan LP610-4 Spyder相比，重量减轻了33公斤，RWD重量仅为1509公斤，可用功率为580马力，最高时速不低于319公里/小时，从0到100公里/小时的数字为3.6秒，比她的610马力对手慢0.2秒。
+
+就像Huracan LP580-2（或者叫做RWD Coupé）一样，这款新款Spyder的前后部分相对于LP610-4也进行了修改，前保险杠显示出更多角度的进气口，中间有一个水平鳍片，而后部尾灯下方的部分则采用了不同的设计。
+
+Huracan RWD Spyder的标准配置是19英寸Kari车轮，配备钢制盘式制动器和铝制卡钳，如Coupé版本一样，但Giano和Mimas可作为该车型的选装件，搭配碳陶瓷盘式制动器。
+
+在内部，新的Huracan RWD Spyder可以像610-4版本一样配置皮革内饰，Alcantara或组合，对比色缝线，Q-Citura缝线，碳纤维部件或更特殊的锻造复合材料饰面部件，仪表板、中央控制台和门板。
+
+当兰博基尼在日内瓦车展上推出带有软顶的Huracan LP610-4 Spyder时，引发了很多争议，人们期待在一些比赛中看到的可折叠硬顶，但兰博基尼保留了轻质帆布车顶并采用了略有不同的轮廓将Coupé风格与Spyder区分开来，在同一系列中创造出两种不同的车型，新的RWD Spyder将这一理念延续。
+
+即使以高达50公里/小时的速度在路上行驶，您也可以按下开关并在短短17秒内打开车顶，将车顶折叠到座椅后面的特殊盖板下方，该盖板带有集成管道，以避免在驾驶舱内抖动，而特殊的发动机罩的设计允许更好的气流通过发动机舱。
+
+**SPECS & PERFORMANCE**
+
+**GENERAL**
+* Type:	Huracan RWD Spyder
+* Years built:	2017 – 2019
+* Presentation:	2016 November Los Angeles
+* Type of car	Two door Spyder, two seater
+* Designed by	Automobili Lamborghini SpA
+* Built by	Automobili Lamborghini SpA
+
+**DIMENSIONS**
+* Wheelbase:	2620 mm / 102.97 in
+* Overall length:	4459 mm / 175.24 in
+* Overall width:	1924 mm / 75.61 in
+* Overall height:	1180 mm / 46.37 in
+* Front track:	1668 mm / 65.55 in
+* Rear track:	1620 mm / 63.67 in
+* Weight:	1509 kg / 3327 lbs
+* Distribution:	40/60 % front / rear
+
+**CHASSIS**
+* Structure:	Hybrid chassis made from aluminum and carbon fiber
+* Body:	Outer skin made from aluminum and composite material
+* Suspension:	Aluminum double-wishbone suspension, Steel springs and hydraulic dampers. MagneRide” electromagnetic damper control available as an option
+* ESP:	ESC/ABS characteristics can be adjusted via ANIMA, ESC can be deactivated
+* Brakes:	Hydraulic dual-circuit brake system with vacuum brake servo unit, 8-piston aluminum calipers at the front, 4-piston aluminum calipers at the rear
+* Front:	365×34 mm / 14.34 in
+* Rear:	356×32 mm / 13.99 in
+* Steering type:	Electromechanical power steering, LDS steering with variable steering ratio as an option
+* Turning circle:	11,5 m / 36 ft
+* Front tire size:	245/35 R19
+* Rear tire size:	305/35 R19
+* Type of tire:	Pirelli P Zero
+* Front wheel:	8,5 x 19 inch
+* Rear wheel:	11 x 19 inch
+* Type of wheel:	Kari Monoblock alloy wheels
+* Mirrors:	Electrically controlled exterior mirrors
+* Airbags:	Full Size dual-stage front airbags Full size lateral airbags
+
+**ENGINE**
+* Type:	V-10 90 degree, IDS+MPI dual injection, 40 valves, mid mounted (longitudal), rear wheel drive
+* Cyl. Capacity:	5204 cc / 317 ci
+* Bore & stroke:	84,5 x 92,8 mm
+* Valve gear:	Intake and exhaust camshafts with continually variable adjustment
+* Compr. Ratio:	12.7
+* Max. power:	580 Bhp at 8000 rpm
+* Max. torque:	540 Nm at 6500 rpm
+* Cooling system:	Water and oil cooling systems
+* Emission contr.:	Euro 6
+* Engine management:	Bosch MED 17 Master Slave
+* Fuel system:	IDS+MPI dual injection
+* Fuel consumption:	12.3 Lit/100 Km
+* Lubrication:	Dry sump
+* Electr. system:	12 V
+
+**DRIVETRAIN**
+* Type:	7-speed LDF dual-clutch transmission, shift characteristics variable via Drive Select Mode
+* Clutch:	All-wheel drive with electrohydraulic multiplate clutch
+
+**PERFORMANCE**
+* Top speed:	319 Km/h / 198 Mph
+* 0 – 100 Km/h:	3.60 sec.
+* 0 – 200 Km/h:	10.40 sec.
+
+**CAPACITIES**
+* Fuel:	83 Liter / 22 Gallon
+
+**PRICING**
+* Current value:	Price hasn’t been published yet
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/16.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/17.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/18.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/19.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/20.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
+#### 1.1.5 Lamborghini Huracán Performante
+
+* Years: 2017 - 2019
+* Production: N/A units
+* Engine: 5.2 L Nat Aspirated V10
+* Power: 631 bhp @ 8,000 rpm
+* Torque: 443 ft lbs @ 6,500 rpm
+* 0-60 mph: 2.9 seconds
+* Top Speed: 202 mph
+
+就纯粹的驾驶动力和整体套件而言，这是有史以来最好的兰博基尼。Performante 获得了更大的功率 (+29 hp) 和更轻的重量 (-90 lbs) 以及其他使其成为史诗般的改进。
+
+
+SPECS & PERFORMANCE
+
+GENERAL
+Type	Huracan Performante
+Years built	2017 – 2019
+Presentation	March 2017 Geneva Auto Show
+Type of car	Two door coupé, two seater berlinetta
+Designed by	Automobili Lamborghini SpA
+Built by	Automobili Lamborghini SpA
+DIMENSIONS
+Wheelbase	2620 mm / 102.97 in
+Overall length	4506 mm / 177.09 in
+Overall width	1924 mm / 75.61 in
+Overall height	1165 mm / 45.78 in
+Front track	1668 mm / 65.55 in
+Rear track	1620 mm / 63.67 in
+Weight	1382 kg / 3047 lbs
+Distribution	43/57 % front / rear
+CHASSIS
+Structure	Hybrid chassis made from aluminum and carbon fiber
+Body	Outer skin made from aluminum and composite material
+Suspension	Aluminum double-wishbone suspension, Steel springs and hydraulic dampers. “MagneRide” electromagnetic damper control available as an option
+ESP	ESC/ABS characteristics can be adjusted via ANIMA, ESC can be deactivated
+Brakes	Hydraulic dual-circuit brake system with vacuum brake servo unit, 6-piston aluminum calipers at the front, 4-piston aluminum calipers at the rear, Carbon-ceramic discs, ventilated and cross-drilled
+Front	380×38 mm / 14.93 in
+Rear	356×32 mm / 13.99 in
+Steering type	Electromechanical power steering, optional LDS steering with variable steering ratio
+Front tire size	245/30 R20
+Rear tire size	305/30 R20
+Type of tire	Pirelli P Zero Corsa
+Front wheel	8.5 x 20 inch
+Rear wheel	11 x 20 inch
+Type of wheel	Narvo forged alloy wheels, optional Loge center lock wheels
+Mirrors	Electrically controlled exterior mirrors
+Airbags	Full Size dual-stage front airbags. Full size lateral airbags. Knee airbags in specific markets.
+Rear spoiler	Standard, with integrated air ducts
+ENGINE
+Type	V-10 90 degree, IDS+MPI dual injection, 40 valves, mid mounted (longitudal), four wheel drive
+Cyl. Capacity	5204 cc / 317 ci
+Bore & stroke	84,5 x 92,8 mm
+Valve gear	Intake and exhaust camshafts with continually variable adjustmen
+Compr. Ratio	12.7
+Max. power	640 Bhp at 8000 rpm
+Max. torque	600 Nm at 6500 rpm
+Cooling system	Water and oil cooling systems
+Emission contr.	EURO 6 – LEV 3
+Engine management	Bosch MED 17 Master Slave
+Fuel system	IDS+MPI dual injection
+Fuel consumption	13.7 Lit/100 Km
+Lubrication	Dry sump
+Electr. system	12 V
+DRIVETRAIN
+Type	7-speed LDF dual-clutch transmission, shift characteristics variable via ANIMA
+Disc diameter	187 mm mm / 7.35 in
+Clutch	Double plate
+PERFORMANCE
+Top speed	325 Km/h / 202 Mph
+0 – 100 Km/h	2.90 sec.
+0 – 200 Km/h	8.90 sec.
+CAPACITIES
+Fuel	83 Liter / 22 Gallon
+Luggage	100 Liter / 26 Gallon
+PRICING
+US MSRP	USD 274,390
+European MSRP	195,040 € (2017)
+Current value	The Huracan Performante is not yet available on the second hand market
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/16.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/17.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/18.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/19.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/20.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/21.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/22.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/23.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/24.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/25.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/26.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/27.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/28.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/29.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/30.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/31.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/32.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/33.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/34.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/35.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/36.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/37.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/38.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/39.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/40.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/41.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/42.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/43.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/44.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/45.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/46.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/47.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/48.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/49.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/50.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/51.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/52.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/53.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante54.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/55.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/56.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/57.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/58.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/59.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/60.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/61.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/62.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/63.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/64.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/65.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/66.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/67.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/68.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/69.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/70.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/71.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/72.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/73.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/74.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/75.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/76.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/77.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/78.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/79.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/80.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/81.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/82.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/83.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/84.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/85.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/86.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/87.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/88.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/89.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/90.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/91.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/92.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/93.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/94.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/95.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/96.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/97.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/98.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/99.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/100.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/101.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/102.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/103.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/104.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/105.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/106.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/107.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/108.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/109.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/110.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/111.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/112.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/113.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/114.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/115.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/116.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/117.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/118.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/119.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/120.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/121.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/122.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/123.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/124.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/125.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/126.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/127.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/128.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/129.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/130.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante131.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/132.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/133.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/134.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/135.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/136.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/137.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/138.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/139.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/140.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/141.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/142.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/143.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/144.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/145.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/146.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/147.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/148.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/149.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/150.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/151.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/152.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/153.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/154.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/155.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/156.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/157.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/158.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/159.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/160.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/161.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/162.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/163.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/164.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/165.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/166.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/167.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/168.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/169.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/170.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/171.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/172.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/173.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/174.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/175.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/176.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/177.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/178.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/179.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/180.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/181.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/182.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/183.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/184.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/185.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/186.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/187.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/188.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/189.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/190.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/191.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/192.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/193.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/194.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/195.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/196.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/197.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/198.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/199.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/200.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/201.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/202.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/203.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/204.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/205.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/206.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/207.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/208.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/209.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/210.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/211.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/212.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/213.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/214.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/215.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/216.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/217.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/218.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/219.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
+#### 1.1.1.6 Lamborghini Huracán Performante Spyder
+
+* Years: 2018 - 2019
+* Production: N/A units
+* Engine: 5.2 L Nat Aspirated V10
+* Power: 631 bhp @ 8,000 rpm
+* Torque: 443 ft lbs @ 6,500 rpm
+* 0-60 mph: 3.1 seconds
+* Top Speed: 202 mph
+
+它的631马力5.2升V10发动机转速一直达到8500 rpm，当结合与双门轿跑车相同的升级（主动空气动力学、扭矩矢量、稳定性控制程序、减重）时，它简直令人难以置信。
+
+SPECS & PERFORMANCE
+
+GENERAL
+Type	Huracan Performante Spyder
+Years built	2018 – 2019
+Presentation	March 2018 Geneva Auto Show
+Type of car	Two door Spyder, two seater
+Designed by	Automobili Lamborghini SpA
+Built by	Automobili Lamborghini SpA
+DIMENSIONS
+Wheelbase	2620 mm / 102.97 in
+Overall length	4520 mm / 177.64 in
+Overall width	1933 mm / 75.97 in
+Overall height	1165 mm / 45.78 in
+Front track	1668 mm / 65.55 in
+Rear track	1620 mm / 63.67 in
+Weight	1389 kg / 3063 lbs
+CHASSIS
+Structure	Hybrid chassis made from aluminum and carbon fiber
+Body	Outer skin made from aluminum and composite material, High-quality soft top
+Suspension	Aluminum double-wishbone suspension, Steel springs and hydraulic dampers, magneto-rheological damper control available as an option
+ESP	ESC/ABS characteristics adjustable via ANIMA, ESC can be deactivated
+Brakes	Hydraulic dual-circuit brake system with vacuum brake servo unit, 6-piston aluminum calipers at the front, 4-piston aluminum calipers at the rear. Carbon-ceramic discs, ventilated and cross-drilled
+Front	380×38 mm / 14.93 in
+Rear	356×32 mm / 13.99 in
+Steering type	Electromechanical power steering, optional LDS steering with variable steering ratio
+Front tire size	245/30 R20
+Rear tire size	305/30 R20
+Type of tire	Pirelli P Zero Corsa
+Front wheel	8.5 x 20 inch
+Rear wheel	11 x 20 inch
+Type of wheel	Narvi forged alloy wheels, optional Loge center lock wheels
+Mirrors	Electrically controlled exterior mirrors
+Rear spoiler	Standard, with integrated air ducts
+Airbags	Full-size dual-stage front airbags. Full-size lateral airbags. Knee airbags in specific markets.
+ENGINE
+Type	V-10 90 degree, IDS+MPI dual injection, 40 valves, mid mounted (longitudal), four wheel drive
+Cyl. Capacity	5204 cc / 317 ci
+Bore & stroke	84,5 x 92,8 mm
+Valve gear	Intake and exhaust camshafts with continually variable adjustmen
+Compr. Ratio	12.7
+Max. power	640 Bhp at 8000 rpm
+Max. torque	600 Nm at 6500 rpm
+Cooling system	Water and oil cooling systems
+Emission contr.	EURO 6 – LEV 3
+Engine management	Bosch MED 17 Master Slave
+Fuel system 	IDS+MPI dual injection
+Fuel consumption	14 Lit/100 Km
+Lubrication	Dry sump
+Electr. system	12 V
+DRIVETRAIN
+Type	7-speed LDF dual-clutch transmission, shift characteristics variable via ANIMA
+Disc diameter	87 mm / 7.35 in
+Clutch	Double plate
+PERFORMANCE
+Top speed	325 Km/h / 202 Mph
+0 – 100 Km/h	3.10 sec.
+0 – 200 Km/h	9.30 sec.
+CAPACITIES
+Fuel	83 Liter / 22 Gallon
+Luggage	100 Liter / 26 Gallon
+PRICING
+US MSRP	USD 308,859
+European MSRP	219,585 € (2018)
+Current value	None on the second hand market yet, first contracts might be sold at a premium
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
