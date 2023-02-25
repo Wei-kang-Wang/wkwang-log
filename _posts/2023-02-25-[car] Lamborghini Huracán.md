@@ -2127,6 +2127,224 @@ Huracan Performante于2017年3月在纽伯格林赛道以6分52.01秒的单圈�
 {: style="width: 800px; max-width: 100%;"}
 
 
+#### 1.1.1.7 Lamborghini Huracán EVO Coupe
+
+* Years: 2019 - Present
+* Production: Still in Production
+* Engine: 5.2 L Nat Aspirated V10
+* Power: 631 bhp @ 8,000 rpm
+* Torque: 443 ft lbs @ 6,500 rpm
+* 0-60 mph: 2.9 seconds
+* Top Speed: 202 mph
+
+Huracán EVO是Huracan的中期更新。兰博基尼做了很多微调、调整和改进，以使本已出色的Huracan变得更好。
+
+改进空气动力学的新设计+来自Huracán Performante的发动机，使其具有640马力和600牛米的扭矩。
+
+Huracán EVO的特点：
+* 首款具有车辆动态控制预测逻辑的兰博基尼：完全集成的兰博基尼车辆动态控制系统与全轮驱动、全轮转向相结合，重新定义了响应性、敏捷性和驾驶舒适性参数
+* 具有高级连接功能的新信息娱乐系统
+* 改进空气动力学的新设计
+* 从Huracán Performante获得640马力和600牛米扭矩的发动机
+
+兰博基尼汽车推出全新兰博基尼Huracán EVO：下一代V10超级跑车，基于Huracán Performante的实力和性能，并结合了下一代车辆动态控制和空气动力学。
+
+兰博基尼致力于引领超级跑车技术和驾驶情感的最高水平。这就是全新Huracán EVO的精髓所在。它采用了Huracán Performante的非凡能力，并结合了最先进的车辆动态控制，以增强Huracán 的日常驾驶体验。Huracán EVO是进化的真正定义：它向前迈进了一步，重新定义了细分参数。它非常容易驾驶，同时在任何环境中都能提供最灵敏、最感官和最敏捷的驾驶体验。
+
+
+**1. 技术进步放大了驾驶情绪**
+
+Huracán EVO采用5.2升自然吸气式兰博基尼V10发动机，升级后可产生更高的功率输出和动人而强劲的声音，配备钛合金进气阀和精致的轻型排气系统。Huracán EVO在8000转/分时输出640马力（470千瓦），在6500转/分时提供600牛米的扭矩。Huracán EVO的干重为1422千克，重量功率比为2.22千克/马力，0-100公里/小时加速时间为2.9秒，0-200公里/小时加速时间为9.0秒。从100 km/h制动到0仅需31.9 m，最高时速超过325 km/h。
+
+
+**2. 兰博基尼 Dinamica Veicolo Integrata (LDVI)**
+
+Huracán EVO采用新的兰博基尼后轮转向系统和在四个车轮上工作的扭矩矢量系统，而汽车的核心是兰博基尼Dinamica Veicolo Integrata (LDVI) 的新功能：一个中央处理单元，可以控制车辆的各个方面汽车的动态行为，完全集成汽车的所有动态系统和设置以预测驾驶员的下一步行动和需求，将其解释为完美的驾驶动态。
+
+兰博基尼Piattaforma Inerziale (LPI) 是一套全面的加速器和陀螺仪传感器，位于汽车的重心处，已升级至2.0版。 随着精度的提高，它实时监控动态车辆姿态，包括横向、纵向和垂直加速度，以及侧倾、俯仰和偏航率。升级到2.0版的磁流变悬架可根据LPI的输入即时调整阻尼。全新的高级牵引力控制系统与增强的全轮驱动和扭矩矢量控制系统相结合，可根据需要将牵引力引导至单个车轮。
+
+增强型兰博基尼动态转向系统 (LDS) 能够在转弯时提供更高的响应速度，同时需要最低的转向角，现在与后轮转向相结合，以确保低速时的敏捷性，以及高速转弯时的最大稳定性和在最恶劣的条件下制动。
+
+所有这些系统的独特组合由兰博基尼的LDVI控制，以创造出具有无与伦比的控制水平的超级敏捷和反应灵敏的汽车。Huracán EVO实时处理数据，通过方向盘、制动器和油门踏板输入、接合档以及通过ANIMA控制器选择的驾驶模式（STRADA、SPORT或CORSA）识别驾驶员的意图。
+
+通过主动悬架和全轮驱动抓地力估计功能确定外部条件。所有这些信息都由LDVI进行分析和处理，将其转化为车辆动力系统的精确输入。“前馈逻辑”是通过动态控制器实现的，这意味着汽车不仅会做出反应，还会预测下一时刻的最佳驾驶设置。
+
+在STRADA中，Huracán EVO敏捷且能够带来驾驶乐趣，而在SPORT中，它变得有趣、直观且极其令人兴奋。在CORSA中，Huracán EVO敏锐、反应灵敏且令人振奋，适用于最极端的驾驶环境，例如赛道。
+
+**3. 设计：空气动力学优势**
+
+独特的设计定义了Huracán EVO的空气动力学优势和增强的驾驶动态。新的前保险杠赋予汽车低调、自信的个性，但更重要的是通过带有集成翼子板的前分流器确保空气动力学效率。扩大的进气口采用兰博基尼设计DNA中固有的Ypsilon形状。
+
+Huracán EVO的侧面轮廓清晰动感，车窗采用兰博基尼的六边形设计参考，新的车轮设计和新的侧进气口周围。
+
+Huracán EVO在汽车的后部最能唤起内在的力量和活力。新运动型排气系统的双排气口位于汽车后保险杠的高处，与其赛车兄弟中宽阔、开放、裸露的尾部相呼应。在尾部的上端，一个集成的开槽扰流板提供了增强的气流，清楚地表明了汽车的空气动力学能力。
+
+Huracán EVO的空气动力学性能在车身底部得到延续，其形状经过精心设计，可最大限度地提高空气动力学效率：Huracán EVO的新型集成空气动力学造型将下压力和空气动力学效率提高了第一代Huracán的五倍多。
+
+Huracán EVO的存在和目的在其整个设计中产生共鸣，但也在排气的音符中产生共鸣，超级排气声音反映了这款最新兰博基尼增加的动力和动态能力。
+
+**4. 连通性**
+
+全新的8.4英寸HMI电容式触摸屏位于中控台的启动按钮正上方，通过多指手势控制，让驾驶者的指尖连接起来。实时管理汽车功能，包括座椅、气候和LDVI系统的状态，它还将所有信息娱乐系统（例如集成了智能手机的Apple CarPlay）供机舱乘员使用。 多媒体系统结合了互联导航和娱乐功能，包括网络广播和视频播放器。直观的界面允许语音命令并让驾驶员与Siri保持联系。
+
+还通过触摸屏提供了一个可选的双摄像头遥测系统，允许高级遥测记录和分析。还提供集成的大容量硬盘。
+
+**5. 颜色/装饰**
+
+Huracán EVO采用兰博基尼标志性的全新四层颜色Arancio Xanto呈现。专用于EVO的全新20英寸Aesir轮辋与倍耐力P Zero轮胎相得益彰。
+
+在内部，Huracán EVO是一款豪华的驾驶座驾。内饰采用Alcantara和皮革混合的全新EVO专用饰边，Arancio Dryope细节与车身色调相得益彰。
+
+全新的运动型优雅饰件具有多种双色和饰件选项以及高度运动的Alcantara选项。可应要求提供碳锻造复合材料和兰博基尼获得专利的碳皮等轻质材料，并通过机舱内新的可定制环境灯功能突出显示。
+
+Huracán EVO的外观和内饰都旨在最大限度地提高规格的可能性，提供多种新选择，例如各种闪亮的黑色和车身颜色的风格包，以及兰博基尼的Ad Personam计划，为车主提供几乎无限的机会定制他们的兰博基尼。
+
+**SPECS & PERFORMANCE**
+
+**ENGINE**
+* TYPE: V10, 90°, MPI (Multi Point Injection) + DSI (Direct Stratified Injection)
+* DISPLACEMENT: 5.204 cm³ (317.57 cu in)
+* BORE X STROKE: 84,5 x 92,8 mm (3.33 x 3.65 in)
+* COMPRESSION RATIO: 12.7:1
+* MAX. POWER: 640 CV (470 kW) @ 8.000 rpm
+* MAX. TORQUE: 600 Nm (443 lb.-ft.) @ 6.500 rpm
+* WEIGHT-TO-POWER RATIO: 2.22 kg/CV (4.89 lb/CV)
+* LUBRIFICATION: Dry sump
+* EMISSION CLASS: EURO 6 – LEV 3
+* EMISSION CONTROL SYSTEM: Catalytic converters with lambda sensors
+
+**TRANSMISSION**
+* TRANSMISSION TYPE: Electronically controlled all-wheel drive system (Haldex gen. V) with rear mechanical self-locking differential
+* GEARBOX: Dual clutch gearbox LDF (Lamborghini Doppia Frizione) with 7 speeds
+
+**PERFORMANCE**
+* TOP SPEED: km/h >325 (mph > 202)
+* ACCELERATION 0-100 KM/H (MPH 0-62): 2.9 s
+* ACCELERATION 0-200 KM/H (MPH 0-124): 9.0 s
+* BRAKING 100-0 KM/H (MPH 62-0): 31.9 m
+* BODY AND CHASSIS
+* CHASSIS: Hybrid aluminum and carbon fiber
+* BODY: Outer skin made from aluminum and composite material
+* MIRRORS: Heated external mirrors, electrically adjustable and foldable
+* AERODYNAMICS: Front splitter with integrated wing, Underbody with aerodynamic deflectors and rear diffuser, backend with integrated slotted spoiler
+
+**WHEELS**
+* FRONT RIMS: 20’’ Giano casted rims; 8.5 J x 20 ET 42
+* REAR RIMS: 20’’ Giano casted rims; 11 J x 20 ET 40
+* FRONT TIRES: PIRELLI P ZERO 245/30 R20
+* REAR TIRES: PIRELLI P ZERO 305/30 R20
+
+**STEERING AND SUSPENSION**
+* CONTROL SYSTEMS: Electronic Stability Control (integrating ABS and TCS)
+* SUSPENSION TYPE: Magneto-rheological suspension
+* SUSPENSION GEOMETRY: Double wishbone fully independent suspension
+* STEERING TYPE: Lamborghini Dynamic Steering (with variable steering ratio)
+* STEERING SYSTEM: Electro-mechanical Power Steering (EPS) Lamborghini All-Wheel Steering (LAWS)
+
+**BRAKING SYSTEM**
+* BRAKES: Carbon-ceramic brakes with fixed monoblock calipers with 6 pistons (front) and 4 pistons (rear), in aluminum, CCB disks
+* FRONT BRAKES: Carbon-ceramic discs – ventilated and cross drilled with 380 mm diameter and 38 mm thickness
+* REAR BRAKES: Carbon-ceramic discs – ventilated and cross drilled with 356 mm diameter and 32 mm thickness
+
+**SAFETY**
+* AIRBAGS: Driver, passenger and side airgbags; kneels airbags in selected markets
+* PASSIVE SAFETY: Front and rear specific collapsible areas; side protection system
+* ACTIVE SAFETY: Electronic Stability Control (integrating ABS and TCS)
+
+**DIMENSION**
+* LENGTH: mm 4,520 (in 177,9)
+* WIDTH (EXCLUDING MIRRORS): mm 1,933 (in 76,10)
+* WIDTH (INCLUDING MIRRORS): mm 2,236 (in 88,03)
+* HEIGHT: standard suspension mm 1,165 (in 45,86)
+* WHEELBASE: mm 2,620 (in 103,14)
+* DRY WEIGHT: kg 1.422 (lb 3.134)
+* WEIGHT DISTRIBUTION: % 43 / 57
+
+**CONSUMPTION**
+* COMBINED: 14.1 l/100km
+* CO2 EMISSIONS: 338 g/km
+* EMISSION LAW: Reg. EU 715/2007
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/16.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/17.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/18.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/19.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/20.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/21.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/22.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/23.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/24.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/25.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/26.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/27.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
 
 
