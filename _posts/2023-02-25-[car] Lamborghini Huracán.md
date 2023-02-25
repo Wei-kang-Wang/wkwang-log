@@ -1956,76 +1956,76 @@ Huracan Performante于2017年3月在纽伯格林赛道以6分52.01秒的单圈�
 **SPECS & PERFORMANCE**
 
 **GENERAL**
-* Type	Huracan Performante Spyder
-* Years built	2018 – 2019
-* Presentation	March 2018 Geneva Auto Show
+* Type:	Huracan Performante Spyder
+* Years built:	2018 – 2019
+* Presentation:	March 2018 Geneva Auto Show
 * Type of car	Two door Spyder, two seater
 * Designed by	Automobili Lamborghini SpA
 * Built by	Automobili Lamborghini SpA
 
 **DIMENSIONS**
-* Wheelbase	2620 mm / 102.97 in
-* Overall length	4520 mm / 177.64 in
-* Overall width	1933 mm / 75.97 in
-* Overall height	1165 mm / 45.78 in
-* Front track	1668 mm / 65.55 in
-* Rear track	1620 mm / 63.67 in
-* Weight	1389 kg / 3063 lbs
+* Wheelbase:	2620 mm / 102.97 in
+* Overall length:	4520 mm / 177.64 in
+* Overall width:	1933 mm / 75.97 in
+* Overall height:	1165 mm / 45.78 in
+* Front track:	1668 mm / 65.55 in
+* Rear track:	1620 mm / 63.67 in
+* Weight:	1389 kg / 3063 lbs
 
 **CHASSIS**
-* Structure	Hybrid chassis made from aluminum and carbon fiber
-* Body	Outer skin made from aluminum and composite material, High-quality soft top
-* Suspension	Aluminum double-wishbone suspension, Steel springs and hydraulic dampers, magneto-rheological damper control available as an option
-* ESP	ESC/ABS characteristics adjustable via ANIMA, ESC can be deactivated
-* Brakes	Hydraulic dual-circuit brake system with vacuum brake servo unit, 6-piston aluminum calipers at the front, 4-piston aluminum calipers at the rear.
-* Carbon-ceramic discs, ventilated and cross-drilled
-* Front	380×38 mm / 14.93 in
-* Rear	356×32 mm / 13.99 in
-* Steering type	Electromechanical power steering, optional LDS steering with variable steering ratio
-* Front tire size	245/30 R20
-* Rear tire size	305/30 R20
-* Type of tire	Pirelli P Zero Corsa
-* Front wheel	8.5 x 20 inch
-* Rear wheel	11 x 20 inch
-* Type of wheel	Narvi forged alloy wheels, optional Loge center lock wheels
-* Mirrors	Electrically controlled exterior mirrors
-* Rear spoiler	Standard, with integrated air ducts
-* Airbags	Full-size dual-stage front airbags. Full-size lateral airbags. Knee airbags in specific markets.
+* Structure:	Hybrid chassis made from aluminum and carbon fiber
+* Body:	Outer skin made from aluminum and composite material, High-quality soft top
+* Suspension:	Aluminum double-wishbone suspension, Steel springs and hydraulic dampers, magneto-rheological damper control available as an option
+* ESP:	ESC/ABS characteristics adjustable via ANIMA, ESC can be deactivated
+* Brakes:	Hydraulic dual-circuit brake system with vacuum brake servo unit, 6-piston aluminum calipers at the front, 4-piston aluminum calipers at the rear.
+* Carbon-ceramic: discs, ventilated and cross-drilled
+* Front:	380×38 mm / 14.93 in
+* Rear:	356×32 mm / 13.99 in
+* Steering type:	Electromechanical power steering, optional LDS steering with variable steering ratio
+* Front tire size:	245/30 R20
+* Rear tire size:	305/30 R20
+* Type of tire:	Pirelli P Zero Corsa
+* Front wheel:	8.5 x 20 inch
+* Rear wheel:	11 x 20 inch
+* Type of wheel:	Narvi forged alloy wheels, optional Loge center lock wheels
+* Mirrors:	Electrically controlled exterior mirrors
+* Rear spoiler:	Standard, with integrated air ducts
+* Airbags:	Full-size dual-stage front airbags. Full-size lateral airbags. Knee airbags in specific markets.
 
 **ENGINE**
-* Type	V-10 90 degree, IDS+MPI dual injection, 40 valves, mid mounted (longitudal), four wheel drive
-* Cyl. Capacity	5204 cc / 317 ci
-* Bore & stroke	84,5 x 92,8 mm
-* Valve gear	Intake and exhaust camshafts with continually variable adjustmen
-* Compr. Ratio	12.7
-* Max. power	640 Bhp at 8000 rpm
-* Max. torque	600 Nm at 6500 rpm
-* Cooling system	Water and oil cooling systems
-* Emission contr.	EURO 6 – LEV 3
-* Engine management	Bosch MED 17 Master Slave
-* Fuel system 	IDS+MPI dual injection
-* Fuel consumption	14 Lit/100 Km
-* Lubrication	Dry sump
-* Electr. system	12 V
+* Type:	V-10 90 degree, IDS+MPI dual injection, 40 valves, mid mounted (longitudal), four wheel drive
+* Cyl. Capacity:	5204 cc / 317 ci
+* Bore & stroke:	84,5 x 92,8 mm
+* Valve gear:	Intake and exhaust camshafts with continually variable adjustmen
+* Compr. Ratio:	12.7
+* Max. power:	640 Bhp at 8000 rpm
+* Max. torque:	600 Nm at 6500 rpm
+* Cooling system:	Water and oil cooling systems
+* Emission contr.:	EURO 6 – LEV 3
+* Engine management:	Bosch MED 17 Master Slave
+* Fuel system: 	IDS+MPI dual injection
+* Fuel consumption:	14 Lit/100 Km
+* Lubrication:	Dry sump
+* Electr. system:	12 V
 
 **DRIVETRAIN**
-* Type	7-speed LDF dual-clutch transmission, shift characteristics variable via ANIMA
-* Disc diameter	87 mm / 7.35 in
-* Clutch	Double plate
+* Type:	7-speed LDF dual-clutch transmission, shift characteristics variable via ANIMA
+* Disc diameter:	87 mm / 7.35 in
+* Clutch:	Double plate
 
 **PERFORMANCE**
-* Top speed	325 Km/h / 202 Mph
-* 0 – 100 Km/h	3.10 sec.
-* 0 – 200 Km/h	9.30 sec.
+* Top speed:	325 Km/h / 202 Mph
+* 0 – 100 Km/h:	3.10 sec.
+* 0 – 200 Km/h:	9.30 sec.
 
 **CAPACITIES**
-* Fuel	83 Liter / 22 Gallon
-* Luggage	100 Liter / 26 Gallon
+* Fuel:	83 Liter / 22 Gallon
+* Luggage:	100 Liter / 26 Gallon
 
 **PRICING**
-* US MSRP	USD 308,859
-* European MSRP	219,585 € (2018)
-* Current value	None on the second hand market yet, first contracts might be sold at a premium
+* US MSRP:	USD 308,859
+* European MSRP:	219,585 € (2018)
+* Current value:	None on the second hand market yet, first contracts might be sold at a premium
 
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
@@ -2222,7 +2222,8 @@ Huracán EVO的外观和内饰都旨在最大限度地提高规格的可能性�
 * ACCELERATION 0-100 KM/H (MPH 0-62): 2.9 s
 * ACCELERATION 0-200 KM/H (MPH 0-124): 9.0 s
 * BRAKING 100-0 KM/H (MPH 62-0): 31.9 m
-* BODY AND CHASSIS
+
+**BODY AND CHASSIS**
 * CHASSIS: Hybrid aluminum and carbon fiber
 * BODY: Outer skin made from aluminum and composite material
 * MIRRORS: Heated external mirrors, electrically adjustable and foldable
