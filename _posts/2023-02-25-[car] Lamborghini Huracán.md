@@ -2348,9 +2348,125 @@ Huracán EVO的外观和内饰都旨在最大限度地提高规格的可能性�
 {: style="width: 800px; max-width: 100%;"}
 
 
+#### 1.1.1.8 Lamborghini Huracán EVO Spyder
+
+* Years: 2019 - Present
+* Production: Still in Production
+* Engine: 5.2 L Nat Aspirated V10
+* Power: 631 bhp @ 8,000 rpm
+* Torque: 443 ft lbs @ 6,500 rpm
+* 0-60 mph: 3.1 seconds
+* Top Speed: 202 mph
 
 
+#### 1.1.1.9 Lamborghini Huracán EVO RWD
 
+* Years: 2020 - Present
+* Production: Still in Production
+* Engine: 5.2 L Nat Aspirated V10
+* Power: 610 bhp @ 8,000 rpm
+* Torque: 413 ft lbs @ 6,500 rpm
+* 0-60 mph: 3.3 seconds
+* Top Speed: 202 mph
+
+
+#### 1.1.1.10 Lamborghini Huracán EVO RWD Spyder
+
+* Years: 2021 - Present
+* Production: Still in Production
+* Engine: 5.2 L Nat Aspirated V10
+* Power: 610 bhp @ 8,000 rpm
+* Torque: 413 ft lbs @ 6,500 rpm
+* 0-60 mph: 3.5 seconds
+* Top Speed: 201 mph
+
+
+#### 1.1.1.11 Lamborghini Huracán STO Edition
+
+* Years: 2021 - Present
+* Production: Still in Production
+* Engine: 5.2 L Nat Aspirated V10
+* Power: 640 bhp @ 8,000 rpm
+* Torque: 416 ft lbs @ 6,500 rpm
+* 0-60 mph: 3.0 seconds
+* Top Speed: 193 mph
+
+
+#### 1.1.1.12 Lamborghini Huracán EVO Fluo Capsule
+
+* Years: 2021 - Present
+* Production: Still in Production
+* Engine: 5.2 L Nat Aspirated V10
+* Power: 631 bhp @ 8,000 rpm
+* Torque: 443 ft lbs @ 6,500 rpm
+* 0-60 mph: 2.9 seconds
+* Top Speed: 202 mph
+
+
+### 1.1.2 LAMBORGHINI HURACÁN FACTORY SPECIALS
+
+#### 1.1.2.1 Lamborghini Huracán LP Polizia (610-4)
+
+* Year: 2014
+* Production: 1 units
+* Engine: 5.2 L Nat Aspirated V10
+* Power: 610 bhp @ 8,250 rpm
+* Torque: 413 ft lbs @ 6,200 rpm
+* 0-60 mph: 3.2 seconds
+* Top Speed: 202 mph
+
+#### 1.1.2.2 Lamborghini Huracán LP 620-2 Super Trofeo
+
+* Year: 2015 - 2019
+* Production: N/A units
+* Engine: 5.2 L Nat Aspirated V10
+* Power: 612 bhp @ 8,250 rpm
+* Torque: 420 ft lbs @ 6,500 rpm
+* 0-60 mph: N/A
+* Top Speed: 174 mph
+
+#### 1.1.2.3 Lamborghini Huracán Super Trofeo EVO
+
+* Year: 2019 - Present
+* Production: N/A units
+* Engine: 5.2 L Nat Aspirated V10
+* Power: 620 bhp @ 8,250 rpm
+* Torque: 420 ft lbs @ 6,500 rpm
+* 0-60 mph: N/A
+* Top Speed: 174 mph
+
+
+#### 1.1.2.4 Lamborghini Huracán GT3 Race Car
+
+* Year: 2015 - 2019
+* Production: N/A units
+* Engine: 5.2 L Nat Aspirated V10
+* Power: 520 bhp
+* Torque: 376 ft lbs
+* 0-60 mph: N/A
+* Top Speed: N/A
+
+
+#### 1.1.2.5 Lamborghini Huracán GT3 Race Car
+
+* Year: 2015 - 2019
+* Production: N/A units
+* Engine: 5.2 L Nat Aspirated V10
+* Power: 520 bhp
+* Torque: 376 ft lbs
+* 0-60 mph: N/A
+* Top Speed: N/A
+
+
+#### 1.1.2.6 Lamborghini Huracán LP Avio (610-4)
+
+* Year: 2016 - 2017
+* Production: 250 units
+* Engine: 5.2 L Nat Aspirated V10
+* Power: 610 bhp @ 8,250 rpm
+* Torque: 413 ft lbs @ 6,200 rpm
+* 0-60 mph: 3.2 seconds
+* Top Speed: 202 mph
 
 
 
