@@ -3489,13 +3489,13 @@ Huracan GT3是一款仅后轮驱动的车型，前部有巨大的380x34mm钢制�
 
 但是在中国购买Huracán Zhong有一个很好的动机：价格。兰博基尼Huracán LP610-4的标价为429万元人民币（约合68万美元），而这款限量版Zhong的售价仅为350万元人民币（约合55万美元），这是一个非常大的折扣。
 
-![1]({{ '/assets/images/car/Lamborghini/Huracan/zhong/1.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zhong/1.jpeg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![1]({{ '/assets/images/car/Lamborghini/Huracan/zhong/2.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zhong/2.jpeg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![1]({{ '/assets/images/car/Lamborghini/Huracan/zhong/3.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zhong/3.jpeg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
 
