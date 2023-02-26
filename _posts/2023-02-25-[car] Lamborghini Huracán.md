@@ -3601,32 +3601,277 @@ Avio在2016年日内瓦车展上亮相，是Huracán的第一款限量版，带�
 {: style="width: 800px; max-width: 100%;"}
 
 
+# 3. LAMBORGHINI HURACÁN REVISEMENT
+
+## 3.1 LAMBORGHINI HURACÁN SUPER TROFEO EVO2
+The new Lamborghini Huracán Super Trofeo EVO2: racing in style
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/super-trofeo-evo2/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+Automobili Lamborghini SpA于2014年3月在著名的日内瓦车展上向公众推出了Huracán LP610-4，它是广受欢迎的Gallardo的继任者，这是一款V10动力的Raging Bull，所有四个车轮均具有610马力，因此编号为LP610-4。仅仅几个月后，Squadra Corse部门就为这款新的V10准备了一个赛车版本，以接管MY2013 Gallardo Super Trofeo。
+
+在欧洲、北美和亚洲举行的2015兰博基尼宝珀Super Trofeo赛季期间，Gallardo仍然有资格参赛，但它必须与全新的Huracán Super Trofeo并肩作战，后者在“The Quail, A Motorsports”上于2014年8月作为LP620-2全球首发，与新款Huracán的街道版相比多10马力，但仅配备后轮驱动。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/super-trofeo-evo2/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+兰博基尼Super Trofeo系列已经在Gallardo上取得了成功，但当Huracan接手后，事情才真正开始顺利，不久他们又增加了一辆内部开发的Huracán GT3赛车，Squadra Corse部门也成长起来，仅仅三年后，即2017年9月，他们提出了Huracán Super Trofeo汽车的第一次进化，并将其称为Super Trofeo EVO，这是一次大规模的重新设计，将V10变成了一辆外观极具侵略性的汽车（顺便说一下，GT3版本也获得了EVO后缀），另一个重要的变化是宝珀换成了罗杰杜彼。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/super-trofeo-evo2/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+又过了四年，在生产了400多辆兰博基尼Huracán赛车之后，Squadra Corse显然认为有必要在2022赛季再次改进这款成功的单车赛车，并将其称为EVO2。我相信他们可以为这辆全新的Bull for the track想出比“EVO2”更有趣的东西。
+
+一个小细节，但非常有趣，兰博基尼Huracán Super Trofeo和GT3赛车实际上与普通有轨电车在同一条装配线上制造，参观工厂并看到其中一辆超级激进的Super Trofeo EVO2一定很酷。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/super-trofeo-evo2/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+全新的兰博基尼Huracán Super Trofeo EVO2将在2022赛季亮相，这将是该系列赛的第14个赛季，而这个版本的Huracán ST是该系列赛中有史以来性能最高的一款，可以肯定地说，兰博基尼Huracán车型是兰博基尼自1963年以来最畅销的跑车，而在Super Trofeo系列赛中让绅士赛车手和专业人士在赛道上一决高下的选择无疑有助于让这款“Baby Lamborghini”达到前所未有的产量。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/super-trofeo-evo2/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+Super Trofeo锦标赛自2009年开赛以来，共有950名车手在全球著名赛道上进行了超过310小时的角逐，这些定制的Huracán赛车在赛道上挑战极限所积累的经验无疑对赛事的发展起到了推动作用。公路车也是如此，这对两个场馆来说都是双赢的局面，到2021年4月总共建造了400辆纯赛车，我们的目标是通过这款新的Huracán Super Trofeo EVO2达到500辆大关，税前250000欧元，以防万一您已经拥有“旧”兰博基尼Huracán EVO版本，2022年初将提供EVO2规格的转换套件，我们将于5月28日在Le Castellet看到EVO2投入使用，期间兰博基尼Super Trofeo欧洲第二轮比赛。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/super-trofeo-evo2/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+当我们仔细观察新的Huracán Super Trofeo EVO2时，我们注意到前部有一些Sian的影响，开放式挡泥板旁边是新的高强度LED大灯，新前保险杠的整体设计类似于Huracán STO公路汽车，前轮上方的通风口从热盘式制动器中抽取空气，但也将空气引导至侧门槛，增加下压力，同时为后轮进气口创造气流。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/super-trofeo-evo2/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+在后部，我们还注意到新的LED尾灯，它们让我们想起了传奇的兰博基尼Countach，但我们的注意力被吸引到了那个复杂的后扩散器，以及那个巨大、气势磅礴、透明的碳纤维尾翼，它是从各个角度都清楚这辆车是为最佳气流而开发的，在这款Huracán Super Trofeo EVO2的车身上随处可见许多垂直鳍片，我相信这辆车在这种情况下会在极快的速度下保持稳定空气动力学。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/super-trofeo-evo2/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+这不仅是Huracán Super Trofeo EVO2与之前EVO版本区别的外观变化，与之前型号的380 mm单元相比，这款新型号的前制动器采用390 mm转子，但这也允许使用更大的刹车片以获得更好的性能和磨损。发动机仍然是自然吸气的5.2升V10发动机，只有通过X-Trac序列式六速变速箱才能为后轮提供620马力的动力。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/super-trofeo-evo2/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+兰博基尼赛车运动负责人Giorgio Sanna表示：“Super Trofeo是我们客户赛车概念的基础，能够让年轻的天才车手和绅士车手参与进来并激发他们的兴趣。Huracán Super Trofeo EVO2专为这两类车手设计，我们设计它的确切目标是提供更具吸引力的驾驶体验，同时最大限度地关注运行成本。”
 
 
+## 3.2 THE VINCENZO EDIZIONE BY VORSTEINER
+
+这是某种空气套件设计。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vincenzo-edizione/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+令人印象深刻的Huracán STO刚刚在2020年11月由Automobili Lamborghini SpA揭幕，这款合法上路的Super Trofeo赛车最早要到2021年夏季才会交付。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vincenzo-edizione/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+那么，如果您真的喜欢Huracán STO的激进造型，但您真的喜欢Spyder，并且您没有耐心等待Super Trofeo Omolagata开始交付客户怎么办？ 在这种情况下，您可以向Vorsteiner Nero寻求帮助。
+
+问问自己，新款 Huracán STO最令人印象深刻的功能是什么？ 答案可能是发动机盖上令人生畏的通气管和垂直尾翼，这是Vorsteiner Nero Vincenzo Edizione计划中所缺少的。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vincenzo-edizione/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+但是，令人惊叹的空气动力学引擎盖和车轮上方带有通风口的挡泥板只是Vorsteiner Nero令人惊叹的空气动力学套件的一部分，它们还有用于前保险杠的特殊碳矩阵成品部件，一对侧门槛，Vorsteiner的碳矩阵看起来像 兰博基尼自己的锻造复合材料，因此它与Huracán Performante上原厂的后扩散器完美融合。
+
+虽然Vorsteiner的Vincenzo Edizione Program看起来不像STO，您可以将这些空气动力学部件放在兰博基尼Huracán Performante Spyder上，带有许多通风口和敞篷的激进造型V10驾驶，你还能要求什么。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vincenzo-edizione/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+因此，Vorsteiner Nero Vincenzo Edizione计划包括一个带有大型空气通风口和2×2光面底面的替换前引擎盖，带有集成通风口的替换前挡泥板，采用光面碳矩阵制成，一个新的前扰流板适合Performante的原始保险杠，并配有 两侧的垂直稳定器，以及一组完全采用碳矩阵制成的侧门槛，使外观更加完美，在后轮前方设有额外的通风口。
 
 
+## 3.3 ZYRUS LP1200 STRADA
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+兰博基尼Essenza SC-V12的第一批客户汽车在撰写本文时正在交付，这款由Squadra Corse打造的外观精美的V12赛车让少数非常幸运的车主能够在世界各地的赛道上体验驾驶V12兰博基尼。
+
+但这也是Essenza SCV12的主要限制，它是一辆纯赛道车，你不能在开阔的道路上驾驶它，一些车主可能会把他们的SCV12带到街上，但这是非法的。所以如果你想要赛车外观，并且仍被合法允许在街上行驶，来自挪威的Zyrus Engineering为您提供了答案。
+
+Zyrus LP1200 Strada是我们在2020年8月向您展示的早期LP1200-R的限量生产街头合法版本，他们称之为LP1200 V2，它基于兰博基尼Huracán LP640-4（可能是Huracan Performante，以及 不是EVO）。Zyrus更换了工厂标准Huracán的600多个零件，以创建LP1200 Strada。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+为了让Zyrus LP1200 Strada在街道上合法行驶，功率输出被限制在900马力，但只要按下一个按钮，就会释放出1200马力的全部功率，Zyrus定制的Smart Dash只能自然地在赛道上使用，控制系统允许驾驶员完全自定义汽车参数，也可以通过智能手机应用程序实现。
+
+Zyrus经过两年的测试和超过6000公里的测试，为他们的Zyrus LP1200 Strada进行了完美的设置，重量为1427千克，由于高度修改的造型，仍然存在合法上路汽车的所有必要安全措施，Zyrus LP1200 Strada包括一个巨大的尾翼，完全在挪威内部完成，在200公里/小时时具有2010公斤的下压力。
+
+这款令人印象深刻的Zyrus LP1200 Strada的起价为595000欧元（约合730000美元），但其中包括与Zyrus团队和工程师一起在赛道上度过一天，让新车主熟悉他们的LP1200 Strada。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
 
+## 3.4 HURACAN EVO BY NOVITEC
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-novitec/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+德国改装公司Novitec很快就为最新的兰博基尼Huracán EVO提出了完整的改进包，除了少数项目外，所有这些附加组件也可以安装到Spyder版本，我确信新的EVO RWD将在Novitec Torado的绘图桌旁边。
+
+这是Novitec的一款相当适中的套件，完全不像具有更宽轮拱的大型N-Largo版本，或者在兰博基尼发布他们的Performante之前很久就具有更高安装排气装置的Novara，但可以肯定地说这不是第一个Novitec试图改变兰博基尼Huracán的外观，这只是他们过去所做的事情的延续。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-novitec/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+在前部，Novitec为新的EVO保险杠提供了总共三个部件，一个水平安装的中央鳍片，一对垂直安装在进气口上的额外鳍片，以及一个滑过新Y型的透明碳纤维盖EVO前保险杠的形状嵌入，Novitec的所有部件都采用透明碳纤维制成，可以根据客户的喜好进行喷漆。
+
+前行李箱盖可以用Novitec零件替换，它内置的空气管道实际上模仿了Huracán车顶上的“线条”，在一对盖上放置在后视镜的顶部 我们来到Novitec的新侧门槛，这些实际上不像工厂原来的那样具有水平鳍片，碳纤维进气口安装在侧窗后面完成外观。
+
+对于引擎盖，对于双门轿跑车车型，您有两种选择，如果您有工厂安装的玻璃面板引擎盖，您可以在盖上添加一对进气口，但如果您真的想要给人留下深刻印象，您可以更换整个装置带有巨大的N-Largo发动机盖，配有进气口，后一个盖确实需要EVO的额外盖，请注意，这两个都不适合EVO Spyder版本。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-novitec/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+为了完成Huracán EVO的Novitec空气动力学部件，我们可以用透明碳纤维Novitec部件替换原厂原装扩散器（有黑色、亮黑色或车身颜色可供选择），但最令人印象深刻的后部可能是令人惊叹的后部机翼，我真的很喜欢这件作品上支柱的“悬挂”风格。
+
+车轮是添加到汽车上的非常个性化的东西，只是为了提供选择Novitec有两种设计可供选择，一种是NL1 Forged，它是双五辐设计的多件式版本，并使用原装螺栓固定方法。但是，如果您真的想一路走下去，您可以选择Vossen制造的带有中央锁定螺栓的NL4锻造车轮，请注意，如果您没有从工厂订购带有可选Loge锻造车轮的Huracán EVO，您必须获得Novitec中央锁定套件才能安装NL4装置。
+
+所有Novitec车轮前轴尺寸为9×20，后轴尺寸为12.5×21，分别配备倍耐力P-Zero高性能轮胎245/60ZR20和325/25ZR21，您甚至可以在每个车轮后面添加11mm垫片 为了将每个轴上的原始轨道增加22毫米，以防万一你真的想刮掉那个昂贵的前保险杠，Novitec提供了一个35毫米的降低装置，以运动弹簧组的形式出现，请注意，这是一个不同的套件，适用于带 Magneto阻尼器和出厂时没有Magneto选项的汽车。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-novitec/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+虽然Huracán的工厂V10已经提供了非常好的声音，但您始终可以使用Novitec排气系统使其声音更大，该系统有不锈钢或更轻的INCONEL，后者具有金高温热保护，顺便说一下，在这种情况下，您只需添加Novitec的碳纤维排气管嘴即可完成外部的CF外观。
 
 
+## 3.5 LB-SILHOUETTE WORKS HURACAN GT
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+在撰写本文时，还没有兰博基尼Huracan STS或Super Trofeo Stradale，但Kato-San用他的新LB-Silhouette WORKS Huracan GT气动套件为Huracan车主解决了这个问题，它采用宽体转换Liberty Walk已经提供了一个全新的水平。
+
+Kato-San已经为兰博基尼Huracan准备了两个套件，一个是“Normal Fenders”套件，另一个是“Wide body LB Performance”套件，但他似乎被要求更进一步，所以他仔细看了看官方工厂制造了Huracan Super Trofeo并设计了这款新的LB-Silhouette WORKS Huracan GT版本，它实际上将Huracan变成了街头合法赛车。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+因此，如果您拥有一辆兰博基尼Huracan，并且您有40000美元到60000美元的闲置资金，您可以从Liberty Walk购买这款新的气动套件，最便宜的套件由FRP制成，而最昂贵的套件由FRP组合制成，碳纤维增强塑料和干碳。
+
+LB-Silhouette WORKS Huracan GT套件包括一个由FRP制成的前保险杠、下部前分离器（FRP或CFRP）、一个由FRP制成的后保险杠、一个巨大的FRP或CFRP后扩散器。很自然地，一直由FRP制成的宽挡泥板，带有由FRP或CFRP制成的仿制通风口的前罩，然后出现了“昂贵”的物品，那个巨大的尾翼有FRP、CFRP或真正的干碳纤维，就像带有垂直鳍片的新发动机盖一样，同样提供三种不同的材料。
+
+如果您想在Huracan Coupé车型上安装这款令人惊叹的LB-Silhouette WORKS Huracan GT套件，您可以选择提供后挡泥板完全更换的版本，与标准版本相比，价格高出约5000 美元，请注意，这 目前Huracan Spyder不存在该选项，实际上Huracan Spyder套件不包括发动机罩，但价格仍为43850美元至59830美元。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+请记住，仅套件的价格约为60000美元，您必须加上将其安装到Huracan上的价格，这可能需要几个小时才能上漆（或包装） ，所以这可能需要多花几千美元，然后你仍然需要降低悬架，最好是9500美元的Airrex套件。
+
+但是像这款新的LB-Silhouette WORKS Huracan GT这样的宽体改装确实也需要一套新的橡胶，非常宽并且具有正确的偏移量以确保车轮用必要的橡胶填充宽挡泥板，可能会在Lamborghini Huracan本身的价值之上加上大约100000美元的东西。
+
+有关各个零件的更多信息和价格，请访问Liberty Walk的官方LB-Silhouette WORKS Huracan GT页面。
 
 
+## 3.6 PRIOR DESIGN HURACAN PDLP610WB
+![1]({{ '/assets/images/car/Lamborghini/Huracan/pdlp610wb/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+总部位于德国的Prior Design GmbH已经存在多年，但我们已经有一段时间没有看到他们为兰博基尼品牌推出的任何新产品了，早在2012年，我们就审查了他们的Gallardo PD-L800套件，这是一款宽体套件，配有Gallardo车顶铲，而在2016年，我们发现了Gallardo PD-Edition，其车身套件的灵感来自兰博基尼Veneno。今天我们展示了针对Huracan的一个全新的套件，Prior Design并没有让人失望，一个令人惊叹的宽体空气动力学套件，适用于当前的V10车型。
+
+对于他们的第一个Huracan套件，您有几个选择，PDLP610空气动力学套件实际上包括一个非常激进的前保险杠附加组件、一组侧裙和一个同样具有侵略性的后保险杠和扩散器，全部由Fibegall-Duraflex材料制成，将这些零件安装到您的兰博基尼Huracan时不需要修改。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/pdlp610wb/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+在选项列表上，PDLP610WB 'Widening wings'是一个8件式选项，使您的V10比原车更宽。
+
+另一种选择是Prior Design提供的尾翼，目前还没有照片，但如果他们从他们的Gallardo套件中获得灵感，我相信Huracan的新尾翼会很棒。
+
+将Prior Design的悬架套件安装到您的宽体Huracan上，您可能需要稍微小心地过减速带，但这样做看起来会很棒。
+
+有关更多信息和定价，请访问Prior Design GmbH网站。
 
 
+## 3.7 NOVITEC TORADO HURACAN PERFORMANTE
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+Novitec为兰博基尼Huracan Performante打造的全新空气动力学套件完美契合Performante上大量使用的原始兰博基尼锻造复合材料，Novitec称其为“可见碳锻造”，它看起来就像工厂使用的材料。
+
+新的空气动力学套件包括传统的前引擎盖更换，这里Novitec提供碳纤维版本或玻璃纤维版本，两者都完全取代了Huracan上原来的前引擎盖，并增加了一对从前到后的通风口，此外，您可以在前保险杠的侧面添加一对通风口，并在保险杠的中央添加一个新的散热片，所有这些都采用可见的碳锻造。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+对于侧面，Novitec提供了一对采用相同材料的门槛，以取代Performante上的缎面黑色外观，添加一对可见的碳锻造后视镜盖，您可以从侧面获得完整的外观，但还有更多魔力发生在后部，在那里你可以获得一组尾翼附件，使原来的尾翼（ALA系统的一个组成部分）看起来更具威胁性，并且应该同时增加下压力，两个尾翼和一个新的中心件，安装在后部扩散器上，完成碳锻造后部的外观。
+
+外部的另一件事是一组“挡泥板附件”，实际上它看起来像前轮顶部的一对通风口，安装在挡泥板上，就像我们看到的新空气动力学图片一样，套件来自Lamborghini Accessori本身，但我个人最喜欢的Novitec附加组件之一是安装在发动机盖顶部的一对进气口，同样采用可见的碳锻造，它们的高光泽表面看起来很棒。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+Novitec创造了功率优化的钢制排气系统，配备高温热保护，采用开放式赛车风格设计，没有襟翼调节，后扩散器中的两个大型排气尖端发出的声音一定很惊人。
+
+至于车轮，Novitec提供令人惊叹的NL3车轮，六辐“Y”形设计，前轮尺寸为9×20英寸，后轮尺寸为12.5×21英寸，分别配备245/30R20和325/25R21轮胎，以及以防万一您没有从工厂订购Loge中央锁止轮，您可以安装NL3 ZV-Look轮，设计相同但有五个螺栓样式，或者您选择真正的NL3 ZV中央锁止轮并安装Novitec中央锁定套件，可将所有带有5个螺栓模式的Huracan转换为中央锁定装置。
+
+如果您想看到您的Huracan Performante离地稍低，您可以安装Novitec运动弹簧套件，适用于带或不带兰博基尼Magneto选项的汽车，添加一组垫片将使五个螺栓轮进一步移动他们的轮拱外22毫米。
+
+因此，Novitec是第一批为兰博基尼Huracan Performante准备好整套设备的公司之一，它正好适合我们在Performante上获得的锻造复合材料元素，这是对细节的真正关注。
 
 
+## 3.8 HURACAN 1016 INDUSTRIES RENATO AERO KIT
+![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+1016 Industries已经成为高端超级跑车的改装商，当然这也包括当前的兰博基尼系列，他们已经改装了一些Aventador，但我想主要关注的是V10 Huracan型。
+
+目前，专为兰博基尼Huracan Performante开发的专用空气动力学套件已接近尾声，公开揭幕随时都在眼前，但让我们来看看目前可用于Huracan LP610-4和Huracan RWD的Renato套件（包括Coupé或Spyder车型）。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+Renato套件包括一个透明的碳纤维前唇，售价5750美元，这个唇由2×2真空注入的预浸碳纤维制成，带有防紫外线透明涂层，设计延续了LP610-4和RWD的原始线条（两种型号都可以使用不同版本的前唇），同时进一步向前延伸约3英寸。使用下部的角度，改善车身下方的气流，同时增加下压力，前散热器将更多的空气引导到它们上面，使用侧面的垂直散热片，冷空气更好地导入轮舱盘式制动器冷却。
+
+侧裙由FRP（6500美元）、碳纤维（7500美元）或层压碳纤维（9200美元）制成，并再次沿用Huracan的原始线条，只是在后轮前面增加了一个通风孔，用于推动空气到后盘式制动器上，以实现更好的冷却效果，并在Huracan的侧面轮廓上营造出更具侵略性的风格。
+
+来自1016 Industries的大型后扩散器目前仅适用于Huracan LP610-4车型，售价7350美元，这种预浸碳纤维装置再次看起来令人印象深刻，并有效地扩展了Huracan的轮廓以获得更好的气流，端板确保了Bull即使在高速下也能保持稳定。
+
+由碳纤维制成的尾翼标价为6795美元，但配备了非常漂亮的垂直支柱和碳纤维底座，该尾翼的整个结构直接用螺栓固定在Huracan的车架上，以实现终极稳定性。但最好的部分是支柱的可能性，客户有三种选择，标准的支柱将尾翼固定到位，具有最大下压力，但对最高速度有负面影响。您也可以选择专为最高速度而设计的“短型”支柱，因为尾翼的间距较小，但这种设置仍能提供稳定性和下压力。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+1016 Industries的Renato套件的最新成员是碳纤维引擎盖，它用源自赛车运动的设计取代了Huracan引擎盖的标准，显示了两个通风口（实际上是模拟勺子），再次可用于FRP（ 6500美元）、碳纤维（7500美元）和层压碳纤维（9200美元），这种定制引擎盖保持了前部行李空间的使用，同时比兰博基尼的原始装置更轻。
+
+以防万一您想要拥有与Renato Huracan的外观相匹配的动力，1016 Industries提供定制的ECU和TCU调整，将原始功率输出从610hp增加到640hp和448lb-ft的扭矩，添加定制排气装置系统的Huracan被增加到670马力。
 
 
+## 3.9 NOVITEC TORADO HURACAN N-LARGO SPYDER
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
+当Novitec Torado于2015年12月为兰博基尼Huracan推出他们的N-Largo套件时，许多人认为发布的谍照实际上是Huracan Performante的照片，但那辆蓝色轿跑车是一款非常令人印象深刻的宽体空气动力学改装套件。Novitec花了将近18个月的时间才为Huracan Spyder发布了令人印象深刻的外观包。
 
+但是新的Novitec Torado Huracan Spyder N-Largo并不是为了安装在Spyder上而对轿跑车套件进行的简单修改，Novitec与Huracan N-Largo的原始设计师Vittorio Strosek一起对这种碳纤维进行了一些宽体套件的修改。
 
+检查那个宽大的前保险杠侧面的额外通风口，在这辆绿色的Huracan Spyder上，后轮前面出现了一个非常漂亮的有角度的通风口，现在宽204厘米，这些通风口有助于冷却后盘式制动器，那些12厘米宽的后挡泥板。
 
+如果您仔细观察那些宽大的前挡泥板（比标准宽3厘米）的顶部，您还会注意到在轮拱顶部切割了三个通风孔以排出盘式制动器的热量，而巨大的黑色车轮外观与双门轿跑车版本相同，9×20和12.5×21英寸的轻型NL2锻造轮毂以及倍耐力前后的245/30 ZR 20和325/25 ZR 21 P Zero's。
 
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
+在这辆来自Novitec的Verde Mantis演示Huracan Spyder上安装了一个大而透明的碳纤维尾翼，而带有集成通风口的非常特殊的前引擎盖也可以用透明碳纤维订购，因此它在降低时与尾翼相匹配 弹簧可以使Huracan Spyder距离赛道更近35毫米。
 
+如果您想在您的Huracan Spyder N-Largo中获得更雷鸣般的声音，可以使用Novitec Inconel排气系统，带或不带蝶阀以产生更响亮的音轨，这可能不是每个国家的街头合法。
 
+对于Coupé版本，Novitec在工程中配备了一个增压器，可以将功率从工厂最初的610马力提高到巨大的860马力，并且只会创建25个Huracan N-Largo。现在Huracan Spyder N-Largo更加有限， 增压器仍在开发中，全球将仅建造11台。
 
-
+如果您正在寻找风格更具侵略性的兰博基尼Huracan Spyder，这款Novitec Torado N-Largo套件可能是完美的答案。我们都知道Huracan Performante Spyder将很快亮相，但这无论如何都不是宽体。
 
 
 
