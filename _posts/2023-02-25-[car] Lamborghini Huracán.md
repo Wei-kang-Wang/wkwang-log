@@ -34,14 +34,14 @@ Aerodinamica Lamborghini Attiva (ALA)，兰博基尼的主动空气动力学系�
 
 尽管2020年的官方生产数据尚未公布，但此时Huracán从Gallardo手中夺得兰博基尼有史以来最畅销汽车的头衔只是时间问题。兰博基尼在2019年底宣布已生产14022辆Huracán，与Gallardo的数量相当。Huracán预计有10年的生产周期，因此在其生命周期结束时应该可以轻松超过这个数字。
 
-## 1.1 LAMBORGHINI HURACÁN MODELS: Huracan production, factory specials and tuner one-offs
+# 2. LAMBORGHINI HURACÁN MODELS: Huracan production, factory specials and tuner one-offs
 
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-### 1.1.1 AMBORGHINI HURACÁN PRODUCTION MODELS
+### 2.1 AMBORGHINI HURACÁN PRODUCTION MODELS
 
-#### 1.1.1.1 Lamborghini Huracán LP 610-4
+#### 2.1.1 Lamborghini Huracán LP 610-4
 
 * Years: 2014 - 2019
 * Production: N/A units
@@ -541,7 +541,7 @@ Huracán内部V10发动机的动力通过7速LDF变速箱输送到道路上，�
 {: style="width: 800px; max-width: 100%;"}
 
 
-#### 1.1.1.2 Lamborghini Huracán LP 610-4 Spyder
+#### 2.1.2 Lamborghini Huracán LP 610-4 Spyder
 
 * Years: 2015 - 2019
 * Production: N/A units
@@ -871,7 +871,7 @@ Huracán内部V10发动机的动力通过7速LDF变速箱输送到道路上，�
 {: style="width: 800px; max-width: 100%;"}
 
 
-#### 1.1.1.3 Lamborghini Huracán LP580-2
+#### 2.1.3 Lamborghini Huracán LP580-2
 
 * Years: 2016 - 2019
 * Production: N/A units
@@ -1029,8 +1029,7 @@ LP580-2是流行的新型V10车型的后轮驱动版本，发动机略微失谐�
 {: style="width: 800px; max-width: 100%;"}
 
 
-
-#### 1.1.1.4 Lamborghini Huracán RWD Spyder
+#### 2.1.4 Lamborghini Huracán RWD Spyder
 
 * Years: 2017 - 2019
 * Production: N/A units
@@ -1189,7 +1188,7 @@ Huracan RWD Spyder的标准配置是19英寸Kari车轮，配备钢制盘式制�
 {: style="width: 800px; max-width: 100%;"}
 
 
-#### 1.1.1.5 Lamborghini Huracán Performante
+#### 2.1.5 Lamborghini Huracán Performante
 
 * Years: 2017 - 2019
 * Production: N/A units
@@ -1927,7 +1926,7 @@ Current value	The Huracan Performante is not yet available on the second hand ma
 {: style="width: 800px; max-width: 100%;"}
 
 
-#### 1.1.1.6 Lamborghini Huracán Performante Spyder
+#### 2.1.6 Lamborghini Huracán Performante Spyder
 
 * Years: 2018 - 2019
 * Production: N/A units
@@ -2127,7 +2126,7 @@ Huracan Performante于2017年3月在纽伯格林赛道以6分52.01秒的单圈�
 {: style="width: 800px; max-width: 100%;"}
 
 
-#### 1.1.1.7 Lamborghini Huracán EVO Coupe
+#### 2.1.7 Lamborghini Huracán EVO Coupe
 
 * Years: 2019 - Present
 * Production: Still in Production
@@ -2348,7 +2347,7 @@ Huracán EVO的外观和内饰都旨在最大限度地提高规格的可能性�
 {: style="width: 800px; max-width: 100%;"}
 
 
-#### 1.1.1.8 Lamborghini Huracán EVO Spyder
+#### 2.1.8 Lamborghini Huracán EVO Spyder
 
 * Years: 2019 - Present
 * Production: Still in Production
@@ -2515,7 +2514,7 @@ ACTIVE SAFETY: Electronic Stability Control (integrating ABS and TCS)
 {: style="width: 800px; max-width: 100%;"}
 
 
-#### 1.1.1.9 Lamborghini Huracán EVO RWD
+#### 2.1.9 Lamborghini Huracán EVO RWD
 
 * Years: 2020 - Present
 * Production: Still in Production
@@ -2674,7 +2673,7 @@ ACTIVE SAFETY: Electronic Stability Control (integrating ABS and TCS)
 {: style="width: 800px; max-width: 100%;"}
 
 
-#### 1.1.1.10 Lamborghini Huracán EVO RWD Spyder
+#### 2.1.10 Lamborghini Huracán EVO RWD Spyder
 
 * Years: 2021 - Present
 * Production: Still in Production
@@ -2776,7 +2775,7 @@ Huracán EVO RWD Spyder的首批交付时间为2020年夏季，建议零售价�
 {: style="width: 800px; max-width: 100%;"}
 
 
-#### 1.1.1.11 Lamborghini Huracán STO Edition
+#### 2.1.11 Lamborghini Huracán STO Edition
 
 * Years: 2021 - Present
 * Production: Still in Production
@@ -2978,7 +2977,7 @@ Huracán STO的内饰继续减重计划，大量使用碳纤维、Alcantara，�
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/35.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-#### 1.1.1.12 Lamborghini Huracán STO Fluo Capsule
+#### 2.1.12 Lamborghini Huracán STO Fluo Capsule
 
 * Years: 2021 - Present
 * Production: Still in Production
@@ -3096,9 +3095,9 @@ Automobili Lamborghini SpA从不久前推出的Urus中汲取了“Capsule”理�
 {: style="width: 800px; max-width: 100%;"}
 
 
-### 1.1.2 LAMBORGHINI HURACÁN FACTORY SPECIALS
+### 2.2 LAMBORGHINI HURACÁN FACTORY SPECIALS
 
-#### 1.1.2.1 Lamborghini Huracán LP Polizia (610-4)
+#### 2.2.1 Lamborghini Huracán LP Polizia (610-4)
 
 * Year: 2014
 * Production: 1 units
@@ -3135,7 +3134,7 @@ Huracan系列尚未交付任何客户汽车，经销商演示车正准备交付�
 {: style="width: 800px; max-width: 100%;"}
 
 
-#### 1.1.2.2 Lamborghini Huracán LP 620-2 Super Trofeo
+#### 2.2.2 Lamborghini Huracán LP 620-2 Super Trofeo
 
 * Year: 2015 - 2019
 * Production: N/A units
@@ -3215,7 +3214,7 @@ Huracán LP 620-2 Super Trofeo是Huracán的赛车版，用于2015年兰博基�
 {: style="width: 800px; max-width: 100%;"}
 
 
-#### 1.1.2.3 Lamborghini Huracán Super Trofeo EVO
+#### 2.2.3 Lamborghini Huracán Super Trofeo EVO
 
 * Year: 2019 - Present
 * Production: N/A units
@@ -3364,7 +3363,7 @@ Huracán LP 620-2 Super Trofeo EVO是Huracán LP 620-2 Super Trofeo的继任者�
 {: style="width: 800px; max-width: 100%;"}
 
 
-#### 1.1.2.4 Lamborghini Huracán GT3 Race Car
+#### 2.2.4 Lamborghini Huracán GT3 Race Car
 
 * Year: 2015 - 2019
 * Production: N/A units
@@ -3475,7 +3474,7 @@ Huracan GT3是一款仅后轮驱动的车型，前部有巨大的380x34mm钢制�
 {: style="width: 800px; max-width: 100%;"}
 
 
-#### 1.1.2.5 Lamborghini Huracán Zhong
+#### 2.2.5 Lamborghini Huracán Zhong
 
 * Year: 2015
 * Production: 50 units
@@ -3500,7 +3499,7 @@ Huracan GT3是一款仅后轮驱动的车型，前部有巨大的380x34mm钢制�
 
 
 
-#### 1.1.2.6 Lamborghini Huracán LP Avio (610-4)
+#### 2.2.6 Lamborghini Huracán LP Avio (610-4)
 
 * Year: 2016 - 2017
 * Production: 250 units
