@@ -2358,6 +2358,162 @@ Huracán EVO的外观和内饰都旨在最大限度地提高规格的可能性�
 * 0-60 mph: 3.1 seconds
 * Top Speed: 202 mph
 
+Huracán EVO Spyder作为兰博现代V10系列的第二款车型，配备了与硬顶相同的动力装置，即自然吸气的5.2升动力装置。
+
+“Huracán EVO Spyder融合了EVO coupé的所有性能、下一代车辆控制和空气动力学特性，具有独特的个性和只有敞篷车才能提供的驾驶乐趣，”董事长兼首席执行官Stefano Domenicali说。 Spyder延续了Huracán EVO的进化冲锋：极其容易驾驶，同时作为一款反应灵敏、充满乐趣的超级跑车而出类拔萃。特别是车顶打开时，自然吸气发动机动人的声音和精致轻巧的排气系统将感官体验提升到一个新的水平。Huracán EVO Spyder的设计、性能和令人振奋的露天驾驶体验简直令人叹为观止。
+
+**SPECS & PERFORMANCE**
+
+**ENGINE**
+* TYPE: V10, 90°, MPI (Multi Point Injection) + DSI (Direct Stratified Injection)
+* DISPLACEMENT: 5.204 cm³ (317.57 cu in)
+* BORE X STROKE: 84,5 x 92,8 mm (3.33 x 3.65 in)
+* COMPRESSION RATIO: 12.7:1
+* MAX. POWER: 640 CV (470 kW) @ 8.000 rpm
+* MAX. TORQUE: 600 Nm (443 lb.-ft.) @ 6.500 rpm
+* WEIGHT-TO-POWER RATIO: 2.22 kg/CV (4.89 lb/CV)
+* LUBRIFICATION: Dry sump
+* EMISSION CLASS: EURO 6 – LEV 3
+* EMISSION CONTROL SYSTEM: Catalytic converters with lambda sensors
+
+**TRANSMISSION**
+* TRANSMISSION TYPE: Electronically controlled all-wheel drive system (Haldex gen. V) with rear mechanical self-locking differential
+* GEARBOX: Dual clutch gearbox LDF (Lamborghini Doppia Frizione) with 7 speeds
+
+**PERFORMANCE**
+* TOP SPEED: km/h >325 (mph > 202)
+* ACCELERATION 0-100 KM/H (MPH 0-62): 3.1 s
+* ACCELERATION 0-200 KM/H (MPH 0-124): 9.3 s
+* BRAKING 100-0 KM/H (MPH 62-0): 31.9 m
+
+**BODY AND CHASSIS**
+* CHASSIS: Hybrid aluminum and carbon fiber
+* BODY: Outer skin made from aluminum and composite material
+* TOP ROOF: Electrically foldable soft top roof
+* MIRRORS: Heated external mirrors, electrically adjustable and foldable
+* AERODYNAMICS: Front splitter with integrated wing, Underbody with aerodynamic deflectors and rear diffuser, backend with integrated slotted spoiler
+
+**WHEELS**
+* FRONT RIMS: 20’’ Giano casted rims; 8.5 J x 20 ET 42
+* REAR RIMS: 20’’ Giano casted rims; 11 J x 20 ET 40
+* FRONT TIRES: PIRELLI P ZERO 245/30 R20
+* REAR TIRES: PIRELLI P ZERO 305/30 R20
+
+**STEERING AND SUSPENSION**
+* CONTROL SYSTEMS: Electronic Stability Control (integrating ABS and TCS)
+* SUSPENSION TYPE: Magneto-rheological suspension
+* SUSPENSION GEOMETRY: Double wishbone fully independent suspension
+* STEERING TYPE: Lamborghini Dynamic Steering (with variable steering ratio)
+* STEERING SYSTEM: Electro-mechanical Power Steering (EPS) Lamborghini All-Wheel Steering (LAWS)
+
+**BRAKING SYSTEM**
+* BRAKES: Carbon-ceramic brakes with fixed monoblock calipers with 6 pistons (front) and 4 pistons (rear), in aluminum, CCB disks
+* FRONT BRAKES: Carbon-ceramic discs – ventilated and cross drilled with 380 mm diameter and 38 mm thickness
+* REAR BRAKES: Carbon-ceramic discs – ventilated and cross drilled with 356 mm diameter and 32 mm thickness
+
+**SAFETY**
+AIRBAGS: Driver, passenger and side airgbags; kneels airbags in selected markets
+PASSIVE SAFETY: Front and rear specific collapsible areas; side protection system
+ACTIVE SAFETY: Electronic Stability Control (integrating ABS and TCS)
+
+**DIMENSION**
+* LENGTH: 4,520 mm (177.95 in)
+* WIDTH (EXCLUDING MIRRORS): 1,933 mm (76.10 in)
+* WIDTH (INCLUDING MIRRORS): 2,236 mm (88.03 in)
+* HEIGHT: 1,180 mm (46.46 in)
+* WHEELBASE: 2,620 mm (103.15 in)
+* FRONT TRACK: 1,668 mm (65.67 in)
+* REAR TRACK: 1,620 mm (63.78 in)
+* DRY WEIGHT: 1,542 kg (3,400 lb)
+* WEIGHT/POWER RATIO: 2.40 kg/CV (5.29 lb/CV)
+* WEIGHT DISTRIBUTION: 43% – 57%
+
+**CONSUMPTION**
+* COMBINED: 14.1 l/100km
+* CO2 EMISSIONS: 338 g/km
+* EMISSION LAW: Reg. EU 715/2007
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/16.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/17.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/18.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/19.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/20.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/21.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/22.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/23.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/24.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/25.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/26.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-spyder/27.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
 
 #### 1.1.1.9 Lamborghini Huracán EVO RWD
 
@@ -2370,6 +2526,149 @@ Huracán EVO的外观和内饰都旨在最大限度地提高规格的可能性�
 * Top Speed: 202 mph
 
 
+当 Automobili Lamborghini SpA 在 2015 年底（在日内瓦推出 Huracan 大约 20 个月后）创建了原始 Huracan LP610-4 的后轮驱动版本时，他们将其称为 RWD，但有些人知道这也是 LP580-2 模型，典型的 LP 代表 Longitudinal Posteriore（中间安装在纵向位置），580 是 V10 发动机的马力，2 代表两轮驱动或后轮驱动。 在这种情况下，4 自然代表 AWD 或四轮驱动。
+
+兰博基尼已经放弃了 Aventador 和 Huracán 的整个 LP 名称，今天我们有 Aventador S 和 SVJ，以及 Huracán EVO（Performante 不再生产）......现在他们增加了 Huracán EVO Rear -Wheel Drive，或 RWD ……虽然 EVO 具有 640 hp 的功率，但这款新的 EVO RWD 已失谐至 610 hp，就像之前的型号分别为 610 hp 和 580 hp 一样。
+
+兰博基尼 Huracán EVO RWD 专为那些能够承受仅后轮下降 610 马力的人提供更多驾驶乐趣……在潮湿或积雪的道路上。 兰博基尼高性能牵引力控制系统 (P-TCS) 已针对此版本的 Huracán 进行了专门修改，即使在漂移时也能提供扭矩，从而在转弯时提供更好的牵引力。
+
+这个P-TCS很自然地与方向盘上的ANIMA设置相结合，驾驶模式仍然是STRADA、SPORT和CORSA……或者应该是‘安全’、‘有趣’……和‘麻烦’？ 请记住，Huracán EVO RWD 仅重 1,389 公斤，因此她提供 2.28 公斤/马力的功率重量比和前后 40/60 的重量分配。
+
+早在 2015 年，Huracán LP580-2 就推出了新的 19 英寸 Kari 轮毂，EVO RWD 也提供了这些轮毂，但兰博基尼现在也推出了 19 英寸 Vanir 轮辋，有银色或黑色可供选择……如果 如果您想变大，可以选择 20 英寸的 Aesir 轮辋或 20 英寸的交叉辐条 Narvi 锻造轮毂。 这些车轮覆盖了标准配置的钢制盘式制动器，但碳陶瓷制动器可作为选装件提供。
+
+在外观上，除了车轮外，Huracán EVO RWD 还可以通过全新的前后设计来区分，前保险杠的外部进气口设计更具侵略性，配有垂直鳍片，而后扩散器也 获得不同的造型，只是为了确保您不会将这款新的“驾驶员”汽车误认为是四驱车。
+
+兰博基尼 Huracán EVO RWD 可以订购全新的 Giallo Belenus 黄色油漆，将于 2020 年春季开始交付，欧洲价格为 159,443 欧元，美国价格为 208,571 美元……两种价格均不含税，将于 2019 年春季发货 Huracán EVO 的定价分别为 184,034 欧元和 261,274 美元，因此 RWD 版本的价格要便宜得多。
+
+接下来可能是 Huracán EVO RWD 的 Spyder 版本，兰博基尼没有理由不在稍后提供这款后轮驱动版本作为敞篷车。
+
+
+**SPECS & PERFORMANCE**
+
+GENERAL
+Type	Huracán EVO RWD
+Years built	2020 –
+Presentation	Sant’Agata Bolognese, 4 January 2020
+Type of car	Two door coupé, two seater berlinetta
+Designed by	Automobili Lamborghini SpA
+Built by	Automobili Lamborghini SpA
+DIMENSIONS
+Wheelbase	2620 mm / 102.97 in
+Overall length	4520 mm / 177.64 in
+Overall width	1933 mm / 75.97 in
+Overall height	1165 mm / 45.78 in
+Front track	1668 mm / 65.55 in
+Rear track	1620 mm / 63.67 in
+Weight	1389 kg / 3063 lbs
+CHASSIS
+Structure	Hybrid chassis made from aluminum and carbon fiber
+Body	Outer skin made from aluminum and composite material
+Suspension	Aluminum double-wishbone suspension, Steel springs and hydraulic dampers. MagneRide” electromagnetic damper control available as an option
+ESP	ESC/ABS characteristics can be adjusted via ANIMA, ESC can be deactivated
+Brakes	Hydraulic dual-circuit brake system with vacuum brake servo unit, 8-piston aluminum calipers at the front, 4-piston aluminum calipers at the rear
+Front	365×34 mm / 14.34 in
+Rear	356×32 mm / 13.99 in
+Steering type	Electromechanical power steering, LDS steering with variable steering ratio as an option
+Turning circle	11,5 m / 36 ft
+Front tire size	245/35 ZR 19
+Rear tire size	305/35 ZR 19
+Type of tire	Pirelli P Zero
+Front wheel	8,5 x 19 inch
+Rear wheel	11 x 19 inch
+Type of wheel	Kari Monoblock alloy wheels
+Mirrors	Electrically controlled exterior mirrors
+Airbags	Full size dual-stage front airbags. Full size lateral airbags. Knee airbags in specific markets.
+ENGINE
+Type	V-10 90 degree, IDS+MPI dual injection, 40 valves, mid mounted (longitudal), rear wheel drive
+Cyl. Capacity	5204 cc / 317 ci
+Bore & stroke	84,5 x 92×8 mm
+Valve gear	Intake and exhaust camshafts with continually variable adjustment
+Compr. Ratio	12.7
+Max. power	610 Bhp at 8000 rpm
+Max. torque	560 Nm at 6500 rpm
+Cooling system	Water and oil cross flow cooling
+Emission contr.	Euro 6 – LEV 3
+Engine management	Bosch MED 17 Master Slave
+Electr. system	IDS+MPI dual injection
+Fuel consumption	13,8 Lit/100 Km
+Lubrication	Dry sump
+Electr. system	12 V
+DRIVETRAIN
+Type	7-speed LDF dual-clutch transmission, shift characteristics variable via ANIMA
+Disc diameter	187 mm / 7.35 in
+Clutch	Double plate
+PERFORMANCE
+Top speed	325 Km/h / 202 Mph
+0 – 100 Km/h	3.30 sec.
+0 – 200 Km/h	9.30 sec.
+CAPACITIES
+Fuel	83 Liter / 22 Gallon
+Luggage	100 Liter / 26 Gallon
+PRICING
+US MSRP	USD 208,571
+European MSRP	159,443 € (2020)
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/16.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/17.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/18.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/19.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/20.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
 #### 1.1.1.10 Lamborghini Huracán EVO RWD Spyder
 
 * Years: 2021 - Present
@@ -2379,6 +2678,92 @@ Huracán EVO的外观和内饰都旨在最大限度地提高规格的可能性�
 * Torque: 413 ft lbs @ 6,500 rpm
 * 0-60 mph: 3.5 seconds
 * Top Speed: 201 mph
+
+Huracán EVO RWD Spyder专为那些相信纯粹的驾驶乐趣和兴奋的人而设计，这种体验因敞篷性能带来的肾上腺素而得到提升。伴着风在发间探索新的道路，伴着引擎的声音心跳加速，让您在加速时获得无与伦比的自由感。当您“回到后轮驱动”并沉浸在兰博基尼的触觉和机械纯粹性中时，魔力就会展现出来。
+
+当 Automobili Lamborghini SpA 在 2020 年 1 月推出 Huracán EVO RWD 时，我们都知道管道中也会有 Spyder 版本，他们又花了 5 个月才真正推出 2020 年兰博基尼 Huracàn EVO RWD Spyder 的新车型，后轮 驾驶敞篷超级跑车，让您有机会享受耳后咆哮的 V10，甚至更好地坐在 Sant'Agata 最新款的驾驶员座椅上。
+
+早在 1 月份，我就已经对 RWD Spyder 的 EVO 版本的外观进行了虚拟渲染，这并不难，因为我们都知道从 coupe 到 spyder 的转换是如何在原始的 Huracán LP610-1 上进行的，第一个 RWD 或 LP580-2，以及最近的 Huracán EVO……看来我是对的……EVO RWD Spyder 看起来和我五个月前想象的一模一样。
+
+与全轮驱动的 Huracán EVO 相比，Huracán EVO RWD Spyder 具有相同的改进前后部分，并且与 EVO 的 640 hp 相比，功率降低至 610 hp。 另请注意，Huracán EVO RWD Spyder 在 19 英寸 Kari 车轮后面标配通风交叉钻孔钢制制动器，碳陶瓷盘式制动器和 20 英寸车轮可选。
+
+当比赛转向面板时，Huracán EVO RWD Spyder 仍然使用软顶，但折叠式软顶确实让我们想起了过去真正的 spyder 车型，而且关闭时的体验无论如何都非常接近双门轿跑车。 只需 17 秒，车顶就可以降低或升高，即使以高达 50 公里/小时（31 英里/小时）的速度行驶时也是如此……顺便说一下，车顶有多种不同的色调可供选择。
+
+当然，Huracán EVO RWD Spyder 的中控台上仍然保留着 8.4 英寸的大型 HMI 触摸屏，它是当今多媒体系统的中心，可以控制电话、互联网访问、Apple Car Play、更改设置的方式，当然还有完整的导航功能 系统。
+
+如果 Huracán EVO RWD Spyder 提供的一长串常规选项不足以满足客户需求，Ad Personam 团队将非常乐意将这款车的底价提高到前所未有的高度。
+
+Huracán EVO RWD Spyder 的首批交付时间为 2020 年夏季，建议零售价为 175,838 欧元（欧洲）、229,428 美元（美国），税前价格远低于 202,437 欧元或 287,400 美元的税前价格 Huracán EVO Spyder（2019 年 2 月），仅略高于 Huracán EVO RWD 轿跑车的定价，159,444 欧元或 208,571 美元。
+
+**SPECS & PERFORMANCE**
+
+GENERAL
+Type	Huracan EVO RWD Spyder
+Years built	2020 –
+Presentation	Virtually using AR in May 2020
+Type of car	Two door spyder, two seater
+Designed by	Automobili Lamborghini SpA
+Built by	Automobili Lamborghini SpA
+DIMENSIONS
+Wheelbase	2620 mm / 102.97 in
+Overall length	4520 mm / 177.64 in
+Overall width	1933 mm / 75.97 in
+Overall height	1180 mm / 46.37 in
+Front track	1668 mm / 65.55 in
+Rear track	1620 mm / 63.67 in
+Weight	1509 kg / 3327 lbs
+Distribution	40/60 % front / rear
+CHASSIS
+Structure	Hybrid chassis made from aluminum and carbon fiber
+Body	Outer skin made from aluminum and composite material, high quality soft top
+Suspension	Aluminum double-wishbone suspension, Steel springs and hydraulic dampers. MagneRide” electromagnetic damper control available as an option
+ESP	ESC/ABS characteristics can be adjusted via ANIMA, ESC can be deactivated
+Brakes	Hydraulic dual-circuit brake system with vacuum brake servo unit, 8-piston aluminum calipers at the front, 4-piston aluminum calipers at the rear
+Front	365×34 mm / 14.34 in
+Rear	356×32 mm / 13.99 in
+Steering type	Electromechanical power steering, LDS steering with variable steering ratio as an option
+Turning circle	11,5 m / 36 ft
+Front tire size	245/35 ZR 19
+Rear tire size	305/35 ZR 19
+Type of tire	Pirelli P Zero
+Front wheel	8,5 x 19 inch
+Rear wheel	11 x 19 inch
+Type of wheel	Kari Monoblock alloy wheels
+Mirrors	Electrically controlled exterior mirrors
+Rear spoiler	Fixed
+Airbags	Full size dual-stage front airbags. Full size lateral airbags. Knee airbags in specific markets.
+ENGINE
+Type	V-10 90 degree, IDS+MPI dual injection, 40 valves, mid mounted (longitudal), rear wheel drive
+Cyl. Capacity	5204 cc / 317 ci
+Bore & stroke	84,5 x 92×8 mm
+Valve gear	Intake and exhaust camshafts with continually variable adjustment
+Compr. Ratio	12.7
+Max. power	610 Bhp at 8000 rpm
+Max. torque	560 Nm at 6500 rpm
+Cooling system	Water and oil cross flow cooling
+Emission contr.	Euro 6
+Engine management	Bosch MED 17 Master Slave
+Fuel system	IDS+MPI dual injection
+Fuel consumption	13.9 Lit/100 Km
+Lubrication	Dry sump
+Electr. system	12 V
+DRIVETRAIN
+Type	7-speed LDF dual-clutch transmission, shift characteristics variable via ANIMA
+Disc diameter	187 mm / 7.35 in
+Clutch	Double plate
+PERFORMANCE
+Top speed	324 Km/h / 201 Mph
+0 – 100 Km/h	3.50 sec.
+0 – 200 Km/h	9.60 sec.
+CAPACITIES
+Fuel	83 Liter / 22 Gallon
+Luggage	100 Liter / 26 Gallon
+PRICING
+US MSRP	USD 229,428
+European MSRP	175,838 € (2020)
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd-spyder/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
 
 #### 1.1.1.11 Lamborghini Huracán STO Edition
@@ -2391,6 +2776,192 @@ Huracán EVO的外观和内饰都旨在最大限度地提高规格的可能性�
 * 0-60 mph: 3.0 seconds
 * Top Speed: 193 mph
 
+兰博基尼现在有一辆可以与保时捷911 GT3 RS相媲美的汽车。它是兰博基尼Huracan STO（Super Trofeo Omologata），兰博基尼在经过一些预告和泄漏后现在已经公开了它。顾名思义，这款车是GT3赛车和Huracan公路车中的佼佼者。这是终极的Huracan公路车。STO基于Huracan Evo。这是一款轻型机器，具有研发部门和Squada Corsa可以组合在一起的最佳空气动力学性能。这是兰博基尼阵容中的当下车型。
+
+期待已久的兰博基尼 Huracán STO 终于在传闻数月后亮相，甚至早在 2020 年 3 月就出现了一些谍照，但之后变得非常安静……直到 2020 年 11 月 18 日，他们展示了 Blu Laufey 完成了合法上路的公路赛车，配有一个在车顶上方可见的进气口。
+
+如果我们仔细观察新的 Huracán STO，它代表 Super Trofeo Omologata，这意味着她是 Super Trofeo EVO 赛车的公路认证版本，您会发现基础 Huracán EVO 所剩无几，乍一看我会 比如说，前灯、尾灯、车门和后视镜，也许还有后轮前面的进气口……但我想仅此而已。
+
+Huracán STO 没有普通 Huracán EVO 上的前引擎盖和挡泥板，取而代之的是，整个前部向上倾斜，铰接在前部，就像在传奇的兰博基尼 Miura 上所做的那样，除了减轻重量之外，这也 加快您可能在前引擎盖下进行的任何工作，例如在赛道日期间，他们给它起了一个非常特别的名字……“Cofango”。
+
+自然地，有一个深的前扰流唇，带有大量进气口和一个涂装杆，确实让我们想起了 Huracán EVO 一点，但它更明显，与普通有轨电车相比，挡泥板加宽了，并且有 挡风玻璃前有两个巨大的通风口，后者比 Performante 轻 20%，Huracán STO 的车身采用超过 75% 的碳纤维，但即使是这种 CF 也是采用源自航空航天的新型“三明治”技术制成 技术，使碳纤维比通常使用的碳纤维轻 25%……这一切都是为了减轻干重仅为 1,339 千克的 Huracán STO 的重量。
+
+在前轮拱的顶部，我们发现通风口从轮罩中吸取热空气，这些热空气由 Huracán STO 专用的镁制中央锁定轮后面使用的新 CCM-R 磁盘产生，而更多的进气口集成在底盘上 这款令人印象深刻的全新 V10，尽管它是一辆合法上路的赛车，但侧面没有滑动窗，这仍然是一辆相当舒适的兰博基尼。
+
+与 Huracán EVO 相比，后轮拱也更宽，这次的灵感来自 Countach，在后挡泥板顶部有一个漂亮的 NACA 导管，而空气动力学形状有助于将空气输送到大型、可手动调节的尾翼上 外部稳定鳍。 通过更改尾翼上的设置，您似乎可以将下压力更改 13%，请注意新的 Huracán STO 上没有 ALA。
+
+但 Huracán STO 最令人期待的功能可能是大进气口将冷空气从车顶上方吸入发动机，人们非常喜欢这一点，而 STO 配备的进气口融入了垂直的“鲨鱼鳍” 设计惊人的新发动机罩共有十个通风口……请记住，该发动机罩中集成了实际的空气导流板，可根据发动机的运行温度调节新鲜空气的吸入。
+
+Huracán STO 确实配备了后轮转向系统，并且在方向盘上可以选择新的、定制的 Anima 设置，不再有“Strada”、“Sport”或“Corsa”，因为 STO 似乎一直处于 Corsa 模式， 所以他们将设置重命名为“STO”、“Trofeo”和“Pioggia”，STO 设置用于在“所有条件”下正常但活跃的道路使用，正如兰博基尼在其新闻稿中所述，即使在 STO 模式下，您实际上也可以 禁用 ESC ……以获得更多乐趣。
+
+
+据我们所知，Trofeo 模式是新的“Corse”模式，此设置针对干燥赛道条件进行了优化，以提供尽可能最佳的单圈时间，ESC 可以打开用于直线赛车，而 ESC 关闭将允许 单圈计时。 BTM（刹车温度监测）让您在赛道上尽情享受时时刻关注刹车的热度。
+
+但是，当情况发生变化，并且您驾驶 Huracán STO 遇到雨时，您可以将她切换到 Pioggia 模式，该模式优化湿沥青上的牵引力控制并更改悬架设置以在转弯时提供更好的负载转移。
+
+Huracán STO 的内饰继续减重计划，大量使用碳纤维、Alcantara，甚至兰博基尼自己的 Carbon Skin 内饰……甚至地毯也换成了 CF 地毯，这次 STO 还配备了碳纤维门板 ，就像当年的大 Aventador SVJ 和 Gallardo Superleggera 一样。
+
+甚至还有一个特殊的拱门安装在内部，配有四点式安全带，由与 Akrapovic 合作的钛合金制成，而中央控制台显示了一个新的 HMI 显示屏，自然地，Huracán STO 配备了一个集成的遥测系统来跟踪您的 单圈时间，在赛道日之后，您可以在智能手机上的兰博基尼 Unica 应用程序中分析收集到的数据。
+
+通过 Ad Personam 工作室，客户可以创建几乎无限的外部和内部色调组合，但这将在 2021 年春季首次交付之前大幅提高税前 249,412 欧元（欧洲）或 327,838 美元（美国）的税前价格 会发生。
+
+**SPECS & PERFORMANCE**
+
+ENGINE
+ENGINE: V10, 90°, MPI (Multi Point Injection) + DSI (Direct Stratified Injection)
+DISPLACEMENT: 5,204 cm³ (317.57 cu in)
+BORE X STROKE: 84.5 x 92.8 mm (3.33 x 3.65 in)
+COMPRESSION RATIO: 12.7:1
+MAX. POWER: 470/640 kW/CV at 8000 rpm
+MAX. TORQUE: 565 Nm
+WEIGHT TO POWER RATIO: 2.09 kg/CV (5.61 lb/CV)
+LUBRICATION: Dry sump
+EMISSION CLASS: Euro 6 – LEV 3
+
+TRANSMISSION
+TRANSMISSION TYPE: RWD
+GEARBOX: Dual clutch gearbox LDF (Lamborghini doppia frizione) with 7 speeds
+PERFORMANCE
+TOP SPEED: 310 km/h
+ACCELERATION 0-100 KM/H (0-62 MPH): 3.0 s
+ACCELERATION 0-200 KM/H (0-124 MPH): 9.0 s
+BRAKING 100-0 KM/H (62-0 MPH): 30 m
+BRAKING 200-0 KM/H (124-0 MPH): 110 m
+BODY AND CHASSIS
+CHASSIS: Hybrid in aluminum and carbon fiber
+BODY: aluminum and synthetic material
+MIRROR: Selectrically operated, heated and foldable
+AERODYNAMICS: front splitter and rear wing in carbon fiber with 3 manual regulation
+WHEELS
+FRONT RIMS: 8,5J x 20
+REAR RIMS: 11J x 20
+FRONT TIRES: Bridgestone Potenza Sport 245/30 R20
+REAR TIRES: Bridgestone Potenza Sport 305/30 R20
+
+STEERING AND SUSPENSION
+CONTROL SYSTEM: Electronic Stability Control (integrating ABS and TCS)
+SUSPENSION TYPE: Magneto-rheological suspension
+STEERING SYSTEM: Electro-mechanical power steering (EPS)
+BRAKING SYSTEM
+CARBON CERAMIC BRAKES (FRONT): Type: CCM-R, diameter: 390, thickness: 34
+CARBON CERAMIC BRAKES (REAR)Type: CCM-R, diameter: 360, thickness: 28
+DIMENSION
+LENGTH: 4549 mm (179.09 in)
+WIDTH (EXCLUDING MIRRORS): 1945 mm (76.57 in)
+WIDTH (INCLUDING MIRRORS): 2.236 mm (88.03 in)
+HEIGHT: 1.220 mm (48.03 in)
+WHEELBASE: 2.620 mm (103.14 in)
+DRY WEIGHT: 1339 kg
+WEIGHT DISTRIBUTION: % 41/59
+
+CONSUMPTION
+COMBINED CONSUMPTION: The fuel consumption and emission data is in the type approval stage
+EMISSIONS: The fuel consumption and emission data is in the type approval stage
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/16.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/17.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/18.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/19.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/20.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/21.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/22.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/23.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/24.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/25.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/26.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/27.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/28.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/29.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/30.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/31.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/32.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/33.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/34.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/35.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
 #### 1.1.1.12 Lamborghini Huracán EVO Fluo Capsule
 
@@ -2401,6 +2972,105 @@ Huracán EVO的外观和内饰都旨在最大限度地提高规格的可能性�
 * Torque: 443 ft lbs @ 6,500 rpm
 * 0-60 mph: 2.9 seconds
 * Top Speed: 202 mph
+
+对于那些在市场上想要一辆在夜间比荧光棒更亮的汽车的人来说，这些颜色是您最好的新朋友。Giallo Claris（黄色）、Verde Shock（绿色）、Arancio Livea（橙色）、Arancio Dac（深橙色）和 Celeste Fedra（蓝色）是兰博基尼Huracan Evo Fluo Capsule的新油漆选项。如果你最终抢到这辆车，你要知道里面的东西并不能准确反映你在外面看到的东西。内部完全涂黑以获得最大对比度。
+
+Automobili Lamborghini SpA 从不久前推出的 Urus 中汲取了“Capsule”理念，如 Urus Pearl Capsule 和 Urus Graphite Capsule，并将该理念应用到他们的 V10 产品线中，展示了 Huracán EVO Fluo Capsule 作为 2021 年车型。
+
+对于 2021 款兰博基尼 Huracán EVO Fluo Capsule，您可以从五种不同的亚光色调中进行选择，所有新的荧光色都突出了 Huracán EVO 的设计，结合了亚光黑色车顶、后视镜、侧门槛和后扩散器……甚至 前保险杠上的大进气口现在全黑了，但那些黑色部分（除了车顶）有一条漂亮的颜色编码线，以补充车身上非常特殊的油漆。
+
+对于外观，您可以选择亚光黄色 Giallo Clarus 或亚光绿色涂料 Verde Shock。 Celeste Fedra 是一种看起来非常特别的蓝色色调，兰博基尼提供两种不同的橙色色调，Arancio Livrea 和 Arancio Dac ……因此 Huracán EVO Fluo Capsule 可用的所有五种色调都相当明亮，因此它们与全黑内饰相结合 .
+
+对于内饰，您可以选择选择新的运动型座椅，或保留原来的舒适型座椅，无论是真皮还是 EVO Sportivo 饰面的 Alcantara，整个内饰都采用单色黑色，具体取决于 Huracán EVO 的外观颜色 Fluo Capsule 头枕上绣有 Raging Bull 徽标，启动按钮上有盖，座椅靠背上的 EVO 字样颜色相同。
+
+**SPECS & PERFORMANCE**
+
+ENGINE
+TYPE: V10, 90°, MPI (Multi Point Injection) + DSI (Direct Stratified Injection)
+DISPLACEMENT: 5.204 cm³ (317.57 cu in)
+BORE X STROKE: 84,5 x 92,8 mm (3.33 x 3.65 in)
+COMPRESSION RATIO: 12.7:1
+MAX. POWER: 640 CV (470 kW) @ 8.000 rpm
+MAX. TORQUE: 600 Nm (443 lb.-ft.) @ 6.500 rpm
+WEIGHT-TO-POWER RATIO: 2.22 kg/CV (4.89 lb/CV)
+LUBRIFICATION: Dry sump
+EMISSION CLASS: EURO 6 – LEV 3
+EMISSION CONTROL SYSTEM: Catalytic converters with lambda sensors
+
+TRANSMISSION
+TRANSMISSION TYPE: Electronically controlled all-wheel drive system (Haldex gen. V) with rear mechanical self-locking differential
+GEARBOX: Dual clutch gearbox LDF (Lamborghini Doppia Frizione) with 7 speeds
+PERFORMANCE
+TOP SPEED: km/h >325 (mph > 202)
+ACCELERATION 0-100 KM/H (MPH 0-62): 2.9 s
+ACCELERATION 0-200 KM/H (MPH 0-124): 9.0 s
+BRAKING 100-0 KM/H (MPH 62-0): 31.9 m
+BODY AND CHASSIS
+CHASSIS: Hybrid aluminum and carbon fiber
+BODY: Outer skin made from aluminum and composite material
+MIRRORS: Heated external mirrors, electrically adjustable and foldable
+AERODYNAMICS: Front splitter with integrated wing, Underbody with aerodynamic deflectors and rear diffuser, backend with integrated slotted spoiler
+WHEELS
+FRONT RIMS: 20’’ Giano casted rims; 8.5 J x 20 ET 42
+REAR RIMS: 20’’ Giano casted rims; 11 J x 20 ET 40
+FRONT TIRES: PIRELLI P ZERO 245/30 R20
+REAR TIRES: PIRELLI P ZERO 305/30 R20
+STEERING AND SUSPENSION
+CONTROL SYSTEMS: Electronic Stability Control (integrating ABS and TCS)
+SUSPENSION TYPE: Magneto-rheological suspension
+SUSPENSION GEOMETRY: Double wishbone fully independent suspension
+STEERING TYPE: Lamborghini Dynamic Steering (with variable steering ratio)
+STEERING SYSTEM: Electro-mechanical Power Steering (EPS) Lamborghini All-Wheel Steering (LAWS)
+BRAKING SYSTEM
+BRAKES: Carbon-ceramic brakes with fixed monoblock calipers with 6 pistons (front) and 4 pistons (rear), in aluminum, CCB disks
+FRONT BRAKES: Carbon-ceramic discs – ventilated and cross drilled with 380 mm diameter and 38 mm thickness
+REAR BRAKES: Carbon-ceramic discs – ventilated and cross drilled with 356 mm diameter and 32 mm thickness
+SAFETY
+AIRBAGS: Driver, passenger and side airgbags; kneels airbags in selected markets
+PASSIVE SAFETY: Front and rear specific collapsible areas; side protection system
+ACTIVE SAFETY: Electronic Stability Control (integrating ABS and TCS)
+DIMENSION
+LENGTH: mm 4,520 (in 177,9)
+WIDTH (EXCLUDING MIRRORS): mm 1,933 (in 76,10)
+WIDTH (INCLUDING MIRRORS): mm 2,236 (in 88,03)
+HEIGHT: standard suspension mm 1,165 (in 45,86)
+WHEELBASE: mm 2,620 (in 103,14)
+DRY WEIGHT: kg 1.422 (lb 3.134)
+WEIGHT DISTRIBUTION: % 43 / 57
+CONSUMPTION
+COMBINED: 14.1 l/100km
+CO2 EMISSIONS: 338 g/km
+EMISSION LAW: Reg. EU 715/2007
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto-fluo-capsule/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto-fluo-capsule/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto-fluo-capsule/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto-fluo-capsule/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto-fluo-capsule/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto-fluo-capsule/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto-fluo-capsule/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto-fluo-capsule/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto-fluo-capsule/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto-fluo-capsule/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
 
 ### 1.1.2 LAMBORGHINI HURACÁN FACTORY SPECIALS
@@ -2467,6 +3137,8 @@ Huracán EVO的外观和内饰都旨在最大限度地提高规格的可能性�
 * Torque: 413 ft lbs @ 6,200 rpm
 * 0-60 mph: 3.2 seconds
 * Top Speed: 202 mph
+
+
 
 
 
