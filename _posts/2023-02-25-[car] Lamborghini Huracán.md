@@ -3874,6 +3874,524 @@ Renato套件包括一个透明的碳纤维前唇，售价5750美元，这个唇�
 如果您正在寻找风格更具侵略性的兰博基尼Huracan Spyder，这款Novitec Torado N-Largo套件可能是完美的答案。我们都知道Huracan Performante Spyder将很快亮相，但这无论如何都不是宽体。
 
 
+## 3.10 HURACAN HYDRA BY MORPH AUTO DESIGN
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/hydra/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+位于加利福尼亚州旧金山的Morph Auto Design（或MAD）为兰博基尼Huracan创造了另一个空气动力学套件，他们称之为Hydra，以古希腊神话中的生物命名。
+
+Hydra是一种多头蛇形动物，以其破坏力和凶猛的本性而闻名，这与Huracan非常相配。请注意，这是Hydra Type 1气动套件，Morph Auto Design考虑了更多版本，可以在本文的一些渲染图中看到。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/hydra/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+整个Hydra Type 1套件包括前唇、侧裙、尾翼底座和双尾翼，在撰写本文时售价为17540美元。所有部件均由预浸干碳纤维制成，并带有防紫外线透明涂层，有哑光或光面可供选择。
+
+两个前唇可以安装在兰博基尼Huracan的原始前保险杠上，它们安装在两侧大型进气口下方，并向两侧摆动，提供垂直尾翼，很像Aventador LP720上的设计。如果单独购买，它们的标价为4885美元。
+
+华丽的透明碳纤维侧裙也有垂直鳍片，可改善Huracan周围的空气流动，标价4985美元，从侧面看，它们完全改变了V10的外观。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/hydra/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+Hydra Type 1空气动力学套件中最令人印象深刻的项目可能是令人印象深刻的尾翼，采用双翼型设计以提供更大的下压力，侧面采用垂直鳍片以提高速度稳定性，标价6185美元，您可以选择额外的碳纤维底座 以1485美元的价格完成了尾灯之间和尾翼下方的碳纤维外观。
+
+不包括在完整的Hydra Type 1空气动力套件中，但非常适合安装在您的兰博基尼Huracan上的是一整套透明碳纤维外后视镜，售价3000美元。
+
+从本页顶部的渲染图来看，Morph Auto Design考虑了另一个外观漂亮的空气动力学套件，并为后挡泥板配备了特殊设计。
+
+
+## 3.11 WIDE BODY HURACAN BY DUKE DYNAMICS
+![1]({{ '/assets/images/car/Lamborghini/Huracan/duke-dynamics/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+Duke Dynamics已经在他们的产品组合中为兰博基尼Huracán提供了一个空气动力学套件，但有传言说他们现在正在开发更令人印象深刻的东西：来自Sant'Agata的V10 Bull的超宽车身套件。
+
+目前，有几家公司在他们的目录中为兰博基尼Huracan提供宽体改装，例如Mansory的Huracán Torofeo或Novitec Torado N-Largo，LB Performance的Kato-San典型的螺栓固定式挡泥板和超低空气悬架，现在Duke Dynamics也希望称为其中一员。
+
+如果显示的渲染图符合这个宽体机的要求，它甚至可能看起来比竞争对手的任何产品都更令人印象深刻，但似乎Duke Dynamics只计划用透明碳纤维制造10个这样的套件。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/duke-dynamics/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+风格非常激进的前保险杠、宽大的门槛和宽大的后挡泥板，集成了大进气口，还要注意前引擎盖上的通风口和似乎受兰博基尼Veneno启发的尾翼，而后部可能会显示出较低的扩散器在车轮后面有开口部分，很像在兰博基尼Centenario上看到的扩散器。
+
+我们将不得不拭目以待，看看这个庞大的套件是否会投入生产，以及这将花费多少，但它看起来确实很棒。
+
+
+## 3.12 NOVITEC TORADO HURACAN RWD
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-rwd/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+Novitec似乎是首批为兰博基尼Huracán LP580-2（LP610-4车型的RWD版本）提供完整空气动力学改装套件的公司之一，可能是因为Huracán LP580-2具有不同的前后设计，所以任何气动套件都必须仅为该型号定制设计。
+
+Novitec Torado配备了他们的Huracán RWD调整、一整套空气动力学部件、发动机调整甚至内部改装，Novitec开发了双增压器，可以将后轮的功率输出提高到830马力。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-rwd/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+在前面，原始保险杠的两个角可以用唇缘覆盖，而中央鳍片可以使用透明碳纤维或准备喷漆，还有一个带有集成空气管道的前引擎盖的替代品，导致负升力，而透明碳纤维制成的门槛使Huracán看起来更低。
+
+Huracán LP580-2的后部有一个不同的保险杠，因此Novitec Torado提供了一个定制的保险杠以适合他们的碳纤维后扩散器，如果您有带后部的Huracán，则可以为带或不带后视摄像头的汽车订购view camera顺便说一句，Novitec也为它提供了碳纤维外壳，谈谈对细节的关注。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-rwd/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+就尾翼而言，您可以从Novitec Torado为您的新款Huracán LP580-2提供多种选择，您可以选择“后扰流板唇”，这是一个低的三部分鳍片，安装在后部的外缘上，以获得低调的样子。但还有其他三种可能性，要么是普通尾翼，要么是双尾翼，以及外观极端的N-Largo尾翼，自然都是可见的碳纤维。
+
+你可以获得带有集成进气口的Novitec发动机罩，就像在N-Largo上看到的那样，或者如果你花钱购买了兰博基尼的可选玻璃发动机罩，你可以添加一个该装置上还有一对来自Novitec的进气口，并为后部发动机盖后面的部分安装了碳纤维盖。
+
+后视镜的碳纤维罩和侧窗后面的进气口只是Novitec订购单上的另外两个选项，它们甚至提供了一个可以进入发动机舱的罩子。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-rwd/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+有了Novitec Torado的新后扩散器，你真的应该订购他们的排气系统之一，由轻质铬镍铁合金制成，这些排气装置包裹在高温保护中，并且可以带或不带襟翼控制，如果你真的想要与众不同Novitec Torado也有功率优化的赛车排气装置。
+
+
+至于轮毂，这些又是通常的Novitec NL 1锻造三件式单元，前部9×20英寸和后部1.5×21英寸交错安装，255/30 R20和325/25 ZR21中的Pirelli P-Zero分别在降低弹簧套件将Huracan降低到轨道35毫米的同时，Novitec还提供了一组垫片，用于将车轮向外移动11毫米（每轴总共22毫米）。
+
+与往常一样，兰博基尼Huracán LP580-2的内部可以容纳大量碳纤维部件，定制的Alcantara或皮革内饰，以匹配车主喜欢的任何色调，但Novitec还提供了一个“竞赛驾驶舱”，具有赛车风格斗式座椅、多点式安全带和完整的防滚架。
+
+
+## 3.13 DMC HURACAN LP1088 E-GT SPYDER
+![1]({{ '/assets/images/car/Lamborghini/Huracan/dmc/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+DMC已成为兰博基尼等高端独家汽车改装领域的知名品牌，他们是第一批为Aventador准备好完整的空气动力学套件的LP900 Molto Veloce，并继续打造更令人印象深刻的限量版Spezial版本。
+
+但DMC不仅为Sant'Agata V12旗舰车型提供造型修改，成功的V10 Huracan也很早就通过Affari套件获得了DMC风格，可以称为Stage 1套件，现在DMC已经将V10 Huracan带到了全新LP1088 E-GT Spyder的极致体验。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/dmc/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+美丽的兰博基尼Huracan Spyder的外观完全被DMC Edizione GT空气动力学套件改变了，在前面一个新的保险杠完全取代了原来的单元（汽车可以在没有任何损坏的情况下转换回工厂外观）并增加了一种激进的风格完成带有侧通风口的透明碳纤维、更大的进气口和垂直鳍片，以增加速度稳定性。
+
+沿着侧面的一组侧裙不仅让Huracan Spyder看起来更接近地面，而且还增加了垂直鳍片以提供更好的气流，同时原车的整个后部被碳纤维DMC单元取代，再次增加了空气动力学部分，以获得更好的抓地力。
+
+DMC Huracan E-GT的后部还展示了有史以来最漂亮的机翼之一，其灵感来自传奇的、经常被复制的Countach机翼，这个巨大的DMC单元位于细节惊人的支柱顶部，可以在三个位置进行调整，GT模式、FUN模式和Cruise模式。
+
+DMC LP1088 E-GT的名字来源于DMC可以在发动机上加装一对涡轮增压器，连同变速器和变速箱都需要进行大幅度改装，总功率输出才能从出厂时的610hp提高到巨大的1088hp和1000 Nm的扭矩输出。
+
+从0到100公里/小时的加速现在仅需2.69秒，而DMC Huracan LP1088 E-GT Spyder的最高速度为345公里/小时。
+
+
+## 3.14 HURACAN LP680 BY RSC TUNING
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/rsc-tuning/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+Racing Sport Concepts，也称为RSC Tuning，为兰博基尼Huracán开发了空气动力学套件，现在您可能认为市场已经饱和，许多公司正在提供零件来改变当前V10车型的外观，甚至兰博基尼自己也发布了套件。
+
+由于从第一天起就认真对待事情，RSC Tuning空气动力学套件仍然与竞争对手有所不同，RSC Tuning购买了白色兰博基尼Huracán LP610-4，这样他们就可以全天候24/7开发套件，并在现实生活中实际看到它不同的角度和不断变化的光线。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/rsc-tuning/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+RSC Tuning用激光扫描他们的Huracán以创建CAD数据，从而允许开发计算机上的航空套件，这将允许在使用昂贵的碳纤维实际构建套件之前对零件进行3D打印以检查装配和附件。
+
+兰博基尼Huracán的碳纤维空气动力套件背后的设计理念既简单又困难，RSC Tuning总裁Bill Waldock Jr.希望为Huracán带来完全独特和独特的设计，以增强兰博基尼设计团队，创造了一辆拥有干净表面、现代线条和锋利边缘的汽车，同时仍然让Bull脱颖而出。
+
+其结果是一个近乎禅宗的设计，灵感来自外部碳纤维部件的极简主义和现代设计原则，请注意，RSC调谐在尖端高压灭菌器中使用预浸渍碳纤维，整个套件具有抗紫外线功能，并且采用类似一级方程式材料。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/rsc-tuning/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+RSC Tuning Aero套件配有两个高度可调的前分流器，以记住已经很低的兰博基尼Huracán的离地间隙，当齐平安装在前保险杠上时，它们仅将间隙减少0.5英寸，还请记住这辆兰博基尼的前部提升系统可让您在行驶到斜坡上时提升前部，这些分离器的双粘合结构还可以提供更多保护，防止刮擦，而不会剥落透明涂层。
+
+碳纤维中心鳍片也可用于完善前部外观，但最好看的部分是那些“眼睑”，碳纤维鳍片安装在保险杠上的大型前进气口内，它们真正改变了兰博基尼Huracán的外观。后轮正前方的一组立式门槛将前部与后部连接起来，而“滑动式”下部后部扩散器使V10 Bull的后部看起来更具侵略，然而，独特的鸭尾翼真正让RSC调音套件与众不同。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/rsc-tuning/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+以防万一您对Huracán的出厂原始610hp不满意，您可以将RSC Tuning性能软件与RSC Tuning赛车排气装置一起安装，功率输出高达680hp，因此RSC Tuning Huracán被指定为LP680。
+
+令人印象深刻的HRE车轮已由迈阿密的Wheels Boutique安装到这辆车上，这些是HRE P2系列P201单元，前部9×20英寸，后部12.5×21英寸，倍耐力轮胎245/30ZR20和325/25ZR21被安装。
+
+
+## 3.15 VOS PERFORMANCE HURACAN FINAL EDITION
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vos/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+Vision of Speed，或VOS Performance，是一家位于德国Neckarwestheim的高端改装公司，该公司为兰博基尼Huracán的外部创造了非常好的空气动力学部件选择，以及一套碳纤维成品内饰升级，作为首席执行官，迈克尔·凯勒 (Michael Keller) 表示，“为了达到完美的平衡，必须定制与引人注目的外观相匹配的定制内饰”。
+
+VOS Performance为兰博基尼Huracán打造了“最终版”套件，包括价值1490欧元的透明碳纤维前唇，适合V10 Bull的标准前保险杠，一个新的后扩散器，售价6990欧元，以及两个不同的尾翼，固定的“Pur Vida”零中性固定尾翼售价7490欧元，而可调节的“Torneo”尾翼售价9900欧元。画龙点睛的一笔是价值1190欧元的一套安装在后视镜上的盖子和价值490欧元的加油口盖，全部采用透明碳纤维饰面。
+
+内饰继续采用碳纤维零件清单，首先是门槛镶嵌件，售价690欧元，安装在中央控制台顶部区域的框架（595欧元），以及同一控制台的两个侧板（1290欧元）。Huracán仪表板顶部的六角形通风口也可以用碳纤维饰面覆盖，价格为1690欧元，而门把手标价为1190欧元，方向盘后面的换档拨片换成碳纤维饰面，价格为2190欧元 .
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vos/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+花费1190欧元，原厂方向盘上的开关盖可以获得相同的碳纤维饰面，但花费1690欧元，您将获得一个完全定制的皮革或Alcantara结合碳纤维的方向盘，来自VOS Performance是位于仪表板舱顶部的990欧元面板。
+
+外观是一回事，但兰博基尼Huracan Final Edition配备令人印象深刻的空气动力学套件，您还需要定制排气系统，VOS Performance排气系统标价6900欧元，为V10发动机增加12马力，重量减轻10公斤，但听起来更令人印象深刻的是，Akrapovic的Titan排气系统售价为9520欧元，后者增加了约20马力的功率输出，同时重量比原厂装置轻20.5千克。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vos/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+目前，白色样车Lamborghini Huracán“Final Edition”在他们的网站上以196218欧元的税前价格出售，或者您可以联系他们为您已经拥有的Huracán订购您选择的零件。
+
+
+## 3.16 NOVITEC TORADO HURACAN SPYDER
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+Novitec是异国情调汽车世界中较为成熟的高端改装公司之一，以Novitec Rosso标签下的法拉利调谐而闻名，但现在兰博基尼的Novitec Torado标签已经非常有名，尤其是他们的Huracán N -Largo最初被误认为是新款兰博基尼Huracán Superleggera。
+
+Novitec花了一段时间才弄到一辆兰博基尼Huracán LP610-4 Spyder，但他们设法在他们的车间获得了一辆Verde Mantis，并将其变成了一辆完整的Torado Spyder规格的汽车，增压器将提高V10的功率输出从标准610提到860 hp的功率仍在开发中，但我确信工厂的功率输出目前可以满足。
+
+请注意，整个空气动力学套件适用于Huracan LP610-4 Coupé和Spyder，并且可以选择以透明碳纤维交付，从而赋予Huracán Spyder非常独特的外观和感觉。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+前面有一个新的前扰流唇，它环绕着拐角，它可以与固定在原来保险杠上的中心叶片和侧翼竞争，但三个也是另一个，可以固定在上唇上的小翼在中央进气口。像往常一样，Novitec可以用一个新的前罩替换前罩，该罩内装有空气管道，可有效减少前部的升力。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+一对特殊的Novitec Torado侧门槛连接前后轮并减少侧面的空气湍流，加上碳纤维后视镜盖，这些门槛完全改变了已经性感的Huracán Spyder的侧视图，视觉上已经降低了汽车 .
+
+在后面，一个新的下部后扩散器和后扰流板唇缘创造了更好的空气动力学气流，并且沿途看起来引人注目，请注意，所有Novitec Torado部件都经过精心开发并在风洞中进行测试，以确保它们增加了汽车的稳定性，这就是为什么Novitec Torado还为Spyder提供了更大的尾翼，以防万一客户喜欢更具侵略性的后部外观。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+您可以选择更大的尾翼、双尾翼甚至N-Largo尾翼。
+
+要完成外部碳纤维外观，您可以选择Novitec Torado尾灯造型，该鳍片位于原始尾灯下方和之间，但采用透明碳纤维饰面，它会产生显着差异。如果您打开发动机盖发现缺少那里的碳纤维，不用担心，因为Novitec Torado有V10发动机的盖子。
+
+倍耐力的P-Zero轮胎安装在定制的Novitec NL1上，三片式车轮，前轮9×20英寸，后轮12.5×21英寸，分别配备245/30ZR20和325/25ZR21，以及Novitec的35mm降低弹簧套件降低重心，在不久的将来，将提供可调节的避震悬架。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+如果令人惊叹的V10的出厂原始声音不够好，Novitec Torado客户可以选择特殊的运动排气系统，无论是不锈钢还是轻质铬镍铁合金，甚至还有一个带蝶阀的排气系统，可以远程打开，静音模式或比赛模式。
+
+我们已经提到过，Novitec Torado正在开发一种螺栓式增压器套件，该套件将产生860马力的功率输出和960牛米的最大扭矩，分别高于610马力和560牛米，这是一次重大升级。
+
+
+## 3.17 LAMBORGHINI HURACÁN AERODYNAMIC KIT
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/aerodynamic/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+许多改装公司已经为兰博基尼Huracán发布了空气动力学套件，DMC提供了几种不同的套件，Mansory可以提供完整的碳纤维Huracán，而Vortsteiner也列出了两个不同的套件，他们最新的Novara非常令人印象深刻。Novitec也没有闲着，事实上，他们令人惊叹的Torado N-Largo套件最初被误认为是Huracan Superleggera。你还可以拥有由kato创造的宽挡泥板LB Works或Liberty Walk Huracan。
+
+在这个相当令人印象深刻的现有改装公司列表中，我们现在可以再添加一个：兰博基尼汽车原件。没错，兰博基尼现在自己进入了改装领域，为V10 Huracán提供了经过官方认证的空气动力学套件，这是一个完整的套件。
+
+这个官方的Huracán空气动力学套件包括一个特殊的前扰流翼片，它环绕着整个前保险杠，直立的翼片抓住原来的进气口，而在侧面，一对垂直叶片引导空气以提高效率。一组门槛安装在原始V10的侧面下方，后轮的前部安装了一个垂直叶片以改善冷却效果。
+
+在后部，我们遇到了一个特殊的下部扩散器，再次在该区域产生更好的气流，由于设计，该扩散器实际上增加了下压力。与旗舰Aventador不同，Huracán没有可移动的尾翼，但是现在这个空气动力学套件增加了一个固定装置，坐在透明的金属立柱上，这个尾翼在两端都有一对立柱，这样尾翼与侧梁和前鳍完美结合。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/aerodynamic/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+所有部件均由轻质但坚固的复合材料制成，并以黑色交付,如果它们也可用于锻造复合材料或透明碳纤维，目前尚未指定，但该套件已经过风洞测试以确保效率和安全性 .
+
+Lamborghini Dallas将此套件列为Accessori Originali Automobili Lamborghini，并附有以下信息：“Huracán的设计充分体现了Automobili Lamborghini的价值观，它打破了过去，变得富有远见和纯粹。但兰博基尼将其车辆的设计视为起点，而不是最终结果。
+
+新的空气动力学车身套件结合了在数十年的限量版开发中获得的所有技术创新和专业知识。它为您的Huracán配备了激进的分离器、侧裙和后扩散器。原装尾翼完善了套件。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/aerodynamic/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+这些组件经过精心设计，包括最微小的细节，将提供自信、独特的外观。真正的表演终结者。准确的空气动力学分析保证了在所有条件下的高性能，同时又不忽视安全性和驾驶性能，这是Huracán系列的关键优势。
+
+据传，Huracán空气动力学套件由前翼片、侧门槛、下部后扩散器和尾翼组成，不带配件的售价为20000欧元（约合23000美元），可在当地的兰博基尼官方经销商处购买。
+
+
+## 3.18 DMC HURACAN SIMPLICITY
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/dmc-simplicity/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+DMC是异国情调汽车的高端改装公司之一，他们的Aventador和Huracán空气动力学套件正在世界各地销售，例如他们的Aventador E-GT限量版和Huracán Affari。
+
+DMC最近发布的这篇文章表明，并不总是需要整套套件才能让汽车脱颖而出，只需添加一套漂亮的车轮和令人惊叹的DMC尾翼就可以让汽车与众不同（在Lp610-4上）。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/dmc-simplicity/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+这款特定的V10不仅安装了受SV启发的尾翼，而且还安装了底翼，如果您决定拆下尾翼，则可以将汽车恢复到原始规格，此外，新的DMC底翼是与原始部件相比也强很多，因此DMC基地翼不存在高速损坏的风险。
+
+
+## 3.19 DMC HURACAN AFFARI
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/dmc-affari/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+当今市场上最著名的改装公司之一在第一台Huracán交付给客户之前就已经在做功课了，DMC Huracan Affari的第一张渲染图显示了一个大型车顶进气口、一个非常激进的后扩散器和一个定制的 前保险杠。仅仅一个月后，即2014年7月，DMC发布了更详细的渲染图，展示了外观非常令人印象深刻的Huracán Affari空气动力学套件，并提到通过将汽车称为DMC Huracán LP630-4 Affari版将功率增加到630 hp。
+
+到2014年11月，DMC成功地让他们的第一辆Huracán完全配备了Affari空气动力学套件，这可能是世界上第一辆接受任何形式调整的Huracán。第一辆DMC Affari看起来很棒。
+
+前部DMC将在原来的Huracán保险杠下方添加一组碳纤维鳍片，很好地遵循了前进气口的原始设计，同时侧面有一个垂直鳍片以增加稳定性。DMC还在保险杠的侧面安装了通风口，这让我们想起了Gallardo Superleggera，但在这款Huracán上，这些通风口还配备了水平碳纤维鳍片，以实现赛车风格的外观。
+
+DMC Huracán Affari侧门槛在车门前方显示了一个垂直鳍片，而在后轮前方有一个较大的部分上升，以控制兰博基尼Huracán两侧的气流通过定制车轮到达下部后扩散器，也完成了透明碳纤维。
+
+后扩散器配有一组垂直鳍片，可保持兰博基尼Huracán LP610-4在高速行驶时的稳定性，而DMC更喜欢在车身阴影处重新喷漆原厂后保险杠还有一个可选的后保险杠。
+
+毫无疑问，DMC Huracán Affari最引人注目的特征之一可能是令人印象深刻的尾翼，其灵感大致来自DMC Aventador Molto Veloce尾翼，垂直支柱显示出非常轻巧的设计，实际上配备了一个新的底部扰流板。
+
+通过使用完全取代原始Huracán DMC上的行李箱盖部件的底部扰流板，能够将其大型尾翼牢固地固定在汽车上，并避免下压力在高速下撕裂新尾翼，这样你就不会 在兰博基尼的原始车身上钻孔。
+
+请注意，大型尾翼可以在三个不同位置进行调整，以获得更激进的风格和更大的下压力，DMC零件还获得了完整的德国TÜV认证，这是这些轻质碳纤维零件质量的又一证明。
+
+DMC Affari套件有一些选项，其中一个是特殊的鳍片，固定在Huracán的标准百叶窗发动机盖上，这款发动机罩扩散器为该盖增添了一种非常激进的风格，而一对碳纤维后视镜是DMC Huracán Affari的点睛之笔。
+
+如果你真的想让你的兰博基尼Huracán脱颖而出，你可以安装DMC碳纤维进气口套件，一对进气口拧在可选的玻璃发动机盖上，代替原来的通风口，这些DMC进气口甚至使用相同的孔被修复，所以你不必改变任何东西。当水通过这些新勺子的后部排出时，保护格栅可避免碎屑进入发动机室。
+
+
+## 3.20 NOVITEC TORADO HURACAN N-LARGO
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+著名的Novitec Torado凭借其最新的名为N-Largo的空气动力学套件让兰博基尼社区大吃一惊，当第一篇关于这款亮蓝色宽体V10的独家新闻发布时，人们认为这可能是街头合法版本Huracán GT3赛车。但事实证明，这辆外观惊人的Bull并不是官方工厂准备的汽车，而是如何进行调校以使其看起来像是直接来自工厂的完美示例，所以我会说Novitec在这里做得非常出色。
+
+不仅在这款Huracán N-Largo上，Novitec还在为原厂V10开发增压器，可将功率从610hp提高到860hp，最终只有25个N-Largo可以作为完整的汽车或基于您已经拥有的Huracán进行建造。
+
+仔细看看Novitec Torado发布的照片，他们似乎用更具侵略性的风格替换了整个前保险杠，该版本与更宽的前挡泥板无缝贴合，与带通风口的diablo GT上的挡泥板非常相似。车门前，车头比原车增加了6cm。
+
+在前面，可以选择从Novitec Torado获得一个透明的碳纤维中心鳍片，这不仅仅是因为她漂亮的外观，这个鳍片主动增加下压力以提高速度稳定性。
+
+乍一看，您可能会认为侧门槛仍然是原厂部件，但仔细观察，这些N-Largo部件确实比正常情况更宽，可以将更宽的前后挡泥板连接在一起，后部也是如此，你可能 一下子看不出来，但后挡泥板确实比标准宽了12厘米，甚至尾灯旁边的部分也必须加宽才能完成N-Largo套件。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+一个惊人的，透明的碳纤维下后扩散器和一个更好看的尾翼，采用相同的轻质材料，使这款来自Novitec Torado的令人惊叹的V10的外观更加完美，还请注意，他们用一个新的发动机盖更换了发动机盖，其中包括一个中央通风通道，同时 前引擎盖展示了现在著名的三角形Novitec进气口，所有风洞都经过测试以实现最佳空气动力学概念，请记住，前引擎盖也可以订购透明碳纤维。
+
+一组碳纤维外后视镜、侧窗后面的碳纤维进气口和碳纤维尾灯环绕使这款Novitec Torado Lamborghini Huracan LP860-4 N-Largo的赛车灵感外观更加完美，同时一组降低弹簧带来V10离路面更近35毫米，为了获得更具运动感的悬架设置，将提供一组即将推出的高度可调避震装置。
+
+一组黑色NL2锻造轮毂完善了这款LeMans蓝色成品兰博基尼Huracán的外观，前部为9×20英寸，后部为交错的12.5×21英寸版本，245/30 ZR 20和325/25 ZR 21 P Zero来自倍耐力安装在它们上面，还要注意颜色编码的制动卡钳，在这些定制车轮的五个双辐条后面看起来绝对令人叹为观止。
+
+虽然尚未上市，但Huracán N-Largo将配备增压V10发动机，它将610hp的原始功率输出增加到令人印象深刻的860hp和960 Nm的最大扭矩输出，同时提供更多动力Novitec Torado的工程师可以从这种设置中得到启发，希望为他们的客户创造一种耐用但功率非常高的发动机，让他们尽情享受。
+
+虽然已经适用于普通的Novitec Torado Huracan，但令人印象深刻的Inconel排气系统也将安装到这款新的N-Largo版本上，无论有没有蝶阀，该系统都会让Huracán N-Largo的声音和她看起来一样令人印象深刻。
+
+事实上，当你看到Novitec的这个令人印象深刻的空气动力学套件时，你仍然可能会把它误认为是原厂汽车，设计执行得非常好，你几乎不能说这不是由Sant'Agata的Squadra Corse部门创造的，Novitec Torado采用了兰博基尼Huracán的原始设计，最终，N-Largo是一款非常漂亮、外观极具侵略性的汽车。
+
+
+## 3.21 DMC HURACAN CAIRO EDITION
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/dmc-cairo/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+自创立以来，DMC品牌便成为奢华精致的标杆。DMC特别热衷于来自圣亚加塔的公牛：他们在Diablo、Murciélago、Gallardo、Aventador和Huracán上的工作不仅创造了公司的历史，而且标志着其“让美好事物变得更好”的使命。
+
+年末，我们想与您分享一个特别的项目。DMC的中东代表最近完成了令人惊叹的LP610，由摄影艺术家Hexham Alsaigh拍摄。
+
+该套件的特色元素之一肯定是机翼扰流板。LP610 的前翼，可调整为3种角度设置：选择城市巡航、GT赛道日或娱乐模式。每一个都经过单独的风洞和CFD测试。扰流板附带一个10页的PDF文档，其中包含物理数据、技术规格和风流分析。
+
+如果这还不够，机翼下方还有一个底板，这是每个LP610所拥有的原始部件的更强版本。这样，业主无需钻孔，产品安装可在30分钟内完成。经德国TUV检测认证，确保道路安全和质量。
+
+增加下压力的侧裙，支持道路稳定性的后扩散器也都取自Stage1，但真正让这个新套件脱颖而出的是前唇。与所有其他组件一样，DMC采用与所有其他部件相同的干碳纤维制成，现在又回到了绘图板：他们设计了一个令人惊叹的全前唇扰流板，并增加了侧翼，让我们许多人想起了LP720 Anniversario的侵略性外观。
+
+锻造车轮采用20″/21″设置，是迄今为止市场上最宽的设置。前面有一个20×8,5J的技术设置，后面则展示了21x12J的规格。爱好者可能会预见到DMC将使用245/30r20/325/25r21轮胎组合，但也可能使用更软的P-Zero。
+
+与往常一样，客户可以从无限的内饰选项中进行选择，DMC将使用稀有皮革（鸵鸟皮、黄貂鱼皮）和碳纤维定制LP610，以满足任何尊贵客户的需求。发动机优化程序 (LP630) 也非常适合新套件，使它在2015年整体上令人兴奋地重新出现。
+
+
+## 3.22 HURACAN NORMAL FENDER BY LB WORKS
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lbworks-fender/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+到现在为止，我们已经看到LB Works兰博基尼Huracan以鲜红色完成，带有典型的Kato-san宽挡泥板，但并不是每个人都希望他们的V10兰博基尼剪裁能够适应这些“铆接”挡泥板和非常低的 Airrex 悬架设置。
+
+这就是为什么LB Performance还提供其顶级套件的“普通挡泥板”版本，它看起来几乎与宽挡泥板版本一样令人印象深刻，但不需要切割昂贵的意大利套装。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lbworks-fender/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+因此，您仍将拥有FRP（3780美元）或CFRP（4860美元）的非常低的前扰流唇以及非常时尚的侧门槛，再次提供FRP（4320美元）或CFRP（5400美元）和令人印象深刻的FRP后扩散器 （4320美元）或CFRP（5400美元），然而，您必须决定要安装哪个尾翼。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lbworks-fender/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+有两个版本，均采用著名的“鸭尾”设计，但版本1是红色宽挡泥板版本中较高的版本，而版本2是宽Normal挡泥板Huracán中较低的版本。FRP版本1为5400美元，CFRP版本为6480美元，而略低、较小的版本2 FRP版本为3780美元，CRFP版本为4860美元。
+
+我不知道您是否也能将AirRex悬架系统安装到LB Works Narrow挡泥板版本上，但如果可以的话，实际上要多花9500美元，而且从白色LB的照片来看Works Huracán看起来她的骑行速度确实比平时低很多。
+
+如果您快速添加这款LB Works Huracán窄挡泥板版本，如果您选择尾翼版本2和CFRP的所有部件，这比CFRP的宽挡泥板套件低5500美元，这意味着那四个额外的挡泥板每个售价1375美元。
+
+
+## 3.23 VORSTEINER NOVARA HURACAN
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+在2015年美国著名的SEMA车展上，著名的Vorsteiner为兰博基尼Huracan推出了新的空气动力套件，继Verona套件带有著名的“鹅颈”尾翼和特殊的悬挂样式之后，新的Novara套件实际上更具侵略性。
+
+由于Vorsteiner的赛车经验，Novara实际上受到了赛车空气动力学的启发，新套件配备了新的前保险杠、侧挡泥板、侧门槛、后保险杠和固定尾翼，同时提供不同的车轮设计和新的不锈钢排气系统提供更好的声音和更多的力量。
+
+新的带有较低扰流板的前保险杠不仅看起来不错，而且由于更大的进气口和改进的空气动力学，Novara保险杠不仅向散热器提供更多空气，而且还改善了气流，垂直鳍片将更多空气引导到冷却散热器，而 特殊的蜂窝结构可保护它们免受道路碎片的伤害。
+
+两个Vorsteiner前挡泥板包括车轮顶部的通风口，采用透明碳纤维制成，这些通风口主动增加下压力，车轮产生的气流将空气从这些通风口推出，同时向下推动前部以获得更好的空气动力学流动并提高性能。
+
+那些令人惊叹的侧门槛不仅给旁观者留下了深刻印象，而且它们的特殊设计创造了一种气流，可以提高速度稳定性并迫使空气进入后轮拱，自然而然地再次达到更好的冷却目的。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+最具侵略性的外观可能出现在Vorsteiner Novara Huracan的后部，这不仅是因为航空级铝支柱上巨大、透明的碳纤维尾翼，而且还归功于完全重新设计的后保险杠。额外的开口比原来的开口更好地主动冷却发动机。
+
+演示车在20英寸的新V-FF 105锻造轮毂上滚动，配有倍耐力P零轮胎，前轮为8.5×20英寸，后轮辋为11×20英寸，甚至内饰也没有被透明碳纤维与皮革结合的定制方向盘所忽视。
+
+
+## 3.24 NOVITEC TORADO HURACAN
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+NOVITEC这个名字在改装界是众所周知的，尤其是在高端异国情调的汽车市场，他们对法拉利和玛莎拉蒂等品牌的改装已成为传奇，当Novitec Torado发布了完整的空气动力学套件，包括兰博基尼V12的发动机改装，这个德国改装公司变得更加有名。
+
+Novitec Torado Aventador LP700-4的双尾翼给世界留下了深刻的印象，配有特殊的电子盒，可以避免原尾翼在升起时断开连接时产生的错误，更重要的是NOVITEC提供了一个Bi-Kompressor套件，该套件已被在8300转/分时测得的功率为969马力，增压设置为0.47巴，最近还推出了Aventador LP700-4 Roadster形式。
+
+他们花了几个月的时间，但现在Novitec Torado发布了兰博基尼Huracan LP610-4的完整套件，空气动力学部件全部由碳纤维制成，实际上改善了来自Sant'Agata的V10周围的气流，NOVITEC进行了实际的风洞测试 以确保这一点。添加具有完美配合和强大声音的NOVITEC排气系统，作为单独的性能优化组件，带或不带襟翼调节。定制尖端的选择将使Huracan的背面更具侵略性，请注意，这些排气装置可以采用不锈钢或赛车级铬镍铁合金，用一套金属运动催化剂或一套更换管道。
+
+特殊的NOVITEC轮毂专为兰博基尼打造，它们保留了中心盖和压力调节系统，仔细观察这些轮毂的细节，避免了在车上修改设置，尺寸与原车轮辋保持一致 确保完美贴合和完成。NOVITEC星轮前轮尺寸为9×20英寸，后轮尺寸为12.5×21英寸，分别配备255/30 R20和355/25 R21 Pirelli P-Zero。车轮设计有银色金属、黑色中心带镀铬边缘或相同的镀铬边缘，中心有客户选择的油漆，甚至可以在这些双五辐条轮辋上使用碳纤维涂层。
+
+自然地，这种特殊的车轮设计为Huracan配备了降低系统，NOVITEC在这里有两种选择，一种是KW铝制线圈悬架运动，可液压调节高度，包括双可调铝制减震器，在减震器外壳上带有独立的膨胀储液罐，压缩和回弹前后可调，或者只是用于降低的运动弹簧组，结合标准悬架，适用于带或不带MAGNETO减震器的汽车。为获得令人印象深刻的外观，您可以为前部添加11毫米（每轴22毫米）铝制垫片，由高强度铝制成，包括经过黑色阳极氧化处理的兰博基尼车轮螺栓。
+
+现在看看兰博基尼Huracan上NOVITEC的空气动力学套件，它是一个非常完整的套件，包括两个透明碳纤维前扰流唇，安装在原保险杠上，前保险杠上的下中心鳍片和上中心鳍片都可以，还收到一个透明的碳纤维盖，而原来的门槛被NOVITEC替换为新的透明碳纤维单元，后扩散器可以以要涂漆的形式或透明碳纤维的形式订购，带或不带后视摄像头安装。
+
+在尾部，NOVITEC在尾翼方面提供了一些选择，您可以将三个小的碳纤维部分放在原来的鸭尾式尾部上，或者选择单翼型的高尾翼或作为双翼，就像在Aventador上一样。
+
+好东西来了，尾灯下方的小鳍片也可以收纳透明的碳纤维罩，连同侧窗后方的小进气口和前部的大进气口可以安装一对竖直的鳍片保险杠，谈到进气口，NOVITEC再次提供带有三角形进气口的替换前引擎盖，采用待涂漆碳纤维或高光泽可见碳纤维，如果您的Huracan上有玻璃发动机盖，NOVITEC可以安装两个空气从屋顶上方窥视的进气口。
+
+在发动机舱中添加更多透明碳纤维以完善外观，外部后视镜的两个盖板完成了外部改造，当然，对于内部，NOVITEC也提供大量透明碳纤维部件。
+
+
+## 3.25 HURACAN BY MANSORY
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/mansory/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+Mansory因其对一些世界上最高端的异国情调汽车的整体套件调整而闻名，例如他们基于兰博基尼Aventador的Carbonado GT，事实上早在2012年，Mansory就是第一批为Aventador提供完整空气动力学套件的公司之一，我们不是在谈论一个简单的前扰流板、一组侧裙和一个尾翼，他们最初的Aventador套件配备了新的、更宽的前后挡泥板以及完整的内部改造。
+
+在2015年日内瓦车展上，Mansory将展示他们为Raging Bull制造的最新项目，Mansory的Huracan，新闻车采用令人生畏的黑色，采用透明碳纤维空气动力学部件和完全定制的内饰，它肯定会吸引很多人注意力。
+
+在内部，我们遇到了结合红色和黑色公牛皮的最柔软的皮革，如果您仔细观察座椅红色部分的缝线图案，您会认出Mansory Carbonado的风格，而不是真正模仿兰博基尼的Q-Citura缝线，但创新的Mansory细节，确实非常好。
+
+中控台也采用了一点红色皮革，但更重要的是还采用了一点红色油漆，以真正发挥作用，看起来原版兰博基尼Huracan内部的每一块面板都经过著名的Mansory处理，使其更加独特，甚至方向盘也进行了修改，Mansory像往常一样在这辆Bull内部安装了大量碳纤维。
+
+在前面，我们遇到了一个改进的保险杠，带有大的前向进气口和时尚的侧面垂直鳍片，使Huracan视觉上更宽，实际上拥有源自限量版兰博基尼Aventador LP720-4 50周年纪念版的风格，但是在Mansory上Huracan的前部采用透明碳纤维制成。
+
+在侧面，Mansory安装了透明的碳纤维门槛，在车轮前面有一个漂亮的垂直尾翼，并在同一位置改进了进气口，事实上，整个下侧进气口已被Mansory取代，现在有一个水平尾翼，所有用透明碳纤维制成，当这台V10 Bull车门打开时，实际上也可以在门槛上看到它。
+
+碳纤维外后视镜从侧面完善了外观，而一套新的前轮9×20英寸和后轮12.5×21英寸的锻造轮毂以及245/30ZR20和325/25ZR21倍耐力轮胎不仅减轻了很多重量，从Huracan来看，它们看起来也令人印象深刻。
+
+绕过Huracan by Mansory的后部可能是整车最注重的细节，一个完整的透明碳纤维后下部扩散器取代了原来的塑料单元。我们不得不承认这款Mansory后扩散器的造型再次让我们想起了Aventador LP720-4后下部，50周年纪念版V12车型仍然被认为是Aventador系列中最漂亮的车型。
+
+Mansory的透明碳纤维尾翼完成了这款兰博基尼Huracan的外观重新设计，位于两个时尚的开放式支撑杆之上，这个尾翼具有非常好的流动性，两个外侧尖端低于中间部分，它主动增加了下压力。
+
+外观上所有激进的造型都应具有与之相匹配的力量，而这正是Mansory在提出MH1套件时的想法。作为发动机调整的第一阶段通过安装一个单一的涡轮结合了新的排气系统（歧管和阻尼器）、改进的燃油压力控制、定制进气歧管燃油喷射器以及发动机和变速箱管理的重新编程。
+
+Mansory的Huracan MH1的最大扭矩输出在5300转/分时为780牛米（从6500转/分时的560牛米），新的最高速度现在为330公里/小时（205英里/小时）。
+
+
+## 3.26 HURACAN BY LB PERFORMANCE
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-performance/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+我们都知道LB Performance是日本的改装公司，它将异国情调的超级跑车改造成宽体、低骑、超级令人印象深刻的异国情调，早期型号包括LB Works Murciélago和LB Works Aventador，但现在他们已将注意力转向最新产品，Huracan。
+
+仍然只是一个渲染图，但LB Performance在他们的网站上将他们的新LB Works Huracan列为“即将推出”，展示了带有LB Performance商标宽体空气动力学套件的白色兰博基尼V10的五个不同角度，那些暴露的铆钉仍然在众目睽睽之下，还有那个巨大的“鸭尾”固定尾翼在古老的Huracan后面。
+
+在前面看起来LB Performance将在标准前保险杠下方安装额外的碳纤维部分，使Huracan已经非常低，侧挡泥板以真正的LB Works风格进行了大量扩展，裸露的铆钉将它们安装到原始的兰博基尼挡泥板上，只是就像在后轮上，另一组宽延伸件被铆接在原来的车身上，事实上，前后轮拱都需要切割得更大，因此LB Performance可以为其LB Works套件安装另一个商标，极低的骑行悬架 .
+
+LB Performance再次将他们最新的LB Works套件完全放在地板上，这看起来很棒，但在开阔的道路上可能会造成一些问题。因此这些套件也被称为“袋装悬架”，一个空气压缩机和一个或多个空气 坦克用于在需要时升高和降低汽车，它看起来确实如此令人生畏。
+
+从渲染图上看，门槛似乎保持标准，进气口就在后轮前面，但无论如何还是增加了一个透明的碳纤维翅片，前轮后面有一个小的直立部分，而后下扩散器也有一些两侧双排气管下方的附加散热片。
+
+现在这些渲染图显示了Huracan上的标准排气嘴，但我相信我们最终会为这辆V10 Raging Bull获得另一个喷火的定制排气系统，让她的雷声更大。
+
+仔细观察后部还可以看出，固定尾翼实际上是由三部分组成的，Huracan的发动机盖打开时在后饰板上方有一个完整的部分，LB Performance将其大尾部切开是有意义的 机翼在那个位置，两个外部部分保持固定在车身上，而中间部分与发动机盖一起上升。
+
+目前，LB Performance已经展示了五种不同的白色兰博基尼Huracan渲染图和他们的LB Works套件，但我相信他们会在更具异国情调的色调上建造它，甚至可能在他们的Aventador宽体上使用淡蓝色。
+
+
+## 3.27 HURACAN VERONA BY VORSTEINER
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner-verona/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+我敢肯定，在不久的将来，我们会看到Vorsteiner Nero为兰博基尼Huracan LP610-4提供的完整空气动力学套件，但目前他们Verona系列的第一个项目是一个令人惊叹的尾翼，其设计直接取自 赛道。
+
+如果你看一下Huracan GT3或Huracan Super Trofeo赛车，你会注意到在这两种情况下，尾翼都显示为“悬挂”设计，在Vorsteiner Nero语言中，这被称为“鹅颈气动翼”，一块刚性透明2×2碳纤维高压釜机翼元件，可与两种不同类型的“立柱”一起订购。要么用两个T-6061铝制CNC支柱将机翼挂在上面，要么使用轻质碳纤维版本，如果用新的Vorsteiner Nero碳纤维底座取代原来的Huracan尾翼，这看起来会很棒。
+
+这款碳纤维维罗纳尾翼售价3995美元，看起来确实是让您的Huracan从人群中脱颖而出的好方法，添加一套定制的Vorsteiner Nero V-FF 103车轮，您的V10将吸引所有注意力。
+
+
+## 3.28 DMC HURACAN LP630 AFFARI
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lp630/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+之前我们看过几张基于兰博基尼 Huracán的DMC AFFARI的3D渲染图，甚至最近发布了一张非常令人印象深刻的后视图预告片，展示了一些令人惊叹的排气管，但今天德国著名改装公司DMC展示了更多图片，甚至有关发动机调整的详细信息已发布。
+
+DMC Huracán AFFARI在内部被指定为“Stage-H1”LP630型号，符合DMC提供的Aventador套件的演变，他们的MV (Molto Veloce) 套件也被称为Stage-1版本，带有令人生畏的SV（Spezial版本）作为Stage-2，而Stage-3已成为外观惊人的Edizione GT。所以我想我们会看到DMC Huracán LP630的一些演变AFFARI也从Stage-H1到Stage-H2等等。
+
+目前，Stage-H1已经装扮成新的前保险杠给人留下深刻印象，该前保险杠在两侧带有通风口，水平鳍片起到稳定作用，而在前保险杠下方添加了一组延伸到侧面的透明碳纤维唇缘带有直立的鳍，再次确保DMC AFFARI在高速下稳定。
+
+兰博基尼Huracán的侧面有一组透明的碳纤维鳍片，在前轮后面和后轮前面都有立柱，再一次，这些不仅仅是为了好看，它们积极地增加了下压力和直线线条稳定性，以真正的兰博基尼风格结合形式和功能。
+
+也许最令人印象深刻的修改发生在后部，DMC不仅在发动机盖顶部安装了一个高后翼型机翼，而且还在车身上安装了一个新的底部扰流板，以在透明碳纤维上形成完美的气流带顶棚的车顶，添加一个巨大的下部后扩散器和一些外观精美的排气管，您将有一个明显的赢家，具有赛道风格外观的街头合法Huracán。
+
+我相信您已经了解DMC添加到兰博基尼Huracán上的几乎所有部件都是由碳纤维制成的，虽然大部分部件都添加到现有的V10车身上，但外部后视镜实际上是替换单元，这些DMC制造透明碳纤维镜壳完全取代原来的。
+
+通过修改工厂原始ECU软件，DMC成功地将基本610hp的功率输出增加到630hp，甚至没有以任何方式拉伸全新的V10，在20/21英寸设置（8.5×20 up）中添加定制的DMC车轮前轮，后轮12×21，轮胎从前到后增加到245/30R20和325/25R21），您将能够将兰博基尼Huracán完全转变为DMC AFFARI。
+
+
+## 3.29 HURACAN LP850-4 LUCIFERO BY WHEELSANDMORE
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lp850-4/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+还记得大约两年前由德国Wheelsandmore改装公司展示的令人惊叹的哑光棕色兰博基尼Aventador LP777-4 Rabbioso吗？那么这个改装公司现在又回到了新闻中，带来了另一个令人印象深刻的壮举：850马力的V10兰博基尼怎么样。
+
+听起来不错，Wheelsandmore刚刚为全新的兰博基尼Huracán LP610-4发布了他们最新的车轮和调校包的虚拟渲染图，因为现在没有可用的客户车，做虚拟模型是这些调谐器目前唯一能做的，让我们希望一旦发现车主想要从他的V10 Raging Bull获得更多动力，这将成为现实。
+
+Wheelsandmore为2014款Huracán车型提供三个阶段的调校，第一个温和的改装包括手工制作的不锈钢排气系统，配有碳纤维过滤器和一套远程控制的管道内襟翼，功率增加 40hp，而扭矩上升了40Nm。
+
+
+Huracán LP650-5还不能满足您的需求，Wheelsandmore Stage 2更进一步，在V10 Bull的基础上安装了压缩机，增加了更强的离合器和改进的差速器以应对777hp和700Nm的扭矩，您甚至可以超越Aventador，如果仍然不够，Stage 3可提供850hp和730Nm，因此命名为Huracán LP850-4 Lucifero。
+
+为了将所有动力牢牢地固定在道路上，Wheelsandmore提供了他们新的F.I.W.E.前轮和后轮的轮辋分别为9.5×20英寸和11.5×21英寸，轮胎分别增长到245/30/20和305/25/21。中心锁看起来很相似并且是一个多件式单元可以为外轮缘、中央星形轮和中心锁定螺钉订购多种颜色，甚至轮子外缘的小螺钉也可以根据车主的喜好进行颜色编码。
+
+动力和车轮是一回事，使用特殊的悬架系统可以帮助确保一切安全，Wheelsandmore正在开发一种非常特殊的、可调节的赛车型悬架，它不仅可以降低这种令人惊叹的意大利异国情调，还可以提供更好的驾驶体验。
+
+我希望我们能在今年年底在现实生活中看到这些Wheelsandmore兰博基尼Huracán LP850-4 Lucifero中的一辆，我相信在赛道日的开阔道路和赛道上它会非常令人印象深刻。
+
+
+## 3.30 HURACAN MINOTAURO KIT BY DUKE DYNAMICS
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/duke-dynamics-kit/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+Duke Dynamics可能不是我们都知道的高端改装公司之一，例如Mansory或DMC，但如果您查看他们的网站，您会发现他们已经经营了一段时间，并且完成了很多BMW改装，他们也提供一些非常好的保时捷和法拉利零件，现在他们打算让新的兰博基尼Huracán看起来更好。
+
+Duke Design为Huracán设计的Minotauro空气动力学套件在扰流板和机翼方面保持了相当低调的外观，事实上，目前该套件中甚至没有尾翼，相反我们可以欣赏到造型非常漂亮的前部下保险杠将优雅与侵略性相结合，特别是因为它确实向前延伸，并在两侧向上延伸。
+
+在侧面你会发现一个看起来很整洁的门槛，在前轮后面有一个小的垂直鳍片和一个更大的向后倾斜的鳍片，从最初渲染的阴影来看，这些鳍片被移离车身以增加它们有效性，请注意，像这样的翅片确实有助于高速稳定性。
+
+一个非常好的触感是侧面延伸的下部进气口，安装了一个漂亮的鳍片以将更多空气吸入开口，所以它不仅看起来很酷，它实际上也有一个功能，这就是应该做的。
+
+在后部周围安装了一个较深的下部扩散器，同样带有垂直鳍片以确保稳定性，看起来很自然。尾部的渲染图也显示了尾灯下方的不同格栅，原来的六边形部件被一个带有水平条纹的单元所取代，老实说，我更喜欢这里的原始设计，但它是不同的。
+
+Minotauro套件中的所有零件仅按订单制造，有FRP或透明碳纤维可供选择（实际上我会选择后者），根据Duke Dynamics的说法，将于2014年夏季上市，价格尚未公布。
+
+
+
+
+
+
+
 
 
 
