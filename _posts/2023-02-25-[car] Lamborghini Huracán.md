@@ -870,6 +870,108 @@ Huracán内部V10发动机的动力通过7速LDF变速箱输送到道路上，�
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/67.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/68.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/69.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/70.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/71.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/72.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/73.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/74.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/75.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/76.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/77.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/78.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/79.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/80.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/81.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/82.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/83.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/84.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/85.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/86.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/87.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/88.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/89.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/90.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/91.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/92.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/93.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/94.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/95.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/96.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/97.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/98.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/99.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/100.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/LP610-4-Spyder/101.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
 
 #### 2.1.3 Lamborghini Huracán LP580-2
 
@@ -1029,7 +1131,7 @@ LP580-2是流行的新型V10车型的后轮驱动版本，发动机略微失谐�
 {: style="width: 800px; max-width: 100%;"}
 
 
-#### 2.1.4 Lamborghini Huracán RWD Spyder
+#### 2.1.4 Lamborghini Huracán RWD Spyder (LP580-2 Spyder)
 
 * Years: 2017 - 2019
 * Production: N/A units
@@ -1187,6 +1289,60 @@ Huracan RWD Spyder的标准配置是19英寸Kari车轮，配备钢制盘式制�
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/20.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/21.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/22.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/23.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/24.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/25.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/26.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/27.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/28.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/29.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/30.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/31.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/32.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/33.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/34.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/35.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/36.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/37.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/RWD-Spyder/38.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
 
 #### 2.1.5 Lamborghini Huracán Performante
 
@@ -1200,73 +1356,104 @@ Huracan RWD Spyder的标准配置是19英寸Kari车轮，配备钢制盘式制�
 
 就纯粹的驾驶动力和整体套件而言，这是有史以来最好的兰博基尼。Performante 获得了更大的功率 (+29 hp) 和更轻的重量 (-90 lbs) 以及其他使其成为史诗般的改进。
 
+终于，漫长的等待结束了，新的兰博基尼 Huracán Performante已在2017年日内瓦车展上亮相，我们现在知道功率输出为640hp，通过减轻40kg的重量并添加Aerodinamica Lamborghini Attiva（或 ALA），Performante设法设定了一个在德国著名的纽伯格林赛道上创造的量产车世界纪录仅用了6:52.01完成一圈。
 
-SPECS & PERFORMANCE
+Huracán Performante保留了LP610-4的全轮驱动变速箱，但为5.2升V10发动机增加了30马力，而特殊的倍耐力轮胎和空气矢量控制创造了完美的赛道武器，同时保持了公路驾驶能力。
 
-GENERAL
-Type	Huracan Performante
-Years built	2017 – 2019
-Presentation	March 2017 Geneva Auto Show
-Type of car	Two door coupé, two seater berlinetta
-Designed by	Automobili Lamborghini SpA
-Built by	Automobili Lamborghini SpA
-DIMENSIONS
-Wheelbase	2620 mm / 102.97 in
-Overall length	4506 mm / 177.09 in
-Overall width	1924 mm / 75.61 in
-Overall height	1165 mm / 45.78 in
-Front track	1668 mm / 65.55 in
-Rear track	1620 mm / 63.67 in
-Weight	1382 kg / 3047 lbs
-Distribution	43/57 % front / rear
-CHASSIS
-Structure	Hybrid chassis made from aluminum and carbon fiber
-Body	Outer skin made from aluminum and composite material
-Suspension	Aluminum double-wishbone suspension, Steel springs and hydraulic dampers. “MagneRide” electromagnetic damper control available as an option
-ESP	ESC/ABS characteristics can be adjusted via ANIMA, ESC can be deactivated
-Brakes	Hydraulic dual-circuit brake system with vacuum brake servo unit, 6-piston aluminum calipers at the front, 4-piston aluminum calipers at the rear, Carbon-ceramic discs, ventilated and cross-drilled
-Front	380×38 mm / 14.93 in
-Rear	356×32 mm / 13.99 in
-Steering type	Electromechanical power steering, optional LDS steering with variable steering ratio
-Front tire size	245/30 R20
-Rear tire size	305/30 R20
-Type of tire	Pirelli P Zero Corsa
-Front wheel	8.5 x 20 inch
-Rear wheel	11 x 20 inch
-Type of wheel	Narvo forged alloy wheels, optional Loge center lock wheels
-Mirrors	Electrically controlled exterior mirrors
-Airbags	Full Size dual-stage front airbags. Full size lateral airbags. Knee airbags in specific markets.
-Rear spoiler	Standard, with integrated air ducts
-ENGINE
-Type	V-10 90 degree, IDS+MPI dual injection, 40 valves, mid mounted (longitudal), four wheel drive
-Cyl. Capacity	5204 cc / 317 ci
-Bore & stroke	84,5 x 92,8 mm
-Valve gear	Intake and exhaust camshafts with continually variable adjustmen
-Compr. Ratio	12.7
-Max. power	640 Bhp at 8000 rpm
-Max. torque	600 Nm at 6500 rpm
-Cooling system	Water and oil cooling systems
-Emission contr.	EURO 6 – LEV 3
-Engine management	Bosch MED 17 Master Slave
-Fuel system	IDS+MPI dual injection
-Fuel consumption	13.7 Lit/100 Km
-Lubrication	Dry sump
-Electr. system	12 V
-DRIVETRAIN
-Type	7-speed LDF dual-clutch transmission, shift characteristics variable via ANIMA
-Disc diameter	187 mm mm / 7.35 in
-Clutch	Double plate
-PERFORMANCE
-Top speed	325 Km/h / 202 Mph
-0 – 100 Km/h	2.90 sec.
-0 – 200 Km/h	8.90 sec.
-CAPACITIES
-Fuel	83 Liter / 22 Gallon
-Luggage	100 Liter / 26 Gallon
-PRICING
-US MSRP	USD 274,390
-European MSRP	195,040 € (2017)
-Current value	The Huracan Performante is not yet available on the second hand market
+Huracán Performante的混合动力底盘采用铝制车身，结合兰博基尼自己的锻造复合材料，与普通碳纤维相比，Performante上的前保险杠、后扰流板、发动机盖、后保险杠和下扩散器是由这种新材料制成的。
+
+Huracán Performante上最重要的创新可能是新的ALA，主动空气动力学系统，由兰博基尼开发并获得专利。前扰流板中的襟翼关闭以在高速弯道和紧急制动时产生下压力，这些襟翼打开以允许空气流过Performante的底板。
+
+在发动机盖下方，安装了四组管道，其中两个用于冷却大型V10发动机，而另外两个与大型尾翼一起工作。实际上位于空心支柱上以允许气流进入机翼本身，与尾翼中的襟翼关闭时，它的作用就像一个正常的高下压力翼型，但当打开时，阻力会显着降低，从而实现更高的最高速度。
+
+日内瓦的展示车采用一种名为Arancio Anthaeus的新色调完成，这是一种哑光橙色，与光滑的锻造复合材料部分以及光泽和哑光碳纤维的组合形成鲜明对比，这种色调完美地展示了在Huracán Performante，灵感来自裸体赛车的造型，展示了它们的框架，并具有没有格栅的大型进气口。
+
+在前部，主动空气动力学部分采用清晰的锻造复合材料，而前扰流板采用非常开放的设计，清晰地展示了赛道灵感并保持了轻量化的感觉。
+
+新的发动机罩集成了进气口和有机玻璃罩（与玻璃罩相比重量更轻），这样可以清楚地看到高功率V10发动机的青铜成品歧管罩，这是我们在之前看到的饰面之前的特别版兰博基尼就像diablo SE30。而带有集成空气管道的大型尾翼永远不可能由普通碳纤维制成，而是需要锻造复合材料技术。
+
+在侧面，我们注意到较低的门槛采用黑色饰面，而Performante自豪地展示了意大利三色和光滑的黑色后视镜，作为标准配置，Huracán Performante配备了一套Narvi 20英寸锻造轮毂，采用青铜饰面，可选配Loge车轮提供中心锁，而Pirelli P Zero Corsa轮胎是专为新款Performante设计的，作为一种选择，您可以安装Pirelli Trofeo R履带轮胎，请注意，这些轮胎确实带有用于街道使用的认证。
+
+通过将排气管提升到Huracán后部的更高位置，它们不仅看起来令人惊叹，而且还提供更令人生畏的声音以及更小的背压，同时与LP610-4相比，整个排气组件也变得更轻。
+
+在Huracán Performante内部，通风口、拨片、门把手和中控台继续使用锻造复合材料，并结合轻质Alcantara织物。运动型座椅可以选择激光激光Y形图案，但如果您喜欢更平稳的乘坐体验，您也可以选择舒适型座椅，仪表盘上漂亮的显示屏会实时显示ALA。
+
+欧洲定价为195040欧元，英国为173271英镑，美国为274390美元，预计将于2017年夏季向客户交付首批产品。
+
+
+**SPECS & PERFORMANCE**
+
+**GENERAL**
+* Type:	Huracan Performante
+* Years built:	2017 – 2019
+* Presentation:	March 2017 Geneva Auto Show
+* Type of car	Two door coupé, two seater berlinetta
+* Designed by	Automobili Lamborghini SpA
+* Built by	Automobili Lamborghini SpA
+
+**DIMENSIONS**
+* Wheelbase:	2620 mm / 102.97 in
+* Overall length:	4506 mm / 177.09 in
+* Overall width:	1924 mm / 75.61 in
+* Overall height:	1165 mm / 45.78 in
+* Front track:	1668 mm / 65.55 in
+* Rear track:	1620 mm / 63.67 in
+* Weight:	1382 kg / 3047 lbs
+* Distribution:	43/57 % front / rear
+
+**CHASSIS**
+* Structure:	Hybrid chassis made from aluminum and carbon fiber
+* Body:	Outer skin made from aluminum and composite material
+* Suspension:	Aluminum double-wishbone suspension, Steel springs and hydraulic dampers. “MagneRide” electromagnetic damper control available as an option
+* ESP:	ESC/ABS characteristics can be adjusted via ANIMA, ESC can be deactivated
+* Brakes:	Hydraulic dual-circuit brake system with vacuum brake servo unit, 6-piston aluminum calipers at the front, 4-piston aluminum calipers at the rear, Carbon-ceramic discs, ventilated and cross-drilled
+* Front:	380×38 mm / 14.93 in
+* Rear:	356×32 mm / 13.99 in
+* Steering type	Electromechanical power steering, optional LDS steering with variable steering ratio
+* Front tire size:	245/30 R20
+* Rear tire size:	305/30 R20
+* Type of tire:	Pirelli P Zero Corsa
+* Front wheel:	8.5 x 20 inch
+* Rear wheel:	11 x 20 inch
+* Type of wheel:	Narvo forged alloy wheels, optional Loge center lock wheels
+* Mirrors:	Electrically controlled exterior mirrors
+* Airbags:	Full Size dual-stage front airbags. Full size lateral airbags. Knee airbags in specific markets.
+* Rear spoiler:	Standard, with integrated air ducts
+
+**ENGINE**
+* Type:	V-10 90 degree, IDS+MPI dual injection, 40 valves, mid mounted (longitudal), four wheel drive
+* Cyl. Capacity:	5204 cc / 317 ci
+* Bore & stroke:	84,5 x 92,8 mm
+* Valve gear:	Intake and exhaust camshafts with continually variable adjustmen
+* Compr. Ratio:	12.7
+* Max. power:	640 Bhp at 8000 rpm
+* Max. torque:	600 Nm at 6500 rpm
+* Cooling system:	Water and oil cooling systems
+* Emission contr.:	EURO 6 – LEV 3
+* Engine management:	Bosch MED 17 Master Slave
+* Fuel system:	IDS+MPI dual injection
+* Fuel consumption:	13.7 Lit/100 Km
+* Lubrication:	Dry sump
+* Electr. system:	12 V
+
+**DRIVETRAIN**
+* Type:	7-speed LDF dual-clutch transmission, shift characteristics variable via ANIMA
+* Disc diameter:	187 mm mm / 7.35 in
+* Clutch:	Double plate
+
+**PERFORMANCE**
+* Top speed:	325 Km/h / 202 Mph
+* 0 – 100 Km/h:	2.90 sec.
+* 0 – 200 Km/h:	8.90 sec.
+
+**CAPACITIES**
+* Fuel:	83 Liter / 22 Gallon
+* Luggage:	100 Liter / 26 Gallon
+
+**PRICING**
+* US: MSRP	USD 274,390
+* European MSRP:	195,040 € (2017)
+* Current value:	The Huracan Performante is not yet available on the second hand market
 
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
@@ -1658,7 +1845,7 @@ Current value	The Huracan Performante is not yet available on the second hand ma
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/130.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![1]({{ '/assets/images/car/Lamborghini/Huracan/performante131.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/131.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/132.jpg' | relative_url }})
@@ -1925,6 +2112,435 @@ Current value	The Huracan Performante is not yet available on the second hand ma
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/219.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/220.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/221.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/222.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/223.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/224.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/225.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/226.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/227.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/228.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/229.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/230.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/231.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/232.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/233.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/234.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/235.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/236.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/237.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/238.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/239.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/240.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/241.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/242.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/243.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/244.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/245.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/246.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/247.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/248.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/249.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/250.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/251.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/252.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/253.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/254.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/255.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/256.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/257.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/258.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/259.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/260.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/261.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/262.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/263.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/264.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/265.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/266.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/267.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/268.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/269.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/270.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/271.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/272.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/273.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/274.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/275.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/276.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/277.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/278.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/279.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/280.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/281.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/282.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/283.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/284.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/285.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/286.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/287.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/288.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/289.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/290.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/291.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/292.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/293.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/294.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/295.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/296.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/297.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/298.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/299.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/300.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/301.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/302.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/303.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/304.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/305.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/306.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/307.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/308.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/309.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/310.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/311.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/312.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/313.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/314.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/315.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/316.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/317.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/318.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/319.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/320.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/321.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/322.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/323.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/324.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/325.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/326.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/327.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/328.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/329.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/330.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/331.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/332.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/333.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/334.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/335.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/336.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/337.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/338.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/339.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/340.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/341.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/342.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/343.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/344.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/345.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/346.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/347.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/348.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/349.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/350.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/351.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/352.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/353.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/354.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/355.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/356.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/357.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/358.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/359.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/360.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/361.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante/362.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
 
 #### 2.1.6 Lamborghini Huracán Performante Spyder
 
@@ -2123,6 +2739,39 @@ Huracan Performante于2017年3月在纽伯格林赛道以6分52.01秒的单圈�
 {: style="width: 800px; max-width: 100%;"}
 
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/33.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/34.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/35.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/36.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/37.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/38.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/39.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/40.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/41.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/42.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/43.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/performante-spyder/44.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
 
@@ -2345,6 +2994,106 @@ Huracán EVO的外观和内饰都旨在最大限度地提高规格的可能性�
 
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/27.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/16.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/17.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/18.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/19.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/20.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/21.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/22.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/23.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/24.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/25.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/26.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/27.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/28.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/29.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/30.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/31.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/32.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo/1/33.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
 
 
 #### 2.1.8 Lamborghini Huracán EVO Spyder
@@ -2672,6 +3421,84 @@ ACTIVE SAFETY: Electronic Stability Control (integrating ABS and TCS)
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/20.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/16.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/17.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/18.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/19.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/20.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/21.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/22.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/23.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/24.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/25.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd/1/26.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
 
 #### 2.1.10 Lamborghini Huracán EVO RWD Spyder
 
@@ -2772,6 +3599,24 @@ Huracán EVO RWD Spyder的首批交付时间为2020年夏季，建议零售价�
 * European MSRP:	175,838 € (2020)
 
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd-spyder/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd-spyder/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd-spyder/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd-spyder/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd-spyder/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd-spyder/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-rwd-spyder/7.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
 
@@ -2976,6 +3821,49 @@ Huracán STO的内饰继续减重计划，大量使用碳纤维、Alcantara，�
 
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/35.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/1/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/1/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/1/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/1/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/1/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/1/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/1/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/1/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/1/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/1/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/1/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/1/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/1/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/sto/1/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
 
 #### 2.1.12 Lamborghini Huracán STO Fluo Capsule
 
@@ -3473,6 +4361,55 @@ Huracan GT3是一款仅后轮驱动的车型，前部有巨大的380x34mm钢制�
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/gt3/9.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
+![1]({{ '/assets/images/car/Lamborghini/Huracan/gt3/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/gt3/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/gt3/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/gt3/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/gt3/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/gt3/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/gt3/16.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/gt3/17.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/gt3/18.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/gt3/19.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/gt3/20.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/gt3/21.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/gt3/22.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/gt3/23.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/gt3/24.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/gt3/25.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
 
 #### 2.2.5 Lamborghini Huracán Zhong
 
@@ -3655,272 +4592,122 @@ Super Trofeo锦标赛自2009年开赛以来，共有950名车手在全球著名�
 
 兰博基尼赛车运动负责人Giorgio Sanna表示：“Super Trofeo是我们客户赛车概念的基础，能够让年轻的天才车手和绅士车手参与进来并激发他们的兴趣。Huracán Super Trofeo EVO2专为这两类车手设计，我们设计它的确切目标是提供更具吸引力的驾驶体验，同时最大限度地关注运行成本。”
 
-
-## 3.2 THE VINCENZO EDIZIONE BY VORSTEINER
-
-这是某种空气套件设计。
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/vincenzo-edizione/1.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/super-trofeo-evo2/11.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-令人印象深刻的Huracán STO刚刚在2020年11月由Automobili Lamborghini SpA揭幕，这款合法上路的Super Trofeo赛车最早要到2021年夏季才会交付。
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/vincenzo-edizione/2.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/super-trofeo-evo2/12.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-那么，如果您真的喜欢Huracán STO的激进造型，但您真的喜欢Spyder，并且您没有耐心等待Super Trofeo Omolagata开始交付客户怎么办？ 在这种情况下，您可以向Vorsteiner Nero寻求帮助。
-
-问问自己，新款 Huracán STO最令人印象深刻的功能是什么？ 答案可能是发动机盖上令人生畏的通气管和垂直尾翼，这是Vorsteiner Nero Vincenzo Edizione计划中所缺少的。
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/vincenzo-edizione/3.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/super-trofeo-evo2/13.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-但是，令人惊叹的空气动力学引擎盖和车轮上方带有通风口的挡泥板只是Vorsteiner Nero令人惊叹的空气动力学套件的一部分，它们还有用于前保险杠的特殊碳矩阵成品部件，一对侧门槛，Vorsteiner的碳矩阵看起来像 兰博基尼自己的锻造复合材料，因此它与Huracán Performante上原厂的后扩散器完美融合。
-
-虽然Vorsteiner的Vincenzo Edizione Program看起来不像STO，您可以将这些空气动力学部件放在兰博基尼Huracán Performante Spyder上，带有许多通风口和敞篷的激进造型V10驾驶，你还能要求什么。
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/vincenzo-edizione/4.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/super-trofeo-evo2/14.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-因此，Vorsteiner Nero Vincenzo Edizione计划包括一个带有大型空气通风口和2×2光面底面的替换前引擎盖，带有集成通风口的替换前挡泥板，采用光面碳矩阵制成，一个新的前扰流板适合Performante的原始保险杠，并配有 两侧的垂直稳定器，以及一组完全采用碳矩阵制成的侧门槛，使外观更加完美，在后轮前方设有额外的通风口。
-
-
-## 3.3 ZYRUS LP1200 STRADA
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/1.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/super-trofeo-evo2/15.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-兰博基尼Essenza SC-V12的第一批客户汽车在撰写本文时正在交付，这款由Squadra Corse打造的外观精美的V12赛车让少数非常幸运的车主能够在世界各地的赛道上体验驾驶V12兰博基尼。
-
-但这也是Essenza SCV12的主要限制，它是一辆纯赛道车，你不能在开阔的道路上驾驶它，一些车主可能会把他们的SCV12带到街上，但这是非法的。所以如果你想要赛车外观，并且仍被合法允许在街上行驶，来自挪威的Zyrus Engineering为您提供了答案。
-
-Zyrus LP1200 Strada是我们在2020年8月向您展示的早期LP1200-R的限量生产街头合法版本，他们称之为LP1200 V2，它基于兰博基尼Huracán LP640-4（可能是Huracan Performante，以及 不是EVO）。Zyrus更换了工厂标准Huracán的600多个零件，以创建LP1200 Strada。
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/2.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/super-trofeo-evo2/16.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-为了让Zyrus LP1200 Strada在街道上合法行驶，功率输出被限制在900马力，但只要按下一个按钮，就会释放出1200马力的全部功率，Zyrus定制的Smart Dash只能自然地在赛道上使用，控制系统允许驾驶员完全自定义汽车参数，也可以通过智能手机应用程序实现。
-
-Zyrus经过两年的测试和超过6000公里的测试，为他们的Zyrus LP1200 Strada进行了完美的设置，重量为1427千克，由于高度修改的造型，仍然存在合法上路汽车的所有必要安全措施，Zyrus LP1200 Strada包括一个巨大的尾翼，完全在挪威内部完成，在200公里/小时时具有2010公斤的下压力。
-
-这款令人印象深刻的Zyrus LP1200 Strada的起价为595000欧元（约合730000美元），但其中包括与Zyrus团队和工程师一起在赛道上度过一天，让新车主熟悉他们的LP1200 Strada。
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/3.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/super-trofeo-evo2/17.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/4.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/super-trofeo-evo2/18.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/5.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/super-trofeo-evo2/19.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/super-trofeo-evo2/20.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/super-trofeo-evo2/21.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/super-trofeo-evo2/22.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/super-trofeo-evo2/23.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
 
-## 3.4 HURACAN EVO BY NOVITEC
+## 3.2 NOVITEC TORADO HURACAN
 
-![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-novitec/1.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-德国改装公司Novitec很快就为最新的兰博基尼Huracán EVO提出了完整的改进包，除了少数项目外，所有这些附加组件也可以安装到Spyder版本，我确信新的EVO RWD将在Novitec Torado的绘图桌旁边。
-
-这是Novitec的一款相当适中的套件，完全不像具有更宽轮拱的大型N-Largo版本，或者在兰博基尼发布他们的Performante之前很久就具有更高安装排气装置的Novara，但可以肯定地说这不是第一个Novitec试图改变兰博基尼Huracán的外观，这只是他们过去所做的事情的延续。
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-novitec/2.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-在前部，Novitec为新的EVO保险杠提供了总共三个部件，一个水平安装的中央鳍片，一对垂直安装在进气口上的额外鳍片，以及一个滑过新Y型的透明碳纤维盖EVO前保险杠的形状嵌入，Novitec的所有部件都采用透明碳纤维制成，可以根据客户的喜好进行喷漆。
-
-前行李箱盖可以用Novitec零件替换，它内置的空气管道实际上模仿了Huracán车顶上的“线条”，在一对盖上放置在后视镜的顶部 我们来到Novitec的新侧门槛，这些实际上不像工厂原来的那样具有水平鳍片，碳纤维进气口安装在侧窗后面完成外观。
-
-对于引擎盖，对于双门轿跑车车型，您有两种选择，如果您有工厂安装的玻璃面板引擎盖，您可以在盖上添加一对进气口，但如果您真的想要给人留下深刻印象，您可以更换整个装置带有巨大的N-Largo发动机盖，配有进气口，后一个盖确实需要EVO的额外盖，请注意，这两个都不适合EVO Spyder版本。
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-novitec/3.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-为了完成Huracán EVO的Novitec空气动力学部件，我们可以用透明碳纤维Novitec部件替换原厂原装扩散器（有黑色、亮黑色或车身颜色可供选择），但最令人印象深刻的后部可能是令人惊叹的后部机翼，我真的很喜欢这件作品上支柱的“悬挂”风格。
-
-车轮是添加到汽车上的非常个性化的东西，只是为了提供选择Novitec有两种设计可供选择，一种是NL1 Forged，它是双五辐设计的多件式版本，并使用原装螺栓固定方法。但是，如果您真的想一路走下去，您可以选择Vossen制造的带有中央锁定螺栓的NL4锻造车轮，请注意，如果您没有从工厂订购带有可选Loge锻造车轮的Huracán EVO，您必须获得Novitec中央锁定套件才能安装NL4装置。
-
-所有Novitec车轮前轴尺寸为9×20，后轴尺寸为12.5×21，分别配备倍耐力P-Zero高性能轮胎245/60ZR20和325/25ZR21，您甚至可以在每个车轮后面添加11mm垫片 为了将每个轴上的原始轨道增加22毫米，以防万一你真的想刮掉那个昂贵的前保险杠，Novitec提供了一个35毫米的降低装置，以运动弹簧组的形式出现，请注意，这是一个不同的套件，适用于带 Magneto阻尼器和出厂时没有Magneto选项的汽车。
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-novitec/4.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-虽然Huracán的工厂V10已经提供了非常好的声音，但您始终可以使用Novitec排气系统使其声音更大，该系统有不锈钢或更轻的INCONEL，后者具有金高温热保护，顺便说一下，在这种情况下，您只需添加Novitec的碳纤维排气管嘴即可完成外部的CF外观。
-
-
-## 3.5 LB-SILHOUETTE WORKS HURACAN GT
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/1.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-在撰写本文时，还没有兰博基尼Huracan STS或Super Trofeo Stradale，但Kato-San用他的新LB-Silhouette WORKS Huracan GT气动套件为Huracan车主解决了这个问题，它采用宽体转换Liberty Walk已经提供了一个全新的水平。
-
-Kato-San已经为兰博基尼Huracan准备了两个套件，一个是“Normal Fenders”套件，另一个是“Wide body LB Performance”套件，但他似乎被要求更进一步，所以他仔细看了看官方工厂制造了Huracan Super Trofeo并设计了这款新的LB-Silhouette WORKS Huracan GT版本，它实际上将Huracan变成了街头合法赛车。
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/2.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-因此，如果您拥有一辆兰博基尼Huracan，并且您有40000美元到60000美元的闲置资金，您可以从Liberty Walk购买这款新的气动套件，最便宜的套件由FRP制成，而最昂贵的套件由FRP组合制成，碳纤维增强塑料和干碳。
-
-LB-Silhouette WORKS Huracan GT套件包括一个由FRP制成的前保险杠、下部前分离器（FRP或CFRP）、一个由FRP制成的后保险杠、一个巨大的FRP或CFRP后扩散器。很自然地，一直由FRP制成的宽挡泥板，带有由FRP或CFRP制成的仿制通风口的前罩，然后出现了“昂贵”的物品，那个巨大的尾翼有FRP、CFRP或真正的干碳纤维，就像带有垂直鳍片的新发动机盖一样，同样提供三种不同的材料。
-
-如果您想在Huracan Coupé车型上安装这款令人惊叹的LB-Silhouette WORKS Huracan GT套件，您可以选择提供后挡泥板完全更换的版本，与标准版本相比，价格高出约5000 美元，请注意，这 目前Huracan Spyder不存在该选项，实际上Huracan Spyder套件不包括发动机罩，但价格仍为43850美元至59830美元。
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/3.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-请记住，仅套件的价格约为60000美元，您必须加上将其安装到Huracan上的价格，这可能需要几个小时才能上漆（或包装） ，所以这可能需要多花几千美元，然后你仍然需要降低悬架，最好是9500美元的Airrex套件。
-
-但是像这款新的LB-Silhouette WORKS Huracan GT这样的宽体改装确实也需要一套新的橡胶，非常宽并且具有正确的偏移量以确保车轮用必要的橡胶填充宽挡泥板，可能会在Lamborghini Huracan本身的价值之上加上大约100000美元的东西。
-
-有关各个零件的更多信息和价格，请访问Liberty Walk的官方LB-Silhouette WORKS Huracan GT页面。
-
-
-## 3.6 PRIOR DESIGN HURACAN PDLP610WB
-![1]({{ '/assets/images/car/Lamborghini/Huracan/pdlp610wb/1.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-总部位于德国的Prior Design GmbH已经存在多年，但我们已经有一段时间没有看到他们为兰博基尼品牌推出的任何新产品了，早在2012年，我们就审查了他们的Gallardo PD-L800套件，这是一款宽体套件，配有Gallardo车顶铲，而在2016年，我们发现了Gallardo PD-Edition，其车身套件的灵感来自兰博基尼Veneno。今天我们展示了针对Huracan的一个全新的套件，Prior Design并没有让人失望，一个令人惊叹的宽体空气动力学套件，适用于当前的V10车型。
-
-对于他们的第一个Huracan套件，您有几个选择，PDLP610空气动力学套件实际上包括一个非常激进的前保险杠附加组件、一组侧裙和一个同样具有侵略性的后保险杠和扩散器，全部由Fibegall-Duraflex材料制成，将这些零件安装到您的兰博基尼Huracan时不需要修改。
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/pdlp610wb/2.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-在选项列表上，PDLP610WB 'Widening wings'是一个8件式选项，使您的V10比原车更宽。
-
-另一种选择是Prior Design提供的尾翼，目前还没有照片，但如果他们从他们的Gallardo套件中获得灵感，我相信Huracan的新尾翼会很棒。
-
-将Prior Design的悬架套件安装到您的宽体Huracan上，您可能需要稍微小心地过减速带，但这样做看起来会很棒。
-
-有关更多信息和定价，请访问Prior Design GmbH网站。
-
-
-## 3.7 NOVITEC TORADO HURACAN PERFORMANTE
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-Novitec为兰博基尼Huracan Performante打造的全新空气动力学套件完美契合Performante上大量使用的原始兰博基尼锻造复合材料，Novitec称其为“可见碳锻造”，它看起来就像工厂使用的材料。
+NOVITEC这个名字在改装界是众所周知的，尤其是在高端异国情调的汽车市场，他们对法拉利和玛莎拉蒂等品牌的改装已成为传奇，当Novitec Torado发布了完整的空气动力学套件，包括兰博基尼V12的发动机改装，这个德国改装公司变得更加有名。
 
-新的空气动力学套件包括传统的前引擎盖更换，这里Novitec提供碳纤维版本或玻璃纤维版本，两者都完全取代了Huracan上原来的前引擎盖，并增加了一对从前到后的通风口，此外，您可以在前保险杠的侧面添加一对通风口，并在保险杠的中央添加一个新的散热片，所有这些都采用可见的碳锻造。
+Novitec Torado Aventador LP700-4的双尾翼给世界留下了深刻的印象，配有特殊的电子盒，可以避免原尾翼在升起时断开连接时产生的错误，更重要的是NOVITEC提供了一个Bi-Kompressor套件，该套件已被在8300转/分时测得的功率为969马力，增压设置为0.47巴，最近还推出了Aventador LP700-4 Roadster形式。
+
+他们花了几个月的时间，但现在Novitec Torado发布了兰博基尼Huracan LP610-4的完整套件，空气动力学部件全部由碳纤维制成，实际上改善了来自Sant'Agata的V10周围的气流，NOVITEC进行了实际的风洞测试 以确保这一点。添加具有完美配合和强大声音的NOVITEC排气系统，作为单独的性能优化组件，带或不带襟翼调节。定制尖端的选择将使Huracan的背面更具侵略性，请注意，这些排气装置可以采用不锈钢或赛车级铬镍铁合金，用一套金属运动催化剂或一套更换管道。
+
+特殊的NOVITEC轮毂专为兰博基尼打造，它们保留了中心盖和压力调节系统，仔细观察这些轮毂的细节，避免了在车上修改设置，尺寸与原车轮辋保持一致 确保完美贴合和完成。NOVITEC星轮前轮尺寸为9×20英寸，后轮尺寸为12.5×21英寸，分别配备255/30 R20和355/25 R21 Pirelli P-Zero。车轮设计有银色金属、黑色中心带镀铬边缘或相同的镀铬边缘，中心有客户选择的油漆，甚至可以在这些双五辐条轮辋上使用碳纤维涂层。
+
+自然地，这种特殊的车轮设计为Huracan配备了降低系统，NOVITEC在这里有两种选择，一种是KW铝制线圈悬架运动，可液压调节高度，包括双可调铝制减震器，在减震器外壳上带有独立的膨胀储液罐，压缩和回弹前后可调，或者只是用于降低的运动弹簧组，结合标准悬架，适用于带或不带MAGNETO减震器的汽车。为获得令人印象深刻的外观，您可以为前部添加11毫米（每轴22毫米）铝制垫片，由高强度铝制成，包括经过黑色阳极氧化处理的兰博基尼车轮螺栓。
+
+现在看看兰博基尼Huracan上NOVITEC的空气动力学套件，它是一个非常完整的套件，包括两个透明碳纤维前扰流唇，安装在原保险杠上，前保险杠上的下中心鳍片和上中心鳍片都可以，还收到一个透明的碳纤维盖，而原来的门槛被NOVITEC替换为新的透明碳纤维单元，后扩散器可以以要涂漆的形式或透明碳纤维的形式订购，带或不带后视摄像头安装。
+
+在尾部，NOVITEC在尾翼方面提供了一些选择，您可以将三个小的碳纤维部分放在原来的鸭尾式尾部上，或者选择单翼型的高尾翼或作为双翼，就像在Aventador上一样。
+
+好东西来了，尾灯下方的小鳍片也可以收纳透明的碳纤维罩，连同侧窗后方的小进气口和前部的大进气口可以安装一对竖直的鳍片保险杠，谈到进气口，NOVITEC再次提供带有三角形进气口的替换前引擎盖，采用待涂漆碳纤维或高光泽可见碳纤维，如果您的Huracan上有玻璃发动机盖，NOVITEC可以安装两个空气从屋顶上方窥视的进气口。
+
+在发动机舱中添加更多透明碳纤维以完善外观，外部后视镜的两个盖板完成了外部改造，当然，对于内部，NOVITEC也提供大量透明碳纤维部件。
 
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado/2.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-对于侧面，Novitec提供了一对采用相同材料的门槛，以取代Performante上的缎面黑色外观，添加一对可见的碳锻造后视镜盖，您可以从侧面获得完整的外观，但还有更多魔力发生在后部，在那里你可以获得一组尾翼附件，使原来的尾翼（ALA系统的一个组成部分）看起来更具威胁性，并且应该同时增加下压力，两个尾翼和一个新的中心件，安装在后部扩散器上，完成碳锻造后部的外观。
-
-外部的另一件事是一组“挡泥板附件”，实际上它看起来像前轮顶部的一对通风口，安装在挡泥板上，就像我们看到的新空气动力学图片一样，套件来自Lamborghini Accessori本身，但我个人最喜欢的Novitec附加组件之一是安装在发动机盖顶部的一对进气口，同样采用可见的碳锻造，它们的高光泽表面看起来很棒。
-
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado/3.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-Novitec创造了功率优化的钢制排气系统，配备高温热保护，采用开放式赛车风格设计，没有襟翼调节，后扩散器中的两个大型排气尖端发出的声音一定很惊人。
-
-至于车轮，Novitec提供令人惊叹的NL3车轮，六辐“Y”形设计，前轮尺寸为9×20英寸，后轮尺寸为12.5×21英寸，分别配备245/30R20和325/25R21轮胎，以及以防万一您没有从工厂订购Loge中央锁止轮，您可以安装NL3 ZV-Look轮，设计相同但有五个螺栓样式，或者您选择真正的NL3 ZV中央锁止轮并安装Novitec中央锁定套件，可将所有带有5个螺栓模式的Huracan转换为中央锁定装置。
-
-如果您想看到您的Huracan Performante离地稍低，您可以安装Novitec运动弹簧套件，适用于带或不带兰博基尼Magneto选项的汽车，添加一组垫片将使五个螺栓轮进一步移动他们的轮拱外22毫米。
-
-因此，Novitec是第一批为兰博基尼Huracan Performante准备好整套设备的公司之一，它正好适合我们在Performante上获得的锻造复合材料元素，这是对细节的真正关注。
-
-
-## 3.8 HURACAN 1016 INDUSTRIES RENATO AERO KIT
-![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/1.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado/4.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-1016 Industries已经成为高端超级跑车的改装商，当然这也包括当前的兰博基尼系列，他们已经改装了一些Aventador，但我想主要关注的是V10 Huracan型。
-
-目前，专为兰博基尼Huracan Performante开发的专用空气动力学套件已接近尾声，公开揭幕随时都在眼前，但让我们来看看目前可用于Huracan LP610-4和Huracan RWD的Renato套件（包括Coupé或Spyder车型）。
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/2.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado/5.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-Renato套件包括一个透明的碳纤维前唇，售价5750美元，这个唇由2×2真空注入的预浸碳纤维制成，带有防紫外线透明涂层，设计延续了LP610-4和RWD的原始线条（两种型号都可以使用不同版本的前唇），同时进一步向前延伸约3英寸。使用下部的角度，改善车身下方的气流，同时增加下压力，前散热器将更多的空气引导到它们上面，使用侧面的垂直散热片，冷空气更好地导入轮舱盘式制动器冷却。
-
-侧裙由FRP（6500美元）、碳纤维（7500美元）或层压碳纤维（9200美元）制成，并再次沿用Huracan的原始线条，只是在后轮前面增加了一个通风孔，用于推动空气到后盘式制动器上，以实现更好的冷却效果，并在Huracan的侧面轮廓上营造出更具侵略性的风格。
-
-来自1016 Industries的大型后扩散器目前仅适用于Huracan LP610-4车型，售价7350美元，这种预浸碳纤维装置再次看起来令人印象深刻，并有效地扩展了Huracan的轮廓以获得更好的气流，端板确保了Bull即使在高速下也能保持稳定。
-
-由碳纤维制成的尾翼标价为6795美元，但配备了非常漂亮的垂直支柱和碳纤维底座，该尾翼的整个结构直接用螺栓固定在Huracan的车架上，以实现终极稳定性。但最好的部分是支柱的可能性，客户有三种选择，标准的支柱将尾翼固定到位，具有最大下压力，但对最高速度有负面影响。您也可以选择专为最高速度而设计的“短型”支柱，因为尾翼的间距较小，但这种设置仍能提供稳定性和下压力。
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/3.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado/6.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-1016 Industries的Renato套件的最新成员是碳纤维引擎盖，它用源自赛车运动的设计取代了Huracan引擎盖的标准，显示了两个通风口（实际上是模拟勺子），再次可用于FRP（ 6500美元）、碳纤维（7500美元）和层压碳纤维（9200美元），这种定制引擎盖保持了前部行李空间的使用，同时比兰博基尼的原始装置更轻。
-
-以防万一您想要拥有与Renato Huracan的外观相匹配的动力，1016 Industries提供定制的ECU和TCU调整，将原始功率输出从610hp增加到640hp和448lb-ft的扭矩，添加定制排气装置系统的Huracan被增加到670马力。
-
-
-## 3.9 NOVITEC TORADO HURACAN N-LARGO SPYDER
-![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/1.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado/7.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-当Novitec Torado于2015年12月为兰博基尼Huracan推出他们的N-Largo套件时，许多人认为发布的谍照实际上是Huracan Performante的照片，但那辆蓝色轿跑车是一款非常令人印象深刻的宽体空气动力学改装套件。Novitec花了将近18个月的时间才为Huracan Spyder发布了令人印象深刻的外观包。
-
-但是新的Novitec Torado Huracan Spyder N-Largo并不是为了安装在Spyder上而对轿跑车套件进行的简单修改，Novitec与Huracan N-Largo的原始设计师Vittorio Strosek一起对这种碳纤维进行了一些宽体套件的修改。
-
-检查那个宽大的前保险杠侧面的额外通风口，在这辆绿色的Huracan Spyder上，后轮前面出现了一个非常漂亮的有角度的通风口，现在宽204厘米，这些通风口有助于冷却后盘式制动器，那些12厘米宽的后挡泥板。
-
-如果您仔细观察那些宽大的前挡泥板（比标准宽3厘米）的顶部，您还会注意到在轮拱顶部切割了三个通风孔以排出盘式制动器的热量，而巨大的黑色车轮外观与双门轿跑车版本相同，9×20和12.5×21英寸的轻型NL2锻造轮毂以及倍耐力前后的245/30 ZR 20和325/25 ZR 21 P Zero's。
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/2.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado/8.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-在这辆来自Novitec的Verde Mantis演示Huracan Spyder上安装了一个大而透明的碳纤维尾翼，而带有集成通风口的非常特殊的前引擎盖也可以用透明碳纤维订购，因此它在降低时与尾翼相匹配 弹簧可以使Huracan Spyder距离赛道更近35毫米。
-
-如果您想在您的Huracan Spyder N-Largo中获得更雷鸣般的声音，可以使用Novitec Inconel排气系统，带或不带蝶阀以产生更响亮的音轨，这可能不是每个国家的街头合法。
-
-对于Coupé版本，Novitec在工程中配备了一个增压器，可以将功率从工厂最初的610马力提高到巨大的860马力，并且只会创建25个Huracan N-Largo。现在Huracan Spyder N-Largo更加有限， 增压器仍在开发中，全球将仅建造11台。
-
-如果您正在寻找风格更具侵略性的兰博基尼Huracan Spyder，这款Novitec Torado N-Largo套件可能是完美的答案。我们都知道Huracan Performante Spyder将很快亮相，但这无论如何都不是宽体。
-
-
-## 3.10 HURACAN HYDRA BY MORPH AUTO DESIGN
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/hydra/1.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado/9.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-位于加利福尼亚州旧金山的Morph Auto Design（或MAD）为兰博基尼Huracan创造了另一个空气动力学套件，他们称之为Hydra，以古希腊神话中的生物命名。
-
-Hydra是一种多头蛇形动物，以其破坏力和凶猛的本性而闻名，这与Huracan非常相配。请注意，这是Hydra Type 1气动套件，Morph Auto Design考虑了更多版本，可以在本文的一些渲染图中看到。
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/hydra/2.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado/10.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-整个Hydra Type 1套件包括前唇、侧裙、尾翼底座和双尾翼，在撰写本文时售价为17540美元。所有部件均由预浸干碳纤维制成，并带有防紫外线透明涂层，有哑光或光面可供选择。
-
-两个前唇可以安装在兰博基尼Huracan的原始前保险杠上，它们安装在两侧大型进气口下方，并向两侧摆动，提供垂直尾翼，很像Aventador LP720上的设计。如果单独购买，它们的标价为4885美元。
-
-华丽的透明碳纤维侧裙也有垂直鳍片，可改善Huracan周围的空气流动，标价4985美元，从侧面看，它们完全改变了V10的外观。
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/hydra/3.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado/11.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-Hydra Type 1空气动力学套件中最令人印象深刻的项目可能是令人印象深刻的尾翼，采用双翼型设计以提供更大的下压力，侧面采用垂直鳍片以提高速度稳定性，标价6185美元，您可以选择额外的碳纤维底座 以1485美元的价格完成了尾灯之间和尾翼下方的碳纤维外观。
-
-不包括在完整的Hydra Type 1空气动力套件中，但非常适合安装在您的兰博基尼Huracan上的是一整套透明碳纤维外后视镜，售价3000美元。
-
-从本页顶部的渲染图来看，Morph Auto Design考虑了另一个外观漂亮的空气动力学套件，并为后挡泥板配备了特殊设计。
-
-
-## 3.11 WIDE BODY HURACAN BY DUKE DYNAMICS
-![1]({{ '/assets/images/car/Lamborghini/Huracan/duke-dynamics/1.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado/12.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-Duke Dynamics已经在他们的产品组合中为兰博基尼Huracán提供了一个空气动力学套件，但有传言说他们现在正在开发更令人印象深刻的东西：来自Sant'Agata的V10 Bull的超宽车身套件。
-
-目前，有几家公司在他们的目录中为兰博基尼Huracan提供宽体改装，例如Mansory的Huracán Torofeo或Novitec Torado N-Largo，LB Performance的Kato-San典型的螺栓固定式挡泥板和超低空气悬架，现在Duke Dynamics也希望称为其中一员。
-
-如果显示的渲染图符合这个宽体机的要求，它甚至可能看起来比竞争对手的任何产品都更令人印象深刻，但似乎Duke Dynamics只计划用透明碳纤维制造10个这样的套件。
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/duke-dynamics/2.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado/13.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-风格非常激进的前保险杠、宽大的门槛和宽大的后挡泥板，集成了大进气口，还要注意前引擎盖上的通风口和似乎受兰博基尼Veneno启发的尾翼，而后部可能会显示出较低的扩散器在车轮后面有开口部分，很像在兰博基尼Centenario上看到的扩散器。
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
-我们将不得不拭目以待，看看这个庞大的套件是否会投入生产，以及这将花费多少，但它看起来确实很棒。
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado/16.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado/17.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado/18.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
 
-## 3.12 NOVITEC TORADO HURACAN RWD
+## 3.3 NOVITEC TORADO HURACAN RWD
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-rwd/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
@@ -3955,7 +4742,606 @@ Huracán LP580-2的后部有一个不同的保险杠，因此Novitec Torado提�
 与往常一样，兰博基尼Huracán LP580-2的内部可以容纳大量碳纤维部件，定制的Alcantara或皮革内饰，以匹配车主喜欢的任何色调，但Novitec还提供了一个“竞赛驾驶舱”，具有赛车风格斗式座椅、多点式安全带和完整的防滚架。
 
 
-## 3.13 DMC HURACAN LP1088 E-GT SPYDER
+## 3.4 NOVITEC TORADO HURACAN SPYDER
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+Novitec是异国情调汽车世界中较为成熟的高端改装公司之一，以Novitec Rosso标签下的法拉利调谐而闻名，但现在兰博基尼的Novitec Torado标签已经非常有名，尤其是他们的Huracán N -Largo最初被误认为是新款兰博基尼Huracán Superleggera。
+
+Novitec花了一段时间才弄到一辆兰博基尼Huracán LP610-4 Spyder，但他们设法在他们的车间获得了一辆Verde Mantis，并将其变成了一辆完整的Torado Spyder规格的汽车，增压器将提高V10的功率输出从标准610提到860 hp的功率仍在开发中，但我确信工厂的功率输出目前可以满足。
+
+请注意，整个空气动力学套件适用于Huracan LP610-4 Coupé和Spyder，并且可以选择以透明碳纤维交付，从而赋予Huracán Spyder非常独特的外观和感觉。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+前面有一个新的前扰流唇，它环绕着拐角，它可以与固定在原来保险杠上的中心叶片和侧翼竞争，但三个也是另一个，可以固定在上唇上的小翼在中央进气口。像往常一样，Novitec可以用一个新的前罩替换前罩，该罩内装有空气管道，可有效减少前部的升力。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+一对特殊的Novitec Torado侧门槛连接前后轮并减少侧面的空气湍流，加上碳纤维后视镜盖，这些门槛完全改变了已经性感的Huracán Spyder的侧视图，视觉上已经降低了汽车 .
+
+在后面，一个新的下部后扩散器和后扰流板唇缘创造了更好的空气动力学气流，并且沿途看起来引人注目，请注意，所有Novitec Torado部件都经过精心开发并在风洞中进行测试，以确保它们增加了汽车的稳定性，这就是为什么Novitec Torado还为Spyder提供了更大的尾翼，以防万一客户喜欢更具侵略性的后部外观。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+您可以选择更大的尾翼、双尾翼甚至N-Largo尾翼。
+
+要完成外部碳纤维外观，您可以选择Novitec Torado尾灯造型，该鳍片位于原始尾灯下方和之间，但采用透明碳纤维饰面，它会产生显着差异。如果您打开发动机盖发现缺少那里的碳纤维，不用担心，因为Novitec Torado有V10发动机的盖子。
+
+倍耐力的P-Zero轮胎安装在定制的Novitec NL1上，三片式车轮，前轮9×20英寸，后轮12.5×21英寸，分别配备245/30ZR20和325/25ZR21，以及Novitec的35mm降低弹簧套件降低重心，在不久的将来，将提供可调节的避震悬架。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+如果令人惊叹的V10的出厂原始声音不够好，Novitec Torado客户可以选择特殊的运动排气系统，无论是不锈钢还是轻质铬镍铁合金，甚至还有一个带蝶阀的排气系统，可以远程打开，静音模式或比赛模式。
+
+我们已经提到过，Novitec Torado正在开发一种螺栓式增压器套件，该套件将产生860马力的功率输出和960牛米的最大扭矩，分别高于610马力和560牛米，这是一次重大升级。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/16.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/17.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/18.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/19.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/20.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/21.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/22.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/23.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
+## 3.5 NOVITEC TORADO HURACAN N-LARGO
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+著名的Novitec Torado凭借其最新的名为N-Largo的空气动力学套件让兰博基尼社区大吃一惊，当第一篇关于这款亮蓝色宽体V10的独家新闻发布时，人们认为这可能是街头合法版本Huracán GT3赛车。但事实证明，这辆外观惊人的Bull并不是官方工厂准备的汽车，而是如何进行调校以使其看起来像是直接来自工厂的完美示例，所以我会说Novitec在这里做得非常出色。
+
+不仅在这款Huracán N-Largo上，Novitec还在为原厂V10开发增压器，可将功率从610hp提高到860hp，最终只有25个N-Largo可以作为完整的汽车或基于您已经拥有的Huracán进行建造。
+
+仔细看看Novitec Torado发布的照片，他们似乎用更具侵略性的风格替换了整个前保险杠，该版本与更宽的前挡泥板无缝贴合，与带通风口的diablo GT上的挡泥板非常相似。车门前，车头比原车增加了6cm。
+
+在前面，可以选择从Novitec Torado获得一个透明的碳纤维中心鳍片，这不仅仅是因为她漂亮的外观，这个鳍片主动增加下压力以提高速度稳定性。
+
+乍一看，您可能会认为侧门槛仍然是原厂部件，但仔细观察，这些N-Largo部件确实比正常情况更宽，可以将更宽的前后挡泥板连接在一起，后部也是如此，你可能 一下子看不出来，但后挡泥板确实比标准宽了12厘米，甚至尾灯旁边的部分也必须加宽才能完成N-Largo套件。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+一个惊人的，透明的碳纤维下后扩散器和一个更好看的尾翼，采用相同的轻质材料，使这款来自Novitec Torado的令人惊叹的V10的外观更加完美，还请注意，他们用一个新的发动机盖更换了发动机盖，其中包括一个中央通风通道，同时 前引擎盖展示了现在著名的三角形Novitec进气口，所有风洞都经过测试以实现最佳空气动力学概念，请记住，前引擎盖也可以订购透明碳纤维。
+
+一组碳纤维外后视镜、侧窗后面的碳纤维进气口和碳纤维尾灯环绕使这款Novitec Torado Lamborghini Huracan LP860-4 N-Largo的赛车灵感外观更加完美，同时一组降低弹簧带来V10离路面更近35毫米，为了获得更具运动感的悬架设置，将提供一组即将推出的高度可调避震装置。
+
+一组黑色NL2锻造轮毂完善了这款LeMans蓝色成品兰博基尼Huracán的外观，前部为9×20英寸，后部为交错的12.5×21英寸版本，245/30 ZR 20和325/25 ZR 21 P Zero来自倍耐力安装在它们上面，还要注意颜色编码的制动卡钳，在这些定制车轮的五个双辐条后面看起来绝对令人叹为观止。
+
+虽然尚未上市，但Huracán N-Largo将配备增压V10发动机，它将610hp的原始功率输出增加到令人印象深刻的860hp和960 Nm的最大扭矩输出，同时提供更多动力Novitec Torado的工程师可以从这种设置中得到启发，希望为他们的客户创造一种耐用但功率非常高的发动机，让他们尽情享受。
+
+虽然已经适用于普通的Novitec Torado Huracan，但令人印象深刻的Inconel排气系统也将安装到这款新的N-Largo版本上，无论有没有蝶阀，该系统都会让Huracán N-Largo的声音和她看起来一样令人印象深刻。
+
+事实上，当你看到Novitec的这个令人印象深刻的空气动力学套件时，你仍然可能会把它误认为是原厂汽车，设计执行得非常好，你几乎不能说这不是由Sant'Agata的Squadra Corse部门创造的，Novitec Torado采用了兰博基尼Huracán的原始设计，最终，N-Largo是一款非常漂亮、外观极具侵略性的汽车。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo/16.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo/17.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
+## 3.6 NOVITEC TORADO HURACAN N-LARGO SPYDER
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo-spyder/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+当Novitec Torado于2015年12月为兰博基尼Huracan推出他们的N-Largo套件时，许多人认为发布的谍照实际上是Huracan Performante的照片，但那辆蓝色轿跑车是一款非常令人印象深刻的宽体空气动力学改装套件。Novitec花了将近18个月的时间才为Huracan Spyder发布了令人印象深刻的外观包。
+
+但是新的Novitec Torado Huracan Spyder N-Largo并不是为了安装在Spyder上而对轿跑车套件进行的简单修改，Novitec与Huracan N-Largo的原始设计师Vittorio Strosek一起对这种碳纤维进行了一些宽体套件的修改。
+
+检查那个宽大的前保险杠侧面的额外通风口，在这辆绿色的Huracan Spyder上，后轮前面出现了一个非常漂亮的有角度的通风口，现在宽204厘米，这些通风口有助于冷却后盘式制动器，那些12厘米宽的后挡泥板。
+
+如果您仔细观察那些宽大的前挡泥板（比标准宽3厘米）的顶部，您还会注意到在轮拱顶部切割了三个通风孔以排出盘式制动器的热量，而巨大的黑色车轮外观与双门轿跑车版本相同，9×20和12.5×21英寸的轻型NL2锻造轮毂以及倍耐力前后的245/30 ZR 20和325/25 ZR 21 P Zero's。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo-spyder/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+在这辆来自Novitec的Verde Mantis演示Huracan Spyder上安装了一个大而透明的碳纤维尾翼，而带有集成通风口的非常特殊的前引擎盖也可以用透明碳纤维订购，因此它在降低时与尾翼相匹配 弹簧可以使Huracan Spyder距离赛道更近35毫米。
+
+如果您想在您的Huracan Spyder N-Largo中获得更雷鸣般的声音，可以使用Novitec Inconel排气系统，带或不带蝶阀以产生更响亮的音轨，这可能不是每个国家的街头合法。
+
+对于Coupé版本，Novitec在工程中配备了一个增压器，可以将功率从工厂最初的610马力提高到巨大的860马力，并且只会创建25个Huracan N-Largo。现在Huracan Spyder N-Largo更加有限， 增压器仍在开发中，全球将仅建造11台。
+
+如果您正在寻找风格更具侵略性的兰博基尼Huracan Spyder，这款Novitec Torado N-Largo套件可能是完美的答案。我们都知道Huracan Performante Spyder将很快亮相，但这无论如何都不是宽体。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo-spyder/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo-spyder/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo-spyder/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo-spyder/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo-spyder/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo-spyder/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo-spyder/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo-spyder/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo-spyder/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo-spyder/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo-spyder/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo-spyder/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
+## 3.7 NOVITEC TORADO HURACAN PERFORMANTE
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-performante/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+Novitec为兰博基尼Huracan Performante打造的全新空气动力学套件完美契合Performante上大量使用的原始兰博基尼锻造复合材料，Novitec称其为“可见碳锻造”，它看起来就像工厂使用的材料。
+
+新的空气动力学套件包括传统的前引擎盖更换，这里Novitec提供碳纤维版本或玻璃纤维版本，两者都完全取代了Huracan上原来的前引擎盖，并增加了一对从前到后的通风口，此外，您可以在前保险杠的侧面添加一对通风口，并在保险杠的中央添加一个新的散热片，所有这些都采用可见的碳锻造。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-performante/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+对于侧面，Novitec提供了一对采用相同材料的门槛，以取代Performante上的缎面黑色外观，添加一对可见的碳锻造后视镜盖，您可以从侧面获得完整的外观，但还有更多魔力发生在后部，在那里你可以获得一组尾翼附件，使原来的尾翼（ALA系统的一个组成部分）看起来更具威胁性，并且应该同时增加下压力，两个尾翼和一个新的中心件，安装在后部扩散器上，完成碳锻造后部的外观。
+
+外部的另一件事是一组“挡泥板附件”，实际上它看起来像前轮顶部的一对通风口，安装在挡泥板上，就像我们看到的新空气动力学图片一样，套件来自Lamborghini Accessori本身，但我个人最喜欢的Novitec附加组件之一是安装在发动机盖顶部的一对进气口，同样采用可见的碳锻造，它们的高光泽表面看起来很棒。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-performante/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+Novitec创造了功率优化的钢制排气系统，配备高温热保护，采用开放式赛车风格设计，没有襟翼调节，后扩散器中的两个大型排气尖端发出的声音一定很惊人。
+
+至于车轮，Novitec提供令人惊叹的NL3车轮，六辐“Y”形设计，前轮尺寸为9×20英寸，后轮尺寸为12.5×21英寸，分别配备245/30R20和325/25R21轮胎，以及以防万一您没有从工厂订购Loge中央锁止轮，您可以安装NL3 ZV-Look轮，设计相同但有五个螺栓样式，或者您选择真正的NL3 ZV中央锁止轮并安装Novitec中央锁定套件，可将所有带有5个螺栓模式的Huracan转换为中央锁定装置。
+
+如果您想看到您的Huracan Performante离地稍低，您可以安装Novitec运动弹簧套件，适用于带或不带兰博基尼Magneto选项的汽车，添加一组垫片将使五个螺栓轮进一步移动他们的轮拱外22毫米。
+
+因此，Novitec是第一批为兰博基尼Huracan Performante准备好整套设备的公司之一，它正好适合我们在Performante上获得的锻造复合材料元素，这是对细节的真正关注。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-performante/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-performante/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-performante/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-performante/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-performante/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-performante/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-performante/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-performante/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-performante/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-performante/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-performante/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-performante/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
+## 3.8 HURACAN EVO BY NOVITEC
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-novitec/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+德国改装公司Novitec很快就为最新的兰博基尼Huracán EVO提出了完整的改进包，除了少数项目外，所有这些附加组件也可以安装到Spyder版本，我确信新的EVO RWD将在Novitec Torado的绘图桌旁边。
+
+这是Novitec的一款相当适中的套件，完全不像具有更宽轮拱的大型N-Largo版本，或者在兰博基尼发布他们的Performante之前很久就具有更高安装排气装置的Novara，但可以肯定地说这不是第一个Novitec试图改变兰博基尼Huracán的外观，这只是他们过去所做的事情的延续。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-novitec/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+在前部，Novitec为新的EVO保险杠提供了总共三个部件，一个水平安装的中央鳍片，一对垂直安装在进气口上的额外鳍片，以及一个滑过新Y型的透明碳纤维盖EVO前保险杠的形状嵌入，Novitec的所有部件都采用透明碳纤维制成，可以根据客户的喜好进行喷漆。
+
+前行李箱盖可以用Novitec零件替换，它内置的空气管道实际上模仿了Huracán车顶上的“线条”，在一对盖上放置在后视镜的顶部 我们来到Novitec的新侧门槛，这些实际上不像工厂原来的那样具有水平鳍片，碳纤维进气口安装在侧窗后面完成外观。
+
+对于引擎盖，对于双门轿跑车车型，您有两种选择，如果您有工厂安装的玻璃面板引擎盖，您可以在盖上添加一对进气口，但如果您真的想要给人留下深刻印象，您可以更换整个装置带有巨大的N-Largo发动机盖，配有进气口，后一个盖确实需要EVO的额外盖，请注意，这两个都不适合EVO Spyder版本。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-novitec/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+为了完成Huracán EVO的Novitec空气动力学部件，我们可以用透明碳纤维Novitec部件替换原厂原装扩散器（有黑色、亮黑色或车身颜色可供选择），但最令人印象深刻的后部可能是令人惊叹的后部机翼，我真的很喜欢这件作品上支柱的“悬挂”风格。
+
+车轮是添加到汽车上的非常个性化的东西，只是为了提供选择Novitec有两种设计可供选择，一种是NL1 Forged，它是双五辐设计的多件式版本，并使用原装螺栓固定方法。但是，如果您真的想一路走下去，您可以选择Vossen制造的带有中央锁定螺栓的NL4锻造车轮，请注意，如果您没有从工厂订购带有可选Loge锻造车轮的Huracán EVO，您必须获得Novitec中央锁定套件才能安装NL4装置。
+
+所有Novitec车轮前轴尺寸为9×20，后轴尺寸为12.5×21，分别配备倍耐力P-Zero高性能轮胎245/60ZR20和325/25ZR21，您甚至可以在每个车轮后面添加11mm垫片 为了将每个轴上的原始轨道增加22毫米，以防万一你真的想刮掉那个昂贵的前保险杠，Novitec提供了一个35毫米的降低装置，以运动弹簧组的形式出现，请注意，这是一个不同的套件，适用于带 Magneto阻尼器和出厂时没有Magneto选项的汽车。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-novitec/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+虽然Huracán的工厂V10已经提供了非常好的声音，但您始终可以使用Novitec排气系统使其声音更大，该系统有不锈钢或更轻的INCONEL，后者具有金高温热保护，顺便说一下，在这种情况下，您只需添加Novitec的碳纤维排气管嘴即可完成外部的CF外观。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-novitec/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-novitec/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-novitec/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-novitec/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-novitec/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-novitec/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-novitec/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-novitec/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-novitec/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-novitec/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/evo-novitec/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
+## 3.9 LB-SILHOUETTE WORKS HURACAN GT
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+在撰写本文时，还没有兰博基尼Huracan STS或Super Trofeo Stradale，但Kato-San用他的新LB-Silhouette WORKS Huracan GT气动套件为Huracan车主解决了这个问题，它采用宽体转换Liberty Walk已经提供了一个全新的水平。
+
+Kato-San已经为兰博基尼Huracan准备了两个套件，一个是“Normal Fenders”套件，另一个是“Wide body LB Performance”套件，但他似乎被要求更进一步，所以他仔细看了看官方工厂制造了Huracan Super Trofeo并设计了这款新的LB-Silhouette WORKS Huracan GT版本，它实际上将Huracan变成了街头合法赛车。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+因此，如果您拥有一辆兰博基尼Huracan，并且您有40000美元到60000美元的闲置资金，您可以从Liberty Walk购买这款新的气动套件，最便宜的套件由FRP制成，而最昂贵的套件由FRP组合制成，碳纤维增强塑料和干碳。
+
+LB-Silhouette WORKS Huracan GT套件包括一个由FRP制成的前保险杠、下部前分离器（FRP或CFRP）、一个由FRP制成的后保险杠、一个巨大的FRP或CFRP后扩散器。很自然地，一直由FRP制成的宽挡泥板，带有由FRP或CFRP制成的仿制通风口的前罩，然后出现了“昂贵”的物品，那个巨大的尾翼有FRP、CFRP或真正的干碳纤维，就像带有垂直鳍片的新发动机盖一样，同样提供三种不同的材料。
+
+如果您想在Huracan Coupé车型上安装这款令人惊叹的LB-Silhouette WORKS Huracan GT套件，您可以选择提供后挡泥板完全更换的版本，与标准版本相比，价格高出约5000 美元，请注意，这 目前Huracan Spyder不存在该选项，实际上Huracan Spyder套件不包括发动机罩，但价格仍为43850美元至59830美元。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+请记住，仅套件的价格约为60000美元，您必须加上将其安装到Huracan上的价格，这可能需要几个小时才能上漆（或包装） ，所以这可能需要多花几千美元，然后你仍然需要降低悬架，最好是9500美元的Airrex套件。
+
+但是像这款新的LB-Silhouette WORKS Huracan GT这样的宽体改装确实也需要一套新的橡胶，非常宽并且具有正确的偏移量以确保车轮用必要的橡胶填充宽挡泥板，可能会在Lamborghini Huracan本身的价值之上加上大约100000美元的东西。
+
+有关各个零件的更多信息和价格，请访问Liberty Walk的官方LB-Silhouette WORKS Huracan GT页面。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/16.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/17.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/18.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/19.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/20.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/21.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/22.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/23.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-silhouette-works/24.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
+## 3.10 PRIOR DESIGN HURACAN PDLP610WB
+![1]({{ '/assets/images/car/Lamborghini/Huracan/pdlp610wb/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+总部位于德国的Prior Design GmbH已经存在多年，但我们已经有一段时间没有看到他们为兰博基尼品牌推出的任何新产品了，早在2012年，我们就审查了他们的Gallardo PD-L800套件，这是一款宽体套件，配有Gallardo车顶铲，而在2016年，我们发现了Gallardo PD-Edition，其车身套件的灵感来自兰博基尼Veneno。今天我们展示了针对Huracan的一个全新的套件，Prior Design并没有让人失望，一个令人惊叹的宽体空气动力学套件，适用于当前的V10车型。
+
+对于他们的第一个Huracan套件，您有几个选择，PDLP610空气动力学套件实际上包括一个非常激进的前保险杠附加组件、一组侧裙和一个同样具有侵略性的后保险杠和扩散器，全部由Fibegall-Duraflex材料制成，将这些零件安装到您的兰博基尼Huracan时不需要修改。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/pdlp610wb/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+在选项列表上，PDLP610WB 'Widening wings'是一个8件式选项，使您的V10比原车更宽。
+
+另一种选择是Prior Design提供的尾翼，目前还没有照片，但如果他们从他们的Gallardo套件中获得灵感，我相信Huracan的新尾翼会很棒。
+
+将Prior Design的悬架套件安装到您的宽体Huracan上，您可能需要稍微小心地过减速带，但这样做看起来会很棒。
+
+有关更多信息和定价，请访问Prior Design GmbH网站。
+
+
+## 3.11 HURACAN 1016 INDUSTRIES RENATO AERO KIT
+![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+1016 Industries已经成为高端超级跑车的改装商，当然这也包括当前的兰博基尼系列，他们已经改装了一些Aventador，但我想主要关注的是V10 Huracan型。
+
+目前，专为兰博基尼Huracan Performante开发的专用空气动力学套件已接近尾声，公开揭幕随时都在眼前，但让我们来看看目前可用于Huracan LP610-4和Huracan RWD的Renato套件（包括Coupé或Spyder车型）。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+Renato套件包括一个透明的碳纤维前唇，售价5750美元，这个唇由2×2真空注入的预浸碳纤维制成，带有防紫外线透明涂层，设计延续了LP610-4和RWD的原始线条（两种型号都可以使用不同版本的前唇），同时进一步向前延伸约3英寸。使用下部的角度，改善车身下方的气流，同时增加下压力，前散热器将更多的空气引导到它们上面，使用侧面的垂直散热片，冷空气更好地导入轮舱盘式制动器冷却。
+
+侧裙由FRP（6500美元）、碳纤维（7500美元）或层压碳纤维（9200美元）制成，并再次沿用Huracan的原始线条，只是在后轮前面增加了一个通风孔，用于推动空气到后盘式制动器上，以实现更好的冷却效果，并在Huracan的侧面轮廓上营造出更具侵略性的风格。
+
+来自1016 Industries的大型后扩散器目前仅适用于Huracan LP610-4车型，售价7350美元，这种预浸碳纤维装置再次看起来令人印象深刻，并有效地扩展了Huracan的轮廓以获得更好的气流，端板确保了Bull即使在高速下也能保持稳定。
+
+由碳纤维制成的尾翼标价为6795美元，但配备了非常漂亮的垂直支柱和碳纤维底座，该尾翼的整个结构直接用螺栓固定在Huracan的车架上，以实现终极稳定性。但最好的部分是支柱的可能性，客户有三种选择，标准的支柱将尾翼固定到位，具有最大下压力，但对最高速度有负面影响。您也可以选择专为最高速度而设计的“短型”支柱，因为尾翼的间距较小，但这种设置仍能提供稳定性和下压力。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+1016 Industries的Renato套件的最新成员是碳纤维引擎盖，它用源自赛车运动的设计取代了Huracan引擎盖的标准，显示了两个通风口（实际上是模拟勺子），再次可用于FRP（ 6500美元）、碳纤维（7500美元）和层压碳纤维（9200美元），这种定制引擎盖保持了前部行李空间的使用，同时比兰博基尼的原始装置更轻。
+
+以防万一您想要拥有与Renato Huracan的外观相匹配的动力，1016 Industries提供定制的ECU和TCU调整，将原始功率输出从610hp增加到640hp和448lb-ft的扭矩，添加定制排气装置系统的Huracan被增加到670马力。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/16.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/17.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/18.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/19.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/20.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/1016/21.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
+## 3.12 HURACAN HYDRA BY MORPH AUTO DESIGN
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/hydra/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+位于加利福尼亚州旧金山的Morph Auto Design（或MAD）为兰博基尼Huracan创造了另一个空气动力学套件，他们称之为Hydra，以古希腊神话中的生物命名。
+
+Hydra是一种多头蛇形动物，以其破坏力和凶猛的本性而闻名，这与Huracan非常相配。请注意，这是Hydra Type 1气动套件，Morph Auto Design考虑了更多版本，可以在本文的一些渲染图中看到。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/hydra/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+整个Hydra Type 1套件包括前唇、侧裙、尾翼底座和双尾翼，在撰写本文时售价为17540美元。所有部件均由预浸干碳纤维制成，并带有防紫外线透明涂层，有哑光或光面可供选择。
+
+两个前唇可以安装在兰博基尼Huracan的原始前保险杠上，它们安装在两侧大型进气口下方，并向两侧摆动，提供垂直尾翼，很像Aventador LP720上的设计。如果单独购买，它们的标价为4885美元。
+
+华丽的透明碳纤维侧裙也有垂直鳍片，可改善Huracan周围的空气流动，标价4985美元，从侧面看，它们完全改变了V10的外观。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/hydra/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+Hydra Type 1空气动力学套件中最令人印象深刻的项目可能是令人印象深刻的尾翼，采用双翼型设计以提供更大的下压力，侧面采用垂直鳍片以提高速度稳定性，标价6185美元，您可以选择额外的碳纤维底座 以1485美元的价格完成了尾灯之间和尾翼下方的碳纤维外观。
+
+不包括在完整的Hydra Type 1空气动力套件中，但非常适合安装在您的兰博基尼Huracan上的是一整套透明碳纤维外后视镜，售价3000美元。
+
+从本页顶部的渲染图来看，Morph Auto Design考虑了另一个外观漂亮的空气动力学套件，并为后挡泥板配备了特殊设计。
+
+
+## 3.13 WIDE BODY HURACAN BY DUKE DYNAMICS
+![1]({{ '/assets/images/car/Lamborghini/Huracan/duke-dynamics/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+Duke Dynamics已经在他们的产品组合中为兰博基尼Huracán提供了一个空气动力学套件，但有传言说他们现在正在开发更令人印象深刻的东西：来自Sant'Agata的V10 Bull的超宽车身套件。
+
+目前，有几家公司在他们的目录中为兰博基尼Huracan提供宽体改装，例如Mansory的Huracán Torofeo或Novitec Torado N-Largo，LB Performance的Kato-San典型的螺栓固定式挡泥板和超低空气悬架，现在Duke Dynamics也希望称为其中一员。
+
+如果显示的渲染图符合这个宽体机的要求，它甚至可能看起来比竞争对手的任何产品都更令人印象深刻，但似乎Duke Dynamics只计划用透明碳纤维制造10个这样的套件。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/duke-dynamics/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+风格非常激进的前保险杠、宽大的门槛和宽大的后挡泥板，集成了大进气口，还要注意前引擎盖上的通风口和似乎受兰博基尼Veneno启发的尾翼，而后部可能会显示出较低的扩散器在车轮后面有开口部分，很像在兰博基尼Centenario上看到的扩散器。
+
+我们将不得不拭目以待，看看这个庞大的套件是否会投入生产，以及这将花费多少，但它看起来确实很棒。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/duke-dynamics/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/duke-dynamics/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/duke-dynamics/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
+## 3.14 DMC HURACAN LP1088 E-GT SPYDER
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/dmc/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
@@ -3976,8 +5362,11 @@ DMC LP1088 E-GT的名字来源于DMC可以在发动机上加装一对涡轮增�
 
 从0到100公里/小时的加速现在仅需2.69秒，而DMC Huracan LP1088 E-GT Spyder的最高速度为345公里/小时。
 
+![1]({{ '/assets/images/car/Lamborghini/Huracan/dmc/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
-## 3.14 HURACAN LP680 BY RSC TUNING
+
+## 3.15 HURACAN LP680 BY RSC TUNING
 
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/rsc-tuning/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
@@ -4009,8 +5398,29 @@ RSC Tuning Aero套件配有两个高度可调的前分流器，以记住已经�
 
 令人印象深刻的HRE车轮已由迈阿密的Wheels Boutique安装到这辆车上，这些是HRE P2系列P201单元，前部9×20英寸，后部12.5×21英寸，倍耐力轮胎245/30ZR20和325/25ZR21被安装。
 
+![1]({{ '/assets/images/car/Lamborghini/Huracan/rsc-tuning/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
-## 3.15 VOS PERFORMANCE HURACAN FINAL EDITION
+![1]({{ '/assets/images/car/Lamborghini/Huracan/rsc-tuning/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/rsc-tuning/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/rsc-tuning/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/rsc-tuning/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/rsc-tuning/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/rsc-tuning/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
+## 3.16 VOS PERFORMANCE HURACAN FINAL EDITION
 
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/vos/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
@@ -4033,44 +5443,23 @@ VOS Performance为兰博基尼Huracán打造了“最终版”套件，包括价
 
 目前，白色样车Lamborghini Huracán“Final Edition”在他们的网站上以196218欧元的税前价格出售，或者您可以联系他们为您已经拥有的Huracán订购您选择的零件。
 
-
-## 3.16 NOVITEC TORADO HURACAN SPYDER
-![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/3.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vos/4.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-Novitec是异国情调汽车世界中较为成熟的高端改装公司之一，以Novitec Rosso标签下的法拉利调谐而闻名，但现在兰博基尼的Novitec Torado标签已经非常有名，尤其是他们的Huracán N -Largo最初被误认为是新款兰博基尼Huracán Superleggera。
-
-Novitec花了一段时间才弄到一辆兰博基尼Huracán LP610-4 Spyder，但他们设法在他们的车间获得了一辆Verde Mantis，并将其变成了一辆完整的Torado Spyder规格的汽车，增压器将提高V10的功率输出从标准610提到860 hp的功率仍在开发中，但我确信工厂的功率输出目前可以满足。
-
-请注意，整个空气动力学套件适用于Huracan LP610-4 Coupé和Spyder，并且可以选择以透明碳纤维交付，从而赋予Huracán Spyder非常独特的外观和感觉。
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/4.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vos/5.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-前面有一个新的前扰流唇，它环绕着拐角，它可以与固定在原来保险杠上的中心叶片和侧翼竞争，但三个也是另一个，可以固定在上唇上的小翼在中央进气口。像往常一样，Novitec可以用一个新的前罩替换前罩，该罩内装有空气管道，可有效减少前部的升力。
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/5.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vos/6.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-一对特殊的Novitec Torado侧门槛连接前后轮并减少侧面的空气湍流，加上碳纤维后视镜盖，这些门槛完全改变了已经性感的Huracán Spyder的侧视图，视觉上已经降低了汽车 .
-
-在后面，一个新的下部后扩散器和后扰流板唇缘创造了更好的空气动力学气流，并且沿途看起来引人注目，请注意，所有Novitec Torado部件都经过精心开发并在风洞中进行测试，以确保它们增加了汽车的稳定性，这就是为什么Novitec Torado还为Spyder提供了更大的尾翼，以防万一客户喜欢更具侵略性的后部外观。
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/6.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vos/7.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-您可以选择更大的尾翼、双尾翼甚至N-Largo尾翼。
-
-要完成外部碳纤维外观，您可以选择Novitec Torado尾灯造型，该鳍片位于原始尾灯下方和之间，但采用透明碳纤维饰面，它会产生显着差异。如果您打开发动机盖发现缺少那里的碳纤维，不用担心，因为Novitec Torado有V10发动机的盖子。
-
-倍耐力的P-Zero轮胎安装在定制的Novitec NL1上，三片式车轮，前轮9×20英寸，后轮12.5×21英寸，分别配备245/30ZR20和325/25ZR21，以及Novitec的35mm降低弹簧套件降低重心，在不久的将来，将提供可调节的避震悬架。
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-spyder/7.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vos/8.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-如果令人惊叹的V10的出厂原始声音不够好，Novitec Torado客户可以选择特殊的运动排气系统，无论是不锈钢还是轻质铬镍铁合金，甚至还有一个带蝶阀的排气系统，可以远程打开，静音模式或比赛模式。
-
-我们已经提到过，Novitec Torado正在开发一种螺栓式增压器套件，该套件将产生860马力的功率输出和960牛米的最大扭矩，分别高于610马力和560牛米，这是一次重大升级。
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vos/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
 
 ## 3.17 LAMBORGHINI HURACÁN AERODYNAMIC KIT
@@ -4102,6 +5491,30 @@ Lamborghini Dallas将此套件列为Accessori Originali Automobili Lamborghini�
 
 据传，Huracán空气动力学套件由前翼片、侧门槛、下部后扩散器和尾翼组成，不带配件的售价为20000欧元（约合23000美元），可在当地的兰博基尼官方经销商处购买。
 
+![1]({{ '/assets/images/car/Lamborghini/Huracan/aerodynamic/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/aerodynamic/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/aerodynamic/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/aerodynamic/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/aerodynamic/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/aerodynamic/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/aerodynamic/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/aerodynamic/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
 
 ## 3.18 DMC HURACAN SIMPLICITY
 
@@ -4111,9 +5524,6 @@ Lamborghini Dallas将此套件列为Accessori Originali Automobili Lamborghini�
 DMC是异国情调汽车的高端改装公司之一，他们的Aventador和Huracán空气动力学套件正在世界各地销售，例如他们的Aventador E-GT限量版和Huracán Affari。
 
 DMC最近发布的这篇文章表明，并不总是需要整套套件才能让汽车脱颖而出，只需添加一套漂亮的车轮和令人惊叹的DMC尾翼就可以让汽车与众不同（在Lp610-4上）。
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/dmc-simplicity/2.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
 
 这款特定的V10不仅安装了受SV启发的尾翼，而且还安装了底翼，如果您决定拆下尾翼，则可以将汽车恢复到原始规格，此外，新的DMC底翼是与原始部件相比也强很多，因此DMC基地翼不存在高速损坏的风险。
 
@@ -4143,39 +5553,14 @@ DMC Affari套件有一些选项，其中一个是特殊的鳍片，固定在Hura
 
 如果你真的想让你的兰博基尼Huracán脱颖而出，你可以安装DMC碳纤维进气口套件，一对进气口拧在可选的玻璃发动机盖上，代替原来的通风口，这些DMC进气口甚至使用相同的孔被修复，所以你不必改变任何东西。当水通过这些新勺子的后部排出时，保护格栅可避免碎屑进入发动机室。
 
-
-## 3.20 NOVITEC TORADO HURACAN N-LARGO
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo/1.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/dmc-affari/2.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-著名的Novitec Torado凭借其最新的名为N-Largo的空气动力学套件让兰博基尼社区大吃一惊，当第一篇关于这款亮蓝色宽体V10的独家新闻发布时，人们认为这可能是街头合法版本Huracán GT3赛车。但事实证明，这辆外观惊人的Bull并不是官方工厂准备的汽车，而是如何进行调校以使其看起来像是直接来自工厂的完美示例，所以我会说Novitec在这里做得非常出色。
-
-不仅在这款Huracán N-Largo上，Novitec还在为原厂V10开发增压器，可将功率从610hp提高到860hp，最终只有25个N-Largo可以作为完整的汽车或基于您已经拥有的Huracán进行建造。
-
-仔细看看Novitec Torado发布的照片，他们似乎用更具侵略性的风格替换了整个前保险杠，该版本与更宽的前挡泥板无缝贴合，与带通风口的diablo GT上的挡泥板非常相似。车门前，车头比原车增加了6cm。
-
-在前面，可以选择从Novitec Torado获得一个透明的碳纤维中心鳍片，这不仅仅是因为她漂亮的外观，这个鳍片主动增加下压力以提高速度稳定性。
-
-乍一看，您可能会认为侧门槛仍然是原厂部件，但仔细观察，这些N-Largo部件确实比正常情况更宽，可以将更宽的前后挡泥板连接在一起，后部也是如此，你可能 一下子看不出来，但后挡泥板确实比标准宽了12厘米，甚至尾灯旁边的部分也必须加宽才能完成N-Largo套件。
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado-n-largo/2.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/dmc-affari/3.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-一个惊人的，透明的碳纤维下后扩散器和一个更好看的尾翼，采用相同的轻质材料，使这款来自Novitec Torado的令人惊叹的V10的外观更加完美，还请注意，他们用一个新的发动机盖更换了发动机盖，其中包括一个中央通风通道，同时 前引擎盖展示了现在著名的三角形Novitec进气口，所有风洞都经过测试以实现最佳空气动力学概念，请记住，前引擎盖也可以订购透明碳纤维。
 
-一组碳纤维外后视镜、侧窗后面的碳纤维进气口和碳纤维尾灯环绕使这款Novitec Torado Lamborghini Huracan LP860-4 N-Largo的赛车灵感外观更加完美，同时一组降低弹簧带来V10离路面更近35毫米，为了获得更具运动感的悬架设置，将提供一组即将推出的高度可调避震装置。
-
-一组黑色NL2锻造轮毂完善了这款LeMans蓝色成品兰博基尼Huracán的外观，前部为9×20英寸，后部为交错的12.5×21英寸版本，245/30 ZR 20和325/25 ZR 21 P Zero来自倍耐力安装在它们上面，还要注意颜色编码的制动卡钳，在这些定制车轮的五个双辐条后面看起来绝对令人叹为观止。
-
-虽然尚未上市，但Huracán N-Largo将配备增压V10发动机，它将610hp的原始功率输出增加到令人印象深刻的860hp和960 Nm的最大扭矩输出，同时提供更多动力Novitec Torado的工程师可以从这种设置中得到启发，希望为他们的客户创造一种耐用但功率非常高的发动机，让他们尽情享受。
-
-虽然已经适用于普通的Novitec Torado Huracan，但令人印象深刻的Inconel排气系统也将安装到这款新的N-Largo版本上，无论有没有蝶阀，该系统都会让Huracán N-Largo的声音和她看起来一样令人印象深刻。
-
-事实上，当你看到Novitec的这个令人印象深刻的空气动力学套件时，你仍然可能会把它误认为是原厂汽车，设计执行得非常好，你几乎不能说这不是由Sant'Agata的Squadra Corse部门创造的，Novitec Torado采用了兰博基尼Huracán的原始设计，最终，N-Largo是一款非常漂亮、外观极具侵略性的汽车。
-
-
-## 3.21 DMC HURACAN CAIRO EDITION
+## 3.20 DMC HURACAN CAIRO EDITION
 
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/dmc-cairo/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
@@ -4194,8 +5579,17 @@ DMC Affari套件有一些选项，其中一个是特殊的鳍片，固定在Hura
 
 与往常一样，客户可以从无限的内饰选项中进行选择，DMC将使用稀有皮革（鸵鸟皮、黄貂鱼皮）和碳纤维定制LP610，以满足任何尊贵客户的需求。发动机优化程序 (LP630) 也非常适合新套件，使它在2015年整体上令人兴奋地重新出现。
 
+![1]({{ '/assets/images/car/Lamborghini/Huracan/dmc-cairo/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
-## 3.22 HURACAN NORMAL FENDER BY LB WORKS
+![1]({{ '/assets/images/car/Lamborghini/Huracan/dmc-cairo/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/dmc-cairo/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
+## 3.21 HURACAN NORMAL FENDER BY LB WORKS
 
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/lbworks-fender/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
@@ -4219,7 +5613,7 @@ DMC Affari套件有一些选项，其中一个是特殊的鳍片，固定在Hura
 如果您快速添加这款LB Works Huracán窄挡泥板版本，如果您选择尾翼版本2和CFRP的所有部件，这比CFRP的宽挡泥板套件低5500美元，这意味着那四个额外的挡泥板每个售价1375美元。
 
 
-## 3.23 VORSTEINER NOVARA HURACAN
+## 3.22 VORSTEINER NOVARA HURACAN
 
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
@@ -4241,32 +5635,149 @@ DMC Affari套件有一些选项，其中一个是特殊的鳍片，固定在Hura
 
 演示车在20英寸的新V-FF 105锻造轮毂上滚动，配有倍耐力P零轮胎，前轮为8.5×20英寸，后轮辋为11×20英寸，甚至内饰也没有被透明碳纤维与皮革结合的定制方向盘所忽视。
 
-
-## 3.24 NOVITEC TORADO HURACAN
-
-![1]({{ '/assets/images/car/Lamborghini/Huracan/novitec-torado/4.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/3.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
-NOVITEC这个名字在改装界是众所周知的，尤其是在高端异国情调的汽车市场，他们对法拉利和玛莎拉蒂等品牌的改装已成为传奇，当Novitec Torado发布了完整的空气动力学套件，包括兰博基尼V12的发动机改装，这个德国改装公司变得更加有名。
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
-Novitec Torado Aventador LP700-4的双尾翼给世界留下了深刻的印象，配有特殊的电子盒，可以避免原尾翼在升起时断开连接时产生的错误，更重要的是NOVITEC提供了一个Bi-Kompressor套件，该套件已被在8300转/分时测得的功率为969马力，增压设置为0.47巴，最近还推出了Aventador LP700-4 Roadster形式。
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
-他们花了几个月的时间，但现在Novitec Torado发布了兰博基尼Huracan LP610-4的完整套件，空气动力学部件全部由碳纤维制成，实际上改善了来自Sant'Agata的V10周围的气流，NOVITEC进行了实际的风洞测试 以确保这一点。添加具有完美配合和强大声音的NOVITEC排气系统，作为单独的性能优化组件，带或不带襟翼调节。定制尖端的选择将使Huracan的背面更具侵略性，请注意，这些排气装置可以采用不锈钢或赛车级铬镍铁合金，用一套金属运动催化剂或一套更换管道。
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
-特殊的NOVITEC轮毂专为兰博基尼打造，它们保留了中心盖和压力调节系统，仔细观察这些轮毂的细节，避免了在车上修改设置，尺寸与原车轮辋保持一致 确保完美贴合和完成。NOVITEC星轮前轮尺寸为9×20英寸，后轮尺寸为12.5×21英寸，分别配备255/30 R20和355/25 R21 Pirelli P-Zero。车轮设计有银色金属、黑色中心带镀铬边缘或相同的镀铬边缘，中心有客户选择的油漆，甚至可以在这些双五辐条轮辋上使用碳纤维涂层。
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
-自然地，这种特殊的车轮设计为Huracan配备了降低系统，NOVITEC在这里有两种选择，一种是KW铝制线圈悬架运动，可液压调节高度，包括双可调铝制减震器，在减震器外壳上带有独立的膨胀储液罐，压缩和回弹前后可调，或者只是用于降低的运动弹簧组，结合标准悬架，适用于带或不带MAGNETO减震器的汽车。为获得令人印象深刻的外观，您可以为前部添加11毫米（每轴22毫米）铝制垫片，由高强度铝制成，包括经过黑色阳极氧化处理的兰博基尼车轮螺栓。
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
-现在看看兰博基尼Huracan上NOVITEC的空气动力学套件，它是一个非常完整的套件，包括两个透明碳纤维前扰流唇，安装在原保险杠上，前保险杠上的下中心鳍片和上中心鳍片都可以，还收到一个透明的碳纤维盖，而原来的门槛被NOVITEC替换为新的透明碳纤维单元，后扩散器可以以要涂漆的形式或透明碳纤维的形式订购，带或不带后视摄像头安装。
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
-在尾部，NOVITEC在尾翼方面提供了一些选择，您可以将三个小的碳纤维部分放在原来的鸭尾式尾部上，或者选择单翼型的高尾翼或作为双翼，就像在Aventador上一样。
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
-好东西来了，尾灯下方的小鳍片也可以收纳透明的碳纤维罩，连同侧窗后方的小进气口和前部的大进气口可以安装一对竖直的鳍片保险杠，谈到进气口，NOVITEC再次提供带有三角形进气口的替换前引擎盖，采用待涂漆碳纤维或高光泽可见碳纤维，如果您的Huracan上有玻璃发动机盖，NOVITEC可以安装两个空气从屋顶上方窥视的进气口。
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
-在发动机舱中添加更多透明碳纤维以完善外观，外部后视镜的两个盖板完成了外部改造，当然，对于内部，NOVITEC也提供大量透明碳纤维部件。
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/16.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/17.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/18.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/19.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/20.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/21.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/22.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/23.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/24.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/25.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/26.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/27.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/28.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/29.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/30.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/31.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/32.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/33.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/34.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/35.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/36.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/37.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/38.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/39.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/40.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/41.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/42.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/43.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/44.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/45.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/46.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/47.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/48.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner/49.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
 
-## 3.25 HURACAN BY MANSORY
+## 3.23 HURACAN BY MANSORY
 
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/mansory/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
@@ -4293,8 +5804,20 @@ Mansory的透明碳纤维尾翼完成了这款兰博基尼Huracan的外观重新
 
 Mansory的Huracan MH1的最大扭矩输出在5300转/分时为780牛米（从6500转/分时的560牛米），新的最高速度现在为330公里/小时（205英里/小时）。
 
+![1]({{ '/assets/images/car/Lamborghini/Huracan/mansory/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
-## 3.26 HURACAN BY LB PERFORMANCE
+![1]({{ '/assets/images/car/Lamborghini/Huracan/mansory/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/mansory/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/mansory/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
+## 3.24 HURACAN BY LB PERFORMANCE
 
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-performance/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
@@ -4315,8 +5838,38 @@ LB Performance再次将他们最新的LB Works套件完全放在地板上，这�
 
 目前，LB Performance已经展示了五种不同的白色兰博基尼Huracan渲染图和他们的LB Works套件，但我相信他们会在更具异国情调的色调上建造它，甚至可能在他们的Aventador宽体上使用淡蓝色。
 
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-performance/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
-## 3.27 HURACAN VERONA BY VORSTEINER
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-performance/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-performance/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-performance/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-performance/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-performance/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-performance/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-performance/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-performance/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lb-performance/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
+## 3.25 HURACAN VERONA BY VORSTEINER
 
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/vorsteiner-verona/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
@@ -4328,7 +5881,7 @@ LB Performance再次将他们最新的LB Works套件完全放在地板上，这�
 这款碳纤维维罗纳尾翼售价3995美元，看起来确实是让您的Huracan从人群中脱颖而出的好方法，添加一套定制的Vorsteiner Nero V-FF 103车轮，您的V10将吸引所有注意力。
 
 
-## 3.28 DMC HURACAN LP630 AFFARI
+## 3.26 DMC HURACAN LP630 AFFARI
 
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/lp630/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
@@ -4348,7 +5901,7 @@ DMC Huracán AFFARI在内部被指定为“Stage-H1”LP630型号，符合DMC提
 通过修改工厂原始ECU软件，DMC成功地将基本610hp的功率输出增加到630hp，甚至没有以任何方式拉伸全新的V10，在20/21英寸设置（8.5×20 up）中添加定制的DMC车轮前轮，后轮12×21，轮胎从前到后增加到245/30R20和325/25R21），您将能够将兰博基尼Huracán完全转变为DMC AFFARI。
 
 
-## 3.29 HURACAN LP850-4 LUCIFERO BY WHEELSANDMORE
+## 3.27 HURACAN LP850-4 LUCIFERO BY WHEELSANDMORE
 
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/lp850-4/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
@@ -4368,8 +5921,23 @@ Huracán LP650-5还不能满足您的需求，Wheelsandmore Stage 2更进一步�
 
 我希望我们能在今年年底在现实生活中看到这些Wheelsandmore兰博基尼Huracán LP850-4 Lucifero中的一辆，我相信在赛道日的开阔道路和赛道上它会非常令人印象深刻。
 
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lp850-4/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
-## 3.30 HURACAN MINOTAURO KIT BY DUKE DYNAMICS
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lp850-4/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lp850-4/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lp850-4/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/lp850-4/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
+## 3.28 HURACAN MINOTAURO KIT BY DUKE DYNAMICS
 
 ![1]({{ '/assets/images/car/Lamborghini/Huracan/duke-dynamics-kit/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
@@ -4385,6 +5953,123 @@ Duke Design为Huracán设计的Minotauro空气动力学套件在扰流板和机�
 在后部周围安装了一个较深的下部扩散器，同样带有垂直鳍片以确保稳定性，看起来很自然。尾部的渲染图也显示了尾灯下方的不同格栅，原来的六边形部件被一个带有水平条纹的单元所取代，老实说，我更喜欢这里的原始设计，但它是不同的。
 
 Minotauro套件中的所有零件仅按订单制造，有FRP或透明碳纤维可供选择（实际上我会选择后者），根据Duke Dynamics的说法，将于2014年夏季上市，价格尚未公布。
+
+
+## 3.29 ZYRUS LP1200 STRADA
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+兰博基尼Essenza SC-V12的第一批客户汽车在撰写本文时正在交付，这款由Squadra Corse打造的外观精美的V12赛车让少数非常幸运的车主能够在世界各地的赛道上体验驾驶V12兰博基尼。
+
+但这也是Essenza SCV12的主要限制，它是一辆纯赛道车，你不能在开阔的道路上驾驶它，一些车主可能会把他们的SCV12带到街上，但这是非法的。所以如果你想要赛车外观，并且仍被合法允许在街上行驶，来自挪威的Zyrus Engineering为您提供了答案。
+
+Zyrus LP1200 Strada是我们在2020年8月向您展示的早期LP1200-R的限量生产街头合法版本，他们称之为LP1200 V2，它基于兰博基尼Huracán LP640-4（可能是Huracan Performante，以及 不是EVO）。Zyrus更换了工厂标准Huracán的600多个零件，以创建LP1200 Strada。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+为了让Zyrus LP1200 Strada在街道上合法行驶，功率输出被限制在900马力，但只要按下一个按钮，就会释放出1200马力的全部功率，Zyrus定制的Smart Dash只能自然地在赛道上使用，控制系统允许驾驶员完全自定义汽车参数，也可以通过智能手机应用程序实现。
+
+Zyrus经过两年的测试和超过6000公里的测试，为他们的Zyrus LP1200 Strada进行了完美的设置，重量为1427千克，由于高度修改的造型，仍然存在合法上路汽车的所有必要安全措施，Zyrus LP1200 Strada包括一个巨大的尾翼，完全在挪威内部完成，在200公里/小时时具有2010公斤的下压力。
+
+这款令人印象深刻的Zyrus LP1200 Strada的起价为595000欧元（约合730000美元），但其中包括与Zyrus团队和工程师一起在赛道上度过一天，让新车主熟悉他们的LP1200 Strada。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/16.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/17.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/18.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/19.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/20.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/21.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/22.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/23.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/24.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/zyrus-lp1200-strada/25.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
+## 3.30 THE VINCENZO EDIZIONE BY VORSTEINER
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vincenzo-edizione/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+令人印象深刻的Huracán STO刚刚在2020年11月由Automobili Lamborghini SpA揭幕，这款合法上路的Super Trofeo赛车最早要到2021年夏季才会交付。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vincenzo-edizione/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+那么，如果您真的喜欢Huracán STO的激进造型并且真的喜欢Spyder版本，且没有耐心等待Super Trofeo Omolagata开始交付客户怎么办？在这种情况下，您可以向Vorsteiner Nero寻求帮助。
+
+新款 Huracán STO最令人印象深刻的是发动机盖上令人生畏的通气管和垂直尾翼，这是Vorsteiner Nero Vincenzo Edizione计划中所缺少的。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vincenzo-edizione/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+但是，令人惊叹的空气动力学引擎盖和车轮上方带有通风口的挡泥板只是Vorsteiner Nero令人惊叹的空气动力学套件的一部分，它们还有用于前保险杠的特殊碳矩阵成品部件，一对侧门槛，Vorsteiner的碳矩阵看起来像兰博基尼自己的锻造复合材料，因此它与Huracán Performante上原厂的后扩散器完美融合。
+
+虽然Vorsteiner的Vincenzo Edizione Program看起来不像STO，您可以将这些空气动力学部件放在兰博基尼Huracán Performante Spyder上，带有许多通风口和敞篷的激进造型V10驾驶，你还能要求什么。
+
+![1]({{ '/assets/images/car/Lamborghini/Huracan/vincenzo-edizione/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+因此，Vorsteiner Nero Vincenzo Edizione计划包括一个带有大型空气通风口和2×2光面底面的替换前引擎盖，带有集成通风口的替换前挡泥板，采用光面碳矩阵制成，一个新的前扰流板适合Performante的原始保险杠，并配有 两侧的垂直稳定器，以及一组完全采用碳矩阵制成的侧门槛，使外观更加完美，在后轮前方设有额外的通风口。
 
 
 # 4. THE LAMBORGHINI HURACÁN STORY
