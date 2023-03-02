@@ -332,6 +332,79 @@ Aventador LP700-4 Roadster具有与Coupé版本相同的规格，当您不需要
 
 最后，Roadster安装的是美丽的Dione车轮，前轮20英寸，后轮更大，为21英寸。
 
+**SPECS & PERFORMANCE**
+
+**GENERAL**
+* Type:	Aventador LP700-4 Roadster
+* Years built:	2013 – 2016
+* Presentation:	November 2012 Los Angeles Auto Show
+* Type of car	Two door coupé, two seater convertible
+* Designed by	Automobili Lamborghini SpA
+* Built by	Automobili Lamborghini SpA
+
+**DIMENSIONS**
+* Wheelbase:	2700 mm / 106.11 in
+* Overall length:	4780 mm / 187.85 in
+* Overall width:	2030 mm / 79.78 in
+* Overall height:	1136 mm / 44.64 in
+* Front track:	1720 mm / 67.6 in
+* Rear track:	1700 mm / 66.81 in
+* Weight:	1625 kg / 3583 lbs
+* Distribution:	43/57 % front / rear
+
+**CHASSIS**
+* Structure:	Carbon fiber monocoque with Aluminum front and rear frames
+* Body:	Carbon fiber engine bonnet, movable spoiler and side air inlets. Aluminum front bonnet, front fenders doors; SMC rear fender
+* Suspension:	Front and rear horizontal mono-tube damper with push-rod system
+* ESP:	ESP/ ABS with different ESP charecteristics managed by drive sel
+* Brakes:	Dual hydraulic circuit brake system with vacuum brake booster; front and rear CCB, 6-cylinder brake callipers, 4-cylinder brake callipers
+* Front:	400×38 mm / 15.72 in
+* Rear:	380×38 mm / 14.93 in
+* Steering type:	Steering Gear with 3 different servortonic charcteristics managed by drive select mode
+* Turning circle:	12,5 m / 39 ft
+* Front tire size:	255/35 ZR19
+* Rear tire size:	335/30 ZR20
+* Type of tire:	Pirelli
+* Front wheel:	9.0 x 19 inch
+* Rear wheel:	12 x 20 inch
+* Type of wheel:	Forged wheels
+* Mirrors:	External mirror electrically foldable
+* Rear spoiler:	Moveable – 3 positions depending on speed and drive select mode
+* Airbags:	Front dual stage driver airbag and front adaptive passenger airbag; seats with side “headthorax” airbags; knee airbags
+
+**ENGINE**
+* Type:	V-12 60 degree, MPI, mid mounted (longitudinal), four wheel drive
+* Cyl. Capacity:	6498 cc / 396 ci
+* Bore & stroke:	95 x 76,4 mm
+* Valve gear:	Variable valve timing electronically controlled
+* Compr. Ratio:	11,8
+* Max. power:	700 Bhp at 8250 rpm
+* Max. torque:	690 Nm at 5500 rpm
+* Cooling system:	Water and oil cooling system in the rear with variable air inlets
+* Emission contr.:	Catalytic converters with lambda sensors
+* Engine management:	Lamborghini Iniezione Elettronica (LIE) with Ion current analysis
+* Electr. system:	12 V
+
+**DRIVETRAIN**
+* Type:	4WD with Haldex generation IV, 7 speed ISR, shifting characteristic depending on drive select mode
+* Clutch:	Dry double plate
+* Disc diameter:	235 mm mm / 9.24 in
+
+**PERFORMANCE**
+* Top speed:	350 Km/h / 217 Mph
+* 0 – 100 Km/h:	3.00 sec.
+
+**CAPACITIES**
+* Fuel:	90 Liter / 24 Gallon
+* Engine oil:	13 Liter / 3 Gallon
+* Cooling system:	25 Liter / 7 Gallon
+
+**PRICING**
+* European: MSRP	300,000 € (2012)
+* US MSRP:	USD 441,700
+* Current value: $44,200 premium over the closed Aventador LP700-4 version.
+
+
 ![1]({{ '/assets/images/car/Lamborghini/Aventador/lp700-4-roadster/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
