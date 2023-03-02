@@ -42,7 +42,7 @@ Aventador的核心是一台6.5升自然吸气发动机，它通过“ISR”手�
 * Predecessor: Lamborghini Murciélago
 * Successor: TBD
 
-![1]({{ '/assets/images/car/Lamborghini/Aventador/.jpg' | relative_url }})
+![1]({{ '/assets/images/car/Lamborghini/Aventador/0.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
 ![1]({{ '/assets/images/car/Lamborghini/Aventador/1.jpg' | relative_url }})
@@ -618,6 +618,378 @@ Aventador LP700-4 Roadster具有与Coupé版本相同的规格，当您不需要
 ![1]({{ '/assets/images/car/Lamborghini/Aventador/lp700-4-roadster/71.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
+
+## 2.3 Lamborghini Aventador LP750-4 SV
+
+* Years: 2015 - 2017
+* Production: 600 units
+* Engine: 6.5 L Nat Aspirated V12
+* Torque: 750 bhp @ 8,400 rpm, 507 ft lbs @ 5,500 rpm
+* 0-60 mph: 2.8 seconds
+* Top Speed: 217 mph
+
+期待已久的兰博基尼Aventado Superveloce在2015年日内瓦车展上亮相，现在我们终于知道这款顶级V12发动机在路上的功率有多大，与2013年限量版Veneno的数字完全相同：750hp。在LP750-4 Superveloce中，这个数字在8400rpm时达到，扭矩为690 Nm，最高速度现在超过350Km/h，使Aventador LP750-4 Superveloce成为最快的量产Raging Bull。
+
+自从70年代初首次出现以来，一些最令人印象深刻的兰博基尼就装饰了显着的SV名称，事实上，恰好是44年前在同一个日内瓦车展上，SV首次用于兰博基尼Miura。事实上，P400 SV在当时代表着Spinto Veloce，标志着感性的Miura的最终进化。Miura SV仅生产了150台，它已成为非常昂贵的车型。如今在市场上更难找到具有特殊Jota外观和技术修改的SVJ。
+
+在七十年代中期Countach接替Miura之后，也推出了性能增强版本，它被称为Quattrovalvole，或简称为QV（25周年纪念版本的Countach是基于QV的特别庆典模型）。在1974年到1990年的整个Countach生产过程中没有使用SV名称，并且又过了5年SV才在后继车型Diablo上重现。
+
+整整20年前，1995年3月，令人印象深刻的Diablo SV在日内瓦车展上亮相，Diablo SV是Sport Veloce的缩写，实际上是入门级车型，是Diablo 2WD的轻量级版本，专为赛车而开发（1996年Diablo SV-R）。因为Alcantara内饰、特殊的尾翼和进气口将冷空气直接吸入V12发动机舱，Diablo SV迅速成为非常受欢迎的车型。
+
+1999年是兰博基尼Diablo SV的最后生产年，十年后，在2009年日内瓦车展上，有史以来最令人印象深刻的Bulls之一亮相：Murciélago LP670-4 Superveloce。只生产了350辆，在2011年兰博基尼Aventador LP700-4亮相之前，Murcielago LP670-4最终只售出了大约185辆。
+
+快进到2015年3月，日内瓦车展再次推出了兰博基尼旗舰V12车型的第四款SV或Superveloce版本，Aventador LP750-4 Superveloce，其更轻、更强大、更具侵略性的外观，并且是有史以来最快的兰博基尼量产车。
+
+著名的6.5升V12发动机仍然自然吸气，这款兰博基尼没有涡轮增压，但Superveloce的功率输出仍然从700hp增加到750hp，加上重量减轻50kg，这导致功率重量比为2.03 kg /hp，最高时速超过350公里/小时，从0到100公里/小时的加速数字为2.8秒，不到半分钟就达到了300公里/小时，准确地说只有24秒。
+
+对于Aventador Superveloce，重点是速度快但仍然相对容易驾驶，内部可见碳纤维，内部使用碳皮内饰和一些外观精美的座椅再次可见碳纤维，甚至信息娱乐系统也已成为尽可能减轻重量的选择，但仍然允许那些想要更奢华的人最终选择非常漂亮的Superveloce。
+
+Aventador的碳纤维单体壳已经是一项重大成就，但对于Superveloce，这种坚固但轻便的材料已提升到一个新的水平，内门板是透明的碳纤维，带有可拉下的带子，类似于处理。事实上，在Gallardo Superleggera上看到，虽然下部门槛板和后挡泥板由超轻SMC材料制成，大型碳纤维尾翼提供三个位置，而“肩部”进气口现在也已固定，但仍然显示出大进气口。
+
+Aventador Superveloce的设计灵感来自限量版50周年纪念版Aventador LP720-4和非常特别的兰博基尼 eneno LP750-4。在后扩散器上有极具侵略性的垂直鳍片，在尾灯之间的后面板上有额外的通风口 （因为不再有可调节的尾翼）和尾灯下方的大通风口，所有这些都是为了创造一个“开放式”的尾部，大部分采用哑光黑色和透明碳纤维制成，而四个中央安装的圆形排气管负责为V12排气。
+
+侧门槛采用Aventador J风格饰面，其中一部分采用哑光黑色，而门后的大型进气口在Giallo Orion展示车上采用哑光碳纤维饰面，外部后视镜也采用哑光黑色。当您打开车门时，您实际上会看到门槛上的碳纤维编织。
+
+在前面，Aventador Superveloce拥有一个低矮的、具有侵略性的保险杠，带有大进气口和哑光黑色部分，水平尾翼的颜色编码到车身上，这一技巧使汽车看起来比现在更宽，我确信所有那些哑光黑色部件也有可能用透明碳纤维制成，甚至是新的锻造复合材料。
+
+Aventador Superveloce带回了我们在六十年代末和七十年代初在Miura上看到的中央锁定车轮，可选的Diantus车轮提供了受赛车启发的交叉辐条设计，与标准Dione车轮相比轻得多，并且带有黑色或红色中央锁紧螺母。前部尺寸为20英寸，后部尺寸为21英寸，始终与磁流变悬架耦合，使用黑色或红色弹簧。
+
+这些令人惊叹的车轮后面的制动卡钳是标准形式的黑色，但您可以从选项列表中选择黄色、灰色、橙色和红色，Pirelli P Zero是Superveloce的标准配置，Corsa运动轮胎和P Zero运动轮胎是一个选项。
+
+在发动机舱中，杰作无疑是令人惊叹的V12发动机，但您仍然可以从选项列表中添加一些个人风格，比如用碳纤维制成的T形发动机盖来取代标准的聚碳酸酯发动机盖。另一方面，发动机罩本身标配碳纤维散热片，如果您想让人们从外面欣赏发动机，玻璃百叶窗是一种选择。
+
+如果您想坚持为Aventador LP750-4 Superveloce提供的常规色调，您可以选择Nero Aldebaran、Bianco Isis、New Giallo Orion、Arancio Atlas、Verde Ithaca、Rosso Bia和Blu Sideris。
+
+原来的Aventador和这个新的Superveloce之间的内部也发生了变化，其中一个是Carbon Skin材料首次用于常规生产模型，而且驾驶舱中到处都有很多可见的碳纤维，从座椅、中央控制台一直到脚垫。 事实上，Sensonum高级音响系统和导航/信息娱乐系统是选装件，如果没有采用漂亮的锻造复合材料面板取代她在中央控制台上的位置，那么后视摄像头可能是一个有用的选择。
+
+对于Superveloce，运动型桶形座椅是标准配置，而全电动和加热座椅与多功能方向盘一起是选装件，可提供alcantara和光滑皮革的组合，穿孔或不穿孔，或全alcantara。
+
+自然地，内饰可以订购几乎任何可能的色调。
+
+Lamborghini Aventador LP750-4 Superveloce是目前在Sant'Agata制造的新旗舰车型，但有传言称这款受赛道启发的超级跑车还将推出Roadster 版本。
+
+
+**SPECS & PERFORMANCE**
+
+**GENERAL**
+* Type:	Aventador LP750-4 Superveloce
+* Years built:	2015 – 2017
+* Presentation:	March 2015 Geneva Auto Show
+* Type of car	Two door coupé, two seater berlinetta
+* Designed by	Automobili Lamborghini SpA
+* Built by	Automobili Lamborghini SpA
+
+**DIMENSIONS**
+* Wheelbase:	2700 mm / 106.11 in
+* Overall length:	4780 mm / 187.85 in
+* Overall width:	2030 mm / 79.78 in
+* Overall height:	1136 mm / 44.64 in
+* Front track:	1720 mm / 67.6 in
+* Rear track:	1680 mm / 66.02 in
+* Weight:	1525 kg / 3363 lbs
+* Distribution:	43/57 % front / rear
+
+**CHASSIS**
+* Structure:	Carbon fiber monocoque with Aluminum front and rear frames
+* Body:	CF engine bonnet, rear spoiler and side air inlets; Aluminium front bonnet, fenders and doors; SMC rear fenders.and rocker cover
+* Suspension:	Front and rear horizontal magneto-rheological damper with push-rod system
+* ESP:	ESP/ ABS with different ESP charecteristics managed by drive sel
+* Brakes:	Dual hydraulic circuit brake system with vacuum brake booster; front and rear CCB, 6-cylinder brake callipers, 4-cylinder brake callipers
+* Front:	400×38 mm / 15.72 in
+* Rear:	380×38 mm / 14.93 in
+* Steering type:	Steering Gear with 3 different servortonic charcteristics managed by drive select mode
+* Turning circle:	12,5 m / 39 ft
+* Front tire size:	255/35 ZR19
+* Rear tire size:	335/30 ZR20
+* Type of tire:	Pirelli P0 Corsa
+* Front wheel:	9×20 inch
+* Rear wheel:	13×21 inch
+* Type of wheel:	Lightweight forged Diantus rims with central locking nut.
+* Mirrors:	External mirror electrically foldable
+* Rear spoiler:	Fixed spoiler in carbon fiber, manually adjustable in three positions (high-mid-low downforce)
+* Airbags:	Front dual stage driver airbag and front adaptive passenger airbag; seats with side “headthorax” airbags; knee airbags
+
+**ENGINE**
+* Type:	V-12 60 degree, MPI, mid mounted (longitudinal), four wheel drive
+* Cyl. Capacity:	6498 cc / 396 ci
+* Bore & stroke:	95 x 76,4 mm
+* Valve gear:	Variable valve timing electronically controlled
+* Compr. Ratio:	11,8
+* Max. power:	750 bhp @ 8,400 rpm
+* Max. torque:	690 Nm at 5500 rpm
+* Cooling system:	Water and oil cooling system in the rear with variable air inlets
+* Emission contr.:	Catalytic converters with lambda sensors
+* Engine management:	Lamborghini Iniezione Elettronica (LIE) with Ion current analysis
+* Electr. system:	12 V
+* Plugs:	NGK LMAR9AP8J
+* Fuel consumption:	16 Lit/100 Km
+* Lubrication:	Dry sump
+
+**DRIVETRAIN**
+* Type:	7 speed ISR, shifting characteristic depending on drive select mode, 4WD with Haldex generation IV
+* Clutch:	Dry double plate clutch
+* Disc diameter:	235 mm / 9.24 in
+
+**PERFORMANCE**
+* Top speed:	350 Km/h / 217 Mph
+* 0 – 100 Km/h:	2.80 sec.
+* 0 – 200 Km/h:	8.60 sec.
+* 0 – 300 Km/h:	24.00 sec.
+
+**CAPACITIES**
+* Fuel:	90 Liter / 24 Gallon
+* Engine oil:	13 Liter / 3 Gallon
+* Cooling system:	25 Liter / 7 Gallon
+
+**PRICING**
+* European MSRP:	327,190 € (2015)
+* US MSRP:	USD 485,000
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/16.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/17.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/18.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/19.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/20.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/21.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/22.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/23.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/24.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/25.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/26.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/27.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/28.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/29.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/30.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/31.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/32.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/33.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/34.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/35.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/36.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/37.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/38.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/39.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/30.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/40.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/41.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/42.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/43.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/44.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/45.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/46.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/47.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/48.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/49.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/50.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/51.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/52.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/53.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/54.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/55.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/56.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/57.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/58.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/59.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/60.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/61.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/62.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/63.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/64.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/65.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/66.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/67.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/lp750-4-sv/1/68.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
 
 
 
