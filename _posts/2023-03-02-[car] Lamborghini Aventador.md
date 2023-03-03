@@ -1751,6 +1751,39 @@ Aventador SVJ配备了ALA 2.0，这是最早在Huracan Performante上首次出�
 ![1]({{ '/assets/images/car/Lamborghini/Aventador/svj/1/19.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
+![1]({{ '/assets/images/car/Lamborghini/Aventador/svj/2/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/svj/2/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/svj/2/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/svj/2/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/svj/2/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/svj/2/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/svj/2/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/svj/2/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/svj/2/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/svj/2/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/svj/2/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
 
 ## 2.8 Lamborghini Aventador SVJ Roadster
 
@@ -2288,6 +2321,36 @@ Automobili Lamborghini通过独家Aventador LP 720-4 50°周年纪念日庆祝50
 ![1]({{ '/assets/images/car/Lamborghini/Aventador/svj-roadster-63/11.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
 
+![1]({{ '/assets/images/car/Lamborghini/Aventador/svj-roadster-63/1/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/svj-roadster-63/1/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/svj-roadster-63/1/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/svj-roadster-63/1/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/svj-roadster-63/1/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/svj-roadster-63/1/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/svj-roadster-63/1/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/svj-roadster-63/1/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/svj-roadster-63/1/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/svj-roadster-63/1/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
 
 ## 3.6 Lamborghini Aventador SVJ Roadster Xago
 
@@ -2487,132 +2550,9 @@ Automobili Lamborghini通过独家Aventador LP 720-4 50°周年纪念日庆祝50
 {: style="width: 800px; max-width: 100%;"}
 
 
-# 4. AVENTADOR REVISEMENT
+# 4. AVENTADOR Special Ones
 
-## 4.1 Aimgain GT Aventador
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/aimgain/1.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/aimgain/2.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/aimgain/3.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/aimgain/4.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/aimgain/5.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/aimgain/6.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/aimgain/7.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/aimgain/8.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-
-## 4.2 Avanti Rosso by Nimrod
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/avanti rosso/1.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/avanti rosso/2.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/avanti rosso/3.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/avanti rosso/4.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-
-## 4.3 Avanti toro by Nimrod
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/avanti toro/1.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/avanti toro/2.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/avanti toro/3.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/avanti toro/4.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-
-## 4.4 Aventador by Capristo
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/capristo/1.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/capristo/2.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/capristo/3.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/capristo/4.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-
-## 4.5 Aventador by Kahn Design
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/1.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/2.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/3.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/4.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/5.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/6.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/7.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/8.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/9.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/10.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/11.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/12.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/13.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/14.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/15.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/16.jpg' | relative_url }})
-{: style="width: 800px; max-width: 100%;"}
-
-
-## 4.6 Aventador J
+## 4.1 Aventador J
 
 ![1]({{ '/assets/images/car/Lamborghini/Aventador/J/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
@@ -2663,7 +2603,7 @@ Automobili Lamborghini通过独家Aventador LP 720-4 50°周年纪念日庆祝50
 {: style="width: 800px; max-width: 100%;"}
 
 
-## 4.7 Aventador SC18 Alston
+## 4.2 Aventador SC18 Alston
 
 ![1]({{ '/assets/images/car/Lamborghini/Aventador/sc18/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
@@ -2696,7 +2636,7 @@ Automobili Lamborghini通过独家Aventador LP 720-4 50°周年纪念日庆祝50
 {: style="width: 800px; max-width: 100%;"}
 
 
-## 4.8 Sian FKP37
+## 4.3 Sian FKP37
 
 ![1]({{ '/assets/images/car/Lamborghini/Aventador/sian/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
@@ -2753,7 +2693,7 @@ Automobili Lamborghini通过独家Aventador LP 720-4 50°周年纪念日庆祝50
 {: style="width: 800px; max-width: 100%;"}
 
 
-## 4.9 Sian Roadster
+## 4.4 Sian Roadster
 
 ![1]({{ '/assets/images/car/Lamborghini/Aventador/sian roadster/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
@@ -2843,7 +2783,7 @@ Automobili Lamborghini通过独家Aventador LP 720-4 50°周年纪念日庆祝50
 {: style="width: 800px; max-width: 100%;"}
 
 
-## 4.10 Veneno
+## 4.5 Veneno
 
 ![1]({{ '/assets/images/car/Lamborghini/Aventador/veneno/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
@@ -2894,7 +2834,7 @@ Automobili Lamborghini通过独家Aventador LP 720-4 50°周年纪念日庆祝50
 {: style="width: 800px; max-width: 100%;"}
 
 
-## 4.11 Veneno Roadster
+## 4.6 Veneno Roadster
 
 ![1]({{ '/assets/images/car/Lamborghini/Aventador/veneno roadster/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
@@ -2945,7 +2885,7 @@ Automobili Lamborghini通过独家Aventador LP 720-4 50°周年纪念日庆祝50
 {: style="width: 800px; max-width: 100%;"}
 
 
-## 4.12 Essenza SV12
+## 4.7 Essenza SV12
 
 ![1]({{ '/assets/images/car/Lamborghini/Aventador/sv12/1.jpg' | relative_url }})
 {: style="width: 800px; max-width: 100%;"}
@@ -3050,17 +2990,143 @@ Automobili Lamborghini通过独家Aventador LP 720-4 50°周年纪念日庆祝50
 {: style="width: 800px; max-width: 100%;"}
 
 
-# 5. THE LAMBORGHINI AVENTADOR STORY
+# 5. Aventador Revisements
 
-## 5.1 Origins
+## 5.1 Aimgain GT Aventador
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/aimgain/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/aimgain/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/aimgain/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/aimgain/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/aimgain/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/aimgain/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/aimgain/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/aimgain/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
+## 5.2 Avanti Rosso by Nimrod
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/avanti rosso/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/avanti rosso/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/avanti rosso/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/avanti rosso/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
+## 5.3 Avanti toro by Nimrod
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/avanti toro/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/avanti toro/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/avanti toro/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/avanti toro/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
+## 5.4 Aventador by Capristo
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/capristo/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/capristo/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/capristo/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/capristo/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
+## 5.5 Aventador by Kahn Design
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/1.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/2.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/3.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/4.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/5.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/6.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/7.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/8.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/9.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/10.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/11.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/12.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/13.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/14.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/15.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+![1]({{ '/assets/images/car/Lamborghini/Aventador/kahn/16.jpg' | relative_url }})
+{: style="width: 800px; max-width: 100%;"}
+
+
+
+# 6. THE LAMBORGHINI AVENTADOR STORY
+
+## 6.1 Origins
 
 Aventador的首款车，LP700-4，是由意大利汽车设计师Filippo Perini设计的，他目前是Italdesign的负责人。Aventador具有角度楔形轮廓和令人生畏的轮廓，侵略性空气动力悬垂，车身面板，扩散器和进气口。Aventador以一种战斗公牛的名字命名（与其它的兰博基尼一样）。这款新的兰博基尼V12发动机（代号为L539）是在奥迪（Audi）的指导下从头开始建造的。
 
 兰博基尼（Lamborghini）的最新V12现在得到了很大的改进，比其前一代（Murciélago）有了巨大的技术飞跃。
 
-## 5.2 Initial Release
+## 6.2 Initial Release
 
-### 5.2.1 Aventador LP700-4 (2011-2016) & Aventador LP700-4 Roadster (2013-2016)
+### 6.2.1 Aventador LP700-4 (2011-2016) & Aventador LP700-4 Roadster (2013-2016)
 
 第一个Aventador车型是LP 700-4Coupé。兰博基尼（Lamborghini）的新旗舰型号在Mucielago之下，具有6.5升自然吸气的V12发动机，产生了令人印象深刻的700 hp @ 8,250 rpm和509 ft-lbs torque @ 5,500 rpm。LP 700-4与7速单离合器自动手动变速器配对，该手动传输通过全轮驱动系统发送了电源，可在仅2.9秒内以0-60 mph的速度速度为0-60 mph，为随后的变体设定了音调。
 
@@ -3068,7 +3134,7 @@ Aventador比其前任更快，更轻，通过在整个过程中广泛使用碳�
 
 Aventador LP700-4 Roadster于2012年底宣布，生产于2013年初。由于其经过深思熟虑的设计，该敞篷跑车与双门轿跑车相比仅处于明显可忽略的性能下降（敞篷版本总归会有一定的性能下降）。由两个碳纤维面板组成的敞篷车车顶总计仅12公斤。
 
-## 5.2.2 SuperVeloce
+## 6.2.2 SuperVeloce
 
 Aventador SuperVeloce在2015年的日内瓦车展和2015年卵石海滩Concours D'Elegance上亮相，有SV（Superveloce）Coupé和Roadster两个变种。
 
@@ -3080,7 +3146,7 @@ SV的驾驶动力大大增强，由于重新设计的前分离器，后扩散器
 
 SV的生产于2017年结束，为Aventador名册即将发生的动荡腾出了空间。
 
-## 5.3 Mid-cycle Refresh
+## 6.3 Mid-cycle Refresh
 
 兰博基尼在2016年末重新设计了Aventador，刷新了阵容，反映了命名法和技术功能的转变。第一个引入的模型是Aventador S LP740-4 Coupé，这是停产的LP700-4轿跑车的直接替换，是Aventador名册中的新基础产品。
 
@@ -3097,7 +3163,7 @@ Aventador SVJ LP770-4（Super Veloce Jota）是在2018年鹅卵石海滩Concours
 2019年，SVJ的敞篷跑车变体成为当年在日内瓦汽车展上揭幕之后，成为了Aventador的最新标准生产版。Aventador SVJ LP770-4跑车仅限800个。
 
 
-## 5.4 Special Editions / One-Off Models
+## 6.4 Special Editions / One-Off Models
 
 一些最著名，最罕见的Aventador变体包括一次性的Barchetta风格的Aventador J，Veneno和Centenario，以及特别版SVJ 63Coupé和Roadster。
 
@@ -3106,7 +3172,7 @@ Aventador SVJ LP770-4（Super Veloce Jota）是在2018年鹅卵石海滩Concours
 2020年底，Aventador达到了10000辆生产的里程碑，这是一项了不起的成就。
 
 
-## 5.5 Motorsport
+## 6.5 Motorsport
 
 Aventador并未参加任何专业的赛车比赛。 但是，有一个基于Aventador的变体（称为Essenza SCV12），该变体专门用于赛道使用，并通过其Motorsport Division Squadra Corse进入了兰博基尼的单人客户赛车计划。生产上限为40个单位。
 
