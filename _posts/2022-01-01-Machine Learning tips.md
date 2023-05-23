@@ -784,7 +784,13 @@ $$f(\theta)^{reg} = f(\theta) + \frac{\lambda^{'}}{2} \lVert \theta \rVert_2^2$$
 但weight decay也仅仅是在SGD这种算法下和$$L_2$$ penalization是等价的，和别的算法（比如Adam）是没有直接关系的。
 
 
+## 9. 训练神经网络的tips
 
+机器学习博客TheOrangeDuck的作者，育碧蒙特利尔实验室的机器学习研究员Daniel Holden，根据自己工作中失败的教训，整理了一份神经网络出错原因清单，一共 11 条。
+
+中文版：https://www.leiphone.com/category/yanxishe/ECKXN0Uuj6bHgk96.html
+
+原版：https://theorangeduck.com/page/neural-network-not-working
 
 
 
