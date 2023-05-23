@@ -850,9 +850,12 @@ $$ = \vec{a}^T (E \left[ \vec{X} \vec{X}^T \right] - E \left[\vec{X} \right] (E 
 
 
 
-## 9. Pinhole Camera Model
+## 9. Pinhole Camera Model以及perspective and orthographic projection matrix
 
-参考博客：https://hedivision.github.io/Pinhole.html
+pinhole camera的博客：https://hedivision.github.io/Pinhole.html
+
+perspective and orthographic projection matrix的博客：https://scratchapixel.com/lessons/3d-basic-rendering/perspective-and-orthographic-projection-matrix/projection-matrix-introduction.html
+
 
 
 
