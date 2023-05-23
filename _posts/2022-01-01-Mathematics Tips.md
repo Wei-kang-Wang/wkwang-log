@@ -850,5 +850,10 @@ $$ = \vec{a}^T (E \left[ \vec{X} \vec{X}^T \right] - E \left[\vec{X} \right] (E 
 
 
 
+## 9. Pinhole Camera Model
+
+参考博客：https://hedivision.github.io/Pinhole.html
+
+
 
 ---
