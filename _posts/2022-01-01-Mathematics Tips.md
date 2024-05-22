@@ -937,37 +937,43 @@ $$\pi_i = \frac{exp(\alpha_i / \tao)}{\sum_{j=1}^k exp(\alpha_j / \tao)}$$
 
 虽然softmax函数很好，但其还可以被推广。
 
-如果神经网络的该层输出是一个表示各个类的概率的向量$$(\pi_1, \cdots, \pi_k)$$，那么argmax是一个deterministic的过程，也就是挑出最大的那个分量对应的index。而我们可以将这个deterministic过程扩展为一个stochastic过程：将其理解为一个从$$Cat()
+如果神经网络的该层输出是一个表示各个类的概率的向量$$(p_1, \cdots, p_k)$$，那么argmax是一个deterministic的过程，也就是挑出最大的那个分量对应的index。而我们可以将这个deterministic过程扩展为一个stochastic过程：将其理解为一个从$$Cat(p_1, \cdots, p_k)$$采样一个输出的过程（输出仍然是一个向量，只不过是one-hot的，符合argmax的形式）。那么已知$$(p_1, \cdots, p_k)$$，该如何来采样一个样本满足$$Cat(p_1, \cdots, p_k)$$分布呢？
 
-假设现在有一组非归一化的参数$$(\alpha_1, \cdots, \alpha_k)$$，那么如何通过这些数来采样一个one-hot形式的样本$$x$$满足$$P(X_i=1) = \frac{\alpha_i}{\sum_{j=1}\alpha_j}$$呢？
+**逆变换采样（Inverse Transform Sampling）方法**
 
-**2.2.1 方法一：逆变换采样（Inverse Transform Sampling）方法**
+最简单的方法是通过逆变换采样（inverse transform sampling）方法，包括以下两个步骤：
+* step1: 计算累积概率分布CDF，为$$(p_1, p_1+p_2, \cdots, 1)$$
+* step2: 从$$\[0, 1)$$的均匀分布$$Uniform_{\[0, 1)}$$里采样一个随机数$$u$$，$$c=argmin_{i} (u < \sum_{j=1}^i p_j)$$，那么one-hot随机变量$$X$$的第$$c$$个位置为$$1$$，其余位置为0
 
-最简单的方法是通过逆变换采样（inverse transform sampling）方法，包括以下三个步骤：
-* step1: 将$$(\alpha_1, \cdots, \alpha_k)$$归一化，得到$$p_i$$，即$$p_i = \frac{\alpha_i}{\sum_{j=1}\alpha_j}$$
-* step2: 计算累积概率分布CDF，为$$(p_1, p_1+p_2, \cdots, 1)$$
-* step3: 从$$\[0, 1)$$的均匀分布$$Uniform_{\[0, 1)}$$里采样一个随机数$$u$$，$$c=argmin_{i} (u < \sum_{j=1}^i p_j)$$，那么one-hot随机变量$$X$$的第$$c$$个位置为$$1$$，其余位置为0
+但逆变换采样的问题有两个：（1）采样过程是个离散的随机过程，其与变量$$(p_1, \cdots, p_k)$$有关，变量是需要计算反向传播的，但随机的采样过程无法计算反向传播；（2）仍然有argmax这样一个无法计算反向传播的算子。
 
-但如果$$(\alpha_1, \cdots, \alpha_k)$$是需要被学习的参数，比如说神经网络的输出，那么上述step3里的$$c=argmin_{i} (u < \sum_{j=1}^i p_j)$$就会导致将随机采样引入需要反向传播的参数中，而这样是行不通的，所以在这种情况下需要另想办法。
+我们先来解决上述第一个困难，方法是使用重参数化，算法则为如下的Gumbel-Max：
 
-**2.2.2 方法二：Gumbel-Max方法**
-
-Gumbel-Max方法使用重参数化解决了上述问题。
-
-假设我们有一组已经归一化之后的参数（比如说任意一个长度为$$k$$的向量经过了softmax），记为$$(p_i, \cdots, p_k)$$，记其对数（logits）为$$(\pi_1, \cdots, \pi_k)$$，即$$\pi_i = log \p_i$$。那么Gumbel-Max方法也有如下三个步骤：
+**Gumbel-Max**
+记$$(p_1, p_1+p_2, \cdots, 1)$$的对数（logits）为$$(\pi_1, \cdots, \pi_k)$$，即$$\pi_i = log \p_i$$。那么Gumbel-Max方法有如下三个步骤：
 * step1: 从$$\[0, 1)$$的均匀分布$$Uniform_{[0, 1)}$$里采样$$k$$个随机数$$u_1, \cdots, u_k$$
 * step2: 计算$$g_i = -log(-log(u_i))$$，$$i=1,\cdots, k$$
 * step3: 计算$$c = argmax_i (\pi_i + g_i)$$，那么one-hot随机变量$$X$$的第$$c$$个位置为$$1$$，其余位置为0
 
-Gumbel-Max方法的关键点在于一个重参数的技巧，其将从$$(p_1, \cdots, p_k)$$里采样转换为在在均匀分布里采样。在很多需要进行采样满足categorical分布的例子中，$$(p_1, \cdots, p_k)$$可能是某个神经网络在经过softmax之后的输出，是需要学习的，如果直接对其采样，这个采样过程是不可反向传播的。而Gumbel-Max方法通过在均匀分布里采样，来避免了这个问题，其只需要计算$$c = argmax_i (\pi_i + g_i)$$，而这个关于$$\pi_i$$的梯度是可以反向传播的。
+这样采样所得到的$$X$$满足$$Cat(p_1, \cdots, p_k)$$。
 
-之前的逆变换采样，因为也需要计算$$(p_1, p_1+p_2, \cdots, 1)$$和$$c=argmin_{i} (u < \sum_{j=1}^i p_j)$$，导致其不可反向传播。
-
-也就是说，Gumbel-Max将从$$(p_1, \cdots, p_k)$$采样的过程转移到了从$$[0, 1)$$的均匀分布$$Uniform_{[0, 1)}$$里采样，从而随机性就与$$(p_1, \cdots, p_k)$$无关了。
+Gumbel-Max方法的关键点在于一个重参数的技巧，其将从$$(p_1, \cdots, p_k)$$里采样转换为在在均匀分布里采样，从而随机性就与$$(p_1, \cdots, p_k)$$无关了。
 
 再举一个重参数的例子，如果需要从$$\mathcal{N}(\mu, \sigma^2)$$里采样，其中$$\mu, \sigma$$也是要学习的参数，那么相同的，如果直接在这个分布下采样，那么采样的离散随机性会使得损失很难反向传播。而如果引入一个新的随机变量$$\epsilon \sim \mathcal{N}(0,1)$$，并且来采样$$\epsilon$$的值，这个过程是没有参数的，再使得$$X = \mu + \epsilon \sigma$$，就可以得到需要的采样结果了，而且离散的采样过程的随机性与$$\mu, \sigma$$就无关了。
 
-**2.2.3 Gumbel-Max方法的推导**
+下面再来解决第二个困难，方法是使用softmax函数来替代Gumbel-Max里的step3里的argmax：
+
+**Gumbel-Softmax**
+* step1: 从$$\[0, 1)$$的均匀分布$$Uniform_{[0, 1)}$$里采样$$k$$个随机数$$u_1, \cdots, u_k$$
+* step2: 计算$$g_i = -log(-log(u_i))$$，$$i=1,\cdots, k$$
+* step3: $$y_i = \frac{e^{(log(p_i) + g_i) / \tao}}{\sum_{j=1}^k e^{(log(p_j) + g_j) / \tao}}, i=1,\cdots, k$$
+
+那么$$y=\left[ y_1, \cdots, y_k \right]$$就是输出向量，是一个normalized的概率向量，记其满足的分布是Gumbel-Softmax分布。
+
+在$$\tao \longrightarrow 0$$时，Gumbel-Softmax分布趋向于Categorical分布。
+
+
+**后记：Gumbel-Max方法的理论推导**
 
 假设我们有一个从均匀分布$$Uniform_{\[0, 1)}$$采样得到的随机变量$$u_1$$，那么令Gumbel分布$$Gumbel(\pi_1, 1)$$的CDF等于这个$$u_1$$，即
 
@@ -997,24 +1003,7 @@ $$P(c = argmax_i (\pi_i + g_i)) = \frac{e^{\pi_c}}{\sum_{i=1}^k e^{\pi_i}}$$
 * https://lips.cs.princeton.edu/the-gumbel-max-trick-for-discrete-distributions/#more-2081
 
 
-**2.3 应用二：利用Gumbel分布来实现对Categorical分布的近似**
-
-假设我们有已归一化的参数$$(p_1, \cdots, p_k)$$，现在我们不想得到one-hot形式的随机变量$$X$$来满足$$P(X_i=1) = p_i$$，即$$X \sim Cat(p_1, \cdots, p_k)$$，我们想得到一个在正实数域上取值的长度为$$k$$的且各分量之和等于1的随机变量（也就是一个表示各个类概率的向量）$$X$$来近似$$Cat(p_1, \cdots, p_k)$$。
-
-我们可以取：
-
-$$y_i = \frac{e^{(log(p_i) + g_i) / \tao}}{\sum_{j=1}^k e^{(log(p_j) + g_j) / \tao}}, i=1,\cdots, k$$
-
-其中$$g_1, \cdots, g_k$$是独立同分布的随机变量，其都是从$$Gumbel(0,1)$$采样而来。
-
-上述这样的随机变量$$y=\left[ y_1, \cdots, y_k \right]$$满足的分布叫做Gumbel-Softmax分布。
-
-在$$\tao \longrightarrow 0$$时，Gumbel-Softmax分布趋向于Categorical分布。
-
-实际上，这里的近似也就是将2.2.2里的step3里的argmax步骤替换成了带有参数$$\tao$$的softmax，使得所得到的并不是一个one-hot的随机变量，而是连续的一个随机向量。
-
-
-**2.4 应用三：利用Gumbel分布来实现对Sinkhorn**
+**2.3 应用二：利用Gumbel分布来实现对Sinkhorn**
 
 **2.4.1 Sinkhorn operator**
 
