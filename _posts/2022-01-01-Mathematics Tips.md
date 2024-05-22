@@ -859,11 +859,9 @@ perspective and orthographic projection matrix的博客：https://scratchapixel.
 
 ## 10. Gumbel分布及其应用
 
-首先来介绍Categorical分布。
+在介绍Gumbel分布之前，首先来介绍四种相关的分布，Categorical distribution（类别分布、范畴分布）、Bernoulli distribution（伯努利分布）、Binomial distribution（二项分布）、Multinomial distribution（多项分布）。
 
-Categorical distribution，中文称为类别分布、范畴分布。其与Bernoulli distribution（伯努利分布）、Binomial distribution（二项分布）、Multinomial distribution（多项分布）以及Gumbel distribution密切相关。
-
-**1. 对四种分布的介绍**
+**1. 四种分布的介绍**
 
 **Bernoulli distribution**
 
@@ -915,7 +913,31 @@ $$P(x \leq z) = e^{-e^{(z - \mu) / \beta}}$$
 {: style="width: 600px; max-width: 100%;"}
 
 
-**2.2 应用一：利用Gumbel distribution来采样数据满足Categorical分布**
+**2.2 应用一：利用Gumbel分布来采样数据满足/近似Categorical分布**
+
+假设有个神经网络，该神经网络某层的输出是一个向量，表示$$k$$分类的概率，即$$(p_1, \cdots, p_k)$$，其中$$0 \leq p_i \leq k, i=1,\cdots, k$$，且$$\sum_{i=1}^k p_i = 1$$。那么如果用argmax应用到这一层的输出上，即可得到一个整数输出，在$$1,\cdots,k$$之间，表示该层输出向量最大值所在的index，可以被理解为最大概率对应的那个类别。
+
+但上述过程中的argmax是不可微的，这就导致了反向传播到这个argmax的时候，无法再往前传了，我们可以考虑如下几个思路。
+
+**方法一：使用softmax函数来替代argmax函数**
+
+这是最直接也是最常见的方法，在很多使用神经网络进行多分类的架构里，最后一层都是softmax函数。
+
+softmax函数的明确定义为：输入为一个向量$$(\alpha_1, \cdots, \alpha_k)$$，输出为同样长度的向量$$(\pi_1, \cdots, \pi_k)$$，其中：
+
+$$\pi_i = \frac{exp(\alpha_i / \tao)}{\sum_{j=1}^k exp(\alpha_j / \tao)}$$
+
+其中$$\tao$$是温度系数，用来控制softmax函数对每个值的放大/缩小效应，在$$\tao \rightarrow \infty$$的时候，softmax输出向量的每个值都是一样的，为$$1/k$$，在$$\tao \rightarrow 0$$的时候，softmax等于argmax。
+
+所以在使用带有温度系数的softmax时，可以考虑使用退火算法，也就是一开始用较大的$$\tao$$，随着训练的进行，逐渐减小$$\tao$$。
+
+注意，softmax的输入不必需要是和为1且分量都在0到1之间的normalized之后的概率向量，其可以是任意向量，输出都是normalized之后的概率向量。
+
+**方法二：使用Gumbel-softmax函数**
+
+虽然softmax函数很好，但其还可以被推广。
+
+如果神经网络的该层输出是一个表示各个类的概率的向量$$(\pi_1, \cdots, \pi_k)$$，那么argmax是一个deterministic的过程，也就是挑出最大的那个分量对应的index。而我们可以将这个deterministic过程扩展为一个stochastic过程：将其理解为一个从$$Cat()
 
 假设现在有一组非归一化的参数$$(\alpha_1, \cdots, \alpha_k)$$，那么如何通过这些数来采样一个one-hot形式的样本$$x$$满足$$P(X_i=1) = \frac{\alpha_i}{\sum_{j=1}\alpha_j}$$呢？
 
