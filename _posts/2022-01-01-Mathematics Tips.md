@@ -1036,6 +1036,11 @@ $$\lim_{\tao \rightarrow 0} S(X/\tao) = argmax_{P \in \mathcal{P_n}} <P, X> = ar
 有了Sinhorn operator之后，我们可以类似于Gumbel-softmax分布，定义一个Gumbel-Sinkhorn分布：记$$Y=S((X + \epsilon)/\tao)$$，其中$$\epsilon \sim Gumbel(0,1)$$，那么$$Y \sim Gumbel-Sinkhorn$$。
 
 
+**2.5 总结**
+
+Gumbel-softmax分布和Gumbel-sinkhorn分布分别是对Categorical分布和Permutation matrix的分布的近似（Categorical分布的取值空间是one-hot向量，Permutation matrix的取值是每一行每一列都是个one-hot向量，而且满足每一行每一列的和都是1），而且都是在温度系数$$\tao$$无限小的时候，无限逼近相对应的分布。
+
+
 
 
 
