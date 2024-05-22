@@ -994,6 +994,8 @@ $$y_i = \frac{e^{(log(p_i) + g_i) / \tao}}{\sum_{j=1}^k e^{(log(p_j) + g_j) / \t
 
 **2.4 应用三：利用Gumbel分布来实现对Sinkhorn**
 
+**2.4.1 Sinkhorn operator**
+
 首先介绍一下Sinkhon operator。
 
 假设我们需要网络来输出一个permutation matrix，即长这样的matrix：
@@ -1014,7 +1016,22 @@ $$\lbrace X \in \lbrace 0, 1 \rbrace^{n \times n}, X 1_n = 1_n, X^T 1_n = 1_n \r
 
 $$\lbrace X \in \mathbb{R}_{+}^{n \times n}, X 1_n = 1_n, X^T 1_n = 1_n \rbrace
 
-类似于softman函数，我们可以在Sinhorn operator里也加上一个温度系数$$\tao$$，即$$S(X/\tao)$$，那么在$$\tao \rightarrow 0$$时，$$S(X/\tao) \rightarrow M$$，其中$$M$$是一个permutation matrix。
+类似于softmax函数，我们可以在Sinhorn operator里也加上一个温度系数$$\tao$$，即$$S(X/\tao)$$。
+
+**2.4.2 指派问题**
+
+现在考虑一个问题，如果我们有一个矩阵$$X \in \mathbb{R}^{n \times n}$$，我们希望学习一个permutation matrix $$M(X)$$，即一个合适的排序，来找一个最优的分配策略，即：
+
+$$M(X) = argmax_{P \in \mathcal{P_n}} <P, X> = argmax_{{P \in \mathcal{P_n}}} tr(P^T X)$$
+
+这个问题可以用Hungarian算法在多项式时间内解决，但是因为permutation matrix的限制条件，其不能直接使用神经网络来进行预测。
+
+我们的做法是使用$$\lim_{\tao \rightarrow 0} S(X/\tao)$$来逼近，而有定理可以证明
+
+$$\lim_{\tao \rightarrow 0} S(X/\tao) = argmax_{P \in \mathcal{P_n}} <P, X> = argmax_{{P \in \mathcal{P_n}}} tr(P^T X)$$，从而这样的relaxation是可行的。
+
+
+**2.4.3 Gumbel-Sinkhorn分布**
 
 有了Sinhorn operator之后，我们可以类似于Gumbel-softmax分布，定义一个Gumbel-Sinkhorn分布：记$$Y=S((X + \epsilon)/\tao)$$，其中$$\epsilon \sim Gumbel(0,1)$$，那么$$Y \sim Gumbel-Sinkhorn$$。
 
