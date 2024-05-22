@@ -857,6 +857,112 @@ pinhole camera的博客：https://hedivision.github.io/Pinhole.html
 perspective and orthographic projection matrix的博客：https://scratchapixel.com/lessons/3d-basic-rendering/perspective-and-orthographic-projection-matrix/projection-matrix-introduction.html
 
 
+## 10. 
+
+Categorical distribution，中文称为类别分布、范畴分布。其与Bernoulli distribution（伯努利分布）、Binomial distribution（二项分布）、Multinomial distribution（多项分布）以及Gumbel distribution密切相关。
+
+**1. 对四种分布的介绍**
+
+**Bernoulli distribution**
+
+$$X \sim Ber(p)$$，$$X$$只有两个取值，不妨记为$$0$$和$$1$$，那么$$P(X=0)=p, P(X=1)=1-p$$。
+
+**Binomial distribution**
+
+$$X \sim B(n,p)$$，那么$$X$$有$$n+1$$种取值，记为$$0,1,\cdots, n$$，那么$$P(X=k)=C_n^k p^k (1-p)^{n-k}$$，其中$$k=0,1,\cdots,n$$。
+
+Bernoulli分布是二项分布n=1的特殊情况。
+
+**Categorical distribution**
+
+$$X \sim Cat(\alpha_1, \cdots, \alpha_n)$$，其中$$\alpha_1, \cdots, \alpha_n$$满足$$\sum_{i=1}^n \alpha_i = 1$$，那么$$X$$是一个长度为$$n$$的one-hot向量，即$$X \in \lbrace 0, 1 \rbrace^n$$，有$$n$$种取值。那么$$P(X_i=1) = \alpha_i, i=1,\cdots, n$$。
+
+Bernoulli分布是类别分布$$n=2, \alpha_1=p, \alpha_2=1-p$$的特殊情况。
+
+**Multinomial distribution**
+
+$$X \sim Multi(n, alpha_1, \cdots, \alpha_k)$$，满足$$\sum_{i=1}^k \alpha_i = 1$$，$$X$$的取值是一个长度为$$k$$的向量，满足$$\sum_{i=1}^k X_i = n$$，那么$$P(X_1 = x_1, \cdots, X_k = x_k) = \frac{n \prod}{x_1 \prod \cdots x_k \prod} \alpha_1^{x_1} \cdots \alpha_k^{x_k}$$
+
+Bernoulli分布是多项分布$$n=1, k=2$$的特殊情况。
+Binomial分布是多项分布$$k=2$$的特殊情况。
+Categorical分布是多项分布$$n=1$$的特殊情况。
+
+以一个例子来解释：
+* 将一个小球放入两个桶，假设放入第一个桶的概率为$$1-p$$，记随机变量$$X$$为第一个桶里的小球个数，那么$$X$$只能取0和1，且$$P(X=0)=p, P(X=1)=p$$，满足Bernoulli分布。
+* 将$$n$$个小球放入两个桶，假设放入第一个桶的概率为$$1-p$$，记随机变量$$X$$为第一个桶里的小球个数，那么$$X$$只能取$$0, \cdots, n$$，那么$$P(X=k)=C_n^k p^k (1-p)^{n-k}$$，其中$$k=0,1,\cdots,n$$，满足Binomial分布。
+* 将一个小球放入$$n$$个桶，假设放入第$$k$$个桶的概率为$$\alpha_k$$，那么$$\sum_{k=1}^n \alpha_k = 1$$，记随机变量$$X$$为这$$n$$个桶的小球个数，那么$$X$$是个one-hot向量，满足Categorical分布。
+* 将$$n$$个小球放入$$k$$个桶，记变量$$X$$为这$$k$$个桶里的小球个数，那么$$X$$是个长度为$$k$$的向量，且这个向量各个分量的和为$$n$$，满足Multinomial分布。
+
+**2. 如何采样数据满足Categorical分布**
+
+**2.1 Gumbel distribution**
+
+Gumbel distribution，又称为Gumbel-Max distribution，因为其是对数据中最大值进行建模时常用的分布。
+
+Gumbel distribution的概率分布（PDF）表达式为，$$z \sim Gumbel(\mu, \beta)$$：
+
+$$p(z) = e^{(z-\mu) / \beta} e^{-e^{(z-\mu) / \beta}}$$
+
+CDF为：
+
+$$P(x \leq z) = e^{-e^{(z - \mu) / \beta}}$$
+
+取$$\mu=0, \beta=1$$，其形状如下，红色的为PDF，蓝色的为CDF：
+
+![g]({{gumbel'/assets/images/gumbel_1.png' | relative_url }})
+{: style="width: 600px; max-width: 100%;"}
+
+
+**2.2 利用Gumbel distribution来采样数据满足Categorical分布**
+
+**2.2.1 方法一：Inverse Transform Sampling方法**
+
+假设现在有一组非归一化的参数$$(\alpha_1, \cdots, \alpha_k)$$，那么如何通过这些数来采样一个one-hot形式的样本$$x$$满足$$P(X_i=1) = \frac{\alpha_i}{\sum_{j=1}\alpha_j}$$呢？
+
+最简单的方法是通过逆变换采样（inverse transform sampling）方法，包括以下三个步骤：
+* step1: 将$$(\alpha_1, \cdots, \alpha_k)$$归一化，得到$$p_i$$，即$$p_i = \frac{\alpha_i}{\sum_{j=1}\alpha_j}$$
+* step2: 计算累积概率分布CDF，为$$(p_1, p_1+p_2, \cdots, 1)$$
+* step3: 从$$\[0, 1)$$的均匀分布$$Uniform_{\[0, 1)}$$里采样一个随机数$$u$$，$$c=argmin_{i} (u < \sum_{j=1}^i p_j)$$，那么one-hot随机变量$$X$$的第$$c$$个位置为$$1$$，其余位置为0
+
+**2.2.2 方法二：Gumbel-Max方法**
+
+而Gumbel-Max的步骤使用另一种方法。
+
+假设我们有一组已经归一化之后的参数（比如说任意一个长度为$$k$$的向量经过了softmax），记为$$(p_i, \cdots, p_k)$$，记其对数（logits）为$$(\pi_1, \cdots, \pi_k)$$，即$$\pi_i = log \p_i$$。那么Gumbel-Max方法也有如下三个步骤：
+* step1: 从$$\[0, 1)$$的均匀分布$$Uniform_{\[0, 1)}$$里采样$$k$$个随机数$$u_1, \cdots, u_k$$
+* step2: 计算$$g_i = -log(-log(u_i))$$，$$i=1,\cdots, k$$
+* step3: 计算$$c = argmax_i (\pi_i + g_i)$$，那么one-hot随机变量$$X$$的第$$c$$个位置为$$1$$，其余位置为0
+
+Gumbel-Max方法的关键点在于一个重参数的技巧，因为本身需要从$$(\p_1, \cdots, \p_k)$$里采样，而现在是在均匀分布采样。在很多需要进行采样满足categorical分布的例子中，$$(\p_1, \cdots, \p_k)$$可能是某个神经网络在经过softmax之后的输出，是需要学习的，如果直接对其采样，这个采样过程是不可反向传播的，那么计算loss就会很复杂。而Gumbel-Max通过在均匀分布里采样，来避免了这个问题，其只需要计算$$c = argmax_i (\pi_i + g_i)$$，而这个关于$$\pi_i$$的梯度是可以反向传播的。之前的逆变换采样，因为也需要计算$$(p_1, p_1+p_2, \cdots, 1)$$和$$c=argmin_{i} (u < \sum_{j=1}^i p_j)$$，这个也是不可反向传播的。
+
+也就是说，Gumbel-Max将从$$(\p_1, \cdots, \p_k)$$采样的过程转移到了从$$\[0, 1)$$的均匀分布$$Uniform_{\[0, 1)}$$里采样，从而随机性就与$$(\p_1, \cdots, \p_k)$$无关了。
+
+再举一个重参数的例子，如果需要从$$\mathcal{N}(\mu, \sigma^2)$$里采样，其中$$\mu, \sigma$$也是要学习的参数，那么相同的，如果直接在这个分布下采样，那么采样的离散随机性会使得损失很难反向传播。而如果引入一个新的随机变量$$\epsilon \sim \mathcal{N}(0,1)$$，并且来采样$$\epsilon$$的值，这个过程是没有参数的，再使得$$X = \mu + \epsilon \sigma$$，就可以得到需要的采样结果了，而且离散的采样过程的随机性与$$\mu, \sigma$$就无关了。
+
+**2.2.3 Gumbel-Max方法的推导**
+
+假设我们有一个从均匀分布$$Uniform_{\[0, 1)}$$采样得到的随机变量$$u_1$$，那么令Gumbel分布$$Gumbel(\pi_1, 1)$$的CDF等于这个$$u_1$$，即
+
+$$P(x \leq z) = e^{-e^{z - \pi_1}} = u_1$$
+
+解得：$$z = \pi_1-log(-log(u_1))$$，记$$-log(-log(u_1)) = g_1$$，那么$$z = \pi_1 + g_1$$。
+
+而实际上上述过程就是方法一inverse transform sampling的过程，也就是说上述的$$z$$满足$$z \sim Gumbel(\pi_1, 1)$$。
+
+方法二的step1里从均匀分布$$Uniform_{\[0, 1)}$$采样了$$k$$个随机变量$$u_1, \cdots, u_k$$，step2里计算的$$g_1, \cdots, g_k$$就是这里的$$g$$，从而可以计算$$k$$个$$z_i$$，即$$z_u = \pi_u + g_u$$，$$u=1,\cdots, k$$，且$$z_i \sim Gumbel(\pi_i, 1)$$。
+
+从而我们可以重新总结一下方法二，Gumbel-Max方法的过程：
+给定归一化的参数向量$$(p_1, \cdots, p_k)$$，计算$$\pi_i = log(p_i)$$，$$i=1,\cdots,k$$
+* step1: 从$$k$$个Gumbel分布$$Gumbel(\pi_i, 1)$$里分别采样$$k$$个随机变量$$x_i$$，$$i=1,\cdots, k$$
+* step2: 计算$$c = argmax_i (x_i)$$，那么one-hot随机变量$$X$$的第$$c$$个位置为$$1$$，其余位置为0，这个$$X$$满足$$X \sim Cat(p_1, \cdots, p_k)$$
+
+为了证明Gumbel-Max方法的有效性，我们只需要证明：
+
+$$P(c = argmax_i (log p_i + g_i)) = \frac{p_c}{\sum_{i=1}^k p_i}$$
+
+等价于：
+
+$$P(c = argmax_i (\pi_i + g_i)) = \frac{e^{\pi_c}}{\sum_{i=1}^k e^{\pi_i}}$$
 
 
 ---
