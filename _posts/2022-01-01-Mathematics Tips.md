@@ -964,5 +964,9 @@ $$P(c = argmax_i (log p_i + g_i)) = \frac{p_c}{\sum_{i=1}^k p_i}$$
 
 $$P(c = argmax_i (\pi_i + g_i)) = \frac{e^{\pi_c}}{\sum_{i=1}^k e^{\pi_i}}$$
 
+这两篇文章给了Gumbel distribution和Gumbel-Max方法的进一步说明：
+* http://www2.stat.duke.edu/courses/Fall09/sta104.02/lec/104wk05.pdf
+* https://lips.cs.princeton.edu/the-gumbel-max-trick-for-discrete-distributions/#more-2081
+
 
 ---
