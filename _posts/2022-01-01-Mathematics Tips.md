@@ -1033,8 +1033,7 @@ $$\lim_{\tao \rightarrow 0} S(X/\tao) = argmax_{P \in \mathcal{P_n}} <P, X> = ar
 
 **2.4.3 Gumbel-Sinkhorn分布**
 
-有了Sinhorn operator之后，我们可以类似于Gumbel-softmax分布，定义一个Gumbel-Sinkhorn分布：记$$Y=S((X + \epsilon)/\tao)$$，其中$$\epsilon \sim Gumbel(0,1)$$，那么$$Y \sim Gumbel-Sinkhorn$$。
-
+有了Sinhorn operator之后，我们可以类似于Gumbel-softmax分布，定义一个Gumbel-Sinkhorn分布：记$$Y=S((X + \epsilon)/\tao)$$，其中$$\epsilon \sim Gumbel(0,1)$$，那么$$Y \sim Gumbel-Sinkhorn$$。因为根据上面的结果有：$$\lim_{\tao \rightarrow 0} S(X/\tao) = argmax_{P \in \mathcal{P_n}} <P, X> = argmax_{{P \in \mathcal{P_n}}} tr(P^T X)$$，从而我们可以从矩阵$$X$$的分布中采样$$X$$，然后从$$Gumbel-Sinkhorn$$分布采样对应的permutation matrix。
 
 **2.5 总结**
 
