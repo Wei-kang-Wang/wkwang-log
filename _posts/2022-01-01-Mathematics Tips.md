@@ -925,11 +925,11 @@ $$P(x \leq z) = e^{-e^{(z - \mu) / \beta}}$$
 
 softmax函数的明确定义为：输入为一个向量$$(\alpha_1, \cdots, \alpha_k)$$，输出为同样长度的向量$$(\pi_1, \cdots, \pi_k)$$，其中：
 
-$$\pi_i = \frac{exp(\alpha_i / \tao)}{\sum_{j=1}^k exp(\alpha_j / \tao)}$$
+$$\pi_i = \frac{exp(\alpha_i / \tau)}{\sum_{j=1}^k exp(\alpha_j / \tau)}$$
 
-其中$$\tao$$是温度系数，用来控制softmax函数对每个值的放大/缩小效应，在$$\tao \rightarrow \infty$$的时候，softmax输出向量的每个值都是一样的，为$$1/k$$，在$$\tao \rightarrow 0$$的时候，softmax等于argmax。
+其中$$\tau$$是温度系数，用来控制softmax函数对每个值的放大/缩小效应，在$$\tau \rightarrow \infty$$的时候，softmax输出向量的每个值都是一样的，为$$1/k$$，在$$\tau \rightarrow 0$$的时候，softmax等于argmax。
 
-所以在使用带有温度系数的softmax时，可以考虑使用退火算法，也就是一开始用较大的$$\tao$$，随着训练的进行，逐渐减小$$\tao$$。
+所以在使用带有温度系数的softmax时，可以考虑使用退火算法，也就是一开始用较大的$$\tau$$，随着训练的进行，逐渐减小$$\tau$$。
 
 注意，softmax的输入不必需要是和为1且分量都在0到1之间的normalized之后的概率向量，其可以是任意向量，输出都是normalized之后的概率向量。
 
@@ -943,15 +943,15 @@ $$\pi_i = \frac{exp(\alpha_i / \tao)}{\sum_{j=1}^k exp(\alpha_j / \tao)}$$
 
 最简单的方法是通过逆变换采样（inverse transform sampling）方法，包括以下两个步骤：
 * step1: 计算累积概率分布CDF，为$$(p_1, p_1+p_2, \cdots, 1)$$
-* step2: 从$$\[0, 1)$$的均匀分布$$Uniform_{\[0, 1)}$$里采样一个随机数$$u$$，$$c=argmin_{i} (u < \sum_{j=1}^i p_j)$$，那么one-hot随机变量$$X$$的第$$c$$个位置为$$1$$，其余位置为0
+* step2: 从$$\left[0, 1)$$的均匀分布$$Uniform_{\left[0, 1)}$$里采样一个随机数$$u$$，$$c=argmin_{i} (u < \sum_{j=1}^i p_j)$$，那么one-hot随机变量$$X$$的第$$c$$个位置为$$1$$，其余位置为0
 
 但逆变换采样的问题有两个：（1）采样过程是个离散的随机过程，其与变量$$(p_1, \cdots, p_k)$$有关，变量是需要计算反向传播的，但随机的采样过程无法计算反向传播；（2）仍然有argmax这样一个无法计算反向传播的算子。
 
 我们先来解决上述第一个困难，方法是使用重参数化，算法则为如下的Gumbel-Max：
 
 **Gumbel-Max**
-记$$(p_1, p_1+p_2, \cdots, 1)$$的对数（logits）为$$(\pi_1, \cdots, \pi_k)$$，即$$\pi_i = log \p_i$$。那么Gumbel-Max方法有如下三个步骤：
-* step1: 从$$\[0, 1)$$的均匀分布$$Uniform_{[0, 1)}$$里采样$$k$$个随机数$$u_1, \cdots, u_k$$
+记$$(p_1, p_1+p_2, \cdots, 1)$$的对数（logits）为$$(\pi_1, \cdots, \pi_k)$$，即$$\pi_i = log p_i$$。那么Gumbel-Max方法有如下三个步骤：
+* step1: 从$$\left[0, 1)$$的均匀分布$$Uniform_{[0, 1)}$$里采样$$k$$个随机数$$u_1, \cdots, u_k$$
 * step2: 计算$$g_i = -log(-log(u_i))$$，$$i=1,\cdots, k$$
 * step3: 计算$$c = argmax_i (\pi_i + g_i)$$，那么one-hot随机变量$$X$$的第$$c$$个位置为$$1$$，其余位置为0
 
@@ -964,18 +964,18 @@ Gumbel-Max方法的关键点在于一个重参数的技巧，其将从$$(p_1, \c
 下面再来解决第二个困难，方法是使用softmax函数来替代Gumbel-Max里的step3里的argmax：
 
 **Gumbel-Softmax**
-* step1: 从$$\[0, 1)$$的均匀分布$$Uniform_{[0, 1)}$$里采样$$k$$个随机数$$u_1, \cdots, u_k$$
+* step1: 从$$\left[0, 1)$$的均匀分布$$Uniform_{[0, 1)}$$里采样$$k$$个随机数$$u_1, \cdots, u_k$$
 * step2: 计算$$g_i = -log(-log(u_i))$$，$$i=1,\cdots, k$$
-* step3: $$y_i = \frac{e^{(log(p_i) + g_i) / \tao}}{\sum_{j=1}^k e^{(log(p_j) + g_j) / \tao}}, i=1,\cdots, k$$
+* step3: $$y_i = \frac{e^{(log(p_i) + g_i) / \tau}}{\sum_{j=1}^k e^{(log(p_j) + g_j) / \tau}}, i=1,\cdots, k$$
 
 那么$$y=\left[ y_1, \cdots, y_k \right]$$就是输出向量，是一个normalized的概率向量，记其满足的分布是Gumbel-Softmax分布。
 
-在$$\tao \longrightarrow 0$$时，Gumbel-Softmax分布趋向于Categorical分布。
+在$$\tau \longrightarrow 0$$时，Gumbel-Softmax分布趋向于Categorical分布。
 
 
 **后记：Gumbel-Max方法的理论推导**
 
-假设我们有一个从均匀分布$$Uniform_{\[0, 1)}$$采样得到的随机变量$$u_1$$，那么令Gumbel分布$$Gumbel(\pi_1, 1)$$的CDF等于这个$$u_1$$，即
+假设我们有一个从均匀分布$$Uniform_{\left[0, 1)}$$采样得到的随机变量$$u_1$$，那么令Gumbel分布$$Gumbel(\pi_1, 1)$$的CDF等于这个$$u_1$$，即
 
 $$P(x \leq z) = e^{-e^{z - \pi_1}} = u_1$$
 
@@ -1015,11 +1015,12 @@ $$\lbrace X \in \lbrace 0, 1 \rbrace^{n \times n}, X 1_n = 1_n, X^T 1_n = 1_n \r
 
 也就是说permutation矩阵的每个元素只能取0或者1，并且每行每列的和都是1。这样的矩阵一般用来做sorting或者matching，而且这样的限制条件是无法简单的使用神经网络来直接输出的。
 
-而Sikhorn算法则做了一个relaxation，步骤如下：
+为了使得神经网络可以解决这样的问题，Sikhorn算法做了一个relaxation，步骤如下：
+
 输入是任意的matrix$$X \in \mathbb{R}^{n \times n}$$
 * step1: $$S^0 = exp(X)$$（element-wise计算，即计算矩阵$$X$$的每个值的exp，从而将它们都mapping到正实数上）
 * step2: $$S^l = \mathcal{T}_c (\mathcal{T}_r (S^{l-1} (X)))$$
-* step3: $$S(X) = \limits_{l \rightarrow \infty} S^l(X)$$
+* step3: $$S(X) = \lim\limits_{l \to \infty} S^l(X)$$
 
 上述的$$S$$就叫做Sinkhorn operator，而$$\mathcal{T}_r(X) = X \oslash (X 1_n 1_n^T)$$，以及$$\mathcal{T}_c(X) = X \oslash (1_n 1_n^T X)$$，其中$$\oslash$$表示element-wise除法。
 
@@ -1027,7 +1028,7 @@ $$\lbrace X \in \lbrace 0, 1 \rbrace^{n \times n}, X 1_n = 1_n, X^T 1_n = 1_n \r
 
 $$\lbrace X \in \mathbb{R}_{+}^{n \times n}, X 1_n = 1_n, X^T 1_n = 1_n \rbrace
 
-类似于softmax函数，我们可以在Sinhorn operator里也加上一个温度系数$$\tao$$，即$$S(X/\tao)$$。
+类似于softmax函数，我们可以在Sinhorn operator里也加上一个温度系数$$\tau$$，即$$S(X/\tau)$$。
 
 **2.4.2 指派问题**
 
@@ -1037,9 +1038,9 @@ $$M(X) = argmax_{P \in \mathcal{P_n}} <P, X> = argmax_{{P \in \mathcal{P_n}}} tr
 
 这个问题可以用Hungarian算法在多项式时间内解决，但是因为permutation matrix的限制条件，其不能直接使用神经网络来进行预测。
 
-我们的做法是使用$$\lim_{\tao \rightarrow 0} S(X/\tao)$$来逼近，而有定理可以证明
+我们的做法是使用$$\lim\limits_{\tau \to 0} S(X/\tau)$$来逼近，而有定理可以证明
 
-$$\lim_{\tao \rightarrow 0} S(X/\tao) = argmax_{P \in \mathcal{P_n}} <P, X> = argmax_{{P \in \mathcal{P_n}}} tr(P^T X)$$，从而这样的relaxation是可行的。
+$$\lim\limits_{\tau \to 0} S(X/\tau) = argmax_{P \in \mathcal{P_n}} <P, X> = argmax_{{P \in \mathcal{P_n}}} tr(P^T X)$$，从而这样的relaxation是可行的。
 
 
 **2.4.3 Gumbel-Sinkhorn分布**
