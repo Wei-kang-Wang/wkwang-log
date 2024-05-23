@@ -1053,7 +1053,7 @@ $$\lim_{\tau \to 0} S(X/\tau) = argmax_{P \in \mathcal{P}} <P, X> = argmax_{{P \
 
 **2.5 总结**
 
-Gumbel-softmax分布和Gumbel-sinkhorn分布分别是对Categorical分布和Permutation matrix的分布的近似（Categorical分布的取值空间是one-hot向量，Permutation matrix的取值是每一行每一列都是个one-hot向量，而且满足每一行每一列的和都是1），而且都是在温度系数$$\tao$$无限小的时候，无限逼近相对应的分布。
+Gumbel-softmax分布和Gumbel-sinkhorn分布分别是对Categorical分布和Permutation matrix的分布的近似（Categorical分布的取值空间是one-hot向量，Permutation matrix的取值是每一行每一列都是个one-hot向量，而且满足每一行每一列的和都是1），而且都是在温度系数$$\tau$$无限小的时候，无限逼近相对应的分布。
 
 
 
