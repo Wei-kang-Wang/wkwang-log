@@ -1034,20 +1034,20 @@ $$\lbrace X \in \mathbb{R}^{n \times n}_{\+}, X 1_n = 1_n, X^T 1_n = 1_n \rbrace
 
 现在考虑一个问题，如果我们有一个矩阵$$X \in \mathbb{R}^{n \times n}$$，我们希望学习一个permutation matrix $$M(X)$$，即一个合适的排序，来找一个最优的分配策略，即：
 
-$$M(X) = argmax_{P \in \mathcal{P}} <P, X> = argmax_{{P \in \mathcal{P}}} tr(P^T X)$$
+$$M(X) = argmax_{P \in \mathcal{P_n}} <P, X> = argmax_{P \in \mathcal{P_n}} tr(P^T X)$$
 
 这个问题可以用Hungarian算法在多项式时间内解决，但是因为permutation matrix的限制条件，其不能直接使用神经网络来进行预测。
 
 我们的做法是使用$$\lim\limits_{\tau \to 0} S(X/\tau)$$来逼近，而有定理可以证明
 
-$$\lim\limits_{\tau \to 0} S(X/\tau) = argmax_{P \in \mathcal{P}} <P, X> = argmax_{{P \in \mathcal{P}}} tr(P^T X)$$，从而这样的relaxation是可行的。
+$$\lim\limits_{\tau \to 0} S(X/\tau) = argmax_{P \in \mathcal{P_n}} <P, X> = argmax_{P \in \mathcal{P_n}} tr(P^T X)$$，从而这样的relaxation是可行的。
 
 
 **2.4.3 Gumbel-Sinkhorn分布**
 
 有了Sinhorn operator之后，我们可以类似于Gumbel-softmax分布，定义一个Gumbel-Sinkhorn分布：记$$Y=S((X + \epsilon)/\tau)$$，其中$$\epsilon \sim Gumbel(0,1)$$，那么$$Y \sim Gumbel-Sinkhorn$$。因为根据上面的结果有：
 
-$$\lim_{\tau \to 0} S(X/\tau) = argmax_{P \in \mathcal{P}} <P, X> = argmax_{{P \in \mathcal{P}}} tr(P^T X)$$
+$$\lim\limits_{\tau \to 0} S(X/\tau) = argmax_{P \in \mathcal{P_n}} <P, X> = argmax_{P \in \mathcal{P_n}} tr(P^T X)$$
 
 从而我们可以从矩阵$$X$$的分布中采样$$X$$，然后从$$Gumbel-Sinkhorn$$分布采样对应的permutation matrix。
 
