@@ -1026,9 +1026,9 @@ $$\lbrace X \in \lbrace 0, 1 \rbrace^{n \times n}, X 1_n = 1_n, X^T 1_n = 1_n \r
 
 实际上，可以证明$$S(X)$$一定会收敛到一个叫Birkhoff polytope的空间上，记为
 
-$$\lbrace X \in \left[0,1 \right]^{n \times n}, X 1_n = 1_n, X^T 1_n = 1_n \rbrace
+$$\lbrace X \in \left[0,1 \right]^{n \times n}, X 1_n = 1_n, X^T 1_n = 1_n \rbrace$$
 
-即定义在$$\mathbb{R}^{n \times n}$$上的矩阵，且每个元素都在0到1之间，且每一行每一列的和都是1。
+即定义在$$\mathbb{R}_{+}^{n \times n}$$上的矩阵，且每个元素都在0到1之间，且每一行每一列的和都是1。
 
 类似于softmax函数，我们可以在Sinhorn operator里也加上一个温度系数$$\tau$$，即$$S(X/\tau)$$。
 
