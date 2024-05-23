@@ -943,7 +943,7 @@ $$\pi_i = \frac{exp(\alpha_i / \tau)}{\sum_{j=1}^k exp(\alpha_j / \tau)}$$
 
 最简单的方法是通过逆变换采样（inverse transform sampling）方法，包括以下两个步骤：
 * step1: 计算累积概率分布CDF，为$$(p_1, p_1+p_2, \cdots, 1)$$
-* step2: 从$$\left[0, 1)$$的均匀分布$$Uniform_{\left[0, 1)}$$里采样一个随机数$$u$$，$$c=argmin_{i} (u < \sum_{j=1}^i p_j)$$，那么one-hot随机变量$$X$$的第$$c$$个位置为$$1$$，其余位置为0
+* step2: 从$$[0, 1)$$的均匀分布$$Uniform_{[0, 1)}$$里采样一个随机数$$u$$，$$c=argmin_{i} (u < \sum_{j=1}^i p_j)$$，那么one-hot随机变量$$X$$的第$$c$$个位置为$$1$$，其余位置为0
 
 但逆变换采样的问题有两个：（1）采样过程是个离散的随机过程，其与变量$$(p_1, \cdots, p_k)$$有关，变量是需要计算反向传播的，但随机的采样过程无法计算反向传播；（2）仍然有argmax这样一个无法计算反向传播的算子。
 
@@ -951,7 +951,7 @@ $$\pi_i = \frac{exp(\alpha_i / \tau)}{\sum_{j=1}^k exp(\alpha_j / \tau)}$$
 
 **Gumbel-Max**
 记$$(p_1, p_1+p_2, \cdots, 1)$$的对数（logits）为$$(\pi_1, \cdots, \pi_k)$$，即$$\pi_i = log p_i$$。那么Gumbel-Max方法有如下三个步骤：
-* step1: 从$$\left[0, 1)$$的均匀分布$$Uniform_{[0, 1)}$$里采样$$k$$个随机数$$u_1, \cdots, u_k$$
+* step1: 从$$[0, 1)$$的均匀分布$$Uniform_{[0, 1)}$$里采样$$k$$个随机数$$u_1, \cdots, u_k$$
 * step2: 计算$$g_i = -log(-log(u_i))$$，$$i=1,\cdots, k$$
 * step3: 计算$$c = argmax_i (\pi_i + g_i)$$，那么one-hot随机变量$$X$$的第$$c$$个位置为$$1$$，其余位置为0
 
@@ -964,7 +964,7 @@ Gumbel-Max方法的关键点在于一个重参数的技巧，其将从$$(p_1, \c
 下面再来解决第二个困难，方法是使用softmax函数来替代Gumbel-Max里的step3里的argmax：
 
 **Gumbel-Softmax**
-* step1: 从$$\left[0, 1)$$的均匀分布$$Uniform_{[0, 1)}$$里采样$$k$$个随机数$$u_1, \cdots, u_k$$
+* step1: 从$$[0, 1)$$的均匀分布$$Uniform_{[0, 1)}$$里采样$$k$$个随机数$$u_1, \cdots, u_k$$
 * step2: 计算$$g_i = -log(-log(u_i))$$，$$i=1,\cdots, k$$
 * step3: $$y_i = \frac{e^{(log(p_i) + g_i) / \tau}}{\sum_{j=1}^k e^{(log(p_j) + g_j) / \tau}}, i=1,\cdots, k$$
 
@@ -975,7 +975,7 @@ Gumbel-Max方法的关键点在于一个重参数的技巧，其将从$$(p_1, \c
 
 **后记：Gumbel-Max方法的理论推导**
 
-假设我们有一个从均匀分布$$Uniform_{\left[0, 1)}$$采样得到的随机变量$$u_1$$，那么令Gumbel分布$$Gumbel(\pi_1, 1)$$的CDF等于这个$$u_1$$，即
+假设我们有一个从均匀分布$$Uniform_{[0, 1)}$$采样得到的随机变量$$u_1$$，那么令Gumbel分布$$Gumbel(\pi_1, 1)$$的CDF等于这个$$u_1$$，即
 
 $$P(x \leq z) = e^{-e^{z - \pi_1}} = u_1$$
 
@@ -1026,7 +1026,7 @@ $$\lbrace X \in \lbrace 0, 1 \rbrace^{n \times n}, X 1_n = 1_n, X^T 1_n = 1_n \r
 
 实际上，可以证明$$S(X)$$一定会收敛到一个叫Birkhoff polytope的空间上，记为
 
-$$\lbrace X \in \mathbb{R}_{+}^{n \times n}, X 1_n = 1_n, X^T 1_n = 1_n \rbrace
+$$\lbrace X \in \mathbb{R}^{n \times n}_{\+}, X 1_n = 1_n, X^T 1_n = 1_n \rbrace
 
 类似于softmax函数，我们可以在Sinhorn operator里也加上一个温度系数$$\tau$$，即$$S(X/\tau)$$。
 
@@ -1034,18 +1034,22 @@ $$\lbrace X \in \mathbb{R}_{+}^{n \times n}, X 1_n = 1_n, X^T 1_n = 1_n \rbrace
 
 现在考虑一个问题，如果我们有一个矩阵$$X \in \mathbb{R}^{n \times n}$$，我们希望学习一个permutation matrix $$M(X)$$，即一个合适的排序，来找一个最优的分配策略，即：
 
-$$M(X) = argmax_{P \in \mathcal{P_n}} <P, X> = argmax_{{P \in \mathcal{P_n}}} tr(P^T X)$$
+$$M(X) = argmax_{P \in \mathcal{P}} <P, X> = argmax_{{P \in \mathcal{P}}} tr(P^T X)$$
 
 这个问题可以用Hungarian算法在多项式时间内解决，但是因为permutation matrix的限制条件，其不能直接使用神经网络来进行预测。
 
 我们的做法是使用$$\lim\limits_{\tau \to 0} S(X/\tau)$$来逼近，而有定理可以证明
 
-$$\lim\limits_{\tau \to 0} S(X/\tau) = argmax_{P \in \mathcal{P_n}} <P, X> = argmax_{{P \in \mathcal{P_n}}} tr(P^T X)$$，从而这样的relaxation是可行的。
+$$\lim\limits_{\tau \to 0} S(X/\tau) = argmax_{P \in \mathcal{P}} <P, X> = argmax_{{P \in \mathcal{P}}} tr(P^T X)$$，从而这样的relaxation是可行的。
 
 
 **2.4.3 Gumbel-Sinkhorn分布**
 
-有了Sinhorn operator之后，我们可以类似于Gumbel-softmax分布，定义一个Gumbel-Sinkhorn分布：记$$Y=S((X + \epsilon)/\tao)$$，其中$$\epsilon \sim Gumbel(0,1)$$，那么$$Y \sim Gumbel-Sinkhorn$$。因为根据上面的结果有：$$\lim_{\tao \rightarrow 0} S(X/\tao) = argmax_{P \in \mathcal{P_n}} <P, X> = argmax_{{P \in \mathcal{P_n}}} tr(P^T X)$$，从而我们可以从矩阵$$X$$的分布中采样$$X$$，然后从$$Gumbel-Sinkhorn$$分布采样对应的permutation matrix。
+有了Sinhorn operator之后，我们可以类似于Gumbel-softmax分布，定义一个Gumbel-Sinkhorn分布：记$$Y=S((X + \epsilon)/\tau)$$，其中$$\epsilon \sim Gumbel(0,1)$$，那么$$Y \sim Gumbel-Sinkhorn$$。因为根据上面的结果有：
+
+$$\lim_{\tau \to 0} S(X/\tau) = argmax_{P \in \mathcal{P}} <P, X> = argmax_{{P \in \mathcal{P}}} tr(P^T X)$$
+
+从而我们可以从矩阵$$X$$的分布中采样$$X$$，然后从$$Gumbel-Sinkhorn$$分布采样对应的permutation matrix。
 
 **2.5 总结**
 
