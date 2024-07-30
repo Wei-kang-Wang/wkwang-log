@@ -38,11 +38,11 @@ GAN的缺点在于比较难以训练（discriminator过好的话，generator更�
 
 如之前所说，diffusion模型可以从两个角度来理解其原理，其中DDPM（diffusion  probabilistic models）的解释更容易理解，从而先从此角度来说。
 
-## (1) 前向扩散过程（forward diffusion process）
+### (1) 前向扩散过程（forward diffusion process）
 
 从一个给定的数据分布$$q(x)$$里采样一个数据$$x_0$$，$$x_0 \sim q(x)$$（$$x_0$$就可以被理解为我们手里已有的数据，而$$q(x)$$是已有的数据潜在的数据分布，是未知的），扩散模型的一个前向扩散过程，就是不断地给数据添加高斯噪声的过程，假设一共添加了$$T$$步，那么就会得到一系列noisy的数据：$$x_1, x_2, \cdots, x_T$$，而每一步具体添加多少噪声，则是由一组超参数$$\lbrace \beta_t \in (0,1) \rbrace_{t=1}^T$$决定的:
 
-$$q(x_t \vert x_{t-1}) = \mathcal{N}(x_t; \sqrt{1-\beta_t}x_{t-1}, \beta_t \mathbf{I}), \  \text{where}t=1,2,\cdots,T$$
+$$q(x_t \vert x_{t-1}) = \mathcal{N}(x_t; \sqrt{1-\beta_t}x_{t-1}, \beta_t \mathbf{I}), \  \text{where} \  t=1,2,\cdots,T$$
 
 可以看出来，$$x_0, x_1, \cdots, x_T$$是个马尔可夫链，从而$$x_1, \cdots, x_T$$在$$x_0$$条件下的联合分布就可以写成如下形式：
 
@@ -56,10 +56,26 @@ $$q(x_{1:T} \vert x_0) = \Pi_{t=1}^T q(x_t \vert x_{t-1})$$
 
 \begin{aligned*}
 
-x_t &= \sqrt{\alpha_t} x_{t-1} + \sqrt{1-\alpha_t} \epsilon_{t-1}, \  \text{where} \epsilon_{t-1} \sim \mathcal{N}(\mathbf{0}, \mathbf{I}) \\
-&= \sqrt{\alpha_t}(\sqrt{\alpha_{t-1}}x_{t-1} + \sqrt{1-\alpha_{t-1}}\epsilon_{t-2}) + \sqrt{1-\alpha_t}\epsilon_{t-1}, \  \text{where} \epsilon_{t-1} \sim \mathcal{N}(\mathbf{0}, \mathbf{I}) \\
-
+x_t &= \sqrt{\alpha_t} x_{t-1} + \sqrt{1-\alpha_t} \epsilon_{t-1}, \  \text{where} \  \epsilon_{t-1} \sim \mathcal{N}(\mathbf{0}, \mathbf{I}) \\
+&= \sqrt{\alpha_t}(\sqrt{\alpha_{t-1}}x_{t-1} + \sqrt{1-\alpha_{t-1}}\epsilon_{t-2}) + \sqrt{1-\alpha_t}\epsilon_{t-1}, \  \text{where} \  \epsilon_{t-1} \sim \mathcal{N}(\mathbf{0}, \mathbf{I}) \\
+&= \sqrt{\alpha_t \alpha_{t-1}} x_{t-2} + (\sqrt{1-\alpha_{t-1}}\epsilon_{t-2}) + \sqrt{1-\alpha_t}\epsilon_{t-1}) \\
+&= \sqrt{\alpha_t \alpha_{t-1}} x_{t-2} + \sqrt{1-\alpha_{t}\alpha_{t-1}}\bar{\epsilon_{2}}, \  \text{where} \  \bar{\epsilon_{2}} \sim \mathcal{N}(\mathbf{0}, \mathbf{I}) \\
+&= \cdots \\
+&= \sqrt{\bar{\alpha_t}} x_0 + \sqrt{1 - \bar{\alpha_t}} \bar{\epsilon_{t}}, \  \text{where} \  \bar{\epsilon_{t}} \sim \mathcal{N}(\mathbf{0}, \mathbf{I}) \\
 \end{aligned*}
+
+上述推导用到了一个结论：$$x \sim \mathcal{N}(\mathbf{0}, \sigma_1^2 \mathbf{I}), y \sim \mathcal{N}(\mathbf{0}, \sigma_2^2 \mathbf{I})$$，那么$$x+y \sim \mathcal{N}(\mathbf{0}, (\sigma_1^2 + \sigma_2^2) \mathbf{I})$$。
+
+上述过程的第一行里，$$x_t = \sqrt{\alpha_t} x_{t-1} + \sqrt{1-\alpha_t} \epsilon_{t-1}, \  \text{where} \  \epsilon_{t-1} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$$用到了一个重参数化技巧（reparametrization trick），将$$x_t$$的随机性，转移到了$$\epsilon_{t-1}$$上，而$$\epsilon_{t-1}$$是从一个无可学习参数的标准高斯分布采样来的。这样做的好处是，因为在计算loss反向传播的时候，需要计算loss对于$$x_t$$的导数，如果$$x_t$$是采样来的，采样过程是离散的而且不可导，这样就没法算了。
+
+由上述推导，可以得到在$$x_0$$条件下$$x_t$$的分布是个高斯分布：
+
+$$q(x_t \vert x_0) = \mathcal{N}(x_t; \sqrt{\bar{\alpha_t}}x_0, (1 - \bar{\alpha_t}} \bar{\epsilon_{t})\mathbf{I})$$
+
+一般来说，对于超参数$$\lbrace \beta_t \in (0,1) \rbrace_{t=1}^T$$的设置是，随着$$t$$的增大，噪声的程度可以越来越大，也就是说$$\beta_1 < \beta_2 < \cdots < \beta_T$$，从而$$\alpha_1 > \alpha_2 > \cdots > \alpha_T$$，且$$\bar{\alpha_1} > \bar{\alpha_2} > \cdots > \bar{\alpha_T}$$。
+
+### (2) 反向扩散过程（reverse diffusion process）
+
 
 
 
