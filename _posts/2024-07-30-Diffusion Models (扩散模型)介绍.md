@@ -115,7 +115,7 @@ $$\tilde{\beta_t} = 1/(\frac{\alpha_t}{\beta_t} + \frac{1}{1-\bar{\alpha_{t-1}}}
 
 $$
 \begin{align}
--log p_{\theta}(x_0) &\leq -log p_{\theta}(x_0) + \text{D_{KL}} (q(x_{1:T} \vert x_0) \Vert p_{\theta}(x_{1:T} \vert x_0)) \\
+-log p_{\theta}(x_0) &\leq -log p_{\theta}(x_0) + \textbf{D_{KL}} (q(x_{1:T} \vert x_0) \Vert p_{\theta}(x_{1:T} \vert x_0)) \\
 &= -log p_{\theta}(x_0) + \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{q(x_{1:T} \vert x_0)}{p_{\theta}(x_{1:T} \vert x_0)} \right] \\
 &= -log p_{\theta}(x_0) + \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{q(x_{1:T} \vert x_0)}{p_{\theta}(x_{0:T})} + log p_{\theta}(x_0) \right]
 &= \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{q(x_{1:T} \vert x_0)}{p_{\theta}(x_{0:T})} \right]
@@ -132,14 +132,20 @@ $$ - \mathop{\mathbb{E}}\limits_{q(x_0)} \left[ log p_{\theta}(x_0) \right] \leq
 
 $$
 \begin{align}
-\mathop{\mathcal{L}}\limits_{CE} &= -\mathop{\mathbb{E}}\limits_{q(x_0)} \left[ log p_{\theta}(x_0) \right] = -\mathop{\mathbb{E}}\limits_{q(x_0)} \left[ log \int p_{\theta}(x_{0:T}) dx_{1:T} \right] \\
+\mathcal{L}_{CE} &= -\mathop{\mathbb{E}}\limits_{q(x_0)} \left[ log p_{\theta}(x_0) \right] = -\mathop{\mathbb{E}}\limits_{q(x_0)} \left[ log \int p_{\theta}(x_{0:T}) dx_{1:T} \right] \\
 &= -\mathop{\mathbb{E}}\limits_{q(x_0)} \left[ log \int q(x_{1:T} \vert x_0) \frac{p_{\theta}(x_{0:T})}{q(x_{1:T} \vert x_0)} dx_{1:T} \right] \\
 &= -\mathop{\mathbb{E}}\limits_{q(x_0)} \left[ log -\mathop{\mathbb{E}}\limits_{q(x_{1:T} \vert x_0)} (\frac{p_{\theta}(x_{0:T})}{q(x_{1:T} \vert x_0)}) \right] \\
 &\leq -\mathop{\mathbb{E}}\limits_{q(x_0)} \mathop{\mathbb{E}}\limits_{q(x_{1:T} \vert x_0)} log \frac{p_{\theta}(x_{0:T})}{q(x_{1:T} \vert x_0)} = - \mathop{\mathbb{E}}\limits_{q(x_{0:T} \vert x_0)} log \frac{p_{\theta}(x_{0:T})}{q(x_{1:T} \vert x_0)} = \mathcal{L}_{VLB}
 \end{align}
 $$
 
+回到之前的结果：$$-log p_{\theta}(x_0) \leq \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{q(x_{1:T} \vert x_0)}{p_{\theta}(x_{0:T})} \right]$$，记右侧这个式子为$$\mathcal{L}_{VLB}^{\ast}$$，那么：
 
+$$
+\begin{align}
+\mathcal{L}_{VLB}^{\ast} = \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{\Pi_{t=1}^T q(x_t \vert x_{t-1})}{p_{\theta}(x_T) \Pi_{t=1}^T p_{\theta}(x_{t-1} \vert x_t)} \right]\\
+\end{align}
+$$
 
 
 
