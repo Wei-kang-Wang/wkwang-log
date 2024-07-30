@@ -107,7 +107,7 @@ $$\tilde{\beta_t} = 1/(\frac{\alpha_t}{\beta_t} + \frac{1}{1-\bar{\alpha_{t-1}}}
 
 上述的推导过程表明，$$q(x_{t-1} \vert x_t, x_0)$$可以有closed-form的结果。先把这个结果放在一旁。
 
-### 损失函数
+### (3) 损失函数
 
 既然我们希望用一个带参数的分布$$p_{\theta}$$来对$$q(x_{t-1} \vert x_t)$$进行近似，那么我们就需要定义损失函数来让$$p_{\theta}$$与$$q(x_{t-1} \vert x_t)$$尽可能靠近，如下的推导对$$p_{\theta}$$的形式不做任何假设。
 
@@ -115,10 +115,8 @@ $$\tilde{\beta_t} = 1/(\frac{\alpha_t}{\beta_t} + \frac{1}{1-\bar{\alpha_{t-1}}}
 
 $$
 \begin{align}
--log p_{\theta}(x_0) &\leq -log p_{\theta}(x_0) + \textbf{D_{KL}} (q(x_{1:T} \vert x_0) \Vert p_{\theta}(x_{1:T} \vert x_0)) \\
-&= -log p_{\theta}(x_0) + \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{q(x_{1:T} \vert x_0)}{p_{\theta}(x_{1:T} \vert x_0)} \right] \\
-&= -log p_{\theta}(x_0) + \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{q(x_{1:T} \vert x_0)}{p_{\theta}(x_{0:T})} + log p_{\theta}(x_0) \right]
-&= \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{q(x_{1:T} \vert x_0)}{p_{\theta}(x_{0:T})} \right]
+-log p_{\theta}(x_0) &\leq -log p_{\theta}(x_0) + \textbf{D_{KL}} (q(x_{1:T} \vert x_0) \Vert p_{\theta}(x_{1:T} \vert x_0)) = -log p_{\theta}(x_0) + \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{q(x_{1:T} \vert x_0)}{p_{\theta}(x_{1:T} \vert x_0)} \right] \\
+&= -log p_{\theta}(x_0) + \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{q(x_{1:T} \vert x_0)}{p_{\theta}(x_{0:T})} + log p_{\theta}(x_0) \right] = \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{q(x_{1:T} \vert x_0)}{p_{\theta}(x_{0:T})} \right]
 \end{align}
 $$
 
@@ -132,10 +130,8 @@ $$ - \mathop{\mathbb{E}}\limits_{q(x_0)} \left[ log p_{\theta}(x_0) \right] \leq
 
 $$
 \begin{align}
-\mathcal{L}_{CE} &= -\mathop{\mathbb{E}}\limits_{q(x_0)} \left[ log p_{\theta}(x_0) \right] = -\mathop{\mathbb{E}}\limits_{q(x_0)} \left[ log \int p_{\theta}(x_{0:T}) dx_{1:T} \right] \\
-&= -\mathop{\mathbb{E}}\limits_{q(x_0)} \left[ log \int q(x_{1:T} \vert x_0) \frac{p_{\theta}(x_{0:T})}{q(x_{1:T} \vert x_0)} dx_{1:T} \right] \\
-&= -\mathop{\mathbb{E}}\limits_{q(x_0)} \left[ log -\mathop{\mathbb{E}}\limits_{q(x_{1:T} \vert x_0)} (\frac{p_{\theta}(x_{0:T})}{q(x_{1:T} \vert x_0)}) \right] \\
-&\leq -\mathop{\mathbb{E}}\limits_{q(x_0)} \mathop{\mathbb{E}}\limits_{q(x_{1:T} \vert x_0)} log \frac{p_{\theta}(x_{0:T})}{q(x_{1:T} \vert x_0)} = - \mathop{\mathbb{E}}\limits_{q(x_{0:T} \vert x_0)} log \frac{p_{\theta}(x_{0:T})}{q(x_{1:T} \vert x_0)} = \mathcal{L}_{VLB}
+\mathcal{L}_{CE} &= -\mathop{\mathbb{E}}\limits_{q(x_0)} \left[ log p_{\theta}(x_0) \right] = -\mathop{\mathbb{E}}\limits_{q(x_0)} \left[ log \int p_{\theta}(x_{0:T}) dx_{1:T} \right] = -\mathop{\mathbb{E}}\limits_{q(x_0)} \left[ log \int q(x_{1:T} \vert x_0) \frac{p_{\theta}(x_{0:T})}{q(x_{1:T} \vert x_0)} dx_{1:T} \right] \\
+&= -\mathop{\mathbb{E}}\limits_{q(x_0)} \left[ log -\mathop{\mathbb{E}}\limits_{q(x_{1:T} \vert x_0)} (\frac{p_{\theta}(x_{0:T})}{q(x_{1:T} \vert x_0)}) \right] \leq -\mathop{\mathbb{E}}\limits_{q(x_0)} \mathop{\mathbb{E}}\limits_{q(x_{1:T} \vert x_0)} log \frac{p_{\theta}(x_{0:T})}{q(x_{1:T} \vert x_0)} = - \mathop{\mathbb{E}}\limits_{q(x_{0:T} \vert x_0)} log \frac{p_{\theta}(x_{0:T})}{q(x_{1:T} \vert x_0)} = \mathcal{L}_{VLB}
 \end{align}
 $$
 
@@ -143,7 +139,11 @@ $$
 
 $$
 \begin{align}
-\mathcal{L}_{VLB}^{\ast} = \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{\Pi_{t=1}^T q(x_t \vert x_{t-1})}{p_{\theta}(x_T) \Pi_{t=1}^T p_{\theta}(x_{t-1} \vert x_t)} \right]\\
+\mathcal{L}_{VLB}^{\ast} = \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{\Pi_{t=1}^T q(x_t \vert x_{t-1})}{p_{\theta}(x_T) \Pi_{t=1}^T p_{\theta}(x_{t-1} \vert x_t)} \right] = \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ -log p_{\theta}(x_T) + \sum_{t=2}^T log(\frac{q(x_t \vert x_{t-1})}{p_{\theta}(x_{t-1} \vert x_t)}) + log \frac{q(x_1 \vert x_0)}{p_{\theta}(x_0 \vert x_1)} \right] \\
+&= \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ -log p_{\theta}(x_T) + \sum_{t=2}^T log(\frac{q(x_t \vert x_{t-1}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}) + log \frac{q(x_1 \vert x_0)}{p_{\theta}(x_0 \vert x_1)} \right] = \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ -log p_{\theta}(x_T) + \sum_{t=2}^T log(\frac{q(x_{t-1} \vert x_{t}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}\frac{q(x_t \vert x_0)}{q(x_{t-1} \vert x_0)}) + log \frac{q(x_1 \vert x_0)}{p_{\theta}(x_0 \vert x_1)} \right] \\
+&= \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ -log p_{\theta}(x_T) + \sum_{t=2}^T log(\frac{q(x_{t-1} \vert x_{t}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}) + \sum_{t=2}^T log (\frac{q(x_t \vert x_0)}{q(x_{t-1} \vert x_0)}) + log \frac{q(x_1 \vert x_0)}{p_{\theta}(x_0 \vert x_1)} \right] = \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{q(x_T \vert x_0)}{p_{\theta}(x_T)} - log p_{\theta}(x_0 \vert x_1) + \sum_{t=2}^T log(\frac{q(x_{t-1} \vert x_{t}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}) \right] \\
+&= -\mathop{\mathbb{E}}\limits_{x_1 \sim q(x_1 \vert x_0)} \left[ log p_{\theta}(x_0 \vert x_1) \right] + \mathop{\mathbb{E}}\limits_{x_T \sim q(x_T \vert x_0)} \left[ log \frac{q(x_T \vert x_0)}{p_{\theta}(x_T)} \right] + \sum_{t=2}^T \mathop{\mathbb{E}}\limits_{x_{t-1}, x_t \sim q(x_{t-1}, x_t \vert x_0)} \left[ log(\frac{q(x_{t-1} \vert x_{t}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}) \right]\\
+&= -\mathop{\mathbb{E}}\limits_{x_1 \sim q(x_1 \vert x_0)} \left[ log p_{\theta}(x_0 \vert x_1) \right] + \mathbf{D_{KL}}(q(x_T \vert x_0) \Vert p_{\theta}(x_T)) + \sum_{t=2}^T \mathop{\mathbb{E}}\limits_{x_{t-1}, x_t \sim q(x_t \vert x_0)q(x_{t-1} \vert x_t, x_0)} \left[ log(\frac{q(x_{t-1} \vert x_{t}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}) \right] = -\mathop{\mathbb{E}}\limits_{x_1 \sim q(x_1 \vert x_0)} \left[ log p_{\theta}(x_0 \vert x_1) \right] + \mathbf{D_{KL}}(q(x_T \vert x_0) \Vert p_{\theta}(x_T)) + \sum_{t=2}^T \mathop{\mathbb{E}}\limits_{x_t \sim q(x_t \vert x_0)} \left[ \mathbf{D_{KL}}(q(x_{t-1} \vert x_{t}, x_0) \Vert p_{\theta}(x_{t-1} \vert x_t)) \right]
 \end{align}
 $$
 
