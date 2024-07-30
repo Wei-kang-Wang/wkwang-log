@@ -72,7 +72,7 @@ $$
 
 由上述推导，可以得到在$$x_0$$条件下$$x_t$$的分布是个高斯分布：
 
-$$q(x_t \vert x_0) = \mathcal{N}(x_t; \sqrt{\bar{\alpha_t}}x_0, (1 - \bar{\alpha_t}} \bar{\epsilon_{t})\mathbf{I})$$
+$$q(x_t \vert x_0) = \mathcal{N}(x_t; \sqrt{\bar{\alpha_t}}x_0, (1 - \bar{\alpha_t}})\mathbf{I})$$
 
 一般来说，对于超参数$$\lbrace \beta_t \in (0,1) \rbrace_{t=1}^T$$的设置是，随着$$t$$的增大，噪声的程度可以越来越大，也就是说$$\beta_1 < \beta_2 < \cdots < \beta_T$$，从而$$\alpha_1 > \alpha_2 > \cdots > \alpha_T$$，且$$\bar{\alpha_1} > \bar{\alpha_2} > \cdots > \bar{\alpha_T}$$。
 
