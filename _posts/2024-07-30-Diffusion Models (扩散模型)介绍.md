@@ -115,7 +115,7 @@ $$\tilde{\beta_t} = 1/(\frac{\alpha_t}{\beta_t} + \frac{1}{1-\bar{\alpha_{t-1}}}
 
 $$
 \begin{align}
--log p_{\theta}(x_0) &\leq -log p_{\theta}(x_0) + \textbf{D_{KL}} (q(x_{1:T} \vert x_0) \Vert p_{\theta}(x_{1:T} \vert x_0)) = -log p_{\theta}(x_0) + \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{q(x_{1:T} \vert x_0)}{p_{\theta}(x_{1:T} \vert x_0)} \right] \\
+-log p_{\theta}(x_0) &\leq -log p_{\theta}(x_0) + \textbf{D}_{\textbf{KL}} (q(x_{1:T} \vert x_0) \Vert p_{\theta}(x_{1:T} \vert x_0)) = -log p_{\theta}(x_0) + \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{q(x_{1:T} \vert x_0)}{p_{\theta}(x_{1:T} \vert x_0)} \right] \\
 &= -log p_{\theta}(x_0) + \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{q(x_{1:T} \vert x_0)}{p_{\theta}(x_{0:T})} + log p_{\theta}(x_0) \right] = \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{q(x_{1:T} \vert x_0)}{p_{\theta}(x_{0:T})} \right]
 \end{align}
 $$
@@ -135,7 +135,7 @@ $$
 \end{align}
 $$
 
-回到之前的结果：$$-log p_{\theta}(x_0) \leq \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{q(x_{1:T} \vert x_0)}{p_{\theta}(x_{0:T})} \right]$$，记右侧这个式子为$$\mathcal{L}_{VLB}^{\ast}$$，那么：
+回到之前的结果：$$-log p_{\theta}(x_0) \leq \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{q(x_{1:T} \vert x_0)}{p_{\theta}(x_{0:T})} \right]$$，记右侧这个式子为$$\mathcal{L}_{VLB}^{\ast}$$，也就是说，$$\mathcal{L}_{VLB} = \mathop{\mathbb{E}}\limits_{q(x_0)} \left[ \mathcal{L}_{VLB}^{\ast} \right]$$，那么：
 
 $$
 \begin{align}
@@ -143,16 +143,72 @@ $$
 &= \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ -log p_{\theta}(x_T) + \sum_{t=2}^T log(\frac{q(x_t \vert x_{t-1}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}) + log \frac{q(x_1 \vert x_0)}{p_{\theta}(x_0 \vert x_1)} \right] = \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ -log p_{\theta}(x_T) + \sum_{t=2}^T log(\frac{q(x_{t-1} \vert x_{t}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}\frac{q(x_t \vert x_0)}{q(x_{t-1} \vert x_0)}) + log \frac{q(x_1 \vert x_0)}{p_{\theta}(x_0 \vert x_1)} \right] \\
 &= \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ -log p_{\theta}(x_T) + \sum_{t=2}^T log(\frac{q(x_{t-1} \vert x_{t}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}) + \sum_{t=2}^T log (\frac{q(x_t \vert x_0)}{q(x_{t-1} \vert x_0)}) + log \frac{q(x_1 \vert x_0)}{p_{\theta}(x_0 \vert x_1)} \right] = \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{q(x_T \vert x_0)}{p_{\theta}(x_T)} - log p_{\theta}(x_0 \vert x_1) + \sum_{t=2}^T log(\frac{q(x_{t-1} \vert x_{t}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}) \right] \\
 &= -\mathop{\mathbb{E}}\limits_{x_1 \sim q(x_1 \vert x_0)} \left[ log p_{\theta}(x_0 \vert x_1) \right] + \mathop{\mathbb{E}}\limits_{x_T \sim q(x_T \vert x_0)} \left[ log \frac{q(x_T \vert x_0)}{p_{\theta}(x_T)} \right] + \sum_{t=2}^T \mathop{\mathbb{E}}\limits_{x_{t-1}, x_t \sim q(x_{t-1}, x_t \vert x_0)} \left[ log(\frac{q(x_{t-1} \vert x_{t}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}) \right]\\
-&= -\mathop{\mathbb{E}}\limits_{x_1 \sim q(x_1 \vert x_0)} \left[ log p_{\theta}(x_0 \vert x_1) \right] + \mathbf{D_{KL}}(q(x_T \vert x_0) \Vert p_{\theta}(x_T)) + \sum_{t=2}^T \mathop{\mathbb{E}}\limits_{x_{t-1}, x_t \sim q(x_t \vert x_0)q(x_{t-1} \vert x_t, x_0)} \left[ log(\frac{q(x_{t-1} \vert x_{t}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}) \right] = -\mathop{\mathbb{E}}\limits_{x_1 \sim q(x_1 \vert x_0)} \left[ log p_{\theta}(x_0 \vert x_1) \right] + \mathbf{D_{KL}}(q(x_T \vert x_0) \Vert p_{\theta}(x_T)) + \sum_{t=2}^T \mathop{\mathbb{E}}\limits_{x_t \sim q(x_t \vert x_0)} \left[ \mathbf{D_{KL}}(q(x_{t-1} \vert x_{t}, x_0) \Vert p_{\theta}(x_{t-1} \vert x_t)) \right]
+&= -\mathop{\mathbb{E}}\limits_{x_1 \sim q(x_1 \vert x_0)} \left[ log p_{\theta}(x_0 \vert x_1) \right] + \textbf{D}_{\textbf{KL}}(q(x_T \vert x_0) \Vert p(x_T)) + \sum_{t=2}^T \mathop{\mathbb{E}}\limits_{x_{t-1}, x_t \sim q(x_t \vert x_0)q(x_{t-1} \vert x_t, x_0)} \left[ log(\frac{q(x_{t-1} \vert x_{t}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}) \right] = -\mathop{\mathbb{E}}\limits_{x_1 \sim q(x_1 \vert x_0)} \left[ log p_{\theta}(x_0 \vert x_1) \right] + \textbf{D}_{\textbf{KL}}(q(x_T \vert x_0) \Vert p(x_T)) + \sum_{t=2}^T \mathop{\mathbb{E}}\limits_{x_t \sim q(x_t \vert x_0)} \left[ \textbf{D}_{\textbf{KL}}(q(x_{t-1} \vert x_{t}, x_0) \Vert p_{\theta}(x_{t-1} \vert x_t)) \right]
 \end{align}
 $$
 
+其中，上面式子右侧第一项叫做reconstruction term，第二项叫做prior matching term，第三项叫做denoising matching term。
 
+denoising matching term里的每一项，由之前的结果可知：
 
+$$q(x_{t-1} \vert x_t, x_0) = \mathcal{N}(x_{t-1}; \frac{1}{\sqrt{\bar{\alpha_t}}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha_t}}} \bar{\epsilon_{t}}), \frac{1-\bar{\alpha_{t-1}}}{1-\bar{\alpha_{t}}} \beta_t)$$
 
+为了让$$p_{\theta}(x_{t-1} \vert x_t)$$和$$q(x_{t-1} \vert x_t, x_0)$$之间的$$DL$$散度尽可能小，我们则也假设$$p_{\theta}(x_{t-1} \vert x_t)$$为高斯分布（与之前的假设不谋而合）。因为我们已经计算出来$$q(x_{t-1} \vert x_t, x_0)$$的方差为$$\frac{1-\bar{\alpha_{t-1}}}{1-\bar{\alpha_{t}}} \beta_t$$是个常数，所以$$p_{\theta}(x_{t-1} \vert x_t)$$的方差也是该值，但是$$q(x_{t-1} \vert x_t, x_0)$$的均值是$$\frac{1}{\sqrt{\bar{\alpha_t}}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha_t}}} \bar{\epsilon_{t}})$$，其中$$\bar{\epsilon_{t}}$$是每次前向扩散过程从标准高斯分布中随机采样的值，这是未知的（因为有$$x_t, x_0, \bar{\epsilon_{t}}$$之间的关系，$$x_t$$在反向扩散过程中是已知的，$$x_0$$是我们希望要得到的，$$x_0$$的未知性和$$\bar{\epsilon_{t}}$$的未知性等价），所以没办法直接让$$p_{\theta}(x_{t-1} \vert x_t)$$的均值就等于它，从而这就成为了扩散模型需要利用神经网络进行学习的部分，记$$p_{\theta}(x_{t-1} \vert x_t)$$的均值为$$\mu_{\theta}$$。
 
+因为$$p_{\theta}(x_{t-1} \vert x_t)$$和$$q(x_{t-1} \vert x_t, x_0)$$都是高斯分布，实际上它们之间的$$DL$$散度是可以closed-form计算出来的：
 
+$$\textbf{D}_{\textbf{KL}}(q(x_{t-1} \vert x_t, x_0) \Vert p_{\theta}(x_{t-1} \vert x_t)) = \frac{1}{2\tilde{\beta_t}} \Vert \mu_{\theta} - \tilde{\mu}_t \Vert_2^2$$
 
+对于reconstruction term，在原论文中用另一个单独的网络来优化，即认为$$p_{\theta^{'}}(x_0 \vert x_1) \sim \mathcal{N}(x_0; \tilde{\mu}_{\theta^{'}}(x_1, t=1), \Sigma_{\theta^{'}}(x_1, t=1))$$。而prior matching term不含可学习参数$$\theta$$。
+
+所以说，最小化$$\mathcal{L}_{VLB}^{\ast}$$（也就是等价于最小化$$\mathcal{L}_{VLB}$$）的重点就在于最小化denoising matching term里的每一项$$p_{\theta}(x_{t-1} \vert x_t)$$和$$q(x_{t-1} \vert x_t, x_0)$$之间的$$DL$$散度，$$2 \leq t \leq T$$。而根据上面的推导过程可知，也就等价于最小化每个高斯分布$$p_{\theta}(x_{t-1} \vert x_t)$$的均值和高斯分布$$q(x_{t-1} \vert x_t, x_0)$$的均值。$$p_{\theta}(x_{t-1} \vert x_t)$$的均值由网络预测出，网络的输入是$$x_t$$和时间$$t$$，而$$q(x_{t-1} \vert x_t, x_0)$$的均值是已知的，有两种写法：
+
+$$\tilde{\mu}(x_t, x_0) = \frac{\sqrt{\alpha_t}(1-\bar{\alpha_{t-1}})}{1-\bar{\alpha_t}}x_t + \frac{\sqrt{\bar{\alpha_{t-1}}}\beta_t}{1-\bar{\alpha_t}}x_0$$
+
+$$\tilde{\mu}(x_t, x_0) = \frac{1}{\sqrt{\bar{\alpha_t}}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha_t}}} \bar{\epsilon_{t}})$$
+
+从而我们的神经网络输出也可以有两种：（1）输入$$x_t, t$$，预测$$x_0$$；（2）输入$$x_t, t$$，预测$$\bar{\epsilon_t}$$。记$$f_{\theta}(x_t, t)$$为网络的输出。
+
+对于第一种情况：
+
+$$\mu_{\theta} = \frac{\sqrt{\alpha_t}(1-\bar{\alpha_{t-1}})}{1-\bar{\alpha_t}}x_t + \frac{\sqrt{\bar{\alpha_{t-1}}}\beta_t}{1-\bar{\alpha_t}}f_{\theta}(x_t, t)$$
+
+从而：
+
+$$\arg\min\limits_{\theta} \textbf{D}_{\textbf{KL}}(q(x_{t-1} \vert x_{t}, x_0) \Vert p_{\theta}(x_{t-1} \vert x_t)) = \arg\min\limits_{\theta} \frac{\bar{\alpha_{t-1}}\beta_t^2}{2\tilde{\beta_t} (1-\bar{\alpha_t})^2} \Vert f_{\theta}(x_t, t) - x_0 \Vert_2^2$$
+
+对于第二种情况：
+
+$$\mu_{\theta} = \frac{1}{\sqrt{\bar{\alpha_t}}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha_t}}} f_{\theta}(x_t, t))$$
+
+从而：
+
+$$\arg\min\limits_{\theta} \textbf{D}_{\textbf{KL}}(q(x_{t-1} \vert x_{t}, x_0) \Vert p_{\theta}(x_{t-1} \vert x_t)) = \arg\min\limits_{\theta} \frac{1}{2\tilde{\beta_t} \alpha_t} \frac{(1-\alpha_t)^2}{1-\bar{\alpha_t}} \Vert f_{\theta}(x_t, t) - \bar{\alpha_t} \Vert_2^2$$
+
+diffusion模型一般采用第二种方式，因为对噪声进行建模会更加关注细节（噪声相对于原数据$$x_0$$要更小一些）。
+
+在第二种方式下，回到$$\mathcal{L}_{VLB}$$中，则是：
+
+$$
+\begin{align}
+\arg\min\limits_{\theta} \mathcal{L}_{VLB} &= \arg\min\limits_{\theta} \sum_{t=2}^T  \mathop{\mathbb{E}}\limits_{x_t, x_0 \sim q(x_t, x_0)} \left[ \textbf{D}_{\textbf{KL}}(q(x_{t-1} \vert x_{t}, x_0) \Vert p_{\theta}(x_{t-1} \vert x_t)) \right] = \arg\min\limits_{\theta} \sum_{t=2}^T \mathop{\mathbb{E}}\limits_{x_t, x_0 \sim q(x_t, x_0)} \left[ \frac{\bar{\alpha_{t-1}}\beta_t^2}{2\tilde{\beta_t} (1-\bar{\alpha_t})^2} \Vert f_{\theta}(x_t, t) - \bar{\alpha_t} \Vert_2^2 \right] \\
+&= \arg\min\limits_{\theta} \mathop{\mathbb{E}}\limits_{x_0 \sim q(x_0), \bar{\alpha_t} \sim \mathcal{N}(\mathbf{0}, \mathbf{I}), t \sim \left[2, T \right]} \left[ \Vert f_{\theta}(x_t, t) - \bar{\alpha_t} \Vert_2^2 \right]
+\end{align}
+$$
+
+所以说反向扩散过程（denoising）过程的本质，在于让模型学会以任意时刻$$t$$时加噪的数据以及时间$$t$$作为输入，都可以学到这个时刻的数据在“干净”数据上所加上的噪声（也就等价于学到“干净”的数据）。
+
+DDPM模型的训练过程如下：
+
+![3]({{ '/assets/images/diffusion_3.png' | relative_url }})
+{: style="width: 1200px; max-width: 100%;"}
+*来自于[Lil'Log: What are Diffusion Models?](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/)*
+
+而在训练完成之后，想要生成数据（采样）的过程如下：
+
+![4]({{ '/assets/images/diffusion_4.png' | relative_url }})
+{: style="width: 1200px; max-width: 100%;"}
+*来自于[Lil'Log: What are Diffusion Models?](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/)*
 
 
 
