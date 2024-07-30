@@ -50,7 +50,16 @@ $$q(x_{1:T} \vert x_0) = \Pi_{t=1}^T q(x_t \vert x_{t-1})$$
 
 原本“干净”的数据$$x_0$$，随着时间的推进，增加的噪声越来越多，逐渐就失去了原本的structure，在合适的$$\lbrace \beta_t \in (0,1) \rbrace_{t=1}^T$$的设置下，以及$$T \rightarrow \infty$$的情况下，$$x_T \sim \mathcal{N}(0, \mathbf{I})$$。
 
+而实际上，前向过程的一个良好的性质是，我们可以得到$$x_t$$与$$x_0$$的closed form的关系（$$1 leq t \leq T$$）：
 
+记$$\alpha_t = 1 - \beta_t$$，$$\bar{\alpha_t} = \Pi_{i=1}^t \alpha_i$$，那么：
+
+\begin{aligned*}
+
+x_t &= \sqrt{\alpha_t} x_{t-1} + \sqrt{1-\alpha_t} \epsilon_{t-1}, \  \text{where} \epsilon_{t-1} \sim \mathcal{N}(\mathbf{0}, \mathbf{I}) \\
+&= \sqrt{\alpha_t}(\sqrt{\alpha_{t-1}}x_{t-1} + \sqrt{1-\alpha_{t-1}}\epsilon_{t-2}) + \sqrt{1-\alpha_t}\epsilon_{t-1}, \  \text{where} \epsilon_{t-1} \sim \mathcal{N}(\mathbf{0}, \mathbf{I}) \\
+
+\end{aligned*}
 
 
 
