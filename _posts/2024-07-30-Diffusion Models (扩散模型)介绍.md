@@ -373,9 +373,13 @@ $$
 \end{align}
 $$
 
-从而惊讶地发现，ESM和DSM只相差了一个与$$\theta$$无关的常数。从而现在可以用DSM来替代ESM作为优化基于$$\tilde{x}$$的score-matching的目标函数了，也就是说，之前我们引入$$q_{\sigma}(\tilde{x})$$的score来近似$$p_{data}(x)$$的score，现在我们可以用$$q_{\sigma}(\tilde{x} \vert x}$$的score来近似$$p_{data}(x)$$的score了。
+从而惊讶地发现，ESM和DSM只相差了一个与$$\theta$$无关的常数。从而现在可以用DSM来替代ESM作为优化基于$$\tilde{x}$$的score-matching的目标函数了，也就是说，之前我们引入$$q_{\sigma}(\tilde{x})$$的score来近似$$p_{data}(x)$$的score，现在我们可以用$$q_{\sigma}(\tilde{x} \vert x}$$的score来近似$$p_{data}(x)$$的score了。而根据我们的假设，$$q_{\sigma}(\tilde{x} \vert x}$$就是一个高斯分布$$\mathcal{N}(\tilde{x}; x, \sigma^2 \textbf{I})$$，从而其score是可以closed-form计算出来的，也就是说，现在的目标函数变为：
 
+$$DSM = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \nabda_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) - s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \frac{x-\tilde{x}}{\sigma^2} - s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \frac{-\epsilon}{\sigma^2} - s_{\theta}(\tilde{x}) \rVert_2^2 \right], \  \text{where} \  \epsilon \sim \mathcal{N}(\textbf{0}, \sigma^2 \textbf{I})$$
 
+从而我们要做的就是，对于每个输入数据$$x$$，从$$\mathcal{N}(\textbf{0}, \sigma^2 \textbf{I})$$中采样噪声$$\epsilon$$，加到$$x$$上得到$$\tilde{x}$$，作为$$s_{\theta}$$的输入，然后优化上述目标函数，即DSM。也就是说，$$s_{\theta}$$实际上建模的是真实数据和加噪之后数据的差值（即噪声）。
+
+综上，我们已经解释了score-based models的主要内容，最后，再介绍一下score-based models的几个主要的问题。
 
 
 
