@@ -99,7 +99,9 @@ q(x_{t-1} \vert x_t, x_0) &= q(x_t \vert x_{t-1}, x_0) \frac{q(x_{t-1} \vert x_0
 \end{align}
 $$
 
-从这个形式可以看出，$$q(x_{t-1} \vert x_t, x_0)$$也满足高斯分布，$$q(x_{t-1} \vert x_t, x_0) = \mathcal{N}(x_{t-1} \vert \tilde{\mu}(x_t, x_0), \tilde{\beta_t} \mathbf{I})$$，其中$$\tilde{\beta_t} = 1/(\frac{\alpha_t}{\beta_t} + \frac{1}{1-\bar{\alpha_{t-1}}}) = \frac{1-\bar{\alpha_{t-1}}}{1-\bar{\alpha_{t}}} \beta_t, \tilde{\mu}(x_t, x_0) = (\frac{2 \sqrt{\alpha_t}}{\beta_t}x_t + \frac{2 \sqrt{\bar{\alpha_{t-1}}}}{1-\bar{\alpha_{t-1}}}x_0) / (\frac{\alpha_t}{\beta_t} + \frac{1}{1-\bar{\alpha_{t-1}}}) = \frac{\sqrt{\alpha_t}(1-\bar{\alpha_{t-1}})}{1-\bar{\alpha_t}}x_t + \frac{\sqrt{\bar{\alpha_{t-1}}}\beta_t}{1-\bar{\alpha_t}}x_0$$。
+从这个形式可以看出，$$q(x_{t-1} \vert x_t, x_0)$$也满足高斯分布，$$q(x_{t-1} \vert x_t, x_0) = \mathcal{N}(x_{t-1} \vert \tilde{\mu}(x_t, x_0), \tilde{\beta_t} \mathbf{I})$$，其中
+
+$$\tilde{\beta_t} = 1/(\frac{\alpha_t}{\beta_t} + \frac{1}{1-\bar{\alpha_{t-1}}}) = \frac{1-\bar{\alpha_{t-1}}}{1-\bar{\alpha_{t}}} \beta_t, \tilde{\mu}(x_t, x_0) = (\frac{2 \sqrt{\alpha_t}}{\beta_t}x_t + \frac{2 \sqrt{\bar{\alpha_{t-1}}}}{1-\bar{\alpha_{t-1}}}x_0) / (\frac{\alpha_t}{\beta_t} + \frac{1}{1-\bar{\alpha_{t-1}}}) = \frac{\sqrt{\alpha_t}(1-\bar{\alpha_{t-1}})}{1-\bar{\alpha_t}}x_t + \frac{\sqrt{\bar{\alpha_{t-1}}}\beta_t}{1-\bar{\alpha_t}}x_0$$
 
 而之前我们有结论：$$x_t = \sqrt{\bar{\alpha_t}} x_0 + \sqrt{1 - \bar{\alpha_t}} \bar{\epsilon_{t}}, \  \text{where} \  \bar{\epsilon_{t}} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$$，也就是，$$x_0 = \frac{1}{\sqrt{\bar{\alpha_t}}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha_t}}}\bar{\epsilon_{t}})，带入$$\tilde{\mu}(x_t, x_0)$$上面的结果，可得：$$\tilde{\mu}(x_t, x_0) = \frac{1}{\sqrt{\bar{\alpha_t}}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha_t}}} \bar{\epsilon_{t}})$$，与$$x_0$$无关了，因此也可以记为$$\tilde{\mu}_t$$。
 
@@ -130,7 +132,7 @@ $$ - \mathop{\mathbb{E}}\limits_{q(x_0)} \left[ log p_{\theta}(x_0) \right] \leq
 
 $$
 \begin{align}
-\mathcal{L}_{CE} &= -\mathbb{E}
+\mathcal{L}_{CE} &= -\mathop{\mathbb{E}}_{q(x_0)} \left[ log p_{\theta}(x_0) \right] 
 
 \end{align}
 $$
