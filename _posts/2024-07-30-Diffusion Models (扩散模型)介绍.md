@@ -101,10 +101,39 @@ $$
 
 从这个形式可以看出，$$q(x_{t-1} \vert x_t, x_0)$$也满足高斯分布，$$q(x_{t-1} \vert x_t, x_0) = \mathcal{N}(x_{t-1} \vert \tilde{\mu}(x_t, x_0), \tilde{\beta_t} \mathbf{I})$$，其中$$\tilde{\beta_t} = 1/(\frac{\alpha_t}{\beta_t} + \frac{1}{1-\bar{\alpha_{t-1}}}) = \frac{1-\bar{\alpha_{t-1}}}{1-\bar{\alpha_{t}}} \beta_t, \tilde{\mu}(x_t, x_0) = (\frac{2 \sqrt{\alpha_t}}{\beta_t}x_t + \frac{2 \sqrt{\bar{\alpha_{t-1}}}}{1-\bar{\alpha_{t-1}}}x_0) / (\frac{\alpha_t}{\beta_t} + \frac{1}{1-\bar{\alpha_{t-1}}}) = \frac{\sqrt{\alpha_t}(1-\bar{\alpha_{t-1}})}{1-\bar{\alpha_t}}x_t + \frac{\sqrt{\bar{\alpha_{t-1}}}\beta_t}{1-\bar{\alpha_t}}x_0$$。
 
+而之前我们有结论：$$x_t = \sqrt{\bar{\alpha_t}} x_0 + \sqrt{1 - \bar{\alpha_t}} \bar{\epsilon_{t}}, \  \text{where} \  \bar{\epsilon_{t}} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$$，也就是，$$x_0 = \frac{1}{\sqrt{\bar{\alpha_t}}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha_t}}}\bar{\epsilon_{t}})，带入$$\tilde{\mu}(x_t, x_0)$$上面的结果，可得：$$\tilde{\mu}(x_t, x_0) = \frac{1}{\sqrt{\bar{\alpha_t}}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha_t}}} \bar{\epsilon_{t}})$$，与$$x_0$$无关了，因此也可以记为$$\tilde{\mu}_t$$。
 
+上述的推导过程表明，$$q(x_{t-1} \vert x_t, x_0)$$可以有closed-form的结果。先把这个结果放在一旁。
 
+### 损失函数
 
+既然我们希望用一个带参数的分布$$p_{\theta}$$来对$$q(x_{t-1} \vert x_t)$$进行近似，那么我们就需要定义损失函数来让$$p_{\theta}$$与$$q(x_{t-1} \vert x_t)$$尽可能靠近，如下的推导对$$p_{\theta}$$的形式不做任何假设。
 
+我们可以发现，实际上$$p_{\theta}(x_{t-1} \vert x_t)$$很像VAE里的$$q_{\phi}(z \vert x)$$，而$$q(x_{t-1} \vert x_t)$$则是VAE的decoder的未知后验分布$$p_{\theta}(z \vert x)$$（这里的$$\theta$$和之前的$$\theta$$不一样，这里指的是VAE里的分布）。从而根据这个观察，我们也可以仿照VAE的损失函数，定义如下的损失函数：
+
+$$
+\begin{align}
+-log p_{\theta}(x_0) &\leq -log p_{\theta}(x_0) + \text{D_{KL}} (q(x_{1:T} \vert x_0) \Vert p_{\theta}(x_{1:T} \vert x_0)) \\
+&= -log p_{\theta}(x_0) + \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{q(x_{1:T} \vert x_0)}{p_{\theta}(x_{1:T} \vert x_0)} \right] \\
+&= -log p_{\theta}(x_0) + \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{q(x_{1:T} \vert x_0)}{p_{\theta}(x_{0:T})} + log p_{\theta}(x_0) \right]
+&= \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{q(x_{1:T} \vert x_0)}{p_{\theta}(x_{0:T})} \right]
+\end{align}
+$$
+
+对上个式子两侧以$$q(x_0)$$为分布取期望，则有：
+
+$$ - \mathop{\mathbb{E}}\limits_{q(x_0)} \left[ log p_{\theta}(x_0) \right] \leq \mathop{\mathbb{E}}\limits_{q(x_{0:T})} \left[ log \frac{q(x_{1:T} \vert x_0)}{p_{\theta}(x_{0:T})} \right]$$
+
+记上面式子的右侧为$$\mathcal{L}_{VLB}$$。
+
+我们再来考虑$$q(x_0)$$和$$p_{\theta}(x_0)$$之间的cross entropy：
+
+$$
+\begin{align}
+\mathcal{L}_{CE} &= -\mathbb{E}
+
+\end{align}
+$$
 
 
 
