@@ -93,10 +93,13 @@ $$q(x_{0:T}) = q(x_T) \Pi_{t=1}^T q(x_{t-1} \vert x_t) = q(x_T) \Pi_{t=1}^T p_{\
 $$
 \begin{align}
 
-q(x_{t-1} \vert x_t, x_0) &= q(x_t \vert x_{t-1}, x_0) \frac{}
+q(x_{t-1} \vert x_t, x_0) &= q(x_t \vert x_{t-1}, x_0) \frac{q(x_{t-1} \vert x_0)}{q(x_t \vert x_0)} \\
+&= \mathcal{N}(x_t; \sqrt{1-\beta_t}x_{t-1}, \beta_t \mathbf{I}) \frac{\mathcal{N}(x_{t-1}; \sqrt{\bar{\alpha_{t-1}}}x_0, (1-\bar{\alpha_{t-1}})\mathbf{I})}{\mathcal{N}(x_{t}; \sqrt{\bar{\alpha_{t}}}x_0, (1-\bar{\alpha_{t}})\mathbf{I})}\\
+& \propto exp(-\frac{1}{2} \frac{(x_t - \sqrt{\alpha_t} x_{t-1})^T(x_t - \sqrt{\alpha_t} x_{t-1})}{\beta_t} + \frac{1}{2} \frac{(x_{t-1} - \sqrt{\bar{\alpha_{t-1}}} x_{0})^T(x_{t-1} - \sqrt{\bar{\alpha_{t-1}}} x_{0})}{1 - \bar{\alpha_{t-1}}}) - \frac{1}{2} \frac{(x_{t} - \sqrt{\bar{\alpha_{t}}} x_{0})^T(x_{t} - \sqrt{\bar{\alpha_{t}}} x_{0})}{1 - \bar{\alpha_t}}\\
+&= exp(-\frac{1}{2}((\frac{\alpha_t}{\beta_t} + \frac{1}{1-\bar{\alpha_{t-1}}})x_{t-1}^Tx_{t-1} - (\frac{2 \sqrt{\alpha_t}}{\beta}x_t^T + \frac{2 \sqrt{\bar{\alpha_{t-1}}}}{1-\bar{\alpha_{t-1}}}x_0^T)x_{t-1})+ C(x_0, x_t)), \  \text{where} \  C(x_0, x_t) \  \text{is} \  \text{a} \  \text{constant} \  \text{w.r.t.} \  x_{t-1}
 
 \end{align}
-
+$$
 
 
 
