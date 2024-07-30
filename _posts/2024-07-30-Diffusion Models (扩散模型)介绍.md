@@ -302,7 +302,7 @@ $$\mathop{\mathbb{E}}_{p_{data}(x)} \left[ \lVert \nabla_x log p_{data}(x) - s_{
 $$
 \begin{align}
 & \mathop{\mathbb{E}}_{p_{data}(x)} \left[ \lVert \nabla_x log p_{data}(x) - s_{\theta}(x) \rVert_2^2 \right] \propto \frac{1}{2} \mathop{\mathbb{E}}_{p_{data}(x)} \left[ \lVert s_{\theta}(x) - \frac{\partial log p_{data}(x)}{\partial x} \rVert_2^2 \right] \\
-&= \frac{1}{2} \int p_{data}(x) \left[ \Vert s_{theta}(x) \rVert_2^2 + \lVert \frac{\partial log p_{data}(x)}{\partial x} \rVert_2^2 - 2(\frac{\partial log p_{data}(x)}{\partial x})^Ts_{\theta}(x) \right] dx
+&= \frac{1}{2} \int p_{data}(x) \left[ \Vert s_{\theta}(x) \rVert_2^2 + \lVert \frac{\partial log p_{data}(x)}{\partial x} \rVert_2^2 - 2(\frac{\partial log p_{data}(x)}{\partial x})^Ts_{\theta}(x) \right] dx
 \end{align}
 $$
 
@@ -333,13 +333,13 @@ $$\mathop{\mathbb{E}}_{p_{data}(x)} \left[ \frac{1}{2} \Vert s_{theta}(x) \rVert
 
 从而将上述技巧用到上述目标函数里，$$tr(\frac{s_{\theta}(x)}{\partial x}) = \mathbb{E}(v^T \frac{s_{\theta}(x)}{\partial x} v) = \mathbb{E}(v^T \frac{v^T s_{\theta}(x)}{\partial x})$$，目标函数则变为：
 
-$$\mathop{\mathbb{E}}_{p(v), p_{data}(x)} \left[ \frac{1}{2} \Vert s_{theta}(x) \rVert_2^2 + v^T \frac{v^T s_{\theta}(x)}{\partial x} \right]$$
+$$\mathop{\mathbb{E}}_{p(v), p_{data}(x)} \left[ \frac{1}{2} \Vert s_{\theta}(x) \rVert_2^2 + v^T \frac{v^T s_{\theta}(x)}{\partial x} \right]$$
 
 而计算$$\frac{v^T s_{\theta}(x)}{\partial x}$$只需要计算$$N$$次（相较于之前的$$N^2$$次，减少了很多），但引入了一个新的期望需要进行采样估计，如果$$N$$很大的时候，这样的做法是有效的。
 
 **改进二：denoising score matching（NCSN那篇论文里的方法）**
 
-这个方法也是为了避免计算$$tr(\frac{s_{\theta}(x)}{\partial x})$$，但它直接回到了最初的目标函数$$\mathop{\mathbb{E}}_{p_{data}(x)} \left[ \lVert \nabla_x log p_{data}(x) - s_{\theta}(x) \rVert_2^2 \right]$$，对于未知的$$p_{data}$$，其如果仅出现在求期望的概率分布上，并不出现在被求期望的值里面的时候，还是好办的，因为其就是经验概率分布，所以就是将所有的真实数据对应的被求期望的值加起来除以总数据数就行了（这也是为什么简化了的目标函数$$\mathop{\mathbb{E}}_{p_{data}(x)} \left[ \frac{1}{2} \Vert s_{theta}(x) \rVert_2^2 + tr(\frac{s_{\theta}(x)}{\partial x}) \right] dx$$可以计算的原因，这个目标函数的问题只是在于它太难算了）。但是如果$$p_{data}(x)$$同时也出现在了被求期望的值的内部，就不能按照上述方法算了，而如果我们回到了最初的目标函数，那么该目标函数的被求期望的值里就含有$$p_{data}(x)$$，所以需要想另一种办法解决这个问题，而denoising score matching的办法就是：既然$$p_{data}(x)$$未知，就自行定义一个已知的数据分布$$q_{\sigma}$$（比如高斯分布），而且假设这个分布是在$$p_{data}$$上加噪声得来的。
+这个方法也是为了避免计算$$tr(\frac{s_{\theta}(x)}{\partial x})$$，但它直接回到了最初的目标函数$$\mathop{\mathbb{E}}_{p_{data}(x)} \left[ \lVert \nabla_x log p_{data}(x) - s_{\theta}(x) \rVert_2^2 \right]$$，对于未知的$$p_{data}$$，其如果仅出现在求期望的概率分布上，并不出现在被求期望的值里面的时候，还是好办的，因为其就是经验概率分布，所以就是将所有的真实数据对应的被求期望的值加起来除以总数据数就行了（这也是为什么简化了的目标函数$$\mathop{\mathbb{E}}_{p_{data}(x)} \left[ \frac{1}{2} \Vert s_{\theta}(x) \rVert_2^2 + tr(\frac{s_{\theta}(x)}{\partial x}) \right] dx$$可以计算的原因，这个目标函数的问题只是在于它太难算了）。但是如果$$p_{data}(x)$$同时也出现在了被求期望的值的内部，就不能按照上述方法算了，而如果我们回到了最初的目标函数，那么该目标函数的被求期望的值里就含有$$p_{data}(x)$$，所以需要想另一种办法解决这个问题，而denoising score matching的办法就是：既然$$p_{data}(x)$$未知，就自行定义一个已知的数据分布$$q_{\sigma}$$（比如高斯分布），而且假设这个分布是在$$p_{data}$$上加噪声得来的。
 
 具体来说，记原数据为$$x$$，加噪之后的数据为$$\tilde{x}$$，我们定义$$q(\tilde{x} \vert x) = \mathcal{N}(\tilde{x}; x, \sigma^2 \textbf{I})$$，而且$$\sigma$$是已知的固定参数。从而$$q_{\sigma}(\tilde{x}) = \int q_{\sigma}(\tilde{x} \vert x) p_{data}(x) dx$$。我们希望用$$q_{\sigma}(\tilde{x})$$的score来近似$$p_{data}(x)$$的score（在$$\sigma$$很小的时候，它们是很相近的）。
 
