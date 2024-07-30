@@ -80,7 +80,24 @@ $$q(x_t \vert x_0) = \mathcal{N}(x_t; \sqrt{\bar{\alpha_t}}x_0, (1 - \bar{\alpha
 
 如果我们可以建模上述前向扩散过程的逆过程，也就是建模$$q(x_{t-1} \vert x_t)$$的话，那么基于一个从标准高斯分布采样得到的纯噪声数据$$x_T \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$$，就可以一步步回退，逐步去除噪声，最终得到一个新的”干净“的$$x_0$$，而因为$$x_T$$的采样是具有随机性的，所以每次得到的$$x_0$$也不一样，这样就可以源源不断地生成”干净“的数据了。
 
-我们有如下结论：如果$$\beta_t$$足够小的话，那么如果$$q(x_t \vert x_{t-1}) = \mathcal{N}(x_t; \sqrt{1-\beta_t}x_{t-1}, \beta_t \mathbf{I})$$是个高斯分布，那么$$q(x_{t-1} \vert x_t)$$也是个高斯分布。
+我们有如下结论：如果$$\beta_t$$足够小的话，那么如果$$q(x_t \vert x_{t-1}) = \mathcal{N}(x_t; \sqrt{1-\beta_t}x_{t-1}, \beta_t \mathbf{I})$$是个高斯分布，那么$$q(x_{t-1} \vert x_t)$$也是个高斯分布。但这个高斯分布的均值和方差无法解析表达。从而我们考虑用一个带有可学习参数$$\theta$$的模型$$p_{\theta}$$来对$$q(x_{t-1} \vert x_t)$$进行建模：
+
+$$p_{\theta}(x_{t-1} \vert x_t) = \mathcal{x_{t-1}; \mu_{\theta}(x_t, t), \Sigma_{\theta}(x_t, t)}$$
+
+我们同样假设反向扩散过程也是个马尔可夫链，也就是说：
+
+$$q(x_{0:T}) = q(x_T) \Pi_{t=1}^T q(x_{t-1} \vert x_t) = q(x_T) \Pi_{t=1}^T p_{\theta}(x_{t-1} \vert x_t)$$
+
+如果我们在分布$$q(x_{t-1} \vert x_t)$$上再加上条件$$x_0$$的话，也就是考虑分布$$q(x_{t-1} \vert x_t, x_0)$$，有如下结果：
+
+$$
+\begin{align}
+
+q(x_{t-1} \vert x_t, x_0) &= q(x_t \vert x_{t-1}, x_0) \frac{}
+
+\end{align}
+
+
 
 
 
