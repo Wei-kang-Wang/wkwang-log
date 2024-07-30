@@ -287,11 +287,11 @@ $$ x_{i+1} \leftarrow x_i + \epsilon \nabla_x log p(x_i) + \sqrt{2 \epsilon} z_i
 
 首先写出损失函数（目标函数）。score-based model和似然函数模型类似，也是将最小化模型和数据分布之间的Fisher divergence作为训练的目标：
 
-$$\mathop{\mathbb{E}}_{p(x)} \left[ \lVert \nabda_x log p(x) - s_{\theta}(x) \rVert_2^2 \right] = \int p(x) \lVert \nabda_x log p(x) - s_{\theta}(x) \rVert_2^2 dx$$
+$$\mathop{\mathbb{E}}_{p(x)} \left[ \lVert \nabla_x log p(x) - s_{\theta}(x) \rVert_2^2 \right] = \int p(x) \lVert \nabla_x log p(x) - s_{\theta}(x) \rVert_2^2 dx$$
 
 但$$p(x)$$是未知的，所以上述式子无法计算，所以实际上，是利用经验分布$$p_{data}(x)$$（即从数据中获得的分布）来代替真实分布$$p(x)$$来计算的，从而我们的目标函数如下：
 
-$$\mathop{\mathbb{E}}_{p_{data}(x)} \left[ \lVert \nabda_x log p_{data}(x) - s_{\theta}(x) \rVert_2^2 \right] = \int p_{data}(x) \lVert \nabda_x log p_{data}(x) - s_{\theta}(x) \rVert_2^2 dx$$
+$$\mathop{\mathbb{E}}_{p_{data}(x)} \left[ \lVert \nabla_x log p_{data}(x) - s_{\theta}(x) \rVert_2^2 \right] = \int p_{data}(x) \lVert \nabla_x log p_{data}(x) - s_{\theta}(x) \rVert_2^2 dx$$
 
 经验分布和真实分布的差别可以看[这篇博客](https://blog.csdn.net/qq_44638724/article/details/120242712)
 
@@ -301,7 +301,7 @@ $$\mathop{\mathbb{E}}_{p_{data}(x)} \left[ \lVert \nabda_x log p_{data}(x) - s_{
 
 $$
 \begin{align}
-& \mathop{\mathbb{E}}_{p_{data}(x)} \left[ \lVert \nabda_x log p_{data}(x) - s_{\theta}(x) \rVert_2^2 \right] \propto \frac{1}{2} \mathop{\mathbb{E}}_{p_{data}(x)} \left[ \lVert s_{\theta}(x) - \frac{\partial log p_{data}(x)}{\partial x} \rVert_2^2 \right] \\
+& \mathop{\mathbb{E}}_{p_{data}(x)} \left[ \lVert \nabla_x log p_{data}(x) - s_{\theta}(x) \rVert_2^2 \right] \propto \frac{1}{2} \mathop{\mathbb{E}}_{p_{data}(x)} \left[ \lVert s_{\theta}(x) - \frac{\partial log p_{data}(x)}{\partial x} \rVert_2^2 \right] \\
 &= \frac{1}{2} \int p_{data}(x) \left[ \Vert s_{theta}(x) \rVert_2^2 + \lVert \frac{\partial log p_{data}(x)}{\partial x} \rVert_2^2 - 2(\frac{\partial log p_{data}(x)}{\partial x})^Ts_{\theta}(x) \right] dx
 \end{align}
 $$
@@ -339,23 +339,23 @@ $$\mathop{\mathbb{E}}_{p(v), p_{data}(x)} \left[ \frac{1}{2} \Vert s_{theta}(x) 
 
 **改进二：denoising score matching（NCSN那篇论文里的方法）**
 
-这个方法也是为了避免计算$$tr(\frac{s_{\theta}(x)}{\partial x})$$，但它直接回到了最初的目标函数$$\mathop{\mathbb{E}}_{p_{data}(x)} \left[ \lVert \nabda_x log p_{data}(x) - s_{\theta}(x) \rVert_2^2 \right]$$，对于未知的$$p_{data}$$，其如果仅出现在求期望的概率分布上，并不出现在被求期望的值里面的时候，还是好办的，因为其就是经验概率分布，所以就是将所有的真实数据对应的被求期望的值加起来除以总数据数就行了（这也是为什么简化了的目标函数$$\mathop{\mathbb{E}}_{p_{data}(x)} \left[ \frac{1}{2} \Vert s_{theta}(x) \rVert_2^2 + tr(\frac{s_{\theta}(x)}{\partial x}) \right] dx$$可以计算的原因，这个目标函数的问题只是在于它太难算了）。但是如果$$p_{data}(x)$$同时也出现在了被求期望的值的内部，就不能按照上述方法算了，而如果我们回到了最初的目标函数，那么该目标函数的被求期望的值里就含有$$p_{data}(x)$$，所以需要想另一种办法解决这个问题，而denoising score matching的办法就是：既然$$p_{data}(x)$$未知，就自行定义一个已知的数据分布$$q_{\sigma}$$（比如高斯分布），而且假设这个分布是在$$p_{data}$$上加噪声得来的。
+这个方法也是为了避免计算$$tr(\frac{s_{\theta}(x)}{\partial x})$$，但它直接回到了最初的目标函数$$\mathop{\mathbb{E}}_{p_{data}(x)} \left[ \lVert \nabla_x log p_{data}(x) - s_{\theta}(x) \rVert_2^2 \right]$$，对于未知的$$p_{data}$$，其如果仅出现在求期望的概率分布上，并不出现在被求期望的值里面的时候，还是好办的，因为其就是经验概率分布，所以就是将所有的真实数据对应的被求期望的值加起来除以总数据数就行了（这也是为什么简化了的目标函数$$\mathop{\mathbb{E}}_{p_{data}(x)} \left[ \frac{1}{2} \Vert s_{theta}(x) \rVert_2^2 + tr(\frac{s_{\theta}(x)}{\partial x}) \right] dx$$可以计算的原因，这个目标函数的问题只是在于它太难算了）。但是如果$$p_{data}(x)$$同时也出现在了被求期望的值的内部，就不能按照上述方法算了，而如果我们回到了最初的目标函数，那么该目标函数的被求期望的值里就含有$$p_{data}(x)$$，所以需要想另一种办法解决这个问题，而denoising score matching的办法就是：既然$$p_{data}(x)$$未知，就自行定义一个已知的数据分布$$q_{\sigma}$$（比如高斯分布），而且假设这个分布是在$$p_{data}$$上加噪声得来的。
 
 具体来说，记原数据为$$x$$，加噪之后的数据为$$\tilde{x}$$，我们定义$$q(\tilde{x} \vert x) = \mathcal{N}(\tilde{x}; x, \sigma^2 \textbf{I})$$，而且$$\sigma$$是已知的固定参数。从而$$q_{\sigma}(\tilde{x}) = \int q_{\sigma}(\tilde{x} \vert x) p_{data}(x) dx$$。我们希望用$$q_{\sigma}(\tilde{x})$$的score来近似$$p_{data}(x)$$的score（在$$\sigma$$很小的时候，它们是很相近的）。
 
 那么对于这个新的数据$$\tilde{x}$$来说，其score-matching的目标函数就是:
 
-$$\mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \lVert \nabda_{\tilde{x}} log q_{\sigma}(\tilde{x}) - s_{\theta}(\tilde{x}) \rVert_2^2 \right]$$
+$$\mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \lVert \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x}) - s_{\theta}(\tilde{x}) \rVert_2^2 \right]$$
 
 这个式子可以显式的计算对于$$\tilde{x}$$score-matching算法的目标函数的值（因为$$q_{\sigma}(\tilde{x})$$显式的给定了），所以它叫做explicit score matching（ESM）。
 
-$$ESM = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \lVert s_{\theta}(\tilde{x}) \rVert_2^2 \right] - 2 \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \langle s_{\theta}(\tilde{x}), \nabda_{\tilde{x}} log q_{\sigma}(\tilde{x}) \rangle \right] + c_1, \  \text{where} \  c_1 \  \text{is} \  \text{irrelavant} \   \text{w.r.t.} \  \theta$$
+$$ESM = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \lVert s_{\theta}(\tilde{x}) \rVert_2^2 \right] - 2 \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \langle s_{\theta}(\tilde{x}), \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x}) \rangle \right] + c_1, \  \text{where} \  c_1 \  \text{is} \  \text{irrelavant} \   \text{w.r.t.} \  \theta$$
 
 再定义一个denoising score matching（DSM）：
 
 $$
 \begin{align}
-DSM &= \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \nabda_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) - s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x}, x)} \left[ \lVert s_{\theta}(\tilde{x}) \rVert_2^2 \right] - 2 \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x}, x)} \left[ \langle s_{\theta}(\tilde{x}), \nabda_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) \rangle \right] + c_2, \  \text{where} \  c_2 \  \text{is} \  \text{irrelavant} \   \text{w.r.t.} \  \theta
+DSM &= \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) - s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x}, x)} \left[ \lVert s_{\theta}(\tilde{x}) \rVert_2^2 \right] - 2 \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x}, x)} \left[ \langle s_{\theta}(\tilde{x}), \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) \rangle \right] + c_2, \  \text{where} \  c_2 \  \text{is} \  \text{irrelavant} \   \text{w.r.t.} \  \theta
 \end{align}
 $$
 
@@ -367,15 +367,15 @@ $$\mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \lVert s_{\theta}(\tilde{x}
 
 $$
 \begin{align}
-&\mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \langle s_{\theta}(\tilde{x}), \nabda_{\tilde{x}} log q_{\sigma}(\tilde{x}) \rangle \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \langle s_{\theta}(\tilde{x}), \frac{\partial log q_{\sigma}(\tilde{x})}{\partial \tilde{x}} \rangle \right] = \int_{\tilde{x}} q_{\sigma}(\tilde{x}) \langle s_{\theta}(\tilde{x}), \frac{\partial log q_{\sigma}(\tilde{x})}{\partial \tilde{x}} \rangle d \tilde{x}\\
+&\mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \langle s_{\theta}(\tilde{x}), \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x}) \rangle \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \langle s_{\theta}(\tilde{x}), \frac{\partial log q_{\sigma}(\tilde{x})}{\partial \tilde{x}} \rangle \right] = \int_{\tilde{x}} q_{\sigma}(\tilde{x}) \langle s_{\theta}(\tilde{x}), \frac{\partial log q_{\sigma}(\tilde{x})}{\partial \tilde{x}} \rangle d \tilde{x}\\
 &= \int_{\tilde{x}} q_{\sigma}(\tilde{x}) \langle s_{\theta}(\tilde{x}), \frac{1}{q_{\sigma}(\partial \tilde{x})}\frac{\partial q_{\sigma}(\partial \tilde{x})}{\tilde{x}} \rangle d \tilde{x} = \int_{\tilde{x}} \langle s_{\theta}(\tilde{x}), \frac{\partial q_{\sigma}(\partial \tilde{x})}{\partial \tilde{x}} \rangle d \tilde{x} = \int_{\tilde{x}} \langle s_{\theta}(\tilde{x}), \frac{\partial}{\partial \tilde{x}} \int_x q_{\sigma}(\tilde{x} \vert x) p_{data}(x) dx \rangle d \tilde{x} = \int_{\tilde{x}} \langle s_{\theta}(\tilde{x}), \int_x \frac{\partial q_{\sigma}(\tilde{x} \vert x)}{\partial \tilde{x}} p_{data}(x) dx \rangle d \tilde{x}\\
-&= \int_{\tilde{x}} \langle s_{\theta}(\tilde{x}), \int_x \frac{\partial log q_{\sigma}(\tilde{x} \vert x)}{\partial \tilde{x}} q_{\sigma}(\tilde{x} \vert x) p_{data}(x) dx \rangle d \tilde{x} = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x}, x)} \left[ \langle s_{\theta}(\tilde{x}), \nabda_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) \rangle \right]
+&= \int_{\tilde{x}} \langle s_{\theta}(\tilde{x}), \int_x \frac{\partial log q_{\sigma}(\tilde{x} \vert x)}{\partial \tilde{x}} q_{\sigma}(\tilde{x} \vert x) p_{data}(x) dx \rangle d \tilde{x} = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x}, x)} \left[ \langle s_{\theta}(\tilde{x}), \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) \rangle \right]
 \end{align}
 $$
 
-从而惊讶地发现，ESM和DSM只相差了一个与$$\theta$$无关的常数。从而现在可以用DSM来替代ESM作为优化基于$$\tilde{x}$$的score-matching的目标函数了，也就是说，之前我们引入$$q_{\sigma}(\tilde{x})$$的score来近似$$p_{data}(x)$$的score，现在我们可以用$$q_{\sigma}(\tilde{x} \vert x}$$的score来近似$$p_{data}(x)$$的score了。而根据我们的假设，$$q_{\sigma}(\tilde{x} \vert x}$$就是一个高斯分布$$\mathcal{N}(\tilde{x}; x, \sigma^2 \textbf{I})$$，从而其score是可以closed-form计算出来的，也就是说，现在的目标函数变为：
+从而惊讶地发现，ESM和DSM只相差了一个与$$\theta$$无关的常数。从而现在可以用DSM来替代ESM作为优化基于$$\tilde{x}$$的score-matching的目标函数了，也就是说，之前我们引入$$q_{\sigma}(\tilde{x})$$的score来近似$$p_{data}(x)$$的score，现在我们可以用$$q_{\sigma}(\tilde{x} \vert x}$$的score来近似$$p_{data}(x)$$的score了。而根据我们的假设，$$q_{\sigma}(\tilde{x} \vert x)$$就是一个高斯分布$$\mathcal{N}(\tilde{x}; x, \sigma^2 \textbf{I})$$，从而其score是可以closed-form计算出来的，也就是说，现在的目标函数变为：
 
-$$DSM = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \nabda_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) - s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \frac{x-\tilde{x}}{\sigma^2} - s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \frac{-\epsilon}{\sigma^2} - s_{\theta}(\tilde{x}) \rVert_2^2 \right], \  \text{where} \  \epsilon \sim \mathcal{N}(\textbf{0}, \sigma^2 \textbf{I})$$
+$$DSM = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) - s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \frac{x-\tilde{x}}{\sigma^2} - s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \frac{-\epsilon}{\sigma^2} - s_{\theta}(\tilde{x}) \rVert_2^2 \right], \  \text{where} \  \epsilon \sim \mathcal{N}(\textbf{0}, \sigma^2 \textbf{I})$$
 
 从而我们要做的就是，对于每个输入数据$$x$$，从$$\mathcal{N}(\textbf{0}, \sigma^2 \textbf{I})$$中采样噪声$$\epsilon$$，加到$$x$$上得到$$\tilde{x}$$，作为$$s_{\theta}$$的输入，然后优化上述目标函数，即DSM。也就是说，$$s_{\theta}$$实际上建模的是真实数据和加噪之后数据的差值（即噪声）。
 
