@@ -132,8 +132,10 @@ $$ - \mathop{\mathbb{E}}\limits_{q(x_0)} \left[ log p_{\theta}(x_0) \right] \leq
 
 $$
 \begin{align}
-\mathcal{L}_{CE} &= -\mathop{\mathbb{E}}_{q(x_0)} \left[ log p_{\theta}(x_0) \right] 
-
+\mathop{\mathcal{L}}\limits_{CE} &= -\mathop{\mathbb{E}}\limits_{q(x_0)} \left[ log p_{\theta}(x_0) \right] = -\mathop{\mathbb{E}}\limits_{q(x_0)} \left[ log \int p_{\theta}(x_{0:T}) dx_{1:T} \right] \\
+&= -\mathop{\mathbb{E}}\limits_{q(x_0)} \left[ log \int q(x_{1:T} \vert x_0) \frac{p_{\theta}(x_{0:T})}{q(x_{1:T} \vert x_0)} dx_{1:T} \right] \\
+&= -\mathop{\mathbb{E}}\limits_{q(x_0)} \left[ log -\mathop{\mathbb{E}}\limits_{q(x_{1:T} \vert x_0)} (\frac{p_{\theta}(x_{0:T})}{q(x_{1:T} \vert x_0)}) \right] \\
+&\leq -\mathop{\mathbb{E}}\limits_{q(x_0)} \mathop{\mathbb{E}}\limits_{q(x_{1:T} \vert x_0)} log \frac{p_{\theta}(x_{0:T})}{q(x_{1:T} \vert x_0)} = - \mathop{\mathbb{E}}\limits_{q(x_{0:T} \vert x_0)} log \frac{p_{\theta}(x_{0:T})}{q(x_{1:T} \vert x_0)} = \mathcal{L}_{VLB}
 \end{align}
 $$
 
