@@ -139,7 +139,7 @@ $$
 
 $$
 \begin{align}
-\mathcal{L}_{VLB}^{\ast} = \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{\Pi_{t=1}^T q(x_t \vert x_{t-1})}{p_{\theta}(x_T) \Pi_{t=1}^T p_{\theta}(x_{t-1} \vert x_t)} \right] = \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ -log p_{\theta}(x_T) + \sum_{t=2}^T log(\frac{q(x_t \vert x_{t-1})}{p_{\theta}(x_{t-1} \vert x_t)}) + log \frac{q(x_1 \vert x_0)}{p_{\theta}(x_0 \vert x_1)} \right] \\
+\mathcal{L}_{VLB}^{\ast} &= \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{\Pi_{t=1}^T q(x_t \vert x_{t-1})}{p_{\theta}(x_T) \Pi_{t=1}^T p_{\theta}(x_{t-1} \vert x_t)} \right] = \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ -log p_{\theta}(x_T) + \sum_{t=2}^T log(\frac{q(x_t \vert x_{t-1})}{p_{\theta}(x_{t-1} \vert x_t)}) + log \frac{q(x_1 \vert x_0)}{p_{\theta}(x_0 \vert x_1)} \right] \\
 &= \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ -log p_{\theta}(x_T) + \sum_{t=2}^T log(\frac{q(x_t \vert x_{t-1}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}) + log \frac{q(x_1 \vert x_0)}{p_{\theta}(x_0 \vert x_1)} \right] = \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ -log p_{\theta}(x_T) + \sum_{t=2}^T log(\frac{q(x_{t-1} \vert x_{t}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}\frac{q(x_t \vert x_0)}{q(x_{t-1} \vert x_0)}) + log \frac{q(x_1 \vert x_0)}{p_{\theta}(x_0 \vert x_1)} \right] \\
 &= \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ -log p_{\theta}(x_T) + \sum_{t=2}^T log(\frac{q(x_{t-1} \vert x_{t}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}) + \sum_{t=2}^T log (\frac{q(x_t \vert x_0)}{q(x_{t-1} \vert x_0)}) + log \frac{q(x_1 \vert x_0)}{p_{\theta}(x_0 \vert x_1)} \right] = \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{q(x_T \vert x_0)}{p_{\theta}(x_T)} - log p_{\theta}(x_0 \vert x_1) + \sum_{t=2}^T log(\frac{q(x_{t-1} \vert x_{t}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}) \right] \\
 &= -\mathop{\mathbb{E}}\limits_{x_1 \sim q(x_1 \vert x_0)} \left[ log p_{\theta}(x_0 \vert x_1) \right] + \mathop{\mathbb{E}}\limits_{x_T \sim q(x_T \vert x_0)} \left[ log \frac{q(x_T \vert x_0)}{p_{\theta}(x_T)} \right] + \sum_{t=2}^T \mathop{\mathbb{E}}\limits_{x_{t-1}, x_t \sim q(x_{t-1}, x_t \vert x_0)} \left[ log(\frac{q(x_{t-1} \vert x_{t}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}) \right]\\
@@ -198,15 +198,9 @@ $$
 
 所以说反向扩散过程（denoising）过程的本质，在于让模型学会以任意时刻$$t$$时加噪的数据以及时间$$t$$作为输入，都可以学到这个时刻的数据在“干净”数据上所加上的噪声（也就等价于学到“干净”的数据）。
 
-DDPM模型的训练过程如下：
+DDPM模型的训练过程如下左图。而在训练完成之后，想要生成数据（采样）的过程如下右图
 
 ![3]({{ '/assets/images/diffusion_3.png' | relative_url }})
-{: style="width: 1200px; max-width: 100%;"}
-*来自于[Lil'Log: What are Diffusion Models?](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/)*
-
-而在训练完成之后，想要生成数据（采样）的过程如下：
-
-![4]({{ '/assets/images/diffusion_4.png' | relative_url }})
 {: style="width: 1200px; max-width: 100%;"}
 *来自于[Lil'Log: What are Diffusion Models?](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/)*
 
