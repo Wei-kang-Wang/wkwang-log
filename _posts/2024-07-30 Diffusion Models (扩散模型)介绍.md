@@ -50,11 +50,12 @@ $$q(x_{1:T} \vert x_0) = \Pi_{t=1}^T q(x_t \vert x_{t-1})$$
 
 原本“干净”的数据$$x_0$$，随着时间的推进，增加的噪声越来越多，逐渐就失去了原本的structure，在合适的$$\lbrace \beta_t \in (0,1) \rbrace_{t=1}^T$$的设置下，以及$$T \rightarrow \infty$$的情况下，$$x_T \sim \mathcal{N}(0, \mathbf{I})$$。
 
-而实际上，前向过程的一个良好的性质是，我们可以得到$$x_t$$与$$x_0$$的closed form的关系（$$1 leq t \leq T$$）：
+而实际上，前向过程的一个良好的性质是，我们可以得到$$x_t$$与$$x_0$$的closed form的关系（$$1 \leq t \leq T$$）：
 
 记$$\alpha_t = 1 - \beta_t$$，$$\bar{\alpha_t} = \Pi_{i=1}^t \alpha_i$$，那么：
 
-\begin{aligned*}
+$$
+\begin{align}
 
 x_t &= \sqrt{\alpha_t} x_{t-1} + \sqrt{1-\alpha_t} \epsilon_{t-1}, \  \text{where} \  \epsilon_{t-1} \sim \mathcal{N}(\mathbf{0}, \mathbf{I}) \\
 &= \sqrt{\alpha_t}(\sqrt{\alpha_{t-1}}x_{t-1} + \sqrt{1-\alpha_{t-1}}\epsilon_{t-2}) + \sqrt{1-\alpha_t}\epsilon_{t-1}, \  \text{where} \  \epsilon_{t-1} \sim \mathcal{N}(\mathbf{0}, \mathbf{I}) \\
@@ -62,7 +63,8 @@ x_t &= \sqrt{\alpha_t} x_{t-1} + \sqrt{1-\alpha_t} \epsilon_{t-1}, \  \text{wher
 &= \sqrt{\alpha_t \alpha_{t-1}} x_{t-2} + \sqrt{1-\alpha_{t}\alpha_{t-1}}\bar{\epsilon_{2}}, \  \text{where} \  \bar{\epsilon_{2}} \sim \mathcal{N}(\mathbf{0}, \mathbf{I}) \\
 &= \cdots \\
 &= \sqrt{\bar{\alpha_t}} x_0 + \sqrt{1 - \bar{\alpha_t}} \bar{\epsilon_{t}}, \  \text{where} \  \bar{\epsilon_{t}} \sim \mathcal{N}(\mathbf{0}, \mathbf{I}) \\
-\end{aligned*}
+\end{align}
+$$
 
 上述推导用到了一个结论：$$x \sim \mathcal{N}(\mathbf{0}, \sigma_1^2 \mathbf{I}), y \sim \mathcal{N}(\mathbf{0}, \sigma_2^2 \mathbf{I})$$，那么$$x+y \sim \mathcal{N}(\mathbf{0}, (\sigma_1^2 + \sigma_2^2) \mathbf{I})$$。
 
@@ -76,7 +78,9 @@ $$q(x_t \vert x_0) = \mathcal{N}(x_t; \sqrt{\bar{\alpha_t}}x_0, (1 - \bar{\alpha
 
 ### (2) 反向扩散过程（reverse diffusion process）
 
+如果我们可以建模上述前向扩散过程的逆过程，也就是建模$$q(x_{t-1} \vert x_t)$$的话，那么基于一个从标准高斯分布采样得到的纯噪声数据$$x_T \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$$，就可以一步步回退，逐步去除噪声，最终得到一个新的”干净“的$$x_0$$，而因为$$x_T$$的采样是具有随机性的，所以每次得到的$$x_0$$也不一样，这样就可以源源不断地生成”干净“的数据了。
 
+我们有如下结论：如果$$\beta_t$$足够小的话，那么如果$$q(x_t \vert x_{t-1}) = \mathcal{N}(x_t; \sqrt{1-\beta_t}x_{t-1}, \beta_t \mathbf{I})$$是个高斯分布，那么$$q(x_{t-1} \vert x_t)$$也是个高斯分布。
 
 
 
