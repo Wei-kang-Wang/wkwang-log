@@ -143,7 +143,8 @@ $$
 &= \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ -log p_{\theta}(x_T) + \sum_{t=2}^T log(\frac{q(x_t \vert x_{t-1}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}) + log \frac{q(x_1 \vert x_0)}{p_{\theta}(x_0 \vert x_1)} \right] = \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ -log p_{\theta}(x_T) + \sum_{t=2}^T log(\frac{q(x_{t-1} \vert x_{t}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}\frac{q(x_t \vert x_0)}{q(x_{t-1} \vert x_0)}) + log \frac{q(x_1 \vert x_0)}{p_{\theta}(x_0 \vert x_1)} \right] \\
 &= \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ -log p_{\theta}(x_T) + \sum_{t=2}^T log(\frac{q(x_{t-1} \vert x_{t}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}) + \sum_{t=2}^T log (\frac{q(x_t \vert x_0)}{q(x_{t-1} \vert x_0)}) + log \frac{q(x_1 \vert x_0)}{p_{\theta}(x_0 \vert x_1)} \right] = \mathop{\mathbb{E}}\limits_{x_{1:T} \sim q(x_{1:T} \vert x_0)} \left[ log \frac{q(x_T \vert x_0)}{p_{\theta}(x_T)} - log p_{\theta}(x_0 \vert x_1) + \sum_{t=2}^T log(\frac{q(x_{t-1} \vert x_{t}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}) \right] \\
 &= -\mathop{\mathbb{E}}\limits_{x_1 \sim q(x_1 \vert x_0)} \left[ log p_{\theta}(x_0 \vert x_1) \right] + \mathop{\mathbb{E}}\limits_{x_T \sim q(x_T \vert x_0)} \left[ log \frac{q(x_T \vert x_0)}{p_{\theta}(x_T)} \right] + \sum_{t=2}^T \mathop{\mathbb{E}}\limits_{x_{t-1}, x_t \sim q(x_{t-1}, x_t \vert x_0)} \left[ log(\frac{q(x_{t-1} \vert x_{t}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}) \right]\\
-&= -\mathop{\mathbb{E}}\limits_{x_1 \sim q(x_1 \vert x_0)} \left[ log p_{\theta}(x_0 \vert x_1) \right] + \textbf{D}_{\textbf{KL}}(q(x_T \vert x_0) \Vert p(x_T)) + \sum_{t=2}^T \mathop{\mathbb{E}}\limits_{x_{t-1}, x_t \sim q(x_t \vert x_0)q(x_{t-1} \vert x_t, x_0)} \left[ log(\frac{q(x_{t-1} \vert x_{t}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}) \right] = -\mathop{\mathbb{E}}\limits_{x_1 \sim q(x_1 \vert x_0)} \left[ log p_{\theta}(x_0 \vert x_1) \right] + \textbf{D}_{\textbf{KL}}(q(x_T \vert x_0) \Vert p(x_T)) + \sum_{t=2}^T \mathop{\mathbb{E}}\limits_{x_t \sim q(x_t \vert x_0)} \left[ \textbf{D}_{\textbf{KL}}(q(x_{t-1} \vert x_{t}, x_0) \Vert p_{\theta}(x_{t-1} \vert x_t)) \right]
+&= -\mathop{\mathbb{E}}\limits_{x_1 \sim q(x_1 \vert x_0)} \left[ log p_{\theta}(x_0 \vert x_1) \right] + \textbf{D}_{\textbf{KL}}(q(x_T \vert x_0) \Vert p(x_T)) + \sum_{t=2}^T \mathop{\mathbb{E}}\limits_{x_{t-1}, x_t \sim q(x_t \vert x_0)q(x_{t-1} \vert x_t, x_0)} \left[ log(\frac{q(x_{t-1} \vert x_{t}, x_0)}{p_{\theta}(x_{t-1} \vert x_t)}) \right]、、
+&= -\mathop{\mathbb{E}}\limits_{x_1 \sim q(x_1 \vert x_0)} \left[ log p_{\theta}(x_0 \vert x_1) \right] + \textbf{D}_{\textbf{KL}}(q(x_T \vert x_0) \Vert p(x_T)) + \sum_{t=2}^T \mathop{\mathbb{E}}\limits_{x_t \sim q(x_t \vert x_0)} \left[ \textbf{D}_{\textbf{KL}}(q(x_{t-1} \vert x_{t}, x_0) \Vert p_{\theta}(x_{t-1} \vert x_t)) \right]
 \end{align}
 $$
 
@@ -205,12 +206,174 @@ DDPM模型的训练过程如下左图。而在训练完成之后，想要生成�
 *来自于[Lil'Log: What are Diffusion Models?](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/)*
 
 
+### (4) 一些补充说明
+
+**关于超参数$$\lbrace \beta_t \in (0,1) \rbrace_{t=1}^T$$的选择**
+
+根据假设，$$q(x_t \vert x_{t-1}) = \mathcal{N}(x_t; \sqrt{1-\beta_t}x_{t-1}, \beta_t \mathbf{I}), \  \text{where} \  t=1,2,\cdots,T$$。也就是说，$$x_t = \sqrt{\alpha_t} x_{t-1} + \sqrt{1-\alpha_t} \epsilon_{t-1}, \  \text{where} \  \epsilon_{t-1} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$$，但是为什么均值和方差的系数有这样的关系，并没有说明。下面给出一些intuition。
+
+首先，假设$$x_t$$与$$x_{t-1}$$的关系是线性的（因为最简单），即：$$x_t = a_t x_{t-1} + b_t \epsilon_{t-1}, \  \text{where} \  \epsilon_{t-1} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$$。因为前向扩散过程是个加噪的过程，所以$$x_t$$应该是相对于$$x_{t-1}$$是衰减的，从而$$a_t, b_t \in (0,1)$$。
+
+那么，我们将$$x_t$$的表达式不断地往后迭代，使用$$x_0$$来表示$$x_t$$：
+
+$$x_t = a_t x_{t-1} + b_t \epsilon_{t-1} = a_t a_{t-1} x_{t-2} + a_t b_{t-1} \epsilon_{t-2} + b_t \epsilon_{t-1} = \cdots = (a_t a_{t-1} \cdots a_1) x_0 + (a_t \cdots a_2)b_1 \epsilon_{0} + \cdots + a_t b_{t-1} \epsilon_{t-2} + b_t \epsilon_{t-1}$$
+
+从而，将第二项到最后一项全部综合起来，其也满足一个高斯分布，方差为$$\lbrace (a_t \cdots a_2b_1)^2 + \cdots + (a_t b_{t-1})^2 + (b_t)^2) \mathbf{I}$$。如果再考虑将第一项$$x_0$$的系数的平方和考虑进来，那么此时$$x_0$$系数的平方，与后面的方差的系数的平方和就是：$$(a_t \cdots a_1)^2 + (a_t \cdots a_2b_1)^2 + \cdots + (a_t b_{t-1})^2 + (b_t)^2) = a_t^2(a_{t-1}^2(\cdots(a_2^2(a_1^2+b_1^2)+b_2^2)+\cdots)+b_{t-1}^2)+b_t^2$$。如果令$$a_i^2 + b_i^2 =1$$对于所有的$$1\leq i \leq t$$成立，则该平方和就是1，而此时这些超参数的选择，就是前文所述的。
 
 
+## 2. 基本原理（NCSN）
+
+noise-conditioned score network，简称NCSN，在2019年有宋飏等人提出，是早于DDPM的，但是由于形式更为复杂，所以并没有火起来，直到后来人们才发现，其蕴含着比DDPM更深刻的原理（实际上DDPM可以看作NCSN的一种特例）。而之后，宋飏又在ICLR2021上发表了[一篇论文](https://arxiv.org/pdf/2011.13456)用来在SDE框架下解释DDPM和NCSN的统一性。
+
+NCSN，或者更广泛一点说，scored-based generative model这一类模型，的优点有：
+* 可以有媲美GAN的生成质量，但无需对抗训练，从而避免了类似于GAN那种训练困境
+* 灵活的模型框架选择，无需像flow-based models那样，只能选择可以表示invertible transformation的框架
+
+### (1). 从生成模型到score-based model
+
+**1). 生成模型**
+
+从一个未知的数据分布$$p(x)$$中，独立的采样出了一系列的样本$$\lbrace x_1, \cdots x_N \rbrace$$，这些既是数据集。而生成模型的目的就是，从这个含有有限样本的数据集出发，去拟合数据背后的分布$$p(x)$$，从而就可以获得无穷无尽的样本了。
+
+为了实现从数据集估计其分布$$p(x)$$的目标，首先需要去对$$p(x)$$进行建模。而最常见的建模方式就是parametric模型，即首先选择一类概率分布并且认为其覆盖了$$p(x)$$，用带参数的分布$$p_{\theta}(x)$$来表示这一簇分布。而我们的目的，则是从数据集来估计这个参数$$\theta$$，从而得到$$p_{\theta^{\ast}}(x) \approx p(x)$$。
+
+而很多时候，我们都是用energy-based的方法来表示$$p_{\theta}(x)$$，即
+
+$$p_{\theta}(x) = e^{-f_{\theta}(x)} / Z_{\theta}$$
+
+其中$$f_{\theta}(x) \in \mathbb{R}$$是任意的以$$\theta$$为参数的函数，而与$$x$$无关但与$$\theta$$有关的$$Z_{\theta}$$则是归一化常数，用来获得最终的分布$$p_{\theta}(x)$$。
+
+最常见的对数据集的拟合方式就是使用最大似然估计：
+
+$$\theta^{\ast} = \arg\max\limits_{\theta} \sum_{i=1}^N log p_{\theta}(x_i) = \arg\min\limits_{\theta} NlogZ_{\theta} + \sum_{i=1}^N f_{\theta}(x_i)$$
+
+但是由上面的式子可以看到，objective function里含有$$Z_{\theta}$$，而这个值往往是难以估计的。
+
+为了解决这个问题，宋飏等人提出了score-based model，其基本思想是，与其对$$p(x)$$建模，不如对$$p(x)$$对数据$$x$$的梯度进行建模来间接获取数据分布$$p(x)$$，因为$$Z_{\theta}$$与$$x$$无关，所以其关于$$x$$的梯度就是0，从而就可以避免对$$Z_{\theta}$$进行估计。
 
 
+**2). score-based model**
 
+score function，或者称为score，也就是NCSN那篇论文标题中的gradients of the data distribution，具体来说是概率密度函数对数的梯度：$$\nabla_x log p(x)$$。而用来对score进行建模/拟合的模型，就叫做score-based model，记这类模型为$$s_{\theta}(x)$$，其中$$\theta$$是模型可学习参数。
 
+和直接建模数据分布函数$$p(x)$$不同，score-based model并不会受到归一化系数$$Z_{\theta}$$的影响。如果使用energy-based model来建模$$p(x)$$的化，那么$$s_{\theta}(x) = \nabla_x log p_{\theta}(x) = \nabla_x (-f_{\theta}(x) - log Z_{\theta}) = -\nabla_x f_{\theta}(x)$$。这样的话，我们就可以使用各种灵活的模型，而不需要考虑归一化参数是否容易求解这样一个巨大的制约了。
+
+score的物理意义是：对于每个点$$x$$来说，该点的score就是数据的对数概率密度函数在该点$$x$$增长最快的方向
+
+![4]({{ '/assets/images/diffusion_4.png' | relative_url }})
+{: style="width: 1200px; max-width: 100%;"}
+*来自于[DiffusionModel-NCSN原理与推导]([https://lilianweng.github.io/posts/2021-07-11-diffusion-models/](https://zhuanlan.zhihu.com/p/670052757))*
+
+上图可视化了一个2维分布概率密度函数对数的梯度（在每个点都有方向和大小，因为梯度是个向量）。如图所示，图里有两个中心，而这即代表了$$log p_{\theta}(x)$$取极大值的地方，即最能代表此数据先验分布的区域。对于生成模型而言，我们期望生成的数据，就应该位于这些数据先验分布值大的区域。所以说如果我们可以估计score，在有了score之后，就可以利用score来确定$$p_{\theta}(x)$$极大值的方位，从而就可以有更理想的生成结果。而在有score的情况下，从任意点出发，到达$$p_{\theta}(x)$$某个极大值的方法，就是朗之万采样（Langevin Sampling）。
+
+**3). Langevin采样**
+
+假设我们已经有了一个训练好的score-based model $$s_{\theta}(x)$$，可以对于任意输入的$$x$$，输出该点的score了，那么该如何采样，才能靠近$$p_{\theta}(x)$$的极大值点呢？
+
+这实际上是一个Langevin dynamics问题（朗之万动力学），其提供了一种仅利用某个分布$$p(x)$$的score function，即$$\nabla_x log p(x)$$（对数概率密度函数的梯度），就可以对分布$$p(x)$$进行采样的MCMC方法。其具体操作如下：
+
+* 首先从任意的某个先验分布，比如Uniform分布或者高斯分布中，随机采样一个初始样本$$x_0 \sim \pi(x)$$
+* 利用如下公式逐渐将样本像$$p(x)$$的高密度区域靠近：
+
+$$ x_{i+1} \leftarrow x_i + \epsilon \nabla_x log p(x_i) + \sqrt{2 \epsilon} z_i, \  \text{where} \  z_i \sim \mathcal{N}(\mathbf{0}, \mathbf{I}), i=1,2,\cdots, K$$
+
+* 当步长$$\epsilon \rightarrow 0, K \rightarrow \infty$$时，$$x_k \sim p(x)$$
+
+在实际操作中，使用训练好的score function model $$s_{\theta}(x)$$替代上面的$$\nabla_x log p(x)$$，并且取足够小的$$\epsilon$$采样足够多次，这样就可以保证在某次之后的采样值，均服从$$p(x)$$分布。这个过程就叫做Langevin采样。
+
+**4). score matching**
+
+朗之万采样解决了我们在有了score之后，该如何采样样本，使其服从$$p(x)$$分布的问题，而最重要的是如何获取score呢？score-based model的方法是训练一个score-based model来逼近score。训练方法如下所述。
+
+首先写出损失函数（目标函数）。score-based model和似然函数模型类似，也是将最小化模型和数据分布之间的Fisher divergence作为训练的目标：
+
+$$\mathop{\mathbb{E}}_{p(x)} \left[ \lVert \nabda_x log p(x) - s_{\theta}(x) \rVert_2^2 \right] = \int p(x) \lVert \nabda_x log p(x) - s_{\theta}(x) \rVert_2^2 dx$$
+
+但$$p(x)$$是未知的，所以上述式子无法计算，所以实际上，是利用经验分布$$p_{data}(x)$$（即从数据中获得的分布）来代替真实分布$$p(x)$$来计算的，从而我们的目标函数如下：
+
+$$\mathop{\mathbb{E}}_{p_{data}(x)} \left[ \lVert \nabda_x log p_{data}(x) - s_{\theta}(x) \rVert_2^2 \right] = \int p_{data}(x) \lVert \nabda_x log p_{data}(x) - s_{\theta}(x) \rVert_2^2 dx$$
+
+经验分布和真实分布的差别可以看[这篇博客](https://blog.csdn.net/qq_44638724/article/details/120242712)
+
+而基于上述目标函数，使得模型的score-function与根据数据得到的经验分布的score相matching的算法，就叫做score-matching算法。
+
+首先，我们简化一下上述目标函数：
+
+$$
+\begin{align}
+& \mathop{\mathbb{E}}_{p_{data}(x)} \left[ \lVert \nabda_x log p_{data}(x) - s_{\theta}(x) \rVert_2^2 \right] \propto \frac{1}{2} \mathop{\mathbb{E}}_{p_{data}(x)} \left[ \lVert s_{\theta}(x) - \frac{\partial log p_{data}(x)}{\partial x} \rVert_2^2 \right] \\
+&= \frac{1}{2} \int p_{data}(x) \left[ \Vert s_{theta}(x) \rVert_2^2 + \lVert \frac{\partial log p_{data}(x)}{\partial x} \rVert_2^2 - 2(\frac{\partial log p_{data}(x)}{\partial x})^Ts_{\theta}(x) \right] dx
+\end{align}
+$$
+
+而
+
+$$
+\begin{align}
+& \int p_{data}(x) \left[- 2(\frac{\partial log p_{data}(x)}{\partial x})^Ts_{\theta}(x) \right] dx = -2 \int p_{data}(x) (\sum_{i=1}^N \frac{\partial log p_{data}(x)}{\partial x_i})s_{\theta}(x)_i) dx \\
+&= -2 \sum_{i=1}^N \int p_{data}(x) \frac{1}{p_{data}(x)} \frac{\partial p_{data}(x)}{\partial x_i} s_{\theta}(x)_i dx = -2 \sum_{i=1}^N \int \frac{\partial p_{data}(x)}{\partial x_i} s_{\theta}(x)_i dx \\
+&= -2 \sum_{i=1}^N \int (\frac{\partial(p_{data}(x) s_{\theta}(x)_i)}{\partial x_i} - p_{data}(x) \frac{\partial s_{\theta}(x)_i}{\partial x_i}) dx = -2 \sum_{i=1}^N (p_{data}(x) s_{\theta}(x)_i \vert_{-\infty}^{\infty} - \int p_{data}(x) \frac{\partial s_{\theta}(x)_i}{\partial x_i} dx) \\
+&= 2 \sum_{i=1}^N \int p_{data}(x) \frac{\partial s_{\theta}(x)_i}{\partial x_i} dx = 2 \int \sum_{i=1}^N p_{data}(x) \frac{\partial s_{\theta}(x)_i}{\partial x_i} dx = 2 \int p_{data}(x) tr(\frac{s_{\theta}(x)}{\partial x})dx
+\end{align}
+$$
+
+其中$$N$$是输入$$x$$的维度。
+
+回到之前的目标函数，可以发现，$$\lVert \frac{\partial log p_{data}(x)}{\partial x} \rVert_2^2$$与$$\theta$$无关，从而，之前的目标函数可以简化为：
+
+$$\mathop{\mathbb{E}}_{p_{data}(x)} \left[ \frac{1}{2} \Vert s_{theta}(x) \rVert_2^2 + tr(\frac{s_{\theta}(x)}{\partial x}) \right] dx$$
+
+目标函数得到了简化，但是如果表示$$s_{\theta}(x)$$的网络很深，$$x$$的维度很大的时候，计算$$tr(\frac{s_{\theta}(x)}{\partial x})$$仍然非常的繁重，在实际代码里部署起来很困难，从而在NCSN那篇论文里，又提出了两种更进一步的改进方法
+
+**改进一：sliced score matching（由宋飏于2019年提出）**
+
+在计算目标函数的时候，我们需要计算矩阵$$\frac{s_{\theta}(x)}{\partial x}$$的迹，而对于矩阵迹的估计，恰好有一种技巧：Hutchinson Trace estimation。
+
+其具体做法是，对于一个随机向量$$v \in \mathbb{R}^n$$，如果其协方差矩阵为$$I$$，均值为$$\mathbf{0}$$，那么对于任意矩阵$$A \in \mathbb{R}^{n \times n}$$，$$tr(A) = tr(A \mathbb{E}(vv^T)) = \mathbb{E}(tr(A v v^T)) = \mathbb{E}(tr(v^T A v)) = \mathbb{E}(v^T A v)$$，从而将求矩阵$$A$$的迹，变成了求标量$$v^TAv$$对$$v$$的期望。
+
+从而将上述技巧用到上述目标函数里，$$tr(\frac{s_{\theta}(x)}{\partial x}) = \mathbb{E}(v^T \frac{s_{\theta}(x)}{\partial x} v) = \mathbb{E}(v^T \frac{v^T s_{\theta}(x)}{\partial x})$$，目标函数则变为：
+
+$$\mathop{\mathbb{E}}_{p(v), p_{data}(x)} \left[ \frac{1}{2} \Vert s_{theta}(x) \rVert_2^2 + v^T \frac{v^T s_{\theta}(x)}{\partial x} \right]$$
+
+而计算$$\frac{v^T s_{\theta}(x)}{\partial x}$$只需要计算$$N$$次（相较于之前的$$N^2$$次，减少了很多），但引入了一个新的期望需要进行采样估计，如果$$N$$很大的时候，这样的做法是有效的。
+
+**改进二：denoising score matching（NCSN那篇论文里的方法）**
+
+这个方法也是为了避免计算$$tr(\frac{s_{\theta}(x)}{\partial x})$$，但它直接回到了最初的目标函数$$\mathop{\mathbb{E}}_{p_{data}(x)} \left[ \lVert \nabda_x log p_{data}(x) - s_{\theta}(x) \rVert_2^2 \right]$$，对于未知的$$p_{data}$$，其如果仅出现在求期望的概率分布上，并不出现在被求期望的值里面的时候，还是好办的，因为其就是经验概率分布，所以就是将所有的真实数据对应的被求期望的值加起来除以总数据数就行了（这也是为什么简化了的目标函数$$\mathop{\mathbb{E}}_{p_{data}(x)} \left[ \frac{1}{2} \Vert s_{theta}(x) \rVert_2^2 + tr(\frac{s_{\theta}(x)}{\partial x}) \right] dx$$可以计算的原因，这个目标函数的问题只是在于它太难算了）。但是如果$$p_{data}(x)$$同时也出现在了被求期望的值的内部，就不能按照上述方法算了，而如果我们回到了最初的目标函数，那么该目标函数的被求期望的值里就含有$$p_{data}(x)$$，所以需要想另一种办法解决这个问题，而denoising score matching的办法就是：既然$$p_{data}(x)$$未知，就自行定义一个已知的数据分布$$q_{\sigma}$$（比如高斯分布），而且假设这个分布是在$$p_{data}$$上加噪声得来的。
+
+具体来说，记原数据为$$x$$，加噪之后的数据为$$\tilde{x}$$，我们定义$$q(\tilde{x} \vert x) = \mathcal{N}(\tilde{x}; x, \sigma^2 \textbf{I})$$，而且$$\sigma$$是已知的固定参数。从而$$q_{\sigma}(\tilde{x}) = \int q_{\sigma}(\tilde{x} \vert x) p_{data}(x) dx$$。我们希望用$$q_{\sigma}(\tilde{x})$$的score来近似$$p_{data}(x)$$的score（在$$\sigma$$很小的时候，它们是很相近的）。
+
+那么对于这个新的数据$$\tilde{x}$$来说，其score-matching的目标函数就是:
+
+$$\mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \lVert \nabda_{\tilde{x}} log q_{\sigma}(\tilde{x}) - s_{\theta}(\tilde{x}) \rVert_2^2 \right]$$
+
+这个式子可以显式的计算对于$$\tilde{x}$$score-matching算法的目标函数的值（因为$$q_{\sigma}(\tilde{x})$$显式的给定了），所以它叫做explicit score matching（ESM）。
+
+$$ESM = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \lVert s_{\theta}(\tilde{x}) \rVert_2^2 \right] - 2 \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \langle s_{\theta}(\tilde{x}), \nabda_{\tilde{x}} log q_{\sigma}(\tilde{x}) \rangle \right] + c_1, \  \text{where} \  c_1 \  \text{is} \  \text{irrelavant} \   \text{w.r.t.} \  \theta$$
+
+再定义一个denoising score matching（DSM）：
+
+$$
+\begin{align}
+DSM &= \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \nabda_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) - s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x}, x)} \left[ \lVert s_{\theta}(\tilde{x}) \rVert_2^2 \right] - 2 \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x}, x)} \left[ \langle s_{\theta}(\tilde{x}), \nabda_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) \rangle \right] + c_2, \  \text{where} \  c_2 \  \text{is} \  \text{irrelavant} \   \text{w.r.t.} \  \theta
+\end{align}
+$$
+
+而
+
+$$\mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \lVert s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \int_{\tilde{x}} q_{\sigma}(\tilde{x}) \lVert s_{\theta}(\tilde{x}) \rVert_2^2 d \tilde{x} = \int_{\tilde{x}} \int_{x} q_{\sigma}(\tilde{x} \vert x) p_{data}(x) \lVert s_{\theta}(\tilde{x}) \rVert_2^2 d \tilde{x} dx =  \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x}, x)} \left[ \lVert s_{\theta}(\tilde{x}) \rVert_2^2 \right]$$
+
+以及
+
+$$
+\begin{align}
+&\mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \langle s_{\theta}(\tilde{x}), \nabda_{\tilde{x}} log q_{\sigma}(\tilde{x}) \rangle \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \langle s_{\theta}(\tilde{x}), \frac{\partial log q_{\sigma}(\tilde{x})}{\partial \tilde{x}} \rangle \right] = \int_{\tilde{x}} q_{\sigma}(\tilde{x}) \langle s_{\theta}(\tilde{x}), \frac{\partial log q_{\sigma}(\tilde{x})}{\partial \tilde{x}} \rangle d \tilde{x}\\
+&= \int_{\tilde{x}} q_{\sigma}(\tilde{x}) \langle s_{\theta}(\tilde{x}), \frac{1}{q_{\sigma}(\partial \tilde{x})}\frac{\partial q_{\sigma}(\partial \tilde{x})}{\tilde{x}} \rangle d \tilde{x} = \int_{\tilde{x}} \langle s_{\theta}(\tilde{x}), \frac{\partial q_{\sigma}(\partial \tilde{x})}{\partial \tilde{x}} \rangle d \tilde{x} = \int_{\tilde{x}} \langle s_{\theta}(\tilde{x}), \frac{\partial}{\partial \tilde{x}} \int_x q_{\sigma}(\tilde{x} \vert x) p_{data}(x) dx \rangle d \tilde{x} = \int_{\tilde{x}} \langle s_{\theta}(\tilde{x}), \int_x \frac{\partial q_{\sigma}(\tilde{x} \vert x)}{\partial \tilde{x}} p_{data}(x) dx \rangle d \tilde{x}\\
+&= \int_{\tilde{x}} \langle s_{\theta}(\tilde{x}), \int_x \frac{\partial log q_{\sigma}(\tilde{x} \vert x)}{\partial \tilde{x}} q_{\sigma}(\tilde{x} \vert x) p_{data}(x) dx \rangle d \tilde{x} = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x}, x)} \left[ \langle s_{\theta}(\tilde{x}), \nabda_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) \rangle \right]
+\end{align}
+$$
+
+从而惊讶地发现，ESM和DSM只相差了一个与$$\theta$$无关的常数。从而现在可以用DSM来替代ESM作为优化基于$$\tilde{x}$$的score-matching的目标函数了，也就是说，之前我们引入$$q_{\sigma}(\tilde{x})$$的score来近似$$p_{data}(x)$$的score，现在我们可以用$$q_{\sigma}(\tilde{x} \vert x}$$的score来近似$$p_{data}(x)$$的score了。
 
 
 
