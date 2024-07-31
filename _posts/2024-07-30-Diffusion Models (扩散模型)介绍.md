@@ -349,13 +349,13 @@ $$\mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \lVert \nabla_{\tilde{x}} l
 
 这个式子可以显式的计算对于$$\tilde{x}$$score-matching算法的目标函数的值（因为$$q_{\sigma}(\tilde{x})$$显式的给定了），所以它叫做explicit score matching（ESM）。
 
-$$ESM = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \lVert s_{\theta}(\tilde{x}) \rVert_2^2 \right] - 2 \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \langle s_{\theta}(\tilde{x}), \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x}) \rangle \right] + c_1, \  \text{where} \  c_1 \  \text{is} \  \text{irrelavant} \   \text{w.r.t.} \  \theta$$
+$$\textbf{ESM} = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \lVert s_{\theta}(\tilde{x}) \rVert_2^2 \right] - 2 \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \langle s_{\theta}(\tilde{x}), \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x}) \rangle \right] + c_1, \  \text{where} \  c_1 \  \text{is} \  \text{irrelavant} \   \text{w.r.t.} \  \theta$$
 
 再定义一个denoising score matching（DSM）：
 
 $$
 \begin{align}
-\text{DSM} &= \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) - s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x}, x)} \left[ \lVert s_{\theta}(\tilde{x}) \rVert_2^2 \right] - 2 \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x}, x)} \left[ \langle s_{\theta}(\tilde{x}), \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) \rangle \right] + c_2, \  \text{where} \  c_2 \  \text{is} \  \text{irrelavant} \   \text{w.r.t.} \  \theta
+\textbf{DSM} &= \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) - s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x}, x)} \left[ \lVert s_{\theta}(\tilde{x}) \rVert_2^2 \right] - 2 \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x}, x)} \left[ \langle s_{\theta}(\tilde{x}), \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) \rangle \right] + c_2, \  \text{where} \  c_2 \  \text{is} \  \text{irrelavant} \   \text{w.r.t.} \  \theta
 \end{align}
 $$
 
