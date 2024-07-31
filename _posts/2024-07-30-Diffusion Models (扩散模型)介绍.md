@@ -379,7 +379,44 @@ $$\textbf{DSM} = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)}
 
 从而我们要做的就是，对于每个输入数据$$x$$，从$$\mathcal{N}(\textbf{0}, \sigma^2 \textbf{I})$$中采样噪声$$\epsilon$$，加到$$x$$上得到$$\tilde{x}$$，作为$$s_{\theta}$$的输入，然后优化上述目标函数，即DSM。也就是说，$$s_{\theta}$$实际上建模的是真实数据和加噪之后数据的差值（即噪声）。
 
-综上，我们已经解释了score-based models的主要内容，最后，再介绍一下score-based models的几个主要的问题。
+综上，我们从概率分布的表示、估计到采样的过程基本已经完成了，整个“Score-based generative modeling”的过程可以总结如下图:
+
+![5]({{ '/assets/images/diffusion_5.png' | relative_url }})
+{: style="width: 1200px; max-width: 100%;"}
+*来自于[DiffusionModel-NCSN原理与推导]([https://lilianweng.github.io/posts/2021-07-11-diffusion-models/](https://zhuanlan.zhihu.com/p/670052757))*
+
+最后，再介绍一下score-based models的几个主要的问题。
+
+
+**5). score-based models的几个主要问题
+
+尽管score-based models根据上述所说，具有完整的训练和采样过程（由score matching来对目标函数进行训练，由朗之万采样利用训练好的score function来对数据进行采样），但其在实际应用中有以下几个主要的困难：
+
+* 目标函数难以优化，即loss难以收敛
+* score matching算法对$$p_{data}(x)$$的score估计不准确
+* 最终采样得到的数据，与训练数据的分布偏差较大
+
+下面我们依次来看看这些问题并分析其原因。
+
+**问题一：loss不易收敛**
+
+如果我们采用sliced score matching方法，将简化后的目标函数$$\mathop{\mathbb{E}}_{p_{data}(x)} \left[ \frac{1}{2} \Vert s_{theta}(x) \rVert_2^2 + tr(\frac{s_{\theta}(x)}{\partial x}) \right] dx$$，改进为$$\mathop{\mathbb{E}}_{p(v), p_{data}(x)} \left[ \frac{1}{2} \Vert s_{\theta}(x) \rVert_2^2 + v^T \frac{v^T s_{\theta}(x)}{\partial x} \right]$$，记为SSM loss，并对其进行优化，那么在实际操作中，该loss的变化趋势如下左图所示：
+
+![6]({{ '/assets/images/diffusion_6.png' | relative_url }})
+{: style="width: 1200px; max-width: 100%;"}
+*来自于[DiffusionModel-NCSN原理与推导]([https://lilianweng.github.io/posts/2021-07-11-diffusion-models/](https://zhuanlan.zhihu.com/p/670052757))*
+
+可以看到，SSM loss非常抖动。
+
+为了解释这个现象，首先需要了解流行假设（manifold hypothesis）。
+
+流行假设认为，生活中的真实数据大部分都倾向于分布在某个低维空间中（即用某几个自由参数就可以表示该空间）。也就是说，尽管针对数据的编码空间（比如说通过神经网络将数据表示为某种feature）的维度可能很大，但实际上该编码（feature）在很多维度上都存在信息冗余，所以实际上我们可以用更小的编码空间来表示这些数据，这说明实质上，这些数据仅仅分布在该高维编码空间的某个低维流形当中，并没有“占满”整个编码空间。
+
+回到score-basde model上来，我们的数据同样也是位于某个低维流形之上（如果是图片的话，原始的编码空间即是像素空间，即$$\left[0,255\right]^{H \times W \times 3}$$），也就是说，数据并没有充满整个$$p(x)$$，即$$p_{data}(x)$$在很多$$x$$上是没有数据的，这就导致了在使用$$p_{data}(x)$$作为替代$$p(x)$$的真实分布的时候，这些$$x$$上的score是无法获得的。
+
+> 而我们确实是需要使用$$p_{data}(x)$$来替代$$p(x)$$作为真实的数据分布，因为$$p(x)$$是完全无法知道的，我们有的只有数据！
+
+而且对于sliced score matching，我们还将原始的目标函数$$\mathop{\mathbb{E}}_{p_{data}(x)} \left[ \frac{1}{2} \Vert s_{theta}(x) \rVert_2^2 + tr(\frac{s_{\theta}(x)}{\partial x}) \right] dx$$，简化为了$$\mathop{\mathbb{E}}_{p(v), p_{data}(x)} \left[ \frac{1}{2} \Vert s_{\theta}(x) \rVert_2^2 + v^T \frac{v^T s_{\theta}(x)}{\partial x} \right]$$，该简化过程根据之前的推导，需要假设$$\lim_{x \rightarrow -\infty} p_{data}(x) = \lim_{x \rightarrow \infty} p_{data}(x) = 0$$，而着同样需要假设$$p_{data}(x)$$能够在整个编码空间上都有数据。
 
 
 
