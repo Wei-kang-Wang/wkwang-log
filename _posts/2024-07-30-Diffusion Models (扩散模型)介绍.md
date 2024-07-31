@@ -262,7 +262,7 @@ score的物理意义是：对于每个点$$x$$来说，该点的score就是数�
 
 ![4]({{ '/assets/images/diffusion_4.png' | relative_url }})
 {: style="width: 1200px; max-width: 100%;"}
-*来自于[DiffusionModel-NCSN原理与推导]([https://lilianweng.github.io/posts/2021-07-11-diffusion-models/](https://zhuanlan.zhihu.com/p/670052757))*
+*来自于[DiffusionModel-NCSN原理与推导](https://zhuanlan.zhihu.com/p/670052757)*
 
 上图可视化了一个2维分布概率密度函数对数的梯度（在每个点都有方向和大小，因为梯度是个向量）。如图所示，图里有两个中心，而这即代表了$$log p_{\theta}(x)$$取极大值的地方，即最能代表此数据先验分布的区域。对于生成模型而言，我们期望生成的数据，就应该位于这些数据先验分布值大的区域。所以说如果我们可以估计score，在有了score之后，就可以利用score来确定$$p_{\theta}(x)$$极大值的方位，从而就可以有更理想的生成结果。而在有score的情况下，从任意点出发，到达$$p_{\theta}(x)$$某个极大值的方法，就是朗之万采样（Langevin Sampling）。
 
@@ -383,7 +383,7 @@ $$\textbf{DSM} = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)}
 
 ![5]({{ '/assets/images/diffusion_5.png' | relative_url }})
 {: style="width: 1200px; max-width: 100%;"}
-*来自于[DiffusionModel-NCSN原理与推导]([https://lilianweng.github.io/posts/2021-07-11-diffusion-models/](https://zhuanlan.zhihu.com/p/670052757))*
+*来自于[DiffusionModel-NCSN原理与推导](https://zhuanlan.zhihu.com/p/670052757)*
 
 最后，再介绍一下score-based models的几个主要的问题。
 
@@ -404,7 +404,7 @@ $$\textbf{DSM} = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)}
 
 ![6]({{ '/assets/images/diffusion_6.png' | relative_url }})
 {: style="width: 1200px; max-width: 100%;"}
-*来自于[DiffusionModel-NCSN原理与推导]([https://lilianweng.github.io/posts/2021-07-11-diffusion-models/](https://zhuanlan.zhihu.com/p/670052757))*
+*来自于[DiffusionModel-NCSN原理与推导](https://zhuanlan.zhihu.com/p/670052757)*
 
 可以看到，SSM loss非常抖动。
 
@@ -418,7 +418,20 @@ $$\textbf{DSM} = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)}
 
 而且对于sliced score matching，我们还将原始的目标函数$$\mathop{\mathbb{E}}_{p_{data}(x)} \left[ \frac{1}{2} \Vert s_{theta}(x) \rVert_2^2 + tr(\frac{s_{\theta}(x)}{\partial x}) \right] dx$$，简化为了$$\mathop{\mathbb{E}}_{p(v), p_{data}(x)} \left[ \frac{1}{2} \Vert s_{\theta}(x) \rVert_2^2 + v^T \frac{v^T s_{\theta}(x)}{\partial x} \right]$$，该简化过程根据之前的推导，需要假设$$\lim_{x \rightarrow -\infty} p_{data}(x) = \lim_{x \rightarrow \infty} p_{data}(x) = 0$$，而着同样需要假设$$p_{data}(x)$$能够在整个编码空间上都有数据。
 
+**问题二：score的估计不准确**
 
+score的估计不准确，分为两个层面的不准确，首先是score function $$s_{\theta}(x)$$对于$$p_{data}(x)$$的score估计不准确，其次是$$s_{\theta}(x)$$对于真实分布$$p(x)$$的估计不准确。
+
+对于后者来说，对于$$p(x)$$较小的区域，即概率密度较低的区域，数据集里位于该区域的数据数量会很少，甚至没有，这样的话，使用$$p_{data}(x)$$对$$p(x)$$进行近似的时候，在这些区域的近似就不准确。从训练的角度来说，score-based model在这些区域的值相对于真实的$$p(x)$$的score来说就估计的不准确（因为在这些区域，$$p_{data}(x)$$和$$p(x)$$的score本身就有较大的偏差，所以并不是score-matching算法或者是目标函数的问题，这是使用经验分布来替代真实分布造成的问题）。
+
+而对于前者来说，从损失函数的角度来分析，损失函数为$$\mathop{\mathbb{E}}_{p_{data}(x)} \left[ \lVert \nabla_x log p_{data}(x) - s_{\theta}(x) \rVert_2^2 \right]$$，对于$$p_{data}(x)$$较小的区域，那么$$\lVert \nabla_x log p_{data}(x) - s_{\theta}(x) \rVert_2^2$$会乘上一个较小的$$p_{data}(x)$$权重，从而在整个loss里，这一项的比重很小，就会导致训练的时候不会关注这个区域，从而导致这个区域内的$$s_{\theta}(x)$$与$$\nabla_x log p_{data}(x)$$差异较大。
+
+![8]({{ '/assets/images/diffusion_8.png' | relative_url }})
+{: style="width: 1200px; max-width: 100%;"}
+*来自于[基于梯度去噪的分数模型：NCSN(Noise Conditional Score Networks)](https://zhuanlan.zhihu.com/p/597490389)*
+
+对于上面图来说，左侧是$$p_{data}(x)$$的scores，右侧是训练好的模型，也就是score function，$$s_{\theta^{\ast}}(x)$$，其中深色的部分表示数据density大的部分，而红色框内部，则表示
+$$p_{data}(x)$$的scores和$$s_{\theta^{\ast}}(x)$$相近的区域。可以看到，在density较低的区域，这两个scores是不相近的。
 
 
 
