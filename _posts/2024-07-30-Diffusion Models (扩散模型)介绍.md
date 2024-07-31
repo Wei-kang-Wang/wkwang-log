@@ -220,7 +220,9 @@ $$x_t = a_t x_{t-1} + b_t \epsilon_{t-1} = a_t a_{t-1} x_{t-2} + a_t b_{t-1} \ep
 
 从而，将第二项到最后一项全部综合起来，其也满足一个高斯分布，方差为$$\lbrace (a_t \cdots a_2b_1)^2 + \cdots + (a_t b_{t-1})^2 + (b_t)^2) \mathbf{I}$$。如果再考虑将第一项$$x_0$$的系数的平方和考虑进来，那么此时$$x_0$$系数的平方，与后面的方差的系数的平方和就是：$$(a_t \cdots a_1)^2 + (a_t \cdots a_2b_1)^2 + \cdots + (a_t b_{t-1})^2 + (b_t)^2) = a_t^2(a_{t-1}^2(\cdots(a_2^2(a_1^2+b_1^2)+b_2^2)+\cdots)+b_{t-1}^2)+b_t^2$$。如果令$$a_i^2 + b_i^2 =1$$对于所有的$$1\leq i \leq t$$成立，则该平方和就是1，而此时这些超参数的选择，就是前文所述的。
 
+### (5). 代码
 
+[这里](https://github.com/xiaohu2015/nngen/blob/main/models/diffusion_models/ddpm_mnist.ipynb)提供了不错的基于DDPM的diffusion models的pytorch实现。
 
 ## 2. 基本原理（NCSN）
 
@@ -465,6 +467,69 @@ noise-conditioned score network是分数模型的一种
 **采样生成**
 
 使用退火（annealing）朗之万方法使用score来采样。退火朗之万采样实际上就是在噪声强度递减的模式下进行朗之万采样。
+
+NCSN是如何破解之前提到的score-based models的三个问题的：
+
+* NCSN使用高斯噪声去扰动数据，而高斯噪声是弥散在整个编码空间中的，因此扰动后的数据就不在低维流形中了，从而score-matching算法就可以较好的训练$$s_{\theta}(x)$$去近似$$p_{data}(x)$$了。
+* 在加上高斯噪声扰动数据时，尺度较大的噪声有希望将原数据从$$p(x)$$较高的区域转移到$$p(x)$$较低的区域，从而对低密度区域的数据也有了更多的训练。在低密度区域的数据量也增大之后，即使在朗之万采样的时候，初始值取在了低密度区域，但因为这个时候低密度区域也得到了良好的训练，所以$$s_{\theta}(x)$$在该区域的值也接近$$\nabla_x log p_{data}(x)$$的值，从而也可以在采样很多次后，到达高密度区域，也就是生成和原数据分布相似的图片。
+
+NCSN是一类分数模型，所以之前所说的分数模型的目标函数，score-matching算法，以及在获得score function之后使用朗之万采样获取新数据的过程是一样的，但NCSN有另外的改进来缓解之前所说的score-based models的问题，下面我们具体来介绍这些改进的细节。
+
+**1). 噪声设计原理**
+
+NCSN使用了denoising score matching的方式来优化目标函数。按照之前所说的，对于每个输入的原数据$$x$$，我们对它加上一个噪声从而获得一个新的数据$$\tilde{x}$$，其分布满足：$$q(\tilde{x} \vert x) = \mathcal{N}(\tilde{x}; x, \sigma^2 \textbf{I})$$，其中$$\sigma$$是我们需要重点考虑的问题。
+
+在NCSN中，我们实际上不仅仅考虑一个$$\sigma$$，而是考虑一系列的$$\sigma_i, i=1,2, \cdots, L$$，也就是说，对于一个数据$$x$$，会给他加上从不同的$$\mathcal{N}(\textbf{0}, \sigma_i^2 \textbf{I})$$里采样的噪声，得到一系列加噪的新数据$$\tilde{x}_i, i=1,2,\cdots, L$$。
+
+那么，为什么要选择不同强度的噪声呢？
+
+因为如果只选择一个的话，那么因为我们需要填充低密度区域，使得$$p_{data}(x)$$在这些区域也能有值，而且需要摆脱低维流形假设，那么$$\sigma^2$$就不能太小。但是另一方面，如果$$\sigma^2$$很大的话，从$$q_{\sigma}(\tilde{x} \vert x) = \mathcal{N}(\tilde{x}; x, \sigma^2 \textbf{I})$$可以看出，我们所采样的$$\tilde{x}$$就可能和$$x$$差距较大了，那这种情况下，用$$\nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x)$$来近似$$\nabla_{x} log p_{data}(x)$$就不合理了。
+
+正是由于上述的这个矛盾，所以我们考虑一系列尺度的噪声，方差由大到小：$$\lbrace \sigma_i^2 \rbrace_{i=1}^L$$，并且满足$$\sigma_1 / \sigma_2 = \sigma_2 / \sigma_3 = \cdots = \sigma_{L-1} / \sigma_L > 1$$。并且$$\sigma_1$$要足够大，满足填充低密度区域且摆脱低维流形假设的需求，而$$\sigma_L$$要足够小，满足可以使用$$\nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x)$$来近似$$\nabla_{x} log p_{data}(x)$$的需求。
+
+**2). score拟合网络的设计**
+
+由于我们需要生成的数据和原输入数据具有相同的尺寸，所以选择U-Net作为网络的主体。输入是加了噪声之后的数据$$\tilde{x}$$，以及当前所加的噪声满足的高斯分布的方差$$\sigma$$，输出是对该加了噪声之后的数据$$\tilde{x}$$所满足的分布的对数的梯度的近似，即$$\nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x)$$。
+
+而在有了网络结构，以及网络的输入输出之后，我们就可以考虑该如何训练这个网络了，NCSN采用的是denoising score matching算法。由之前的结果可知，对于单个噪声$$\mathcal{N}(\textbf{0}, \sigma^2 \textbf{I})$$，损失函数是DSM：
+
+\textbf{DSM} = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) - s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \frac{x-\tilde{x}}{\sigma^2} - s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \frac{-\epsilon}{\sigma^2} - s_{\theta}(\tilde{x}) \rVert_2^2 \right], \  \text{where} \  \epsilon \sim \mathcal{N}(\textbf{0}, \sigma^2 \textbf{I})
+
+也就是：
+
+$$\mathcal{L}(\theta, \sigma) = \textbf{DSM} = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \frac{x-\tilde{x}}{\sigma^2} - s_{\theta}(\tilde{x}, \sigma) \rVert_2^2 \right]$$
+
+从而对于一系列的噪声$$\lbrace \sigma_i^2 \rbrace_{i=1}^L$$，网络的损失函数定义为：
+
+$$\mathcal{L}(\theta, \lbrace \sigma_i^2 \rbrace_{i=1}^L) = \frac{1}{L} \sum_{i=1}^L \lambda_i (\sigma_i) \mathcal{L}(\theta, \sigma_i)$$
+
+其中$$\lambda_i(\sigma_i)$$是依赖于$$\sigma_i$$的超参数，$$i=1,2,\cdots,L$$。
+
+作者根据经验发现，在网络训练收敛之后，$$\lVert s_{\theta}(\tilde{x}, \sigma) \rVert_2$$的量级在$$\frac{1}{\sigma}$$附近，而作者希望所有的加权后的损失$$\lambda_i (\sigma_i) \mathcal{L}(\theta, \sigma_i)$$都有着差不多的量级，与$$\sigma_i$$的取值无关，从而设置$$\lambda_i = \sigma_i^2$$，从而：
+
+$$\mathcal{L}(\theta, \lbrace \sigma_i^2 \rbrace_{i=1}^L) = \frac{1}{L} \sum_{i=1}^L \lambda_i (\sigma_i) \mathcal{L}(\theta, \sigma_i) = \frac{1}{L} \sum_{i=1}^L \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert s_{\theta}(\tilde{x}_i, \sigma_i) + \epsilon_i \rVert_2^2 \right]$$
+
+其中$$\epsilon_i \sim \mathcal{N}(\textbf{0}, \textbf{I})$$，$$\tilde{x}_i = x + \sigma_i \epsilon_i$$，$$i=1,2,\cdots, L$$。
+
+> 这里的$$s_{\theta}$$的输入除了被扰动的数据$$\tilde{x}$$以外，还需要所加噪声对应高斯分布的方差作为输入，和之前DDPM里不仅需要$$x_t$$作为网络的输入，还需要$$t$$作为网络的输入，是等价的。
+
+> 这里的$$s_{\theta}(\tilde{x}, \sigma)$$实际上是拟合了$$-\epsilon$$，也就是拟合了采样的噪声，和DDPM里$$\mu(x_t, t)$$实际上也是拟合了加在$$x_0$$上得到$$x_t$$的噪声$$\bar{\epsilon}_t$$是等价的。同样的，这里的噪声也是需要取多个强度的，也就是说，$$s_{\theta}$$也需要拟合多个强度的噪声。
+
+
+**4). 采样方法：退火朗之万采样（annealing Langevin dynamics**
+
+![10]({{ '/assets/images/diffusion_10.png' | relative_url }})
+{: style="width: 1200px; max-width: 100%;"}
+
+### (3). 一些补充说明
+
+**1). 去噪生成**
+
+正如前面所说，NSCN实际上就是在做基于梯度的去噪生成。$$\tilde{x} = x + \sigma \epsilon$$，从而$$\nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) = -\frac{\epsilon}{\sigma}$$，也就是说，我们希望网络基于输入$$\tilde{x}, \sigma$$所需要学习的$$q_{\sigma}(\tilde{x} \vert x)$$的分数，即$$s_{\theta}(\tilde{x}, \sigma) = \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x)$$，**与所加噪声的方向相反**（注意$$\tilde{x}, x, \epsilon$$都是高维数据，可以近似地看作高维向量）。因此，在采样生成的时候，沿着分数的方向走，就是沿着噪声的反方向走，这样就能够最终回到最初的未加上噪声的样本，也就是去噪！
+
+**2). 与DDPM的关系**
+
+NCSN和DDPM一样，本质都是去噪，前者是隐式的，后者是显式的，NCSN所用的denoising score matching算法所使用的目标函数DSM，实际上就是在预测噪声，而DDPM的反向扩散过程，就是希望模型直接预测所加的噪声。
 
 ## 3. 小总结
 
