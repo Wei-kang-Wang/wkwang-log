@@ -220,6 +220,11 @@ $$x_t = a_t x_{t-1} + b_t \epsilon_{t-1} = a_t a_{t-1} x_{t-2} + a_t b_{t-1} \ep
 
 从而，将第二项到最后一项全部综合起来，其也满足一个高斯分布，方差为$$\lbrace (a_t \cdots a_2b_1)^2 + \cdots + (a_t b_{t-1})^2 + (b_t)^2) \mathbf{I}$$。如果再考虑将第一项$$x_0$$的系数的平方和考虑进来，那么此时$$x_0$$系数的平方，与后面的方差的系数的平方和就是：$$(a_t \cdots a_1)^2 + (a_t \cdots a_2b_1)^2 + \cdots + (a_t b_{t-1})^2 + (b_t)^2) = a_t^2(a_{t-1}^2(\cdots(a_2^2(a_1^2+b_1^2)+b_2^2)+\cdots)+b_{t-1}^2)+b_t^2$$。如果令$$a_i^2 + b_i^2 =1$$对于所有的$$1\leq i \leq t$$成立，则该平方和就是1，而此时这些超参数的选择，就是前文所述的。
 
+**参考文献**
+1. https://lilianweng.github.io/posts/2021-07-11-diffusion-models/
+2. https://zhuanlan.zhihu.com/p/565901160
+3. https://zhuanlan.zhihu.com/p/708195611 
+
 ### (5). 代码
 
 [这里](https://github.com/xiaohu2015/nngen/blob/main/models/diffusion_models/ddpm_mnist.ipynb)提供了不错的基于DDPM的diffusion models的pytorch实现。
@@ -523,13 +528,18 @@ $$\mathcal{L}(\theta, \lbrace \sigma_i^2 \rbrace_{i=1}^L) = \frac{1}{L} \sum_{i=
 
 ### (3). 一些补充说明
 
-**1). 去噪生成**
+**去噪生成**
 
 正如前面所说，NSCN实际上就是在做基于梯度的去噪生成。$$\tilde{x} = x + \sigma \epsilon$$，从而$$\nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) = -\frac{\epsilon}{\sigma}$$，也就是说，我们希望网络基于输入$$\tilde{x}, \sigma$$所需要学习的$$q_{\sigma}(\tilde{x} \vert x)$$的分数，即$$s_{\theta}(\tilde{x}, \sigma) = \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x)$$，**与所加噪声的方向相反**（注意$$\tilde{x}, x, \epsilon$$都是高维数据，可以近似地看作高维向量）。因此，在采样生成的时候，沿着分数的方向走，就是沿着噪声的反方向走，这样就能够最终回到最初的未加上噪声的样本，也就是去噪！
 
-**2). 与DDPM的关系**
+**与DDPM的关系**
 
 NCSN和DDPM一样，本质都是去噪，前者是隐式的，后者是显式的，NCSN所用的denoising score matching算法所使用的目标函数DSM，实际上就是在预测噪声，而DDPM的反向扩散过程，就是希望模型直接预测所加的噪声。
+
+**参考文献**
+1. https://zhuanlan.zhihu.com/p/670052757
+2. https://zhuanlan.zhihu.com/p/662633920
+3. https://zhuanlan.zhihu.com/p/597490389
 
 ## 3. 小总结
 
