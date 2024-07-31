@@ -38,7 +38,7 @@ GAN的缺点在于比较难以训练（discriminator过好的话，generator更�
 
 如之前所说，diffusion模型可以从两个角度来理解其原理，其中DDPM（diffusion  probabilistic models）的解释更容易理解，从而先从此角度来说。
 
-### (1) 前向扩散过程（forward diffusion process）
+### (1). 前向扩散过程（forward diffusion process）
 
 从一个给定的数据分布$$q(x)$$里采样一个数据$$x_0$$，$$x_0 \sim q(x)$$（$$x_0$$就可以被理解为我们手里已有的数据，而$$q(x)$$是已有的数据潜在的数据分布，是未知的），扩散模型的一个前向扩散过程，就是不断地给数据添加高斯噪声的过程，假设一共添加了$$T$$步，那么就会得到一系列noisy的数据：$$x_1, x_2, \cdots, x_T$$，而每一步具体添加多少噪声，则是由一组超参数$$\lbrace \beta_t \in (0,1) \rbrace_{t=1}^T$$决定的:
 
@@ -76,7 +76,7 @@ $$q(x_t \vert x_0) = \mathcal{N}(x_t; \sqrt{\bar{\alpha_t}}x_0, (1 - \bar{\alpha
 
 一般来说，对于超参数$$\lbrace \beta_t \in (0,1) \rbrace_{t=1}^T$$的设置是，随着$$t$$的增大，噪声的程度可以越来越大，也就是说$$\beta_1 < \beta_2 < \cdots < \beta_T$$，从而$$\alpha_1 > \alpha_2 > \cdots > \alpha_T$$，且$$\bar{\alpha_1} > \bar{\alpha_2} > \cdots > \bar{\alpha_T}$$。
 
-### (2) 反向扩散过程（reverse diffusion process）
+### (2). 反向扩散过程（reverse diffusion process）
 
 如果我们可以建模上述前向扩散过程的逆过程，也就是建模$$q(x_{t-1} \vert x_t)$$的话，那么基于一个从标准高斯分布采样得到的纯噪声数据$$x_T \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$$，就可以一步步回退，逐步去除噪声，最终得到一个新的”干净“的$$x_0$$，而因为$$x_T$$的采样是具有随机性的，所以每次得到的$$x_0$$也不一样，这样就可以源源不断地生成”干净“的数据了。
 
@@ -107,7 +107,7 @@ $$\tilde{\beta_t} = 1/(\frac{\alpha_t}{\beta_t} + \frac{1}{1-\bar{\alpha_{t-1}}}
 
 上述的推导过程表明，$$q(x_{t-1} \vert x_t, x_0)$$可以有closed-form的结果。先把这个结果放在一旁。
 
-### (3) 损失函数
+### (3). 损失函数
 
 既然我们希望用一个带参数的分布$$p_{\theta}$$来对$$q(x_{t-1} \vert x_t)$$进行近似，那么我们就需要定义损失函数来让$$p_{\theta}$$与$$q(x_{t-1} \vert x_t)$$尽可能靠近，如下的推导对$$p_{\theta}$$的形式不做任何假设。
 
@@ -206,7 +206,7 @@ DDPM模型的训练过程如下左图。而在训练完成之后，想要生成�
 *来自于[Lil'Log: What are Diffusion Models?](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/)*
 
 
-### (4) 一些补充说明
+### (4). 一些补充说明
 
 **关于超参数$$\lbrace \beta_t \in (0,1) \rbrace_{t=1}^T$$的选择**
 
@@ -219,6 +219,7 @@ DDPM模型的训练过程如下左图。而在训练完成之后，想要生成�
 $$x_t = a_t x_{t-1} + b_t \epsilon_{t-1} = a_t a_{t-1} x_{t-2} + a_t b_{t-1} \epsilon_{t-2} + b_t \epsilon_{t-1} = \cdots = (a_t a_{t-1} \cdots a_1) x_0 + (a_t \cdots a_2)b_1 \epsilon_{0} + \cdots + a_t b_{t-1} \epsilon_{t-2} + b_t \epsilon_{t-1}$$
 
 从而，将第二项到最后一项全部综合起来，其也满足一个高斯分布，方差为$$\lbrace (a_t \cdots a_2b_1)^2 + \cdots + (a_t b_{t-1})^2 + (b_t)^2) \mathbf{I}$$。如果再考虑将第一项$$x_0$$的系数的平方和考虑进来，那么此时$$x_0$$系数的平方，与后面的方差的系数的平方和就是：$$(a_t \cdots a_1)^2 + (a_t \cdots a_2b_1)^2 + \cdots + (a_t b_{t-1})^2 + (b_t)^2) = a_t^2(a_{t-1}^2(\cdots(a_2^2(a_1^2+b_1^2)+b_2^2)+\cdots)+b_{t-1}^2)+b_t^2$$。如果令$$a_i^2 + b_i^2 =1$$对于所有的$$1\leq i \leq t$$成立，则该平方和就是1，而此时这些超参数的选择，就是前文所述的。
+
 
 
 ## 2. 基本原理（NCSN）
