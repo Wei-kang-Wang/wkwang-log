@@ -635,6 +635,7 @@ z_0 &= \textbf{Encoder}(x_0) \\
 z_t &= \sqrt{\bar{\alpha}_t} z_0 + \sqrt{1 - \bar{\alpha}_t} \epsilon, \  \text{where} \  \epsilon \sim \mathcal{N}(\textbf{0}, \textbf{I}) \\
 \mathcal{L}_{LDM} = \mathop{\mathbb{E}}\limits_{t \sim \left[2, T \right], (x_0,y) \sim q(x_0,y), \epsilon \sim \mathcal{N}(\textbf{0}, \textbf{I})} \left[ \lVert \epsilon - f_{\phi}(z_t, t, \tau_{\theta}(y)) \rVert_2^2 \right]
 \end{\align}
+$$
 
 其中$$(x_0, y)$$是输入图片文本对，$$\tau_{\theta}$$是freezed的text embedding extractor，$$f_{\phi}$$是我们的UNet。
 
