@@ -103,7 +103,7 @@ $$
 
 $$\tilde{\beta_t} = 1/(\frac{\alpha_t}{\beta_t} + \frac{1}{1-\bar{\alpha_{t-1}}}) = \frac{1-\bar{\alpha_{t-1}}}{1-\bar{\alpha_{t}}} \beta_t, \tilde{\mu}(x_t, x_0) = (\frac{2 \sqrt{\alpha_t}}{\beta_t}x_t + \frac{2 \sqrt{\bar{\alpha_{t-1}}}}{1-\bar{\alpha_{t-1}}}x_0) / (\frac{\alpha_t}{\beta_t} + \frac{1}{1-\bar{\alpha_{t-1}}}) = \frac{\sqrt{\alpha_t}(1-\bar{\alpha_{t-1}})}{1-\bar{\alpha_t}}x_t + \frac{\sqrt{\bar{\alpha_{t-1}}}\beta_t}{1-\bar{\alpha_t}}x_0$$
 
-而之前我们有结论：$$x_t = \sqrt{\bar{\alpha_t}} x_0 + \sqrt{1 - \bar{\alpha_t}} \bar{\epsilon_{t}}, \  \text{where} \  \bar{\epsilon_{t}} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$$，也就是，$$x_0 = \frac{1}{\sqrt{\bar{\alpha_t}}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha_t}}}\bar{\epsilon_{t}})，带入$$\tilde{\mu}(x_t, x_0)$$上面的结果，可得：$$\tilde{\mu}(x_t, x_0) = \frac{1}{\sqrt{\bar{\alpha}_t}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha}_t}} \bar{\epsilon}_t)$$，与$$x_0$$无关了，因此也可以记为$$\tilde{\mu}_t$$。
+而之前我们有结论：$$x_t = \sqrt{\bar{\alpha}_t} x_0 + \sqrt{1 - \bar{\alpha}_t} \bar{\epsilon}_t, \  \text{where} \  \bar{\epsilon}_t \sim \mathcal{N}(\textbf{0}, \textbf{I})$$，也就是，$$x_0 = \frac{1}{\sqrt{\bar{\alpha}_t}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha}_t}}\bar{\epsilon}_t)$$，带入$$\tilde{\mu}(x_t, x_0)$$上面的结果，可得：$$\tilde{\mu}(x_t, x_0) = \frac{1}{\sqrt{\bar{\alpha}_t}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha}_t}} \bar{\epsilon}_t)$$，与$$x_0$$无关了，因此也可以记为$$\tilde{\mu}_t$$。
 
 上述的推导过程表明，$$q(x_{t-1} \vert x_t, x_0)$$可以有closed-form的结果。先把这个结果放在一旁。
 
@@ -514,7 +514,7 @@ NCSN使用了denoising score matching的方式来优化目标函数。按照之�
 
 而在有了网络结构，以及网络的输入输出之后，我们就可以考虑该如何训练这个网络了，NCSN采用的是denoising score matching算法。由之前的结果可知，对于单个噪声$$\mathcal{N}(\textbf{0}, \sigma^2 \textbf{I})$$，损失函数是DSM：
 
-\textbf{DSM} = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) - s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \frac{x-\tilde{x}}{\sigma^2} - s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \frac{-\epsilon}{\sigma^2} - s_{\theta}(\tilde{x}) \rVert_2^2 \right], \  \text{where} \  \epsilon \sim \mathcal{N}(\textbf{0}, \sigma^2 \textbf{I})
+$$\textbf{DSM} = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) - s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \frac{x-\tilde{x}}{\sigma^2} - s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \frac{-\epsilon}{\sigma^2} - s_{\theta}(\tilde{x}) \rVert_2^2 \right], \  \text{where} \  \epsilon \sim \mathcal{N}(\textbf{0}, \sigma^2 \textbf{I})$$
 
 也就是：
 
@@ -630,11 +630,11 @@ StableDiffusion的训练数据是图片文本对，且每一对数据语义信�
 类似于DDPM的推导，我们可以直接写出LDM（也就是StableDiffusion）的训练loss如下：
 
 $$
-\begin{\align}
+\begin{align}
 z_0 &= \textbf{Encoder}(x_0) \\
 z_t &= \sqrt{\bar{\alpha}_t} z_0 + \sqrt{1 - \bar{\alpha}_t} \epsilon, \  \text{where} \  \epsilon \sim \mathcal{N}(\textbf{0}, \textbf{I}) \\
 \mathcal{L}_{LDM} = \mathop{\mathbb{E}}\limits_{t \sim \left[2, T \right], (x_0,y) \sim q(x_0,y), \epsilon \sim \mathcal{N}(\textbf{0}, \textbf{I})} \left[ \lVert \epsilon - f_{\phi}(z_t, t, \tau_{\theta}(y)) \rVert_2^2 \right]
-\end{\align}
+\end{align}
 $$
 
 其中$$(x_0, y)$$是输入图片文本对，$$\tau_{\theta}$$是freezed的text embedding extractor，$$f_{\phi}$$是我们的UNet。
