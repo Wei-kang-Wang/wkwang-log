@@ -355,26 +355,27 @@ $$ESM = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \lVert s_{\theta}(\ti
 
 $$
 \begin{align}
-DSM &= \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) - s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x}, x)} \left[ \lVert s_{\theta}(\tilde{x}) \rVert_2^2 \right] - 2 \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x}, x)} \left[ \langle s_{\theta}(\tilde{x}), \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) \rangle \right] + c_2, \  \text{where} \  c_2 \  \text{is} \  \text{irrelavant} \   \text{w.r.t.} \  \theta
+\text{DSM} &= \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) - s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x}, x)} \left[ \lVert s_{\theta}(\tilde{x}) \rVert_2^2 \right] - 2 \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x}, x)} \left[ \langle s_{\theta}(\tilde{x}), \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) \rangle \right] + c_2, \  \text{where} \  c_2 \  \text{is} \  \text{irrelavant} \   \text{w.r.t.} \  \theta
 \end{align}
 $$
 
-而
+而我们发现，$$\textbf{ESM}$$的第一项和$$\textbf{DSM}$$的第一项相等：
 
 $$\mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \lVert s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \int_{\tilde{x}} q_{\sigma}(\tilde{x}) \lVert s_{\theta}(\tilde{x}) \rVert_2^2 d \tilde{x} = \int_{\tilde{x}} \int_{x} q_{\sigma}(\tilde{x} \vert x) p_{data}(x) \lVert s_{\theta}(\tilde{x}) \rVert_2^2 d \tilde{x} dx =  \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x}, x)} \left[ \lVert s_{\theta}(\tilde{x}) \rVert_2^2 \right]$$
 
-以及
+以及$$\textbf{ESM}$$的第二项和$$\textbf{DSM}$$的第二项也相等：
 
 $$
 \begin{align}
-&\mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \langle s_{\theta}(\tilde{x}), \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x}) \rangle \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \langle s_{\theta}(\tilde{x}), \frac{\partial log q_{\sigma}(\tilde{x})}{\partial \tilde{x}} \rangle \right] = \int_{\tilde{x}} q_{\sigma}(\tilde{x}) \langle s_{\theta}(\tilde{x}), \frac{\partial log q_{\sigma}(\tilde{x})}{\partial \tilde{x}} \rangle d \tilde{x} = \int_{\tilde{x}} q_{\sigma}(\tilde{x}) \langle s_{\theta}(\tilde{x}), \frac{1}{q_{\sigma}(\partial \tilde{x})}\frac{\partial q_{\sigma}(\partial \tilde{x})}{\tilde{x}} \rangle d \tilde{x}\\
-&= \int_{\tilde{x}} \langle s_{\theta}(\tilde{x}), \frac{\partial q_{\sigma}(\partial \tilde{x})}{\partial \tilde{x}} \rangle d \tilde{x} = \int_{\tilde{x}} \langle s_{\theta}(\tilde{x}), \frac{\partial}{\partial \tilde{x}} \int_x q_{\sigma}(\tilde{x} \vert x) p_{data}(x) dx \rangle d \tilde{x} = \int_{\tilde{x}} \langle s_{\theta}(\tilde{x}), \int_x \frac{\partial q_{\sigma}(\tilde{x} \vert x)}{\partial \tilde{x}} p_{data}(x) dx \rangle d \tilde{x} = \int_{\tilde{x}} \langle s_{\theta}(\tilde{x}), \int_x \frac{\partial log q_{\sigma}(\tilde{x} \vert x)}{\partial \tilde{x}} q_{\sigma}(\tilde{x} \vert x) p_{data}(x) dx \rangle d \tilde{x} = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x}, x)} \left[ \langle s_{\theta}(\tilde{x}), \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) \rangle \right]
+\mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \langle s_{\theta}(\tilde{x}), \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x}) \rangle \right] &= \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x})} \left[ \langle s_{\theta}(\tilde{x}), \frac{\partial log q_{\sigma}(\tilde{x})}{\partial \tilde{x}} \rangle \right] = \int_{\tilde{x}} q_{\sigma}(\tilde{x}) \langle s_{\theta}(\tilde{x}), \frac{\partial log q_{\sigma}(\tilde{x})}{\partial \tilde{x}} \rangle d \tilde{x} = \int_{\tilde{x}} q_{\sigma}(\tilde{x}) \langle s_{\theta}(\tilde{x}), \frac{1}{q_{\sigma}(\partial \tilde{x})}\frac{\partial q_{\sigma}(\partial \tilde{x})}{\tilde{x}} \rangle d \tilde{x}\\
+&= \int_{\tilde{x}} \langle s_{\theta}(\tilde{x}), \frac{\partial q_{\sigma}(\partial \tilde{x})}{\partial \tilde{x}} \rangle d \tilde{x} = \int_{\tilde{x}} \langle s_{\theta}(\tilde{x}), \frac{\partial}{\partial \tilde{x}} \int_x q_{\sigma}(\tilde{x} \vert x) p_{data}(x) dx \rangle d \tilde{x} = \int_{\tilde{x}} \langle s_{\theta}(\tilde{x}), \int_x \frac{\partial q_{\sigma}(\tilde{x} \vert x)}{\partial \tilde{x}} p_{data}(x) dx \rangle d \tilde{x}\\
+&= \int_{\tilde{x}} \langle s_{\theta}(\tilde{x}), \int_x \frac{\partial log q_{\sigma}(\tilde{x} \vert x)}{\partial \tilde{x}} q_{\sigma}(\tilde{x} \vert x) p_{data}(x) dx \rangle d \tilde{x} = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x}, x)} \left[ \langle s_{\theta}(\tilde{x}), \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) \rangle \right]
 \end{align}
 $$
 
 从而惊讶地发现，ESM和DSM只相差了一个与$$\theta$$无关的常数。从而现在可以用DSM来替代ESM作为优化基于$$\tilde{x}$$的score-matching的目标函数了，也就是说，之前我们引入$$q_{\sigma}(\tilde{x})$$的score来近似$$p_{data}(x)$$的score，现在我们可以用$$q_{\sigma}(\tilde{x} \vert x)$$的score来近似$$p_{data}(x)$$的score了。而根据我们的假设，$$q_{\sigma}(\tilde{x} \vert x)$$就是一个高斯分布$$\mathcal{N}(\tilde{x}; x, \sigma^2 \textbf{I})$$，从而其score是可以closed-form计算出来的，也就是说，现在的目标函数变为：
 
-$$DSM = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) - s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \frac{x-\tilde{x}}{\sigma^2} - s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \frac{-\epsilon}{\sigma^2} - s_{\theta}(\tilde{x}) \rVert_2^2 \right], \  \text{where} \  \epsilon \sim \mathcal{N}(\textbf{0}, \sigma^2 \textbf{I})$$
+$$\textbf{DSM} = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \nabla_{\tilde{x}} log q_{\sigma}(\tilde{x} \vert x) - s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \frac{x-\tilde{x}}{\sigma^2} - s_{\theta}(\tilde{x}) \rVert_2^2 \right] = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)} \left[ \lVert \frac{-\epsilon}{\sigma^2} - s_{\theta}(\tilde{x}) \rVert_2^2 \right], \  \text{where} \  \epsilon \sim \mathcal{N}(\textbf{0}, \sigma^2 \textbf{I})$$
 
 从而我们要做的就是，对于每个输入数据$$x$$，从$$\mathcal{N}(\textbf{0}, \sigma^2 \textbf{I})$$中采样噪声$$\epsilon$$，加到$$x$$上得到$$\tilde{x}$$，作为$$s_{\theta}$$的输入，然后优化上述目标函数，即DSM。也就是说，$$s_{\theta}$$实际上建模的是真实数据和加噪之后数据的差值（即噪声）。
 
