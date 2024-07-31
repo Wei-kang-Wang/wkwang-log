@@ -1,6 +1,6 @@
 ---
 layout: post
-comments: false
+comments: True
 title: "扩散模型"
 date: 2024-07-30 01:09:00
 
