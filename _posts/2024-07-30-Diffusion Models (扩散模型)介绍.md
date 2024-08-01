@@ -193,7 +193,7 @@ diffusion模型一般采用第二种方式，因为对噪声进行建模会更�
 $$
 \begin{align}
 \arg\min\limits_{\theta} \mathcal{L}_{VLB} &= \arg\min\limits_{\theta} \sum_{t=2}^T  \mathop{\mathbb{E}}\limits_{x_t, x_0 \sim q(x_t, x_0)} \left[ \textbf{D}_{\textbf{KL}}(q(x_{t-1} \vert x_{t}, x_0) \Vert p_{\theta}(x_{t-1} \vert x_t)) \right] = \arg\min\limits_{\theta} \sum_{t=2}^T \mathop{\mathbb{E}}\limits_{x_t, x_0 \sim q(x_t, x_0)} \left[ \frac{\bar{\alpha}_{t-1}\beta_t^2}{2\tilde{\beta_t} (1-\bar{\alpha}_t)^2} \Vert f_{\theta}(x_t, t) - \bar{\epsilon}_t \Vert_2^2 \right] \\
-&= \arg\min\limits_{\theta} \mathop{\mathbb{E}}\limits_{x_0 \sim q(x_0), \bar{\epsilon}_t \sim \mathcal{N}(\mathbf{0}, \mathbf{I}), t \sim \left[2, T \right]} \left[ \Vert f_{\theta}(x_t, t) - \bar{\epsilon}_t \Vert_2^2 \right]
+&= \arg\min\limits_{\theta} \mathop{\mathbb{E}}\limits_{x_0 \sim q(x_0), \bar{\epsilon}_t \sim \mathcal{N}(\mathbf{0}, \mathbf{I}), t \sim \left[2, T \right]} \left[\frac{\bar{\alpha}_{t-1}\beta_t^2}{2\tilde{\beta_t} (1-\bar{\alpha}_t)^2} \Vert f_{\theta}(x_t, t) - \bar{\epsilon}_t \Vert_2^2 \right]
 \end{align}
 $$
 
@@ -681,6 +681,96 @@ LDM流程图：
 4. http://blog.cnbang.net/tech/3823/
 5. https://blog.csdn.net/xd_wjc/article/details/134441396
 6. https://zhuanlan.zhihu.com/p/582266032
+
+
+## 4. [DreamFusion](https://dreamfusion3d.github.io/)：开启了使用预训练好的2D diffusion模型获取3D representation的先河
+
+DreamFusion原论文的全名是DreamFusion: Text-to-3D using 2D Diffusion，荣获了ICLR2023的outstanding paper award，同时也成为后续大量科研工作的baseline，其通讯作者Ben Mildenhall就是NeRF的一作，而三作Jonathan T. Barron，更是3D领域的重量级。
+
+![18]({{ '/assets/images/diffusion_18.png' | relative_url }})
+{: style="width: 1200px; max-width: 100%;"}
+
+文章里的这句话很精髓，直接引用：
+
+> We are not interested in sampling pixels; we instead want to **create 3D models that look like good images when rendered from
+random angles**. Such models can be specified as a differentiable image parameterization (DIP), where a differentiable generator $$g$$ transforms parameters $$\theta$$ to create an image $$x = g(\theta)$$. DIPs allow us to express constraints, optimize in more compact spaces (e.g.~arbitrary resolution coordinate-based MLPs), or leverage more powerful optimization algorithms for traversing pixel space. For 3D, we let $$\theta$$ be parameters of a 3D volume and $$g$$ a volumetric renderer. To learn these parameters, we require a loss function that can be applied to diffusion models.
+
+DreamFusion是第一个（应该是？）利用pre-trained好的2D diffusion model来获取3D representation的论文，其想法和思路都很直接：对于一个已经预训练好的2D diffusion model，以及一个文字输入，其能够生成满足该文字语义的图片。从而我们可以初始化一个3D representation（在DreamFusion里就是一个NeRF），每次随机sample一个viewpoint，结合NeRF渲染出这个角度的图片，该图片需要与文字输入相匹配，如何利用pre-trained的diffusion model来衡量这种匹配值，是关键，DreamDiffusion提出了Score Distillation Sampling（SDS）来约束这个匹配值，下面就来具体介绍这个SDS的细节。
+
+首先，不管是DDPM还是NCSN，其训练的loss，记为$$\mathcal{L}_{diff}$$都可以写为如下形式：
+
+$$\mathcal{L}_{diff}(\phi) = \mathop{\mathbb{E}}\limits_{x \sim q(x), t \sim \left[2, T \right], \epsilon \sim \mathcal{N}(\textbf{0}, \textbf{I})} \left[ w(t) \lVert f_{\phi}(\alpha_t x + \sigma_t \epsilon) - \epsilon \rVert_2^2 \right]$$
+
+也可以对于每个数据$$x \sim q(x)$$都定义一个$$\mathcal{L}_{diff}(\phi, x)$$，那么$$\mathcal{L}_{diff}(\phi) = \mathop{\mathbb{E}}\limits_{x \sim q(x)} \mathcal{L}_{diff}(\phi, x)$$。
+
+其中$$w(t)$$是DDPM里的$$\frac{\bar{\alpha}_{t-1}\beta_t^2}{2\tilde{\beta_t} (1-\bar{\alpha}_t)^2}$$，也是NCSN里的$$\lambda_t(\sigma_t)$$。
+
+现在我们有了一个预训练好的diffusion model（即$$\phi$$是固定的），我们想要训练的是一个3D representation（即上面所说的$$g(\theta)$$）的参数（即$$\theta$$），使得对于其在任意视角下得到的新图片$$x = g(\theta)$$，最小化$$\mathcal{L}_{diff}(\phi, x=g(\theta))$$：
+
+$$\theta^{\ast} = \arg\min\limits_{\theta} \mathcal{L}_{diff}(\phi, x=g(\theta)) = \arg\min\limits_{\theta} \mathop{\mathbb{E}}\limits_{t \sim \left[2, T \right], \epsilon \sim \mathcal{N}(\textbf{0}, \textbf{I})} \left[ w(t) \lVert f_{\phi}(\alpha_t g(\theta) + \sigma_t \epsilon, t) - \epsilon \rVert_2^2 \right]$$
+
+但实际上，用上述loss是无法得到一个好的3D representation结果的（在这篇文章里，$$g(\theta)$$就是NeRF）。甚至不考虑NeRF，直接让$$x$$变成被优化的目标（即$$g(\theta)$$是个identity map），按照上述loss也难以得到一个符合文本描述的图片$$x$$。文章里说有些research论文说如果仔细挑选timesteps，改变优化策略和训练策略是有可能得到好的结果的，但作者认为这样做太复杂了，而且太过于工程化，且不易推广到一般情况。
+
+作者的做法是，换个新的loss。
+
+首先，文章分析了为什么使用上述的loss，$$\mathcal{L}_{diff}(\phi, x=g(\theta))$$效果不好。计算该loss对$$\theta$$的导数：
+
+$$\nabla_{\theta} \mathcal{L}_{diff}(\phi, x=g(\theta)) = \mathop{\mathbb{E}}\limits_{t \sim \left[2, T \right], \epsilon \sim \mathcal{N}(\textbf{0}, \textbf{I})} \left[ 2 \alpha_t w(t) (f_{\phi}(\alpha_t g(\theta) + \sigma_t \epsilon, t, y) - \epsilon) \frac{\partial f_{\phi}(\alpha_t g(\theta) + \sigma_t \epsilon, t, y)}{\alpha_t g(\theta) + \sigma_t \epsilon} \frac{\partial g(\theta)}{\theta} \right]$$
+
+其中$$y$$是text embedding。最后一个表达式的期望表示式内部，有三项乘积组成（不考虑系数$$2 \alpha_t w(t)$$），其中第一项$$f_{\phi}(\alpha_t g(\theta) + \sigma_t \epsilon, t, y) - \epsilon$$叫做noise residual，第二项$$\frac{\partial f_{\phi}(\alpha_t g(\theta) + \sigma_t \epsilon, t, y)}{\alpha_t g(\theta) + \sigma_t \epsilon}$$叫做UNet Jacobbian，第三项$$\frac{\partial g(\theta)}{\theta}$$叫做generator Jacobbian。
+
+作者发现，计算中间那项计算十分复杂（因为UNet结构复杂），并且会造成结果变差，所以不如去掉这项，从而得到了新的loss，记为$$\mathcal{L}_{SDS}(\phi, x=g(\theta))$$，这个新loss对于$$\theta$$的梯度，就是上述$$\mathcal{L}_{diff}$$对于$$\theta$$的梯度去掉了中间那项：
+
+$$\nabla_{\theta} \mathcal{L}_{SDS}(\phi, x=g(\theta)) = \mathop{\mathbb{E}}\limits_{t \sim \left[2, T \right], \epsilon \sim \mathcal{N}(\textbf{0}, \textbf{I})} \left[ 2 \alpha_t w(t) (f_{\phi}(\alpha_t g(\theta) + \sigma_t \epsilon, t, y) - \epsilon) \frac{\partial g(\theta)}{\theta} \right]$$
+
+有其他文章给出了下面的结果：
+
+$$\nabla_{\theta} \mathcal{L}_{SDS}(\phi, x=g(\theta)) = \nabla_{\theta} \mathop{\mathbb{E}}\limits_{t \sim \left[2, T \right]} \left[ 2\sigma_t w(t) \textbf{D}_{\textbf{KL}}(q(\alpha_t g(\theta) + \sigma_t \epsilon; g(\theta), y, t) \Vert p_{\phi}(\alpha_t g(\theta) + \sigma_t \epsilon; y, t)) \right]$$
+
+其中$$q(\alpha_t g(\theta) + \sigma_t \epsilon; g(\theta), y, t)$$表示的是前向扩散过程在数据$$g(\theta)$$上加噪之后（即$$\alpha_t g(\theta) + \sigma_t \epsilon$$），该噪声数据的概率分布。而该结果是知道的，是一个高斯分布，也就是DDPM里的$$q(x_t \vert x_0) = \mathcal{N}(x_t; \sqrt{\bar{\alpha}_t}x_0, (1 - \bar{\alpha}_t)\mathbf{I})$$。而$$p_{\phi}(\alpha_t g(\theta) + \sigma_t \epsilon; y, t)$$表示的是反向扩散过程，加了噪声的数据$$\alpha_t g(\theta) + \sigma_t \epsilon$$的分布，此时该分布的均值由网络预测出（输入是该噪声数据本身和时间$$t$$），同样也是一个高斯分布。
+
+有了上述结果，就可以知道，$$\mathcal{L}_{SDS}(\phi, x=g(\theta))$$和$$\mathop{\mathbb{E}}\limits_{t \sim \left[2, T \right]} \left[ 2\sigma_t w(t) \textbf{D}_{\textbf{KL}}(q(\alpha_t g(\theta) + \sigma_t \epsilon; g(\theta), y, t) \Vert p_{\phi}(\alpha_t g(\theta) + \sigma_t \epsilon; y, t)) \right]$$只差了一个和$$\theta$$无关的常数，从而知道了loss值，就可以观察loss变化趋势了。
+
+由$$\mathcal{L}_{SDS}$$的表达式可以看到，其并不需要计算关于diffusion model的反向传播（只需要一个forward pass来计算$$f_{\phi}(\alpha_t g(\theta) + \sigma_t \epsilon, t, y)$$的值），所以diffusion model的作用是一个efficient, frozen critic that predicts image-space edits。
+
+DreamFusion的流程图如下：
+
+![19]({{ '/assets/images/diffusion_19.png' | relative_url }})
+{: style="width: 1200px; max-width: 100%;"}
+
+$$z_t$$就是我们加噪之后的数据，也就是之前公式里的$$\alpha_t g(\theta) + \sigma_t \epsilon$$，$$\hat{x}_{\phi}(z_t \vert y; t)$$是以$$z_t$$作为输入，经由diffusion models预测得到的输入数据，也就是该值需要近似$$g(\theta)$$，$$\hat{\epsilon}_t(z_t \vert y ; t)$$是diffusion models以$$z_t$$作为输入，预测得到的$$z_t$$所加上的噪声值，也就需要近似等于$$\epsilon$$。
+
+现在已经知道了DreamDiffusion是如何使用一个预训练好的diffusion models，利用SDS loss来optimize一个NeRF的参数了。下面我们来看一下具体的实现细节。
+
+**diffusion models的选取**
+
+DreamFusion选择了一个使用图像文本对训练的可以根据输入文本生成语义一致的图片的diffusion models，叫做Imagen。其使用了basic的Imagen模型，即输出图像尺寸为$$64 \times 64$$，而且不对它做任何调整，只是拿来用。
+
+**NeRF的选取和结构细节**
+
+DreamFusion每次随即设置一个相机位置、相机旋转角度，来render一个新的view，然后按照上述所说的步骤来优化NeRF的参数。作者使用的是mip-NeRF 360（可能是因为其作者和DreamFusion的作者高度重合）。
+
+传统的NeRF每次的输入是相机参数和一个3D坐标，输出是该点的opacity（或者叫volume density）$$\tau$$，用来衡量3D空间里该点位于物体的表面与否）以及emit radiance，也就是与相机视角相关的RGB值（opacity与相机视角无关）。而DreamFusion则是同样以相机参数和一个3D坐标为输入，输出的是该点的opacity和基于RGB的albedo（基于RGB的albedo和RGB的区别在于，其代表的是该点材料本身的颜色，与视角、光照等其他外界因素都没有关系）$$\rho$$，即：
+
+$$(\rho, \tau) = \textbf{MLP}(\mu; \theta)$$
+
+其中$$\mu$$是空间三维坐标，$$\theta$$是相机内参外参。
+
+在有了每个三维点的albedo之后，还需要结合光照条件来得到最终relistic的该点的RGB值（这个过程叫做shading），而该点的shading，需要计算该点的normal vector（其表示该点的局部几何特征，即该点的normal是垂直于该点的切平面的）。而每个三维点的surface normal vector的计算如下：
+
+$$n = -\nabla_{\mu} \tau / \lVert nabla_{\mu} \tau \rVert$$
+
+在有了每个点的albedo $$\rho$$，normal $$n$$，并且确定了点光源的三维位置$$l$$，点光源的颜色$$l_{\rho}$$，以及环境光颜色$$l_{a}$$之后，
+
+每个三维点$$\mu$$的最终的color就可以计算出来了：
+
+$$c = \rho (l_{\rho} \max(0, n \dot (l-\mu) / \Vert l-mu \Vert) + l_a)$$
+
+有了每个点的color $$c$$和opacity $$\tau$$之后，就可以像classical NeRF一样render图片了。
+
+作者还发现，随机的将某些点的albedo直接替换成白色的，即$$(1,1,1)$$，能够更好的学习场景的texture。这还可以防止模型学到flat的geometry：比如说场景里有一副画了松鼠的画，以及有一个真实的三维松鼠，在某些很多相机角度下都能render出类似的图片。
+
+作者还发现，需要限制NeRF的三维采样点的范围在一个球面内，并且利用另一个MLP来建模环境光，其输入是每个三维点相对于相机的ray direction，输出是这个点的环境光。
 
 
 
