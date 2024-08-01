@@ -52,7 +52,7 @@ $$q(x_{1:T} \vert x_0) = \Pi_{t=1}^T q(x_t \vert x_{t-1})$$
 
 而实际上，前向过程的一个良好的性质是，我们可以得到$$x_t$$与$$x_0$$的closed form的关系（$$1 \leq t \leq T$$）：
 
-记$$\alpha_t = 1 - \beta_t$$，$$\bar{\alpha_t} = \Pi_{i=1}^t \alpha_i$$，那么：
+记$$\alpha_t = 1 - \beta_t$$，$$\bar{\alpha}_t = \Pi_{i=1}^t \alpha_i$$，那么：
 
 $$
 \begin{align}
@@ -60,9 +60,9 @@ $$
 x_t &= \sqrt{\alpha_t} x_{t-1} + \sqrt{1-\alpha_t} \epsilon_{t-1}, \  \text{where} \  \epsilon_{t-1} \sim \mathcal{N}(\mathbf{0}, \mathbf{I}) \\
 &= \sqrt{\alpha_t}(\sqrt{\alpha_{t-1}}x_{t-1} + \sqrt{1-\alpha_{t-1}}\epsilon_{t-2}) + \sqrt{1-\alpha_t}\epsilon_{t-1}, \  \text{where} \  \epsilon_{t-1} \sim \mathcal{N}(\mathbf{0}, \mathbf{I}) \\
 &= \sqrt{\alpha_t \alpha_{t-1}} x_{t-2} + (\sqrt{1-\alpha_{t-1}}\epsilon_{t-2}) + \sqrt{1-\alpha_t}\epsilon_{t-1}) \\
-&= \sqrt{\alpha_t \alpha_{t-1}} x_{t-2} + \sqrt{1-\alpha_{t}\alpha_{t-1}}\bar{\epsilon_{2}}, \  \text{where} \  \bar{\epsilon_{2}} \sim \mathcal{N}(\mathbf{0}, \mathbf{I}) \\
+&= \sqrt{\alpha_t \alpha_{t-1}} x_{t-2} + \sqrt{1-\alpha_{t}\alpha_{t-1}}\bar{\epsilon}_2, \  \text{where} \  \bar{\epsilon}_2 \sim \mathcal{N}(\mathbf{0}, \mathbf{I}) \\
 &= \cdots \\
-&= \sqrt{\bar{\alpha_t}} x_0 + \sqrt{1 - \bar{\alpha_t}} \bar{\epsilon_{t}}, \  \text{where} \  \bar{\epsilon_{t}} \sim \mathcal{N}(\mathbf{0}, \mathbf{I}) \\
+&= \sqrt{\bar{\alpha}_t} x_0 + \sqrt{1 - \bar{\alpha}_t} \bar{\epsilon}_t, \  \text{where} \  \bar{\epsilon}_t \sim \mathcal{N}(\mathbf{0}, \mathbf{I}) \\
 \end{align}
 $$
 
@@ -72,9 +72,9 @@ $$
 
 由上述推导，可以得到在$$x_0$$条件下$$x_t$$的分布是个高斯分布：
 
-$$q(x_t \vert x_0) = \mathcal{N}(x_t; \sqrt{\bar{\alpha_t}}x_0, (1 - \bar{\alpha_t})\mathbf{I})$$
+$$q(x_t \vert x_0) = \mathcal{N}(x_t; \sqrt{\bar{\alpha}_t}x_0, (1 - \bar{\alpha}_t)\mathbf{I})$$
 
-一般来说，对于超参数$$\lbrace \beta_t \in (0,1) \rbrace_{t=1}^T$$的设置是，随着$$t$$的增大，噪声的程度可以越来越大，也就是说$$\beta_1 < \beta_2 < \cdots < \beta_T$$，从而$$\alpha_1 > \alpha_2 > \cdots > \alpha_T$$，且$$\bar{\alpha_1} > \bar{\alpha_2} > \cdots > \bar{\alpha_T}$$。
+一般来说，对于超参数$$\lbrace \beta_t \in (0,1) \rbrace_{t=1}^T$$的设置是，随着$$t$$的增大，噪声的程度可以越来越大，也就是说$$\beta_1 < \beta_2 < \cdots < \beta_T$$，从而$$\alpha_1 > \alpha_2 > \cdots > \alpha_T$$，且$$\bar{\alpha}_1 > \bar{\alpha}_2 > \cdots > \bar{\alpha}_T$$。
 
 ### (2). 反向扩散过程（reverse diffusion process）
 
@@ -93,15 +93,15 @@ $$q(x_{0:T}) = q(x_T) \Pi_{t=1}^T q(x_{t-1} \vert x_t) = q(x_T) \Pi_{t=1}^T p_{\
 $$
 \begin{align}
 
-q(x_{t-1} \vert x_t, x_0) &= q(x_t \vert x_{t-1}, x_0) \frac{q(x_{t-1} \vert x_0)}{q(x_t \vert x_0)} = \mathcal{N}(x_t; \sqrt{1-\beta_t}x_{t-1}, \beta_t \mathbf{I}) \frac{\mathcal{N}(x_{t-1}; \sqrt{\bar{\alpha_{t-1}}}x_0, (1-\bar{\alpha_{t-1}})\mathbf{I})}{\mathcal{N}(x_{t}; \sqrt{\bar{\alpha_{t}}}x_0, (1-\bar{\alpha_{t}})\mathbf{I})}\\
-& \propto exp(-\frac{1}{2} \frac{(x_t - \sqrt{\alpha_t} x_{t-1})^T(x_t - \sqrt{\alpha_t} x_{t-1})}{\beta_t} + \frac{1}{2} \frac{(x_{t-1} - \sqrt{\bar{\alpha_{t-1}}} x_{0})^T(x_{t-1} - \sqrt{\bar{\alpha_{t-1}}} x_{0})}{1 - \bar{\alpha_{t-1}}}) - \frac{1}{2} \frac{(x_{t} - \sqrt{\bar{\alpha_{t}}} x_{0})^T(x_{t} - \sqrt{\bar{\alpha_{t}}} x_{0})}{1 - \bar{\alpha_t}})\\
-&= exp(-\frac{1}{2}((\frac{\alpha_t}{\beta_t} + \frac{1}{1-\bar{\alpha_{t-1}}})x_{t-1}^Tx_{t-1} - (\frac{2 \sqrt{\alpha_t}}{\beta_t}x_t^T + \frac{2 \sqrt{\bar{\alpha_{t-1}}}}{1-\bar{\alpha_{t-1}}}x_0^T)x_{t-1})+ C(x_0, x_t)), \  \text{where} \  C(x_0, x_t) \  \text{is} \  \text{a} \  \text{constant} \  \text{w.r.t.} \  x_{t-1}
+q(x_{t-1} \vert x_t, x_0) &= q(x_t \vert x_{t-1}, x_0) \frac{q(x_{t-1} \vert x_0)}{q(x_t \vert x_0)} = \mathcal{N}(x_t; \sqrt{1-\beta_t}x_{t-1}, \beta_t \mathbf{I}) \frac{\mathcal{N}(x_{t-1}; \sqrt{\bar{\alpha}_{t-1}}x_0, (1-\bar{\alpha}_{t-1})\mathbf{I})}{\mathcal{N}(x_{t}; \sqrt{\bar{\alpha}_t}x_0, (1-\bar{\alpha}_t)\mathbf{I})}\\
+& \propto exp(-\frac{1}{2} \frac{(x_t - \sqrt{\alpha_t} x_{t-1})^T(x_t - \sqrt{\alpha_t} x_{t-1})}{\beta_t} + \frac{1}{2} \frac{(x_{t-1} - \sqrt{\bar{\alpha}_{t-1}} x_{0})^T(x_{t-1} - \sqrt{\bar{\alpha}_{t-1}} x_{0})}{1 - \bar{\alpha}_{t-1}}) - \frac{1}{2} \frac{(x_{t} - \sqrt{\bar{\alpha}_t} x_{0})^T(x_{t} - \sqrt{\bar{\alpha}_t} x_{0})}{1 - \bar{\alpha}_t})\\
+&= exp(-\frac{1}{2}((\frac{\alpha_t}{\beta_t} + \frac{1}{1-\bar{\alpha_{t-1}}})x_{t-1}^Tx_{t-1} - (\frac{2 \sqrt{\alpha_t}}{\beta_t}x_t^T + \frac{2 \sqrt{\bar{\alpha}_{t-1}}}{1-\bar{\alpha}_{t-1}}x_0^T)x_{t-1})+ C(x_0, x_t)), \  \text{where} \  C(x_0, x_t) \  \text{is} \  \text{a} \  \text{constant} \  \text{w.r.t.} \  x_{t-1}
 \end{align}
 $$
 
 从这个形式可以看出，$$q(x_{t-1} \vert x_t, x_0)$$也满足高斯分布，$$q(x_{t-1} \vert x_t, x_0) = \mathcal{N}(x_{t-1} \vert \tilde{\mu}(x_t, x_0), \tilde{\beta_t} \mathbf{I})$$，其中
 
-$$\tilde{\beta_t} = 1/(\frac{\alpha_t}{\beta_t} + \frac{1}{1-\bar{\alpha_{t-1}}}) = \frac{1-\bar{\alpha_{t-1}}}{1-\bar{\alpha_{t}}} \beta_t, \tilde{\mu}(x_t, x_0) = (\frac{2 \sqrt{\alpha_t}}{\beta_t}x_t + \frac{2 \sqrt{\bar{\alpha_{t-1}}}}{1-\bar{\alpha_{t-1}}}x_0) / (\frac{\alpha_t}{\beta_t} + \frac{1}{1-\bar{\alpha_{t-1}}}) = \frac{\sqrt{\alpha_t}(1-\bar{\alpha_{t-1}})}{1-\bar{\alpha_t}}x_t + \frac{\sqrt{\bar{\alpha_{t-1}}}\beta_t}{1-\bar{\alpha_t}}x_0$$
+$$\tilde{\beta_t} = 1/(\frac{\alpha_t}{\beta_t} + \frac{1}{1-\bar{\alpha}_{t-1}}) = \frac{1-\bar{\alpha}_{t-1}}{1-\bar{\alpha}_t} \beta_t, \tilde{\mu}(x_t, x_0) = (\frac{2 \sqrt{\alpha_t}}{\beta_t}x_t + \frac{2 \sqrt{\bar{\alpha_{t-1}}}}{1-\bar{\alpha_{t-1}}}x_0) / (\frac{\alpha_t}{\beta_t} + \frac{1}{1-\bar{\alpha}_{t-1}}) = \frac{\sqrt{\alpha_t}(1-\bar{\alpha}_{t-1})}{1-\bar{\alpha}_t}x_t + \frac{\sqrt{\bar{\alpha}_{t-1}}\beta_t}{1-\bar{\alpha}_t}x_0$$
 
 而之前我们有结论：$$x_t = \sqrt{\bar{\alpha}_t} x_0 + \sqrt{1 - \bar{\alpha}_t} \bar{\epsilon}_t, \  \text{where} \  \bar{\epsilon}_t \sim \mathcal{N}(\textbf{0}, \textbf{I})$$，也就是，$$x_0 = \frac{1}{\sqrt{\bar{\alpha}_t}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha}_t}}\bar{\epsilon}_t)$$，带入$$\tilde{\mu}(x_t, x_0)$$上面的结果，可得：$$\tilde{\mu}(x_t, x_0) = \frac{1}{\sqrt{\bar{\alpha}_t}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha}_t}} \bar{\epsilon}_t)$$，与$$x_0$$无关了，因此也可以记为$$\tilde{\mu}_t$$。
 
@@ -152,9 +152,9 @@ $$
 
 denoising matching term里的每一项，由之前的结果可知：
 
-$$q(x_{t-1} \vert x_t, x_0) = \mathcal{N}(x_{t-1}; \frac{1}{\sqrt{\bar{\alpha_t}}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha_t}}} \bar{\epsilon_{t}}), \frac{1-\bar{\alpha_{t-1}}}{1-\bar{\alpha_{t}}} \beta_t)$$
+$$q(x_{t-1} \vert x_t, x_0) = \mathcal{N}(x_{t-1}; \frac{1}{\sqrt{\bar{\alpha}_t}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha}_t}} \bar{\epsilon}_t), \frac{1-\bar{\alpha}_{t-1}}{1-\bar{\alpha}_t} \beta_t)$$
 
-为了让$$p_{\theta}(x_{t-1} \vert x_t)$$和$$q(x_{t-1} \vert x_t, x_0)$$之间的$$DL$$散度尽可能小，我们则也假设$$p_{\theta}(x_{t-1} \vert x_t)$$为高斯分布（与之前的假设不谋而合）。因为我们已经计算出来$$q(x_{t-1} \vert x_t, x_0)$$的方差为$$\frac{1-\bar{\alpha_{t-1}}}{1-\bar{\alpha_{t}}} \beta_t$$是个常数，所以$$p_{\theta}(x_{t-1} \vert x_t)$$的方差也是该值，但是$$q(x_{t-1} \vert x_t, x_0)$$的均值是$$\frac{1}{\sqrt{\bar{\alpha_t}}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha_t}}} \bar{\epsilon_{t}})$$，其中$$\bar{\epsilon_{t}}$$是每次前向扩散过程从标准高斯分布中随机采样的值，这是未知的（因为有$$x_t, x_0, \bar{\epsilon_{t}}$$之间的关系，$$x_t$$在反向扩散过程中是已知的，$$x_0$$是我们希望要得到的，$$x_0$$的未知性和$$\bar{\epsilon_{t}}$$的未知性等价），所以没办法直接让$$p_{\theta}(x_{t-1} \vert x_t)$$的均值就等于它，从而这就成为了扩散模型需要利用神经网络进行学习的部分，记$$p_{\theta}(x_{t-1} \vert x_t)$$的均值为$$\mu_{\theta}$$。
+为了让$$p_{\theta}(x_{t-1} \vert x_t)$$和$$q(x_{t-1} \vert x_t, x_0)$$之间的$$DL$$散度尽可能小，我们则也假设$$p_{\theta}(x_{t-1} \vert x_t)$$为高斯分布（与之前的假设不谋而合）。因为我们已经计算出来$$q(x_{t-1} \vert x_t, x_0)$$的方差为$$\frac{1-\bar{\alpha}_{t-1}}{1-\bar{\alpha}_t} \beta_t$$是个常数，所以$$p_{\theta}(x_{t-1} \vert x_t)$$的方差也是该值，但是$$q(x_{t-1} \vert x_t, x_0)$$的均值是$$\frac{1}{\sqrt{\bar{\alpha}_t}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha}_t}} \bar{\epsilon}_t)$$，其中$$\bar{\epsilon}_t$$是每次前向扩散过程从标准高斯分布中随机采样的值，这是未知的（因为有$$x_t, x_0, \bar{\epsilon_{t}}$$之间的关系，$$x_t$$在反向扩散过程中是已知的，$$x_0$$是我们希望要得到的，$$x_0$$的未知性和$$\bar{\epsilon}_t$$的未知性等价），所以没办法直接让$$p_{\theta}(x_{t-1} \vert x_t)$$的均值就等于它，从而这就成为了扩散模型需要利用神经网络进行学习的部分，记$$p_{\theta}(x_{t-1} \vert x_t)$$的均值为$$\mu_{\theta}$$。
 
 因为$$p_{\theta}(x_{t-1} \vert x_t)$$和$$q(x_{t-1} \vert x_t, x_0)$$都是高斯分布，实际上它们之间的$$DL$$散度是可以closed-form计算出来的：
 
@@ -164,27 +164,27 @@ $$\textbf{D}_{\textbf{KL}}(q(x_{t-1} \vert x_t, x_0) \Vert p_{\theta}(x_{t-1} \v
 
 所以说，最小化$$\mathcal{L}_{VLB}^{\ast}$$（也就是等价于最小化$$\mathcal{L}_{VLB}$$）的重点就在于最小化denoising matching term里的每一项$$p_{\theta}(x_{t-1} \vert x_t)$$和$$q(x_{t-1} \vert x_t, x_0)$$之间的$$DL$$散度，$$2 \leq t \leq T$$。而根据上面的推导过程可知，也就等价于最小化每个高斯分布$$p_{\theta}(x_{t-1} \vert x_t)$$的均值和高斯分布$$q(x_{t-1} \vert x_t, x_0)$$的均值。$$p_{\theta}(x_{t-1} \vert x_t)$$的均值由网络预测出，网络的输入是$$x_t$$和时间$$t$$，而$$q(x_{t-1} \vert x_t, x_0)$$的均值是已知的，有两种写法：
 
-$$\tilde{\mu}(x_t, x_0) = \frac{\sqrt{\alpha_t}(1-\bar{\alpha_{t-1}})}{1-\bar{\alpha_t}}x_t + \frac{\sqrt{\bar{\alpha_{t-1}}}\beta_t}{1-\bar{\alpha_t}}x_0$$
+$$\tilde{\mu}(x_t, x_0) = \frac{\sqrt{\alpha_t}(1-\bar{\alpha}_{t-1})}{1-\bar{\alpha}_t}x_t + \frac{\sqrt{\bar{\alpha}_{t-1}}\beta_t}{1-\bar{\alpha}_t}x_0$$
 
-$$\tilde{\mu}(x_t, x_0) = \frac{1}{\sqrt{\alpha_t}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha_t}}} \bar{\epsilon_{t}})$$
+$$\tilde{\mu}(x_t, x_0) = \frac{1}{\sqrt{\alpha_t}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha}_t}} \bar{\epsilon}_t)$$
 
-从而我们的神经网络输出也可以有两种：（1）输入$$x_t, t$$，预测$$x_0$$；（2）输入$$x_t, t$$，预测$$\bar{\epsilon_t}$$。记$$f_{\theta}(x_t, t)$$为网络的输出。
+从而我们的神经网络输出也可以有两种：（1）输入$$x_t, t$$，预测$$x_0$$；（2）输入$$x_t, t$$，预测$$\bar{\epsilon}_t$$。记$$f_{\theta}(x_t, t)$$为网络的输出。
 
 对于第一种情况：
 
-$$\mu_{\theta} = \frac{\sqrt{\alpha_t}(1-\bar{\alpha_{t-1}})}{1-\bar{\alpha_t}}x_t + \frac{\sqrt{\bar{\alpha_{t-1}}}\beta_t}{1-\bar{\alpha_t}}f_{\theta}(x_t, t)$$
+$$\mu_{\theta} = \frac{\sqrt{\alpha_t}(1-\bar{\alpha}_{t-1})}{1-\bar{\alpha}_t}x_t + \frac{\sqrt{\bar{\alpha}_{t-1}}\beta_t}{1-\bar{\alpha}_t}f_{\theta}(x_t, t)$$
 
 从而：
 
-$$\arg\min\limits_{\theta} \textbf{D}_{\textbf{KL}}(q(x_{t-1} \vert x_{t}, x_0) \Vert p_{\theta}(x_{t-1} \vert x_t)) = \arg\min\limits_{\theta} \frac{\bar{\alpha_{t-1}}\beta_t^2}{2\tilde{\beta_t} (1-\bar{\alpha_t})^2} \Vert f_{\theta}(x_t, t) - x_0 \Vert_2^2$$
+$$\arg\min\limits_{\theta} \textbf{D}_{\textbf{KL}}(q(x_{t-1} \vert x_{t}, x_0) \Vert p_{\theta}(x_{t-1} \vert x_t)) = \arg\min\limits_{\theta} \frac{\bar{\alpha}_{t-1}\beta_t^2}{2\tilde{\beta_t} (1-\bar{\alpha}_t)^2} \Vert f_{\theta}(x_t, t) - x_0 \Vert_2^2$$
 
 对于第二种情况：
 
-$$\mu_{\theta} = \frac{1}{\sqrt{\alpha_t}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha_t}}} f_{\theta}(x_t, t))$$
+$$\mu_{\theta} = \frac{1}{\sqrt{\alpha_t}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha}_t}} f_{\theta}(x_t, t))$$
 
 从而：
 
-$$\arg\min\limits_{\theta} \textbf{D}_{\textbf{KL}}(q(x_{t-1} \vert x_{t}, x_0) \Vert p_{\theta}(x_{t-1} \vert x_t)) = \arg\min\limits_{\theta} \frac{1}{2\tilde{\beta_t} \alpha_t} \frac{(1-\alpha_t)^2}{1-\bar{\alpha_t}} \Vert f_{\theta}(x_t, t) - \bar{\alpha_t} \Vert_2^2$$
+$$\arg\min\limits_{\theta} \textbf{D}_{\textbf{KL}}(q(x_{t-1} \vert x_{t}, x_0) \Vert p_{\theta}(x_{t-1} \vert x_t)) = \arg\min\limits_{\theta} \frac{1}{2\tilde{\beta_t} \alpha_t} \frac{(1-\alpha_t)^2}{1-\bar{\alpha}_t} \Vert f_{\theta}(x_t, t) - \bar{\alpha}_t \Vert_2^2$$
 
 diffusion模型一般采用第二种方式，因为对噪声进行建模会更加关注细节（噪声相对于原数据$$x_0$$要更小一些）。
 
@@ -192,7 +192,7 @@ diffusion模型一般采用第二种方式，因为对噪声进行建模会更�
 
 $$
 \begin{align}
-\arg\min\limits_{\theta} \mathcal{L}_{VLB} &= \arg\min\limits_{\theta} \sum_{t=2}^T  \mathop{\mathbb{E}}\limits_{x_t, x_0 \sim q(x_t, x_0)} \left[ \textbf{D}_{\textbf{KL}}(q(x_{t-1} \vert x_{t}, x_0) \Vert p_{\theta}(x_{t-1} \vert x_t)) \right] = \arg\min\limits_{\theta} \sum_{t=2}^T \mathop{\mathbb{E}}\limits_{x_t, x_0 \sim q(x_t, x_0)} \left[ \frac{\bar{\alpha_{t-1}}\beta_t^2}{2\tilde{\beta_t} (1-\bar{\alpha_t})^2} \Vert f_{\theta}(x_t, t) - \bar{\epsilon}_t \Vert_2^2 \right] \\
+\arg\min\limits_{\theta} \mathcal{L}_{VLB} &= \arg\min\limits_{\theta} \sum_{t=2}^T  \mathop{\mathbb{E}}\limits_{x_t, x_0 \sim q(x_t, x_0)} \left[ \textbf{D}_{\textbf{KL}}(q(x_{t-1} \vert x_{t}, x_0) \Vert p_{\theta}(x_{t-1} \vert x_t)) \right] = \arg\min\limits_{\theta} \sum_{t=2}^T \mathop{\mathbb{E}}\limits_{x_t, x_0 \sim q(x_t, x_0)} \left[ \frac{\bar{\alpha}_{t-1}\beta_t^2}{2\tilde{\beta_t} (1-\bar{\alpha}_t)^2} \Vert f_{\theta}(x_t, t) - \bar{\epsilon}_t \Vert_2^2 \right] \\
 &= \arg\min\limits_{\theta} \mathop{\mathbb{E}}\limits_{x_0 \sim q(x_0), \bar{\epsilon}_t \sim \mathcal{N}(\mathbf{0}, \mathbf{I}), t \sim \left[2, T \right]} \left[ \Vert f_{\theta}(x_t, t) - \bar{\epsilon}_t \Vert_2^2 \right]
 \end{align}
 $$
@@ -412,7 +412,7 @@ $$\textbf{DSM} = \mathop{\mathbb{E}}_{q_{\sigma}(\tilde{x} \vert x) p_{data}(x)}
 最后，再介绍一下score-based models的几个主要的问题。
 
 
-**5). score-based models的几个主要问题
+**5). score-based models的几个主要问题**
 
 尽管score-based models根据上述所说，具有完整的训练和采样过程（由score matching来对目标函数进行训练，由朗之万采样利用训练好的score function来对数据进行采样），但其在实际应用中有以下几个主要的困难：
 
