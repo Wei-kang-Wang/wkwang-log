@@ -725,11 +725,11 @@ $$\nabla_{\theta} \mathcal{L}_{SDS}(\phi, x=g(\theta)) \triangleq \mathop{\mathb
 
 有其他文章给出了下面的结果：
 
-$$\nabla_{\theta} \mathcal{L}_{SDS}(\phi, x=g(\theta)) = \nabla_{\theta} \mathop{\mathbb{E}}\limits_{t \sim \left[2, T \right]} \left[ 2\sigma_t w(t) \textbf{D}_{\textbf{KL}}(q(\alpha_t g(\theta) + \sigma_t \epsilon; g(\theta), y, t) \Vert p_{\phi}(\alpha_t g(\theta) + \sigma_t \epsilon; y, t)) \right]$$
+$$\nabla_{\theta} \mathcal{L}_{SDS}(\phi, x=g(\theta)) = \nabla_{\theta} \mathop{\mathbb{E}}\limits_{t \sim \left[2, T \right], \epsilon \sim \mathcal{N}(\textbf{0}, \textbf{I})} \left[ 2\sigma_t w(t) \textbf{D}_{\textbf{KL}}(q(\alpha_t g(\theta) + \sigma_t \epsilon; g(\theta), y, t) \Vert p_{\phi}(\alpha_t g(\theta) + \sigma_t \epsilon; y, t)) \right]$$
 
 其中$$q(\alpha_t g(\theta) + \sigma_t \epsilon; g(\theta), y, t)$$表示的是前向扩散过程在数据$$g(\theta)$$上加噪之后（即$$\alpha_t g(\theta) + \sigma_t \epsilon$$），该噪声数据的概率分布。而该结果是知道的，是一个高斯分布，也就是DDPM里的$$q(x_t \vert x_0) = \mathcal{N}(x_t; \sqrt{\bar{\alpha}_t}x_0, (1 - \bar{\alpha}_t)\mathbf{I})$$。而$$p_{\phi}(\alpha_t g(\theta) + \sigma_t \epsilon; y, t)$$表示的是反向扩散过程，加了噪声的数据$$\alpha_t g(\theta) + \sigma_t \epsilon$$的分布，此时该分布的均值由网络预测出（输入是该噪声数据本身和时间$$t$$），同样也是一个高斯分布。
 
-有了上述结果，就可以知道，$$\mathcal{L}_{SDS}(\phi, x=g(\theta))$$和$$\mathop{\mathbb{E}}\limits_{t \sim \left[2, T \right]} \left[ 2\sigma_t w(t) \textbf{D}_{\textbf{KL}}(q(\alpha_t g(\theta) + \sigma_t \epsilon; g(\theta), y, t) \Vert p_{\phi}(\alpha_t g(\theta) + \sigma_t \epsilon; y, t)) \right]$$只差了一个和$$\theta$$无关的常数，从而知道了loss值，就可以观察loss变化趋势了。
+有了上述结果，就可以知道，$$\mathcal{L}_{SDS}(\phi, x=g(\theta))$$和$$\mathop{\mathbb{E}}\limits_{t \sim \left[2, T \right],  \epsilon \sim \mathcal{N}(\textbf{0}, \textbf{I})} \left[ 2\sigma_t w(t) \textbf{D}_{\textbf{KL}}(q(\alpha_t g(\theta) + \sigma_t \epsilon; g(\theta), y, t) \Vert p_{\phi}(\alpha_t g(\theta) + \sigma_t \epsilon; y, t)) \right]$$只差了一个和$$\theta$$无关的常数，从而知道了loss值，就可以观察loss变化趋势了。
 
 由$$\mathcal{L}_{SDS}$$的表达式可以看到，其并不需要计算关于diffusion model的反向传播（只需要一个forward pass来计算$$f_{\phi}(\alpha_t g(\theta) + \sigma_t \epsilon, t, y)$$的值），所以diffusion model的作用是一个efficient, frozen critic that predicts image-space edits。
 
