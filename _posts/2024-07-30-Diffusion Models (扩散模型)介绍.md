@@ -687,6 +687,8 @@ LDM流程图：
 
 DreamFusion原论文的全名是DreamFusion: Text-to-3D using 2D Diffusion，荣获了ICLR2023的outstanding paper award，同时也成为后续大量科研工作的baseline，其通讯作者Ben Mildenhall就是NeRF的一作，而三作Jonathan T. Barron，更是3D领域的重量级。
 
+原论文没有给code implementation，但有大佬公布了[re-implement的GitHub仓库](https://github.com/ashawkey/stable-dreamfusion)。
+
 ![18]({{ '/assets/images/diffusion_18.png' | relative_url }})
 {: style="width: 1200px; max-width: 100%;"}
 
@@ -758,19 +760,53 @@ $$(\rho, \tau) = \textbf{MLP}(\mu; \theta)$$
 
 在有了每个三维点的albedo之后，还需要结合光照条件来得到最终relistic的该点的RGB值（这个过程叫做shading），而该点的shading，需要计算该点的normal vector（其表示该点的局部几何特征，即该点的normal是垂直于该点的切平面的）。而每个三维点的surface normal vector的计算如下：
 
-$$n = -\nabla_{\mu} \tau / \lVert nabla_{\mu} \tau \rVert$$
+$$n = -\nabla_{\mu} \tau / \lVert \nabla_{\mu} \tau \rVert$$
 
 在有了每个点的albedo $$\rho$$，normal $$n$$，并且确定了点光源的三维位置$$l$$，点光源的颜色$$l_{\rho}$$，以及环境光颜色$$l_{a}$$之后，
 
 每个三维点$$\mu$$的最终的color就可以计算出来了：
 
-$$c = \rho (l_{\rho} \max(0, n \dot (l-\mu) / \Vert l-mu \Vert) + l_a)$$
+$$c = \rho (l_{\rho} \max(0, n \cdot (l-\mu) / \Vert l-mu \Vert) + l_a)$$
 
 有了每个点的color $$c$$和opacity $$\tau$$之后，就可以像classical NeRF一样render图片了。
 
 作者还发现，随机的将某些点的albedo直接替换成白色的，即$$(1,1,1)$$，能够更好的学习场景的texture。这还可以防止模型学到flat的geometry：比如说场景里有一副画了松鼠的画，以及有一个真实的三维松鼠，在某些很多相机角度下都能render出类似的图片。
 
 作者还发现，需要限制NeRF的三维采样点的范围在一个球面内，并且利用另一个MLP来建模环境光，其输入是每个三维点相对于相机的ray direction，输出是这个点的环境光。
+
+
+### 5. 使用pre-trained 2D diffusion models的text-to-3D论文
+
+CVPR2024的[Text-to-3D using Gaussian Splatting]()，CVPR2024的[GaussianDreamer]()，CVPR2024的[RichDreamer](https://aigc3d.github.io/richdreamer/)，
+
+
+### 6. 使用pre-trained 2D diffusion models的image-to-3D论文
+
+ICCV2023的[Zero-1-to-3]()，ICLR2024Spotlight的[SyncDreamer]()，CVPR2024Highlight的[Wonder3d]()，CVPR2023的[DreamBooth3D]()，ICLR2024的[Magic123](https://guochengqian.github.io/project/magic123/)，CVPR2024的[The More You See in 2D, the More You Perceive in 3D](https://sap3d.github.io/)，ECCV2024的[3DCongealing]()
+
+
+### 7. 使用pre-trained 2D diffusion models实现3D edit/animation/deformation的论文
+
+CVPR2024的[AlignYourGaussians]()，CVPR2024的[GaussianEditor]()，SiggraphAsia2023的[Dreameditor]()，[Animate124](https://animate124.github.io/)，NeurIPS2023的[ViCA-NeRF]()，CVPR2024年的[As-Plausible-As-Possible](https://as-plausible-as-possible.github.io/)，CVPR2024的[Dream-in-4D](https://github.com/NVlabs/dream-in-4d)，TOG2024的[TIP-Editor](https://zjy526223908.github.io/TIP-Editor/)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
