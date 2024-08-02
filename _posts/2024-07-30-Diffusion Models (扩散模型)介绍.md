@@ -775,17 +775,21 @@ $$c = \rho (l_{\rho} \max(0, n \cdot (l-\mu) / \Vert l-mu \Vert) + l_a)$$
 作者还发现，需要限制NeRF的三维采样点的范围在一个球面内，并且利用另一个MLP来建模环境光，其输入是每个三维点相对于相机的ray direction，输出是这个点的环境光。
 
 
-### 5. 使用pre-trained 2D diffusion models的text-to-3D论文
+## 5. 使用pre-trained 2D diffusion models的text-to-3D论文
 
-CVPR2024的[Text-to-3D using Gaussian Splatting]()，CVPR2024的[GaussianDreamer]()，CVPR2024的[RichDreamer](https://aigc3d.github.io/richdreamer/)，
+CVPR2024的[Text-to-3D using Gaussian Splatting]()，CVPR2024的[GaussianDreamer]()，CVPR2024的[RichDreamer](https://aigc3d.github.io/richdreamer/)
 
 
-### 6. 使用pre-trained 2D diffusion models的image-to-3D论文
+## 6. 使用pre-trained 2D diffusion models的image-to-3D论文
 
 ICCV2023的[Zero-1-to-3]()，ICLR2024Spotlight的[SyncDreamer]()，CVPR2024Highlight的[Wonder3d]()，CVPR2023的[DreamBooth3D]()，ICLR2024的[Magic123](https://guochengqian.github.io/project/magic123/)，CVPR2024的[The More You See in 2D, the More You Perceive in 3D](https://sap3d.github.io/)，ECCV2024的[3DCongealing]()
 
+### (1). 3D Congealing: 3D-Aware Image Alignment in the Wild
 
-### 7. 使用pre-trained 2D diffusion models实现3D edit/animation/deformation的论文
+
+
+
+## 7. 使用pre-trained 2D diffusion models实现3D edit/animation/deformation的论文
 
 CVPR2024的[AlignYourGaussians]()，CVPR2024的[GaussianEditor]()，SiggraphAsia2023的[Dreameditor]()，[Animate124](https://animate124.github.io/)，NeurIPS2023的[ViCA-NeRF]()，CVPR2024年的[As-Plausible-As-Possible](https://as-plausible-as-possible.github.io/)，CVPR2024的[Dream-in-4D](https://github.com/NVlabs/dream-in-4d)，TOG2024的[TIP-Editor](https://zjy526223908.github.io/TIP-Editor/)
 
