@@ -721,7 +721,7 @@ $$\nabla_{\theta} \mathcal{L}_{diff}(\phi, x=g(\theta)) = \mathop{\mathbb{E}}\li
 
 作者发现，计算中间那项计算十分复杂（因为UNet结构复杂），并且会造成结果变差，所以不如去掉这项，从而得到了新的loss，记为$$\mathcal{L}_{SDS}(\phi, x=g(\theta))$$，这个新loss对于$$\theta$$的梯度，就是上述$$\mathcal{L}_{diff}$$对于$$\theta$$的梯度去掉了中间那项：
 
-$$\nabla_{\theta} \mathcal{L}_{SDS}(\phi, x=g(\theta)) = \mathop{\mathbb{E}}\limits_{t \sim \left[2, T \right], \epsilon \sim \mathcal{N}(\textbf{0}, \textbf{I})} \left[ 2 \alpha_t w(t) (f_{\phi}(\alpha_t g(\theta) + \sigma_t \epsilon, t, y) - \epsilon) \frac{\partial g(\theta)}{\theta} \right]$$
+$$\nabla_{\theta} \mathcal{L}_{SDS}(\phi, x=g(\theta)) \triangleq \mathop{\mathbb{E}}\limits_{t \sim \left[2, T \right], \epsilon \sim \mathcal{N}(\textbf{0}, \textbf{I})} \left[ 2 \alpha_t w(t) (f_{\phi}(\alpha_t g(\theta) + \sigma_t \epsilon, t, y) - \epsilon) \frac{\partial g(\theta)}{\theta} \right]$$
 
 有其他文章给出了下面的结果：
 
