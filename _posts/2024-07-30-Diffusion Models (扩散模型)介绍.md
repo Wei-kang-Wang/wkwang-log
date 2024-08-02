@@ -784,9 +784,18 @@ CVPR2024的[Text-to-3D using Gaussian Splatting]()，CVPR2024的[GaussianDreamer
 
 ICCV2023的[Zero-1-to-3]()，ICLR2024Spotlight的[SyncDreamer]()，CVPR2024Highlight的[Wonder3d]()，CVPR2023的[DreamBooth3D]()，ICLR2024的[Magic123](https://guochengqian.github.io/project/magic123/)，CVPR2024的[The More You See in 2D, the More You Perceive in 3D](https://sap3d.github.io/)，ECCV2024的[3DCongealing]()
 
-### (1). 3D Congealing: 3D-Aware Image Alignment in the Wild
+### 3D Congealing: 3D-Aware Image Alignment in the Wild
 
+3DCongealing的输入是一系列category-specific的2D RGB图片，目标是将这些图片align到一起，和之前那些2D congealing的目标相同（比如[neuralcongealing]()，[GANgealing]()，[ASIC]()等）。但不同的是，3DCongealing的输入图片可以有很大的姿态差别（相机角度差别），比如说即使都是马的图片，但一张是马的侧面，一张是马的背面。那这种情况下，如果还只是做2D congealing，也就是将一张图片上的像素点和另一张图片的像素点相匹配上，就没有现实意义了（也做不了了），因为两张图片的common的semantically consistent的像素点甚至不存在了。但我们知道，它们都是描述同一类3D物体的，所以说我们可以考虑将这些2D图片，congeal或者说align到一个3D的shape上去。这就是3DCongealing这篇文章要做的。
 
+输入仅仅是2D RGB图片，没有任何别的标注信息，这个任务是很难的。但有pre-trained的2D diffusion model，就有办法。不同于那些基于pre-trained 2D diffusion models以图片为condition来optimize一个3D representation的方法（即image-to-3D），3DCongealing对于输入的$$N$$张图片，先用[Textual Inversion](https://github.com/rinongal/textual_inversion)生成一个文本（或者文本embedding）来collaboratively描述这些图片，这个文本记为$$y^{\ast}$$。然后再利用DreamFusion里的方法，基于$$y^{\ast}$$，来optimize一个NeRF来表示3D shape。作者说那些image-to-3D的办法（比如DreamBooth3D）是利用图片来finetune预训练好的diffusion model，训练时间长，更复杂。
+
+除了上述的optimize NeRF的loss，作者还提出了一个alignment loss。也就是对于每张输入的图片，用一个网络来预测其camera pose，再利用该camera pose和那个NeRF渲染得到这个角度的图片，再在DINO feature space上，计算这个渲染的图片和原输入图片之间的差距。
+
+这两个loss共同作为训练网络的指标。但在implementation details里，作者说需要先将后一个loss的权重设置为0，先optimize一个NeRF出来，然后fix它了，之后再optimize camera poses。而且在optimize camera poses的时候，需要进行多次采样否则难以训练得到好的结果。这样的操作实际上是multi-stage的，减小了难度，但也降低了效果。
+
+![20]({{ '/assets/images/diffusion_20.png' | relative_url }})
+{: style="width: 1200px; max-width: 100%;"}
 
 
 ## 7. 使用pre-trained 2D diffusion models实现3D edit/animation/deformation的论文
