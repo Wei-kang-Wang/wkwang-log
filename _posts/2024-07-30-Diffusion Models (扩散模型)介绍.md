@@ -235,6 +235,68 @@ $$x_t = a_t x_{t-1} + b_t \epsilon_{t-1} = a_t a_{t-1} x_{t-2} + a_t b_{t-1} \ep
 ![-2]({{ '/assets/images/diffusion_-2.png' | relative_url }})
 {: style="width: 1200px; max-width: 100%;"}
 
+**DDPM为什么要采样那么多步？**
+
+DDPM存在一个非常明显的缺点，就是采样速度过慢，在生成一张图片的过程中，我们需要进行$$T$$次迭代，而一般T都是非常大的（e.g.~1000）。因此DDPM虽然图像的质量和多样性很好，但生成效率非常低。为了解决这个问题，[DENOISING DIFFUSION IMPLICIT MODELS](https://arxiv.org/pdf/2010.02502)提出了一个新的模型（或者称为采样方式）叫做Denoising Diffusion Implicit Models（DDIM）。
+
+（1）为什么DDPM一定要这么多次采样？
+
+加快DDPM的生成效率。最容易想到的两种方法：
+* 减小$$T$$
+* “跳步”（i.e. 不再严格按照$$x_{t-1}到$$x_t$$的顺序来采样）
+
+下面依次讨论。
+
+**第一，减小$$T$$是否可行？答案是否定的**
+
+因为在DDPM中，有如下关系：
+
+$$x_t = \sqrt{\alpha_t} x_{t-1} + \sqrt{1 - \alpha_t} \epsilon$$
+
+对于每个$$t$$，$$1-\alpha_t$$都需要接近于0，$$\alpha_t$$都需要接近1，这是因为：
+ * 只有$$1-\alpha_t$$比较小的时候，才能满足$$q(x_{t-1} \vert x_t)$$也满足近似为高斯分布的假设
+ * $$x_{t-1}$$的系数$$\alpha_t$$要尽量接近于1，这束为了保证$$t$$时刻的加噪数据$$x_t$$要尽量保留$$t-1$$时刻的大体分布，如果噪声破坏过大，就难以让模型学习了
+
+同时，我们也有如下关系：
+
+$$x_t = \sqrt{\bar{\alpha}_t} x_0 + \sqrt{1 - \bar{\alpha}_t} \epsilon$$
+
+根据DDPM里的假设，我们希望在$$T$$时刻，也就是最后时刻，$$x_T$$是近似于标准正态分布的，也就是说$$\sqrt{\bar{\alpha}_T}$$接近于0，$$\sqrt{1 - \bar{\alpha}_T}$$接近于1。从而在$$\alpha_t, t=1,2,\cdots,T$$都接近于1的条件下，只有$$T$$足够大，才能满足$$\sqrt{\bar{\alpha}_T}$$接近于0。
+
+**第二，为什么一定要从$$x_T$$开始一步步的降噪，即从$$x_t$$到$$x_{t-1}$$，$$t=T, T-1, \cdots, 1$$，能否跳步？答案也是否定的**
+
+首先，能否由$$x_t$$直接得到$$x_s$$（其中$$s<k$$），答案是否定的，因为无法直接得到$$q(x_s \vert x_k)$$的表达式。
+
+根据之前的损失函数的推导，DDPM的优化目标是让$$q(x_{t-1} \vert x_t)$$去近似分布$$q(x_{t-1} \vert x_t, x_0)$$，而后者在前述推导中是通过贝叶斯公式得到closed-form的结果的：
+
+$$q(x_{t-1} \vert x_t, x_0) = \frac{q(x_t \vert x_{t-1})q(x_{t-1} \vert x_0)}{q(x_t \vert x_0)}$$
+
+按照前述的结果，$$q(x_{t-1} \vert x_t, x_0)$$是一个高斯分布，所以$$q(x_{t-1} \vert x_t)$$也需要是一个高斯分布，且均值需要近似于$$q(x_{t-1} \vert x_t, x_0)$$的均值$$\tilde{\mu}(x_t, x_0) = \frac{1}{\sqrt{\alpha_t}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha}_t}} \bar{\epsilon}_t)$$（方差是个常数，可以直接设置为相等）。
+
+而在DDPM中，是利用网络来近似这个均值的（近似$$x_0$$或者近似$$\bar{\epsilon}_t$$，注意到$$x_0$$和$$x_t$$之间有$$x_t = \sqrt{\bar{\alpha}_t} x_0 + \sqrt{1 - \bar{\alpha}_t} \epsilon$$）：
+
+$$\mu_{\theta} = \frac{\sqrt{\alpha_t}(1-\bar{\alpha}_{t-1})}{1-\bar{\alpha}_t}x_t + \frac{\sqrt{\bar{\alpha}_{t-1}}\beta_t}{1-\bar{\alpha}_t}f_{\theta}(x_t, t)$$
+
+或者
+
+$$\mu_{\theta} = \frac{1}{\sqrt{\alpha_t}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha}_t}} f_{\theta}(x_t, t))$$
+
+但不管是哪种方式，其近似的都是分布$$q(x_{t-1} \vert x_t)$$的均值，而如果将分布$$q(x_{t-1} \vert x_t)$$改成别的形式，比如$$q(x_{s} \vert x_t)$$（其中$$s < k$$），我们就没有上面的那些推导的结果了。
+
+其次，那能否直接由$$x_t$$得到$$x_0$$？
+
+答案是可以的，$$x_0 = \frac{1}{\sqrt{\bar{\alpha}_t}}(x_t - \sqrt{1-\bar{\alpha}_t} \bar{\epsilon}_t)$$，而网络正好是预测$$\bar{\epsilon}_t$$的值的，即：$$f_{\theta}(x_t, t) \approx \bar{\epsilon}_t$$，从而可以直接由$$x_t$$得到$$x_0$$：
+
+$$x_0 = \frac{1}{\sqrt{\bar{\alpha}_t}}(x_t - \sqrt{1-\bar{\alpha}_t} f_{\theta}(x_t, t))$$
+
+实际上，上述操作也就等价于在设计网络的时候，让网络对于不同的加噪数据$$x_t$$和timestep $$t$$输入，输出$$x_0$$，而并非输出噪声估计$$\bar{\epsilon}_t$$。
+
+但为何在实际操作中不这么做，原因只有一个，就是实验表明这样操作生成效果差。
+
+上述具体解释在[DDPM的原论文](https://hojonathanho.github.io/diffusion/assets/denoising_diffusion20.pdf)里也有说明（section 3.2）：
+
+> To summarize, we can train the reverse process mean function approximator \textbf{\mu}_{\theta} to predict $$\mu_t$$, or by modifying its parameterization, we can train it to predict $$\epsilon_t$$. (**There is also the possibility of predicting $$x_0$$, but we found this to lead to worse sample quality early in our experiments.**) We have shown that the $$epsilon$$-prediction parameterization both resembles Langevin dynamics and simplifies the diffusion model’s variational bound to an objective that resembles denoising score matching. Nonetheless, it is just another parameterization of $$p_{\theta}(x_{t-1} \vert x_t)$$, so we verify its effectiveness in Section 4 in an ablation where we compare predicting $$\epsilon_t$$ against predicting $$\mu_t$$.
+
 
 **参考文献**
 1. https://lilianweng.github.io/posts/2021-07-11-diffusion-models/
