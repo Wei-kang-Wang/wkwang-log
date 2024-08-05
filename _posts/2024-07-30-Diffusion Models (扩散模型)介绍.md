@@ -839,14 +839,30 @@ $$c = \rho (l_{\rho} \max(0, n \cdot (l-\mu) / \Vert l-mu \Vert) + l_a)$$
 
 ## 5. 使用pre-trained 2D diffusion models的text-to-3D论文
 
-CVPR2024的[Text-to-3D using Gaussian Splatting]()，CVPR2024的[GaussianDreamer]()，CVPR2024的[RichDreamer](https://aigc3d.github.io/richdreamer/)
+CVPR2024的[Text-to-3D using Gaussian Splatting]()，CVPR2024的[GaussianDreamer]()，CVPR2024的[RichDreamer](https://aigc3d.github.io/richdreamer/)，ILCR2024的[MVDream](https://github.com/bytedance/MVDream/tree/main)
+
+### (1). MVDream: Multi-view diffusion for 3D generation
+
+[CODE](https://github.com/bytedance/MVDream/tree/main)是有的。
+
+
 
 
 ## 6. 使用pre-trained 2D diffusion models的image-to-3D论文
 
-ICCV2023的[Zero-1-to-3]()，ICLR2024Spotlight的[SyncDreamer]()，CVPR2024Highlight的[Wonder3d]()，CVPR2023的[DreamBooth3D]()，ICLR2024的[Magic123](https://guochengqian.github.io/project/magic123/)，CVPR2024的[The More You See in 2D, the More You Perceive in 3D](https://sap3d.github.io/)，ECCV2024的[3DCongealing]()
+ICCV2023的[Zero-1-to-3]()，ICLR2024Spotlight的[SyncDreamer]()，CVPR2024Highlight的[Wonder3d]()，CVPR2023的[DreamBooth3D]()，ICLR2024的[Magic123](https://guochengqian.github.io/project/magic123/)，CVPR2024的[The More You See in 2D, the More You Perceive in 3D](https://sap3d.github.io/)，ECCV2024的[3DCongealing]()，NeurIPS2023的[One-2-3-45](https://github.com/One-2-3-45/One-2-3-45/tree/master)
 
-### 3D Congealing: 3D-Aware Image Alignment in the Wild
+### (2). Zero-1-to-3: Zero-shot One Image to 3D Object
+
+代码[code](https://github.com/cvlab-columbia/zero123)是available的。
+
+这篇ICCV2023年的论文的主要贡献就在于enable之前的pre-trained的diffusion model根据输入的图片和relative pose $$(R, T)$$来生成和这张图片的relative pose正好是$$(R,T)$$的新角度的图片。也就是enable diffusion模型根据camera pose生成viewpoint-conditioned的图片。
+
+这段话是本文的核心思想：
+
+> Since diffusion models have been trained on internet-scale data, their support of the natural image distribution likely covers most viewpoints for most objects, but these viewpoints cannot be controlled in the pre-trained models. Once we are able to teach the model a mechanism to control the camera extrinsics with which a photo is captured, then we unlock the ability to perform novel view synthesis.
+
+### (1). 3D Congealing: 3D-Aware Image Alignment in the Wild
 
 3DCongealing的输入是一系列category-specific的2D RGB图片，目标是将这些图片align到一起，和之前那些2D congealing的目标相同（比如[neuralcongealing]()，[GANgealing]()，[ASIC]()等）。但不同的是，3DCongealing的输入图片可以有很大的姿态差别（相机角度差别），比如说即使都是马的图片，但一张是马的侧面，一张是马的背面。那这种情况下，如果还只是做2D congealing，也就是将一张图片上的像素点和另一张图片的像素点相匹配上，就没有现实意义了（也做不了了），因为两张图片的common的semantically consistent的像素点甚至不存在了。但我们知道，它们都是描述同一类3D物体的，所以说我们可以考虑将这些2D图片，congeal或者说align到一个3D的shape上去。这就是3DCongealing这篇文章要做的。
 
