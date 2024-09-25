@@ -46,11 +46,6 @@ watch -n l nvidia-smi
 
 ```
 
-显示GPU进程PID：
-
-![jc1]({{ '/assets/images/JC-1.PNG' | relative_url }})
-{: style="width: 600px; max-width: 100%;"}
-
 使用命令kill -9 PID关闭进程，多个进程则PID之间用空格隔开，例如：
 
 ```shell
