@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: false
-title: "LaTex Lookup List"
+title: "LaTex"
 date: 2021-12-14 01:09:00
 
 ---
@@ -154,6 +154,6 @@ date: 2021-12-14 01:09:00
 
 | 功能 | 语法 | 显示 |
 | :------: | :------: | :------: |
-| 最大值 | `\mathop{\arg\max}\limits_{\theta}` | $\mathop{\arg\max}\limits_{\theta}$ |
-| 最小值 | `\mathop{\arg\min}\limits_{\theta}` | $\mathop{\arg\min}\limits_{\theta}$ |
+| 最大值 | `\mathop{\arg\max}\limits_{\theta}` | $$\mathop{\arg\max}\limits_{\theta}$$ |
+| 最小值 | `\mathop{\arg\min}\limits_{\theta}` | $$\mathop{\arg\min}\limits_{\theta}$$ |
 
