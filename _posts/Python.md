@@ -359,6 +359,16 @@ https://www.jianshu.com/p/cc1e8a18b708
 
 ## 6. Python里的super函数
 
+参考文献
+* https://fuhm.org/super-harmful/
+* https://rhettinger.wordpress.com/2011/05/26/super-considered-super/
+* https://xiehongfeng100.github.io/2016/12/03/python-basics-mro/
+* https://www.cnblogs.com/marsggbo/p/14526714.html
+* https://zhuanlan.zhihu.com/p/356720970
+* https://laike9m.com/blog/li-jie-python-super,70/
+* https://blog.csdn.net/wo198711203217/article/details/84097274
+
+
 https://blog.csdn.net/wo198711203217/article/details/84097274
 
 ## 7. Python常见I/O文件格式
