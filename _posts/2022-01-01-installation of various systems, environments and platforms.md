@@ -18,7 +18,7 @@ date: 2022-05-01 01:09:00
 ---
 
 
-# Linux系统用Anaconda安装pytorch + CUDA + cuDNN
+## 1. Linux系统用Anaconda安装pytorch + CUDA + cuDNN
 
 **1. 安装Anaconda**
 
@@ -433,7 +433,7 @@ conda clean -t
 * https://blog.csdn.net/weixin_44100850/article/details/103308367
 
 
-# Linux安装tmux
+## 2. Linux安装tmux
 
 tmux是一个 terminal multiplexer（终端复用器），它可以启动一系列终端会话。
 
@@ -571,7 +571,7 @@ kevin: 1 windows (created Sun Sep 30 10:17:00 2018) [136x29] (attached)
 
 
 
-# git的使用
+## 3. git的使用
 
 **1. 介绍Git**
 
@@ -2616,7 +2616,7 @@ bootstrap的官方仓库twbs/bootstrap，你在GitHub上自己的账号里clone�
 如果你希望bootstrap官网库接受你的修改，你就可以在Github上发起一个pull request。这需要对方接受你的pull request，才能将你的修改加入官方库里。
 
 
-# 在服务器使用Tensorboard的方法
+## 4. 在服务器使用Tensorboard的方法
 
 Tensorboard在本机可以方便使用，但使用服务器时需要设置一下。
 
@@ -2658,6 +2658,79 @@ tensorboard --logdir="/path/to/log-directory"
 * https://zhuanlan.zhihu.com/p/403439895
 
 
+## 5. scp和ssh用法
 
+`scp`简称是security copy，通过`ssh`来上传和下载文件（目录）
+
+```shell
+# 下载文件或者目录
+scp -P ssh端口 -r 远程服务用户名@服务器ip:远程文件或目录 本地文件或目录 
+# 接着输入密码即可
+
+# 如果远程服务器ssh端口是默认的22，可以不指定端口，命令简化为
+scp -r 远程服务用户名@服务器ip:远程文件或目录 本地文件或目录
+
+# 上传文件或者目录
+scp -P ssh端口 -r 本地文件或目录 远程服务用户名@服务器ip:远程文件或目录 
+# 接着输入密码即可
+
+# 如果远程服务器ssh端口是默认的22，可以不指定端口，命令简化为
+scp -r 本地文件或目录 远程服务用户名@服务器ip:远程文件或目录 
+```
+
+由此可见`scp`的上传和下载，只是把远程和本地换下位置而已。而`ssh`更为简单：
+
+```shell
+ssh -P ssh端口 远程服务用户名@服务器ip
+
+# 如果远程服务器ssh端口是默认的22，可以不指定端口，命令简化为
+ssh 远程服务用户名@服务器ip
+```
+
+如果不能直接连接远程服务器，需要使用跳板机的话，那么`ssh`和`scp`都需要使用跳板机才能实现。假设跳板机地址为`host1：192.168.1.100 admin`，目标服务器`host2：192.168.1.110 user`，
+
+通过跳板机使用`ssh`登录目标服务器命令如下：
+
+```shell
+# 自己本地主机执行
+ssh -J admin@192.168.1.100 user@192.168.1.110
+ #回车后先输入跳板机密码，再输入目标机器密码
+```
+
+这样就可以通过`ssh`连接到目标主机了，发现只是通过参数`-J`来指定了跳板机，如果需要多次跳转呢？那么命令格式就是`ssh -J 跳板机1 跳板机2 跳板机3 目标服务器`
+
+那么`scp`通过跳板机命令如下：
+
+```shell
+# 下载
+scp -P 22 -o 'ProxyJump 跳板机' -r 目标服务器:目标文件或目录 本地文件或目录
+scp -P 22 -o 'ProxyJump admin@192.168.1.100 -p 22' -r user@192.168.1.110:/user/bin/12533.dump ./12533.dump
+# 简化
+scp -o 'ProxyJump admin@192.168.1.100' -r user@192.168.1.110:/user/bin/12533.dump ./12533.dump
+
+#上传
+scp -P 22 -o 'ProxyJump 跳板机' -r 本地文件或目录 目标服务器:目标文件或目录 
+scp -P 22 -o 'ProxyJump admin@192.168.1.100 -p 22' -r ./12533.dump user@192.168.1.110:/user/bin/12533.dump 
+
+# 简化
+scp -o 'ProxyJump admin@192.168.1.100' -r ./12533.dump user@192.168.1.110:/user/bin/12533.dump 
+```
+
+发现`scp`通过跳板机和目标服务器传输文件，只是增加了个参数`-o`，用于指定代理， 其它和`scp`完全相同。如果有多个跳板机，那么就在`ProxyJump`增加多个跳板机。
+
+
+
+## 6. Anaconda相关方法
+
+查现有环境：`conda info --env`
+
+有两种办法复制环境：
+
+在本机上，直接使用`conda create -n 新环境名 --clone 旧环境名`，复制既有环境
+
+如果要复制到其他机器，就要考虑导出当前环境到文件，利用文件再次创建环境。
+* 首先，激活要导出的环境：`conda activate 环境名`
+* 之后，导出环境：`conda env export > 环境名.yaml`，利用`conda env export`导出的是个`yaml`格式的文件，该文件记录了环境名，软件源地址以及安装包列表
+* 最后，在新机器上使用该`yaml`配置文件创建新环境：`conda env create -f 环境名.yaml`，生成的环境与复制源完全一样（包括环境名），如果想在同一台机器上复制，需要把`yaml`文件中的环境名修改为一个新的名字，否则会冲突。
 
 
