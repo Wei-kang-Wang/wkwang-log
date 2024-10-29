@@ -2658,7 +2658,31 @@ tensorboard --logdir="/path/to/log-directory"
 * https://zhuanlan.zhihu.com/p/403439895
 
 
-## 5. scp和ssh用法
+## 5. 通过跳板机查看内网服务器的tensorbord的方法
+
+先用`16006`端口接收跳板机的`8008`端口：
+
+```shell
+ssh -L 16006:127.0.0.1:8008 account@跳板机ip
+```
+
+再用跳板机的`8008`端口接收服务器的`6006`端口：
+
+```shell
+ssh -L 8008:127.0.0.1:6006 account@服务器ip
+```
+
+`cd`到保存模型的目录，终端输入:
+
+```shell
+tensorboard --logdir=./
+```
+
+然后直接在本地浏览器打开链接：`http://127.0.0.1:16006/`
+
+
+
+## 6. scp和ssh用法
 
 `scp`简称是security copy，通过`ssh`来上传和下载文件（目录）
 
