@@ -850,14 +850,7 @@ $$ = \vec{a}^T (E \left[ \vec{X} \vec{X}^T \right] - E \left[\vec{X} \right] (E 
 
 
 
-## 9. Pinhole Camera Model以及perspective and orthographic projection matrix
-
-pinhole camera的博客：https://hedivision.github.io/Pinhole.html
-
-perspective and orthographic projection matrix的博客：https://scratchapixel.com/lessons/3d-basic-rendering/perspective-and-orthographic-projection-matrix/projection-matrix-introduction.html
-
-
-## 10. Gumbel分布及其应用
+## 9. Gumbel分布及其应用
 
 在介绍Gumbel分布之前，首先来介绍四种相关的分布，Categorical distribution（类别分布、范畴分布）、Bernoulli distribution（伯努利分布）、Binomial distribution（二项分布）、Multinomial distribution（多项分布）。
 
