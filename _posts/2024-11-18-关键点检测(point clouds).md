@@ -13,3 +13,6 @@ date: 2024-07-30 01:09:00
 {:toc}
 
 ---
+
+### \[**CVPR 2024**\] [Back to 3D: Few-Shot 3D Keypoint Detection with Back-Projected 2D Features](https://github.com/wimmerth/back-to-3d-few-shot-keypoints)
+
