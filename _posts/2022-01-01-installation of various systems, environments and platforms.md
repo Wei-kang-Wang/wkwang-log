@@ -2758,3 +2758,10 @@ scp -o 'ProxyJump admin@192.168.1.100' -r ./12533.dump user@192.168.1.110:/user/
 * 最后，在新机器上使用该`yaml`配置文件创建新环境：`conda env create -f 环境名.yaml`，生成的环境与复制源完全一样（包括环境名），如果想在同一台机器上复制，需要把`yaml`文件中的环境名修改为一个新的名字，否则会冲突。
 
 
+## 7. faiss module安装问题
+
+使用`pip install faiss-gpu`安装`faiss`包之后，使用的时候可能会报错，可以考虑使用`pip install https://github.com/kyamagu/faiss-wheels/releases/download/v1.7.3/faiss_gpu-1.7.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl`来安装`faiss`
+
+参考文献：
+* https://github.com/facebookresearch/faiss/issues/2064
+
