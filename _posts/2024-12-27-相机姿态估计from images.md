@@ -14,4 +14,4 @@ date: 2024-12-27 01:09:00
 
 ---
 
-[ID-Pose: Sparse-view Camera Pose Estimation by Inverting Diffusion Models](https://xt4d.github.io/id-pose-web/), [IFFNeRF: Initialisation Free and Fast 6DoF pose estimation from a single image and a NeRF model](https://mbortolon97.github.io/iffnerf/)
+[ID-Pose: Sparse-view Camera Pose Estimation by Inverting Diffusion Models](https://xt4d.github.io/id-pose-web/), [IFFNeRF: Initialisation Free and Fast 6DoF pose estimation from a single image and a NeRF model](https://mbortolon97.github.io/iffnerf/), CVPR2024的[NOPE: Novel Object Pose Estimation from a Single Image](https://github.com/nv-nguyen/nope)
