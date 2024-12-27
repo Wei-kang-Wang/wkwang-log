@@ -46,3 +46,8 @@ date: 2024-07-30 01:09:00
 ### \[**CVPR 2024**\] [LPMFlow: Pixel-level Semantic Correspondence through Layout-aware Representation](https://github.com/YXSUNMADMAX/LPMFlow)
 
 ### \[**CVPR 2024**\] [Telling Left from Right: Identifying Geometry-Aware Semantic Correspondence](https://telling-left-from-right.github.io/)
+
+
+## 3D Semantic Correspondence
+
+### \[**Arxiv 2024**\] [DenseMatcher: Learning 3D Semantic Correspondence for Category-Level Manipulation from One Demo](https://tea-lab.github.io/DenseMatcher/)
