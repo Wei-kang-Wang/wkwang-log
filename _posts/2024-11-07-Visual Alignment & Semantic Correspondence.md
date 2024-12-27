@@ -16,7 +16,7 @@ date: 2024-07-30 01:09:00
 
 ## 2D Visual Alignment
 
-### \[**CVPR 2022 Best Paper finalist] [GANgealing: GAN-Supervised Dense Visual Alignment](https://www.wpeebles.com/gangealing)
+### \[**CVPR 2022 Best Paper finalist**\] [GANgealing: GAN-Supervised Dense Visual Alignment](https://www.wpeebles.com/gangealing)
 
 ### \[**CVPR 2023**\] [Neural Congealing: Aligning Images to a Joint Semantic Atlas](https://neural-congealing.github.io/)
 
@@ -29,6 +29,10 @@ date: 2024-07-30 01:09:00
 
 ### \[**Siggraph 2018**\] [Neural Best-Buddies: Sparse Cross-Domain Correspondence](https://kfiraberman.github.io/neural_best_buddies/)
 
+### \[**CVPR 2019 Best Paper Finalist**\] [Unsupervised Part-Based Disentangling of Object Shape and Appearance](https://compvis.github.io/unsupervised-disentangling/)
+
+### \[**NeurIPS 2021**\] [Unsupervised Part Discovery from Contrastive Reconstruction](https://www.robots.ox.ac.uk/~vgg/research/unsup-parts/)
+
 ### \[**NeurIPS 2023**\] [A Tale of Two Features: Stable Diffusion Complements DINO for Zero-Shot Semantic Correspondence](https://sd-complements-dino.github.io/)
 
 ### \[**NeurIPS 2023**\] [Diffusion Hyperfeatures: Searching Through Time and Space for Semantic Correspondence](https://diffusion-hyperfeatures.github.io/)
@@ -36,5 +40,9 @@ date: 2024-07-30 01:09:00
 ### \[**NeurIPS 2023**\] [Emergent Correspondence from Image Diffusion](https://diffusionfeatures.github.io/)
 
 ### \[**NeurIPS 2023**\] [Unsupervised Semantic Correspondence Using Stable Diffusion](https://ubc-vision.github.io/LDM_correspondences/)
+
+### \[**CVPR 2024 Oral**\] [Improving Semantic Correspondence with Viewpoint-Guided Spherical Maps](https://groups.inf.ed.ac.uk/vico/research/SphericalMaps/)
+
+### \[**CVPR 2024**\] [LPMFlow: Pixel-level Semantic Correspondence through Layout-aware Representation](https://github.com/YXSUNMADMAX/LPMFlow)
 
 ### \[**CVPR 2024**\] [Telling Left from Right: Identifying Geometry-Aware Semantic Correspondence](https://telling-left-from-right.github.io/)
