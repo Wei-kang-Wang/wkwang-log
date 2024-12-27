@@ -115,3 +115,4 @@ $$L = L_{sim} + \alpha_{kpt}L_{kpt} + \alpha_{inf}L_{inf}$$
 
 ### \[**CVPR 2024**\] [Back to 3D: Few-Shot 3D Keypoint Detection with Back-Projected 2D Features](https://github.com/wimmerth/back-to-3d-few-shot-keypoints)
 
+### \[**Arxiv 2024**\] [ZeroKey: Point-Level Reasoning and Zero-Shot 3D Keypoint Detection from Large Language Models](https://sites.google.com/view/zerokey)
