@@ -14,4 +14,5 @@ date: 2024-12-27 01:09:00
 
 ---
 
-ACM SIGGRAPH Asia 2023的[Im4D: High-Fidelity and Real-Time Novel View Synthesis for Dynamic Scenes](https://zju3dv.github.io/im4d/)
+ACM SIGGRAPH Asia 2023的[Im4D: High-Fidelity and Real-Time Novel View Synthesis for Dynamic Scenes](https://zju3dv.github.io/im4d/), [Birth and Death
+of a Rose: Temporal Object Intrinsics Generation](https://chen-geng.com/rose4d)
