@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: True
-title: "Dynamic 3D reconstruction"
+title: "Dynamic&Deformable 3D reconstruction"
 date: 2024-12-27 01:09:00
 
 ---
