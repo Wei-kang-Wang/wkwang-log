@@ -21,7 +21,7 @@ date: 2024-12-28 01:09:00
 
 ## Others
 
-[AGG: Amortized Generative 3D Gaussians for Single Image to 3D](https://ir1d.github.io/AGG/), ECCV2022的[Towards High-Fidelity Single-view Holistic Reconstruction of Indoor Scenes](https://github.com/GAP-LAB-CUHK-SZ/InstPIFu?tab=readme-ov-file), CVPR2023的[Behind the Scenes: Density Fields for Single View Reconstruction](https://fwmb.github.io/bts/), ICCV2021 Oral的[Infinite Nature: Perpetual View Generation of Natural Scenes from a Single Image](https://infinite-nature.github.io/)
+[AGG: Amortized Generative 3D Gaussians for Single Image to 3D](https://ir1d.github.io/AGG/), ECCV2022的[Towards High-Fidelity Single-view Holistic Reconstruction of Indoor Scenes](https://github.com/GAP-LAB-CUHK-SZ/InstPIFu?tab=readme-ov-file), CVPR2023的[Behind the Scenes: Density Fields for Single View Reconstruction](https://fwmb.github.io/bts/), ICCV2021 Oral的[Infinite Nature: Perpetual View Generation of Natural Scenes from a Single Image](https://infinite-nature.github.io/), CVPR2024的[Recon3D: High Quality 3D Reconstruction from a Single Image Using Generated Back-View Explicit Priors](https://openaccess.thecvf.com/content/CVPR2024W/NRI/papers/Chen_Recon3D_High_Quality_3D_Reconstruction_from_a_Single_Image_Using_CVPRW_2024_paper.pdf)
 
 ## Single view 3D reconstruction with NeRF/3DGS
 
