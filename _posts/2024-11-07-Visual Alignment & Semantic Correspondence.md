@@ -47,6 +47,7 @@ date: 2024-07-30 01:09:00
 
 ### \[**CVPR 2024**\] [Telling Left from Right: Identifying Geometry-Aware Semantic Correspondence](https://telling-left-from-right.github.io/)
 
+### \[**ECCV 2024**\] [SHIC: Shape-Image Correspondences with no Keypoint Supervision](https://www.robots.ox.ac.uk/~vgg/research/shic/)
 
 ## 3D Semantic Correspondence
 
