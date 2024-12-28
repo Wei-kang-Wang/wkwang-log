@@ -21,8 +21,8 @@ date: 2024-12-28 01:09:00
 
 ## Others
 
-[AGG: Amortized Generative 3D Gaussians for Single Image to 3D](https://ir1d.github.io/AGG/), ECCV2022的[Towards High-Fidelity Single-view Holistic Reconstruction of Indoor Scenes](https://github.com/GAP-LAB-CUHK-SZ/InstPIFu?tab=readme-ov-file), CVPR2023的[Behind the Scenes: Density Fields for Single View Reconstruction](https://fwmb.github.io/bts/), 
+[AGG: Amortized Generative 3D Gaussians for Single Image to 3D](https://ir1d.github.io/AGG/), ECCV2022的[Towards High-Fidelity Single-view Holistic Reconstruction of Indoor Scenes](https://github.com/GAP-LAB-CUHK-SZ/InstPIFu?tab=readme-ov-file), CVPR2023的[Behind the Scenes: Density Fields for Single View Reconstruction](https://fwmb.github.io/bts/), ICCV2021 Oral的[Infinite Nature: Perpetual View Generation of Natural Scenes from a Single Image](https://infinite-nature.github.io/)
 
 ## Single view 3D reconstruction with NeRF
 
-[ConRad: Image Constrained Radiance Fields for 3D Generation from a Single Image](https://arxiv.org/pdf/2311.05230), [CCD-3DR: Consistent Conditioning in Diffusion for Single-Image 3D Reconstruction](https://arxiv.org/pdf/2308.07837), ECCV2022的[SinNeRF: Training Neural Radiance Fields on Complex Scenes from a Single Image](https://vita-group.github.io/SinNeRF/), CVPR2022的[Pix2NeRF: Unsupervised Conditional p-GAN for Single Image to Neural Radiance Fields Translation](https://github.com/primecai/Pix2NeRF), CVPR2022的[LOLNeRF: Learn from One Look](https://ubc-vision.github.io/lolnerf/)
+[ConRad: Image Constrained Radiance Fields for 3D Generation from a Single Image](https://arxiv.org/pdf/2311.05230), [CCD-3DR: Consistent Conditioning in Diffusion for Single-Image 3D Reconstruction](https://arxiv.org/pdf/2308.07837), ECCV2022的[SinNeRF: Training Neural Radiance Fields on Complex Scenes from a Single Image](https://vita-group.github.io/SinNeRF/), CVPR2022的[Pix2NeRF: Unsupervised Conditional p-GAN for Single Image to Neural Radiance Fields Translation](https://github.com/primecai/Pix2NeRF), CVPR2022的[LOLNeRF: Learn from One Look](https://ubc-vision.github.io/lolnerf/), 
