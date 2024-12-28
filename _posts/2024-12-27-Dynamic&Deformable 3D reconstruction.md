@@ -15,4 +15,4 @@ date: 2024-12-27 01:09:00
 ---
 
 ACM SIGGRAPH Asia 2023的[Im4D: High-Fidelity and Real-Time Novel View Synthesis for Dynamic Scenes](https://zju3dv.github.io/im4d/), [Birth and Death
-of a Rose: Temporal Object Intrinsics Generation](https://chen-geng.com/rose4d), ICCV2021的[Nerfies: Deformable Neural Radiance Fields](https://nerfies.github.io/)
+of a Rose: Temporal Object Intrinsics Generation](https://chen-geng.com/rose4d), ICCV2021的[Nerfies: Deformable Neural Radiance Fields](https://nerfies.github.io/), ACM SIGGRAPH ASIA2022的[Efficient Neural Radiance Fields for Interactive Free-viewpoint Video](https://zju3dv.github.io/enerf/)
