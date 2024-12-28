@@ -25,6 +25,10 @@ date: 2024-07-30 01:09:00
 ### \[**ECCV 2024**\] [SpaceJAM: a Lightweight and Regularization-free Method for Fast Joint Alignment of Images](https://bgu-cs-vil.github.io/SpaceJAM/)
 
 
+## 3D Visual Alignment
+
+### \[**ECCV 2024**\] [3D Congealing: 3D-Aware Image Alignment in the Wild](https://ai.stanford.edu/~yzzhang/projects/3d-congealing/)
+
 ## 2D Semantic Correspondence
 
 ### \[**Siggraph 2018**\] [Neural Best-Buddies: Sparse Cross-Domain Correspondence](https://kfiraberman.github.io/neural_best_buddies/)
