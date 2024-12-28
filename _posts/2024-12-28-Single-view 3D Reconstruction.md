@@ -18,7 +18,7 @@ date: 2024-12-28 01:09:00
 
 [MVDream: Multi-view Diffusion for 3D Generation](https://mv-dream.github.io/), [DreamFusion: Text-to-3D using 2D Diffusion](https://github.com/ashawkey/stable-dreamfusion/tree/main), CVPR2024的[Splatter Image: Ultra-Fast Single-View
 3D Reconstruction](https://szymanowiczs.github.io/splatter-image), ICLR2024 Spotlight的[SyncDreamer: Generating Multiview-consistent Images
-from a Single-view Image](https://liuyuan-pal.github.io/SyncDreamer/), [Zero-1-to-3: Zero-shot One Image to 3D Object](https://zero123.cs.columbia.edu/), CVPR2024 Highlight的[Wonder3D: Single Image to 3D using Cross-Domain Diffusion](https://www.xxlong.site/Wonder3D/)
+from a Single-view Image](https://liuyuan-pal.github.io/SyncDreamer/), [Zero-1-to-3: Zero-shot One Image to 3D Object](https://zero123.cs.columbia.edu/), CVPR2024 Highlight的[Wonder3D: Single Image to 3D using Cross-Domain Diffusion](https://www.xxlong.site/Wonder3D/), ECCV2024的[HiFi-123: Towards High-fidelity One Image to 3D Content Generation](https://drexubery.github.io/HiFi-123/)
 
 
 ## Others
