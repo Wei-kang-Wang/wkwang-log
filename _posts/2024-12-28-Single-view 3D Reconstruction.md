@@ -16,7 +16,8 @@ date: 2024-12-28 01:09:00
 
 ## Single view 3D reconstruction with diffusion
 
-[MVDream: Multi-view Diffusion for 3D Generation](https://mv-dream.github.io/), [DreamFusion: Text-to-3D using 2D Diffusion](https://github.com/ashawkey/stable-dreamfusion/tree/main)
+[MVDream: Multi-view Diffusion for 3D Generation](https://mv-dream.github.io/), [DreamFusion: Text-to-3D using 2D Diffusion](https://github.com/ashawkey/stable-dreamfusion/tree/main), CVPR2024的[Splatter Image: Ultra-Fast Single-View
+3D Reconstruction](https://szymanowiczs.github.io/splatter-image), 
 
 
 ## Others
