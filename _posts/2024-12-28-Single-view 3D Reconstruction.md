@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: True
-title: "3D Reconstruction from Single Image"
+title: "Single-view 3D Reconstruction"
 date: 2024-12-28 01:09:00
 
 ---
@@ -16,7 +16,7 @@ date: 2024-12-28 01:09:00
 
 ## Single view 3D reconstruction with diffusion
 
-
+[MVDream: Multi-view Diffusion for 3D Generation](https://mv-dream.github.io/), [DreamFusion: Text-to-3D using 2D Diffusion](https://github.com/ashawkey/stable-dreamfusion/tree/main)
 
 
 ## Others
