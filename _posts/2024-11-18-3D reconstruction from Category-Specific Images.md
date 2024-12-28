@@ -58,3 +58,5 @@ date: 2024-07-30 01:09:00
 ### \[**CVPR 2023**\] [Hi-LASSIE: High-Fidelity Articulated Shape and Skeleton Discovery from Sparse Image Ensemble](https://chhankyao.github.io/hi-lassie/)
 
 [POST](https://chhankyao.github.io/hi-lassie/)
+
+### \[**CVPR 2024**\] [DUSt3R: Geometric 3D Vision Made Easy](https://europe.naverlabs.com/research/publications/dust3r-geometric-3d-vision-made-easy/)
