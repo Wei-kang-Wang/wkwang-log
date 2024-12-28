@@ -21,7 +21,7 @@ date: 2024-12-28 01:09:00
 
 ## Others
 
-[AGG: Amortized Generative 3D Gaussians for Single Image to 3D](https://ir1d.github.io/AGG/), ECCV2022的[Towards High-Fidelity Single-view Holistic Reconstruction of Indoor Scenes](https://github.com/GAP-LAB-CUHK-SZ/InstPIFu?tab=readme-ov-file)
+[AGG: Amortized Generative 3D Gaussians for Single Image to 3D](https://ir1d.github.io/AGG/), ECCV2022的[Towards High-Fidelity Single-view Holistic Reconstruction of Indoor Scenes](https://github.com/GAP-LAB-CUHK-SZ/InstPIFu?tab=readme-ov-file), CVPR2023的[Behind the Scenes: Density Fields for Single View Reconstruction](https://fwmb.github.io/bts/), 
 
 ## Single view 3D reconstruction with NeRF
 
