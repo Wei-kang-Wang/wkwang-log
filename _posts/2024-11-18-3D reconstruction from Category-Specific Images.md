@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: True
-title: "3D reconstruction from Images"
+title: "3D Reconstruction from Category-Specific Images"
 date: 2024-07-30 01:09:00
 
 ---
