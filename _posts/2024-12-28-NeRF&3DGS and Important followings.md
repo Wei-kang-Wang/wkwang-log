@@ -14,4 +14,4 @@ date: 2024-12-28 01:09:00
 
 ---
 
-ICCV2023的[FeatureNeRF: Learning Generalizable NeRFs by Distilling Foundation Models](https://jianglongye.com/featurenerf/)
+ICCV2023的[FeatureNeRF: Learning Generalizable NeRFs by Distilling Foundation Models](https://jianglongye.com/featurenerf/), CVPR2022的[Deblur-NeRF: Neural Radiance Fields from Blurry Images](https://limacv.github.io/deblurnerf/)
