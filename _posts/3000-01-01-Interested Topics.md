@@ -28,4 +28,4 @@ date: 3000-12-27 01:09:00
 
 ## \[**ECCV 2024**\] [T-Rex2: Towards Generic Object Detection via Text-Visual Prompt Synergy](https://github.com/IDEA-Research/T-Rex)
 
-
+## \[**ICCV 2023**\] [HyperDiffusion: Generating Implicit Neural Fields with Weight-Space Diffusion](https://ziyaerkoc.com/hyperdiffusion/)
