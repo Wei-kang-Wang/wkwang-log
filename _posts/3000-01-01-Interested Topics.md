@@ -29,3 +29,30 @@ date: 3000-12-27 01:09:00
 ## \[**ECCV 2024**\] [T-Rex2: Towards Generic Object Detection via Text-Visual Prompt Synergy](https://github.com/IDEA-Research/T-Rex)
 
 ## \[**ICCV 2023**\] [HyperDiffusion: Generating Implicit Neural Fields with Weight-Space Diffusion](https://ziyaerkoc.com/hyperdiffusion/)
+
+## \[**CVPR 2024 Highlight**\] [MeshGPT: Generating Triangle Meshes with Decoder-Only Transformers](https://nihalsid.github.io/mesh-gpt/)
+
+## \[**CVPR 2024**\] [Solving Masked Jigsaw Puzzles with Diffusion Vision Transformers (SPDVT)](https://github.com/JinyangMarkLiu/JPDVT/tree/main)
+
+## \[**ECCV 2022**\] [Video Anomaly Detection by Solving Decoupled Spatio-Temporal Jigsaw Puzzles](https://github.com/gdwang08/Jigsaw-VAD)
+
+## \[**ECCV 2024**\] [Fitting Flats to Flats](https://gdogadov.github.io/fitting-flats-to-flats/)
+
+## \[**CVPR 2024**\] [Hearing Anything Anywhere](https://masonlwang.com/hearinganythinganywhere/)
+
+## \[**CVPR 2024**\] [PIGEON: Predicting Image Geolocations](https://lukashaas.github.io/PIGEON-CVPR24/)
+
+## \[**CVPR 2024**\] [Rewrite the Stars](https://github.com/ma-xu/Rewrite-the-Stars)
+
+## \[**CVPR 2024**\] [Shadows Don’t Lie and Lines Can’t Bend! Generative Models don’t know Projective Geometry...for now](https://projective-geometry.github.io/)
+
+## \[**CVPR 2024**\] [SVGDreamer: Text Guided SVG Generation with Diffusion Model](https://ximinng.github.io/SVGDreamer-project/)
+
+## \[**CVPR 2024**\] [NC-TTT: A Noise Constrastive Approach for Test-Time Training](https://github.com/GustavoVargasHakim/NCTTT)
+
+## \[**CVPR 2024**\] [Functional Diffusion](https://1zb.github.io/functional-diffusion/)
+
+## \[**CVPR 2024 Highlight**\] [Generative Powers of Ten](https://powers-of-10.github.io/)
+
+## \[**Arxiv 2024**\] [Geometry Distributions](https://1zb.github.io/GeomDist/)
+
