@@ -15,3 +15,5 @@ date: 2024-07-30 01:09:00
 ---
 
 ## \[**CVPR 2021**\] [BundleSDF: Neural 6-DoF Tracking and 3D Reconstruction of Unknown Objects](https://bundlesdf.github.io/)
+
+## \[**CVPR 2021 Best Paper Finalist**\] [NeuralRecon: Real-Time Coherent 3D Reconstruction from Monocular Video](https://zju3dv.github.io/neuralrecon/)
