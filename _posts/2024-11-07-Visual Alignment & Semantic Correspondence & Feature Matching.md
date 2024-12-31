@@ -31,6 +31,8 @@ date: 2024-07-30 01:09:00
 
 ## 2D Semantic Correspondence
 
+### \[**TPAMI 2017**\] [Proposal Flow: Semantic Correspondences from Object Proposals](https://www.di.ens.fr/willow/research/proposalflow/)
+
 ### \[**Siggraph 2018**\] [Neural Best-Buddies: Sparse Cross-Domain Correspondence](https://kfiraberman.github.io/neural_best_buddies/)
 
 ### \[**CVPR 2019 Best Paper Finalist**\] [Unsupervised Part-Based Disentangling of Object Shape and Appearance](https://compvis.github.io/unsupervised-disentangling/)
