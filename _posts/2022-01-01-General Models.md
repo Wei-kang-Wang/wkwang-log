@@ -15,6 +15,8 @@ tags: paper-reading
 
 ---
 
+CVPR2022的[BACON: Band-limited Coordinate Networks](http://www.computationalimaging.org/publications/bacon/)
+
 ## 基本网络架构（CNN和Transformer）
 
 ### [AlexNet: ImageNet Classification with Deep Convolutional Neural Networks](https://proceedings.neurips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf)
