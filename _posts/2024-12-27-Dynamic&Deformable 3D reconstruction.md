@@ -19,4 +19,4 @@ of a Rose: Temporal Object Intrinsics Generation](https://chen-geng.com/rose4d),
 
 ## Dynamic NeRF&3DGS
 
-CVPR2024的[4D Gaussian Splatting for Real-Time Dynamic Scene Rendering](https://guanjunwu.github.io/4dgs/), ECCV2022的[DFRF: Learning Dynamic Facial Radiance Fields for Few-Shot Talking Head Synthesis](https://sstzal.github.io/DFRF/), NeurIPS2021的[TöRF: Time-of-Flight Radiance Fields for Dynamic Scene View Synthesis](https://imaging.cs.cmu.edu/torf/)
+CVPR2024的[4D Gaussian Splatting for Real-Time Dynamic Scene Rendering](https://guanjunwu.github.io/4dgs/), ECCV2022的[DFRF: Learning Dynamic Facial Radiance Fields for Few-Shot Talking Head Synthesis](https://sstzal.github.io/DFRF/), NeurIPS2021的[TöRF: Time-of-Flight Radiance Fields for Dynamic Scene View Synthesis](https://imaging.cs.cmu.edu/torf/), ICCV2021的[Neural Radiance Flow for 4D View Synthesis and Video Processing](https://github.com/yilundu/nerflow), 
