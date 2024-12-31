@@ -88,3 +88,5 @@ date: 2000-12-27 01:09:00
 
 ## \[**NeurIPS 2021 Spotlight**\] [Neural Scene Flow Prior](https://lilac-lee.github.io/Neural_Scene_Flow_Prior/)
 
+## \[**ICCV 2021**\] [Learning a More Continuous Zero Level Set in Unsigned Distance Fields through Level Set Projection](https://github.com/junshengzhou/LevelSetUDF)
+
