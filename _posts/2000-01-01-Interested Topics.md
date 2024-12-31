@@ -64,7 +64,7 @@ date: 2000-12-27 01:09:00
 
 ## \[**ICCV 2023 Oral**\] [Doppelgangers: Learning to Disambiguate Images of Similar Structures](https://doppelgangers-3d.github.io/)
 
-## \[**ICLR 2023 Oral\] [The Modality Focusing Hypothesis: Towards Understanding Crossmodal Knowledge Distillation](https://zihuixue.github.io/MFH/index.html)
+## \[**ICLR 2023 Oral**\] [The Modality Focusing Hypothesis: Towards Understanding Crossmodal Knowledge Distillation](https://zihuixue.github.io/MFH/index.html)
 
 ## \[**ICCV 2021 Oral**\] [Video Autoencoder: self-supervised disentanglement of static 3D structure and motion](https://zlai0.github.io/VideoAutoencoder/)
 
