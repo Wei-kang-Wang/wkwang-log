@@ -76,6 +76,8 @@ date: 2000-12-27 01:09:00
 
 ## \[**ICCV 2021**\] [Neural-GIF: Neural Generalized Implicit Functions for Animating People in Clothing](https://virtualhumans.mpi-inf.mpg.de/neuralgif/)
 
+## \[**CVPR 2022**\] [LISA: Learning Implicit Shape and Appearance of Hands](https://www.iri.upc.edu/people/ecorona/lisa/)
+
 ## \[**ICCV 2021**\] [SNARF: Differentiable Forward Skinning for Animating Non-Rigid Neural Implicit Shapes](https://xuchen-ethz.github.io/snarf/)
 
 ## \[**CVPR 2023**\] [HexPlane: A Fast Representation for Dynamic Scenes](https://github.com/Caoang327/HexPlane)
