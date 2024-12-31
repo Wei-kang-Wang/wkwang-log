@@ -86,3 +86,5 @@ date: 2000-12-27 01:09:00
 
 ## \[**NeurIPS 2022**\] [Shape, Light, and Material Decomposition from Images using Monte Carlo Rendering and Denoising](https://nvlabs.github.io/nvdiffrecmc/)
 
+## \[**NeurIPS 2021 Spotlight**\] [Neural Scene Flow Prior](https://lilac-lee.github.io/Neural_Scene_Flow_Prior/)
+
