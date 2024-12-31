@@ -30,12 +30,15 @@ date: 2024-07-30 01:09:00
 
 [POST](https://elliottwu.com/projects/20_unsup3d/)
 
+### \[**CVPR 2021**\] [Self-Supervised 3D Mesh Reconstruction From Single Images](https://github.com/dvlab-research/SMR)
+
 ### \[**CVPR 2022 Oral**\] [Extracting Triangular 3D Models, Materials, and Lighting From Images](https://nvlabs.github.io/nvdiffrec/)
 
 ### \[**IJCV 2023**\] [DOVE: Learning deformable 3D objects by watching videos](https://link.springer.com/content/pdf/10.1007/s11263-023-01819-5.pdf)
 
 [POST](https://dove3d.github.io/)
 
+### \[**CVPR 2023**\] [ShapeClipper: Scalable 3D Shape Learning from Single-View Images via Geometric and CLIP-based Consistency](https://zixuanh.com/projects/shapeclipper.html)
 
 ### \[**CVPR 2023**\] [MagicPony: Learning articulated 3D animals in the wild](https://3dmagicpony.github.io/)
 
