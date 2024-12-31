@@ -82,4 +82,6 @@ date: 2000-12-27 01:09:00
 
 ## \[**CVPR 2023**\] [HexPlane: A Fast Representation for Dynamic Scenes](https://github.com/Caoang327/HexPlane)
 
+## \[**NeurIPS 2021**\] [Geometry Processing with Neural Fields](https://www.guandaoyang.com/NFGP/)
+
 
