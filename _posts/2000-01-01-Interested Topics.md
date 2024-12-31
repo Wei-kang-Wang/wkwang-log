@@ -84,4 +84,5 @@ date: 2000-12-27 01:09:00
 
 ## \[**NeurIPS 2021**\] [Geometry Processing with Neural Fields](https://www.guandaoyang.com/NFGP/)
 
+## \[**NeurIPS 2022**\] [Shape, Light, and Material Decomposition from Images using Monte Carlo Rendering and Denoising](https://nvlabs.github.io/nvdiffrecmc/)
 
