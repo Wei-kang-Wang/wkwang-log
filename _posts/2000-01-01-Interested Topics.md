@@ -69,3 +69,5 @@ date: 2000-12-27 01:09:00
 ## \[**ICCV 2021 Oral**\] [Video Autoencoder: self-supervised disentanglement of static 3D structure and motion](https://zlai0.github.io/VideoAutoencoder/)
 
 ## \[**CVPR 2023 Highlight**\] [Neural Volumetric Memory for Visual Locomotion Control](https://rchalyang.github.io/NVM/)
+
+## \[**ICML 2022**\] [Generative Modeling for Multi-task Visual Learning](https://github.com/zpbao/multi-task-oriented_generative_modeling)
