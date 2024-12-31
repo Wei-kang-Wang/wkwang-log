@@ -73,3 +73,5 @@ date: 2000-12-27 01:09:00
 ## \[**ICML 2022**\] [Generative Modeling for Multi-task Visual Learning](https://github.com/zpbao/multi-task-oriented_generative_modeling)
 
 ## \[**ECCV 2022**\] [Object-Compositional Neural Implicit Surfaces](https://wuqianyi.top/objectsdf/)
+
+## \[**ICCV 2021**\] [Neural-GIF: Neural Generalized Implicit Functions for Animating People in Clothing](https://virtualhumans.mpi-inf.mpg.de/neuralgif/)
