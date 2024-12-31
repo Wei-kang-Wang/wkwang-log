@@ -56,3 +56,5 @@ date: 3000-12-27 01:09:00
 
 ## \[**Arxiv 2024**\] [Geometry Distributions](https://1zb.github.io/GeomDist/)
 
+## \[**Arxiv 2024**\] [Geometry-Informed Neural Networks](https://arturs-berzins.github.io/GINN/)
+
