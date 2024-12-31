@@ -2,7 +2,7 @@
 layout: post
 comments: True
 title: "Interested Topics"
-date: 3000-12-27 01:09:00
+date: 2000-12-27 01:09:00
 
 ---
 
@@ -59,5 +59,7 @@ date: 3000-12-27 01:09:00
 ## \[**Arxiv 2024**\] [Geometry-Informed Neural Networks](https://arturs-berzins.github.io/GINN/)
 
 ## \[**CVPR 2022 Best Student Paper**\] [EPro-PnP: Generalized End-to-End Probabilistic Perspective-n-Points for Monocular Object Pose Estimation](https://github.com/tjiiv-cprg/EPro-PnP)
+
+## \[**ICCV 2023 Oral**\] [Doppelgangers: Learning to Disambiguate Images of Similar Structures](https://doppelgangers-3d.github.io/)
 
 
