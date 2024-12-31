@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: True
-title: "Visual Alignment & Semantic Correspondence"
+title: "Visual Alignment & Semantic Correspondence & Feature Matching"
 date: 2024-07-30 01:09:00
 
 ---
@@ -52,6 +52,13 @@ date: 2024-07-30 01:09:00
 ### \[**CVPR 2024**\] [Telling Left from Right: Identifying Geometry-Aware Semantic Correspondence](https://telling-left-from-right.github.io/)
 
 ### \[**ECCV 2024**\] [SHIC: Shape-Image Correspondences with no Keypoint Supervision](https://www.robots.ox.ac.uk/~vgg/research/shic/)
+
+
+## 2D Feature Matching
+
+### \[**CVPR 2020 Oral**\] [SuperGlue: Learning Feature Matching with Graph Neural Networks](https://github.com/magicleap/SuperGluePretrainedNetwork)
+
+
 
 ## 3D Semantic Correspondence
 
