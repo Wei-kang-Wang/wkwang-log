@@ -118,3 +118,5 @@ $$L = L_{sim} + \alpha_{kpt}L_{kpt} + \alpha_{inf}L_{inf}$$
 ### \[**Arxiv 2024**\] [ZeroKey: Point-Level Reasoning and Zero-Shot 3D Keypoint Detection from Large Language Models](https://sites.google.com/view/zerokey)
 
 ### \[**ECCV 2024**\] [SelfGeo: Self-supervised and Geodesic-consistent Estimation of Keypoints on Deformable Shapes](https://github.com/IIT-PAVIS/SelfGeo)
+
+### \[**CVPR 2022**\] [UKPGAN: A General Self-Supervised Keypoint Detector](https://github.com/qq456cvb/UKPGAN)
