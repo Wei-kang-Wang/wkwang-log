@@ -58,6 +58,8 @@ date: 2024-07-30 01:09:00
 
 ### \[**CVPR 2020 Oral**\] [SuperGlue: Learning Feature Matching with Graph Neural Networks](https://github.com/magicleap/SuperGluePretrainedNetwork)
 
+### \[**CVPR 2023**\] [AdaMatcher: Adaptive Assignment for Geometry Aware Local Feature Matching](https://github.com/TencentYoutuResearch/AdaMatcher)
+
 
 
 ## 3D Semantic Correspondence
