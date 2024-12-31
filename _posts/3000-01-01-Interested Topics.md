@@ -26,4 +26,6 @@ date: 3000-12-27 01:09:00
 
 ## \[**ECCV 2022**\] [Texturify: Generating Textures on 3D Shape Surfaces](https://nihalsid.github.io/texturify//)
 
-## 
+## \[**ECCV 2024**\] [T-Rex2: Towards Generic Object Detection via Text-Visual Prompt Synergy](https://github.com/IDEA-Research/T-Rex)
+
+
