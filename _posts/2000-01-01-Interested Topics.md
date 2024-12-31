@@ -71,3 +71,5 @@ date: 2000-12-27 01:09:00
 ## \[**CVPR 2023 Highlight**\] [Neural Volumetric Memory for Visual Locomotion Control](https://rchalyang.github.io/NVM/)
 
 ## \[**ICML 2022**\] [Generative Modeling for Multi-task Visual Learning](https://github.com/zpbao/multi-task-oriented_generative_modeling)
+
+## \[**ECCV 2022**\] [Object-Compositional Neural Implicit Surfaces](https://wuqianyi.top/objectsdf/)
