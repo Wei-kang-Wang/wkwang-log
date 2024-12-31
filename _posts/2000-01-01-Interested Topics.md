@@ -75,3 +75,9 @@ date: 2000-12-27 01:09:00
 ## \[**ECCV 2022**\] [Object-Compositional Neural Implicit Surfaces](https://wuqianyi.top/objectsdf/)
 
 ## \[**ICCV 2021**\] [Neural-GIF: Neural Generalized Implicit Functions for Animating People in Clothing](https://virtualhumans.mpi-inf.mpg.de/neuralgif/)
+
+## \[**ICCV 2021**\] [SNARF: Differentiable Forward Skinning for Animating Non-Rigid Neural Implicit Shapes](https://xuchen-ethz.github.io/snarf/)
+
+## \[**CVPR 2023**\] [HexPlane: A Fast Representation for Dynamic Scenes](https://github.com/Caoang327/HexPlane)
+
+
