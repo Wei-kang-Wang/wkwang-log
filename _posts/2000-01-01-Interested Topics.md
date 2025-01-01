@@ -94,3 +94,5 @@ date: 2000-12-27 01:09:00
 
 ## \[**CVPR 2022**\] [3D Moments from Near-Duplicate Photos](https://3d-moments.github.io/)
 
+## \[**CVPR 2022 Oral**\] [Robust Equivariant Imaging](https://github.com/edongdongchen/REI)
+
