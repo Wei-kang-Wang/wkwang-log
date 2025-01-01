@@ -102,3 +102,4 @@ date: 2000-12-27 01:09:00
 
 ## \[**CVPR 2024**\] [Finsler-Laplace-Beltrami Operators with Application to Shape Analysis](https://github.com/tum-vision/flbo)
 
+## \[**Arxiv 2024**\] [Framer: Interactive Frame Interpolation](https://aim-uofa.github.io/Framer/)
