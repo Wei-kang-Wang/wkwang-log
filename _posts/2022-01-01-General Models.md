@@ -15,7 +15,7 @@ tags: paper-reading
 
 ---
 
-CVPR2022的[BACON: Band-limited Coordinate Networks](http://www.computationalimaging.org/publications/bacon/)
+CVPR2022的[BACON: Band-limited Coordinate Networks](http://www.computationalimaging.org/publications/bacon/), ECCV2024的[Sapiens: Foundation for Human Vision Models](https://about.meta.com/realitylabs/codecavatars/sapiens/)
 
 ## 基本网络架构（CNN和Transformer）
 
