@@ -69,3 +69,12 @@ date: 2024-07-30 01:09:00
 ## 3D Semantic Correspondence
 
 ### \[**Arxiv 2024**\] [DenseMatcher: Learning 3D Semantic Correspondence for Category-Level Manipulation from One Demo](https://tea-lab.github.io/DenseMatcher/)
+
+
+## Visual Tracking
+
+### \[**CVPR 2024 Highlight**\] [SpatialTracker: Tracking Any 2D Pixels in 3D Space](https://henry123-boy.github.io/SpaTracker/)
+
+### \[**ECCV 2024**\] [DINO-Tracker: Taming DINO for Self-Supervised Point Tracking in a Single Video](https://dino-tracker.github.io/)
+
+
