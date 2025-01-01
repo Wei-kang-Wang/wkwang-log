@@ -55,6 +55,8 @@ date: 2024-07-30 01:09:00
 
 ### \[**ECCV 2024**\] [SHIC: Shape-Image Correspondences with no Keypoint Supervision](https://www.robots.ox.ac.uk/~vgg/research/shic/)
 
+### \[**NeurIPS 2023**\] [Diffusion Hyperfeatures: Searching Through Time and Space for Semantic Correspondence](https://diffusion-hyperfeatures.github.io/)
+
 
 ## 2D Feature Matching
 
@@ -78,5 +80,7 @@ date: 2024-07-30 01:09:00
 ### \[**CVPR 2024 Highlight**\] [SpatialTracker: Tracking Any 2D Pixels in 3D Space](https://henry123-boy.github.io/SpaTracker/)
 
 ### \[**ECCV 2024**\] [DINO-Tracker: Taming DINO for Self-Supervised Point Tracking in a Single Video](https://dino-tracker.github.io/)
+
+### [Tracking Any Point (TAP)](https://github.com/google-deepmind/tapnet)
 
 
