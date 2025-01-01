@@ -14,6 +14,8 @@ date: 2024-07-30 01:09:00
 
 ---
 
+[这里]是集合了众多3D from category-specific 2D image collections方法的github repo。
+
 ### \[**CVPR 2015**\] [Category-specific object reconstruction from a single image](https://openaccess.thecvf.com/content_cvpr_2015/papers/Kar_Category-Specific_Object_Reconstruction_2015_CVPR_paper.pdf)
 
 [CODE Version1](https://github.com/akar43/CategoryShapes), [CODE Version2](https://github.com/DefUs3r/Category-Specific-Object-Reconstruction)
