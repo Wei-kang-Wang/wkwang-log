@@ -96,3 +96,9 @@ date: 2000-12-27 01:09:00
 
 ## \[**CVPR 2022 Oral**\] [Robust Equivariant Imaging](https://github.com/edongdongchen/REI)
 
+## \[**CVPR 2022**\] [A variational Bayesian method for similarity learning in non-rigid image registration](https://dgrzech.github.io/learnsim/)
+
+## \[**ICLR 2024**\] [A Plug-and-Play Image Registration Network](https://wustl-cig.github.io/pirate/)
+
+
+
