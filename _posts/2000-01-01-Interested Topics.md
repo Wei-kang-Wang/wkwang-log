@@ -92,3 +92,5 @@ date: 2000-12-27 01:09:00
 
 ## \[**NeurIPS 2021**\] [Meta-learning Neural Lumigraph Representations](http://www.computationalimaging.org/publications/metanlr/)
 
+## \[**CVPR 2022**\] [3D Moments from Near-Duplicate Photos](https://3d-moments.github.io/)
+
