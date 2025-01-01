@@ -62,6 +62,8 @@ date: 2024-07-30 01:09:00
 
 ### \[**CVPR 2023**\] [AdaMatcher: Adaptive Assignment for Geometry Aware Local Feature Matching](https://github.com/TencentYoutuResearch/AdaMatcher)
 
+### \[**ACM SIGGRAPH 2018**\] [Neural Best-Buddies: Sparse Cross-Domain Correspondence](https://kfiraberman.github.io/neural_best_buddies/)
+
 
 
 ## 3D Semantic Correspondence
