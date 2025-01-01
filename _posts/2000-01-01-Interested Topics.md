@@ -109,3 +109,5 @@ date: 2000-12-27 01:09:00
 ## \[**CVPR 2023 Highlight**\] [Zero-Shot Everything Sketch-Based Image Retrieval, and in Explainable Style](https://github.com/buptLinfy/ZSE-SBIR)
 
 ## \[**NeurIPS 2023**\] [Jigsaw: Learning to Assemble Multiple Fractured Objects](https://jiaxin-lu.github.io/Jigsaw/)
+
+## \[**NeurIPS 2018**\] [Neural 3D Mesh Renderer](https://github.com/adambielski/neural_renderer)
