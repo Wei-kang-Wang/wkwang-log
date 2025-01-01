@@ -107,3 +107,5 @@ date: 2000-12-27 01:09:00
 ## \[**Arxiv 2024**\] [Framer: Interactive Frame Interpolation](https://aim-uofa.github.io/Framer/)
 
 ## \[**CVPR 2023 Highlight**\] [Zero-Shot Everything Sketch-Based Image Retrieval, and in Explainable Style](https://github.com/buptLinfy/ZSE-SBIR)
+
+## \[**NeurIPS 2023**\] [Jigsaw: Learning to Assemble Multiple Fractured Objects](https://jiaxin-lu.github.io/Jigsaw/)
