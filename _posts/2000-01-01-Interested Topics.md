@@ -14,6 +14,8 @@ date: 2000-12-27 01:09:00
 
 ---
 
+## \[**CVPR 2024 Highlight**\] [Breathing Life Into Sketches Using Text-to-Video Priors](https://livesketch.github.io/)
+
 ## \[**3DV 2024**\] [Unsupervised Representation Learning for Diverse Deformable Shape Collections](https://github.com/Fraunhofer-SCAI/DISCO-AE)
 
 ## \[**ECCV 2020**\] [DEMEA: Deep Mesh Autoencoders for Non-rigidly Deforming Objects](https://vcai.mpi-inf.mpg.de/projects/DEMEA/)
