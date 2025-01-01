@@ -100,6 +100,8 @@ date: 2000-12-27 01:09:00
 
 ## \[**ICLR 2024**\] [A Plug-and-Play Image Registration Network](https://wustl-cig.github.io/pirate/)
 
+## \[**ECCV 2024**\] [GeoCalib: Learning Single-image Calibration with Geometric Optimization](https://github.com/cvg/GeoCalib)
+
 ## \[**CVPR 2024**\] [Finsler-Laplace-Beltrami Operators with Application to Shape Analysis](https://github.com/tum-vision/flbo)
 
 ## \[**Arxiv 2024**\] [Framer: Interactive Frame Interpolation](https://aim-uofa.github.io/Framer/)
