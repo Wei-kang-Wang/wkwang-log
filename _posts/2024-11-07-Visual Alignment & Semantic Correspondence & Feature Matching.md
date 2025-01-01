@@ -66,6 +66,7 @@ date: 2024-07-30 01:09:00
 
 ### \[**ICLR 2024 Spotlight**\] [GIM: Learning Generalizable Image Matcher From Internet Videos](https://xuelunshen.com/gim/)
 
+### \[**CVPR 2024 Oral**\] [Matching 2D Images in 3D: Metric Relative Pose from Metric Correspondences](https://nianticlabs.github.io/mickey/)
 
 ## 3D Semantic Correspondence
 
