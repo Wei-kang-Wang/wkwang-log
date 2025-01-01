@@ -111,3 +111,5 @@ date: 2000-12-27 01:09:00
 ## \[**NeurIPS 2023**\] [Jigsaw: Learning to Assemble Multiple Fractured Objects](https://jiaxin-lu.github.io/Jigsaw/)
 
 ## \[**NeurIPS 2018**\] [Neural 3D Mesh Renderer](https://github.com/adambielski/neural_renderer)
+
+## \[**Arxiv 2024**\] [Pose Anything: A Graph-Based Approach for Category-Agnostic Pose Estimation](https://orhir.github.io/pose-anything/)
