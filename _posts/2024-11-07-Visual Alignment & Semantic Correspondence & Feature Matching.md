@@ -64,6 +64,7 @@ date: 2024-07-30 01:09:00
 
 ### \[**ACM SIGGRAPH 2018**\] [Neural Best-Buddies: Sparse Cross-Domain Correspondence](https://kfiraberman.github.io/neural_best_buddies/)
 
+### \[**ICLR 2024 Spotlight**\] [GIM: Learning Generalizable Image Matcher From Internet Videos](https://xuelunshen.com/gim/)
 
 
 ## 3D Semantic Correspondence
