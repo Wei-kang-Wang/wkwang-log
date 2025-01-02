@@ -125,3 +125,7 @@ date: 2000-12-27 01:09:00
 ## \[**ECCV 2024**\] [ShapeLLM: Universal 3D Object Understanding for Embodied Interaction](https://qizekun.github.io/shapellm/)
 
 ## \[**Arxiv 2021**\] [Breaking the Frame: Image Retrieval by Visual Overlap Prediction](https://github.com/weitong8591/vop)
+
+## \[**CVPR 2023 Highlight**\] [GAPartNet: Cross-Category Domain-Generalizable Object Perception and Manipulation via Generalizable and Actionable Parts](https://pku-epic.github.io/GAPartNet/)
+
+## \[**CVPR 2018**\] [Neural 3D Mesh Renderer](https://github.com/adambielski/neural_renderer)
