@@ -23,3 +23,7 @@ date: 2024-07-30 01:09:00
 ## \[**CVPR 2024 Highlight**\] [CoDeF: Content Deformation Fields for Temporally Consistent Video Processing](https://qiuyu96.github.io/CoDeF/)
 
 ## \[**NeurIPS 2021**\] [SIMONe: View-Invariant, Temporally-Abstracted Object Representations via Unsupervised Video Decomposition](https://github.com/lkhphuc/simone)
+
+## \[**ICCV 2023 Oral**\] [PPR: Physically Plausible Reconstruction from Monocular Videos](https://gengshan-y.github.io/ppr/)
+
+## \[**CVPR 2023**\] [RAC: Reconstructing Animatable Categories from Videos](https://gengshan-y.github.io/rac-www/)
