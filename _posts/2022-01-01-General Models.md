@@ -15,7 +15,7 @@ tags: paper-reading
 
 ---
 
-CVPR2022的[BACON: Band-limited Coordinate Networks](http://www.computationalimaging.org/publications/bacon/), ECCV2024的[Sapiens: Foundation for Human Vision Models](https://about.meta.com/realitylabs/codecavatars/sapiens/)
+CVPR2022的[BACON: Band-limited Coordinate Networks](http://www.computationalimaging.org/publications/bacon/), ECCV2024的[Sapiens: Foundation for Human Vision Models](https://about.meta.com/realitylabs/codecavatars/sapiens/), ICCV2023的[All in Tokens: Unifying Output Space of Visual Tasks via Soft Token](https://github.com/SwinTransformer/AiT), ICCV2023的[Scratching Visual Transformer's Back with Uniform Attention](https://uniform-attention.github.io/)
 
 ## 基本网络架构（CNN和Transformer）
 
