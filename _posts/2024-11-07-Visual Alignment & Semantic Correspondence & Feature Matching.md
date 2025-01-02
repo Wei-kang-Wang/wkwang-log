@@ -24,6 +24,7 @@ date: 2024-07-30 01:09:00
 
 ### \[**ECCV 2024**\] [SpaceJAM: a Lightweight and Regularization-free Method for Fast Joint Alignment of Images](https://bgu-cs-vil.github.io/SpaceJAM/)
 
+### \[**NeurIPS 2023**\] [FD-Align: Feature Discrimination Alignment for Fine-tuning Pre-Trained Models in Few-Shot Learning](https://github.com/skingorz/FD-Align)
 
 ## 3D Visual Alignment
 
