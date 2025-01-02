@@ -15,7 +15,7 @@ tags: paper-reading
 
 ---
 
-CVPR2022的[BACON: Band-limited Coordinate Networks](http://www.computationalimaging.org/publications/bacon/), ECCV2024的[Sapiens: Foundation for Human Vision Models](https://about.meta.com/realitylabs/codecavatars/sapiens/), ICCV2023的[All in Tokens: Unifying Output Space of Visual Tasks via Soft Token](https://github.com/SwinTransformer/AiT), ICCV2023的[Scratching Visual Transformer's Back with Uniform Attention](https://uniform-attention.github.io/), ICCV2021的[Emerging Properties in Self-Supervised Vision Transformers](https://github.com/facebookresearch/dino), NeurIPS2022的[CroCo: Self-Supervised Pretraining for 3D Vision Tasks by Cross-View Completion](https://europe.naverlabs.com/research/publications/croco-self-supervised-pretraining-for-3d-vision-tasks-by-cross-view-completion/)
+CVPR2022的[BACON: Band-limited Coordinate Networks](http://www.computationalimaging.org/publications/bacon/), ECCV2024的[Sapiens: Foundation for Human Vision Models](https://about.meta.com/realitylabs/codecavatars/sapiens/), ICCV2023的[All in Tokens: Unifying Output Space of Visual Tasks via Soft Token](https://github.com/SwinTransformer/AiT), ICCV2023的[Scratching Visual Transformer's Back with Uniform Attention](https://uniform-attention.github.io/), ICCV2021的[Emerging Properties in Self-Supervised Vision Transformers](https://github.com/facebookresearch/dino), NeurIPS2022的[CroCo: Self-Supervised Pretraining for 3D Vision Tasks by Cross-View Completion](https://europe.naverlabs.com/research/publications/croco-self-supervised-pretraining-for-3d-vision-tasks-by-cross-view-completion/), ICLR2024的[Do Generated Data Always Help Contrastive Learning?](https://github.com/PKU-ML/adainf)
 
 ## 基本网络架构（CNN和Transformer）
 
