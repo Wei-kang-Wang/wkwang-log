@@ -38,6 +38,8 @@ date: 2024-07-30 01:09:00
 
 ### \[**CVPR 2022**\] [De-rendering 3D Objects in the Wild](https://www.robots.ox.ac.uk/~vgg/research/derender3d/)
 
+### \[**ACM SIGGRAPH 2022**\] [NeROIC: Neural Rendering of Objects from Online Image Collections](https://zfkuang.github.io/NeROIC/)
+
 ### \[**NeurIPS 2022**\] [SAMURAI: Shape And Material from Unconstrained Real-world Arbitrary Image collections](https://github.com/google/samurai)
 
 ### \[**IJCV 2023**\] [DOVE: Learning deformable 3D objects by watching videos](https://link.springer.com/content/pdf/10.1007/s11263-023-01819-5.pdf)
