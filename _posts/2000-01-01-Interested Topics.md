@@ -22,13 +22,7 @@ date: 2000-12-27 01:09:00
 
 ## \[**3DV 2024**\] [Unsupervised Representation Learning for Diverse Deformable Shape Collections](https://github.com/Fraunhofer-SCAI/DISCO-AE)
 
-## \[**ECCV 2020**\] [DEMEA: Deep Mesh Autoencoders for Non-rigidly Deforming Objects](https://vcai.mpi-inf.mpg.de/projects/DEMEA/)
-
 ## \[**CVPR 2019**\] [On the Continuity of Rotation Representations in Neural Networks](https://zhouyisjtu.github.io/project_rotation/rotation.html)
-
-## \[**ICCV 2021**\] [NPMs: Neural Parametric Models for 3D Deformable Shapes](https://github.com/pablopalafox/npms)
-
-## \[**CVPR 2021**\] [Unsupervised 3D Shape Completion through GAN Inversion](https://junzhezhang.github.io/projects/ShapeInversion/)
 
 ## \[**ACM SIGGRAPH 2023**\] [Interactive Hair Simulation on the GPU Using ADMM](https://research.nvidia.com/publication/2023-08_interactive-hair-simulation-gpu-using-admm)
 
@@ -37,8 +31,6 @@ date: 2000-12-27 01:09:00
 ## \[**ECCV 2024**\] [T-Rex2: Towards Generic Object Detection via Text-Visual Prompt Synergy](https://github.com/IDEA-Research/T-Rex)
 
 ## \[**ICCV 2023**\] [HyperDiffusion: Generating Implicit Neural Fields with Weight-Space Diffusion](https://ziyaerkoc.com/hyperdiffusion/)
-
-## \[**CVPR 2024 Highlight**\] [MeshGPT: Generating Triangle Meshes with Decoder-Only Transformers](https://nihalsid.github.io/mesh-gpt/)
 
 ## \[**CVPR 2024**\] [Solving Masked Jigsaw Puzzles with Diffusion Vision Transformers (SPDVT)](https://github.com/JinyangMarkLiu/JPDVT/tree/main)
 
