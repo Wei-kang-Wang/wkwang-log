@@ -23,3 +23,6 @@ date: 2024-12-28 01:09:00
 ## \[**ICCV 2023**\] [WALDO: Future Video Synthesis using Object Layer Decomposition and Parametric Flow Prediction](https://16lemoing.github.io/waldo/)
 
 ## \[**Arxiv 2024**\] [AtomoVideo: High Fidelity Image-to-Video Generation](https://atomo-video.github.io/)
+
+## \[**ACM SIGGRAPH ASIA 2024**\] [LUMIERE: A Space-Time Diffusion Model for Video Generation](https://lumiere-video.github.io/)
+
