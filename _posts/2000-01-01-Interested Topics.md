@@ -14,6 +14,8 @@ date: 2000-12-27 01:09:00
 
 ---
 
+## \[**ACM SIGGRAPH ASIA 2024**\] [Customizing Text-to-Image Diffusion with Object Viewpoint Control](https://customdiffusion360.github.io/)
+
 ## \[**ECCV 2024**\] [CrossScore: Towards Multi-View Image Evaluation and Scoring](https://crossscore.active.vision/)
 
 ## \[**CVPR 2024 Highlight**\] [Breathing Life Into Sketches Using Text-to-Video Priors](https://livesketch.github.io/)
