@@ -125,3 +125,5 @@ date: 2000-12-27 01:09:00
 ## \[**CVPR 2023 Highlight**\] [GAPartNet: Cross-Category Domain-Generalizable Object Perception and Manipulation via Generalizable and Actionable Parts](https://pku-epic.github.io/GAPartNet/)
 
 ## \[**CVPR 2018**\] [Neural 3D Mesh Renderer](https://github.com/adambielski/neural_renderer)
+
+## \[**CVPR 2024 Oral**\] [Objects as volumes: A stochastic geometry view of opaque solids](https://imaging.cs.cmu.edu/volumetric_opaque_solids/)
