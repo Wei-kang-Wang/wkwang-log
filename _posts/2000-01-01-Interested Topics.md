@@ -115,3 +115,13 @@ date: 2000-12-27 01:09:00
 ## \[**NeurIPS 2018**\] [Neural 3D Mesh Renderer](https://github.com/adambielski/neural_renderer)
 
 ## \[**Arxiv 2024**\] [Pose Anything: A Graph-Based Approach for Category-Agnostic Pose Estimation](https://orhir.github.io/pose-anything/)
+
+## \[**CVPR 2024**\] [NeuSDFusion: A Spatial-Aware Generative Model for 3D Shape Completion, Reconstruction, and Generation](https://weizheliu.github.io/NeuSDFusion/)
+
+## \[**ECCV 2024**\] [Neural Poisson Solver: A Universal and Continuous Framework for Natural Signal Blending](https://ep1phany05.github.io/NeuralPoissonSolver-website/)
+
+## \[**ECCV 2024**\] [Look Around and Learn: Self-Improving Object Detection by Exploration](https://iit-pavis.github.io/Look_Around_And_Learn/)
+
+## \[**ECCV 2024**\] [ShapeLLM: Universal 3D Object Understanding for Embodied Interaction](https://qizekun.github.io/shapellm/)
+
+## \[**Arxiv 2021**\] [Breaking the Frame: Image Retrieval by Visual Overlap Prediction](https://github.com/weitong8591/vop)
