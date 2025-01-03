@@ -38,6 +38,8 @@ date: 2024-07-30 01:09:00
 
 ### \[**CVPR 2022**\] [De-rendering 3D Objects in the Wild](https://www.robots.ox.ac.uk/~vgg/research/derender3d/)
 
+### \[**CVPR 2022 Oral**\] [BANMo: Building Animatable 3D Neural Models from Many Casual Videos](https://banmo-www.github.io/index.html)
+
 ### \[**ACM SIGGRAPH 2022**\] [NeROIC: Neural Rendering of Objects from Online Image Collections](https://zfkuang.github.io/NeROIC/)
 
 ### \[**NeurIPS 2022**\] [SAMURAI: Shape And Material from Unconstrained Real-world Arbitrary Image collections](https://github.com/google/samurai)
