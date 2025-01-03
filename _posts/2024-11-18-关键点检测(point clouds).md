@@ -111,7 +111,7 @@ $$L = L_{sim} + \alpha_{kpt}L_{kpt} + \alpha_{inf}L_{inf}$$
 
 因为我们利用一系列semantically consistent的keypoints来代表一个object shape，我们可以通过计算training set里的shape对应的keypoints的PCA来获取categorical shape prior。这个prior可以用来指导keypoint manipulation，也就是上面提到的$$W_C$$。比如说，如果用户想要改变一个airplane一个wing上的一个keypoint，根据寻找到能够最佳重构这个被改变的keypoint的新位置的PCA basis coefficients，其余的keypoints就会被这些basis coefficients”同步协调“。从而这些keypoints就会根据这个prior（也就是这个PCA）落到新的位置。这个prior还可以通过采样一系列新的keypoints来生成新的shapes：调整某些keypoints，然后PCA经过计算basis coefficients来对所有的keypoints位置进行调整，从而得到了新的keypoints位置，然后利用上述的deformation model来生成新的shape，就可以将这个新的shape加入已有的3D shape datasets里。
 
-
+### \[**ECCV 2020**\] [Unsupervised Learning of Category-Specific Symmetric 3D Keypoints from Point Sets](https://github.com/cfernandezlab/Category-Specific-Keypoints)
 
 ### \[**CVPR 2024**\] [Back to 3D: Few-Shot 3D Keypoint Detection with Back-Projected 2D Features](https://github.com/wimmerth/back-to-3d-few-shot-keypoints)
 
