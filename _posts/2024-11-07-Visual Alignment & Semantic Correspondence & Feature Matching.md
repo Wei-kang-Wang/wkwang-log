@@ -16,6 +16,8 @@ date: 2024-07-30 01:09:00
 
 [这里](https://github.com/ericzzj1989/Awesome-Image-Matching)是一系列image matching的论文的仓库。
 
+[这里](https://github.com/Awesome-Image-Registration-Organization/awesome-image-registration/tree/master)是一系列image registration论文的仓库。
+
 ## 2D Visual Alignment
 
 ### \[**CVPR 2022 Best Paper finalist**\] [GANgealing: GAN-Supervised Dense Visual Alignment](https://www.wpeebles.com/gangealing)
