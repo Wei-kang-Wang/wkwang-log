@@ -26,4 +26,6 @@ date: 2025-01-02 01:09:00
 
 ## \[**NeurIPS 2024 Highlight**\] [MeshFormer: High-Quality Mesh Generation with 3D-Guided Reconstruction Model](https://meshformer3d.github.io/?utm_source=tldrai)
 
-## \[**Arxiv 2024**\] [CraftsMan3D: High-fidelity Mesh Generation with 3D Native Generation and Interactive Geometry Refiner]()
+## \[**Arxiv 2024**\] [CraftsMan3D: High-fidelity Mesh Generation with 3D Native Generation and Interactive Geometry Refiner](https://craftsman3d.github.io/)
+
+## \[**Arxiv 2024**\] [MeshLRM: Large Reconstruction Model for High-Quality Meshes](https://sarahweiii.github.io/meshlrm/)
