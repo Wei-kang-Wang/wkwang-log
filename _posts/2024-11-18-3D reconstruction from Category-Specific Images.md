@@ -74,4 +74,8 @@ date: 2024-07-30 01:09:00
 
 ### \[**CVPR 2024**\] [DUSt3R: Geometric 3D Vision Made Easy](https://europe.naverlabs.com/research/publications/dust3r-geometric-3d-vision-made-easy/)
 
+### \[**ECCV 2024**\] [Ponymation: Learning Articulated 3D Animal Motions from Unlabeled Online Videos](https://keqiangsun.github.io/projects/ponymation/) 
+
 ### \[**CVPR 2024**\] [MASt3R – Matching And Stereo 3D Reconstruction](https://europe.naverlabs.com/blog/mast3r-matching-and-stereo-3d-reconstruction/)
+
+### \[**CVPR 2024**\] [Splatter Image: Ultra-Fast Single-View 3D Reconstruction](https://szymanowiczs.github.io/splatter-image.html)
