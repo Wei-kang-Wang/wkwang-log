@@ -122,3 +122,5 @@ $$L = L_{sim} + \alpha_{kpt}L_{kpt} + \alpha_{inf}L_{inf}$$
 ### \[**CVPR 2022**\] [UKPGAN: A General Self-Supervised Keypoint Detector](https://github.com/qq456cvb/UKPGAN)
 
 ### \[**CVPR 2024**\] [Back to 3D: Few-Shot 3D Keypoint Detection with Back-Projected 2D Features](https://wimmerth.github.io/back-to-3d.html)
+
+### \[**ECCV 2022**\] [Unsupervised Learning of 3D Semantic Keypoints with Mutual Reconstruction](https://github.com/YYYYYHC/Learning-3D-Keypoints-with-Mutual-Recosntruction)
