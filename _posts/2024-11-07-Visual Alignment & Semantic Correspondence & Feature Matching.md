@@ -62,6 +62,8 @@ date: 2024-07-30 01:09:00
 
 ### \[**CVPR 2023**\] [SEM: Structured Epipolar Matcher for Local Feature Matching](https://sem2023.github.io/)
 
+### \[**CVPR 2024 Oral**\] [Improving Semantic Correspondence with Viewpoint-Guided Spherical Maps](https://groups.inf.ed.ac.uk/vico/research/SphericalMaps/)
+
 ## 2D Feature Matching
 
 ### \[**CVPR 2020 Oral**\] [SuperGlue: Learning Feature Matching with Graph Neural Networks](https://github.com/magicleap/SuperGluePretrainedNetwork)
