@@ -31,3 +31,5 @@ date: 2025-01-02 01:09:00
 ## \[**Arxiv 2024**\] [CraftsMan3D: High-fidelity Mesh Generation with 3D Native Generation and Interactive Geometry Refiner](https://craftsman3d.github.io/)
 
 ## \[**Arxiv 2024**\] [MeshLRM: Large Reconstruction Model for High-Quality Meshes](https://sarahweiii.github.io/meshlrm/)
+
+## [DOPH: Differentiable Occupancy and Mesh Morphing](https://github.com/Luo-Yihao/DOPH)
