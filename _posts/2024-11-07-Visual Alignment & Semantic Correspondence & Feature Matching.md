@@ -94,3 +94,5 @@ date: 2024-07-30 01:09:00
 ### \[**Arxiv 2024**\] [Tracking Any Point (TAP)](https://github.com/google-deepmind/tapnet)
 
 ### \[**CVPR 2024**\] [Dense Optical Tracking: Connecting the Dots](https://16lemoing.github.io/dot/)
+
+### \[**ECCV 2024**\] [Local All-Pair Correspondence for Point Tracking](https://github.com/cvlab-kaist/locotrack)
