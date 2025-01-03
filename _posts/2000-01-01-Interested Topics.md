@@ -14,6 +14,10 @@ date: 2000-12-27 01:09:00
 
 ---
 
+## \[**ECCV 2024**\] [SIGMA: Sinkhorn-Guided Masked Video Modeling](https://quva-lab.github.io/SIGMA/)
+
+## \[**ECCV 2024**\] [Regularizing Dynamic Radiance Fields with Kinematic Fields](https://github.com/iwbn/kinematic-fields)
+
 ## \[**CVPR 2024**\] [High-Quality Facial Geometry and Appearance Capture at Home](https://yxuhan.github.io/CoRA/index.html)
 
 ## \[**ACM SIGGRAPH ASIA 2024**\] [Customizing Text-to-Image Diffusion with Object Viewpoint Control](https://customdiffusion360.github.io/)
