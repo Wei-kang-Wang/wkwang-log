@@ -13,6 +13,17 @@ date: 2000-12-27 01:09:00
 {:toc}
 
 ---
+## [DReg-NeRF: Deep Registration for Neural Radiance Fields](https://aibluefisher.github.io/DReg-NeRF/)
+
+## [BBDM: Image-to-image Translation with Brownian Bridge Diffusion Models](https://github.com/xuekt98/BBDM)
+
+## [RGB2Point: 3D Point Cloud Generation from Single RGB Images](https://www.jaejoonglee.com/wacv25_rgb2point/)
+
+## \[**ECCV 2024**\] [Temporal Residual Jacobians for Rig-free Motion Transfer](https://temporaljacobians.github.io/)
+
+## [CARFF: Conditional Auto-encoded Radiance Field for 3D Scene Forecasting](https://www.carff.website/)
+
+## [Differentiable Convex Polyhedra Optimization from Multi-view Images](https://github.com/kimren227/DiffConvex)
 
 ## \[**ECCV 2024**\] [Diff-Reg: Diffusion Model in Doubly Stochastic Matrix Space for Registration Problem](https://github.com/wuqianliang/Diff-Reg)
 
