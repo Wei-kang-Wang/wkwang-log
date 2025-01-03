@@ -76,6 +76,8 @@ date: 2024-07-30 01:09:00
 
 ### \[**CVPR 2024 Oral**\] [Matching 2D Images in 3D: Metric Relative Pose from Metric Correspondences](https://nianticlabs.github.io/mickey/)
 
+### \[**ICCV 2023**\] [End2End Multi-View Feature Matching with Differentiable Pose Optimization](https://barbararoessle.github.io/e2e_multi_view_matching/)
+
 ## 3D Semantic Correspondence
 
 ### \[**Arxiv 2024**\] [DenseMatcher: Learning 3D Semantic Correspondence for Category-Level Manipulation from One Demo](https://tea-lab.github.io/DenseMatcher/)
