@@ -25,3 +25,5 @@ date: 2025-01-02 01:09:00
 ## \[**CVPR 2024 Highlight**\] [MeshGPT: Generating Triangle Meshes with Decoder-Only Transformers](https://nihalsid.github.io/mesh-gpt/)
 
 ## \[**NeurIPS 2024 Highlight**\] [MeshFormer: High-Quality Mesh Generation with 3D-Guided Reconstruction Model](https://meshformer3d.github.io/?utm_source=tldrai)
+
+## \[**Arxiv 2024**\] [CraftsMan3D: High-fidelity Mesh Generation with 3D Native Generation and Interactive Geometry Refiner]()
