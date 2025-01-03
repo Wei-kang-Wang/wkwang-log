@@ -68,6 +68,8 @@ date: 2024-07-30 01:09:00
 
 ### \[**CVPR 2024 Oral**\] [Improving Semantic Correspondence with Viewpoint-Guided Spherical Maps](https://groups.inf.ed.ac.uk/vico/research/SphericalMaps/)
 
+### \[**CVPR 2024**\] [Pixel-level Semantic Correspondence through Layout-aware Representation](https://github.com/YXSUNMADMAX/LPMFlow)
+
 ## 2D Feature Matching
 
 ### \[**CVPR 2020 Oral**\] [SuperGlue: Learning Feature Matching with Graph Neural Networks](https://github.com/magicleap/SuperGluePretrainedNetwork)
