@@ -83,6 +83,6 @@ date: 2024-07-30 01:09:00
 
 ### \[**ECCV 2024**\] [DINO-Tracker: Taming DINO for Self-Supervised Point Tracking in a Single Video](https://dino-tracker.github.io/)
 
-### [Tracking Any Point (TAP)](https://github.com/google-deepmind/tapnet)
+### \[**Arxiv 2024**\] [Tracking Any Point (TAP)](https://github.com/google-deepmind/tapnet)
 
-
+### \[**CVPR 2024**\] [Dense Optical Tracking: Connecting the Dots](https://16lemoing.github.io/dot/)
