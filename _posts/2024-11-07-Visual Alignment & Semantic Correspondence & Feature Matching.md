@@ -58,6 +58,7 @@ date: 2024-07-30 01:09:00
 
 ### \[**NeurIPS 2023**\] [Diffusion Hyperfeatures: Searching Through Time and Space for Semantic Correspondence](https://diffusion-hyperfeatures.github.io/)
 
+### \[**CVPR 2024 Highlight**\] [Matching Anything By Segmenting Anything](https://matchinganything.github.io/)
 
 ## 2D Feature Matching
 
