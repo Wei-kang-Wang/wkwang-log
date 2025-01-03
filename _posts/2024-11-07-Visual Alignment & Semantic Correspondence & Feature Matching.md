@@ -96,3 +96,7 @@ date: 2024-07-30 01:09:00
 ### \[**CVPR 2024**\] [Dense Optical Tracking: Connecting the Dots](https://16lemoing.github.io/dot/)
 
 ### \[**ECCV 2024**\] [Local All-Pair Correspondence for Point Tracking](https://github.com/cvlab-kaist/locotrack)
+
+### \[**ICCV 2023**\] [Tracking Anything with Decoupled Video Segmentation](https://hkchengrex.com/Tracking-Anything-with-DEVA/)
+
+### \[**ICCV 2023 Best Student Paper**\] [Tracking Everything Everywhere All at Once](https://omnimotion.github.io/)
