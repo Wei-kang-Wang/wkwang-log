@@ -21,3 +21,5 @@ CVPR2021的[Real-Time High-Resolution Background Matting](https://grail.cs.washi
 ### \[**ECCV 2024**\] [Click-Gaussian: Interactive Segmentation to Any 3D Gaussians](https://seokhunchoi.github.io/Click-Gaussian/)
 
 ### [GaussianFormer: Scene as Gaussians for Vision-Based 3D Semantic Occupancy Prediction](https://wzzheng.net/GaussianFormer/)
+
+### \[**CVPR 2024**\] [MaskClustering: View Consensus based Mask Graph Clustering for Open-Vocabulary 3D Instance Segmentation](https://pku-epic.github.io/MaskClustering/)
