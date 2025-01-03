@@ -19,3 +19,5 @@ date: 2024-07-30 01:09:00
 ## [Relightable 3D Gaussian: Real-time Point Cloud Relighting with BRDF Decomposition and Ray Tracing](https://nju-3dv.github.io/projects/Relightable3DGaussian/)
 
 ## \[**ICCV 2019**\] [PU-GAN: a Point Cloud Upsampling Adversarial Network](https://liruihui.github.io/publication/PU-GAN/)
+
+## \[**ECCV 2024**\] [Implicit Filtering for Learning Neural Signed Distance Functions from 3D Point Clouds](https://list17.github.io/ImplicitFilter)
