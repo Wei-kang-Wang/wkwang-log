@@ -35,3 +35,5 @@ date: 2024-12-28 01:09:00
 ## [VD3D: Taming Large Video Diffusion Transformers for 3D Camera Control](https://snap-research.github.io/vd3d/)
 
 ## [FreeInit : Bridging Initialization Gap in Video Diffusion Models](https://tianxingwu.github.io/pages/FreeInit/)
+
+## \[**ACM SIGGRAPH 2024**\] [MotionCtrl: A Unified and Flexible Motion Controller for Video Generation](https://wzhouxiff.github.io/projects/MotionCtrl/)
