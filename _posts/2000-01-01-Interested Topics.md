@@ -13,6 +13,11 @@ date: 2000-12-27 01:09:00
 {:toc}
 
 ---
+
+## \[**ICML 2024**\] [Predictive Dynamic Fusion](https://github.com/Yinan-Xia/PDF)
+
+## \[**ECCV 2024**\] [Möbius Transform for Mitigating Perspective Distortions in Representation Learning](https://prakashchhipa.github.io/projects/mpd/)
+
 ## [DReg-NeRF: Deep Registration for Neural Radiance Fields](https://aibluefisher.github.io/DReg-NeRF/)
 
 ## [BBDM: Image-to-image Translation with Brownian Bridge Diffusion Models](https://github.com/xuekt98/BBDM)
