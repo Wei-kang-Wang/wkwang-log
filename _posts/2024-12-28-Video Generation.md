@@ -29,3 +29,5 @@ date: 2024-12-28 01:09:00
 ## \[**ECCV Oral**\] [PhysDreamer: Physics-Based Interaction with 3D Objects via Video Generation](https://physdreamer.github.io/)
 
 ## [Photorealistic Video Generation with Diffusion Models](https://walt-video-diffusion.github.io/)
+
+## [VideoBooth: Diffusion-based Video Generation with Image Prompts](https://vchitect.github.io/VideoBooth-project/)
