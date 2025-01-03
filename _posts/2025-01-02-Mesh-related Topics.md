@@ -14,6 +14,8 @@ date: 2025-01-02 01:09:00
 
 ---
 
+## \[**CVPR 2018**\] [Neural 3D Mesh Renderer](https://github.com/daniilidis-group/neural_renderer/tree/master)
+
 ## \[**ACM SIGGRAPH 2022**\] [DiffusionNet: Discretization Agnostic Learning on Surfaces](https://github.com/nmwsharp/diffusion-net)
 
 ## \[**ECCV 2020**\] [DEMEA: Deep Mesh Autoencoders for Non-rigidly Deforming Objects](https://vcai.mpi-inf.mpg.de/projects/DEMEA/)
