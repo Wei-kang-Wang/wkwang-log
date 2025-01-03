@@ -31,3 +31,5 @@ date: 2024-12-28 01:09:00
 ## [Photorealistic Video Generation with Diffusion Models](https://walt-video-diffusion.github.io/)
 
 ## [VideoBooth: Diffusion-based Video Generation with Image Prompts](https://vchitect.github.io/VideoBooth-project/)
+
+## [VD3D: Taming Large Video Diffusion Transformers for 3D Camera Control](https://snap-research.github.io/vd3d/)
