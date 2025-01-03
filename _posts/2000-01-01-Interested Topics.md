@@ -14,6 +14,7 @@ date: 2000-12-27 01:09:00
 
 ---
 
+## \[**ECCV 2024**\] [Length-Aware Motion Synthesis via Latent Diffusion](https://github.com/AlessioSam/LADiff)
 
 ## \[**ECCV 2024**\] [Deep Diffusion Image Prior for Efficient OOD Adaptation in 3D Inverse Problems](https://github.com/hj-harry/ddip3d)
 
