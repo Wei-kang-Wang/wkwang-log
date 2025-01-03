@@ -23,3 +23,5 @@ date: 2024-12-27 01:09:00
 ## scene completion
 
 ### \[**CVPR 2024 Best Paper Finalist**\] [PaSCo Urban 3D Panoptic Scene Completion with Uncertainty Awareness](https://astra-vision.github.io/PaSCo/)
+
+### \[**ICML 2024**\] [Towards Semantic Graph Counterfactuals](https://github.com/aggeliki-dimitriou/SGCE)
