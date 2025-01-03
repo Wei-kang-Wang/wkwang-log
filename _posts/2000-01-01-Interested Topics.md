@@ -14,6 +14,8 @@ date: 2000-12-27 01:09:00
 
 ---
 
+## \[**ECCV 2024 Oral**\] [Made to Order: Discovering monotonic temporal changes via self-supervised video ordering](https://github.com/charigyang/made2order)
+
 ## \[**ECCV 2024**\] [SIGMA: Sinkhorn-Guided Masked Video Modeling](https://quva-lab.github.io/SIGMA/)
 
 ## \[**ECCV 2024**\] [Regularizing Dynamic Radiance Fields with Kinematic Fields](https://github.com/iwbn/kinematic-fields)
