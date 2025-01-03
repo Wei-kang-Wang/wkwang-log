@@ -28,6 +28,8 @@ date: 2024-07-30 01:09:00
 
 [POST](https://shubham-goel.github.io/ucmr/)
 
+### \[**ECCV 2020**\] [Self-supervised Single-view 3D Reconstruction via Semantic Consistency](https://github.com/NVlabs/UMR?tab=readme-ov-file)
+
 ### \[**CVPR 2020 Best Paper**\] [Unsupervised learning of probably symmetric deformable 3D objects from images in the wild](https://elliottwu.com/projects/20_unsup3d/)
 
 [POST](https://elliottwu.com/projects/20_unsup3d/)
@@ -57,6 +59,8 @@ date: 2024-07-30 01:09:00
 ### \[**CVPR 2023**\] [Seeing a rose in five thousand ways](https://ai.stanford.edu/~yzzhang/projects/rose/)
 
 [POST](https://ai.stanford.edu/~yzzhang/projects/rose/)
+
+### \[**CVPR 2023**\] [Animals3D: Learning Articulated Shape with Keypoint Pseudo-labels from Web Images](https://statho.github.io/projects/animals3d/)
 
 ### \[**3DV 2024**\] [Farm3D: Learning articulated animals by distilling 2D diffusion](https://farm3d.github.io/)
 
