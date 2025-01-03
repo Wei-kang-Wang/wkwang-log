@@ -27,3 +27,7 @@ CVPR2021的[Real-Time High-Resolution Background Matting](https://grail.cs.washi
 ### [GaussianFormer: Scene as Gaussians for Vision-Based 3D Semantic Occupancy Prediction](https://wzzheng.net/GaussianFormer/)
 
 ### \[**CVPR 2024**\] [MaskClustering: View Consensus based Mask Graph Clustering for Open-Vocabulary 3D Instance Segmentation](https://pku-epic.github.io/MaskClustering/)
+
+### \[**ECCV 2024**\] [Learning Modality-agnostic Representation for Semantic Segmentation from Any Modalities](https://vlislab22.github.io/Any2Seg/)
+
+### \[**ECCV 2024**\] [Centering the Value of Every Modality: Towards Efficient and Resilient Modality-agnostic Semantic Segmentation](https://vlislab22.github.io/MAGIC/)
