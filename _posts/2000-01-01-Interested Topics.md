@@ -14,6 +14,17 @@ date: 2000-12-27 01:09:00
 
 ---
 
+
+## \[**ECCV 2024**\] [Deep Diffusion Image Prior for Efficient OOD Adaptation in 3D Inverse Problems](https://github.com/hj-harry/ddip3d)
+
+## \[**ECCV 2024**\] [Aligning Neuronal Coding of Dynamic Visual Scenes with Foundation Vision Models](https://github.com/wurining/Vi-ST)
+
+## \[**ECCV 2024**\] [RepVF: A Unified Vector Fields Representation for Multi-task 3D Perception](https://github.com/jbji/repvf)
+
+## \[**ECCV 2024**\] [3D Small Object Detection with Dynamic Spatial Pruning](https://xuxw98.github.io/DSPDet3D/)
+
+## \[**ICCV 2023**\] [SimNP: Learning Self-Similarity Priors between Neural Points](https://geometric-rl.mpi-inf.mpg.de/simnp/)
+
 ## \[**ICML 2024**\] [Predictive Dynamic Fusion](https://github.com/Yinan-Xia/PDF)
 
 ## \[**ECCV 2024**\] [Möbius Transform for Mitigating Perspective Distortions in Representation Learning](https://prakashchhipa.github.io/projects/mpd/)
