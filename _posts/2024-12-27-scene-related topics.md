@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: True
-title: "3D场景理解"
+title: "scene-related topics"
 date: 2024-12-27 01:09:00
 
 ---
@@ -15,3 +15,7 @@ date: 2024-12-27 01:09:00
 ---
 
 [RelationField: Relate Anything in Radiance Field](https://relationfield.github.io/), CVPR2024 Highlight的[GP-NeRF: Generalized Perception NeRF for Context-Aware 3D Scene Understanding](https://lifuguan.github.io/gpnerf-pages/), ACM SIGGRAPH ASIA 2023 Best paper的[Concept Decomposition for Visual Exploration and Inspiration](https://inspirationtree.github.io/inspirationtree/)
+
+## scene generation
+
+### [SceneTex: High-Quality Texture Synthesis for Indoor Scenes via Diffusion Priors](https://daveredrum.github.io/SceneTex/)
