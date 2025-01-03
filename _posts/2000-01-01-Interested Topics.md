@@ -14,6 +14,8 @@ date: 2000-12-27 01:09:00
 
 ---
 
+## \[**ECCV 2024**\] [Diff-Reg: Diffusion Model in Doubly Stochastic Matrix Space for Registration Problem](https://github.com/wuqianliang/Diff-Reg)
+
 ## \[**ECCV 2024**\] [I Can't Believe It's Not Scene Flow!](https://vedder.io/trackflow)
 
 ## \[**ECCV 2024 Oral**\] [Made to Order: Discovering monotonic temporal changes via self-supervised video ordering](https://github.com/charigyang/made2order)
