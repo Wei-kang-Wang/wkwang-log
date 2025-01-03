@@ -60,6 +60,8 @@ date: 2024-07-30 01:09:00
 
 ### \[**CVPR 2024 Highlight**\] [Matching Anything By Segmenting Anything](https://matchinganything.github.io/)
 
+### \[**CVPR 2023**\] [SEM: Structured Epipolar Matcher for Local Feature Matching](https://sem2023.github.io/)
+
 ## 2D Feature Matching
 
 ### \[**CVPR 2020 Oral**\] [SuperGlue: Learning Feature Matching with Graph Neural Networks](https://github.com/magicleap/SuperGluePretrainedNetwork)
