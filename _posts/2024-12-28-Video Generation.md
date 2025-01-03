@@ -26,3 +26,4 @@ date: 2024-12-28 01:09:00
 
 ## \[**ACM SIGGRAPH ASIA 2024**\] [LUMIERE: A Space-Time Diffusion Model for Video Generation](https://lumiere-video.github.io/)
 
+## \[**ECCV Oral**\] [PhysDreamer: Physics-Based Interaction with 3D Objects via Video Generation](https://physdreamer.github.io/)
