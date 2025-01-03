@@ -18,6 +18,8 @@ CVPR2021的[Real-Time High-Resolution Background Matting](https://grail.cs.washi
 
 ## 3D segmentation
 
+### \[**ECCV 2024**\] [Click-Gaussian: Interactive Segmentation to Any 3D Gaussians](https://seokhunchoi.github.io/Click-Gaussian/)
+
 ### \[**ECCV 2024**\] [3x2: 3D Object Part Segmentation by 2D Semantic Correspondences(https://ngailapdi.github.io/projects/3by2/)
 
 ### \[**ECCV 2024**\] [Click-Gaussian: Interactive Segmentation to Any 3D Gaussians](https://seokhunchoi.github.io/Click-Gaussian/)
