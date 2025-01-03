@@ -104,3 +104,5 @@ date: 2024-07-30 01:09:00
 ### \[**ICCV 2023**\] [Tracking Anything with Decoupled Video Segmentation](https://hkchengrex.com/Tracking-Anything-with-DEVA/)
 
 ### \[**ICCV 2023 Best Student Paper**\] [Tracking Everything Everywhere All at Once](https://omnimotion.github.io/)
+
+### \[**ECCV 2024**\] [Decomposition Betters Tracking Everything Everywhere](https://github.com/qianduoduolr/DecoMotion)
