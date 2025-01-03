@@ -19,3 +19,7 @@ date: 2024-12-27 01:09:00
 ## scene generation
 
 ### [SceneTex: High-Quality Texture Synthesis for Indoor Scenes via Diffusion Priors](https://daveredrum.github.io/SceneTex/)
+
+## scene completion
+
+### \[**CVPR 2024 Best Paper Finalist**\] [PaSCo Urban 3D Panoptic Scene Completion with Uncertainty Awareness](https://astra-vision.github.io/PaSCo/)
