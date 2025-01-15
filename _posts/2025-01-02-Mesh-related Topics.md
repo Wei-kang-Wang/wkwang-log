@@ -33,3 +33,5 @@ date: 2025-01-02 01:09:00
 ## \[**Arxiv 2024**\] [MeshLRM: Large Reconstruction Model for High-Quality Meshes](https://sarahweiii.github.io/meshlrm/)
 
 ## [DOPH: Differentiable Occupancy and Mesh Morphing](https://github.com/Luo-Yihao/DOPH)
+
+## [DoubleDiffusion: Combining Heat Diffusion with Denoising Diffusion for Generative Learning on 3D Meshes](https://github.com/Wxyxixixi/DoubleDiffusion_3D_Mesh)
