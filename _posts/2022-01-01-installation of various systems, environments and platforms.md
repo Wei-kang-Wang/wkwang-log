@@ -2765,3 +2765,49 @@ scp -o 'ProxyJump admin@192.168.1.100' -r ./12533.dump user@192.168.1.110:/user/
 参考文献：
 * https://github.com/facebookresearch/faiss/issues/2064
 
+## 8. pytorch3D module安装问题
+
+[这里](https://github.com/facebookresearch/pytorch3d/blob/main/INSTALL.md)是pytorch3D的官方指南。
+
+安装完自己的所需的其他环境后（PyTorch、fvcore、iopath是必须的），编译安装是最不容易出错的：
+
+```shell
+pip install "git+https://github.com/facebookresearch/pytorch3d.git"
+```
+
+> 注意一定要预先安装好`Pytorch, fvcore, iopath`，再按照上述代码安装`pytorch3d`，顺序不能反。
+
+
+参考
+* https://github.com/facebookresearch/pytorch3d/blob/main/INSTALL.md
+* https://blog.csdn.net/weixin_43357695/article/details/126063091
+
+
+## 9. xformers module安装问题
+
+使用`diffusers`模块的时候，一般都需要安装`transformers, accelerate`模块，以及`xformers`模块。`transformers`和`accelerate`模块可以直接使用`pip`来安装对应的版本，只需要和`pytorch`版本兼容，就可以正常使用。即使安装的`transformers`和`accelerate`模块和`pytorch`不兼容，也只是在运行的时候报错，并不会因为安装这两个模块而破坏已经安装好的`pytorch`环境。
+
+但是在使用`pip`安装`xformers`模块的时候，是默认会同步安装`pytorch`的，如果安装的`xformers`模块所默认的`pytorch`版本正好和已经安装好的`pytorch`版本一致，那`xformers`就不会安装新的`pytorch`了，但如果不一致，就会删掉之前已有的`pytorch`版本，重新安装新的`pytorch`，以及对应的`xformers`，这样就破坏了已经安装好的`pytorch`环境。
+
+所以，当我们已经知道所需要安装的`pytorch`版本，以及也需要安装`xformers`模块的时候，使用`pip`**同时**安装`pytorch`和`xformers`，就会自动安装好`pytorch`以及兼容的`xformers`。比如说如下所示：
+
+```shell
+pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 xformers --index-url https://download.pytorch.org/whl/cu118
+```
+
+参考
+* https://www.felixsanz.dev/articles/compatibility-between-pytorch-cuda-and-xformers-versions
+
+
+## 10. meshplot module安装问题
+
+和`pytorch3d`一样，在已经安装好了其它模块的情况下，直接从github编译安装`meshplot`是最靠谱的：
+
+```shell
+git install "git clone https://github.com/skoch9/meshplot.git"
+```
+
+参考：
+* https://blog.csdn.net/weixin_43486780/article/details/120433063
+
+
